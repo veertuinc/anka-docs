@@ -7,7 +7,7 @@ title: "Upgrade notes"
 linkTitle: "Upgrade notes"
 weight: 3
 description: >
-  Upgrading Anka
+  Anka Upgrade Matrix
 ---
 * We will publish **frequent releases of Controller package with bug fixes and new managibility features. These releases will be backward compatible with Anka package version 2.1.1 or later and will not require you to upgrade Anka package on the nodes**.
 * We will publish **major releases of Anka only a couple of times a year. Minor updates to Anka package will be published for any critical bug fix**.
