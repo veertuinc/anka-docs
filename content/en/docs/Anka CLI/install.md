@@ -22,8 +22,8 @@ cd to the directory containing the file, then run:
 sudo installer -pkg Anka-xx.x.pkg -target
 ```
 
-## Installing Anka with nested virtualization
-Install Anka in this manner in order to be able to create VMs with nested feature enabled
+## Installing Anka with nested virtualization to run Docker or Android Emulator
+Install Anka in this manner in order to be able to create VMs with nested feature enabled to run docker and/or Android Emulator.
 ### Using the ui
 Run the `anka.pkg` installer you downloaded, select nested virtualization checkbox in Customizations while installing Anka through the GUI method.  
 ### Using the command line
