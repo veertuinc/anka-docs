@@ -6,15 +6,15 @@ title: "Supported Mac OS versions"
 linkTitle: "Supported Mac OS versions"
 weight: 1
 description: >
-  Mac OS versions supported by anka
+  Mac OS versions supported by Anka
 ---
 
 ## macOS Version Support for Anka Build, Anka Flow and Anka Secure
-Anka can be installed on mac machines running Hi Sierra(10.13.x) or Higher.
+Host machines - Anka can be installed on mac machines running Hi Sierra(10.13.x) or Higher.
 
-At this time, only the following macOS versions can be created to run as macOS Anka VMs.
+VMs - At this time, only the following macOS versions can be created to run as macOS Anka VMs.
 
-- `10.15.x` (macOS Catalina Beta)
+- `10.15.x` (macOS Catalina)
 - `10.14.x` (macOS Mojave)
 - `10.13.x` (macOS Hi Sierra)
 - `10.12.x` (macOS Sierra)
