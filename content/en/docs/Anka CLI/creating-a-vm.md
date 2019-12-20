@@ -31,13 +31,10 @@ anka create [OPTIONS] VMNAME
 Options:
   -m, --ram-size TEXT      ram size in G  [default: 4G]
   -c, --cpu-count INTEGER  the number of cpu cores  [default: 2]
-  -d, --disk-size TEXT     sets the disk size when creating a new disk, G/M suffix
-                           needed  [default: 80G]
-  -a, --app PATH           Path to Install macOS Application (downloadable from
-                           AppStore)
+  -d, --disk-size TEXT     sets the disk size when creating a new disk, G/M suffix needed  [default: 80G]
+  -a, --app PATH           Path to Install macOS Application (downloadable from AppStore)
   -p, --pkg PATH           Additional package to be installed
-  -s, --postinstall PATH   Postinstall scripts (to run with root credentials at first
-                           boot)
+  -s, --postinstall PATH   Postinstall scripts (to run with root credentials at first boot)
   --help                   Show this message and exit.
 
 ```
@@ -54,13 +51,14 @@ Waiting for installation to complete in the guest (about thirty minutes approx.)
 vm created successfully with uuid: 8f0e1111-a14b-11e7-aaa4-003ee1cbb8b4
 
 ```
-The output of `anka create` command is a VM created and it's in suspended state. `anka start` from suspended state bypasses the full boot and starts the Vm in 1-2 seconds.  
+`anka create` configures a lot of things inside the VM, while creating Anka VM to optimize it for performance and usability for CI purposes.
 
-***Note*** VMs are created with SIP/Kext Consent disabled by default. It's strongly advised to keep these settings for optimal Anka performance.  
+***Note*** The output of `anka create` command is a VM created and it's in suspended state. `anka start` from suspended state bypasses the full boot and starts the VM in 1-2 seconds.  
 
-If you need to re-enable SIP/Kext Consent, then use this command `anka modify VMNAME set custom-variable sys.csr-active-config 0`.
+***Note*** VMs are created with SIP/Kext Consent disabled by default. It's strongly advised to keep these settings for optimal Anka performance. If you need to re-enable SIP/Kext Consent, then use this command `anka modify VMNAME set custom-variable sys.csr-active-config 0`.
 
-***Note*** VMs created are in suspended mode to enable fast boot/Instant Start.  
+***Note*** VMs are created with administrative `user - anka and password - admin` with auto login enabled for this user. It is possible to delete this user and create your own administrative user.
+
 
 ### Using an ISO file to create Anka VM - For Yosemite & ElCapitan VMs Only
 
