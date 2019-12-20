@@ -5,7 +5,7 @@ title: "Overview"
 linkTitle: "Overview"
 weight: 1
 description: >
-  Overview of Anka Cloud 
+  Overview of Anka 
 
 ---
 
