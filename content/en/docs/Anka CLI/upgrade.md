@@ -14,7 +14,7 @@ description: How to upgrade Anka CLI
 2) Upgrade the guest addons inside the VM templates with `anka start -u`. Check the upgrade notes to see if this step is necessary.
 
 
-## Upgrade When running as a part of an Anka build cloud
+## Upgrade When running as a part of an Anka Build cloud
 When upgrading the entire Anka Build infrastructure (Controller/Registry and Nodes), execute the steps in the following sequence.
 
 1) Run `sudo ankacluster disjoin`.
