@@ -5,7 +5,7 @@ title: "Anka Commands"
 linkTitle: "Command Reference"
 weight: 4
 description: >
-  Anka package provides an complete set of CLI interface to manage macOS infrastructure as a cloud for CI purposes.  
+  Anka package provides a complete set of CLI interface to manage macOS infrastructure as a cloud for CI purposes.  
 ---
 
 
@@ -315,7 +315,7 @@ Options:
 
 
 
-## Open Vm Window/viewer
+## Open VM Window/viewer
 Use `anka view` command to open running VM window. anka viewer supports Retina support for Mojave VMs.
 ```
 anka view --help
