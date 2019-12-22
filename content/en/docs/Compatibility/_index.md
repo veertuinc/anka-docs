@@ -1,10 +1,10 @@
 
 ---
-title: "Compatability"
-linkTitle: "Compatability"
-weight: 2
+title: "Compatibility"
+linkTitle: "Compatibility"
+weight: 3
 date: 2019-12-12
 description: >
-  Version compatabilty and release information.
+  Version compatibility and release information.
 ---
 
