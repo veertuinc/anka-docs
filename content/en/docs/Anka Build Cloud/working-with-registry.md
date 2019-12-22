@@ -69,7 +69,9 @@ You can add/define multiple registries to a node. The last one added is treated 
 ### List VMs in the Registry 
 `anka registry list`
 
-## Working with Registry REST APIs  
+## Working with Controller REST APIs for Registry operations  
+
+***Note*** Execute these against Controller ip:port.
 
 ### To list all VM templates stored in the registry 
 
@@ -180,21 +182,6 @@ method="DELETE"
 body=none
 Returns: Operation result
 ```
-
-### To delete a specific VM template-tag and all later tags from the registry. For this call use the IP:port of the registry. 
-
-```html
-Url: "/registry/revert?id={vm_id}&tag_name={tobedeletedtag}"
-Method: DELETE
-Arguments:
-vm_id - must
-Version - the version number to delete, all newer versions will be deleted as well
-Tag_name - specify tag name instead of numeric value
-If neither version or tag_name is supplied the latest version will be deleted
-Return:
-{"status": "OK"} / {"status": "Error"}
-```
-
 ### To distribute a specific VM template to all build nodes. 
 
 ***Note*** Group_id is only available if you are running Enterprise tier of Anka Build.  
@@ -216,4 +203,17 @@ method="GET"
 body=none 
 Returns: Operation result, map of node id -> (distribution status, template id, tag, version, time)
 ```
+### To delete a specific VM template-tag and all later tags from the registry.
 
+***Note*** Use this against the IP:port of the registry.
+```html
+Url: "/registry/revert?id={vm_id}&tag_name={tobedeletedtag}"
+Method: DELETE
+Arguments:
+vm_id - must
+Version - the version number to delete, all newer versions will be deleted as well
+Tag_name - specify tag name instead of numeric value
+If neither version or tag_name is supplied the latest version will be deleted
+Return:
+{"status": "OK"} / {"status": "Error"}
+```
