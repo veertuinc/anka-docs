@@ -53,6 +53,7 @@ Options:
 $ anka run VMNAME sudo whoami
 root
 ```
+`anka run`, when run in default mode with no flags, mounts the current folder from the host into the VM and executes commands on this mount point as current directory.
 
 It's also possible to explicitly specify mount directory inside VM, using this syntax -v /host/folder:/mnt/path, e.g:
 
@@ -61,13 +62,15 @@ anka run -v $PWD:/tmp/mountpoint_1 VMNAME pwd
 
 ```
 
-Currently only single volume could be specified in the run command. If you need more than one folder shared between host and the VM, please use anka mount/unmount commands.
+Currently only single volume could be specified in the run command. If you need more than one folder shared between host and the VM, use `anka mount/unmount` commands.
 
 ```
 anka mount VMNAME ~/Library/MobileDevice/Provisioning\ Profiles/ /Users/anka/Library/MobileDevice/Provisioning\ Profiles/
 anka run VMNAME xcodebuild -exportOptionsPlist exportInfo.plist archive
 ```
-Please note, VM should be running for mount command. If you need more configuration changes to the VM, before anka run execution, you could start the VM with corresponding parameters, or write the parameters to VM configuration with `anka modify` command.
+***Note***VM should be running for mount command to work.
+
+If you need more configuration changes to the VM, before anka run execution, you could start the VM with corresponding parameters, or write the parameters to VM configuration with `anka modify` command.
 
 ### Working with environment variables using anka run
 
@@ -88,6 +91,6 @@ In order to use environment variables from VMs `.bash_profile`, execute the foll
 
 `cat file.txt | anka run -n VMNAME md5`
 
-`anka run`, when run in default mode with no flags, mounts the current folder from the host into the VM and executes commands on this mount point as current directory.
+
 
 

@@ -6,11 +6,11 @@ title: "What makes Anka special"
 linkTitle: "What makes Anka special"
 weight: 3
 description: >
-  Unlike many existing macOS virtualization solutions, Anka lets the macOS operationg system manage virtual machines in the same manner as other native macOS applications
+  Unlike existing macOS virtualization solutions, Anka uses the native macOS hypervisor.framework and as a result is able to leverage the macOS resource management features for Anka VMs.
 ---
 
-### What makes Anka Build and Flow different?
-Unlike many existing macOS virtualization solutions, Anka lets the macOS operationg system manage virtual machines in the same manner as other native macOS applications. Anka virtualization uses macOS native Hypervisor features. As a result, it can run on any mac heardware, including the ones with T2 security chip.
+### What makes Anka different?
+Unlike existing macOS virtualization solutions, Anka lets the macOS operationg system manage virtual machines in the same manner as other native macOS applications. Anka virtualization uses macOS native Hypervisor features. As a result, it can run on any mac heardware, including the ones with T2 security chip.
 
 Combined with the powerful `anka` CLI, Anka makes creating and running macOS VMs extremely automated, fast and reliable. Using `anka`, `Controller` & `Registry` you can execute simple workflows to quickly build macOS virtual machines and deploy them to your developers, or CI with ease.
 

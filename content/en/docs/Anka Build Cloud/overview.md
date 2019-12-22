@@ -18,7 +18,7 @@ Anka Registry provides an easy way to store, version, and distribute macOS VMs.
 Anka Controller provides a Rest API and a web UI for managing on-demand macOS VMs.
 
 ### Anka Agent
-Anka Agent (included in `anka.pkg`) is a daemon that manages VMs on behalf of Anka Controller. 
+Anka Agent (included in `anka.pkg`) is a daemon that manages VMs on the mac hosts/nodes, on behalf of Anka Controller. 
 
 [//]: # (TODO: find a better way to describe anka agent ^ )
 

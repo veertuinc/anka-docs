@@ -31,13 +31,10 @@ anka create [OPTIONS] VMNAME
 Options:
   -m, --ram-size TEXT      ram size in G  [default: 4G]
   -c, --cpu-count INTEGER  the number of cpu cores  [default: 2]
-  -d, --disk-size TEXT     sets the disk size when creating a new disk, G/M suffix
-                           needed  [default: 80G]
-  -a, --app PATH           Path to Install macOS Application (downloadable from
-                           AppStore)
+  -d, --disk-size TEXT     sets the disk size when creating a new disk, G/M suffix needed  [default: 80G]
+  -a, --app PATH           Path to Install macOS Application (downloadable from AppStore)
   -p, --pkg PATH           Additional package to be installed
-  -s, --postinstall PATH   Postinstall scripts (to run with root credentials at first
-                           boot)
+  -s, --postinstall PATH   Postinstall scripts (to run with root credentials at first boot)
   --help                   Show this message and exit.
 
 ```
@@ -54,79 +51,20 @@ Waiting for installation to complete in the guest (about thirty minutes approx.)
 vm created successfully with uuid: 8f0e1111-a14b-11e7-aaa4-003ee1cbb8b4
 
 ```
-The output of `anka create` command is a VM created and it's in suspended state. `anka start` from suspended state bypasses the full boot and starts the Vm in 1-2 seconds.  
+`anka create` configures a lot of things inside the VM, while creating Anka VM to optimize it for performance and usability for CI purposes.
 
-***Note*** VMs are created with SIP/Kext Consent disabled by default. It's strongly advised to keep these settings for optimal Anka performance.  
+***Note*** The output of `anka create` command is a VM created and it's in suspended state. `anka start` from suspended state bypasses the full boot and starts the VM in 1-2 seconds.  
 
-If you need to re-enable SIP/Kext Consent, then use this command `anka modify VMNAME set custom-variable sys.csr-active-config 0`.
+***Note*** VMs are created with SIP/Kext Consent disabled by default. It's strongly advised to keep these settings for optimal Anka performance. If you need to re-enable SIP/Kext Consent, then use this command `anka modify VMNAME set custom-variable sys.csr-active-config 0`.
 
-***Note*** VMs created are in suspended mode to enable fast boot/Instant Start.  
-
-### Using an ISO file to create Anka VM - For Yosemite & ElCapitan VMs Only
-
-Use `create_macos_install_image.sh` included in the Anka package to first create an `.iso` from your Yosemite and ElCapitan `.app` installer.
-If you already have `.iso` file, you don't need to execute this step.
-```
-/Library/Application\ Support/Veertu/Anka/tools/create_macos_install_image.sh
-Usage: create_macos_install_image.sh install_macos.app [OPTIONS]...
-
-Options:
---g,--guest-addons       Embed Anka guest addons in the installer
---o,--output output.iso       Specify output image file, if not specified the image will be created in working directory                  
---p,--pkg path/to/pkg Specify additional packages to include into the installer
-```
-
-For example:
-
-```
-/Library/Application\ Support/Veertu/Anka/tools/create_macos_install_image.sh /Applications/Install\ macOS\ Sierra.app
-```
-
-To create a VM from `.iso`, you will use `anka create` command as you typically would. It will create an empty VM.
-Note - > While creating VM with anka create, make sure to specify enough --disk-size parameter. Currently, it's not possible to change the disk size for an existing VM.
-
-```
-anka create --ram-size 2G --cpu-count 2 --disk-size 60G sierravm
-vm created successfully with uuid: dfaa97c5-2154-11e8-881d-acbc32ad1d59
-
-```
-Then, start the VM with the sierra ISO attached.
-```
-anka start -v -o sierra.iso sierravm
-+-----------------------+--------------------------------------+
-| uuid                  | dfaa97c5-2154-11e8-881d-acbc32ad1d59 |
-| name                  | sierravm                             |
-| cpu_cores             | 2                                    |
-| ram                   | 2G                                   |
-| hard_drive            | 60 GB (11.2 MB on disk)              |
-| addons_version        | not found                            |
-| status                | running                              |
-| vnc_connection_string | vnc://:admin@10.0.1.12:5900          |
-| view_vm_display       | anka view sierravm                   |
-+-----------------------+--------------------------------------+
-```
-
-Complete the macOS setup inside the VM. Then, stop the VM.
-
-
-Start the VM again with guest addons ISO installed.
-
-```
-anka start -v -o /Library/Application\ Support/Veertu/Anka/guestaddons/anka-addons-mac.iso sierravm
-```
-
-Complete the guest addons installation inside the VM. Shutdown the VM with `anka stop VMNAME`.
-
-Validate by running the following command `anka run VMNAME ls -l` from the host. It should display ls -l contents of the VM. The VM is correctly created.
-
-Anka Guest Add-ons also create a default `user - anka`, `passwd - admin` for the VM.
+***Note*** VMs are created with administrative `user - anka and password - admin` with auto login enabled for this user. It is possible to delete this user and create your own administrative user.
 
 ### Start VM
 The VM can now be successfully started. The VM is pre-configured with a default administrative username `anka` and password `admin`. You will see the VM boot up and have to complete the macOS keypad setup steps.
 
 `anka start VMname` will start the VM in headless mode.
 
-`anka start -v VMname` will start the VM with the VM window.
+`anka start -v VMname` will start the VM with the VM viewer window.
 
 ```
 anka start 133b387
@@ -197,25 +135,32 @@ port_forwarding
 +--------------+------------+---------+-------------+-------------+-----------+
 ```
 #### Managing VM Disk space
-You can specify initial disk space while creating Anka Vm with `anka create` command. However, in some scenarios, you need to increase the disk space on an existing VM.
+You can specify initial disk space while creating Anka VM with `anka create` command. However, in some scenarios, you need to increase the disk space on an existing VM.
 
-Change the disk space on an existing VM with `anka modify vmname set hard-drive 0 <disk size>` command and then execute `anka run -n VM diskutil apfs resizeContainer disk0s2 <disk size>`.
+Change the disk space on an existing VM with the following commands.
+```
+anka modify vmname set hard-drive 0 <disk size>
+anka run -n VM diskutil apfs resizeContainer disk0s2 <disk size>
+```
 
 #### Upgrading macOS VM inside Anka VM
-***Note*** Don't use the System Preference installer to update macOS inside Anka VM. Use the `softwareupdate -Ri` command line tool to upgrade macOS inside Anka VM. Stop the Vm and then restart it.
+***Note*** Don't use the System Preference installer to update macOS inside Anka VM. Use the `softwareupdate -Ri` command line tool to upgrade macOS inside Anka VM. Stop the VM and then restart it.
 
 ### Working inside the VM
 There are multiple methods to install various software packages and work inside the VM.
 
 #### Manual method
-You can manually work within the VM with `anka view sierravm`. This will open the VM view window.
-`anka view` supports working in full screen and also retina mode. Retina mode is supported for Anka Vms running Mojave or later.
+You can manually work within the VM with `anka view sierravm`. This will open the VM viewer window.
+
+`anka view` supports working in full screen and also retina mode.
+
+***Note*** Retina mode is supported for Anka Vms running Mojave or later.
 
 #### Automated methods
 **SSH to the VM and execute commands**  
 
 SSH into the VM from the host where its running with the following command.
-`ssh anka@ip`, where ip is the Vm IP shown in `anka show vmname` command.
+`ssh anka@ip`, where ip is the VM IP shown in `anka show vmname` command.
 
 To SSH into the VM from another host, first enable ssh port forwarding. Use `anka modify` command.
 
@@ -235,7 +180,7 @@ port_forwarding
 +--------------+------------+---------+-------------+-------------+-----------+
 
 ```
-Access it with `ssh anka@hotsip -p host_port`
+Access it with `ssh anka@hostip -p host_port`
 
 **Use anka run and execute commands**
 Anka command line contains `anka run` command (similar to docker run) to execute commands inside the VM directly from the host.  
@@ -255,9 +200,9 @@ anka run -f appstore_login -nE vmname xcversion install 10.1
 Go to [Execute operation inside Vm from the host with RUN](#anka-cli-operations) for more details on how to use `anka run` command.
 
 ### VM Networking
-Anka VM by default use Apple's VMNET interface for networking.
+Anka VM by default uses Apple's VMNET interface for networking.
 
-Network connectivity to the VM from out side is achieved by enabling Port forwarding for the VM.
+Network connectivity to the VM from outside is achieved by enabling Port forwarding for the VM.
 
 If you want to enable ssh based access to the VM from your CI tools, then enable port forwarding.  
 
@@ -286,9 +231,69 @@ In some scenarios due to network specific settings within an enterprise, You may
 If this node/host is connected to the controller execute this command in system domain, since controller operates in system domain.
 
 `sudo anka config portfwd_base 40000`
+***Note** Make sure to execute this on all the nodes/hosts. 
 
 **Accessing the host from within Anka VM**  
 
 The host from Anka VM has fixed IP address of `192.168.64.1` (or 192.168.128.1 in host-only mode).
 
-***Note** Make sure to execute this on all the nodes/hosts. 
+#### Bridge Networking add content
+
+### Using an ISO file to create Anka VM - For Yosemite & ElCapitan VMs Only
+
+Use `create_macos_install_image.sh` included in the Anka package to first create an `.iso` from your Yosemite and ElCapitan `.app` installer.
+If you already have `.iso` file, you don't need to execute this step.
+```
+/Library/Application\ Support/Veertu/Anka/tools/create_macos_install_image.sh
+Usage: create_macos_install_image.sh install_macos.app [OPTIONS]...
+
+Options:
+--g,--guest-addons       Embed Anka guest addons in the installer
+--o,--output output.iso       Specify output image file, if not specified the image will be created in working directory                  
+--p,--pkg path/to/pkg Specify additional packages to include into the installer
+```
+
+For example:
+
+```
+/Library/Application\ Support/Veertu/Anka/tools/create_macos_install_image.sh /Applications/Install\ macOS\ Sierra.app
+```
+
+To create a VM from `.iso`, you will use `anka create` command as you typically would. It will create an empty VM.
+Note - > While creating VM with anka create, make sure to specify enough --disk-size parameter. Currently, it's not possible to change the disk size for an existing VM.
+
+```
+anka create --ram-size 2G --cpu-count 2 --disk-size 60G sierravm
+vm created successfully with uuid: dfaa97c5-2154-11e8-881d-acbc32ad1d59
+
+```
+Then, start the VM with the sierra ISO attached.
+```
+anka start -v -o sierra.iso sierravm
++-----------------------+--------------------------------------+
+| uuid                  | dfaa97c5-2154-11e8-881d-acbc32ad1d59 |
+| name                  | sierravm                             |
+| cpu_cores             | 2                                    |
+| ram                   | 2G                                   |
+| hard_drive            | 60 GB (11.2 MB on disk)              |
+| addons_version        | not found                            |
+| status                | running                              |
+| vnc_connection_string | vnc://:admin@10.0.1.12:5900          |
+| view_vm_display       | anka view sierravm                   |
++-----------------------+--------------------------------------+
+```
+
+Complete the macOS setup inside the VM. Then, stop the VM.
+
+
+Start the VM again with guest addons ISO installed.
+
+```
+anka start -v -o /Library/Application\ Support/Veertu/Anka/guestaddons/anka-addons-mac.iso sierravm
+```
+
+Complete the guest addons installation inside the VM. Shutdown the VM with `anka stop VMNAME`.
+
+Validate by running the following command `anka run VMNAME ls -l` from the host. It should display ls -l contents of the VM. The VM is correctly created.
+
+Anka Guest Add-ons also create a default `user - anka`, `passwd - admin` for the VM.
