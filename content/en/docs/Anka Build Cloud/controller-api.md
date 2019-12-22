@@ -8,6 +8,7 @@ description: >
   How to work with the Anka Controller REST API.
 ---
 
+***Note*** Run these against IP:Port of the Controller.
 
 Use the REST APIs to integrate Anka Build cloud with your CI system(If there is no plugin/integration available).
 
