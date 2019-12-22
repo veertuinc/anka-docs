@@ -4,7 +4,7 @@ title: "Release Notes"
 linkTitle: "Release Notes"
 weight: 100
 description: >
-  What does your user need to understand about your project in order to use it - or potentially contribute to it? 
+  Detailed Release Notes 
 ---
 
 ## Anka (supported on all mac hardware including 2018 Mac Mini)
@@ -14,7 +14,7 @@ description: >
 - AnkaController & Registry Mac package - Version 1.5.0 - Nov 05, 2019
 - Anka Jenkins plug-in - version 1.22.1 - Nov 15, 2019
 - Anka Teamcity plug-in - version 1.7.0 - Nov 05, 2019
-- Anka GitLabCI Integration - Updated Nov 05, 2019
+- Anka GitLabCI Integration - Nov 05, 2019
 - Anka Jenkins Slave template Builder plug-in - (Maintained only until version 1.5). Combined with Anka Jenkins plug-in version 1.20.
 
 ### Change log Jenkins Plugin version 1.22.1 - Nov 15, 2019
