@@ -12,13 +12,13 @@ description: >
 ## Licensing
 Anka licenses are available for the following products.  
 
-+ Anka Build Basic - All Basic features to configure and run macOS CI Cloud infrastructure
-+ Anka Build Enterprise - Basic + additional features for grouping, priority provisioning etc
-+ Anka Build Enterprise Plus - Enterprise + additional features to support SSO, VM encryption, event logging
-+ Anka Flow - Install and configure Anka on developer mac workstations. Supported only on macbook models and iMac.
-+ Anka Secure - Install and configure Anka on mac workstations to create secure, sandbox macOS working environments for privileged data access etc
++ **Anka Build Basic** - All Basic features to configure and run macOS CI Cloud infrastructure
++ **Anka Build Enterprise** - Basic + additional features for grouping, priority provisioning etc
++ **Anka Build Enterprise Plus** - Enterprise + additional features to support SSO, VM encryption, event logging
++ **Anka Flow** - Install and configure Anka on developer mac workstations. Supported only on macbook models and iMac.
++ **Anka Secure** - Install and configure Anka on mac workstations to create secure, sandbox macOS working environments for privileged data access etc
 
-### Tier Datasheet
+### Anka Build Tier Datasheet
 
 **     ** | **Basic** | **Enterprise** | **Enterprise Plus**
 --- | --- | --- |  ---
