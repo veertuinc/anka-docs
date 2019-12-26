@@ -15,7 +15,7 @@ Then, you can pull them, modify them and push them again with a different tag to
 
 Registry operations are available through Anka Client command line and through Registry REST APIs.
 
-## Working with registry from Anka Client
+## Working with registry using Anka CLI
 
 View all of the available registry commands by running `anka registry --help`.
 ```
@@ -69,54 +69,175 @@ You can add/define multiple registries to a node. The last one added is treated 
 ### List VMs in the Registry 
 `anka registry list`
 
-## Working with Controller REST APIs for Registry operations  
+## REST API
 
-***Note*** Execute these against Controller ip:port.
+### List VMS  
 
-### To list all VM templates stored in the registry 
+**Description:** List all VMs stored in the Registry.  
+**Path:** /registry/vm  
+**Method:** GET  
+**Optional Query Parameters**  
 
-```html
-url= "/api/v1/registry/vm"
-method="GET"
-body=none
-Returns: Operation result, List of registry VM UUIDs and names
+ Parameter | Type   | Description 
+ ---       |   ---  |          ---
+ id        | string | Return a specific Template. Passing this parameter will show more information about the Template's tags 
+
+
+ **Returns:** 
+ - *Status:* Operation Result (OK|FAIL)  
+ - *Body*:  Map of VM id to name or VM (if id supplied)
+ - *message:* Error message in case of an error 
+
+**Template format**
+ - *name:* Template's name
+ - *id:* Template's id
+ - *versions:* Array of Version objects. 
+
+**Version format**
+ - *tag:* The version's tag
+ - *number:* Serial number of the version
+ - *description:* The version's description
+ - *images:* List of image file names
+ - *state_files:* List of state file names (suspend images)
+ - *config_file:* Name of the version's VM config file
+ - *nvram:* Name of the VM nvram file
+
+**CURL Example**  
+```shell
+# List example
+
+curl "http://anka.registry.net:8089/registry/vm" 
+
+{
+   "message" : "",
+   "body" : [
+      {
+         "cb1473f2-1f0a-413c-a376-236bfd7d718f" : "jenkins-slave-0"
+      },
+      {
+         "d4d38e0e-ba96-4ace-b42d-002155257bb1" : "mojave-base"
+      },
+      {
+         "dd981f75-c6ed-11e8-bb55-c4b301c47c6b" : "jenkins-slave"
+      }
+   ],
+   "status" : "OK"
+}
+
+# Get Single Template 
+
+curl "http://anka.registry.net:8089/registry/vm?id=00510971-5c37-4a60-a9c6-ea185397d9b4" 
+
+{
+   "message" : "",
+   "body" : {
+      "name" : "android-2",
+      "id" : "00510971-5c37-4a60-a9c6-ea185397d9b4",
+      "versions" : [
+         {
+            "config_file" : "00510971-5c37-4a60-a9c6-ea185397d9b4.yaml",
+            "state_files" : [
+               "c19ba955c706475e9aeade79f174a925.ank"
+            ],
+            "number" : 0,
+            "description" : "",
+            "nvram" : "nvram",
+            "images" : [
+               "83e3eb9a2b694ddbb90f535ffae4cbb8.ank",
+               "fae1423d7c99419c92109c326162c2dd.ank",
+               "51f90db935494831a831dae51c9743e0.ank",
+               "2be4266d24704db2bacbbd258d0d6288.ank",
+               "2d07e328bfc449b58f74b3e08f8d049d.ank",
+               "06ad0ac5-af7a-11e8-884c-c4b301c47c6b.ank",
+               "237a78ab78254cde9f04f2cecaec21b7.ank",
+               "7ae0e540-cae2-11e8-b0c8-c4b301c47c6b.ank",
+               "916cd0f1087345659b70275bb8cc3101.ank",
+               "239bb374545141ceb481d495ec01683e.ank",
+               "4ef1b52304264ac2bacaa34903b7af9c.ank",
+               "d2da3f9b4faa49b1804af2adccf5bccd.ank",
+               "dd94fbf0-c6ed-11e8-920b-c4b301c47c6b.ank",
+               "daba8902e1d24636bc424ac44252a090.ank",
+               "d97298f5-a06c-11e8-964c-c4b301c47c6b.ank",
+               "85ab1ffd-af80-11e8-bd5e-c4b301c47c6b.ank"
+            ],
+            "tag" : "t1"
+         }
+      ]
+   },
+   "status" : "OK"
+}
+
 ```
 
-### To show information on a specific VM template from the registry 
 
-```html
-url= "/api/v1/registry/vm?id={vm_id}"
-method="GET"
-body=none
-Returns: Operation result, VM UUID, name and tag list
+### Delete VM
+
+**Description:** Delete a specific VM and all associated tags  
+**Path:** /registry/vm  
+**Method:** DELETE  
+**Required Query Parameters:**  
+
+ Parameter | Type   | Description 
+ ---       |   ---  |          ---
+ id        | string | The Template's id.
+
+ **Returns:** 
+ - *Status:* Operation Result (OK|FAIL)  
+ - *message:* Error message in case of an error 
+
+**CURL Example**
+```shell
+curl -X DELETE "http://anka.registry.net:8089/registry/vm?id=00510971-5c37-4a60-a9c6-ea185397d9b4" 
+
+{
+   "status":"OK",
+   "body": null,
+   "message":""
+}
 ```
 
-### To show vm config file for a specific version or tag (or latest if none specified) of a VM template 
 
-```html
-url= "/api/v1/registry/vm?info"
-method="GET"
-Arguments:
-id - string, the template id to get (required)
-tag - string, get info for a specific tag (optional)
-Version - int, get info for a specific version
-If neither version or tag_name is supplied the latest version will be deleted
-Return:Json, the vm config
-Body Keys:
-ram
-hard_drives
-usb
-uuid
-network_cards
-firmware
-state_file
-name
-nvram
-version
-cpu
-display
+### Get VM Configuration
 
-Example Response
+**Description:**  Show vm configuration file for a specific version or tag (or latest if none specified) of a VM template  
+**Path:**   /registry/vm/info  
+**Method:** GET  
+**Required Query Parameters**  
+
+ Parameter | Type   | Description 
+ ---       |   ---  |          ---
+ id        | string | Return the VM with that ID. 
+
+**Optional Query Parameters**  
+
+ Parameter | Type   | Description | Default
+ ---       |   ---  |          --- | ---
+ tag       | string | The specific Tag to get info for | Latest 
+ version   | int    | The number of the version to get info for, 0 indexed | Latest
+
+ **Returns:** 
+ - *Status:* Operation Result (OK|FAIL)  
+ - *Body*:  VM configuration object
+ - *message:* Error message in case of an error 
+
+**Object format**
+ - *name:* Name of the Template
+ - *ram:* Amount of virtual RAM the VM has
+ - *hard_drives:* Array of hard drives 
+ - *usb:* USB info
+ - *uuid:* Id of the vm
+ - *network_cards:* A list of network cards, with port forwarding rules
+ - *firmware:* VM's firmware
+ - *state_file:* Name of state file (suspend image)
+ - *nvram:* Path of nvram file
+ - *version:* VM configuration version (internally used)
+ - *cpu:* Number of virtual CPU cores
+ - *display:* VM's display 
+
+**CURL Example**
+```shell
+curl "http://anka.registry.net:8089/registry/vm/info?id=2fa0f10e-e91e-4665-8d42-00a39b9707de"
+
 {
    "message" : "",
    "status" : "OK",
@@ -172,48 +293,64 @@ Example Response
       }
    }
 }
+
 ```
 
-### To delete a specific VM template and all associated tags from the registry 
 
-```html
-url= "/api/v1/registry/vm?id={vm_id}"
-method="DELETE"
-body=none
-Returns: Operation result
-```
-### To distribute a specific VM template to all build nodes. 
+### Revert 
 
-***Note*** Group_id is only available if you are running Enterprise tier of Anka Build.  
+**Description:** Revert a VM to a certain Tag or version number. Delete the latest version if none is specified.  
+**Path:** /registry/revert  
+**Method:** DELETE  
+**Required Query Parameters**  
 
-```html
-url= "/api/v1/registry/vm/distribute"
-method="POST"
-body="VM Uuid,  tag, version, group id" 
-group_id (optional) distributes the image to a specific group
-Example Body: {"template_id":"226d946b-2467-11e7-84b7-a860b60fd826", "tag": "v1"}
-Returns: Operation result, request id
-```
+ Parameter | Type   | Description 
+ ---       |   ---  |          ---
+ id        | string | The Template id. 
 
-### To get distribution status 
+**Optional Query Parameters**  
 
-```html
-url= "/api/v1/registry/vm/distribute?id={request_id}"
-method="GET"
-body=none 
-Returns: Operation result, map of node id -> (distribution status, template id, tag, version, time)
-```
-### To delete a specific VM template-tag and all later tags from the registry.
+ Parameter | Type   | Description     | Default
+ ---       |   ---  |          --- | ---
+ tag       | string | The Tag to revert to. Newer versions will also be deleted | Latest 
+ version   | int    | The number of the version to revert to, 0 indexed | Latest
 
-***Note*** Use this against the IP:port of the registry.
-```html
-Url: "/registry/revert?id={vm_id}&tag_name={tobedeletedtag}"
-Method: DELETE
-Arguments:
-vm_id - must
-Version - the version number to delete, all newer versions will be deleted as well
-Tag_name - specify tag name instead of numeric value
-If neither version or tag_name is supplied the latest version will be deleted
-Return:
-{"status": "OK"} / {"status": "Error"}
+ **Returns:** 
+ - *Status:* Operation Result (OK|FAIL)  
+ - *message:* Error message in case of an error 
+
+**CURL Example**
+```shell
+# Delete latest version
+
+curl -X DELETE  "http://anka.registry.net:8089/registry/revert?id=00510971-5c37-4a60-a9c6-ea185397d9b4"
+
+{
+   "body" : null,
+   "message" : "",
+   "status" : "OK"
+}
+
+# Revert to the first version of the template
+
+curl -X DELETE  "http://anka.registry.net:8089/registry/revert?id=a3cc47f0-3a73-11e9-b515-c4b301c47c6b&number=0" 
+
+{
+   "status" : "OK",
+   "body" : null,
+   "message" : ""
+}
+
+# Revert to a specific Tag
+
+
+curl -X DELETE  "http://anka.registry.net:8089/registry/revert?id=a3cc47f0-3a73-11e9-b515-c4b301c47c6b&tag=p120190904183122" 
+
+{
+   "status" : "OK",
+   "body" : null,
+   "message" : ""
+}
+
+
 ```

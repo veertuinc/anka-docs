@@ -341,10 +341,10 @@ curl  "http://anka.controller.net/api/v1/node?id=f8707005-4630-4c9c-8403-c9c5964
 
 ### Update Node
 
-**Description:** Update Node configuration parameters.
-**Path:** /api/v1/node/config
-**Method:** POST
-**Required Body Parameters:**
+**Description:** Update Node configuration parameters.  
+**Path:** /api/v1/node/config  
+**Method:** POST  
+**Required Body Parameters:**  
 
  Parameter | Type   | Description 
  ---       |   ---  |          ---
@@ -383,7 +383,7 @@ curl -X POST "http://anka.controller.net/api/v1/node/config" -H "Content-Type: a
 
 ***Note*** To remove a Node from the cluster, execute `ankacluster disjoin` on the Node. 
 
-**Description:** Remove Nodes that do not exist anymore or have crashed
+**Description:** Remove Nodes that do not exist anymore or have crashed  
 **Path:** /api/v1/node  
 **Method:** DELETE  
 **Required Body Parameters:**  
@@ -408,9 +408,329 @@ curl -X DELETE "http://anka.controller.net/api/v1/node" -H "Content-Type: applic
 ```
 
 ## Template
+### List Templates  
+
+**Description:** List all templates stored in the Registry.  
+**Path:** /api/v1/registry/vm  
+**Method:** GET  
+**Optional Query Parameters**  
+
+ Parameter | Type   | Description 
+ ---       |   ---  |          ---
+ id        | string | Return a specific Template. Passing this parameter will show more information about the Template's tags 
+
+
+ **Returns:** 
+ - *Status:* Operation Result (OK|FAIL)  
+ - *Body*:  Array of Templates or Template (if id supplied)
+ - *message:* Error message in case of an error 
+
+**Template List format**
+ - *name:* Template's name
+ - *id:* Template's id
+
+**Template format**
+ - *name:* Template's name
+ - *id:* Template's id
+ - *versions:* Array of Version objects. 
+
+**Version format**
+ - *tag:* The version's tag
+ - *number:* Serial number of the version
+ - *description:* The version's description
+ - *images:* List of image file names
+ - *state_files:* List of state file names (suspend images)
+ - *config_file:* Name of the version's VM config file
+ - *nvram:* Name of the VM nvram file
+
+**CURL Example**  
+```shell
+# List example
+
+curl "http://anka.controller.net/api/v1/registry/vm" 
+
+{
+   "body" : [
+      {
+         "name" : "android-2",
+         "id" : "00510971-5c37-4a60-a9c6-ea185397d9b4"
+      },
+      {
+         "id" : "0bf1a7e8-be95-43d9-a0c8-68c6aed0f2dd",
+         "name" : "jenkins-slave-3"
+      },
+      {
+         "name" : "tc-slave1",
+         "id" : "59adf1a8-c239-11e8-821d-c4b301c47c6b"
+      },
+      {
+         "name" : "jenkins-slave-anka-2",
+         "id" : "59e10bfe-4a1a-4d26-9fe7-448e9df2e7fc"
+      },
+      {
+         "name" : "gitlab-slave",
+         "id" : "7e5ffad1-c24d-11e8-911f-c4b301c47c6b"
+      },
+      {
+         "name" : "mojave-base",
+         "id" : "d4d38e0e-ba96-4ace-b42d-002155257bb1"
+      }
+   ],
+   "status" : "OK",
+   "message" : ""
+}
+
+# Get Single Template 
+
+curl "http://anka.controller.net/api/v1/registry/vm?id=00510971-5c37-4a60-a9c6-ea185397d9b4" 
+
+{
+   "message" : "",
+   "body" : {
+      "name" : "android-2",
+      "id" : "00510971-5c37-4a60-a9c6-ea185397d9b4",
+      "versions" : [
+         {
+            "config_file" : "00510971-5c37-4a60-a9c6-ea185397d9b4.yaml",
+            "state_files" : [
+               "c19ba955c706475e9aeade79f174a925.ank"
+            ],
+            "number" : 0,
+            "description" : "",
+            "nvram" : "nvram",
+            "images" : [
+               "83e3eb9a2b694ddbb90f535ffae4cbb8.ank",
+               "fae1423d7c99419c92109c326162c2dd.ank",
+               "51f90db935494831a831dae51c9743e0.ank",
+               "2be4266d24704db2bacbbd258d0d6288.ank",
+               "2d07e328bfc449b58f74b3e08f8d049d.ank",
+               "06ad0ac5-af7a-11e8-884c-c4b301c47c6b.ank",
+               "237a78ab78254cde9f04f2cecaec21b7.ank",
+               "7ae0e540-cae2-11e8-b0c8-c4b301c47c6b.ank",
+               "916cd0f1087345659b70275bb8cc3101.ank",
+               "239bb374545141ceb481d495ec01683e.ank",
+               "4ef1b52304264ac2bacaa34903b7af9c.ank",
+               "d2da3f9b4faa49b1804af2adccf5bccd.ank",
+               "dd94fbf0-c6ed-11e8-920b-c4b301c47c6b.ank",
+               "daba8902e1d24636bc424ac44252a090.ank",
+               "d97298f5-a06c-11e8-964c-c4b301c47c6b.ank",
+               "85ab1ffd-af80-11e8-bd5e-c4b301c47c6b.ank"
+            ],
+            "tag" : "t1"
+         }
+      ]
+   },
+   "status" : "OK"
+}
+
+```
+
+### Delete Template
+
+**Description:** Delete a specific VM template and all associated tags from the registry  
+**Path:** /api/v1/registry/vm  
+**Method:** DELETE  
+**Required Query Parameters:**  
+
+ Parameter | Type   | Description 
+ ---       |   ---  |          ---
+ id        | string | The Template's id.
+
+ **Returns:** 
+ - *Status:* Operation Result (OK|FAIL)  
+ - *message:* Error message in case of an error 
+
+**CURL Example**
+```shell
+curl -X DELETE "http://anka.controller.net/api/v1/registry/vm?id=00510971-5c37-4a60-a9c6-ea185397d9b4" 
+
+{
+   "status":"OK",
+   "message":""
+}
+```
+
+### Revert Template Tag
+
+**Description:** Revert a Template to a certain Tag or version number. Delete the latest version if none is specified.  
+**Path:** /api/v1/registry/revert  
+**Method:** DELETE  
+**Required Query Parameters**  
+
+ Parameter | Type   | Description 
+ ---       |   ---  |          ---
+ id        | string | The Template id. 
+
+**Optional Query Parameters**  
+
+ Parameter | Type   | Description     | Default
+ ---       |   ---  |          ---
+ tag       | string | The Tag to revert to. Newer versions will also be deleted | Latest 
+ version   | int    | The number of the version to revert to, 0 indexed | Latest
+
+ **Returns:** 
+ - *Status:* Operation Result (OK|FAIL)  
+ - *message:* Error message in case of an error 
+
+**CURL Example**
+```shell
+# Delete latest version
+
+curl -X DELETE  "http://anka.controller.net/api/v1/registry/revert?id=00510971-5c37-4a60-a9c6-ea185397d9b4"
+
+{
+   "body" : null,
+   "message" : "",
+   "status" : "OK"
+}
+
+# Revert to the first version of the template
+
+curl -X DELETE  "http://anka.controller.net/api/v1/registry/revert?id=a3cc47f0-3a73-11e9-b515-c4b301c47c6b&number=0" 
+
+{
+   "status" : "OK",
+   "body" : null,
+   "message" : ""
+}
+
+# Revert to a specific Tag
+
+
+curl -X DELETE  "http://anka.controller.net/api/v1/registry/revert?id=a3cc47f0-3a73-11e9-b515-c4b301c47c6b&tag=p120190904183122" 
+
+{
+   "status" : "OK",
+   "body" : null,
+   "message" : ""
+}
+
+
+```
+
+### Distribute Template
+
+***Note*** Group_id is only available if you are running Enterprise tier of Anka Build.  
+
+**Description:** Distribute a specific VM template to all or some build nodes.  
+**Path:**  /api/v1/registry/vm/distribute  
+**Method:** POST  
+**Required Body Parameters:**   
+
+ Parameter | Type   | Description 
+ ---       |   ---  |          ---
+ template_id | string | Id of the Template to distribute
+
+**Optional Body Parameters:**   
+
+ Parameter | Type   | Description       | Default
+ ---       | ---    |   ---             | ---
+ tag       | string | Specify a Tag to distribute | Latest Tag
+ version   | int    | Specify a version number to distribute | Latest 
+ node_ids  | string array | Choose specific Nodes to distribute the Template to | All
+ group_id  | string | Distribute the Template to the specified group (enterprise) | -
+
+**Returns:**  
+- *status:* Operation Result (OK|FAIL)  
+- *body:* Request id of the distribution request
+- *message:* Error message in case of an error 
+
+**CURL Example**
+```shell
+curl -X POST "http://anka.controller.net/api/v1/registry/vm/distribute" -d '{"template_id": "eaef3af8-cb54-4c3e-baf9-839053472f15"}' 
+
+{
+   "body" : {
+      "request_id" : "74efc824-2fcb-4e07-5e7d-7f9cc98e0ee5"
+   },
+   "message" : "",
+   "status" : "OK"
+}
+
+
+```
+
+### Get distribution status 
+
+**Description:** Get the status of a requested distribution  
+**Path:** /api/v1/registry/vm/distribute  
+**Method:** GET  
+**Optional Query Parameters**  
+
+ Parameter | Type   | Description 
+ ---       |   ---  |          ---
+ id        | string | Return the Distribution with that ID. 
+
+
+ **Returns:** 
+ - *Status:* Operation Result (OK|FAIL)  
+ - *Body*:  List of request status or single request status
+ - *message:* Error message in case of an error 
+
+**Request Status format**
++ *distribute_status* - Map of nodes
+  - *status:* A boolean, true if the download is finished on the Node
+  - *progress:* A number representing the download progress
++ *request* - An object that represents the request
+  - *request_id:* The request's id
+  - *template_id:* The Template being distributed
+  - *time_requested:* The time of the request
+
+**CURL Example**
+```shell
+# List all distribution requests
+
+curl  "http://anka.controller.net/api/v1/registry/vm/distribute" 
+
+{
+   "message" : "",
+   "body" : [
+      {
+         "request" : {
+            "time_requested" : "2019-12-26T17:48:50.380949005+02:00",
+            "template_id" : "eaef3af8-cb54-4c3e-baf9-839053472f15",
+            "request_id" : "74efc824-2fcb-4e07-5e7d-7f9cc98e0ee5"
+         },
+         "distribute_status" : {
+            "64230242-321c-442a-bd96-d87edd0943a3" : {
+               "progress" : 0,
+               "status" : false
+            }
+         }
+      }
+   ],
+   "status" : "OK"
+}
+
+# Get a specific distribution request
+
+curl  "http://anka.controller.net/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e07-5e7d-7f9cc98e0ee5" 
+
+{
+   "status" : "OK",
+   "body" : {
+      "distribute_status" : {
+         "64230242-321c-442a-bd96-d87edd0943a3" : {
+            "progress" : 0,
+            "status" : false
+         }
+      },
+      "request" : {
+         "request_id" : "74efc824-2fcb-4e07-5e7d-7f9cc98e0ee5",
+         "template_id" : "eaef3af8-cb54-4c3e-baf9-839053472f15",
+         "time_requested" : "2019-12-26T17:48:50.380949005+02:00"
+      }
+   },
+   "message" : ""
+}
+
+
+
+```
+
 ### Save Template Image
 
-**Description:** Create a "Save Image" request. Save a running VM instance to the Registry as a new Tag or Template. 
+**Description:** Create a "Save Image" request. Save a running VM instance to the Registry as a new Tag or Template.  
 **Path:** /api/v1/image  
 **Method:** POST  
 **Required Body Parameters:**  
@@ -454,7 +774,7 @@ curl -X POST "http://anka.controller.net/api/v1/image" -H "Content-Type: applica
 
 ### List Save Template Image Requests
 
-**Description:** Get a list of Save Image requests, or specify an id and get a single Save Image request. 
+**Description:** Get a list of Save Image requests, or specify an id and get a single Save Image request.  
 **Path:** /api/v1/image  
 **Method:** GET  
 **Optional Query Parameters**  
@@ -548,9 +868,9 @@ curl "http://anka.controller.net/api/v1/image?id=cc55f7dd-5280-4120-461c-9b0ef9b
 ## Group
 ### Create Group
 
-**Description:** Create a new node Group. Group is a "container" object used for grouping nodes.
-**Path:** /api/v1/group
-**Method:** POST
+**Description:** Create a new node Group. Group is a "container" object used for grouping nodes.  
+**Path:** /api/v1/group  
+**Method:** POST  
 **Required Body Parameters:**   
 
  Parameter | Type   | Description 
@@ -587,8 +907,8 @@ curl "http://anka.controller.net/api/v1/image?id=cc55f7dd-5280-4120-461c-9b0ef9b
 
 ### List Groups
 
-**Description:** List all groups
-**Path:** /api/v1/group
+**Description:** List all groups  
+**Path:** /api/v1/group  
 **Method:** GET   
 
 **Returns:** 
@@ -624,9 +944,9 @@ curl "http://anka.controller.net/api/v1/group"
 
 ### Update Group
 
-**Description:** Sets one or more parameters of an existing Group object.
-**Path:** /api/v1/group
-**Method:** PUT
+**Description:** Sets one or more parameters of an existing Group object.  
+**Path:** /api/v1/group  
+**Method:** PUT  
 **Required Query Parameters:**
 
  Parameter | Type   | Description 
@@ -657,9 +977,9 @@ curl -X PUT "http://anka.controller.net/api/v1/group?id=89a66167-62b1-42bb-5a0b-
 
 ### Delete Group
 
-**Description:** Delete a Group.
-**Path:** /api/v1/group
-**Method:** DELETE
+**Description:** Delete a Group.  
+**Path:** /api/v1/group  
+**Method:** DELETE  
 **Required Query Parameters:**
 
  Parameter | Type   | Description 
@@ -684,9 +1004,9 @@ curl -X DELETE "http://anka.controller.net/api/v1/group?id=89a66167-62b1-42bb-5a
 
 ### Add Nodes to Group
 
-**Description:** Add one or more Nodes to one or more Groups.
-**Path:** /api/v1/node/group
-**Method:** POST
+**Description:** Add one or more Nodes to one or more Groups.  
+**Path:** /api/v1/node/group  
+**Method:** POST  
 
 **Required Body Parameters:**   
 
@@ -713,9 +1033,9 @@ curl -X POST "http://anka.controller.net/api/v1/node/group" -d '{"group_ids": ["
 ### Remove nodes from a group
 
 
-**Description:** Remove one or more Nodes from one or more Groups.
-**Path:** /api/v1/node/group
-**Method:** DELETE
+**Description:** Remove one or more Nodes from one or more Groups.  
+**Path:** /api/v1/node/group  
+**Method:** DELETE  
 
 **Required Body Parameters:**   
 
@@ -741,9 +1061,9 @@ curl -X DELETE "http://anka.controller.net/api/v1/node/group" -d '{"group_ids": 
 ## USB
 ### List Devices
 
-**Description:** Get a list of all USB devices attached to the cloud
-**Path:** /api/v1/usb
-**Method:** GET   
+**Description:** Get a list of all USB devices attached to the cloud  
+**Path:** /api/v1/usb  
+**Method:** GET  
 
 **Returns:** 
 - *Status:* Operation Result (OK|FAIL)  
