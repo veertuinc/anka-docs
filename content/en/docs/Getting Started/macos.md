@@ -3,9 +3,8 @@
 title: "Getting started with Anka Build Cloud On Mac OS"
 linkTitle: "Run Anka Build Cloud on Mac OS"
 weight: 2
-draft: true
 description: >
-  Set up your Anka Build Cloud
+  Set up your Anka Build Cloud on Mac OS.
 ---
 
 
@@ -19,15 +18,26 @@ Welcome! this tutorial will guide you through setting up your Anka Build Cloud o
 You can complete this tutorial with only one machine running Mac OS, but it's less recommended. 
 
 ## What we will do in this tutorial
-1. Install Anka Controller and Registry
-2. Install Anka CLI on one or more Mac(s)
-3. Create your first VM
+1. Create your first VM
+2. Install Anka Controller and Registry
+3. Add one or more Macs as Nodes
 4. Start a VM instance using the Anka Build Cloud web interface
 
+## Step 1. Create your first VM
 
 
-## Install Anka Controller and Registry
-Anka Controller and Registry can be installed on Mac OS or on Linux.
+
+**Perform the following steps on the machine that is intended to be the Node.**
+
+
+{{< include file="shared/content/en/docs/Getting Started/first-vm.md" >}}
+For more commands and options, see [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
+While you wait for the VM creation, continue and perform step 2.
+
+## Step 2. Install Anka Controller and Registry
+
+**Perform the following steps on the machine intended to run the Controller and Registry**
+
 ### Download the package
 Download the file called "Cloud Controller & Registry (Run on Mac)" from {{< ext-link href="https://veertu.com/download-anka-build" text="Anka Build Download page" >}}.
 If you are more comfortable with the command line, you can download the file with curl:
@@ -88,13 +98,39 @@ sudo anka-controller logs
 Press Ctrl+C to exit.
 The log level is a number starting with 0 as the lowest, the higher the log level means more verbose. The default log level is 0.
 
-### Next steps
-Great, now that we have our Anka Controller and Registry up and running 
+
+Great! now that we have our Anka Controller and Registry up and running let's add Nodes!
+
+
+## Step 3. Add Nodes
+
+**Perform this on the machine you created your first VM on**
+
+
+{{< include file="shared/content/en/docs/Getting Started/push-to-registry.md" >}}
+
+After the push is finished you should be able to see your new Template in the "templates" section.
+
+![Your first template](/images/getting-started/push-template.png)
+
+
+{{< include file="shared/content/en/docs/Getting Started/add-node.md" >}}
+
+**Repeat this process on other machines that you want to join as Nodes (Anka CLI needs to be installed)**
+
+
+## Step 4. Start a VM instance using the Anka Dashboard
+
+
+{{< include file="shared/content/en/docs/Getting Started/start-vm-dash.md" >}}
 
 
 
+## Where to go next?
 
-
-
+Browse [Anka CLI Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).  
+Connect your cloud to a [CI server]({{< relref "docs/Anka Build Cloud/CI Plugins/_index.md" >}}).  
+Find out how to use the [Controller REST API]({{< relref "docs/Anka Build Cloud/controller-api.md">}}).  
+Learn how to work with [USB devices]({{< relref "docs/Anka Build Cloud/using-real-devices-attached-to-anka-vms.md">}})
 
 
