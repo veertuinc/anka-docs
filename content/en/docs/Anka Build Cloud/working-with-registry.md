@@ -18,7 +18,7 @@ Registry operations are available through Anka Client command line and through R
 ## Working with registry using Anka CLI
 
 View all of the available registry commands by running `anka registry --help`.
-```
+```shell
 anka registry --help
 Usage: anka registry [OPTIONS] COMMAND [ARGS]...
 
@@ -47,27 +47,42 @@ Commands:
 
 ```
 ### Add registry to a Node/machine running Anka
-`anka registry add <givesomename> <registryURLwithport>`  
+```shell
+anka registry add <givesomename> <registryURLwithport>
+```  
 
 You can add/define multiple registries to a node. The last one added is treated as current. To change current use the set command.  
 
 ### Set Current registry
-`anka registry set <previouslydefiniedname>`  
+```shell
+anka registry set <previouslydefiniedname>
+```  
 
 ### Push VM to the Registry 
-`anka registry push -d <description> -t <tag> vmname`  
+```shell
+anka registry push -d <description> -t <tag> vmname
+```  
 
 ### Pull VM from the Registry 
-`anka registry pull -t <tag> vmname`  
-
+```shell
+anka registry pull -t <tag> vmname
+```
 ### Pull VM from the Registry with Shrink 
-`anka registry pull -s -t <tag> vmname`. For example, let's say you have V1, V2 tags in the Registry for a VM. You pull V2. Then, you pull V1 with -s flag. It will optimize the local disk space usage by deleting all V2 related tag/version files.  
+```shell
+anka registry pull -s -t <tag> vmname
+```
+For example, let's say you have V1, V2 tags in the Registry for a VM. You pull V2. Then, you pull V1 with -s flag. It will optimize the local disk space usage by deleting all V2 related tag/version files.  
 
 ### Push independent VM as new tag of existing VM in Registry 
-`anka registry push NEW_VM -v EXISTING_VM_IN_REGISTRY -t NEW_TAG`. For example, let's say you have a VM1, with latest tag t2. Now, you want to push a completely independent VM2 as the next tag to VM1. You will use `anka registry push VM2 -v VM1 -t NEW_TAG`.
+```shell
+anka registry push NEW_VM -v EXISTING_VM_IN_REGISTRY -t NEW_TAG
+``` 
+For example, let's say you have a VM1, with latest tag t2. Now, you want to push a completely independent VM2 as the next tag to VM1. You will use `anka registry push VM2 -v VM1 -t NEW_TAG`.
 
 ### List VMs in the Registry 
-`anka registry list`
+```shell
+anka registry list
+```
 
 ## REST API
 
