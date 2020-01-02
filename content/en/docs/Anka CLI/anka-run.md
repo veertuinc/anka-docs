@@ -33,26 +33,12 @@ Options:
 ```
 
 
-### Examples of anka run usage
-
-`anka run sierrav40c1 xcodebuild -sdk iphonesimulator -scheme Kickstarter-iOS build` will mount the default directory from the host into the sierrav40c1 Vm and execute build.
-
-`anka run -w /Applications VMNAME ls -l` will pipe the results of `ls -l` from the VM's `/Applications` directory.
-
-`anka run -v . VMNAME ls` will mount the host current directory inside the VM, execute `ls`, pipe the results and unmount.
-
-`anka run -v . VMNAME xcodebuild ...` will mount the current directory from the developer machine(host) to the VM and execute an `xcodebuild` command and pipe the results back.
-
-`anka run sudo ...` executes commands inside the VM with `sudo` privileges. For instance:
-
-`anka run VMNAME cp -R simpledir /Users/anka` will copy the current host directory to the VM at /Users/anka location
-
-`anka run -n sierrav40c1 xcodebuild -sdk iphonesimulator -scheme Kickstarter-iOS build` will not mount the current host directory and execute build in the VM current directory
-
 ```
 $ anka run VMNAME sudo whoami
 root
 ```
+`anka run` requires automatic login to be enabled for the user. By default, it uses anka user.
+
 `anka run`, when run in default mode with no flags, mounts the current folder from the host into the VM and executes commands on this mount point as current directory.
 
 It's also possible to explicitly specify mount directory inside VM, using this syntax -v /host/folder:/mnt/path, e.g:
@@ -62,13 +48,29 @@ anka run -v $PWD:/tmp/mountpoint_1 VMNAME pwd
 
 ```
 
-Currently only single volume could be specified in the run command. If you need more than one folder shared between host and the VM, use `anka mount/unmount` commands.
+***Note*** Currently only single volume could be specified in the run command. If you need more than one folder shared between host and the VM, use `anka mount/unmount` commands.
 
 ```
 anka mount VMNAME ~/Library/MobileDevice/Provisioning\ Profiles/ /Users/anka/Library/MobileDevice/Provisioning\ Profiles/
 anka run VMNAME xcodebuild -exportOptionsPlist exportInfo.plist archive
 ```
-***Note***VM should be running for mount command to work.
+***Note*** VM should be in running state for mount command to work.
+
+### Examples of anka run usage
+
+`anka run sierrav40c1 xcodebuild -sdk iphonesimulator -scheme Kickstarter-iOS build`  - Will mount the default directory from the host into the sierrav40c1 Vm and execute build.
+
+`anka run -w /Applications VMNAME ls -l`  - Will pipe the results of `ls -l` from the VM's `/Applications` directory.
+
+`anka run -v . VMNAME ls`  - Will mount the host current directory inside the VM, execute `ls`, pipe the results and unmount.
+
+`anka run -v . VMNAME xcodebuild ...`  - Will mount the current directory from the developer machine(host) to the VM and execute an `xcodebuild` command and pipe the results back.
+
+`anka run sudo ...`  - Executes commands inside the VM with `sudo` privileges. For instance:
+
+`anka run VMNAME cp -R simpledir /Users/anka`  - Will copy the current host directory to the VM at /Users/anka location
+
+`anka run -n sierrav40c1 xcodebuild -sdk iphonesimulator -scheme Kickstarter-iOS build`  - Will not mount the current host directory and execute build in the VM current directory
 
 If you need more configuration changes to the VM, before anka run execution, you could start the VM with corresponding parameters, or write the parameters to VM configuration with `anka modify` command.
 
