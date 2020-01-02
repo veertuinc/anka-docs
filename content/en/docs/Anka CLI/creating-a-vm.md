@@ -197,7 +197,7 @@ echo FASTLANE_PASSWORD=password >> appstore_passwd
 anka run -f appstore_login -nE vmname xcversion install 10.1
 ```
 
-Go to [Execute operation inside Vm from the host with RUN](#anka-cli-operations) for more details on how to use `anka run` command.
+Go to [Execute operation inside Vm from the host with RUN]({{< relref "anka-run.md" >}}) for more details on how to use `anka run` command.
 
 ### VM Networking
 Anka VM by default uses Apple's VMNET interface for networking.
