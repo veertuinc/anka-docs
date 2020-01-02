@@ -7,6 +7,7 @@ description: >
   How to set up certificate based authentication.
 ---
 
+***Note*** - This requires Anka Build Enterprise or higher tier license running on Anka Build Nodes.
 
 ## Getting or Creating a CA certificate
 
