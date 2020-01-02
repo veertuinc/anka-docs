@@ -37,7 +37,8 @@ Here's a link to the MacOS Mojave install page - <a href="https://itunes.apple.c
 After the download is complete the files will be at `/Applications/Install macOS Mojave.app` (different MacOS versions will be called differently). 
 
 ##### Using a script
-You can use the *"installinstallmacos.py"* script from this <a href="https://github.com/munki/macadmin-scripts" target="_blank"> Github repository </a> (requires python installed).  
+You can use the *"installinstallmacos.py"* script from this [Github repository](https://github.com/munki/macadmin-scripts)
+ (requires python installed).  
 
 Download and run the script:  
 ```shell
