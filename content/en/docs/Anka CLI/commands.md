@@ -67,7 +67,7 @@ Options:
 
 
 ## Manage configuration
-Use `anka config` command to Anka's configuration.
+Use `anka config` command to edit Anka's configuration.
 ```
 anka config --help
 Usage: anka config [OPTIONS] [PARAM]...
@@ -94,7 +94,7 @@ Options:
 ```
 
 ## Show VM configuration
-Use `anka describe` command to view Vm configuration.
+Use `anka describe` command to view VM configuration.
 ```
 anka describe --help
 Usage: anka describe [OPTIONS] VM_ID
@@ -123,7 +123,7 @@ Commands:
   show         show license information
   validate     validates the current license
 ```
-***Note*** To see core consumption information for your license, use `anka license show <licensekey>`
+***Note*** To see current core consumption information for your license, use `anka license show <licensekey>`
 
 ## List of all VMs
 Use `anka list` command to view all the VMs available in the local VM directory with their status and other properties.
