@@ -348,9 +348,8 @@ Options:
   --help  Show this message and exit.
 ```
 ## Attach and Detach USB devices to VM
-Use `anka USB` command to attach and work with USB devices inside the VM. The USB devices should be connected to the host. See working with [real devices](#using-real-devices-attached-to-anka-vms-for-ci). 
+Use `anka USB` command to attach and work with USB devices inside the VM. The USB devices should be connected to the host. See working with [real devices]({{< relref "docs/Anka Build Cloud/using-real-devices-attached-to-anka-vms.md" >}}). 
 
-[//]: # (TODO: broken link)
 
 ## Anka RUN
 `anka run` command provides a container like interface to work with the Anka VMs directly from the host where they are running. See [Anka RUN]({{< relref "anka-run.md" >}})
