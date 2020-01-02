@@ -261,7 +261,7 @@ Options:
 ```
 
 ## Work with registry
-Use the `anka registry` command for access, push, pull VMs from the registry. See the [Manage VM Templates in Registry](#manage-vm-templates-in-registry) Manage VM Templates in Registry documentation.  
+Use the `anka registry` command for access, push, pull VMs from the registry. See the [Manage VM Templates in Registry]({{< relref "docs/Anka Build Cloud/working-with-registry.md" >}}) Manage VM Templates in Registry documentation.  
 
 [//]: # (TODO: broken link)
 
