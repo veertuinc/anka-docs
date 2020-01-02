@@ -4,7 +4,7 @@ title: "Licensing"
 linkTitle: "Licensing"
 weight: 13
 description: >
-  How to contribute to the docs
+  Detailed information on Anka Licensing
 ---
 
 
@@ -74,6 +74,17 @@ First, stop all the running or suspended VMs. Then, remove the old license and a
 sudo anka license remove
 sudo anka license activate <newactivation key>
 ```
+### Moving your Commercial license from one machine to another
+Remove the license from the machine using the below described command.
+
+```
+sudo anka license remove
+Are you sure you want to remove current license? [y/N]: y
+License is removed. To activate with the same activation key on another machine,
+contact support@veertu.com with your activation key and fulfillment ID 2727000039
+
+```
+Contact [support@veertu.com](mailto:support@veertu.com) with the fulfillment ID provided in the output of the `anka license remove` command and your license key.
 
 ### Pricing
 
