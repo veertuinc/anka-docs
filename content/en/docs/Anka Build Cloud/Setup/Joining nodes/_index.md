@@ -57,7 +57,7 @@ Flags:
 
 ***Note*** - In version 1.2.0, `-g` flag is deprecated but backward compatibility is supported.
 
-***Note*** - In version 1.3, controller will auto shutdown any running unmanaged VMs under sudo anka list. For any manual maintainence of VMs under sudo, disjoin the node first.
+***Note*** - In version 1.3, controller will auto shutdown any running unmanaged VMs under sudo anka list. For any manual maintainence of VMs under sudo, disjoin the node first. This was removed in version 1.4 onwards.
 
 ***Note*** - In version 1.3, the anka agent running on the nodes sends logs to the central controller. This is useful for debugging purposes. This can be disabled with --no-central-logging during ankacluster join command.
 
