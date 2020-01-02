@@ -5,7 +5,6 @@ linkTitle: "Configuration Reference"
 weight: 9
 description: >
   Anka Build Cloud configuration options.
-draft: true
 ---
 
 
@@ -100,14 +99,16 @@ OpenId connect groups claim| string           | Open ID connect claim key to use
 
 ### Separate queue interface
 
+**note** - This is an advanced feature, it allows you to have a second http interface that will be used only by the cluster's Nodes. 
+
  Name       | Type        |   Description               | default value | command line | ini    | env 
  ---        |   :---:       | ---                         | :---:           | :---:          | :---:    | :---:
-queue addr     | string           | address to listen on for queue connections                   | default      | --queue-addr      | queue_addr      | ANKA_QUEUE_ADDR
-queue ca cert  | string           | CA cert for queue server                                     | default      | --queue-ca-cert   | queue_ca_cert   | ANKA_QUEUE_CA_CERT
-queue server cert| string           | queue server certificate file in PEM format                  | default      | --queue-server-cert | queue_server_cert | ANKA_QUEUE_SERVER_CERT
-queue server key| string           | queue server private key file in PEM format                  | default      | --queue-server-key | queue_server_key | ANKA_QUEUE_SERVER_KEY
-use queue tls  |                  | enables queue tls                                            | default      | --use-queue-tls   | use_queue_tls   | ANKA_USE_QUEUE_TLS
-enable queue auth|                  | enables queue tls                                            | default      | --enable-queue-auth | enable_queue_auth | ANKA_ENABLE_QUEUE_AUTH
+Queue address     | string           | Setting this address will activate a separate http server that will only serve queue requests (only for Node communication).              | -      | --queue-addr      | queue_addr      | ANKA_QUEUE_ADDR
+Queue CA certificate  | string           | Path to a CA certificate to use for authenticating clients                                       | -      | --queue-ca-cert   | queue_ca_cert   | ANKA_QUEUE_CA_CERT
+Queue server certificate| string           |  Path to TLS server certificate                  | -      | --queue-server-cert | queue_server_cert | ANKA_QUEUE_SERVER_CERT
+Queue server certificate key| string           | Path to the server certificate's private key                     | -      | --queue-server-key | queue_server_key | ANKA_QUEUE_SERVER_KEY
+Use queue TLS  |                  | Enables queue tls                                            | false      | --use-queue-tls   | use_queue_tls   | ANKA_USE_QUEUE_TLS
+Enable queue auth|                  | Enables queue authentication/authorization                                            | false      | --enable-queue-auth | enable_queue_auth | ANKA_ENABLE_QUEUE_AUTH
 
 
 ### Internal 
@@ -116,8 +117,8 @@ Parameters used internally. It's recommended to use the default values.
 
  Name       | Type        |   Description               | default value | command line | ini    | env 
  ---        |   :---:       | ---                         | :---:           | :---:          | :---:    | :---:
-Clean process interval| duration   | The interval to clean the queues (delete any tasks older than 24 hours), 0 to disable (default 1h0m0s) | default      | --clean-queues-interval | clean_queues_interval | ANKA_CLEAN_QUEUES_INTERVAL
-allow cors     |                  | If true adds Acces-Control-Allow-Origin to all routes        | default      | --allow-cors      | allow_cors      | ANKA_ALLOW_CORS
-scheduler interval| duration         | Interval for checking scheduled tasks       | 30m      | --scheduler-interval | scheduler_interval | ANKA_SCHEDULER_INTERVAL
+Clean process interval| duration   | The interval to clean the queues (delete any tasks older than 24 hours), 0 to disable | 1h      | --clean-queues-interval | clean_queues_interval | ANKA_CLEAN_QUEUES_INTERVAL
+allow cors     |   bool           | If true adds Acces-Control-Allow-Origin to all routes        | default      | --allow-cors      | allow_cors      | ANKA_ALLOW_CORS
+Scheduler interval| duration         | Interval for checking scheduled tasks       | 30m      | --scheduler-interval | scheduler_interval | ANKA_SCHEDULER_INTERVAL
 allowUnknownFlags|                  | Don't terminate the app if ini file contains unknown flags.  | default      | --allowUnknownFlags | allowUnknownFlags | ANKA_ALLOWUNKNOWNFLAGS
-dumpflags      |                  | Dumps values for all flags defined in the app into stdout in ini-compatible syntax and terminates the app. | default      | --dumpflags       | dumpflags       | ANKA_DUMPFLAGS 
+Dump flags      |      bool            | Dumps values for all flags defined in the app into stdout in ini-compatible syntax and terminates the app. | false      | --dumpflags       | dumpflags       | ANKA_DUMPFLAGS 
