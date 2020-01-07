@@ -15,7 +15,7 @@ You are trying to start a VM Instance from the controller dashboards or rest API
 ## Common reasons
 
 1. None of the Nodes are active or has a valid license
-2. A VM is running locally on the Node
+2. The VM is running locally on the Node
 3. The Node that is trying to run the VM can't reach the registry
 4. There's not enough disk space on the Node
 
@@ -27,7 +27,7 @@ Go to your dashboard, look at the box on the right. It should say "X More Instan
 
 
 Go to your `Nodes` screen and go over the Nodes.  
-If any of your Nodes has the message `Inactive (Invalid License)` under it's state, you need to go to that Node and activate the license. You can find more information about Anka License commands [here]({{< relref "docs/Anka CLI/commands.md" >}}#manage-anka-license)
+If any of your Nodes has the message `Inactive (Invalid License)` under it's state, you need to go to that Node and activate the license. You can find more information about Anka License commands [here]({{< relref "docs/Anka CLI/commands.md" >}}#manage-anka-license).
 If one of your Nodes has the state `Offline` it usually means that the agent running on the Node have crashed. To solve this, execute a `disjoin` and `join` commands on the Node:
 ```shell 
 # Disjoin
@@ -48,7 +48,7 @@ Cluster join success
 > `Error:  agent not installed in domain specified`  
 > If you do get this error, continue and perform `join` command.
 
-After rejoining the Node check the dashboard for if the Node is in `Active` state. It may take about a minute for the Node to show in dashboard, so wait at least this amount. In case the Node is still in `Offline` state, contact support via [slack](https://slack.veertu.com/) or [email](mailto:support@veertu.com)
+After rejoining the Node, check the dashboard to see if the Node is in `Active` state. It may take about a minute for the Node to show in dashboard, so wait at least this amount. In case the Node is still in `Offline` state, contact support via [slack](https://slack.veertu.com/) or [email](mailto:support@veertu.com)
 
 
 ## A VM is running locally on the Node
@@ -68,7 +68,7 @@ After stopping the "rogue" VM the agent should start your new instance.
 
 ## The Node can't reach the registry
 
-In order to start VMs the Node has to download them first from the Registry.  
+In order to start VMs, the Node has to download them first from the Registry.  
 The registry address is given to the nodes by the Controller.
 You can see the Registry address configured in the upper right corner of the dashboard screen.
 ![Registry address](/images/anka-build/troubleshooting/reg_address.png)
@@ -89,7 +89,7 @@ curl: (7) Failed to connect to 192.168.1.105 port 8089: Connection refused
 
 There can be many reasons for lack of communications between machines.  
 The `ankacluster join` command sends a request to check the connection to the registry.
-execute a `disjoin` and `join` commands on the Node:
+Execute a `disjoin` and `join` commands on the Node:
 ```shell 
 # Disjoin
 sudo ankacluster disjoin                 
