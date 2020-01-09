@@ -30,7 +30,7 @@ You can complete this tutorial with only one machine running Mac OS, but it's le
 **Perform the following steps on the machine that is intended to be the Node.**
 
 
-{{< include file="shared/content/en/docs/Getting Started/first-vm.md" >}}
+{{< include file="shared/content/en/docs/Getting Started/partials/_first-vm.md" >}}
 For more commands and options, see [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
 While you wait for the VM creation, continue and perform step 2.
 
@@ -107,14 +107,14 @@ Great! now that we have our Anka Controller and Registry up and running let's ad
 **Perform this on the machine you created your first VM on**
 
 
-{{< include file="shared/content/en/docs/Getting Started/push-to-registry.md" >}}
+{{< include file="shared/content/en/docs/Getting Started/partials/_push-to-registry.md" >}}
 
 After the push is finished you should be able to see your new Template in the "templates" section.
 
 ![Your first template](/images/getting-started/push-template.png)
 
 
-{{< include file="shared/content/en/docs/Getting Started/add-node.md" >}}
+{{< include file="shared/content/en/docs/Getting Started/partials/_add-node.md" >}}
 
 **Repeat this process on other machines that you want to join as Nodes (Anka CLI needs to be installed)**
 
@@ -122,7 +122,7 @@ After the push is finished you should be able to see your new Template in the "t
 ## Step 4. Start a VM instance using the Anka Dashboard
 
 
-{{< include file="shared/content/en/docs/Getting Started/start-vm-dash.md" >}}
+{{< include file="shared/content/en/docs/Getting Started/partials/_start-vm-dash.md" >}}
 
 
 

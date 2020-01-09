@@ -1,6 +1,0 @@
-
-
-
-## Where to go next?
-
-
