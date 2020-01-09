@@ -18,16 +18,13 @@ Anka Build solution includes `anka.pkg`, `Controller/Registry` and plugins to in
 Anka Flow solution includes `anka.pkg` to run on developer mac workstations.
 
 ### What's included in Anka Secure?
-Anka Secure solution includes `anka.pkg` to run on mac end clients and Registry.
+Anka Secure solution includes `anka.pkg` to run on mac end clients and the `Registry`.
 
-### Who should use Anka Build and Flow?
-Anka is for anyone using bare metal Apple hardware for CI purposes (macOS/iOS development).
+### Who should use Anka Build?
+Anka Build is for anyone who wants to configure a private macOS cloud for CI purposes. The private macOS cloud can be configured on-prem or on hosted macs.
 
-Anka is for anyone that prefers to test in an isolated macOS virtual machine.
-
-Anka is for anyone looking to build or host their own macOS private cloud.
-
-Anka is for anyone wanting to maximize developer productivity by enabling local build and test workflows.
+### Who should use Anka Flow?
+Anka Flow is for anyone wanting to maximize developer productivity by enabling iOS and macOS developers to build and test in local macOS VMs, pulled from the central Anka Build Registry.
 
 ### Who should use Anka Secure?
-Anyone who is looking to provide sandbox macOS environments to end users using mac hardware for privileged user access, example technical support, iOS developers etc.
+Anyone who is looking to provide sandbox and policy managed macOS environments to end users using mac hardware for privileged user data access, example technical support or for iOS developers and testers.
