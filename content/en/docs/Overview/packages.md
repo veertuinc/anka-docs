@@ -15,10 +15,10 @@ description: >
 Anka Build solution includes `anka.pkg`, `Controller/Registry` and plugins to integrate with existing commonly used CI systems like Jenkins, Teamcity, GitLab CI, BuildKite etc.
 
 ### What's included in Anka Flow?
-Anka Flow solution includes `anka.pkg` to run on developer mac workstations.
+Anka Flow solution includes `anka.pkg` to run on developer mac workstations. Doesn't require Anka Build. Can co-exit with Anka Build. Anka Flow runs on developer mac workstations (macbook models and iMac).
 
 ### What's included in Anka Secure?
-Anka Secure solution includes `anka.pkg` to run on mac end clients and the `Registry`.
+Anka Secure solution includes `anka.pkg` to run on mac end clients and the `Registry`. Doesn't require Anka Build. Can co-exit with Anka Build. Anka Flow runs on developer mac workstations (macbook models and iMac).
 
 ### Who should use Anka Build?
 Anka Build is for anyone who wants to configure a private macOS cloud for CI purposes. The private macOS cloud can be configured on-prem or on hosted macs.
