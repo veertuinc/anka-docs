@@ -8,14 +8,74 @@ description: >
 ---
 
 ## Anka (supported on all mac hardware including 2018 Mac Mini)
-### Latest Version - Anka Version 2.1.2 and Controller & Registry 1.5.0
-- Anka Package - Version 2.1.2 - With full Catalina support - Oct 10, 2019
-- Anka Controller & Registry combined Linux package - Version 1.5.0 - Nov 05, 2019
-- AnkaController & Registry Mac package - Version 1.5.0 - Nov 05, 2019
-- Anka Jenkins plug-in - version 1.22.1 - Nov 15, 2019
+### Latest Version - Anka Version 2.2.0 and Controller & Registry 1.5.3
+- Anka Package - Version 2.2.0 - Jan 10, 2020
+- Anka Controller & Registry combined Linux package - Version 1.5.3 - Jan 10, 2020
+- AnkaController & Registry Mac package - - Version 1.5.3 - Jan 10, 2020
+- Anka Jenkins plug-in - version 1.22.2 - Dec 08, 2019
 - Anka Teamcity plug-in - version 1.7.0 - Nov 05, 2019
-- Anka GitLabCI Integration - Nov 05, 2019
+- Anka GitLabCI Integration - Updated Dec 08, 2019
+- Anka Packer Plugin Integration - Updated Dec 08, 2019
 - Anka Jenkins Slave template Builder plug-in - (Maintained only until version 1.5). Combined with Anka Jenkins plug-in version 1.20.
+
+### Change Log Anka 2.2.0 change - Jan 10, 2020
+- Bug Fix : vmnet fails to create interface
+- Bug Fix : Network error (discovered while stress testing)
+- Bug Fix : anka clone doesn’t randomize MAC addresses
+- Bug Fix : Samsung Galaxy S9 claim leads to host panic
+- Bug Fix : anka registry pull doesn’t take in scope cache size when determining free space
+- Bug Fix : nvram values don’t get saved
+- Bug Fix : Not possible to start more than one VM without GUI session
+- Bug Fix : vmnet fails to create more than few instances of virtual interfaces without GUI session
+- Bug Fix : Exceeding host based license message is missleading
+- Bug Fix : mDNS requests looks fail from inside VM
+- Bug Fix : Shared folders work bad for GUI usecases
+- Bug Fix : vmnet doesn’t restore network connectivity after host sleep
+- Bug Fix : Android devices aren’t recognized in Android Studio
+- Bug Fix : The source command doesn’t pickup changes in PATH environment. (requires anka start -u for the VMs)
+- Bug Fix : Anka.pkg downgrades AnkaAgent.pkg
+- Bug Fix : Bad product type for Anka Build Lite
+- Bug Fix : Anka run --wait-network doesn’t seem to work
+- New feature : Install AnkaView into /Applications
+- New feature : Allow to modify networking type of suspended VM
+- New feature : Allow to create VM with manual install process
+- New feature : Pass thru Anka license type from host to nested vm
+- New feature : Allow to start VMs via AnkaView interface
+- New feature : Support output fields list customization
+- New feature : Implement bridge support with new vmnet functionality
+- New feature : Allow to claim/release USB devices by Serial Number
+- New feature : Allow to select the bridge interface automatically
+- New feature : MAC address sync
+- New feature : Static IP addresses support (requires anka start -u for the VMs)
+- New feature : Performance optimization
+- Other : Remove vlaunch
+- Other : Move ankanetd service to unix domain
+- Other : Allow to create more than 4 anka vmnet interfaces
+- Other : Integrate new VTUFS 3.10.4 (requires anka start -u for the VMs)
+- Other : Changes to licenses
+
+### Change Log Anka Controller & Registry combined package (Mac) - Version 1.5.3 - Jan 10, 2020#
+- Other : License changes
+
+### Change Log Anka Controller & Registry combined package (Linux) - Version 1.5.3 - Jan 10, 2020#
+- Other : License changes
+
+### Change Log Anka Controller & Registry combined package (Mac) - Version 1.5.2 - Dec 08, 2019#
+- Bug Fix : When selecting multiple nodes to change capacity from the UI, it doesn’t work
+
+### Change Log Anka Controller & Registry combined package (Linux) - Version 1.5.2 - Dec 08, 2019#
+- Bug Fix : When selecting multiple nodes to change capacity from the UI, it doesn’t work
+
+### Change log Jenkins Plugin version 1.22.2 - Dec 08, 2019#
+- Bug Fix : Jenkins gets an exception while trying to start a new slave with OR operator
+
+### Change log Packer Plugin version 1.1.0 - Dec 08, 2019#
+- New feature : Add hyper-threading support for Packer plugin
+- New feature : Add verbose output while creating image
+- New feature : Integrate packer plugin with ansible
+
+### Change log GitLabCI Plugin version 0.6b - Dec 08, 2019#
+- New feature : update gitlab runner to new gitlab codebase
 
 ### Change log Jenkins Plugin version 1.22.1 - Nov 15, 2019
 - Bug Fix : ankaGetSaveImageResult does not work for jobs in folders
