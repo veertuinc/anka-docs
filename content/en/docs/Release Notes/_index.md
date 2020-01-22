@@ -8,15 +8,21 @@ description: >
 ---
 
 ## Anka (supported on all mac hardware including 2018 Mac Mini)
-### Latest Version - Anka Version 2.2.0 and Controller & Registry 1.5.3
+### Latest Version - Anka Version 2.2.0 and Controller & Registry 1.5.4
 - Anka Package - Version 2.2.0 - Jan 10, 2020
-- Anka Controller & Registry combined Linux package - Version 1.5.3 - Jan 10, 2020
-- AnkaController & Registry Mac package - - Version 1.5.3 - Jan 10, 2020
+- Anka Controller & Registry combined Linux package - Version 1.5.4 - Jan 15, 2020
+- AnkaController & Registry Mac package - - Version 1.5.4 - Jan 15, 2020
 - Anka Jenkins plug-in - version 1.22.2 - Dec 08, 2019
 - Anka Teamcity plug-in - version 1.7.0 - Nov 05, 2019
 - Anka GitLabCI Integration - Updated Dec 08, 2019
 - Anka Packer Plugin Integration - Updated Dec 08, 2019
 - Anka Jenkins Slave template Builder plug-in - (Maintained only until version 1.5). Combined with Anka Jenkins plug-in version 1.20.
+
+### Change Log Anka Controller & Registry combined package (Mac) - Version 1.5.4 - Jan 15, 2020#
+- Bug Fix : Version 1.5.3 was overwriting /usr/local/bin/anka-controllerd file
+
+### Change Log Anka Controller & Registry combined package (Linux) - Version 1.5.4 - Jan 15, 2020#
+Other : Version number change to 1.5.4 to make it match with the mac package
 
 ### Change Log Anka 2.2.0 change - Jan 10, 2020
 - Bug Fix : vmnet fails to create interface
