@@ -13,6 +13,8 @@ description: >
 
 Anka agent, which is included in `anka.pkg` is installed as part of anka binary installation on the mac machines. These are the mac host on which the Anka macOS VMs run. Do the following on the mac hosts.
 
+Anka package `anka.pkg` can be installed on mac machines running Hi Sierra(10.13.x) or Higher.
+
 1. Go to Preferences, Users and enable automatic login for the user.
 
 2. Go to Preferences, Security and check `Remove the need to require a password` option.
