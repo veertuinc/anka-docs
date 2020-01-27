@@ -3,7 +3,7 @@
 date: 2019-12-12T00:00:00-00:00
 title: "Joining/Disjoining Anka nodes to Anka Build Cloud using Ankacluster CLI"
 linkTitle: "Joining/Disjoining Nodes"
-weight: 3
+weight: 4
 description: >
   Anka Agents (Mac running Anka.PKG) are called Anka Nodes. Multiple nodes can be attached to the Controller to configure Anka Build Cloud..
 ---
@@ -11,7 +11,7 @@ description: >
 [//]: # (TODO: split this into files)
 
 
-### Joining Anka Agent
+### Joining Anka Agent(Node)
 
 ***Pre-Requisites*** - Anka Controller should be configured and running before an Anka Node can be joined.
 

@@ -9,7 +9,11 @@ description: >
 [//]: # (TODO: find a place for this (if any) )
 
 ## Introduction
-Registry and Controller services are required to configure an Anka Build private macOS cloud. Registry and controller are packaged in two flavors.  
+Anka Build requires setup of Registry, Controller and Anka Nodes.
+
+***Anka Nodes*** are mac machines(host machines) on which Anka Agent runs. This requires installation of `anka.pkg` on the host machine. The VMs are provisioned on the Anka Nodes.
+
+***Registry and Controller*** services are required to configure an Anka Build private macOS cloud. Registry and controller are packaged in two flavors.  
 
 1. Linux (CentOS 7) Docker container package - anka-controller-registry-XXX.tar.gz
 2. Mac Application package - AnkaControllerRegistry-XXX.pkg  
