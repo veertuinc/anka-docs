@@ -12,11 +12,16 @@ description: >
 - Anka Package - Version 2.2.0 - Jan 10, 2020
 - Anka Controller & Registry combined Linux package - Version 1.5.4 - Jan 15, 2020
 - AnkaController & Registry Mac package - - Version 1.5.4 - Jan 15, 2020
-- Anka Jenkins plug-in - version 1.22.2 - Dec 08, 2019
+- Anka Jenkins plug-in - version 1.22.3 - Jan 27, 2020
 - Anka Teamcity plug-in - version 1.7.0 - Nov 05, 2019
 - Anka GitLabCI Integration - Updated Dec 08, 2019
 - Anka Packer Plugin Integration - Updated Dec 08, 2019
 - Anka Jenkins Slave template Builder plug-in - (Maintained only until version 1.5). Combined with Anka Jenkins plug-in version 1.20.
+
+### Change log Jenkins Plugin version 1.22.2 - Jan 27, 2020
+- Bug Fix : Jenkins takes nodes offline before restart
+- Bug Fix : Jenkins logs Anka related messages when other agents (non anka) disconnects
+- Bug Fix : Jenkins leaves zombie VMs when restarting
 
 ### Change Log Anka Controller & Registry combined package (Mac) - Version 1.5.4 - Jan 15, 2020#
 - Bug Fix : Version 1.5.3 was overwriting /usr/local/bin/anka-controllerd file
