@@ -1,7 +1,7 @@
 ---
 title: "Anka Build Cloud"
 linkTitle: "Anka Build Cloud"
-weight: 7
+weight: 6
 description: >
   How to use Anka Build Cloud.
 ---

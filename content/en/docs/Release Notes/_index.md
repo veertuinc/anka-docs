@@ -2,7 +2,7 @@
 date: 2018-03-06
 title: "Release Notes"
 linkTitle: "Release Notes"
-weight: 100
+weight: 10
 description: >
   Detailed Release Notes 
 ---
@@ -18,7 +18,7 @@ description: >
 - Anka Packer Plugin Integration - Updated Dec 08, 2019
 - Anka Jenkins Slave template Builder plug-in - (Maintained only until version 1.5). Combined with Anka Jenkins plug-in version 1.20.
 
-### Change log Jenkins Plugin version 1.22.2 - Jan 27, 2020
+### Change log Jenkins Plugin version 1.22.3 - Jan 27, 2020
 - Bug Fix : Jenkins takes nodes offline before restart
 - Bug Fix : Jenkins logs Anka related messages when other agents (non anka) disconnects
 - Bug Fix : Jenkins leaves zombie VMs when restarting

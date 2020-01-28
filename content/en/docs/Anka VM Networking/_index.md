@@ -1,7 +1,7 @@
 ---
 title: "Anka VM Networking"
 linkTitle: "Anka VM Networking"
-weight: 11
+weight: 5
 date: 2017-01-20
 description: >
   Anka VM Networking Options

@@ -2,7 +2,7 @@
 date: 2017-08-16T14:27:24-07:00
 title: "Licensing"
 linkTitle: "Licensing"
-weight: 13
+weight: 9
 description: >
   Detailed information on Anka Licensing
 ---
