@@ -12,7 +12,7 @@ curl -L -o Anka.pkg https://veertu.com/downloads/ankabuild-latest
 #### Install Anka PKG
 cd to the directory containing the file (if you are in another directory), then run:
 ```shell
-sudo installer -pkg Anka.pkg -target
+sudo installer -pkg Anka.pkg -tgt /
 ```
 
 #### Verify installation
