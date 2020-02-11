@@ -17,7 +17,7 @@ Anka package `anka.pkg` can be installed on mac machines running Hi Sierra(10.13
 
 1. Go to Preferences, Users and enable automatic login for the user.
 
-2. Go to Preferences, Security and check `Remove the need to require a password` option.
+2. Go to Preferences, Security, General and uncheck `require password after screensave or sleep begins` option.
 
 3. Go to Preferences, Energy Saver and check on `Disable sleep`
 
