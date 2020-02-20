@@ -1,6 +1,6 @@
 ---
-title: "Mac logs"
-linkTitle: "Mac logs"
+title: "Logs - Controller and registry are installed on a Mac"
+linkTitle: "Logs - Controller and registry are installed on a Mac"
 weight: 3
 description: >
 ---
