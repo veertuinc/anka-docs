@@ -55,7 +55,7 @@ Configuration for this package is done by altering the Launcd daemon xml file at
 ###Anka logs
 
  dir: `/var/log/veertu` 
-   `anka.log`- Activity with anka command(Anka Cli commands, Anka Run) is logged there, also this log is not being removed                  but round robined.
+   `anka.log`- Activity with anka command(Anka Cli commands, Anka Run) is logged here, also this log is not being removed                    but round robined.
    `UUID.log`- UUID is the VM's uuid - it's VM log, usually we check these logs when VM exits abnormally or fails to start. 
                the file is created upon starting a vm. and deleted upon deletion of VM.
    `lopd.log`- is from license auto-upgrade service, it's rarely used and most likely not related to VMs runtime
