@@ -51,6 +51,8 @@ Launchd daemon:
 Configuration for this package is done by altering the Launcd daemon xml file at `/Library/LaunchDaemons/com.veertu.anka.registry.plist`.
 
 
+
+
 ### Data
 Data will be saved at:  
 `/Library/Application Support/Veertu/Anka/registry`
