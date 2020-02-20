@@ -564,7 +564,7 @@ curl -X DELETE "http://anka.controller.net/api/v1/registry/vm?id=00510971-5c37-4
 **Optional Query Parameters**  
 
  Parameter | Type   | Description     | Default
- ---       |   ---  |          ---
+ ---       |   ---  |          ---    |   ---
  tag       | string | The Tag to revert to. Newer versions will also be deleted | Latest 
  version   | int    | The number of the version to revert to, 0 indexed | Latest
 
