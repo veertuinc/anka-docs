@@ -25,8 +25,9 @@ description: >
 - Bug Fix : VM doesn't get unique IP address if static MAC address specified
 - New feature : Support IPv6 in anka rfb server
 - New feature : Allow to assign MAC address to VM
-- New feature : Create directories if missing with anka run --workdir
-- New feature : Send HID events programmatically
+- New feature : Create directories if missing with anka run --workdir (requires anka start -u)
+- New feature : Send HID events programmatically (requires anka start -u)
 - New feature : Create RFB threads on demand only
 - New feature : Give proper message in case of a VM trying to access out of range memory
 
+***NOTE*** There is no need to upgrade the VM templates from previous anka version 2.2 to version 2.2.1, unless you need to use the items from the above list which explicitly state the requirement of `anka start -u`.
