@@ -8,8 +8,8 @@ description: >
 ---
 
 ## Anka (supported on all mac hardware including 2018 Mac Mini)
-### Latest Version - Anka Version 2.2.0 and Controller & Registry 1.5.4
-- Anka Package - Version 2.2.0 - Jan 10, 2020
+### Latest Version - Anka Version 2.2.1 and Controller & Registry 1.5.4
+- Anka Package - Version 2.2.1 - Feb 24, 2020
 - Anka Controller & Registry combined Linux package - Version 1.5.4 - Jan 15, 2020
 - AnkaController & Registry Mac package - - Version 1.5.4 - Jan 15, 2020
 - Anka Jenkins plug-in - version 1.22.3 - Jan 27, 2020
@@ -17,6 +17,27 @@ description: >
 - Anka GitLabCI Integration - Updated Dec 08, 2019
 - Anka Packer Plugin Integration - Updated Dec 08, 2019
 - Anka Jenkins Slave template Builder plug-in - (Maintained only until version 1.5). Combined with Anka Jenkins plug-in version 1.20.
+
+### Change Log Anka 2.2.1 change - Feb 24, 2020
+- Bug Fix : RFB server crash 0x0000000104fa0b8c rfb_thr + 1364
+- Bug Fix : Crash on suspend
+- Bug Fix : ankactl doesn't report vnc_password string
+- Bug Fix : Anka VM fails to start under jenkins master account
+- Bug Fix : Anka run --wait-network doesn't seem to work
+- Bug Fix : set resolution from anka view doesn't work.
+- Bug Fix : Anka version takes a few minutes to respond
+- Bug Fix : ankactl experiences EMFILE if there are many snapshots/vms in the library
+- Bug Fix : Adding MAC address using anka modify for bridge cards result in corrupted config file for VM
+- Bug Fix : Collision of anka and guest addons files
+- Bug Fix : VNC not working for when resolution of VM is changed to 1000*600
+- Bug Fix : Problems to detect IP address
+- Bug Fix : VM doesn't get unique IP address if static MAC address specified
+- New feature : Support IPv6 in anka rfb server
+- New feature : Allow to assign MAC address to VM
+- New feature : Create directories if missing with anka run --workdir
+- New feature : Send HID events programmatically
+- New feature : Create RFB threads on demand only
+- New feature : Give proper message in case of a VM trying to access out of range memory
 
 ### Change log Jenkins Plugin version 1.22.3 - Jan 27, 2020
 - Bug Fix : Jenkins takes nodes offline before restart
