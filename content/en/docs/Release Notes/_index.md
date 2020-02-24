@@ -35,7 +35,7 @@ description: >
 - New feature : Support IPv6 in anka rfb server
 - New feature : Allow to assign MAC address to VM
 - New feature : Create directories if missing with anka run --workdir
-- New feature : Send HID events programmatically
+- New feature : Send HID events programmatically (requires anka start -u)
 - New feature : Create RFB threads on demand only
 - New feature : Give proper message in case of a VM trying to access out of range memory
 
