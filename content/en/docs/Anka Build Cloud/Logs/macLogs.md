@@ -16,12 +16,12 @@ Anka controller is responsible for cleaning unused vms logs.
 Logs location : `/Library/Logs/Veertu/AnkaController`
 1. Show logs by command: `sudo anka-controller logs` - Press Ctrl+C to exit. The log level is a number starting with 0 as the lowest, the higher the log level means more verbose. The default log level is 0. 
  
-2. There are 4 types of log files, in the snapshot you can see logs **without** ID, they are **LINK** files- point to the latest log been created ( the last active vm) , each vm can generate all of the log types below. the robosety of the logs are from highest(INFO) to the lowest(ERROR),, you can check this files using 'tail' command:
+2. There are 4 types of log files, in the snapshot you can see log files **without** ID, they are **LINK** files- point to the latest log been created ( the last active vm) , each vm can generate all of the log types below. the robosety of the logs are from highest(INFO) to the lowest(ERROR), you can check this files using 'tail' command:
 
- * anka-controller.INFO - contains all of the below. 
- * anka-controller.WARNING - contains WARNNIGS & ERRORS.
- * anka-controller.ERROR - contains just ERRORS.
- * anka_agent.FATAL - Only FATAL ERRORS (both controller and agent).
+ * `anka-controller.INFO` - contains all of the below. 
+ * `anka-controller.WARNING` - contains WARNNIGS & ERRORS.
+ * `anka-controller.ERROR` - contains just ERRORS.
+ * `anka_agent.FATAL` - Only FATAL ERRORS (both controller and agent).
 
 ![controller logs](/images/anka-build/logs/ankaControllerlogs.png)
 
@@ -34,9 +34,15 @@ Logs location : `/Library/Logs/Veertu/AnkaController`
 Logs location : `/var/log/veertu`
 1. Anka agent and registry share the same log files.
  `anka_agent.HOSTNAME.USER.LOG.LOGTYPE.TIMESTAMP`
-2. 4 types of LINK files as Controller logs above.
+2. There are 4 type of LINK files, they hold the latest active vm logs , the robosety of the logs are from highest(INFO) to the lowest(ERROR), you can check this files using 'tail' command:
+
+ * `anka_agent.INFO` - contains all of the below.
+ * `anka_agent.WARNING` - contains WARNNIGS & ERRORS.
+ * `anka_agent.ERROR` - contains just ERRORS.
+ * `anka_agent.FATAL` - Only FATAL ERRORS (both controller and agent).
+ 
+4. `vlaunchd.log`: Holds communication logs between registry **<--->** agent **--->** controller.
 3. You can see the agents and registry logs via the UI in the controller dashboard it will be under the name of your host. 
-4. Holds communication logs between registry **<--->** agent **--->** controller. 
 
 ![agent logs](/images/anka-build/logs/dashboardlogs.png)
 
