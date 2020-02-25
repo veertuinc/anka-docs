@@ -3,7 +3,7 @@ title: "Anka Logs"
 linkTitle: "Anka Logs"
 weight: 3
 description: >
-  Location of logs
+  Working with Anka logs
 ---
 
 

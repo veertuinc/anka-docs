@@ -10,6 +10,7 @@ description: >
 
 Anka logs are available via the controller dashboard and several directories in correspondence with 'Anka' and it's microservices (controller, registry and agent). Generally, log files are created for each vm upon vm start.  
 Anka controller is responsible for cleaning unused vms logs. 
+* 
 
 ### Anka Controller 
 
@@ -29,7 +30,7 @@ Logs location : `/Library/Logs/Veertu/AnkaController`
 3. The controller is an API, so all the communication made from Anka-agent or CI platforms(Jenkins) stored in the controller logs. If a vm fails to start it suggests first to check this logs.
 
 
-### Anka Registrey and Agent 
+### Anka Registry and Agent 
 
 Logs location : `/var/log/veertu`
 1. Anka agent and registry share the same log files.
@@ -40,7 +41,7 @@ Logs location : `/var/log/veertu`
  * `anka_agent.WARNING` - contains WARNNIGS & ERRORS.
  * `anka_agent.ERROR` - contains just ERRORS.
  * `anka_agent.FATAL` - Only FATAL ERRORS (both controller and agent).
- 
+
 4. `vlaunchd.log`: Holds communication logs between registry **<--->** agent **--->** controller.
 3. You can see the agents and registry logs via the UI in the controller dashboard it will be under the name of your host. 
 
