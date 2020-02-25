@@ -4,13 +4,30 @@ title: "Current Changelog"
 linkTitle: "Current Changelog"
 weight: 11
 description: >
-  Published January 27, 2020 
+  Published February 24, 2020 
 ---
 
 ## Changelog
 
-### Jenkins Plugin Version 1.22.3
-- Bug Fix : Jenkins takes nodes offline before restart
-- Bug Fix : Jenkins logs Anka related messages when other agents (non anka) disconnects
-- Bug Fix : Jenkins leaves zombie VMs when restarting
+### Change Log Anka 2.2.1 change - Feb 24, 2020
+- Bug Fix : RFB server crash 0x0000000104fa0b8c rfb_thr + 1364
+- Bug Fix : Crash on suspend
+- Bug Fix : ankactl doesn't report vnc_password string
+- Bug Fix : Anka VM fails to start under jenkins master account
+- Bug Fix : Anka run --wait-network doesn't seem to work
+- Bug Fix : set resolution from anka view doesn't work.
+- Bug Fix : Anka version takes a few minutes to respond
+- Bug Fix : ankactl experiences EMFILE if there are many snapshots/vms in the library
+- Bug Fix : Adding MAC address using anka modify for bridge cards result in corrupted config file for VM
+- Bug Fix : Collision of anka and guest addons files
+- Bug Fix : VNC not working for when resolution of VM is changed to 1000*600
+- Bug Fix : Problems to detect IP address
+- Bug Fix : VM doesn't get unique IP address if static MAC address specified
+- New feature : Support IPv6 in anka rfb server
+- New feature : Allow to assign MAC address to VM
+- New feature : Create directories if missing with anka run --workdir (requires anka start -u)
+- New feature : Send HID events programmatically (requires anka start -u)
+- New feature : Create RFB threads on demand only
+- New feature : Give proper message in case of a VM trying to access out of range memory
 
+***NOTE*** There is no need to upgrade the VM templates from previous anka version 2.2 to version 2.2.1, unless you need to use the items from the above list which explicitly state the requirement of `anka start -u`.

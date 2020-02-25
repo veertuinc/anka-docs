@@ -44,16 +44,16 @@ Following command is used to administer network parameters of the VM.
 Options are:
 ```
   -t, --type [shared|host|bridge|disconnected]
-  -b, --bridge TEXT
-  -m, --mac TEXT
-
+  -b, --bridge TEXT               host interface name to bridge with (Wi-Fi is not supported)
+  -m, --mac TEXT                  specify fixed MAC address
+  -n, --no-mac                    deassign fixed MAC address
 ```
 INDEX is always 0 since Anka doesn’t support more than 1 NIC per VM now.
 
 ### Shared type
 It is the default network type operating as NAT + DHCP. Every VM after the start/resume gets an IP address assigned by the internal DHCP server in range 192.168.64.2 - 192.168.64.254. 
 
-In order to acces sthe host from inside the Vm use the IP. Programs inside a VM can access external networks (outside the host) and the Internet directly. Also, another VMs on the host are also accessible. Software services can not be accessed directly from external networks. To access such services port forwarding should be configured on the host.
+In order to access the host from inside the VM use the IP address of 192.168.64.1 (or 192.168.128.1 in host-only mode). Programs inside a VM can access external networks (outside the host) and the Internet directly. Also, other VMs on the host are also accessible. Software services can not be accessed directly from external networks. To access such services port forwarding should be configured on the host.
 
 ### Host type
 It is very similar to the shared one, but VMs get IP addresses from range 192.168.128.2 - 192.168.128.254 and can’t access external networks outside of the host.
