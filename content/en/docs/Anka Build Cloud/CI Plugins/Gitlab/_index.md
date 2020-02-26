@@ -54,7 +54,7 @@ Url and Token should be taken from the location of the above snapshot.
 
 ![gitlab agent info](/images/gitlabAgent-online.png)
 
-*if the runner is on an AWS instance you will need to allow its public IP in its inbound rules- so the runner will be able to connect to the instance***
+*if the runner is on an AWS instance you will need to allow the AWS instance public IP in its own inbound rules- so the runner will be able to connect to the instance.
 
 
 
