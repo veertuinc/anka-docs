@@ -6,7 +6,7 @@ title: "Using Teamcity and Anka Build Cloud"
 linkTitle: "Teamcity"
 weight: 6
 description: >
-  Instructions on how to use Teamcity with Anka Build Cloud
+Instructions on how to use Teamcity with Anka Build Cloud
 ---
 
 
