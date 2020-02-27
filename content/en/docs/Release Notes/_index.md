@@ -71,7 +71,6 @@ Other : Version number change to 1.5.4 to make it match with the mac package
 - New feature : Install AnkaView into /Applications
 - New feature : Allow to modify networking type of suspended VM
 - New feature : Allow to create VM with manual install process
-- New feature : Pass thru Anka license type from host to nested vm
 - New feature : Allow to start VMs via AnkaView interface
 - New feature : Support output fields list customization
 - New feature : Implement bridge support with new vmnet functionality
