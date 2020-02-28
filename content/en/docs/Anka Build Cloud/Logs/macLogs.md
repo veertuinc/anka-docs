@@ -10,7 +10,6 @@ description: >
 
 Anka logs are available via the controller dashboard and several directories in correspondence with 'Anka' and it's microservices (controller, registry and agent). Generally, log files are created for each vm upon vm start.  
 Anka controller is responsible for cleaning unused vms logs. 
-* anka Agent 
 
 ### Anka Controller 
 
