@@ -4,30 +4,17 @@ title: "Current Changelog"
 linkTitle: "Current Changelog"
 weight: 11
 description: >
-  Published February 24, 2020 
+  Published March 03, 2020 
 ---
 
 ## Changelog
 
-### Change Log Anka 2.2.1 change - Feb 24, 2020
-- Bug Fix : RFB server crash 0x0000000104fa0b8c rfb_thr + 1364
-- Bug Fix : Crash on suspend
-- Bug Fix : ankactl doesn't report vnc_password string
-- Bug Fix : Anka VM fails to start under jenkins master account
-- Bug Fix : Anka run --wait-network doesn't seem to work
-- Bug Fix : set resolution from anka view doesn't work.
-- Bug Fix : Anka version takes a few minutes to respond
-- Bug Fix : ankactl experiences EMFILE if there are many snapshots/vms in the library
-- Bug Fix : Adding MAC address using anka modify for bridge cards result in corrupted config file for VM
-- Bug Fix : Collision of anka and guest addons files
-- Bug Fix : VNC not working for when resolution of VM is changed to 1000*600
-- Bug Fix : Problems to detect IP address
-- Bug Fix : VM doesn't get unique IP address if static MAC address specified
-- New feature : Support IPv6 in anka rfb server
-- New feature : Allow to assign MAC address to VM
-- New feature : Create directories if missing with anka run --workdir (requires anka start -u)
-- New feature : Send HID events programmatically (requires anka start -u)
-- New feature : Create RFB threads on demand only
-- New feature : Give proper message in case of a VM trying to access out of range memory
+### Change Log Anka 2.2.2 change - Mar 03, 2020
+- Bug Fix : Nested virtualization not working since rel 2.2.0
+- Bug Fix : Anka command failed: time data ‘2020-02-27T03:52:23Z’ does not match format ‘%d %b %Y %H:%M:%S’
+- Bug Fix : license pass-through from root VM to nested VM doesn't work
+- Bug Fix : anka run sources both .bash_profile and .profile. Requires`anka start -u` for existing VM templates.
+- Bug Fix : after rebooting a running vm with anka run VM sudo reboot`,  network doesn't work.
+- New feature : Allow to specify display physical(DPI) parameters. Requires `anka start -u` for existing VM templates.
 
-***NOTE*** There is no need to upgrade the VM templates from previous anka version 2.2 to version 2.2.1, unless you need to use the items from the above list which explicitly state the requirement of `anka start -u`.
+***NOTE*** There is no need to upgrade the VM templates from previous anka version 2.2.1 to version 2.2.2, unless you need to use the items from the above list which explicitly state the requirement of `anka start -u`.

@@ -4,8 +4,58 @@ title: "What's New"
 linkTitle: "What's New"
 weight: 12
 description: >
-  Published February 24, 2020 
+  Published March 03, 2020 
 ---
+
+## What's New in Anka Version 2.2.2
+
+**License passthrough from host to nested enabled Anka VM**
+
+This feature enables you to install Anka binary package inside an Anka macOS VM and use it create and run Anka VMs.
+
+1. Enable nested for the Anka VM in which you want to install Anka binary.
+2. Install Anka binary package inside the VM.
+2. Execute `anka config propagate_license 1` on the host machine.
+3. Stop and start the nested enabled VM.
+4. Check with `sudo anka license show` inside the VM. It will show the host license information.
+
+**Set DPI for the VM**
+
+Added a new flag in `anka modify set display` command to set DPI for the VM.
+
+```
+anka modify set display [OPTIONS]
+  configure displays
+Options:
+  -c, --count INTEGER    configure number of displays (2 max)
+  --headless             same as --count 0
+  -p, --password         prompt for VNC password
+  -v, --vnc TEXT         configure VNC
+  --no-vnc               disable VNC access to the VM
+  -d, --dpi INTEGER      set DPI (default is 72)
+  -r, --resolution TEXT  set resolution, e.g. 1024x768 or 'default' to reset to default
+  --help                 Show this message and exit.
+```
+
+**Disable VNC access to the VM**
+
+Added a new flag in `anka modify set display` command to disable VNC access for the VM.
+
+```
+anka modify set display [OPTIONS]
+  configure displays
+Options:
+  -c, --count INTEGER    configure number of displays (2 max)
+  --headless             same as --count 0
+  -p, --password         prompt for VNC password
+  -v, --vnc TEXT         configure VNC
+  --no-vnc               disable VNC access to the VM
+  -d, --dpi INTEGER      set DPI (default is 72)
+  -r, --resolution TEXT  set resolution, e.g. 1024x768 or 'default' to reset to default
+  --help                 Show this message and exit.
+```
+
+
 
 ## What's New in Anka Version 2.2.1
 

@@ -8,15 +8,23 @@ description: >
 ---
 
 ## Anka (supported on all mac hardware including 2018 Mac Mini and 2019 Mac Pro)
-### Latest Version - Anka Version 2.2.1 and Controller & Registry 1.5.4
-- Anka Package - Version 2.2.1 - Feb 24, 2020
+### Latest Version - Anka Version 2.2.2 and Controller & Registry 1.5.4
+- Anka Package - Version 2.2.2 - Mar 03, 2020
 - Anka Controller & Registry combined Linux package - Version 1.5.4 - Jan 15, 2020
-- AnkaController & Registry Mac package - - Version 1.5.4 - Jan 15, 2020
+- Anka Controller & Registry Mac package - - Version 1.5.4 - Jan 15, 2020
 - Anka Jenkins plug-in - version 1.22.3 - Jan 27, 2020
 - Anka Teamcity plug-in - version 1.7.0 - Nov 05, 2019
 - Anka GitLabCI Integration - Updated Dec 08, 2019
 - Anka Packer Plugin Integration - Updated Dec 08, 2019
 - Anka Jenkins Slave template Builder plug-in - (Maintained only until version 1.5). Combined with Anka Jenkins plug-in version 1.20.
+
+### Change Log Anka 2.2.2 change - Mar 03, 2020
+- Bug Fix : Nested virtualization not working since rel 2.2.0
+- Bug Fix : Anka command failed: time data ‘2020-02-27T03:52:23Z’ does not match format ‘%d %b %Y %H:%M:%S’
+- Bug Fix : license pass-through from root VM to nested VM doesn't work
+- Bug Fix : anka run sources both .bash_profile and .profile. Requires`anka start -u` for existing VM templates.
+- Bug Fix : after rebooting a running vm with anka run VM sudo reboot`,  network doesn't work.
+- New feature : Allow to specify display physical(DPI) parameters. Requires`anka start -u` for existing VM templates.
 
 ### Change Log Anka 2.2.1 change - Feb 24, 2020
 - Bug Fix : RFB server crash 0x0000000104fa0b8c rfb_thr + 1364
