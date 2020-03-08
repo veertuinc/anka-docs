@@ -18,25 +18,26 @@ description: >
 - Anka Packer Plugin Integration - Updated Dec 08, 2019
 - Anka Jenkins Slave template Builder plug-in - (Maintained only until version 1.5). Combined in Anka Jenkins plug-in version 1.20.
 
-### Change Log Anka Controller & Registry combined package (Mac) - Mar 08, 2020
+### Change Log Anka Controller & Registry combined package (Mac) version 1.6.0 - Mar 08, 2020
 - Bug Fix : Jenkins plugin leaves zombie VMs after upgrade to version 2.204
 - Bug Fix : Anka registry pull hangs forever when run from agent if VM has a lot of image files
 - New feature : Handle vm start failures more robustly
 - New feature : Added a fail timeout for template distribution
 
-### Change Log Anka Controller & Registry combined package (Linux) - Mar 08, 2020
+### Change Log Anka Controller & Registry combined package (Linux) version 1.6.0 - Mar 08, 2020
 - Bug Fix : Jenkins plugin leaves zombie VMs after upgrade to version 2.204
 - Bug Fix : Anka registry pull hangs forever when run from agent if VM has a lot of image files
 - New feature : Handle vm start failures more robustly
 - New feature : Added a fail timeout for template distribution
 
-### Change Log Jenkins Plugin version - Mar 08, 2020
+### Change Log Jenkins Plugin version 1.22.4 - Mar 08, 2020
 - Bug Fix : Jenkins plugin leaves zombie VMs after Jenkins upgrade to 2.204
 - Bug Fix : Jenkins leaves zombie VMs when restarting
 - Bug Fix : Jenkins leaves zombie VMs when job has error on JNLP node
 - Bug Fix : Jenkins Job changing Jenkins Master node labels
 - Bug Fix : Jenkins JNLP Job starts more instances than it should
 - Bug Fix : Jenkins config hangs of controller IP is inaccessible
+
 ***Note*** Currently issues in amazon-ecs-plugin version 1.26 cause problems with Jenkins-Anka Plugin. In order to fix this, downgrade to amazon-ecs-plugin version 1.22 or disable amazon-ecs-plugin. Check https://github.com/jenkinsci/amazon-ecs-plugin/issues/158 for more details.
 
 ### Change Log Anka 2.2.2 change - Mar 03, 2020
