@@ -237,8 +237,6 @@ If this node/host is connected to the controller execute this command in system 
 
 The host from Anka VM has fixed IP address of `192.168.64.1` (or 192.168.128.1 in host-only mode).
 
-#### Bridge Networking add content
-
 ### Using an ISO file to create Anka VM - For Yosemite & ElCapitan VMs Only
 
 Use `create_macos_install_image.sh` included in the Anka package to first create an `.iso` from your Yosemite and ElCapitan `.app` installer.
