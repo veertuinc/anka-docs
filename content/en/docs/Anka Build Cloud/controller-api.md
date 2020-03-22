@@ -8,14 +8,40 @@ description: >
   How to work with the Anka Controller REST API.
 ---
 
-***Note*** Run these against IP:Port of the Controller.
+> Note
+> Run these against IP:Port of the Controller.
 
 Use the REST APIs to integrate Anka Build cloud with your CI system(If there is no plugin/integration available).
 
 ## VM Instance
+
+**Object Model:**
+
+Property       | Type   | Description 
+ ---           | ---    | ---
+instance_id    | string | identifier for the instance
+instance_state | string | the instance's state options are "Scheduling", "Pulling", "Started", "Stopping", "Stopped", "Terminating", "Terminated", "Error", "Pushing"
+message        | string | Error message in case of an error
+anka_registry  | string | the URL of the registry where the template is saved
+vmid           | string | the Id of the template that the VM is created from
+tag            | string | the template's tag 
+version        | int    | the template's version
+vminfo         | object | an object representing the VM itself 
+node_id        | string | the Id of the node where the VM is running
+inflight_reqid | string | the Id of the pending start VM request 
+ts             | datetime | time of the instance last update
+cr_time        | datetime | creation time of the instance
+progress       | float  | the pull progress, in case the VM is in state "Pulling"
+group_id       | string | the id of the group that the instance belongs to
+name           | string | name of the instance. non unique
+external_id    | string | a string saved with the instance, can be used to save the vm id on an external system. non unique
+
+
+
 ### Start VM instances 
 
-***Note*** Group_id, priority and USB_device is only available if you are running Enterprise and higher tier of Anka Build.
+> Note
+> Group_id, priority and USB_device is only available if you are running Enterprise and higher tier of Anka Build.
 
 **Description:** Start VM instances  
 **Path:**   /api/v1/vm  
@@ -29,9 +55,11 @@ Use the REST APIs to integrate Anka Build cloud with your CI system(If there is 
 **Optional Body Parameters:**   
 
  Parameter | Type   | Description       | Default
- ---       | ---    |   ---             | ---
+ ---       | ---    |   ---             | --- 
  tag       | string | Specify a specific tag to use | Latest tag.
  version   | int    | Specify a version number instead of a tag. | -
+ name      | string | A name for the instance. | -
+ external_id | string | An arbitrary string to be saved with the instance | -
  count     | int    | Number of instances to start. | 1
  node_id   | string | Start the instance on this specific node | -
  startup_script | string | Script to be executed after the instance is started, encoded as a base64 string. | -
@@ -58,6 +86,39 @@ Use the REST APIs to integrate Anka Build cloud with your CI system(If there is 
     "c983c3bf-a0c0-43dc-54dc-2fd9f7d62fce",
     "e74dfc0e-dc94-4ca2-575e-3219ac08ffa2"
   ]
+}
+```
+
+### Update Instance
+
+**Description:** Update VM Instance
+**Path:**  /api/v1/vm
+**Method:** PUT
+**Required Query Parameters**  
+
+ Parameter | Type   | Description 
+ ---       |   ---  |          ---
+ id      | string | Return the VM with that ID. If the vm does not exists the server will return the status `FAIL` 
+
+**Optional Body Parameters:**
+
+ Parameter     | Type   | Description              | Default
+ ---           | ---    |   ---                    | ---
+ name          | string | A name for the instance  | -
+ external_id   | string | An arbitrary string to be saved with the instance   | -
+
+ **Returns:**  
+- *status:* Operation Result (OK|FAIL)  
+- *message:* Error message in case of an error 
+
+**CURL Example**
+```shell
+ curl -X PUT "http://anka.controller.net/api/v1/vm?id=c0f36a87-41d9-44a8-66e1-6c5afae15b80" -H "Content-Type: application/json" \
+  -d '{"name": "My VM name"}'
+
+{
+  "status": "OK",
+  "message": ""
 }
 ```
 
@@ -117,6 +178,8 @@ curl  "http://anka.controller.net/api/v1/vm" -H "Content-Type: application/json"
    "body" : [
       {
          "instance_id" : "04b7ca7a-945c-4bdc-5123-68b2e4c8ad13",
+         "name": "My VM",
+         "external_id": "ly79930",
          "vm" : {
             "anka_registry" : "",
             "ts" : "2019-12-25T16:06:20.681609561Z",
@@ -247,6 +310,34 @@ curl "http://anka.controller.net/api/v1/vm?id=04b7ca7a-945c-4bdc-5123-68b2e4c8ad
 
 
 ## Node 
+
+**Object Model:**
+
+Property       | Type   | Description 
+ ---           | ---    | ---
+node_id        | string | The node's id
+node_name      | string | The node's name
+cpu_count      | int    | Quantity of CPU cores 
+ram            | int    | Amount of RAM in GB
+vm_count       | int    | Number of VMs currently running 
+vcpu_count     | int    | Number of running virtual CPUs
+vram           | int    | Amount of virtual RAM used
+cpu_util       | float  | CPU utilization (0-1)
+ram_util       | float  | RAM utilization (0-1)
+ip_address     | string | The IP address or host name of the node
+state          | string | State of the node values can be "Offline", "Inactive (Invalid License)", "Active", "Updating", "Unhealthy"
+capacity       | int    | Number of VMs the node can run
+groups         | list   | List of groups that the nodes belongs to
+anka_version   | object | An object representing the Anka information. running version, product name, license. 
+usb_devices    | list   | List of USB devices connected to the node
+capacity_mode  | string | Node's capacity mode, options are `number` (number of running VMs) or `resource` (VCPUs and VRAM) 
+vcpu_override  | int    | VCPU scheduling limit, when using capacity mode `resource`  
+ram_override   | int    | VRAM scheduling limit, when using capacity mode `resource`
+disk_size      | int    | Node's disk size in bytes
+free_disk_space | int   | Node's free disk space in bytes
+anka_disk_usage | int   | Disk space used by Anka in bytes
+
+
 ### List Nodes
 
 **Description:** List all build nodes joined to the controller  
@@ -292,6 +383,9 @@ curl "http://anka.controller.net/api/v1/node" -H "Content-Type: application/json
             "version" : "2.1.2",
             "license" : "com.veertu.anka.entplus"
          },
+         "free_disk_space" : 155624185856,
+         "anka_disk_usage" : 38274388000,
+         "disk_size" : 250135076864,
          "ram" : 64,
          "ram_override" : 0,
          "capacity_mode" : "number"
@@ -327,6 +421,9 @@ curl  "http://anka.controller.net/api/v1/node?id=f8707005-4630-4c9c-8403-c9c5964
             "version" : ""
          },
          "capacity_mode" : "",
+         "free_disk_space" : 155624185856,
+         "anka_disk_usage" : 38274388000,
+         "disk_size" : 250135076864,
          "cpu_util" : 0.08308069,
          "node_name" : "MacPro-02.local",
          "node_id" : "f8707005-4630-4c9c-8403-c9c5964097f6",
@@ -381,7 +478,8 @@ curl -X POST "http://anka.controller.net/api/v1/node/config" -H "Content-Type: a
 
 ### Delete Node.
 
-***Note*** To remove a Node from the cluster, execute `ankacluster disjoin` on the Node. 
+> Note
+> To remove a Node from the cluster, execute `ankacluster disjoin` on the Node. 
 
 **Description:** Remove Nodes that do not exist anymore or have crashed  
 **Path:** /api/v1/node  
@@ -408,6 +506,33 @@ curl -X DELETE "http://anka.controller.net/api/v1/node" -H "Content-Type: applic
 ```
 
 ## Template
+
+**Template Object Model:**
+
+Property       | Type   | Description 
+ ---           | ---    | ---
+id             | string | The ID of the template
+name           | string | Template's name
+size           | int    | Total size of all Template's files on the registry in bytes. Including images, state files (suspend state), configuration files for all tags/versions  
+
+**Tag/Version Object Model:**
+
+*Each template has multiple Tags/Versions*
+
+Property       | Type   | Description 
+---            |   ---  | ---
+tag            | string | Tag name of the version
+number         | int    | Serial number of the version (between versions)
+description    | string | Tag's description
+images         | list   | A list of image file names that this tag contains
+state_files    | list   | A list of state file names (suspend state) that this tag contains
+state_file     | string | Name of the state file (in case there multiple state files) 
+size           | int    | Total size of all tag's files on registry in bytes.
+nvram          | string | Name of the nvram file
+config_file    | string | Name of the tag's config file
+
+
+ 
 ### List Templates  
 
 **Description:** List all templates stored in the Registry.  
@@ -450,35 +575,37 @@ curl -X DELETE "http://anka.controller.net/api/v1/node" -H "Content-Type: applic
 curl "http://anka.controller.net/api/v1/registry/vm" 
 
 {
+   "message" : "",
    "body" : [
       {
-         "name" : "android-2",
-         "id" : "00510971-5c37-4a60-a9c6-ea185397d9b4"
-      },
-      {
          "id" : "0bf1a7e8-be95-43d9-a0c8-68c6aed0f2dd",
-         "name" : "jenkins-slave-3"
+         "name" : "jenkins-slave",
+         "size" : 16427892736
       },
       {
-         "name" : "tc-slave1",
-         "id" : "59adf1a8-c239-11e8-821d-c4b301c47c6b"
+         "id" : "1820b42d-6581-46af-bf42-f64caa1e9633",
+         "name" : "Mojave-base",
+         "size" : 20643704832
       },
       {
-         "name" : "jenkins-slave-anka-2",
-         "id" : "59e10bfe-4a1a-4d26-9fe7-448e9df2e7fc"
+         "id" : "2fa0f10e-e91e-4665-8d42-00a39b9707de",
+         "name" : "Catalina-Xcode-11",
+         "size" : 17834520576
       },
       {
-         "name" : "gitlab-slave",
-         "id" : "7e5ffad1-c24d-11e8-911f-c4b301c47c6b"
+         "name" : "CachedBuidMojave",
+         "id" : "36fc63bb-6841-4528-9480-a9c44dc2740d",
+         "size" : 15040651264
       },
       {
-         "name" : "mojave-base",
-         "id" : "d4d38e0e-ba96-4ace-b42d-002155257bb1"
+         "name" : "android-2",
+         "id" : "59adf1a8-c239-11e8-821d-c4b301c47c6b",
+         "size" : 19698943312
       }
    ],
-   "status" : "OK",
-   "message" : ""
+   "status" : "OK"
 }
+
 
 # Get Single Template 
 
@@ -496,6 +623,7 @@ curl "http://anka.controller.net/api/v1/registry/vm?id=00510971-5c37-4a60-a9c6-e
                "c19ba955c706475e9aeade79f174a925.ank"
             ],
             "number" : 0,
+            "size" : 16634568704,
             "description" : "",
             "nvram" : "nvram",
             "images" : [
@@ -610,7 +738,8 @@ curl -X DELETE  "http://anka.controller.net/api/v1/registry/revert?id=a3cc47f0-3
 
 ### Distribute Template
 
-***Note*** Group_id is only available if you are running Enterprise tier of Anka Build.  
+> Note
+> Group_id is only available if you are running Enterprise tier of Anka Build.  
 
 **Description:** Distribute a specific VM template to all or some build nodes.  
 **Path:**  /api/v1/registry/vm/distribute  

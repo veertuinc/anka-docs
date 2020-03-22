@@ -88,8 +88,12 @@ anka registry list
 
 ### List VMS  
 
+> **Note**   
+> This is a new API introduced in version 1.7.0  
+> Old path /registry/vm still works for backward compatibility.
+
 **Description:** List all VMs stored in the Registry.  
-**Path:** /registry/vm  
+**Path:** /registry/v2/vm  
 **Method:** GET  
 **Optional Query Parameters**  
 
@@ -100,12 +104,13 @@ anka registry list
 
  **Returns:** 
  - *Status:* Operation Result (OK|FAIL)  
- - *Body*:  Map of VM id to name or VM (if id supplied)
+ - *Body*:  List of VM objects. If id supplied, also returns list of versions.
  - *message:* Error message in case of an error 
 
 **Template format**
  - *name:* Template's name
  - *id:* Template's id
+ - *size:* Total size of all Template's files on the registry in bytes
  - *versions:* Array of Version objects. 
 
 **Version format**
@@ -116,6 +121,7 @@ anka registry list
  - *state_files:* List of state file names (suspend images)
  - *config_file:* Name of the version's VM config file
  - *nvram:* Name of the VM nvram file
+ - *size:* Total size of all version's files on registry in bytes.
 
 **CURL Example**  
 ```shell
@@ -127,13 +133,19 @@ curl "http://anka.registry.net:8089/registry/vm"
    "message" : "",
    "body" : [
       {
-         "cb1473f2-1f0a-413c-a376-236bfd7d718f" : "jenkins-slave-0"
+         "id" : "0bf1a7e8-be95-43d9-a0c8-68c6aed0f2dd",
+         "name" : "jenkins-slave",
+         "size" : 16427892736
       },
       {
-         "d4d38e0e-ba96-4ace-b42d-002155257bb1" : "mojave-base"
+         "id" : "1820b42d-6581-46af-bf42-f64caa1e9633",
+         "name" : "Mojave-base",
+         "size" : 20643704832
       },
       {
-         "dd981f75-c6ed-11e8-bb55-c4b301c47c6b" : "jenkins-slave"
+         "id" : "2fa0f10e-e91e-4665-8d42-00a39b9707de",
+         "name" : "Catalina-Xcode-11",
+         "size" : 17834520576
       }
    ],
    "status" : "OK"
@@ -148,6 +160,7 @@ curl "http://anka.registry.net:8089/registry/vm?id=00510971-5c37-4a60-a9c6-ea185
    "body" : {
       "name" : "android-2",
       "id" : "00510971-5c37-4a60-a9c6-ea185397d9b4",
+      "size" : 18795192320,
       "versions" : [
          {
             "config_file" : "00510971-5c37-4a60-a9c6-ea185397d9b4.yaml",
@@ -155,6 +168,7 @@ curl "http://anka.registry.net:8089/registry/vm?id=00510971-5c37-4a60-a9c6-ea185
                "c19ba955c706475e9aeade79f174a925.ank"
             ],
             "number" : 0,
+            "size" : 18795192320
             "description" : "",
             "nvram" : "nvram",
             "images" : [
