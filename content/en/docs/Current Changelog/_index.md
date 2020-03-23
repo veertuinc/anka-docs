@@ -9,25 +9,32 @@ description: >
 
 ## Changelog
 
-### Change Log Anka Controller & Registry combined package (Mac) version 1.6.0 - Mar 08, 2020
-- Bug Fix : Jenkins plugin leaves zombie VMs after upgrade to version 2.204
-- Bug Fix : Anka registry pull hangs forever when run from agent if VM has a lot of image files
-- New feature : Handle vm start failures more robustly
-- New feature : Added a fail timeout for template distribution
+### Change Log Anka Controller & Registry combined package (Mac) version 1.7.0 - Mar 23, 2020
+- Bug Fix : ankacluster doesn't pass max vm count to agent
+- Bug Fix : Node upgrade request is sometimes sent more than once
+- Bug Fix : Distribute not showing progress
+- Bug Fix : Controller moves from ‘enterprise’ to ‘basic’ after uninstall and upgrade anka from 2.2.1 to 2.2.2
+- New feature : Display node storage usage information in the controller dashboard
+- New feature : Show size of templates in the controller dashboard
+- New feature : Show a link to the jenkins job that the vm is running in the controller dashboard
+- New feature : Put prompt while deleting template from the controller dashboard
+- New feature : add reserve disk flag in ankacluster command
+- New feature : Add the option to recover from a crash while uploading files to registry
 
-### Change Log Anka Controller & Registry combined package (Linux) version 1.6.0 - Mar 08, 2020
-- Bug Fix : Jenkins plugin leaves zombie VMs after upgrade to version 2.204
-- Bug Fix : Anka registry pull hangs forever when run from agent if VM has a lot of image files
-- New feature : Handle vm start failures more robustly
-- New feature : Added a fail timeout for template distribution
+### Change Log Anka Controller & Registry combined package (Linux) version 1.7.0 - Mar 23, 2020
+- Bug Fix : ankacluster doesn't pass max vm count to agent
+- Bug Fix : Node upgrade request is sometimes sent more than once
+- Bug Fix : Distribute not showing progress
+- Bug Fix : Controller moves from ‘enterprise’ to ‘basic’ after uninstall and upgrade anka from 2.2.1 to 2.2.2
+- New feature : Display node storage usage information in the controller dashboard
+- New feature : Show size of templates in the controller dashboard
+- New feature : Show a link to the jenkins job that the vm is running in the controller dashboard
+- New feature : Put prompt while deleting template from the controller dashboard
+- New feature : add reserve disk flag in ankacluster command
+- New feature : Add the option to recover from a crash while uploading files to registry
 
-### Change Log Jenkins Plugin version version 1.22.4 - Mar 08, 2020
-- Bug Fix : Jenkins plugin leaves zombie VMs after Jenkins upgrade to 2.204
-- Bug Fix : Jenkins leaves zombie VMs when restarting
-- Bug Fix : Jenkins leaves zombie VMs when job has error on JNLP node
-- Bug Fix : Jenkins Job changing Jenkins Master node labels
-- Bug Fix : Jenkins JNLP Job starts more instances than it should
-- Bug Fix : Jenkins config hangs of controller IP is inaccessible
+### Change Log Jenkins Plugin version 1.23.0 - Mar 23, 2020
+- Bug Fix : Controller IP is inaccessible from the Jenkins and Jenkins page is stuck on “loading” forever
 
 ***Note*** Currently issues in amazon-ecs-plugin version 1.26 cause problems with Jenkins-Anka Plugin. In order to fix this, downgrade to amazon-ecs-plugin version 1.22 or disable amazon-ecs-plugin. Check https://github.com/jenkinsci/amazon-ecs-plugin/issues/158 for more details.
 

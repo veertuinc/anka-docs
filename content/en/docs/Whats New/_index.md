@@ -7,6 +7,26 @@ description: >
   Published March 03, 2020 
 ---
 
+## What's New in Controller Version 1.7.0
+
+**Disk Usage for Node is displayed in the controller Dahsboard and REST API**
+
+![Node Disk Usage Information](/images/whatsnew/Nodestorageinfo.png)
+
+**Size information for Templates and tags is displayed in the controller dashboard and REST API**
+
+![Template Size Information](/images/whatsnew/templatesize.png)
+
+**Jenkins job/Node information is displayed for the VM provisioned in the controller dashboard**
+
+![Jenkins Job Information](/images/whatsnew/JenkinsInfoportal.png)
+
+**New reserve disk flag in ankacluster join command**
+
+When `–reserve-space` flag is set, controller will always reserve the disk space before pulling VM template on the node. If there is not enough disk space after allocating for `–reserve-space`, then controller will not pull the Vm Template. This flag is provided to avoid scenario where there is no disk psace left on the node to accomodate for extra disk usage duing builds inside the VM.
+
+![reservedisk ankacluster flah](/images/whatsnew/ankaclusterreservediskspace.png)
+
 ## What's New in Anka Version 2.2.2
 
 **License passthrough from host to nested enabled Anka VM**

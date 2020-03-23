@@ -10,13 +10,40 @@ description: >
 ## Anka (supported on all mac hardware including 2018 Mac Mini and 2019 Mac Pro)
 ### Latest Version - Anka Version 2.2.2 and Controller & Registry 1.6.0
 - Anka Package - Version 2.2.2 - Mar 03, 2020
-- Anka Controller & Registry combined Linux package - Version 1.6.0 - Mar 08, 2020
-- Anka Controller & Registry Mac package - - Version 1.6.0 - Mar 08, 2020
-- Anka Jenkins plug-in - version 1.22.4 - Mar 08, 2020
+- Anka Controller & Registry combined Linux package - Version 1.7.0 - Mar 23, 2020
+- Anka Controller & Registry Mac package - - Version 1.7.0 - Mar 23, 2020
+- Anka Jenkins plug-in - version 1.23.0 - Mar 23, 2020
 - Anka Teamcity plug-in - version 1.7.0 - Nov 05, 2019
 - Anka GitLabCI Integration - Updated Dec 08, 2019
 - Anka Packer Plugin Integration - Updated Dec 08, 2019
 - Anka Jenkins Slave template Builder plug-in - (Maintained only until version 1.5). Combined in Anka Jenkins plug-in version 1.20.
+
+### Change Log Anka Controller & Registry combined package (Mac) version 1.7.0 - Mar 23, 2020
+- Bug Fix : ankacluster doesn't pass max vm count to agent
+- Bug Fix : Node upgrade request is sometimes sent more than once
+- Bug Fix : Distribute not showing progress
+- Bug Fix : Controller moves from ‘enterprise’ to ‘basic’ after uninstall and upgrade anka from 2.2.1 to 2.2.2
+- New feature : Display node storage usage information in the controller dashboard
+- New feature : Show size of templates in the controller dashboard
+- New feature : Show a link to the jenkins job that the vm is running in the controller dashboard
+- New feature : Put prompt while deleting template from the controller dashboard
+- New feature : add reserve disk flag in ankacluster command
+- New feature : Add the option to recover from a crash while uploading files to registry
+
+### Change Log Anka Controller & Registry combined package (Linux) version 1.7.0 - Mar 23, 2020
+- Bug Fix : ankacluster doesn't pass max vm count to agent
+- Bug Fix : Node upgrade request is sometimes sent more than once
+- Bug Fix : Distribute not showing progress
+- Bug Fix : Controller moves from ‘enterprise’ to ‘basic’ after uninstall and upgrade anka from 2.2.1 to 2.2.2
+- New feature : Display node storage usage information in the controller dashboard
+- New feature : Show size of templates in the controller dashboard
+- New feature : Show a link to the jenkins job that the vm is running in the controller dashboard
+- New feature : Put prompt while deleting template from the controller dashboard
+- New feature : add reserve disk flag in ankacluster command
+- New feature : Add the option to recover from a crash while uploading files to registry
+
+### Change Log Jenkins Plugin version 1.23.0 - Mar 23, 2020
+- Bug Fix : Controller IP is inaccessible from the Jenkins and Jenkins page is stuck on “loading” forever
 
 ### Change Log Anka Controller & Registry combined package (Mac) version 1.6.0 - Mar 08, 2020
 - Bug Fix : Jenkins plugin leaves zombie VMs after upgrade to version 2.204

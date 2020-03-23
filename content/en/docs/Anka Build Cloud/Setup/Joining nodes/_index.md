@@ -41,7 +41,7 @@ All of the following flags are optional.
 |--max-vm-count|-m       |number |  Maximum number of VMs this node is allowed to run (default 2)
 |--host|-H |string|  Specify host name or IP for this machine (Default: resolve IP automatically)
 |--name|-n |NAME |  Node name alias
-|--reserve-space| - | Size  | Disk space to reserve when pulling. Number followed by magnitude (1024B, 10KB, 140MB, 45GB...)
+|--reserve-space| - | Size  | Disk space to reserve when pulling. Number followed by magnitude (1024B, 10KB, 140MB, 45GB...). When `–reserve-space` flag is set, controller will always reserve the disk space before pulling VM template on the node. If there is not enough disk space after allocating for `–reserve-space`, then controller will not pull the Vm Template. This flag is provided to avoid scenario where there is no disk psace left on the node to accomodate for extra disk usage duing builds inside the VM.
 |--heartbeat  | - | duration (5s is 5 seconds) | Override the duration between updates
 | --no-central-logging | - | no value |Don't send logs to central logging system
 |--groups|-G | string   | Specify group name (or names sepearated by ',') to add this node to
@@ -65,6 +65,9 @@ All of the following flags are optional.
 Executing the command with the `--help` flag will show the usage:  
 
 ```
+
+ankacluster join --help
+Joins the current machine to Anka Cloud cluster
 
 Usage:
   ankacluster join [controller_address] [flags]
