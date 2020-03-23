@@ -8,7 +8,7 @@ description: >
 ---
 
 ## Anka (supported on all mac hardware including 2018 Mac Mini and 2019 Mac Pro)
-### Latest Version - Anka Version 2.2.2 and Controller & Registry 1.6.0
+### Latest Version - Anka Version 2.2.2 and Controller & Registry 1.7.0
 - Anka Package - Version 2.2.2 - Mar 03, 2020
 - Anka Controller & Registry combined Linux package - Version 1.7.0 - Mar 23, 2020
 - Anka Controller & Registry Mac package - - Version 1.7.0 - Mar 23, 2020
