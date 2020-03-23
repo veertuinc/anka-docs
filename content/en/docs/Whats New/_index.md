@@ -4,7 +4,7 @@ title: "What's New"
 linkTitle: "What's New"
 weight: 12
 description: >
-  Published March 03, 2020 
+  Published March 23, 2020 
 ---
 
 ## What's New in Controller Version 1.7.0

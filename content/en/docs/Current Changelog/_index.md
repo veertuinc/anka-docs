@@ -4,7 +4,7 @@ title: "Current Changelog"
 linkTitle: "Current Changelog"
 weight: 11
 description: >
-  Published March 08, 2020 
+  Published March 23, 2020 
 ---
 
 ## Changelog
