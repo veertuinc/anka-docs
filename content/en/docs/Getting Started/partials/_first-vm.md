@@ -34,11 +34,11 @@ sudo anka license activate <key>
 Use the App Store to download a MacOS install package of your choosing.  
 Here's a link to the MacOS Mojave install page - <a href="https://itunes.apple.com/us/app/macos-mojave/id1398502828?ls=1&mt=12" target="_blank"> https://itunes.apple.com/us/app/macos-mojave/id1398502828?ls=1&mt=12 </a>.
 
-After the download is complete the files will be at `/Applications/Install macOS Mojave.app` (different MacOS versions will be called differently). 
+After the download is complete, the files will be inside `/Applications` and look something like `Install macOS Mojave.app`.
 
 ##### Using a script
 You can use the *"installinstallmacos.py"* script from this [Github repository](https://github.com/munki/macadmin-scripts)
- (requires python installed).  
+ (requires python).  
 
 Download and run the script:  
 ```shell
@@ -47,38 +47,24 @@ sudo chmod +x installinstallmacos.py
 sudo ./installinstallmacos.py --raw
 ```
 
-The script downloads a disk image or a dmg, so further steps are necessary in order to create an Anka VM.
-Create a directory for the app:  
+The script downloads an image to the location of the .py script, so further steps are necessary to create an Anka VM:
+
 ```shell
 mkdir -p /tmp/app
-```
-Attach the image using *hdiutil* (assuming `$IMAGE_PATH` is the path to the image you downloaded):    
-```shell
-hdiutil attach "$IMAGE_PATH" -mountpoint /tmp/app
-```
-Copy the files to the `Applications` folder
-```shell
-sudo cp -r "/tmp/app/Applications/Install macOS Mojave.app" /Applications/
-```
-Detach the image:
-```shell
-sudo hdiutil detach /tmp/app -force
-```
-Delete the downloaded Image:
-```shell
-rm -f "$IMAGE_PATH"
+hdiutil attach "{installinstallmacos.py image path}" -mountpoint /tmp/app
+cp -r "/tmp/app/Applications/Install macOS Mojave.app" /Applications/
+hdiutil detach /tmp/app -force
+rm -f "{installinstallmacos.py image path}"
 ```
 
-
-After downloading the MacOS application you can now create your vm!
-
+After downloading the macOS application, you can now create your vm!
 
 ### Create the VM
-Use `anka create` command to create macOS VMs from the `.app` installer app.  
+Use the `anka create` command to create macOS VMs from the `.app` installer app:
 
 ```shell
 anka create --app /Applications/Install\ macOS\ Mojave.app/ mojave-base
 ```
 
-The VM creation should take around 30 minutes or so.  
+The VM creation should take around 30 minutes or so. Please be patient!
 
