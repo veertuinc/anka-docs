@@ -1,70 +1,63 @@
 
 
 
-### Install Anka CLI
+### Install the Anka CLI
 
-#### Download latest Anka PKG
-Download the file from [Anka Build Download page](https://veertu.com/download-anka-build/).
+#### Download the latest Anka PKG
 ```shell
 curl -L -o Anka.pkg https://veertu.com/downloads/ankabuild-latest
 ```
+- You can find the various Anka Build packages on the [Anka Build download page](https://veertu.com/download-anka-build/).
 
-#### Install Anka PKG
-cd to the directory containing the file (if you are in another directory), then run:
+#### Install the Anka PKG
 ```shell
 sudo installer -pkg Anka.pkg -tgt /
 ```
 
-#### Verify installation
-Verify the installation by running `anka version` command.
+#### Verify the installation
 ```shell 
 anka version
-
-Anka Build Basic version 2.1.2 (build 112)
 ```
+- Output should be similar to `Anka Build Basic version 2.1.2 (build 112)`.
 
-#### License activation
-Activate your license using the anka license command and your license key:
+#### Activate your Anka license
 ```
 sudo anka license activate <key>
 ```
 
-#### Download MacOS installer
-##### Using the App Store
-Use the App Store to download a MacOS install package of your choosing.  
-Here's a link to the MacOS Mojave install page - <a href="https://itunes.apple.com/us/app/macos-mojave/id1398502828?ls=1&mt=12" target="_blank"> https://itunes.apple.com/us/app/macos-mojave/id1398502828?ls=1&mt=12 </a>.
+### Create a VM Template
 
-After the download is complete, the files will be inside `/Applications` and look something like `Install macOS Mojave.app`.
+#### Obtain the macOS installer
 
-##### Using a script
-You can use the *"installinstallmacos.py"* script from this [Github repository](https://github.com/munki/macadmin-scripts)
- (requires python).  
+There are multiple ways to obtain the installer .app file for Mac OSX that we'll detail for you below:
 
-Download and run the script:  
-```shell
-curl --fail --silent -L -O https://raw.githubusercontent.com/munki/macadmin-scripts/master/installinstallmacos.py
-sudo chmod +x installinstallmacos.py
-sudo ./installinstallmacos.py --raw
-```
+1. If you have a pending upgrade to the next minor or patch version of macOS:
+    - Within `Preferences -> Software Update -> Advanced`, make sure `Download new updates when available` is checked, but `Install macOS updates` is not. While you're still within `Software Update`, click `Update Now` but do not install the next version (Restart) until after you've created the anka VM or the Install .app under /Applications will be deleted.
+    - Or from the terminal, run `sudo softwareupdate --fetch-full-installer --full-installer-version 10.15.4` to download the installer.
+    - You can also use the App Store to download (not suggested).
+2. If you're on the recent version of macOS and don't have any installer .app files under `/Applications`, you can use the [installinstallmacos.py](https://github.com/munki/macadmin-scripts) script (requires python):
 
-The script downloads an image to the location of the .py script, so further steps are necessary to create an Anka VM:
+    - Download and run the script:  
+      ```shell
+      curl --fail --silent -L -O https://raw.githubusercontent.com/munki/macadmin-scripts/master/installinstallmacos.py
+      sudo chmod +x installinstallmacos.py
+      sudo ./installinstallmacos.py --raw
+      ```
 
-```shell
-mkdir -p /tmp/app
-hdiutil attach "{installinstallmacos.py image path}" -mountpoint /tmp/app
-cp -r "/tmp/app/Applications/Install macOS Mojave.app" /Applications/
-hdiutil detach /tmp/app -force
-rm -f "{installinstallmacos.py image path}"
-```
+    - The script downloads an image to the location of the .py script, so further steps are necessary to create an Anka VM:
+      ```shell
+      mkdir -p /tmp/app
+      hdiutil attach "<installinstallmacos.py image path>" -mountpoint /tmp/app
+      cp -r "/tmp/app/Applications/Install macOS Mojave.app" /Applications/
+      hdiutil detach /tmp/app -force
+      rm -f "<installinstallmacos.py image path>"
+      ```
+3. Have your local IT department provide a network volume or download links.
 
-After downloading the macOS application, you can now create your vm!
-
-### Create the VM
-Use the `anka create` command to create macOS VMs from the `.app` installer app:
-
+#### Run Anka Create to generate the Template
 ```shell
 anka create --app /Applications/Install\ macOS\ Mojave.app/ mojave-base
 ```
 
-The VM creation should take around 30 minutes or so. Please be patient!
+The VM creation should take around 30 minutes. Please be patient!
 
