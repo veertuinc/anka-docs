@@ -121,7 +121,7 @@ Double click on the .pkg to start the UI install process.
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_controller-listening-on-80-and-orientation.md" >}}
 
-#### Configuration and scripts
+#### [Configuration and scripts](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference)
 
 The Anka Controller **and** Registry start-stop executable script is at `/usr/local/bin/anka-controller`. To see what functions it has, execute the script with root privileges.
 ```shell 
@@ -129,24 +129,28 @@ sudo anka-controller
 usage: /usr/local/bin/anka-controller [start|stop|restart|status|logs]
 ```
 When `sudo anka-controller start` is executed, the script will use `launchd` to load the daemon: `/Library/LaunchDaemons/com.veertu.anka.controller.plist`.
- - Anka Controller and Registry run script is at `/usr/local/bin/anka-controllerd`. This file acts as a run script **and configuration file**. You can modify it to change the default ports used: https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference
+ - The Anka Controller and Registry run script is `/usr/local/bin/anka-controllerd`. This file acts as a run script **and configuration file**. You can modify it to change the default ports used by adding the proper option or ENV. For example, if you want to run the registry on a different port and use localhost, you would add the following above the $CONTROLLER_BIN line ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference)): 
+    ```shell
+    export ANKA_ANKA_REGISTRY="http://127.0.0.1:8081"
+    export ANKA_REGISTRY_LISTEN_ADDRESS=":8081" 
+    ```
 
-#### Logs
+#### [Logging](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging)
 
 Logs are written to `/Library/Logs/Veertu/AnkaController` by default:
 ```shell
-tail -f /Library/Logs/Veertu/AnkaController/anka-controller.INFO
-tail -f /Library/Logs/Veertu/AnkaController/anka-controller.WARNING
-tail -f /Library/Logs/Veertu/AnkaController/anka-controller.ERROR
+/Library/Logs/Veertu/AnkaController/anka-controller.INFO
+/Library/Logs/Veertu/AnkaController/anka-controller.WARNING
+/Library/Logs/Veertu/AnkaController/anka-controller.ERROR
 ```
-  - You can modify the location in the `/usr/local/bin/anka-controllerd` file.
+  - You can modify the destination in the `/usr/local/bin/anka-controllerd` file.
 
 You can also tail -f the logs using the `anka-controller` command:
 ```shell
 sudo anka-controller logs
 ```
 
-The [log level](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging) can be modified from the default 0 value. The higher the number, the more verbose the logging.
+The log level can be modified from the default 0 value. The higher the number, the more verbose the logging.
 
 Great! now that we have our Anka Controller and Registry up and running let's add Nodes!
 
