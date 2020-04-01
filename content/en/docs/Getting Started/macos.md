@@ -83,8 +83,9 @@ There are multiple ways to obtain the installer .app file for Mac OSX that we'll
 3. Have your local IT department provide a network volume or download links.
 
 #### Run Anka Create to generate the Template
+Assuming you chose to download Mojave:
 ```shell
-anka create --app /Applications/Install\ macOS\ Mojave.app/ mojave-base
+anka create --app /Applications/Install\ macOS\ Mojave.app/ 10.14.6
 ```
 
 The VM creation should take around 30 minutes. You can continue on to Step 2 while you wait for this to finish.
@@ -145,7 +146,7 @@ Logs are written to `/Library/Logs/Veertu/AnkaController` by default:
 ```
   - You can modify the destination in the `/usr/local/bin/anka-controllerd` file.
 
-You can also tail -f the logs using the `anka-controller` command:
+You can also watch the logs live:
 ```shell
 sudo anka-controller logs
 ```
@@ -157,7 +158,6 @@ Great! now that we have our Anka Controller and Registry up and running let's ad
 ## Step 3. Add Nodes
 
 **Perform this on the machine you created your first VM on**
-
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_push-to-registry.md" >}}
 

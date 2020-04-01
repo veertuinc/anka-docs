@@ -1,37 +1,38 @@
 
 ### Configure the Registry
-We will configure the registry on this machine, so we can push the VM to it. Saving the VM on the Registry makes it possible to download and run it from other nodes. 
-When executing the commands replace `192.168.1.10` with IP of the machine running your Registry. Assuming you haven't changed the default port configuration, your Registry is serving requests on port `8089`.
 
-Execute the `registry add` command to add your Registry to Anka CLI.
+We now need to configure the registry on this machine so we can push the local VM Template we created earlier to it. Saving the Template on the Registry makes it possible to download and run it from other nodes.
+
+_Assuming you haven't changed the default port configuration, your Registry is serving requests on port `8089`._
+
+Execute the `registry add` command to add your Registry to Anka CLI:
 ```shell
-anka registry add MyRegistry http://192.168.1.10:8089
+anka registry add <registry name here> http://<ip>:8089
 ```
-Verify the configuration:  
-```shell
-anka registry list  # this command should succeed
 
+Verify the configuration:
+```shell
 anka registry list-repos
 ++
 ++
 
-MyRegistry (default)
+<registry name you set> (default)
 
-+--------+---------------+
-| host   | 192.168.1.10 |
-+--------+---------------+
-| scheme | http          |
-+--------+---------------+
-| port   | 8089          |
-+--------+---------------+
++--------+------------------+
+| host   | <the ip you set> |
++--------+------------------+
+| scheme | http             |
++--------+------------------+
+| port   | 8089             |
++--------+------------------+
 
+anka registry list  # this command should succeed
 
 ```
 
-### Push the VM 
-Assuming your VM is called `mojave-base`, execute the `registry push` command:  
+### Push the VM to the Registry
 ```shell
-anka registry push mojave-base -t base
+anka registry push 10.14.6 -t base
 ```
 
 
