@@ -1,18 +1,18 @@
 
-### Configure the Registry
+### Link the Registry
 
-We now need to configure the registry on this machine so we can push the local VM Template we created earlier to it. Saving the Template on the Registry makes it possible to download and run it from other nodes.
+We now need to configure the registry on this machine so we can push/upload the local VM Template we created earlier. Uploading the Template to the Registry makes it possible to download and run it from other nodes.
 
 _Assuming you haven't changed the default port configuration, your Registry is serving requests on port `8089`._
 
 Execute the `registry add` command to add your Registry to Anka CLI:
 ```shell
-anka registry add <registry name here> http://<ip>:8089
+sudo anka registry add <registry name here> http://<ip>:8089
 ```
 
 Verify the configuration:
 ```shell
-anka registry list-repos
+sudo anka registry list-repos
 ++
 ++
 
@@ -26,13 +26,13 @@ anka registry list-repos
 | port   | 8089             |
 +--------+------------------+
 
-anka registry list  # this command should succeed
+sudo anka registry list  # this command should succeed
 
 ```
 
 ### Push the VM to the Registry
 ```shell
-anka registry push 10.14.6 -t base
+sudo anka registry push 10.14.6 -t base
 ```
 
 

@@ -10,17 +10,17 @@ description: >
 
 Welcome! this tutorial will guide you through setting up your Anka Build Cloud on Mac OS.
 
-## Necessary hardware 
+## Necessary hardware
 
-1. Mac running Mac OS to install Anka Controller + Registry.
-2. At least one Mac running Mac OS to install Anka CLI as a Node.
+1. A Mac to install the Anka Controller & Registry.
+2. A second Mac to install the Anka CLI (the "Node").
 
-You can complete this tutorial with only one machine running Mac OS, but it's less recommended. 
+_You can complete this tutorial with only one machine running Mac OS, but it's not recommended._
 
 ## What we will do in this tutorial
 1. Install Anka CLI + Create your first VM Template
-2. Install Anka Controller and Registry
-3. Add one or more Macs as Nodes
+2. Install Anka Controller & Registry
+3. Link the Anka CLI Node to the Controller
 4. Start a VM instance using the Anka Build Cloud web interface
 
 ## Step 1. Install Anka CLI + Create your first VM Template
@@ -28,6 +28,8 @@ You can complete this tutorial with only one machine running Mac OS, but it's le
 **Perform the following steps on the machine that is intended to be the Node.**
 
 ### Install the Anka CLI
+
+- "Nodes" are the host machines you want to run the Anka VMs. You can use any Apple hardware for this.
 
 #### Download the latest Anka PKG
 ```shell
@@ -90,9 +92,9 @@ anka create --app /Applications/Install\ macOS\ Mojave.app/ 10.14.6
 
 The VM creation should take around 30 minutes. You can continue on to Step 2 while you wait for this to finish.
 
-## Step 2. Install Anka Controller and Registry
+## Step 2. Install Anka Controller & Registry
 
-**Perform the following steps on the machine intended to run the Controller and Registry**
+**Perform the following steps on the machine intended to run the Controller & Registry.**
 
 ### Download the Controller & Registry PKG
 
@@ -102,7 +104,7 @@ If you are more comfortable with the command line, you can download the file wit
 curl -S -L -o ~/Downloads/AnkaControllerRegistry.pkg https://veertu.com/downloads/ankacontroller-registry-mac-latest
 ```
 
-### Install
+### Install the Controller & Registry PKG
 
 Double click on the .pkg to start the UI install process.
 - Or, you can install the package using the command line:
@@ -124,13 +126,13 @@ Double click on the .pkg to start the UI install process.
 
 #### [Configuration and scripts](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference)
 
-The Anka Controller **and** Registry start-stop executable script is at `/usr/local/bin/anka-controller`. To see what functions it has, execute the script with root privileges.
+The Anka Controller **AND Registry** command is installed into `/usr/local/bin/anka-controller`. To see what functions it has, execute the script with root privileges.
 ```shell 
 sudo anka-controller
 usage: /usr/local/bin/anka-controller [start|stop|restart|status|logs]
 ```
 When `sudo anka-controller start` is executed, the script will use `launchd` to load the daemon: `/Library/LaunchDaemons/com.veertu.anka.controller.plist`.
- - The Anka Controller and Registry run script is `/usr/local/bin/anka-controllerd`. This file acts as a run script **and configuration file**. You can modify it to change the default ports used by adding the proper option or ENV. For example, if you want to run the registry on a different port and use localhost, you would add the following above the $CONTROLLER_BIN line ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference)): 
+ - The Anka Controller & Registry run script is `/usr/local/bin/anka-controllerd`. This file acts as a run script **and configuration file**. You can modify it to change the default ports used by adding the proper option or ENV. For example, if you want to run the registry on a different port and use localhost, you would add the following above the $CONTROLLER_BIN line ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference)): 
     ```shell
     export ANKA_ANKA_REGISTRY="http://127.0.0.1:8081"
     export ANKA_REGISTRY_LISTEN_ADDRESS=":8081" 
@@ -153,36 +155,61 @@ sudo anka-controller logs
 
 The log level can be modified from the default 0 value. The higher the number, the more verbose the logging.
 
-Great! now that we have our Anka Controller and Registry up and running let's add Nodes!
+Great! now that we have our Anka Controller & Registry up and running let's add Nodes!
 
-## Step 3. Add Nodes
+## Step 3. Link the Anka CLI Node to the Controller
 
-**Perform this on the machine you created your first VM on**
+**Perform the following steps on the Node where you created your first VM Template.**
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_push-to-registry.md" >}}
 
-After the push is finished you should be able to see your new Template in the "templates" section.
+After the push is finished you should see your new Template in the "templates" section of the controller UI.
 
 ![Your first template](/images/getting-started/push-template.png)
 
+{{< include file="shared/content/en/docs/Getting Started/partials/_join-node-to-controller.md" >}}
 
-{{< include file="shared/content/en/docs/Getting Started/partials/_add-node.md" >}}
+**Repeat this process on other Nodes that you want to join (Anka CLI needs to be installed).**
 
-**Repeat this process on other machines that you want to join as Nodes (Anka CLI needs to be installed)**
+## Step 4. Start a VM instance using the Controller UI
 
+{{< include file="shared/content/en/docs/Getting Started/partials/_start-vm-from-controller.md" >}}
 
-## Step 4. Start a VM instance using the Anka Dashboard
+You can now confirm the Instance is running from inside the Node:
 
+- JSON output is available for scripting/automation using `anka --machine-readable`
+    
+```
+sudo anka --machine-readable list | jq
+{
+  "status": "OK",
+  "body": [
+    {
+      "status": "suspended",
+      "name": "10.14.6",
+      "stop_date": "2020-04-01T21:30:59.798697Z",
+      "creation_date": "2020-04-01T00:00:13.656296Z",
+      "version": "base",
+      "uuid": "10c720eb-dcce-46f7-baa3-28bacef0ec0f"
+    },
+    {
+      "status": "running",
+      "name": "mgmtManaged-10.14.6-1585776660490226000",
+      "stop_date": "2020-04-01T21:36:11.742662Z",
+      "creation_date": "2020-04-01T21:31:01.055250Z",
+      "version": "",
+      "uuid": "dcbeb319-421a-4d30-8466-194eb7fa5f75"
+    }
+  ],
+  "message": ""
+}
+```
 
-{{< include file="shared/content/en/docs/Getting Started/partials/_start-vm-dash.md" >}}
+## What next?
 
-
-
-## Where to go next?
-
-Browse [Anka CLI Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).  
-Connect your cloud to a [CI server]({{< relref "docs/Anka Build Cloud/CI Plugins/_index.md" >}}).  
-Find out how to use the [Controller REST API]({{< relref "docs/Anka Build Cloud/controller-api.md">}}).  
-Learn how to work with [USB devices]({{< relref "docs/Anka Build Cloud/using-real-devices-attached-to-anka-vms.md">}})
+- Browse the [Anka CLI Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).  
+- Connect your cloud to a [CI server]({{< relref "docs/Anka Build Cloud/CI Plugins/_index.md" >}}).  
+- Find out how to use the [Controller REST API]({{< relref "docs/Anka Build Cloud/controller-api.md">}}).  
+- Learn how to work with [USB devices]({{< relref "docs/Anka Build Cloud/using-real-devices-attached-to-anka-vms.md">}})
 
 
