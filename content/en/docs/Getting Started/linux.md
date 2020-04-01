@@ -1,50 +1,32 @@
 
 ---
-title: "Getting started with Anka Build Cloud on Linux Using Docker"
-linkTitle: "Run Anka Build Cloud on Linux Using Docker"
+title: "Getting started with Anka Build Cloud on Linux using Docker"
+linkTitle: "Run Anka Build Cloud on Linux using Docker"
 weight: 3
 description: >
   Set up your Anka Build Cloud on Linux.
 ---
 
-Welcome! this tutorial will guide you through setting up your Anka Build Cloud on Linux using Docker and docker-compose.
-
+Welcome! This tutorial will guide you through setting up your Anka Build Cloud on Linux using Docker and docker-compose.
 
 ## Necessary hardware 
 
-1. A machine running Linux to install Anka Controller + Registry on. 
-2. At least one Mac running Mac OS to install Anka CLI as a Node.
+1. A machine running Linux to install the Anka Controller & Registry.
+2. A Mac to install Anka CLI as a Node.
 
-> ***note***  
-> While it's possible to run docker on mac, it's not recommended.  
-> Performance should be far from optimal.
+> ***NOTE***  
+> While it's possible to run docker on mac, it's not recommended. An Anka Controller & Registry package exists.
 
 ## Necessary software
-We will be using on your Linux machine, so if you don't have docker and docker-compose installed please install it now.
-{{< ext-link href="https://docs.docker.com/install/" text="Install docker" >}}.  
-{{< ext-link href="https://docs.docker.com/compose/install/" text="Install docker-compose" >}}.  
-Be sure to follow the {{< ext-link href="https://docs.docker.com/install/linux/linux-postinstall/" text="Post Installation setup" >}} in order to run docker-compose without using sudo.  
+1. Docker and Docker Compose
+    - {{< ext-link href="https://docs.docker.com/install/" text="Install docker" >}}.  
+    - {{< ext-link href="https://docs.docker.com/compose/install/" text="Install docker-compose" >}}. Be sure to follow the {{< ext-link href="https://docs.docker.com/install/linux/linux-postinstall/" text="Post Installation setup" >}} in order to run docker-compose without using sudo.  
 
+{{< include file="shared/content/en/docs/Getting Started/partials/_step1.md" >}}
 
-## What we will do in this tutorial
-1. Create your first VM
-2. Install Anka Controller and Registry
-3. Add one or more Macs as Nodes
-4. Start a VM instance using the Anka Build Cloud web interface
+## Step 2. Install Anka Controller & Registry
 
-## Step 1. Create your first VM
-
-
-**Perform the following steps on a mac machine that is intended to be a Node.**
-
-
-{{< include file="shared/content/en/docs/Getting Started/partials/_first-vm.md" >}}
-For more commands and options, see [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
-While you wait for the VM creation, continue and perform step 2.
-
-## Step 2. Install Anka Controller and Registry
-
-**Perform the following steps on the machine intended to run the Controller and Registry**
+**Perform the following steps on the machine intended to run the Controller & Registry**
 
 ### Download the tar package
 Download the file called "Cloud Controller & Registry (Run on Linux Instance)" from {{< ext-link href="https://veertu.com/download-anka-build" text="Anka Build Download page" >}}.
@@ -181,38 +163,4 @@ docker logs --follow anka-registry-1
 
 The log level is a number starting with 0 as the lowest, the higher the log level means more verbose. The default log level is 0 . 
 
-
-Great! now that we have our Anka Controller and Registry up and running let's add Nodes!
-
-
-## Step 3. Add Nodes
-
-**Perform this on the machine you created your first VM on**
-
-
-{{< include file="shared/content/en/docs/Getting Started/partials/_push-to-registry.md" >}}
-
-After the push is finished you should be able to see your new Template in the "templates" section.
-
-![Your first template](/images/getting-started/push-template.png)
-
-
-{{< include file="shared/content/en/docs/Getting Started/partials/_add-node.md" >}}
-
-**Repeat this process on other machines that you want to join as Nodes (Anka CLI needs to be installed)**
-
-
-## Step 4. Start a VM instance using the Anka Dashboard
-
-
-{{< include file="shared/content/en/docs/Getting Started/partials/_start-vm-dash.md" >}}
-
-
-
-## Where to go next?
-
-Browse [Anka CLI Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).  
-Connect your cloud to a [CI server]({{< relref "docs/Anka Build Cloud/CI Plugins/_index.md" >}}).  
-Find out how to use the [Controller REST API]({{< relref "docs/Anka Build Cloud/controller-api.md">}}).  
-Learn how to work with [USB devices]({{< relref "docs/Anka Build Cloud/using-real-devices-attached-to-anka-vms.md">}})
-
+{{< include file="shared/content/en/docs/Getting Started/partials/_step3-and-4.md" >}}
