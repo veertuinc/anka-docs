@@ -7,7 +7,6 @@ description: >
   Set up your Anka Build Cloud on Mac OS.
 ---
 
-
 Welcome! This tutorial will guide you through setting up your Anka Build Cloud.
 
 ## Necessary hardware
@@ -16,6 +15,8 @@ Welcome! This tutorial will guide you through setting up your Anka Build Cloud.
 2. A second Mac to install the Anka CLI (the "Node").
 
 _You can complete this tutorial with only one machine running Mac OS, but it's not recommended._
+
+{{< include file="shared/content/en/docs/Getting Started/partials/_what-we-will-do.md" >}}
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_step1.md" >}}
 
@@ -51,7 +52,7 @@ Double click on the .pkg to start the UI install process.
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_controller-listening-on-80-and-orientation.md" >}}
 
-#### [Configuration and scripts](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference)
+#### Configuration and scripts ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference))
 
 The Anka Controller **AND Registry** command is installed into `/usr/local/bin/anka-controller`. To see what functions it has, execute the script with root privileges.
 ```shell 
@@ -65,7 +66,7 @@ When `sudo anka-controller start` is executed, the script will use `launchd` to 
     export ANKA_REGISTRY_LISTEN_ADDRESS=":8081" 
     ```
 
-#### [Logging](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging)
+#### Logging
 
 Logs are written to `/Library/Logs/Veertu/AnkaController` by default:
 ```shell
@@ -73,7 +74,7 @@ Logs are written to `/Library/Logs/Veertu/AnkaController` by default:
 /Library/Logs/Veertu/AnkaController/anka-controller.WARNING
 /Library/Logs/Veertu/AnkaController/anka-controller.ERROR
 ```
-  - You can modify the destination in the `/usr/local/bin/anka-controllerd` file.
+  - You can modify the destination in the `/usr/local/bin/anka-controllerd` file ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging)).
 
 You can also watch the logs live:
 ```shell

@@ -7,7 +7,7 @@ description: >
   Create your first VM using Anka CLI.
 ---
 
-{{< include file="shared/content/en/docs/Getting Started/partials/_first-vm.md" >}}
+{{< include file="shared/content/en/docs/Getting Started/partials/_step1.md" >}}
 For more commands and options, see [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
 
 

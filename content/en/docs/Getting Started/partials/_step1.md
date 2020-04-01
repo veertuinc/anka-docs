@@ -1,11 +1,3 @@
-## What we will do in this tutorial
-1. Install Anka CLI + Create your first VM Template
-2. Install Anka Controller & Registry
-3. Link the Anka CLI Node to the Controller
-4. Start a VM instance using the Controller UI
-
-## Step 1. Install Anka CLI + Create your first VM Template
-
 **Perform the following steps on the machine that is intended to be a Node.**
 - "Nodes" are the host machines you want to run the Anka VMs. You can use any Apple hardware for this.
 
