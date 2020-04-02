@@ -55,7 +55,7 @@ First, edit the `docker-compose.yml`.
 1. Under `anka-controller > environment`, find the variable **ANKA_REGISTRY_ADDR**.  
 2. Next to it, replace ***\*\*\*EDIT_ME\*\*\**** with the URL of your Registry: 
     
-    {{< highlight shell "hl_lines=21-22" >}}
+    {{< highlight shell "hl_lines=22" >}}
 
       . . .
 
