@@ -16,7 +16,7 @@ Welcome! This tutorial will guide you through setting up your Anka Build Cloud.
 
 _You can complete this tutorial with only one machine running Mac OS, but it's not recommended._
 
-{{< include file="shared/content/en/docs/Getting Started/partials/_what-we-will-do.md" >}}
+{{< include file="shared/content/en/docs/Getting Started/partials/_what-we-are-doing.md" >}}
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_install-anka-cli.md" >}}
 
@@ -31,7 +31,7 @@ For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/
 
 ### Download the Controller & Registry PKG
 
-Download the file called "Cloud Controller & Registry (Run on Mac)" from {{< ext-link href="https://veertu.com/download-anka-build" text="Anka Build Download page" >}}.
+Download the file called "Cloud Controller & Registry (Run on Mac)" from {{< ext-link href="https://veertu.com/download-anka-build" text="Anka Build Download page." >}}
 If you are more comfortable with the command line, you can download the file with curl:
 ```shell
 curl -S -L -o ~/Downloads/AnkaControllerRegistry.pkg https://veertu.com/downloads/ankacontroller-registry-mac-latest
@@ -66,7 +66,7 @@ sudo anka-controller
 usage: /usr/local/bin/anka-controller [start|stop|restart|status|logs]
 ```
 When `sudo anka-controller start` is executed, the script will use `launchd` to load the daemon: `/Library/LaunchDaemons/com.veertu.anka.controller.plist`.
- - The Anka Controller & Registry run script is `/usr/local/bin/anka-controllerd`. This file acts as a run script **and configuration file**. You can modify it to change the default ports used by adding the proper option or ENV. For example, if you want to run the registry on a different port and use 127.0.0.1, you would add the following above the `"$CONTROLLER_BIN"` line ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference)): 
+ - The Anka Controller & Registry run script is `/usr/local/bin/anka-controllerd`. This file acts as a run script **and configuration file**. You can modify it to change the default ports used by adding the proper option or ENV. For example, if you want to run the Registry on a different port and use 127.0.0.1, you would add the following above the `"$CONTROLLER_BIN"` line ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference)): 
     ```shell
     export ANKA_ANKA_REGISTRY="http://127.0.0.1:8081"
     export ANKA_REGISTRY_LISTEN_ADDRESS=":8081" 

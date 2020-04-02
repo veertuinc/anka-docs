@@ -1,5 +1,5 @@
 
-Great! now that we have our Anka Controller & Registry up and running let's add Nodes!
+Great! Now that we have our Anka Controller & Registry up and running, let's add Nodes!
 
 ## Step 3. Link the Anka CLI Node to the Controller
 
@@ -8,7 +8,7 @@ Great! now that we have our Anka Controller & Registry up and running let's add 
 
 ### Add the Registry
 
-We now need to configure the registry on this machine so we can push/upload the local VM Template we created earlier. Uploading the Template to the Registry makes it possible to download and run it from other nodes.
+We now need to configure the Registry on this machine so we can push/upload the local VM Template we created earlier. Uploading the Template to the Registry makes it possible to download and run it from other nodes.
 
 _Assuming you haven't changed the default port configuration, your Registry is serving requests on port `8089`._
 
@@ -42,7 +42,7 @@ sudo anka registry list
 sudo anka registry push mojave-base -t base
 ```
 
-After the push is finished you should see your new Template in the "Templates" section of the controller UI.
+After the push completes, you should see your new Template in the "Templates" section of the controller UI.
 
 ![Your first template](/images/getting-started/push-template.png)
 
@@ -58,12 +58,12 @@ Cluster join success
 ```
 
 - Replace `<ip>` with the IP of the machine hosting your controller:
-- If you changed the default port for the controller (from 80), you'll need to put it on the end of the IP. Otherwise, leave it off and it will automatically use 80.
+- If you changed the default port for the controller (from 80), you'ds need to add the new port at the end of the IP. Otherwise, leave it off.
 
-The command may hang for a few moments before printing `"Cluster join success"`. In that period of time, any errors that occur will be printed. Please report any errors you find to support@veertu.com.
+The command may hang for a few moments and then display `"Cluster join success"`. Please report any errors you find to support@veertu.com.
 
 > ***NOTE***  
-> Repeat this process on other Nodes that you want to join (Anka CLI needs to be installed).
+> Repeat this process on other Nodes that you want to join (after installing Anka CLI).
 
 ## Step 4. Start a VM instance using the Controller UI
 
@@ -71,14 +71,14 @@ The command may hang for a few moments before printing `"Cluster join success"`.
 
     ![your instances view](/images/getting-started/instances.png)
 
-2. Click on **Create Instance(s)**, the **Create New Instances** view will open:
+2. Click on **Create Instance(s)**, and the **Create New Instances** view displays:
 
     ![new instances view](/images/getting-started/new-instance.png)
 
-3. Select the VM Template and click **Start**. the **Create New Instances** view will close and return you to the **Instances** view. You should now see the Instance in a `Scheduling` or `Pulling` **State**:
+3. Select the VM Template and click **Start**. The **Create New Instances** view closes and returns you to the **Instances** view. You should now see the Instance in a `Scheduling` or `Pulling` **State**:
     ![a scheduling instance](/images/getting-started/scheduling.png)
 
-4. After the `Scheduling` and `Pulling` finishes, the VM will start on one of the Nodes and show a `Started` **State**:
+4. After the `Scheduling` and `Pulling` finishes, the VM starts on one of the Nodes and shows a `Started` **State** in the Controller UI:
 
     ![a started instance](/images/getting-started/started-vm.png)
 

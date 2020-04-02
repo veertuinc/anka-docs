@@ -7,7 +7,7 @@ description: >
   Set up your Anka Build Cloud on Linux.
 ---
 
-Welcome! This tutorial will guide you through setting up your Anka Build Cloud on Linux using Docker and docker-compose.
+Welcome! This tutorial guides you through setting up your Anka Build Cloud on Linux using Docker and Docker-Compose.
 
 ## Necessary hardware 
 
@@ -15,13 +15,13 @@ Welcome! This tutorial will guide you through setting up your Anka Build Cloud o
 2. A Mac to install Anka CLI as a Node.
 
 > ***NOTE***  
-> While it's possible to run docker on mac, it's not recommended. An Anka Controller & Registry package exists.
+> While it's possible to run Docker on mac, it's not recommended. An Anka Controller & Registry package exists.
 
 ## Necessary software
 1. {{< ext-link href="https://docs.docker.com/install/" text="Docker" >}} 
-2. {{< ext-link href="https://docs.docker.com/compose/install/" text="Docker-compose" >}}. Be sure to follow the {{< ext-link href="https://docs.docker.com/install/linux/linux-postinstall/" text="Post Installation setup" >}} in order to run docker-compose without using sudo.  
+2. {{< ext-link href="https://docs.docker.com/compose/install/" text="Docker-Compose" >}}. Be sure to follow the {{< ext-link href="https://docs.docker.com/install/linux/linux-postinstall/" text="Post Installation setup" >}} in order to run docker-compose without using sudo.  
 
-{{< include file="shared/content/en/docs/Getting Started/partials/_what-we-will-do.md" >}}
+{{< include file="shared/content/en/docs/Getting Started/partials/_what-we-are-doing.md" >}}
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_install-anka-cli.md" >}}
 
@@ -55,7 +55,7 @@ tar -xzvf ~/anka-controller-registry.tar.gz
 
 We'll need to do two things:
 1. Set the  **external registry address** -- This address is passed to the Nodes so they can pull VM Templates from the Registry.  
-2. Mount a volume for the Registry data -- The directory will contain VM disk images and configuration files.
+2. Mount a volume for the Registry data -- The directory containing VM disk images and configuration files.
 
 First, edit the `docker-compose.yml`.
 1. Under `anka-controller > environment`, find the variable **ANKA_REGISTRY_ADDR**.  
@@ -87,7 +87,7 @@ First, edit the `docker-compose.yml`.
           ANKA_REGISTRY_ADDR: ****EDIT_ME****               
           
           # Local Anka registry address
-          # This address will be used by the controller. 
+          # This address is used by the Controller. 
 
       . . .
 
@@ -144,7 +144,7 @@ First, edit the `docker-compose.yml`.
 docker-compose up -d
 ```
 
-It will now build your containers and run the services defined as a daemon.
+This command builds your containers and runs the services defined as a daemon.
 
 > ***NOTE***  
 > To stop the docker containers, run: `docker-compose down`
@@ -164,12 +164,12 @@ aa1de7c150e7        test_anka-controller   "/bin/bash -c 'anka-…"   About a mi
 {{< include file="shared/content/en/docs/Getting Started/partials/_controller-listening-on-80-and-orientation.md" >}}
 
 #### Configuration and scripts
-Configuration is done by editing `docker-compose.yml`. Most of the stuff you can configure is listed there but commented out.
+Make configurations by editing `docker-compose.yml`. Most of the stuff you can configure is listed there but commented out.
 
 Check out the variables under the `environment` section of each service. [A full reference is available.](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference)
 
 #### Logging
-Containers are writing logs to stderr, making them available to docker.  
+Containers are writing logs to stderr, making them available to Docker.  
 To see the Controller's logs:  
 ```shell
 docker logs --tail 100 -f test_anka-controller_1

@@ -1,5 +1,5 @@
 > ***NOTE***  
-> Perform the following steps on the machine that is intended to be a Node.
+> Perform the following steps on the machines you intend to be Nodes.
 > "Nodes" are the host machines you want to run the Anka VMs. You can use any Apple hardware for this.
 
 ### Install the Anka CLI
@@ -19,7 +19,7 @@ sudo installer -pkg Anka.pkg -tgt /
 ```shell 
 anka version
 ```
-- Output should be similar to `Anka Build Basic version 2.1.2 (build 112)`.
+- The output should be similar to `Anka Build Basic version 2.1.2 (build 112)`.
 
 #### Activate your Anka license
 ```
