@@ -6,7 +6,6 @@ Great! now that we have our Anka Controller & Registry up and running let's add 
 > ***NOTE***  
 > Perform the following steps on the Node where you created your first VM Template.
 
-
 ### Add the Registry
 
 We now need to configure the registry on this machine so we can push/upload the local VM Template we created earlier. Uploading the Template to the Registry makes it possible to download and run it from other nodes.
