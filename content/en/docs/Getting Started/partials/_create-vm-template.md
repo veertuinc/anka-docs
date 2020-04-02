@@ -1,33 +1,3 @@
-> ***NOTE***  
-> Perform the following steps on the machine that is intended to be a Node.
-> "Nodes" are the host machines you want to run the Anka VMs. You can use any Apple hardware for this.
-
-### Install the Anka CLI
-
-#### Download the latest Anka PKG
-```shell
-curl -L -o Anka.pkg https://veertu.com/downloads/ankabuild-latest
-```
-- You can find the various Anka Build packages on the [Anka Build download page](https://veertu.com/download-anka-build/).
-
-#### Install the Anka PKG
-```shell
-sudo installer -pkg Anka.pkg -tgt /
-```
-
-#### Verify the installation
-```shell 
-anka version
-```
-- Output should be similar to `Anka Build Basic version 2.1.2 (build 112)`.
-
-#### Activate your Anka license
-```
-sudo anka license activate <key>
-```
-
-For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
-
 ### Create a VM Template
 
 #### Obtain the Mac OS installer
@@ -60,7 +30,7 @@ There are multiple ways to obtain the installer .app file for Mac OSX that we'll
 #### Run Anka Create to generate the Template
 Assuming you chose to download Mojave:
 ```shell
-anka create --app /Applications/Install\ Mac OS\ Mojave.app/ 10.14.6
+anka create --app /Applications/Install\ Mac OS\ Mojave.app/ mojave-base
 ```
 
 The VM creation should take around 30 minutes. You can continue on to Step 2 while you wait for this to finish.

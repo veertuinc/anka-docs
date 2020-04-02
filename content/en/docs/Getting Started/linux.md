@@ -24,7 +24,11 @@ Welcome! This tutorial will guide you through setting up your Anka Build Cloud o
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_what-we-will-do.md" >}}
 
-{{< include file="shared/content/en/docs/Getting Started/partials/_step1.md" >}}
+{{< include file="shared/content/en/docs/Getting Started/partials/_install-anka-cli.md" >}}
+
+For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
+
+{{< include file="shared/content/en/docs/Getting Started/partials/_create-vm-template.md" >}}
 
 ## Step 2. Install Anka Controller & Registry
 
@@ -173,5 +177,11 @@ docker logs --tail 100 -f test_anka-registry_1
 
 The log level can be modified from the default 0 value. The higher the number, the more verbose the logging ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging)).
 
-
 {{< include file="shared/content/en/docs/Getting Started/partials/_step3-and-4.md" >}}
+
+## What next?
+
+- Browse the [Anka CLI Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).  
+- Connect your cloud to a [CI server]({{< relref "docs/Anka Build Cloud/CI Plugins/_index.md" >}}).  
+- Find out how to use the [Controller REST API]({{< relref "docs/Anka Build Cloud/controller-api.md">}}).  
+- Learn how to work with [USB devices]({{< relref "docs/Anka Build Cloud/using-real-devices-attached-to-anka-vms.md">}})

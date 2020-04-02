@@ -18,7 +18,11 @@ _You can complete this tutorial with only one machine running Mac OS, but it's n
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_what-we-will-do.md" >}}
 
-{{< include file="shared/content/en/docs/Getting Started/partials/_step1.md" >}}
+{{< include file="shared/content/en/docs/Getting Started/partials/_install-anka-cli.md" >}}
+
+For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
+
+{{< include file="shared/content/en/docs/Getting Started/partials/_create-vm-template.md" >}}
 
 ## Step 2. Install Anka Controller & Registry
 
@@ -42,6 +46,7 @@ Double click on the .pkg to start the UI install process.
     ```
 
 ### Verify your installation
+Two methods are available:
 - Use the CLI status command:
   ```shell
   sudo anka-controller status
@@ -55,13 +60,13 @@ Double click on the .pkg to start the UI install process.
 
 #### Configuration and scripts ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference))
 
-The Anka Controller **AND Registry** command is installed into `/usr/local/bin/anka-controller`. To see what functions it has, execute the script with root privileges.
+The Anka Controller **AND Registry** command is installed into `/usr/local/bin/anka-controller`. To see what functions it has, execute the script with root privileges:
 ```shell 
 sudo anka-controller
 usage: /usr/local/bin/anka-controller [start|stop|restart|status|logs]
 ```
 When `sudo anka-controller start` is executed, the script will use `launchd` to load the daemon: `/Library/LaunchDaemons/com.veertu.anka.controller.plist`.
- - The Anka Controller & Registry run script is `/usr/local/bin/anka-controllerd`. This file acts as a run script **and configuration file**. You can modify it to change the default ports used by adding the proper option or ENV. For example, if you want to run the registry on a different port and use localhost, you would add the following above the $CONTROLLER_BIN line ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference)): 
+ - The Anka Controller & Registry run script is `/usr/local/bin/anka-controllerd`. This file acts as a run script **and configuration file**. You can modify it to change the default ports used by adding the proper option or ENV. For example, if you want to run the registry on a different port and use 127.0.0.1, you would add the following above the `"$CONTROLLER_BIN"` line ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference)): 
     ```shell
     export ANKA_ANKA_REGISTRY="http://127.0.0.1:8081"
     export ANKA_REGISTRY_LISTEN_ADDRESS=":8081" 
@@ -75,13 +80,21 @@ Logs are written to `/Library/Logs/Veertu/AnkaController` by default:
 /Library/Logs/Veertu/AnkaController/anka-controller.WARNING
 /Library/Logs/Veertu/AnkaController/anka-controller.ERROR
 ```
-  - You can modify the destination in the `/usr/local/bin/anka-controllerd` file ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging)).
+> ***NOTE***   
+> You can modify the destination in the `/usr/local/bin/anka-controllerd` file ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging)).
 
-You can also watch the logs live:
+You can also watch the logs live (similar to tail -f):
 ```shell
 sudo anka-controller logs
 ```
-
-The log level can be modified from the default 0 value. The higher the number, the more verbose the logging.
+> ***NOTE***   
+> The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging))
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_step3-and-4.md" >}}
+
+## What next?
+
+- Browse the [Anka CLI Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).  
+- Connect your cloud to a [CI server]({{< relref "docs/Anka Build Cloud/CI Plugins/_index.md" >}}).  
+- Find out how to use the [Controller REST API]({{< relref "docs/Anka Build Cloud/controller-api.md">}}).  
+- Learn how to work with [USB devices]({{< relref "docs/Anka Build Cloud/using-real-devices-attached-to-anka-vms.md">}})
