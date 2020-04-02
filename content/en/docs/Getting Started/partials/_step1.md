@@ -1,5 +1,6 @@
-**Perform the following steps on the machine that is intended to be a Node.**
-- "Nodes" are the host machines you want to run the Anka VMs. You can use any Apple hardware for this.
+> ***NOTE***  
+> Perform the following steps on the machine that is intended to be a Node.
+> "Nodes" are the host machines you want to run the Anka VMs. You can use any Apple hardware for this.
 
 ### Install the Anka CLI
 

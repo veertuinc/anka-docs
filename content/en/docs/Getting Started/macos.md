@@ -22,7 +22,8 @@ _You can complete this tutorial with only one machine running Mac OS, but it's n
 
 ## Step 2. Install Anka Controller & Registry
 
-**Perform the following steps on the machine intended to run the Controller & Registry.**
+> ***NOTE***  
+> Perform the following steps on the machine intended to run the Controller & Registry.
 
 ### Download the Controller & Registry PKG
 

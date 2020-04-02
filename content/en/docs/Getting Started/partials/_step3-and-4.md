@@ -3,7 +3,8 @@ Great! now that we have our Anka Controller & Registry up and running let's add 
 
 ## Step 3. Link the Anka CLI Node to the Controller
 
-**Perform the following steps on the Node where you created your first VM Template.**
+> ***NOTE***  
+> Perform the following steps on the Node where you created your first VM Template.
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_push-to-registry.md" >}}
 
@@ -13,7 +14,8 @@ After the push is finished you should see your new Template in the "templates" s
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_join-node-to-controller.md" >}}
 
-**Repeat this process on other Nodes that you want to join (Anka CLI needs to be installed).**
+> ***NOTE***  
+> Repeat this process on other Nodes that you want to join (Anka CLI needs to be installed).
 
 ## Step 4. Start a VM instance using the Controller UI
 
