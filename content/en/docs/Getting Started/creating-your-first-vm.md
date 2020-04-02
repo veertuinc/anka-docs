@@ -7,7 +7,8 @@ description: >
   Create your first VM using Anka CLI.
 ---
 
-{{< include file="shared/content/en/docs/Getting Started/partials/_first-vm.md" >}}
-For more commands and options, see [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
+{{< include file="shared/content/en/docs/Getting Started/partials/_install-anka-cli.md" >}}
 
+For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
 
+{{< include file="shared/content/en/docs/Getting Started/partials/_create-vm-template.md" >}}
