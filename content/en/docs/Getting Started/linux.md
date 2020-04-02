@@ -28,7 +28,8 @@ Welcome! This tutorial will guide you through setting up your Anka Build Cloud o
 
 ## Step 2. Install Anka Controller & Registry
 
-**Perform the following steps on the machine intended to run the Controller & Registry**
+> ***NOTE***  
+> Perform the following steps on the machine intended to run the Controller & Registry.
 
 ### Download the Controller & Registry archive
 
