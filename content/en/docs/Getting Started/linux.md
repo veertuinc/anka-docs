@@ -19,7 +19,7 @@ Welcome! This tutorial guides you through setting up your Anka Build Cloud on Li
 
 ## Necessary software
 1. {{< ext-link href="https://docs.docker.com/install/" text="Docker" >}} 
-2. {{< ext-link href="https://docs.docker.com/compose/install/" text="Docker-Compose" >}}. Be sure to follow the {{< ext-link href="https://docs.docker.com/install/linux/linux-postinstall/" text="Post Installation setup" >}} in order to run docker-compose without using sudo.  
+2. {{< ext-link href="https://docs.docker.com/compose/install/" text="Docker-Compose" >}} -- Be sure to follow the {{< ext-link href="https://docs.docker.com/install/linux/linux-postinstall/" text="Post Installation setup" >}} in order to run docker-compose without using sudo.  
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_what-we-are-doing.md" >}}
 
@@ -34,22 +34,16 @@ For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/
 > ***NOTE***  
 > Perform the following steps on the machine intended to run the Controller & Registry.
 
-### Download the Controller & Registry archive
-
-Download the file called "Cloud Controller & Registry (Run on Linux Instance)" from {{< ext-link href="https://veertu.com/download-anka-build" text="Anka Build Download page" >}}.
-
-If you are more comfortable with the command line, you can download the file with curl:
-```shell
-curl -L -o /tmp/anka-controller-registry.tar.gz https://veertu.com/downloads/ankacontroller-registry-docker-latest
-```
-
-#### Untar the archive
+### Download and extract the Controller & Registry
 
 ```shell
 mkdir -p ~/anka-controller-registry
 cd ~/anka-controller-registry
-tar -xzvf ~/anka-controller-registry.tar.gz
+curl -L -o anka-controller-registry.tar.gz https://veertu.com/downloads/ankacontroller-registry-docker-latest
+tar -xzvf anka-controller-registry.tar.gz
 ```
+
+You can also download the file called "Cloud Controller & Registry (Run on Linux Instance)" from {{< ext-link href="https://veertu.com/download-anka-build" text="Anka Build Download page" >}}.
 
 #### Configuration
 
@@ -101,7 +95,7 @@ First, edit the `docker-compose.yml`.
 3. Under `anka-registry > volumes`, find the line that says ***# - \*\*\*\*EDIT_ME\*\*\*\*:/mnt/vol***.
 4. First, uncomment this line by removing the \# sign from the head of the line. Then replace \*\*\*\*EDIT_ME\*\*\*\* with the path on your machine where you want the Registry files to be saved: 
 
-    {{< highlight shell "hl_lines=17" >}}
+    {{< highlight shell "hl_lines=15" >}}
 
       . . .
 
