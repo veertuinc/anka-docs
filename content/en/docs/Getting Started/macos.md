@@ -15,7 +15,7 @@ Welcome! This tutorial will guide you through setting up your Anka Build Cloud.
 2. A second Mac to install the Anka CLI (the "Node").
 
 > ***NOTE***   
-> You can complete this tutorial with only one machine running Mac OS, but it's not recommended._
+> You can complete this tutorial with only one machine running Mac OS, but it's not recommended.
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_what-we-are-doing.md" >}}
 
