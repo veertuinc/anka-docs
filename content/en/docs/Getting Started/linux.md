@@ -14,7 +14,7 @@ Welcome! This tutorial guides you through setting up your Anka Build Cloud on Li
 1. A machine running Linux to install the Anka Controller & Registry.
 2. A Mac to install Anka CLI as a Node.
 
-> ***NOTE***  
+
 > While it's possible to run Docker on mac, it's not recommended. An Anka Controller & Registry package exists.
 
 ## Necessary software
@@ -23,7 +23,7 @@ Welcome! This tutorial guides you through setting up your Anka Build Cloud on Li
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_what-we-are-doing.md" >}}
 
-{{< include file="shared/content/en/docs/Getting Started/partials/_install-anka-cli.md" >}}
+{{< include file="shared/content/en/docs/Anka CLI/install.md" >}}
 
 For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
 
@@ -31,7 +31,7 @@ For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/
 
 ## Step 2. Install Anka Controller & Registry
 
-> ***NOTE***  
+
 > Perform the following steps on the machine intended to run the Controller & Registry.
 
 ### Download and extract the Controller & Registry
@@ -126,12 +126,12 @@ First, edit the `docker-compose.yml`.
     - /var/anka:/mnt/vol
     ``` 
 
-> ***NOTE***  
+
 > If you're running these containers on mac, you need to also change etcd's local volume destination from `/var/etcd-data` to a writable location on your mac.
 
 #### Start the containers
 
-> ***NOTE***   
+ 
 > Ensure you're in the same directory as the `docker-compose.yml`.
 
 ```shell
@@ -140,7 +140,7 @@ docker-compose up -d
 
 This command builds your containers and runs the services defined as a daemon.
 
-> ***NOTE***  
+
 > To stop the docker containers, run: `docker-compose down`
 
 ### Verify the containers are running
@@ -174,7 +174,7 @@ To see the Registry's logs:
 docker logs --tail 100 -f test_anka-registry_1
 ```
 
-> ***NOTE***   
+ 
 > The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging))
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_step3-and-4.md" >}}

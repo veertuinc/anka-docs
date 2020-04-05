@@ -1,6 +1,3 @@
-
-
-
 ---
 date: 2019-12-12T00:00:00-00:00
 title: "Install"
@@ -10,40 +7,38 @@ description: >
   Steps to install Anka Command Line Tool.
 ---
 
-## Download latest Anka PKG
-Download the file from [Anka Build Download page](https://veertu.com/download-anka-build/).
 
-## Install Anka PKG
-### Using the ui
-Run the `anka.pkg` installer you downloaded. 
-### Using the command line
-cd to the directory containing the file, then run:
+> Perform the following steps on the machines you intend to be Nodes.
+> "Nodes" are the host machines you want to run the Anka VMs. You can use any Apple hardware for this.
+
+### Install the Anka CLI
+
+You can find the various Anka Build packages on the [Anka Build download page](https://veertu.com/download-anka-build/). You can use the guided installer by launching the .pkg, or install from your terminal.
+
+#### Download the latest Anka PKG
 ```shell
-sudo installer -pkg Anka-xx.x.pkg -target
+curl -L -o Anka.pkg https://veertu.com/downloads/ankabuild-latest
 ```
 
-## Installing Anka with nested virtualization to run Docker or Android Emulator
-Install Anka in this manner in order to be able to create VMs with nested feature enabled to run docker and/or Android Emulator.
-### Using the ui
-Run the `anka.pkg` installer you downloaded, select nested virtualization checkbox in Customizations while installing Anka through the GUI method.  
-### Using the command line
-cd to the directory containing the file, then run: 
+#### Install the Anka PKG
+```shell
+sudo installer -pkg Anka.pkg -tgt /
+```
+Or, if you need nested virtualization to run Docker or Android Emulator inside of the VM:
+
+> You can find Nested Virtualization inside of the Custom Install section of the guided installer. You can get there using the `Customize` button on the **Installation Type** stage.
+
 ```shell
 sudo installer -applyChoiceChangesXML nanka.xml -pkg Ankaxx.pkg -target /
 ```
 
-## Anka package components
-The Anka package includes the Core hypervisor, `anka` guest Addons and Controller Anka agent.
+#### Verify the installation
+```shell 
+anka version
+```
+- The output should be similar to `Anka Build Basic version 2.1.2 (build 112)`.
 
-## Verify installation
-After running the installer package, `anka` is found at `/usr/local/bin/anka`.
-Verify the installation by running `anka version` command.
-
-
-## License activation
-Activate your license using the anka license command and your license key:
+#### Activate your Anka license
 ```
 sudo anka license activate <key>
 ```
-
-

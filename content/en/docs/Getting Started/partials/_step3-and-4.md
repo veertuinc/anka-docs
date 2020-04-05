@@ -3,7 +3,7 @@ Great! Now that we have our Anka Controller & Registry up and running, let's add
 
 ## Step 3. Link the Anka CLI Node to the Controller
 
-> ***NOTE***  
+
 > Perform the following steps on the Node where you created your first VM Template.
 
 ### Add the Registry
@@ -62,7 +62,7 @@ Cluster join success
 
 The command may hang for a few moments and then display `"Cluster join success"`. Please report any errors you find to support@veertu.com.
 
-> ***NOTE***  
+
 > Repeat this process on other Nodes that you want to join (after installing Anka CLI).
 
 ## Step 4. Start a VM instance using the Controller UI
