@@ -68,6 +68,8 @@ external_id    | string | a string saved with the instance, can be used to save 
  group_id  | string | Run the VM on a node from this group. | -
  priority  | int    | Priority of this instance in range 1-10000 (lower is more urgent). | 1000
  usb_device | string | Name of the USB device to attach to the VM | -
+ vcpu      |  int    | Override the number of the VM's CPU cores **only works when the template VM is stopped**.
+ vram      |  int    | Override the VM's RAM size in MB **only works when the template VM is stopped**.
 
 **Returns:**  
 - *status:* Operation Result (OK|FAIL)  
