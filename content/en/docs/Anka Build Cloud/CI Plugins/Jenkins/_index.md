@@ -235,7 +235,7 @@ timeoutMinutes | int | 120 | Stops waiting for the result of the Tag -> Registry
 
 > Remember, `ankaGetSaveImageResult` returns true immediately if nothing pushes to the Registry in a failed build.
 
-### Final notes for using the Cache Builder
+### Notes for using the Cache Builder
 - How often should I cache? : The answer depends on the VM size after you prepare it and also the density of your builds.
 - **The cache build should have a job or pipeline of its own.** Caching after every "regular" build might not make sense as the time that it takes to download code or artifacts is usually the same or shorter than the time it takes to push the Tag to the Registry.
 - You should run your cache build once and check how much time the operation takes. The push can be a few gigabytes and might take some time on slower networks.
