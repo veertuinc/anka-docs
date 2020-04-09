@@ -296,5 +296,3 @@ anka-controller:
 Use the browser and go to your controller portal.
 
 If everything is configured correctly, a login box should appear. Use the token string you created to login.
-
-
