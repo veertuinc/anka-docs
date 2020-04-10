@@ -198,7 +198,7 @@ Commands:
   usb-device (available in enterprise and enterprise plus tiers)
 ```
 
-- #### Port Forwarding Example
+#### Port Forwarding Example
   ```
   ❯ sudo anka modify 10.15.4 add port-forwarding --guest-port 22 ssh
 
