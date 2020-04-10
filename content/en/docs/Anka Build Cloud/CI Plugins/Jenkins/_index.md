@@ -19,9 +19,9 @@ The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud w
 
 > In order to follow these instructions, you will need to [install the Anka CLI]({{< relref "docs/Anka CLI/install.md" >}}) and an understanding of how to [start the VM]({{< relref "docs/Anka CLI/commands.md#start-vm" >}}) and [launch the viewer]({{< relref "docs/Anka CLI/commands.md#open-vm-windowviewer" >}}).
 
-#### VM Template/Tag Requirements
+## VM Template/Tag Requirements
 
-The Jenkins Anka Plugin requires a VM with Java, SSH, and port forwarding:
+The Jenkins Anka Plugin requires a VM with Java, SSH sharing, and port forwarding:
 
 1. In the VM, install the proper OpenJDK version.
     - Within Jenkins, visit **/systemInfo** (`System Properties`) and look for `java.version`.
@@ -31,7 +31,7 @@ The Jenkins Anka Plugin requires a VM with Java, SSH, and port forwarding:
 4. `sudo anka suspend <VM Template name>`
 5. `sudo anka registry push <VM Template name> <Tag name>`
 
-### Install and Configure the Anka Plugin in Jenkins
+## Install and Configure the Anka Plugin in Jenkins
   
 > These steps are based on Jenkins 2.222.1. Your version and UI may differ slightly.
 
@@ -235,7 +235,7 @@ timeoutMinutes | int | 120 | Stops waiting for the result of the Tag -> Registry
 
 > Remember, `ankaGetSaveImageResult` returns true immediately if nothing pushes to the Registry in a failed build.
 
-### Notes for using the Cache Builder
+## Notes on using the Cache Builder
 - How often should I cache? : The answer depends on the VM size after you prepare it and also the density of your builds.
 - **The cache build should have a job or pipeline of its own.** Caching after every "regular" build might not make sense as the time that it takes to download code or artifacts is usually the same or shorter than the time it takes to push the Tag to the Registry.
 - You should run your cache build once and check how much time the operation takes. The push can be a few gigabytes and might take some time on slower networks.
