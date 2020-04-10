@@ -7,4 +7,5 @@ description: >
   Steps to install Anka Command Line Tool.
 ---
 
+## Install the Anka CLI
 {{< include file="shared/content/en/docs/Anka CLI/partials/_install-guide.md" >}}

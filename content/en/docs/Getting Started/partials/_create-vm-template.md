@@ -1,5 +1,3 @@
-### Create a VM Template
-
 #### Obtain the Mac OS installer
 
 There are multiple ways to obtain the installer .app file for Mac OSX that we'll detail for you below:

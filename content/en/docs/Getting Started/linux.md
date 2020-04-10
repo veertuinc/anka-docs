@@ -9,28 +9,34 @@ description: >
 
 Welcome! This tutorial guides you through setting up your Anka Build Cloud on Linux using Docker and Docker-Compose.
 
-## Necessary hardware 
+## Necessary Hardware 
 
 1. A machine running Linux to install the Anka Controller & Registry.
 2. A Mac to install Anka CLI as a Node.
 
-
 > While it's possible to run Docker on mac, it's not recommended. An Anka Controller & Registry package exists.
 
-## Necessary software
+## Necessary Software
 1. {{< ext-link href="https://docs.docker.com/install/" text="Docker" >}} 
 2. {{< ext-link href="https://docs.docker.com/compose/install/" text="Docker-Compose" >}} -- Be sure to follow the {{< ext-link href="https://docs.docker.com/install/linux/linux-postinstall/" text="Post Installation setup" >}} in order to run docker-compose without using sudo.  
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_what-we-are-doing.md" >}}
 
+## Step 1: Get familiar with the Anka CLI
+
+### Install the Anka CLI
+
 {{< include file="shared/content/en/docs/Anka CLI/partials/_install-guide.md" >}}
 
 For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
 
+### Create your first VM Template
+
 {{< include file="shared/content/en/docs/Getting Started/partials/_create-vm-template.md" >}}
 
-## Step 2. Install Anka Controller & Registry
+> You can find detailed instructions for `anka create` [here.]({{< relref "docs/Anka CLI/creating-a-vm.md" >}})
 
+## Step 2: Install Anka Controller & Registry
 
 > Perform the following steps on the machine intended to run the Controller & Registry.
 

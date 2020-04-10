@@ -2,8 +2,6 @@
 > Perform the following steps on the machines you intend to be Nodes.
 > "Nodes" are the host machines you want to run the Anka VMs. You can use any Apple hardware for this.
 
-### Install the Anka CLI
-
 You can find the various Anka Build packages on the [Anka Build download page](https://veertu.com/download-anka-build/). You can use the guided installer by launching the .pkg, or install from your terminal.
 
 #### Download the latest Anka PKG

@@ -9,7 +9,7 @@ description: >
 
 Welcome! This tutorial will guide you through setting up your Anka Build Cloud.
 
-## Necessary hardware
+## Necessary Hardware
 
 1. A Mac to install the Anka Controller & Registry.
 2. A second Mac to install the Anka CLI (the "Node").
@@ -19,17 +19,21 @@ Welcome! This tutorial will guide you through setting up your Anka Build Cloud.
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_what-we-are-doing.md" >}}
 
+## Step 1: Get familiar with the Anka CLI
+
+### Install the Anka CLI
+
 {{< include file="shared/content/en/docs/Anka CLI/partials/_install-guide.md" >}}
 
 For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
 
-{{< include file="shared/content/en/docs/Getting Started/partials/_create-vm-template.md" >}}
+### Create your first VM Template
 
+{{< include file="shared/content/en/docs/Getting Started/partials/_create-vm-template.md" >}}
 
 > You can find detailed instructions for `anka create` [here.]({{< relref "docs/Anka CLI/creating-a-vm.md" >}})
 
 ## Step 2. Install Anka Controller & Registry
-
 
 > Perform the following steps on the machine intended to run the Controller & Registry.
 
