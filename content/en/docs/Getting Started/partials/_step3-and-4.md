@@ -58,9 +58,9 @@ Cluster join success
 ```
 
 - Replace `<ip>` with the IP of the machine hosting your controller:
-- If you changed the default port for the controller (from 80), you'ds need to add the new port at the end of the IP. Otherwise, leave it off.
+- If you changed the default port for the controller from 80, you'll need to use the new port at the end of the IP. Otherwise, leave it off.
 
-The command may hang for a few moments and then display `"Cluster join success"`. Please report any errors you find to support@veertu.com.
+The command may hang for a few moments and then display `Cluster join success`. Please report any errors you find to support@veertu.com.
 
 
 > Repeat this process on other Nodes that you want to join (after installing Anka CLI).
@@ -75,10 +75,10 @@ The command may hang for a few moments and then display `"Cluster join success"`
 
     ![new instances view](/images/getting-started/new-instance.png)
 
-3. Select the VM Template and click **Start**. The **Create New Instances** view closes and returns you to the **Instances** view. You should now see the Instance in a `Scheduling` or `Pulling` **State**:
+3. Select the VM Template and click **Start**. The **Create New Instances** view closes and returns you to the **Instances** view. You should now see the Instance in a **Scheduling** or **Pulling** **State**:
     ![a scheduling instance](/images/getting-started/scheduling.png)
 
-4. After the `Scheduling` and `Pulling` finishes, the VM starts on one of the Nodes and shows a `Started` **State** in the Controller UI:
+4. After the **Scheduling** and **Pulling** finishes, the VM starts on one of the Nodes and shows a **Started** **State** in the Controller UI:
 
     ![a started instance](/images/getting-started/started-vm.png)
 
