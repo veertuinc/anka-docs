@@ -19,7 +19,7 @@ Welcome! This tutorial will guide you through setting up your Anka Build Cloud.
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_what-we-are-doing.md" >}}
 
-{{< include file="shared/content/en/docs/Anka CLI/install.md" >}}
+{{< include file="shared/content/en/docs/Anka CLI/partials/_install-guide.md" >}}
 
 For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
 
