@@ -7,61 +7,60 @@ description: >
   How to set up certificate based authentication.
 ---
 
-***Note*** - This requires Anka Build Enterprise or higher tier license running on Anka Build Nodes.
+> This requires Anka Build Enterprise or higher license tiers.
 
-## Getting or Creating a CA certificate
+## Obtain a CA certificate
 
-For this tutorial you will need a CA certificate with it’s private key. For more information about CAs - https://en.wikipedia.org/wiki/Certificate_authority.
+For this tutorial you will need a CA certificate with it’s private key. For more information about CAs, see https://en.wikipedia.org/wiki/Certificate_authority.
 
-For the rest of this section CA certificate and key will be referred to as ‘ca-crt.pem’ and ‘ca-key.pem’. If you don’t have one you can create one with openssl.
+For the rest of this section, CA certificate and key will be referred to as **anka-ca-crt.pem** and **anka-ca-key.pem**. 
 
+If you don’t have one you can create one with openssl and add it to your system keychain:
+
+```shell
+openssl req -new -nodes -x509 -days 365 -keyout anka-ca-key.pem -out anka-ca-crt.pem -subj "/CN=myOrganization"
+sudo security add-trusted-cert -d -k /Library/Keychains/System.keychain anka-ca-crt.pem
 ```
-openssl req -new -nodes -x509 -days 365 -keyout ca-key.pem -out ca-crt.pem -subj "/CN=myOrganization"
-
-```
-This command will create two files: ca-crt.pem and ca-key.pem.
 
 ## Configuring Server TLS
 
-The first step will be to configure tls for the server. The server certificates are not part of the authentication process and doesn’t need to be derived from the CA. This means that you can use certificates supplied by a 3rd party like “let’s encrypt” or use the certificates your organization supplies.
+> The server certificates are not part of the authentication process and don't need to be derived from the CA you just generated. This means that you can use certificates supplied by your organization or a 3rd party.
 
-If you do not have tls certificates for your server, you can create them now. The following commands will create server certificates for a machine with a certain ip. Replace $MACHINE_IP with your server’s ip.
+If you do not have TLS certificates for your server, you can create them now. The following commands will create server certificates for your controller server:
 
+```shell
+export CONTROLLER_SERVER_IP="127.0.0.1"
+openssl genrsa -out anka-controller-key.pem 4096
+openssl req -new -nodes -sha256 -key anka-controller-key.pem -out anka-controller-csr.pem -subj "/CN=*" -reqexts SAN -config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=IP:$CONTROLLER_SERVER_IP"))
+openssl x509 -req -days 365 -in anka-controller-csr.pem -CA anka-ca-crt.pem -CAkey anka-ca-key.pem -CAcreateserial -out anka-controller-crt.pem -extfile <(echo subjectAltName = IP:$CONTROLLER_SERVER_IP)
 ```
-openssl genrsa -out controller-key.pem 4096
-openssl req -new -nodes -sha256 -key controller-key.pem -out controller-csr.pem -subj "/CN=*" -reqexts SAN -config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=IP:$MACHINE_IP"))
-openssl x509 -req -days 365 -in controller-csr.pem -CA ca-crt.pem -CAkey ca-key.pem -CAcreateserial -out controller-crt.pem -extfile <(echo subjectAltName = IP:$MACHINE_IP)
-```
 
-### For Mac Controller Setup
+### For the Mac Controller & Registry
 
-Edit /usr/local/bin/anka-controllerd in the following manner.
+Edit /usr/local/bin/anka-controllerd in the following manner:
 
 Change 
+```shell
+LISTEN_ADDRESS=":80" -> LISTEN_ADDRESS=":443"
 ```
-LISTEN_ADDRESS=":80"
-```
-To
-```
-LISTEN_ADDRESS=":443"
-```
-Search for the row that looks like this
-```
-"$CONTROLLER_BIN" --listen_addr "$LISTEN_ADDRESS" --log_dir "$LOG_DIR" --data-dir "$DATA_DIR" $ANKA_REGISTRY $STANDALONE $ALLOW_EMPTY_REGISTRY
-```
-This is the controller’s run command. Append the following parameters to this line.
+Search for the row that looks like this:
 
-```
+`"$CONTROLLER_BIN" --listen_addr "$LISTEN_ADDRESS" --log_dir "$LOG_DIR" --data-dir "$DATA_DIR" $ANKA_REGISTRY $STANDALONE $ALLOW_EMPTY_REGISTRY`
+
+This is the controller’s run command. Append the following parameters to the above line:
+
+```shell
 --server-cert $PATH_TO_SERVER_CERT --server-key $PATH_TO_SERVER_KEY --use-https
 ```
-### For Docker Controller Setup
+
+### For the Linux/Docker Controller & Registry
 
 You need to mount a directory containing the certificates on the docker container. Create a directory and copy your certificates to that directory.
 
 Edit `docker-compose.yml`. In the controller’s section add a volume pointing to the directory you just created mounted on `“/mnt/cert”`. (we will use /home/ubuntu/certs as an example).
 
 Also change the ports forwarding to 443 (https).
-```
+```dockerfile
 anka-controller:
    build:
       context: .
@@ -71,13 +70,12 @@ anka-controller:
    # To change the port, change the above line: - "CUSTOM_PORT:80"
    volumes:
      # Path to ssl certificates directory
-     - /home/ubuntu/cert:/mnt/cert
-     
+     - /home/ubuntu/cert:/mnt/cert 
 ```
 
 Now let’s add the path to our certificate and key. Search for the environment variables “USE_HTTPS”, “SERVER_CERT” and “SERVER_KEY” in `docker-compose.yml`. Edit them so they will look like the configuration below. If they do not exist - add them. Note that if you named your files differently the values for these parameters should match them (if you named your certificate my-crt.crt the SERVER_CERT value should look like ‘/mnt/cert/my-crt.crt’).
 
-```
+```dockerfile
 anka-controller:
    build:
       context: .
@@ -95,10 +93,9 @@ anka-controller:
    environment:     
      USE_HTTPS:              --use-https  
      # Server certificate pem
-     SERVER_CERT:            --server-cert /mnt/cert/controller-crt.pem
+     SERVER_CERT:            --server-cert /mnt/cert/anka-controller-crt.pem
      # Server private key pem
-     SERVER_KEY:             --server-key /mnt/cert/controller-key.pem
-     
+     SERVER_KEY:             --server-key /mnt/cert/anka-controller-key.pem
 ```
 
 ## Test the configuration
@@ -124,11 +121,11 @@ You can use the following openssl commands to create client certificates.
 ```
 openssl genrsa -out node-key.pem 4096
 openssl req -new -sha256 -key node-key.pem -out node-csr.pem -subj "/CN=my_node/O=nodes"
-openssl x509 -req -days 365 -in node-csr.pem -CA ca-crt.pem -CAkey ca-key.pem -CAcreateserial -out node-crt.pem
+openssl x509 -req -days 365 -in node-csr.pem -CA anka-ca-crt.pem -CAkey anka-ca-key.pem -CAcreateserial -out node-crt.pem
 
 ```
 
-This assumes that your CA certificate and key are in the same directory and called ‘ca-crt.pem’ and ‘ca-key.pem’ respectively. If it’s not, use the correct path.
+This assumes that your CA certificate and key are in the same directory and called ‘anka-ca-crt.pem’ and ‘anka-ca-key.pem’ respectively. If it’s not, use the correct path.
 
 ## Configuring the controller with the CA file and enabling authentication
 
@@ -169,11 +166,11 @@ anka-controller:
    environment:     
      USE_HTTPS:              --use-https  
      # Server certificate pem
-     SERVER_CERT:            --server-cert /mnt/cert/controller-crt.pem
+     SERVER_CERT:            --server-cert /mnt/cert/anka-controller-crt.pem
      # Server private key pem
-     SERVER_KEY:             --server-key /mnt/cert/controller-key.pem
+     SERVER_KEY:             --server-key /mnt/cert/anka-controller-key.pem
      ENABLE_AUTH:            --enable-auth 
-     CA_CERT:                --ca-cert /mnt/cert/ca-crt.pem
+     CA_CERT:                --ca-cert /mnt/cert/anka-ca-crt.pem
 ```
 
 ### Testing your configuration for authentication
@@ -237,7 +234,7 @@ Copy the client certificate and key to the mac you are trying to join. Also copy
 Use `ankacluster` command to connect the agent to the controller in the following manner.
 
 ```
-sudo ankacluster join https://$HOST --cert node-crt.pem --cert-key node-key.pem --cacert ca-crt.pem
+sudo ankacluster join https://$HOST --cert node-crt.pem --cert-key node-key.pem --cacert anka-ca-crt.pem
 You should see output similar to the following:
 Testing connection to controller...: OK
 Testing connection to registry….: OK
@@ -283,11 +280,11 @@ anka-controller:
    environment:     
      USE_HTTPS:              --use-https  
      # Server certificate pem
-     SERVER_CERT:            --server-cert /mnt/cert/controller-crt.pem
+     SERVER_CERT:            --server-cert /mnt/cert/anka-controller-crt.pem
      # Server private key pem
-     SERVER_KEY:             --server-key /mnt/cert/controller-key.pem
+     SERVER_KEY:             --server-key /mnt/cert/anka-controller-key.pem
      ENABLE_AUTH:            --enable-auth 
-     CA_CERT:                --ca-cert /mnt/cert/ca-crt.pem
+     CA_CERT:                --ca-cert /mnt/cert/anka-ca-crt.pem
      ROOT_TOKEN:             --root-token 0987654321
 
 ```

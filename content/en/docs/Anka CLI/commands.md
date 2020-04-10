@@ -227,7 +227,7 @@ Commands:
   Password:
   Last login: Mon Apr  6 12:45:50 2020
   . . .
-  Mac-mini:~ anka$ 
+  Mac-mini:~ anka
   ```
 
 

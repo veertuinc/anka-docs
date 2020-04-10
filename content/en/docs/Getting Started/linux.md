@@ -152,9 +152,7 @@ This command builds your containers and runs the services defined as a daemon.
 ### Verify the containers are running
 ```shell
 docker ps
-```
-You should be seeing a response similar to the following:
-```shell
+
 CONTAINER ID        IMAGE                 COMMAND                  CREATED              STATUS              PORTS                    NAMES
 aa1de7c150e7        test_anka-controller   "/bin/bash -c 'anka-…"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp       test_anka-controller_1
 0ac3a6f8b0a1        test_anka-registry     "/bin/bash -c 'anka-…"   About a minute ago   Up About a minute   0.0.0.0:8089->8089/tcp   test_anka-registry_1
