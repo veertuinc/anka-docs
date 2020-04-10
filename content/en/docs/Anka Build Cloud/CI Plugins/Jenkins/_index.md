@@ -90,32 +90,32 @@ This section describes the steps to create dynamic labels inside of your Jenkins
 
 > You can obtain the "masterVmId" (VM UUID) using: `sudo anka show <Template name> uuid`
 
-**Name** | **Type** | **Default Value** |  **Decription** |  **Required**
+**Name** | **Type** | **Default Value** |  **Description** |  **Required**
 --- | --- | --- | --- | ---
-masterVmId | String |   | UUID of the VM Template | Yes
-Tag | String |   | VM Template Tag name | 
-remoteFS | String | `Users/anka` | Remote node workspace | 
-launchMethod | String | `jnlp` | Node launch method: ‘ssh’ or ‘jnlp’ | 
-credentialsId | String |   | Jenkins credential ID for ssh launch method |
-extraArgs | String |   | String to be appended to JNLP command | 
-javaArgs | String |   | String to append to JNLP java args | 
-jnlpJenkinsOverrideUrl | String |   | Override the Jenkins server url set in the Jenkins configuration | 
-jnlpTunnel | String |   | JNLP tunnel to use for node launcher | 
-keepAliveOnError | boolean | `false` | Keep the VM instance alive after a failed build | 
-timeout | int | `1200` | Timeout for starting the instance (in seconds) | 
-environments | List of tuples |   | List of environment variables to add for the build: `[[name: 'FOO', value: 'BAR'], [name: 'OR', value: 'IS']]` | 
-nameTemplate | string |   | Label to use in VM instance names (There are several variables available for interpolation: $Template_name, $Template_id, or $ts) |
-priority | int |   | Override the default priority (lower is more urgent) | 
-saveImage | boolean | `false` | Save the VM as a Tag before terminating it | 
-suspend | boolean | `false` | When saving the Tag, suspend the VM before the push | 
-TemplateId | string |   | When saving the Tag, push onto a specific Template UUID | 
-pushTag | string |   | When saving the Tag, set the Tag name (A timestamp will be appended) | 
-deleteLatest | boolean | `false` | When saving the Tag, delete the latest Tag for the Template out of the registry before pushing (Dangerous: only use if the Template isn't holding other project tags) |
-TemplateDescription | string |   | When saving the Tag, set a description for the new Tag | 
-group | string |   | Group ID to start the instance in (_Available only in Enterprise and Enterprise Plus Tiers_) | 
-numberOfExecutors | int | `1` | Number of Jenkins executors to run on the Node (we recommend 1) | 
-description | string |   | On creation of the instance, set the description |
-labelString | string |   | Override the returned label (not recommended) |
+masterVmId | String | -  | UUID of the VM Template | Yes
+Tag | String | -  | VM Template Tag name | -
+remoteFS | String | `Users/anka` | Remote node workspace | -
+launchMethod | String | `jnlp` | Node launch method: ‘ssh’ or ‘jnlp’ | -
+credentialsId | String | -  | Jenkins credential ID for ssh launch method | -
+extraArgs | String | -  | String to be appended to JNLP command | -
+javaArgs | String | -  | String to append to JNLP java args | -
+jnlpJenkinsOverrideUrl | String | -  | Override the Jenkins server url set in the Jenkins configuration | -
+jnlpTunnel | String | -  | JNLP tunnel to use for node launcher | -
+keepAliveOnError | boolean | `false` | Keep the VM instance alive after a failed build | -
+timeout | int | `1200` | Timeout for starting the instance (in seconds) | -
+environments | List of tuples | -  | List of environment variables to add for the build: `[[name: 'FOO', value: 'BAR'], [name: 'OR', value: 'IS']]` | -
+nameTemplate | string | -  | Label to use in VM instance names (There are several variables available for interpolation: $Template_name, $Template_id, or $ts) | -
+priority | int | -  | Override the default priority (lower is more urgent) | -
+saveImage | boolean | `false` | Save the VM as a Tag before terminating it | -
+suspend | boolean | `false` | When saving the Tag, suspend the VM before the push | -
+TemplateId | string | -  | When saving the Tag, push onto a specific Template UUID | -
+pushTag | string | -  | When saving the Tag, set the Tag name (A timestamp will be appended) | -
+deleteLatest | boolean | `false` | When saving the Tag, delete the latest Tag for the Template out of the registry before pushing (Dangerous: only use if the Template isn't holding other project tags) | -
+TemplateDescription | string | -  | When saving the Tag, set a description for the new Tag | -
+group | string | -  | Group ID to start the instance in (_Available only in Enterprise and Enterprise Plus Tiers_) | -
+numberOfExecutors | int | `1` | Number of Jenkins executors to run on the Node (we recommend 1) | -
+description | string | -  | On creation of the instance, set the description | -
+labelString | string | -  | Override the returned label (not recommended) | -
 
 #### Dynamic Jenkinsfile Example
 
