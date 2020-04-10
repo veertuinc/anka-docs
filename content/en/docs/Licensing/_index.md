@@ -20,7 +20,7 @@ Anka licenses are available for the following products.
 
 ### Anka Build Tier Datasheet
 
-**     ** | **Basic** | **Enterprise** | **Enterprise Plus**
+**Feature** | **Basic** | **Enterprise** | **Enterprise Plus**
 --- | --- | --- |  ---
 Core based licensing | Yes | Yes | Yes
 Cloud Controller with REST APIs | Yes(Single instance of Anka controller included) | Yes(Single instance of Anka controller included) | Yes
