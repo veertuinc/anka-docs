@@ -30,9 +30,10 @@ TeamCity Plugin | Yes | Yes | Yes
 Gitlab Ci Plugin | Yes | Yes | Yes
 BuildKite Plugin Support | Yes | Yes | Yes
 HA for Controller configuration setup | Yes (Additional controller/registry instances needed) | Yes (Additional controller/registry instances needed) | Yes
+USB Device control through the CLI |  Yes  | Yes | Yes
+USB Device control through Controller API |    | Yes | Yes
 Priority scheduling of VMs through controller |    | Yes | Yes
 Clustering (Grouping) of Nodes |    | Yes | Yes 
-USB support (to connect real devices to the VM) |    | Yes | Yes
 Basic controller authentication, also includes REST APIs (Superlogin user) |    | Yes | Yes
 Multi-user authorization support through SSO support |    |    | Yes
 Controller API activity logging |    |    | Yes
