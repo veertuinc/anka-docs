@@ -230,6 +230,7 @@ Commands:
   Mac-mini:~ anka
   ```
 
+> Unless you customize the host_port, we default to using 10000, 10001, and so on for each VM that's started. Ensure that both the Controller server and any CI servers (where you host Jenkins for example) can reach the Node's ports in your firewall rules.
 
 ### DELETE Operations
 ```

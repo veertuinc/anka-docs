@@ -19,7 +19,7 @@ The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud w
 
 > In order to follow these instructions, you will need to [install the Anka CLI]({{< relref "docs/Anka CLI/install.md" >}}) and an understanding of how to [start the VM]({{< relref "docs/Anka CLI/commands.md#start-vm" >}}) and [launch the viewer]({{< relref "docs/Anka CLI/commands.md#open-vm-windowviewer" >}}).
 
-## VM Template/Tag Requirements
+## VM Template & Tag Requirements
 
 The Jenkins Anka Plugin requires a VM with Java, SSH sharing, and port forwarding:
 
