@@ -28,6 +28,6 @@ anka version
 - The output should be similar to `Anka Build Basic version 2.1.2 (build 112)`.
 
 #### Activate your Anka license
-```
+```shell
 sudo anka license activate <key>
 ```

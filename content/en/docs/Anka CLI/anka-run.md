@@ -34,7 +34,7 @@ Options:
 
 
 ```
-$ anka run VMNAME sudo whoami
+anka run VMNAME sudo whoami
 root
 ```
 `anka run` requires automatic login to be enabled for the user. By default, it uses anka user.

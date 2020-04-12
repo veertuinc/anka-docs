@@ -19,7 +19,7 @@ The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud w
 
 > In order to follow these instructions, you will need to [install the Anka CLI]({{< relref "docs/Anka CLI/install.md" >}}) and an understanding of how to [start the VM]({{< relref "docs/Anka CLI/commands.md#start-vm" >}}) and [launch the viewer]({{< relref "docs/Anka CLI/commands.md#open-vm-windowviewer" >}}).
 
-## VM Template/Tag Requirements
+## VM Template & Tag Requirements
 
 The Jenkins Anka Plugin requires a VM with Java, SSH sharing, and port forwarding:
 
@@ -32,7 +32,7 @@ The Jenkins Anka Plugin requires a VM with Java, SSH sharing, and port forwardin
 5. `sudo anka registry push <VM Template name> <Tag name>`
 
 ## Install and Configure the Anka Plugin in Jenkins
-  
+
 > These steps are based on Jenkins 2.222.1. Your version and UI may differ slightly.
 
 1. Navigate to `Manage Jenkins > Manage Plugins` and click on the **Available** tab. Search in **Filter** for "Anka", then install it. _You won't see any results if it's already installed._
@@ -119,7 +119,7 @@ labelString | string | -  | Override the returned label (not recommended) | -
 
 #### Dynamic Jenkinsfile Example
 
-```
+```javascript
 def NODE_LABEL = createDynamicAnkaNode(
   masterVmId: 'e1173284-39df-458c-b161-a54123409280'
 )

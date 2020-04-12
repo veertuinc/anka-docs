@@ -21,7 +21,7 @@ version        |      bool       | Prints controller version and exits          
 Registry address | string           | Anka Registry external URL (http[s]://hostname:[port]). This is passed to the Nodes, so they can download (and start) VMs | (required)      | `--anka-registry`   | anka_registry   | ANKA_ANKA_REGISTRY
 Configuration file    | string           | Path to a configuration file in INI format. You can use the file with/without the command line parameters and env variables  | -      |  `--config`           | config          | ANKA_CONFIG    
 Listen address    | string           | Listen on this address (:80 is equivalent to 0.0.0.0:80). Use the format `[address]:port`                      | :80     | `--listen_addr`     | listen_addr     | ANKA_LISTEN_ADDR
-Local Registry Address | string           | Anka Registry local address in format `http[s]://hostname:[port]`. This parameter is for situations where the Controller and Registry are on the same network. For example `http://locahost:8089`  | -      | --local-anka-registry | local_anka_registry | ANKA_LOCAL_ANKA_REGISTRY
+Local Registry Address | string           | Anka Registry local address in format `http[s]://hostname:[port]`. This parameter is for situations where the Controller and Registry are on the same network. For example `http://locahost:8089`  | -      | `--local-anka-registry` | local_anka_registry | ANKA_LOCAL_ANKA_REGISTRY
 Number of concurrent workers   | int   | The number of concurrent workers processing node tasks | 2      | `--num-workers`     | num_workers     | ANKA_NUM_WORKERS
 Standalone mode     |    bool       | Run an embedded ETCD server alongside the controller   | false      | `--standalone`      | standalone      | ANKA_STANDALONE
 ETCD endpoints | string      | Comma separated list of etcd hosts  | 127.0.0.1:2379   | `--etcd-endpoints`  | etcd_endpoints  | ANKA_ETCD_ENDPOINTS
@@ -64,7 +64,7 @@ Client keystore password | string           | Password for the client keystore (
  Name       | Type        |   Description               | default value | command line | ini    | env 
  ---        |   :---:       | ---                         | :---:           | :---:          | :---:    | :---:
 Run registry   |    bool      | Run the embedded Registry server               | false      | `--run-registry`    | run_registry    | ANKA_RUN_REGISTRY
-Registry listen address| string           | Address for Registry to listen on (:8089 is equivalent to 0.0.0.0:8089). Use the format `[address]:port`          | :8089      | --registry-listen-address | registry_listen_address | ANKA_REGISTRY_LISTEN_ADDRESS
+Registry listen address| string           | Address for Registry to listen on (:8089 is equivalent to 0.0.0.0:8089). Use the format `[address]:port`          | :8089      | `--registry-listen-address` | registry_listen_address | ANKA_REGISTRY_LISTEN_ADDRESS
 Registry base path | string           | Path for registry's data                                | -      | `--registry-base-path` | registry_base_path | ANKA_REGISTRY_BASE_PATH
 Registry access logs|      bool  | Enables registry access logs                                 | false      | `--registry-access-logs` | registry_access_logs | ANKA_REGISTRY_ACCESS_LOGS
 Enable registry authorization|                  | Enables authorization for the Registry                                        | false      | `--enable-registry-authorization` | enable_registry_authorization | ANKA_ENABLE_REGISTRY_AUTHORIZATION

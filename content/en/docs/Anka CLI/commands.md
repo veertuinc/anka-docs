@@ -198,7 +198,7 @@ Commands:
   usb-device (available in enterprise and enterprise plus tiers)
 ```
 
-- #### Port Forwarding Example
+#### Port Forwarding Example
   ```
   ❯ sudo anka modify 10.15.4 add port-forwarding --guest-port 22 ssh
 
@@ -227,9 +227,10 @@ Commands:
   Password:
   Last login: Mon Apr  6 12:45:50 2020
   . . .
-  Mac-mini:~ anka$ 
+  Mac-mini:~ anka
   ```
 
+> Unless you customize the host_port, we default to using 10000, 10001, and so on for each VM that's started. Ensure that both the Controller server and any CI servers (where you host Jenkins for example) can reach the Node's ports in your firewall rules.
 
 ### DELETE Operations
 ```
