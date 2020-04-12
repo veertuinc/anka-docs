@@ -28,20 +28,20 @@ openssl req -new -Nodes -x509 -days 365 -keyout anka-ca-key.pem -out anka-ca-crt
 sudo security add-trusted-cert -d -k /Library/Keychains/System.keychain anka-ca-crt.pem
 ```
 
-## Configuring Server TLS
+## Configuring TLS for Controller and Registry
 
 > The **Controller certificate** is not part of the authentication process and doesn't need to be derived from the CA you just generated. This means that you can use certificates supplied by your organization or a 3rd party.
 
-If you do not have TLS certificates for your Controller, you can create them now:
+If you do not have TLS certificates for your Controller & Registry, you can create them now:
 
 ```shell
-export Controller_SERVER_IP="127.0.0.1"
+export CONTROLLER_SERVER_IP="127.0.0.1"
 
 openssl genrsa -out anka-controller-key.pem 4096
 
 openssl req -new -nodes -sha256 -key anka-controller-key.pem -out anka-controller-csr.pem -subj "/C=$COUNTRY/ST=$STATE/L=$LOCATION/O=$ORGANIZATION/OU=$ORG_UNIT/CN=$CONTROLLER_CN" -reqexts SAN -extensions SAN -config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nextendedKeyUsage = serverAuth\nsubjectAltName=IP:$CONTROLLER_SERVER_IP"))
 
-openssl x509 -req -days 365 -sha256 -in anka-controller-csr.pem -CA anka-ca-crt.pem -CAkey anka-ca-key.pem -CAcreateserial -out anka-controller-crt.pem -extfile <(echo subjectAltName = IP:$Controller_SERVER_IP)
+openssl x509 -req -days 365 -sha256 -in anka-controller-csr.pem -CA anka-ca-crt.pem -CAkey anka-ca-key.pem -CAcreateserial -out anka-controller-crt.pem -extfile <(echo subjectAltName = IP:$CONTROLLER_SERVER_IP)
 ```
 
 Ensure that the certificate has **Signature Algorithm: sha256WithRSAEncryption** using `openssl x509 -text -noout -in ~/anka-controller-crt.pem | grep Signature` (https://support.apple.com/en-us/HT210176)
@@ -57,10 +57,10 @@ Edit `/usr/local/bin/anka-controllerd` in the following manner:
 2. Append the following parameters on the end of the **$CONTROLLER_BIN** line:
 
     ```shell
-    --server-cert /Users/$USER_WHERE_CERTS_ARE/anka-controller-crt.pem --server-key /Users/$USER_WHERE_CERTS_ARE/anka-controller-key.pem --use-https
+    --use-https --server-cert /Users/$USER_WHERE_CERTS_ARE/anka-controller-crt.pem --server-key /Users/$USER_WHERE_CERTS_ARE/anka-controller-key.pem --anka-registry "https://$YOUR_IP_HERE:8089" --registry-listen-address "$YOUR_IP_HERE:8089"
     ```
 
-> The registry runs as root; **~/** = **/var/root**.
+> The Controller & Registry runs as root; This is why you need to specify the absolute path to the location where you generated the certs.
 
 ### Installing for the Linux/Docker Controller & Registry
 
@@ -69,7 +69,7 @@ You need to first mount a directory containing the certificates on the docker co
 Then, within the `docker-compose.yml`:
 
 1. Change the **anka-controller** ports from `80:80` to `443:80`.
-2. Modify **ANKA_REGISTRY_ADDR** to use `https://`.
+2. Modify or set **ANKA_REGISTRY_ADDR** to use `https://`.
 3. Uncomment the highlighted lines shown below and modify `****EDIT_ME****` to the location you created your certificates in:
 
 {{< highlight dockerfile "hl_lines=11 13" >}}
@@ -135,9 +135,7 @@ Now let’s configure the Controller service to use those certificates. Search f
 
 ### Test the Configuration
 
-Start or restart your Controller and test the new TLS configuration using `https://`. You can also try using `curl -v https://$HOST/api/v1/status -k`.
-
-> **Ensure that your Registry URL is set to use https:// as well!**
+Start or restart your Controller and test the new TLS configuration using `https://`. You can also try using `curl -v https://$HOST/api/v1/status`.
 
 If that doesn’t work, try to repeat the above steps and validate that the file names and paths are correct. If you are still having trouble, debug the system as explained in the Debugging Controller section.
 
@@ -145,9 +143,9 @@ If that doesn’t work, try to repeat the above steps and validate that the file
 
 The Controller's authentication module uses the Root CA (anka-ca-crt.pem) to authenticate the Node certificates. When the Node sends the requests to the Controller, it will present it's certificates. Those certificates will then be validated against the configured CA.
 
-> The **Common Name (/CN=)** of the Node certificates will be used as the username and the **Organization (/O=)** fields will be used as groups (relevant for the Enterprise Plus License).
+> The **Common Name (/CN=)** of the Node certificates will be used as the username and the **Organization (/O=)** fields will be used as groups.
 
-You can use the following openssl commands to create Node certificates (make sure you're in the directory of the anka-ca-crt/key.pem):
+You can use the following openssl commands to create Node certificates using the Root CA:
 
 ```shell
 openssl genrsa -out node-$NODE_NAME-key.pem 4096
@@ -164,7 +162,7 @@ openssl x509 -req -days 365 -sha256 -in node-$NODE_NAME-csr.pem -CA anka-ca-crt.
 Edit the `/usr/local/bin/anka-controllerd` and add the following onto the end of the **$CONTROLLER_BIN** line:
 
 ```shell
---ca-cert ~/anka-ca-crt.pem --enable-auth
+--enable-auth --ca-cert /Users/$USER_WHERE_CERTS_ARE/anka-ca-crt.pem
 ```
 
 ### Installing for the Linux/Docker Controller & Registry
@@ -205,6 +203,8 @@ anka-controller:
 
 {{</ highlight >}}
 
+> **Until you have a Node joined to the Controller, it won't see your Enterprise license and won't enable authentication.**
+
 ## Joining your Node to the Controller with the Node certificate
 
 > If you previously joined your Nodes to the Controller, you'll want to `sudo ankacluster disjoin` on each before proceeding (if it hangs, use `ps aux | grep anka_agent | awk '{print $2}' | xargs kill -9` and try disjoin again).
@@ -214,7 +214,7 @@ Copy both the Node certificates (node-$NODE_NAME-crt.pem, node-$NODE_NAME-key.pe
 Then, use the `ankacluster` command to connect it to the Controller in the following manner:
 
 ```shell
-sudo ankacluster join https://$HOST --cert node-$NODE_NAME-crt.pem --cert-key node-$NODE_NAME-key.pem --cacert anka-ca-crt.pem
+sudo ankacluster join https://$HOST --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --cert-key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem --cacert /Users/$USER_WHERE_CERTS_ARE/anka-ca-crt.pem
 You should see output similar to the following:
 Testing connection to Controller...: OK
 Testing connection to registry….: OK
@@ -224,19 +224,17 @@ Cluster join success
 
 ### Testing Controller API authentication
 
-Restart your Controller & Registry.
-
-Then, test the status endpoint with curl:
+Restart your Controller & Registry and then test the status endpoint with curl:
 
 ```shell
-curl -v https://$HOST/api/v1/status -k
+curl -v https://$HOST/api/v1/status 
 ```
 
 The response you should get is a **401 Authentication Required** similar to below:
 
 ```shell
 > GET /api/v1/status HTTP/2
-> Host: localhost:8090
+> Host: localhost:80
 > User-Agent: curl/7.58.0
 > Accept: */*
 > 
@@ -251,13 +249,13 @@ The response you should get is a **401 Authentication Required** similar to belo
 
 If this is the response you get, it means the authentication module is working.
 
-Let’s try to get a response using the client certificate we created.
+Let’s try to get a response using the Node certificate we created. Execute the same command, but now pass Node certificate and key:
 
-Execute the same command, but now pass client certificate and key (assuming those files are called ‘node-$NODE_NAME-crt.pem’ and ‘node-$NODE_NAME-key.pem’).
 ```shell
-curl -v https://$HOST/api/v1/status -k --cert node-$NODE_NAME-crt.pem --key node-$NODE_NAME-key.pem
+curl -v https://$HOST/api/v1/status --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem
 ```
-If everthing is configured correctly, you should see something like this.
+
+If everthing is configured correctly, you should see something like this:
 
 ```shell
 *   Trying 127.0.0.1...
@@ -265,7 +263,7 @@ If everthing is configured correctly, you should see something like this.
 . . .
 
 > GET /api/v1/status HTTP/2
-> Host: 127.0.0.1:8080
+> Host: 127.0.0.1:80
 > User-Agent: curl/7.64.1
 > Accept: */*
 > 
@@ -276,7 +274,7 @@ If everthing is configured correctly, you should see something like this.
 < content-length: 184
 < date: Sun, 12 Apr 2020 04:26:13 GMT
 < 
-{"status":"OK","message":"","body":{"status":"Running","version":"1.7.0-4e6617d3","registry_address":"https://127.0.0.1:8081","registry_status":"Running","license":"enterprise plus"}}
+{"status":"OK","message":"","body":{"status":"Running","version":"1.7.0-4e6617d3","registry_address":"https://127.0.0.1:8089","registry_status":"Running","license":"enterprise plus"}}
 * Connection #0 to host 127.0.0.1 left intact
 * Closing connection 0
 ```
@@ -327,5 +325,6 @@ anka-controller:
 
 {{</ highlight >}}
 
-### Testing root Controller Dashboard authentication
+### Testing superuser Controller Dashboard authentication
+
 If everything is configured correctly, you can visit your Controller Dashboard and a login box should appear. Enter the token you specified and ensure that it logs you in.
