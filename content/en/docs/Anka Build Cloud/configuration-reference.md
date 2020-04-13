@@ -7,8 +7,6 @@ description: >
   Anka Build Cloud configuration reference.
 ---
 
-
-
 ## Controller Configuration Reference
 
 ### General and Common
