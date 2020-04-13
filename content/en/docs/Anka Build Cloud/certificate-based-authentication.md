@@ -7,7 +7,7 @@ description: >
   How to set up certificate based authentication.
 ---
 
-> This requires Anka Enterprise (or higher) license.
+> This guide requires an Anka Enterprise (or higher) license.
 
 ## Obtain a Root CA certificate
 
@@ -28,7 +28,7 @@ openssl req -new -Nodes -x509 -days 365 -keyout anka-ca-key.pem -out anka-ca-crt
 sudo security add-trusted-cert -d -k /Library/Keychains/System.keychain anka-ca-crt.pem
 ```
 
-## Configuring TLS for Controller and Registry
+## Configuring TLS for Controller & Registry
 
 > The **Controller certificate** is not part of the authentication process and doesn't need to be derived from the CA you just generated. This means that you can use certificates supplied by your organization or a 3rd party.
 
@@ -43,6 +43,8 @@ openssl req -new -nodes -sha256 -key anka-controller-key.pem -out anka-controlle
 
 openssl x509 -req -days 365 -sha256 -in anka-controller-csr.pem -CA anka-ca-crt.pem -CAkey anka-ca-key.pem -CAcreateserial -out anka-controller-crt.pem -extfile <(echo subjectAltName = IP:$CONTROLLER_SERVER_IP)
 ```
+
+> You can use the same certificate for both.
 
 Ensure that the certificate has **Signature Algorithm: sha256WithRSAEncryption** using `openssl x509 -text -noout -in ~/anka-controller-crt.pem | grep Signature` (https://support.apple.com/en-us/HT210176)
 
@@ -64,12 +66,10 @@ Edit `/usr/local/bin/anka-controllerd` in the following manner:
 
 ### Installing for the Linux/Docker Controller & Registry
 
-You need to first mount a directory containing the certificates on the docker container. Create a directory and copy your certificates to that directory.
-
-Then, within the `docker-compose.yml`:
+Within the `docker-compose.yml`:
 
 1. Change the **anka-controller** ports from `80:80` to `443:80`.
-2. Modify or set **ANKA_REGISTRY_ADDR** to use `https://`.
+2. Under the **anka-controller**, modify or set **ANKA_REGISTRY_ADDR** to use `https://`.
 3. Uncomment the highlighted lines shown below and modify `****EDIT_ME****` to the location you created your certificates in:
 
 {{< highlight dockerfile "hl_lines=11 13" >}}
@@ -92,7 +92,7 @@ Then, within the `docker-compose.yml`:
 
 {{</ highlight >}}
 
-Now let’s configure the Controller service to use those certificates. Search for the environment variables **USE_HTTPS**, **SERVER_CERT** and **SERVER_KEY** in `docker-compose.yml`, uncomment the lines, and then modify the `****EDIT_ME****` with the name of your certificate:
+Now let’s configure the Controller and Registry containers/services to use those certificates. Search for the environment variables **USE_HTTPS**, **SERVER_CERT** and **SERVER_KEY** in `docker-compose.yml`, uncomment the lines, and then modify the `****EDIT_ME****` with the name of your certificate:
 
 {{< highlight dockerfile "hl_lines=28 31 33" >}}
 
@@ -133,6 +133,8 @@ Now let’s configure the Controller service to use those certificates. Search f
 
 {{</ highlight >}}
 
+> **Perform the same changes for the anka-registry container. The configuration should look similar.**
+
 ### Test the Configuration
 
 Start or restart your Controller and test the new TLS configuration using `https://`. You can also try using `curl -v https://$HOST/api/v1/status`.
@@ -155,7 +157,7 @@ openssl req -new -sha256 -key node-$NODE_NAME-key.pem -out node-$NODE_NAME-csr.p
 openssl x509 -req -days 365 -sha256 -in node-$NODE_NAME-csr.pem -CA anka-ca-crt.pem -CAkey anka-ca-key.pem -CAcreateserial -out node-$NODE_NAME-crt.pem
 ```
 
-## Configuring the Controller with the CA Root certificate and enabling authentication
+## Configuring the Controller & Registry with the CA Root certificate and enabling authentication
 
 ### Installing for the Mac Controller & Registry
 
@@ -202,6 +204,8 @@ anka-controller:
 . . .
 
 {{</ highlight >}}
+
+> **Perform the same changes for the anka-registry container. The configuration should look similar.**
 
 > **Until you have a Node joined to the Controller, it won't see your Enterprise license and won't enable authentication.**
 
