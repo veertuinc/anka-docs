@@ -68,9 +68,9 @@ Edit `/usr/local/bin/anka-controllerd` in the following manner:
 
 Within the `docker-compose.yml`:
 
-1. Change the **anka-controller** ports from `80:80` to `443:80`.
+1. Change the **anka-controller** ports from `80:80` to `443:80`. You can keep the **anka-registry** ports the same.
 2. Under the **anka-controller**, modify or set **ANKA_REGISTRY_ADDR** to use `https://`.
-3. Uncomment the highlighted lines shown below and modify `****EDIT_ME****` to the location you created your certificates in:
+3. Uncomment the highlighted lines shown below and modify `****EDIT_ME****` to the location you created your certificates in for both **anka-controller** and **anka-registry**:
 
 {{< highlight dockerfile "hl_lines=11 13" >}}
 
