@@ -1,18 +1,21 @@
-
 ---
 title: "Creating your first VM"
 linkTitle: "Creating your first VM"
-weight: 5
+weight: 3
 description: >
-  Create your first VM using Anka CLI.
+  Create your first VM using the Anka CLI.
 ---
 
-## Install the Anka CLI
+## [Install the Anka CLI]({{< relref "docs/Anka CLI/installation.md" >}})
 
-{{< include file="shared/content/en/docs/Anka CLI/partials/_install-guide.md" >}}
+For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/command-reference.md" >}}).
 
-For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
+## Understanding VM Templates, Tags, and Disk Usage
 
-## Create your first VM Template
+{{< include file="./shared/content/en/docs/What Is Anka/partials/understanding-templates-and-tags.md" >}}
+
+## Creating a VM Template
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_create-vm-template.md" >}}
+
+#### The advanced guide for creating Templates and Tags can be found [here.]({{< relref "docs/Anka CLI/creating-templates-and-tags.md" >}})

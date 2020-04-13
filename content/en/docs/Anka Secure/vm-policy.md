@@ -214,7 +214,7 @@ pci_slot: 29
 vnc_ip: 0.0.0.0
 width: 1024
 ```
-Users who don’t know Anka VNC password are not able to infer it neither with `anka describe`, neither `anka show` commands. There is no special policy rule, controlling Anka VNC module for now.  
+Users who don’t know Anka VNC password are not able to infer it neither with [`anka describe`]({{< relref "docs/Anka CLI/command-reference.md#describe" >}}), neither [`anka show`]({{< relref "docs/Anka CLI/command-reference.md#show" >}}) commands. There is no special policy rule, controlling Anka VNC module for now.  
 
 To control connectivity to the guest’s Screen Sharing service, disable local networking, and close guest port 5900 from port forwarding.
 

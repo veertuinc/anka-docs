@@ -19,13 +19,13 @@ Run the `anka.pkg` installer. The Anka package includes the Core hypervisor and 
 
 After running the installer package, `anka` is found at `/usr/local/bin/anka`.
 
-Verify the installation by running `anka version` command.
+Verify the installation by running [`anka version`]({{< relref "docs/Anka CLI/command-reference.md#version" >}}) command.
 
 After install, if the users want to, they can change the location of this default Anka install location link manually.
 
 Execute `sudo mv /usr/local/bin/anka /to/any/other/location/`.
 
-Verify the installation by running `anka version` command.
+Verify the installation by running [`anka version`]({{< relref "docs/Anka CLI/command-reference.md#version" >}}) command.
 
 View all settings for Anka installation on the host with `anka config -l` command.
 
@@ -48,21 +48,21 @@ sudo anka license activate <key>
 
 ### Upgrading the Anka Package
 1. Download the latest version of Anka package (.pkg) and stop all running VMs.
-2. Before upgrading, you will also need to force stop any suspended VMs with the `anka stop -f vmname` command.
+2. Before upgrading, you will also need to force stop any suspended VMs with the `anka stop -f <template>` command.
 
 ***Note*** For major Anka releases, it maybe required to upgrade guest addons in existing Anka VMs. Check the release notes to identify if this step is required or not.
 
 3. Upgrade guest addons on the VM. Execute the following command to upgrade guest addons in existing VMs to the current release.
 
 ```
-anka stop -f vmname
-anka start -u vmname
+anka stop -f <template>
+anka start -u <template>
 Preparing update configuration
 Installing updates
 Suspending
 update succeeded
 ```
-If you are not able to upgrade the guest add-ons tool using the `anka start -u vmname` command, then you have a very old version of guest addon tools on your VM. You will first need to manually update them. Contact Veertu support.
+If you are not able to upgrade the guest add-ons tool using the `anka start -u <template>` command, then you have a very old version of guest addon tools on your VM. You will first need to manually update them. Contact Veertu support.
 4. Push your upgraded VMs to the Registry.
 
 ### Uninstall

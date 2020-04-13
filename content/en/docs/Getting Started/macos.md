@@ -1,8 +1,7 @@
-
 ---
 title: "Getting started with Anka Build Cloud on Mac OS"
 linkTitle: "Run Anka Build Cloud on Mac OS"
-weight: 2
+weight: 1
 description: >
   Set up your Anka Build Cloud on Mac OS.
 ---
@@ -14,7 +13,6 @@ Welcome! This tutorial will guide you through setting up your Anka Build Cloud.
 1. A Mac to install the Anka Controller & Registry.
 2. A second Mac to install the Anka CLI (the "Node").
 
- 
 > You can complete this tutorial with only one machine running Mac OS, but it's not recommended.
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_what-we-are-doing.md" >}}
@@ -25,13 +23,15 @@ Welcome! This tutorial will guide you through setting up your Anka Build Cloud.
 
 {{< include file="shared/content/en/docs/Anka CLI/partials/_install-guide.md" >}}
 
-For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
+For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/command-reference.md" >}}).
 
 ### Create your first VM Template
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_create-vm-template.md" >}}
 
-> You can find detailed instructions for `anka create` [here.]({{< relref "docs/Anka CLI/creating-a-vm.md" >}})
+> You can find detailed instructions for [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) [here.]({{< relref "docs/Anka CLI/creating-templates-and-tags.md" >}})
+
+> You can continue on to Step 2 while you wait for this to finish.
 
 ## Step 2. Install Anka Controller & Registry
 
@@ -102,7 +102,7 @@ sudo anka-controller logs
 
 ## What next?
 
-- Browse the [Anka CLI Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).  
+- Browse the [Anka CLI Command Reference]({{< relref "docs/Anka CLI/command-reference.md" >}}).  
 - Connect your cloud to a [CI server]({{< relref "docs/Anka Build Cloud/CI Plugins/_index.md" >}}).  
 - Find out how to use the [Controller REST API]({{< relref "docs/Anka Build Cloud/controller-api.md">}}).  
-- Learn how to work with [USB devices]({{< relref "docs/Anka Build Cloud/using-real-devices-attached-to-anka-vms.md">}})
+- Learn how to work with [USB devices]({{< relref "docs/Getting Started/working-with-usb-devices.md">}})

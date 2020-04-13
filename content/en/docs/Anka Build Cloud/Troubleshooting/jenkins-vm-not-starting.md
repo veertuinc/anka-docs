@@ -63,7 +63,7 @@ When using SSH as the launch method, make sure that Jenkins is connecting to you
 
 ## SSH port forwarding not set correctly on VM 
 When using SSH as the launch method, port forwarding is used to connect to the VM through the host it runs on.  
-You can find more information on how set up port forwarding [here]({{< ref "docs/Anka CLI/creating-a-vm.md" >}}#automated-methods)
+You can find more information on how set up port forwarding [here]({{< ref "docs/Anka CLI/creating-templates-and-tags.md" >}}#automated-methods)
 To check if port forwarding is set correctly, start a new VM Instance from the Anka Cloud Dashboard.
 After the VM Instance is in state `Started` and `VNC connection string` has a value, click on the *Node Name* in the Instance row to see it's details.
 In the bottom pane, look at `port forwarding rules`. If nothing is there and the VM has an **IP**, it means that port forwarding needs to be configured (see screenshot).  
