@@ -92,7 +92,7 @@ Within the `docker-compose.yml`:
 
 {{</ highlight >}}
 
-Now let’s configure the Controller and Registry containers/services to use those certificates. Search for the environment variables **USE_HTTPS**, **SERVER_CERT** and **SERVER_KEY** in `docker-compose.yml`, uncomment the lines, and then modify the `****EDIT_ME****` with the name of your certificate:
+Now let’s configure the Controller & Registry containers/services to use those certificates. Search for the environment variables **USE_HTTPS**, **SERVER_CERT** and **SERVER_KEY** in `docker-compose.yml`, uncomment the lines, and then modify the `****EDIT_ME****` with the name of your certificate for both **anka-controller** and **anka-registry**:
 
 {{< highlight dockerfile "hl_lines=28 31 33" >}}
 
@@ -133,7 +133,7 @@ Now let’s configure the Controller and Registry containers/services to use tho
 
 {{</ highlight >}}
 
-> **Perform the same changes for the anka-registry container. The configuration should look similar.**
+> **Make sure to perform the same changes for the anka-registry container.**
 
 ### Test the Configuration
 
@@ -169,7 +169,7 @@ Edit the `/usr/local/bin/anka-controllerd` and add the following onto the end of
 
 ### Installing for the Linux/Docker Controller & Registry
 
-Within the `docker-compose.yml`, search for the environment variables **ENABLE_AUTH** and **CA_CERT**. Edit them so they will look like the configuration below (assuming that a certificate folder is already mounted at /mnt/cert).
+Within the `docker-compose.yml`, search for the environment variables **ENABLE_AUTH** and **CA_CERT**. Edit both **anka-controller** and **anka-registry** so they look like the configuration below (assuming that a certificate folder is already mounted at /mnt/cert).
 
 {{< highlight dockerfile "hl_lines=26 27" >}}
 
@@ -205,7 +205,7 @@ anka-controller:
 
 {{</ highlight >}}
 
-> **Perform the same changes for the anka-registry container. The configuration should look similar.**
+> **Make sure to perform the same changes for the anka-registry container.**
 
 > **Until you have a Node joined to the Controller, it won't see your Enterprise license and won't enable authentication.**
 
