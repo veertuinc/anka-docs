@@ -19,11 +19,7 @@ If you don’t have one, you can create it with openssl and add it to your keych
 
 ```shell
 cd ~
-
-export KEYCHAIN="$HOME/Library/Keychains/login.keychain-db"
-
-openssl req -new -Nodes -x509 -days 365 -keyout anka-ca-key.pem -out anka-ca-crt.pem -subj "/C=$COUNTRY/ST=$STATE/L=$LOCATION/O=$ORGANIZATION/OU=$ORG_UNIT/CN=$CA_CN"
-
+openssl req -new -nodes -x509 -days 365 -keyout anka-ca-key.pem -out anka-ca-crt.pem -subj "/C=$COUNTRY/ST=$STATE/L=$LOCATION/O=$ORGANIZATION/OU=$ORG_UNIT/CN=$CA_CN"
 # Add the Root CA to the System keychain so the Root CA is trusted
 sudo security add-trusted-cert -d -k /Library/Keychains/System.keychain anka-ca-crt.pem
 ```
@@ -32,16 +28,16 @@ sudo security add-trusted-cert -d -k /Library/Keychains/System.keychain anka-ca-
 
 > The **Controller certificate** is not part of the authentication process and doesn't need to be derived from the CA you just generated. This means that you can use certificates supplied by your organization or a 3rd party.
 
+> For this guide, we're running the Controller & Registry locally, so we use 127.0.0.1. Update this depending on where you have things hosted.
+
 If you do not have TLS certificates for your Controller & Registry, you can create them now:
 
 ```shell
-export CONTROLLER_SERVER_IP="127.0.0.1"
-
+export CONTROLLER_ADDRESS="127.0.0.1"
+export REGISTRY_ADDRESS=$CONTROLLER_ADDRESS
 openssl genrsa -out anka-controller-key.pem 4096
-
-openssl req -new -nodes -sha256 -key anka-controller-key.pem -out anka-controller-csr.pem -subj "/C=$COUNTRY/ST=$STATE/L=$LOCATION/O=$ORGANIZATION/OU=$ORG_UNIT/CN=$CONTROLLER_CN" -reqexts SAN -extensions SAN -config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nextendedKeyUsage = serverAuth\nsubjectAltName=IP:$CONTROLLER_SERVER_IP"))
-
-openssl x509 -req -days 365 -sha256 -in anka-controller-csr.pem -CA anka-ca-crt.pem -CAkey anka-ca-key.pem -CAcreateserial -out anka-controller-crt.pem -extfile <(echo subjectAltName = IP:$CONTROLLER_SERVER_IP)
+openssl req -new -nodes -sha256 -key anka-controller-key.pem -out anka-controller-csr.pem -subj "/C=$COUNTRY/ST=$STATE/L=$LOCATION/O=$ORGANIZATION/OU=$ORG_UNIT/CN=$CONTROLLER_CN" -reqexts SAN -extensions SAN -config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nextendedKeyUsage = serverAuth\nsubjectAltName=IP:$CONTROLLER_ADDRESS"))
+openssl x509 -req -days 365 -sha256 -in anka-controller-csr.pem -CA anka-ca-crt.pem -CAkey anka-ca-key.pem -CAcreateserial -out anka-controller-crt.pem -extfile <(echo subjectAltName = IP:$CONTROLLER_ADDRESS)
 ```
 
 > You can use the same certificate for both.
@@ -59,7 +55,7 @@ Edit `/usr/local/bin/anka-controllerd` in the following manner:
 2. Append the following parameters on the end of the **$CONTROLLER_BIN** line:
 
     ```shell
-    --use-https --server-cert /Users/$USER_WHERE_CERTS_ARE/anka-controller-crt.pem --server-key /Users/$USER_WHERE_CERTS_ARE/anka-controller-key.pem --anka-registry "https://$YOUR_IP_HERE:8089" --registry-listen-address "$YOUR_IP_HERE:8089"
+    --use-https --server-cert /Users/$USER_WHERE_CERTS_ARE/anka-controller-crt.pem --server-key /Users/$USER_WHERE_CERTS_ARE/anka-controller-key.pem --anka-registry "https://$REGISTRY_ADDRESS:8089" --registry-listen-address "$REGISTRY_ADDRESS:8089"
     ```
 
 > The Controller & Registry runs as root; This is why you need to specify the absolute path to the location where you generated the certs.
@@ -116,7 +112,7 @@ Now let’s configure the Controller & Registry containers/services to use those
     restart: always
     environment:
       # Address of anka registry. this address will be passed to your build Nodes
-      ANKA_REGISTRY_ADDR: https://127.0.0.1:8089
+      ANKA_REGISTRY_ADDR: https://<REGISTRY_ADDRESS>:8089
 
 . . .
 
@@ -151,9 +147,7 @@ You can use the following openssl commands to create Node certificates using the
 
 ```shell
 openssl genrsa -out node-$NODE_NAME-key.pem 4096
-
 openssl req -new -sha256 -key node-$NODE_NAME-key.pem -out node-$NODE_NAME-csr.pem -subj "/C=$COUNTRY/ST=$STATE/L=$LOCATION/O=$ORGANIZATION/OU=$ORG_UNIT/CN=$NODE_NAME"
-
 openssl x509 -req -days 365 -sha256 -in node-$NODE_NAME-csr.pem -CA anka-ca-crt.pem -CAkey anka-ca-key.pem -CAcreateserial -out node-$NODE_NAME-crt.pem
 ```
 
@@ -209,6 +203,8 @@ anka-controller:
 
 > **Until you have a Node joined to the Controller, it won't see your Enterprise license and won't enable authentication.**
 
+> If you're connecting the Anka CLI with the HTTPS Registy, you can use the Node certificates: `anka registry --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem --cacert /Users/$USER_WHERE_CERTS_ARE/anka-ca-crt.pem add $REGISTRY_NAME https://$REGISTRY_ADDRESS:8089`
+
 ## Joining your Node to the Controller with the Node certificate
 
 > If you previously joined your Nodes to the Controller, you'll want to `sudo ankacluster disjoin` on each before proceeding (if it hangs, use `ps aux | grep anka_agent | awk '{print $2}' | xargs kill -9` and try disjoin again).
@@ -218,7 +214,7 @@ Copy both the Node certificates (node-$NODE_NAME-crt.pem, node-$NODE_NAME-key.pe
 Then, use the `ankacluster` command to connect it to the Controller in the following manner:
 
 ```shell
-sudo ankacluster join https://$HOST --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --cert-key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem --cacert /Users/$USER_WHERE_CERTS_ARE/anka-ca-crt.pem
+sudo ankacluster join https://$CONTROLLER_ADDRESS --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --cert-key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem --cacert /Users/$USER_WHERE_CERTS_ARE/anka-ca-crt.pem
 You should see output similar to the following:
 Testing connection to Controller...: OK
 Testing connection to registry….: OK
@@ -256,10 +252,10 @@ If this is the response you get, it means the authentication module is working.
 Let’s try to get a response using the Node certificate we created. Execute the same command, but now pass Node certificate and key:
 
 ```shell
-curl -v https://$HOST/api/v1/status --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem
+curl -v https://$CONTROLLER_ADDRESS/api/v1/status --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem
 ```
 
-If everthing is configured correctly, you should see something like this:
+If everthing is configured correctly, you should see something like this (I used 127.0.0.1 to setup this example):
 
 ```shell
 *   Trying 127.0.0.1...
