@@ -8,16 +8,22 @@ description: >
 ---
 
 ## Anka (supported on all mac hardware including 2018 Mac Mini and 2019 Mac Pro)
-### Latest Version - Anka Version 2.2.2 and Controller & Registry 1.7.0
+### Latest Version - Anka Version 2.2.2 and Controller & Registry 1.7.1
 - Anka Package - Version 2.2.2 - Mar 03, 2020
-- Anka Controller & Registry combined Linux package - Version 1.7.0 - Mar 23, 2020
-- Anka Controller & Registry Mac package - Version 1.7.0 - Mar 23, 2020
-- Anka Registry Mac package - Version 1.7.0 - Mar 23, 2020
+- Anka Controller & Registry combined Linux package - Version 1.7.1 - Apr 14, 2020
+- Anka Controller & Registry Mac package - Version 1.7.1 - Apr 14, 2020
+- Anka Registry Mac package - Version 1.7.1 - Apr 14, 2020
 - Anka Jenkins plug-in - version 1.23.0 - Mar 23, 2020
 - Anka Teamcity plug-in - version 1.7.0 - Nov 05, 2019
 - Anka GitLabCI Integration - Updated Dec 08, 2019
 - Anka Packer Plugin Integration - Updated Dec 08, 2019
 - Anka Jenkins Slave template Builder plug-in - (Maintained only until version 1.5). Combined in Anka Jenkins plug-in version 1.20.
+
+### Change Log Anka Controller & Registry combined package (Mac) version 1.7.1 - Apr 14, 2020
+- Bug Fix : Anka agent miscalculates free space to keep when pulling images on the node
+
+### Change Log Anka Controller & Registry combined package (linux) version 1.7.1 - Apr 14, 2020
+- Bug Fix : Anka agent miscalculates free space to keep when pulling images on the node
 
 ### Change Log Anka Controller & Registry combined package (Mac) version 1.7.0 - Mar 23, 2020
 - Bug Fix : ankacluster doesn't pass max vm count to agent

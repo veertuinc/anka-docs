@@ -4,34 +4,16 @@ title: "Current Changelog"
 linkTitle: "Current Changelog"
 weight: 11
 description: >
-  Published March 23, 2020 
+  Published April 14, 2020 
 ---
 
 ## Changelog
 
-### Change Log Anka Controller & Registry combined package (Mac) version 1.7.0 - Mar 23, 2020
-- Bug Fix : ankacluster doesn't pass max vm count to agent
-- Bug Fix : Node upgrade request is sometimes sent more than once
-- Bug Fix : Distribute not showing progress
-- Bug Fix : Controller moves from ‘enterprise’ to ‘basic’ after uninstall and upgrade anka from 2.2.1 to 2.2.2
-- New feature : Display node storage usage information in the controller dashboard
-- New feature : Show size of templates in the controller dashboard
-- New feature : Show a link to the jenkins job that the vm is running in the controller dashboard
-- New feature : Put prompt while deleting template from the controller dashboard
-- New feature : add reserve disk flag in ankacluster command
-- New feature : Add the option to recover from a crash while uploading files to registry
+### Change Log Anka Controller & Registry combined package (Mac) version 1.7.1 - Apr 14, 2020
+- Bug Fix : Anka agent miscalculates free space to keep when pulling images on the node
 
-### Change Log Anka Controller & Registry combined package (Linux) version 1.7.0 - Mar 23, 2020
-- Bug Fix : ankacluster doesn't pass max vm count to agent
-- Bug Fix : Node upgrade request is sometimes sent more than once
-- Bug Fix : Distribute not showing progress
-- Bug Fix : Controller moves from ‘enterprise’ to ‘basic’ after uninstall and upgrade anka from 2.2.1 to 2.2.2
-- New feature : Display node storage usage information in the controller dashboard
-- New feature : Show size of templates in the controller dashboard
-- New feature : Show a link to the jenkins job that the vm is running in the controller dashboard
-- New feature : Put prompt while deleting template from the controller dashboard
-- New feature : add reserve disk flag in ankacluster command
-- New feature : Add the option to recover from a crash while uploading files to registry
+### Change Log Anka Controller & Registry combined package (linux) version 1.7.1 - Apr 14, 2020
+- Bug Fix : Anka agent miscalculates free space to keep when pulling images on the node
 
 ### Change Log Jenkins Plugin version 1.23.0 - Mar 23, 2020
 - Bug Fix : Controller IP is inaccessible from the Jenkins and Jenkins page is stuck on “loading” forever
