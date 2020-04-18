@@ -1,4 +1,4 @@
-#### Obtain the Mac OS installer
+### Obtain the Mac OS installer
 
 There are multiple ways to obtain the installer .app file for Mac OSX that we'll detail for you below:
 
@@ -25,7 +25,7 @@ There are multiple ways to obtain the installer .app file for Mac OSX that we'll
       ```
 3. Have your local IT department provide a network volume or download links.
 
-#### Run [`anka create`](../../anka-cli/command-reference#create) to generate the Template
+### Run [`anka create`](../../anka-cli/command-reference#create) to generate the Template
 Assuming you chose to download Mojave:
 ```shell
 anka create --app /Applications/Install\ Mac OS\ Mojave.app/ mojave-base

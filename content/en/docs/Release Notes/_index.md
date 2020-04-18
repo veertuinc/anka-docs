@@ -21,6 +21,34 @@ description: >
 
 > There is no need to upgrade the VM templates from previous anka version 2.2.1 to version 2.2.2, unless you need to use the items from the above list which explicitly state the requirement of `anka start -u`.
 
+### Change Log Anka Controller & Registry combined package (Mac) version 1.7.1 - Apr 14, 2020
+- Bug Fix : Anka agent miscalculates free space to keep when pulling images on the node
+
+### Change Log Anka Controller & Registry combined package (linux) version 1.7.1 - Apr 14, 2020
+- Bug Fix : Anka agent miscalculates free space to keep when pulling images on the node
+
+### Jenkins Plugin 1.23.0 - Mar 23, 2020
+- Bug Fix : Controller IP is inaccessible from the Jenkins and Jenkins page is stuck on “loading” forever
+
+> Currently issues in amazon-ecs-plugin version 1.26 cause problems with Jenkins-Anka Plugin. In order to fix this, downgrade to amazon-ecs-plugin version 1.22 or disable amazon-ecs-plugin. Check https://github.com/jenkinsci/amazon-ecs-plugin/issues/158 for more details.
+
+### TeamCity Plugin 1.7.0 - Nov 05, 2019
+- Bug Fix : Remove extra log messages in TC plugin
+
+### Packer Plugin 1.1.0 - Dec 08, 2019
+- New feature : Add hyper-threading support for Packer plugin
+- New feature : Add verbose output while creating image
+- New feature : Integrate packer plugin with ansible
+
+### Gitlab CI Plugin 0.6b - Dec 08, 2019
+- New feature : update gitlab runner to new gitlab codebase
+
+### Anka Registry (Mac) - Version 1.1.1
+
+---
+
+## Previous Versions
+
 ### Anka Controller & Registry (Mac) 1.7.0 - Mar 23, 2020
 - Bug Fix : ankacluster doesn't pass max vm count to agent
 - Bug Fix : Node upgrade request is sometimes sent more than once
@@ -44,28 +72,6 @@ description: >
 - New feature : Put prompt while deleting template from the controller dashboard
 - New feature : add reserve disk flag in ankacluster command
 - New feature : Add the option to recover from a crash while uploading files to registry
-
-### Jenkins Plugin 1.23.0 - Mar 23, 2020
-- Bug Fix : Controller IP is inaccessible from the Jenkins and Jenkins page is stuck on “loading” forever
-
-> Currently issues in amazon-ecs-plugin version 1.26 cause problems with Jenkins-Anka Plugin. In order to fix this, downgrade to amazon-ecs-plugin version 1.22 or disable amazon-ecs-plugin. Check https://github.com/jenkinsci/amazon-ecs-plugin/issues/158 for more details.
-
-### TeamCity Plugin 1.7.0 - Nov 05, 2019
-- Bug Fix : Remove extra log messages in TC plugin
-
-### Packer Plugin 1.1.0 - Dec 08, 2019
-- New feature : Add hyper-threading support for Packer plugin
-- New feature : Add verbose output while creating image
-- New feature : Integrate packer plugin with ansible
-
-### Gitlab CI Plugin 0.6b - Dec 08, 2019
-- New feature : update gitlab runner to new gitlab codebase
-
-### Anka Registry (Mac) - Version 1.1.1
-
----
-
-## Previous Versions
 
 ### Anka Controller & Registry (Mac) 1.6.0 - Mar 08, 2020
 - Bug Fix : Jenkins plugin leaves zombie VMs after upgrade to version 2.204
