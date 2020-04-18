@@ -173,7 +173,8 @@ port_forwarding
 Access it with `ssh anka@<IP> -p host_port`
 
 **Use anka run and execute commands**
-Anka command line contains [`anka run`]({{< relref "docs/Anka CLI/command-reference.md#run" >}}) command (similar to docker run) to execute commands inside the VM directly from the host.  
+
+Similar to `docker exec`, [`anka run`]({{< relref "docs/Anka CLI/command-reference.md#run" >}}) allows execution of commands inside of a VM.
 
 Example
 ```shell

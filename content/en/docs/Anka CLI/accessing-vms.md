@@ -20,7 +20,7 @@ There are currently two methods of accessing Anka VMs:
 
 {{< include file="shared/content/en/docs/Anka CLI/partials/run/_index.md" >}}
 
-Similar to `docker run`, [`anka run`]({{< relref "docs/Anka CLI/command-reference.md#run" >}}) allows execution of commands into the VM from the host machine.
+Similar to `docker exec`, [`anka run`]({{< relref "docs/Anka CLI/command-reference.md#run" >}}) allows execution of commands inside of a VM.
 
 When running [`anka run`]({{< relref "docs/Anka CLI/command-reference.md#run" >}}) with no options/flags, it will mount the current folder from the host into the VM and execute commands in this mount point. This can be disabled using the [`-n`]({{< relref "docs/Anka CLI/command-reference.md#run" >}}) option.
 
