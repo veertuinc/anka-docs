@@ -21,7 +21,7 @@ The Anka TeamCity plugin provides a quick way to integrate Anka Build Cloud with
 5. Go to `BuildAgent/conf/buildagent.properties` under Teamcity user in the VM and check all the settings. Make sure that server url pointing to your Teamcity server IP as `serverUrl=http://xx.xxx.xx.xxx` is correct.
 6. Start the Teamcity agent service inside the VM with `sh BuildAgent/bin/mac.launchd.sh load`.
 7. Connect to this VM from Teamcity, wait for few minutes for Teamcity to connect and authorize the VM agent instance. It will show up under the connected tab in Agents in TeamCity.
-5. Suspend the VM with `anka suspend VMName`.
+5. Suspend the VM with `anka suspend <template>`.
 6. Push it to anka registry.
 
 ### Configure the TeamCity Plugin

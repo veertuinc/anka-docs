@@ -2,7 +2,7 @@
 ---
 title: "Getting started with Anka Build Cloud on Linux using Docker"
 linkTitle: "Run Anka Build Cloud on Linux using Docker"
-weight: 3
+weight: 2
 description: >
   Set up your Anka Build Cloud on Linux.
 ---
@@ -28,13 +28,15 @@ Welcome! This tutorial guides you through setting up your Anka Build Cloud on Li
 
 {{< include file="shared/content/en/docs/Anka CLI/partials/_install-guide.md" >}}
 
-For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
+For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/command-reference.md" >}}).
 
 ### Create your first VM Template
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_create-vm-template.md" >}}
 
-> You can find detailed instructions for `anka create` [here.]({{< relref "docs/Anka CLI/creating-a-vm.md" >}})
+> You can find detailed instructions for [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) [here.]({{< relref "docs/Anka CLI/creating-templates-and-tags.md" >}})
+
+> You can continue on to Step 2 while you wait for this to finish.
 
 ## Step 2: Install Anka Controller & Registry
 
@@ -137,7 +139,6 @@ First, edit the `docker-compose.yml`.
 
 #### Start the containers
 
- 
 > Ensure you're in the same directory as the `docker-compose.yml`.
 
 ```shell
@@ -145,7 +146,6 @@ docker-compose up -d
 ```
 
 This command builds your containers and runs the services defined as a daemon.
-
 
 > To stop the docker containers, run: `docker-compose down`
 
@@ -178,14 +178,13 @@ To see the Registry's logs:
 docker logs --tail 100 -f test_anka-registry_1
 ```
 
- 
 > The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging))
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_step3-and-4.md" >}}
 
 ## What next?
 
-- Browse the [Anka CLI Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).  
+- Browse the [Anka CLI Command Reference]({{< relref "docs/Anka CLI/command-reference.md" >}}).  
 - Connect your cloud to a [CI server]({{< relref "docs/Anka Build Cloud/CI Plugins/_index.md" >}}).  
 - Find out how to use the [Controller REST API]({{< relref "docs/Anka Build Cloud/controller-api.md">}}).  
-- Learn how to work with [USB devices]({{< relref "docs/Anka Build Cloud/using-real-devices-attached-to-anka-vms.md">}})
+- Learn how to work with [USB devices]({{< relref "docs/Getting Started/working-with-usb-devices.md">}})

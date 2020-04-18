@@ -17,7 +17,7 @@ The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud w
   
 > Since v1.20, the Slave Template builder plugin merged with the Anka Plugin. Be sure to uninstall the old Slave Template builder plugin if you're upgrading to v1.20.
 
-> In order to follow these instructions, you will need to [install the Anka CLI]({{< relref "docs/Anka CLI/install.md" >}}) and an understanding of how to [start the VM]({{< relref "docs/Anka CLI/commands.md#start-vm" >}}) and [launch the viewer]({{< relref "docs/Anka CLI/commands.md#open-vm-windowviewer" >}}).
+> In order to follow these instructions, you will need to [install the Anka CLI]({{< relref "docs/Anka CLI/installation.md" >}}) and an understanding of how to [start the VM]({{< relref "docs/Anka CLI/command-reference.md#start-vm" >}}) and [launch the viewer]({{< relref "docs/Anka CLI/command-reference.md#open-vm-windowviewer" >}}).
 
 ## VM Template & Tag Requirements
 
@@ -27,7 +27,7 @@ The Jenkins Anka Plugin requires a VM with Java, SSH sharing, and port forwardin
     - Within Jenkins, visit **/systemInfo** (`System Properties`) and look for `java.version`.
     - Use the value to determine the proper OpenJDK version you need to download and install in your VM Template. For example if the `java.version` is set to `1.8.0_242`, you can download and install the [AdoptOpenJDK jdk8u242-b08.pkg](https://github.com/AdoptOpenJDK/openjdk8-binaries/releases).
 2. In the VM, make sure remote login is enabled (`System Preferences > Sharing`).
-3. On the host, enable [port forwarding]({{< relref "docs/Anka CLI/commands.md#port-forwarding-example" >}}) for your VM Template using the Anka CLI. _We recommend not specifying --host-port._
+3. On the host, enable [port forwarding]({{< relref "docs/Anka CLI/command-reference.md#example---add-port-forwarding" >}}) for your VM Template using the Anka CLI. _We recommend not specifying --host-port._
 4. `sudo anka suspend <VM Template name>`
 5. `sudo anka registry push <VM Template name> <Tag name>`
 
@@ -59,7 +59,7 @@ At this point you can either setup [Static Labels]({{< relref "#creating-static-
 
 6. Select the **SSH** or **JNLP** method for connection between Jenkins and your Anka VMs.
     - SSH: You'll need to add the proper user credentials to Jenkins. If you're using the default user on the VM, use the user: `anka` and pass: `admin`.
-    - JNLP: This method downloads an agent.jar and the slave-agent.jnlp file from the **Jenkins URL** you've set in your System Configuration into the VM. If the Jenkins URL doesn't resolve inside of the VM (like if it's set to http://localhost), you won't be able to use JNLP.
+    - JNLP: This method downloads an agent.jar and the slave-agent.jnlp file from the **Jenkins URL** you've set in your System Configuration into the VM. If the Jenkins URL doesn't resolve inside of the VM (like if it's set to http://localhost), you won't be able to use JNLP. _If you're seeing any problems post-creation of the agent inside of Jenkins, check the running VMs `/tmp/log.txt` for errors._
 
 7. Enter a value for **Slave name template**. Provisioned VMs names will contain this value.
 
@@ -93,7 +93,7 @@ This section describes the steps to create dynamic labels inside of your Jenkins
 **Name** | **Type** | **Default Value** |  **Description** |  **Required**
 --- | --- | --- | --- | ---
 masterVmId | String | -  | UUID of the VM Template | Yes
-Tag | String | -  | VM Template Tag name | -
+tag | String | -  | VM Template Tag name | -
 remoteFS | String | `Users/anka` | Remote node workspace | -
 launchMethod | String | `jnlp` | Node launch method: ‘ssh’ or ‘jnlp’ | -
 credentialsId | String | -  | Jenkins credential ID for ssh launch method | -
@@ -195,7 +195,7 @@ Pipelines can have multiple agents running in one build (also in parallel). Ther
       steps {
         // If buildResults == 'FAILURE', Anka will not push the NESTED_LABEL VM. Example:
         catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
-          sh 'uname -r; exit 5'
+          sh 'uname -r;'
         }
       }
     }

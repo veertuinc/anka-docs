@@ -1,8 +1,6 @@
-
 Great! Now that we have our Anka Controller & Registry up and running, let's add Nodes!
 
 ## Step 3. Link the Anka CLI Node to the Controller
-
 
 > Perform the following steps on the Node where you created your first VM Template.
 
@@ -86,7 +84,7 @@ You can now confirm the Instance is running from inside the Node:
 
 - JSON output is available for scripting/automation using `anka --machine-readable`
     
-```
+```shell
 sudo anka --machine-readable list | jq
 {
   "status": "OK",

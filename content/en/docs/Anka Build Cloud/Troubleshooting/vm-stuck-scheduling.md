@@ -27,7 +27,7 @@ Go to your dashboard, look at the box on the right. It should say "X More Instan
 
 
 Go to your `Nodes` screen and go over the Nodes.  
-If any of your Nodes has the message `Inactive (Invalid License)` under it's state, you need to go to that Node and activate the license. You can find more information about Anka License commands [here]({{< relref "docs/Anka CLI/commands.md" >}}#manage-anka-license).
+If any of your Nodes has the message `Inactive (Invalid License)` under it's state, you need to go to that Node and activate the license. You can find more information about Anka License commands [here]({{< relref "docs/Anka CLI/command-reference.md" >}}#manage-anka-license).
 If one of your Nodes has the state `Offline` it usually means that the agent running on the Node have crashed. To solve this, execute a `disjoin` and `join` commands on the Node:
 ```shell 
 # Disjoin

@@ -12,7 +12,7 @@ description: >
 If you are using Buildkite CI as your CI tool, you need to use [Anka-Buildkite plugin](https://github.com/chef/anka-buildkite-plugin).
 
 
-* If you are new to Buildkite - you should know anka VM run from Buildkite build will not show started instances on the controller dashboard or through `anka list`. The communication Between Buildkite and Anka takes place directly on to the ankactl (the part of anka responsible for Anka CLI and Anka run command) via the Buildkite agent . So, you will be able to see the logs activity only in [`anka.log`](https://ankadocs.veertu.com/docs/anka-build-cloud/logs/maclogs/) file.
+* If you are new to Buildkite - you should know anka VM run from Buildkite build will not show started instances on the controller dashboard or through [`anka list`]({{< relref "docs/Anka CLI/command-reference.md#list" >}}). The communication Between Buildkite and Anka takes place directly on to the ankactl (the part of anka responsible for Anka CLI and Anka run command) via the Buildkite agent . So, you will be able to see the logs activity only in [`anka.log`](https://ankadocs.veertu.com/docs/anka-build-cloud/logs/maclogs/) file.
 
 ## Connect the Buildkite-agent to the Anka host:
 

@@ -1,11 +1,11 @@
 
 ---
 date: 2019-12-12T00:00:00-00:00
-title: "Controller API"
-linkTitle: "Controller API"
+title: "Controller API Reference"
+linkTitle: "Controller API Reference"
 weight: 7
 description: >
-  How to work with the Anka Controller REST API.
+  Using the Controller REST API.
 ---
 
 > Note
