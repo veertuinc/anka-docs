@@ -1,6 +1,6 @@
 ---
 date: 2019-12-12T00:00:00-00:00
-title: "Configuring Certificate based authentication"
+title: "Certificate Authentication"
 linkTitle: "Certificate Authentication"
 weight: 2
 description: >
