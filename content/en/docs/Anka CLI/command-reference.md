@@ -118,8 +118,8 @@ Mac-mini:~ anka
 ##### EXAMPLE - set custom-variable
 
 ```shell
-anka modify {template} set custom-variable hw.UUID "GUID"
-anka modify {template} set custom-variable hw.serial 'MySerial'
+sudo anka modify {template} set custom-variable hw.UUID "GUID"
+sudo anka modify {template} set custom-variable hw.serial 'MySerial'
 ```
 
 You can set the following custom variables:
