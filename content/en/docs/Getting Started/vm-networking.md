@@ -7,7 +7,7 @@ description: >
   Understanding Anka VM networking
 ---
 
-Anka VMs, by default, use a shared networking configuration with the host. It’s a kind of NAT + DHCP. Every time you start/resume a VM, it gets assigned an IP that you can see with `sudo anka show <template>` command.
+Anka VMs, by default, use a shared networking configuration with the host. It’s a kind of NAT + DHCP. Every time you start/resume a VM, it gets assigned an IP that you can see with `sudo anka show {template}` command.
 
 SSH accesss ("Remote Login") is enabled by by default on Anka VMs, allowing you to:
 

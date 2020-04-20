@@ -29,13 +29,13 @@ When running [`anka run`]({{< relref "docs/Anka CLI/command-reference.md#run" >}
 ### Examples
 
 ```shell
-sudo anka run <template> sudo whoami
+sudo anka run {template} sudo whoami
 ```
 
 ```shell
 HELPERS="set -exo pipefail;"
 ANKA_RUN="sudo anka run -N -n"
-$ANKA_RUN <template> bash -c "$HELPERS cd /tmp && rm -f /tmp/OpenJDK* && \
+$ANKA_RUN {template} bash -c "$HELPERS cd /tmp && rm -f /tmp/OpenJDK* && \
   curl -L -O https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u242-b08/OpenJDK8U-jdk_x64_mac_hotspot_8u242b08.pkg && \
   [ \$(du -s /tmp/OpenJDK8U-jdk_x64_mac_hotspot_8u242b08.pkg | awk '{print \$1}') -gt 190000 ] && \
   sudo installer -pkg /tmp/OpenJDK8U-jdk_x64_mac_hotspot_8u242b08.pkg -target / && \
@@ -46,14 +46,14 @@ $ANKA_RUN <template> bash -c "$HELPERS cd /tmp && rm -f /tmp/OpenJDK* && \
 It's also possible to specify the directory to mount inside of the VM using this syntax `-v /host/folder:/mnt/path`: 
 
 ```shell
-sudo anka run -v $PWD:/tmp/mountpoint_1 <template> pwd
+sudo anka run -v $PWD:/tmp/mountpoint_1 {template} pwd
 ```
 
 > Currently, only a single directory can be specified. If you need more than one folder shared between host and the VM, use the [`anka mount`]({{< relref "docs/Anka CLI/command-reference.md#mount" >}}) command:
 
 ```shell
-sudo anka mount <template> ~/Library/MobileDevice/Provisioning\ Profiles/ /Users/anka/Library/MobileDevice/Provisioning\ Profiles/
-sudo anka run <template> xcodebuild -exportOptionsPlist exportInfo.plist archive
+sudo anka mount {template} ~/Library/MobileDevice/Provisioning\ Profiles/ /Users/anka/Library/MobileDevice/Provisioning\ Profiles/
+sudo anka run {template} xcodebuild -exportOptionsPlist exportInfo.plist archive
 ```
 
 ### Working with environment variables
@@ -71,15 +71,15 @@ sudo anka run ios-temp bash -c 'source ~/.bash_profile; ./iPhone/make_build -b d
 
 `anka run sierrav40c1 xcodebuild -sdk iphonesimulator -scheme Kickstarter-iOS build`  - Will mount the default directory from the host into the sierrav40c1 Vm and execute build.
 
-`anka run -w /Applications <template> ls -l`  - Will pipe the results of `ls -l` from the VM's `/Applications` directory.
+`anka run -w /Applications {template} ls -l`  - Will pipe the results of `ls -l` from the VM's `/Applications` directory.
 
-`anka run -v . <template> ls`  - Will mount the host current directory inside the VM, execute `ls`, pipe the results and unmount.
+`anka run -v . {template} ls`  - Will mount the host current directory inside the VM, execute `ls`, pipe the results and unmount.
 
-`anka run -v . <template> xcodebuild ...`  - Will mount the current directory from the developer machine(host) to the VM and execute an `xcodebuild` command and pipe the results back.
+`anka run -v . {template} xcodebuild ...`  - Will mount the current directory from the developer machine(host) to the VM and execute an `xcodebuild` command and pipe the results back.
 
 `anka run sudo ...`  - Executes commands inside the VM with `sudo` privileges. For instance:
 
-`anka run <template> cp -R simpledir /Users/anka`  - Will copy the current host directory to the VM at /Users/anka location
+`anka run {template} cp -R simpledir /Users/anka`  - Will copy the current host directory to the VM at /Users/anka location
 
 `anka run -n sierrav40c1 xcodebuild -sdk iphonesimulator -scheme Kickstarter-iOS build`  - Will not mount the current host directory and execute build in the VM current directory
 
@@ -89,7 +89,7 @@ You can write parameters to VM configuration so they're available on execution w
 ```shell
 anka run -n VNMANE whoami > /dev/null
 
-cat file.txt | anka run -n <template> md5
+cat file.txt | anka run -n {template} md5
 ```
 
 ## Launching the Anka Viewer with [`anka view`]({{< relref "docs/Anka CLI/command-reference.md#view" >}})

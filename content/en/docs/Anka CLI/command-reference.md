@@ -45,15 +45,15 @@ description: >
 {{< include file="./shared/content/en/docs/Anka CLI/partials/list/_index.md" >}}
 ## Modify
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/_index.md" >}}
-### modify <template> add
+### modify {template} add
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/add/_index.md" >}}
-#### modify <template> add hard-drive
+#### modify {template} add hard-drive
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/add/hard-drive/_index.md" >}}
-#### modify <template> add network-card
+#### modify {template} add network-card
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/add/network-card/_index.md" >}}
-#### modify <template> add optical-drive
+#### modify {template} add optical-drive
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/add/optical-drive/_index.md" >}}
-#### modify <template> add port-forwarding
+#### modify {template} add port-forwarding
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/add/port-forwarding/_index.md" >}}
 
 ##### **EXAMPLE** - add port-forwarding
@@ -90,49 +90,67 @@ Mac-mini:~ anka
 
 > Unless you customize the host_port, we default to using 10000, 10001, and so on for each VM that's started. Ensure that both the Controller server and any CI servers (where you host Jenkins for example) can reach the Node's ports in your firewall rules.
 
-#### modify <template> add usb-device
+#### modify {template} add usb-device
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/add/usb-device/_index.md" >}}
-### modify <template> delete
+### modify {template} delete
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/delete/_index.md" >}}
-#### modify <template> delete custom-variable
+#### modify {template} delete custom-variable
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/delete/custom-variable/_index.md" >}}
-#### modify <template> delete hard-drive
+#### modify {template} delete hard-drive
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/delete/hard-drive/_index.md" >}}
-#### modify <template> delete network-card
+#### modify {template} delete network-card
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/delete/network-card/_index.md" >}}
-#### modify <template> delete optical-drive
+#### modify {template} delete optical-drive
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/delete/optical-drive/_index.md" >}}
-#### modify <template> delete policy
+#### modify {template} delete policy
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/delete/policy/_index.md" >}}
-#### modify <template> delete port-forwarding
+#### modify {template} delete port-forwarding
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/delete/port-forwarding/_index.md" >}}
-#### modify <template> delete usb-device
+#### modify {template} delete usb-device
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/delete/usb-device/_index.md" >}}
-### modify <template> set
+### modify {template} set
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/set/_index.md" >}}
-#### modify <template> set cpu
+#### modify {template} set cpu
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/set/cpu/_index.md" >}}
-#### modify <template> set custom-variable
+#### modify {template} set custom-variable
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/set/custom-variable/_index.md" >}}
-#### modify <template> set description
+
+##### EXAMPLE - set custom-variable
+
+```shell
+anka modify {template} set custom-variable hw.UUID "GUID"
+anka modify {template} set custom-variable hw.serial 'MySerial'
+```
+
+You can set the following custom variables:
+
+* boot-args                   - NVRAM boot arguments
+* hw.uuid                     - Hardware UUID
+* hw.serial                   - Serial Number (system)
+* hw.manufacturer             - SMBIOS parameter (Reserved)
+* hw.product                  - SMBIOS parameter (Reserved)
+* hw.family                   - SMBIOS parameter (Reserved)
+* hw.board                    - SMBIOS parameter (Reserved)
+
+#### modify {template} set description
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/set/description/_index.md" >}}
-#### modify <template> set display
+#### modify {template} set display
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/set/display/_index.md" >}}
-#### modify <template> set hard-drive
+#### modify {template} set hard-drive
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/set/hard-drive/_index.md" >}}
-#### modify <template> set name
+#### modify {template} set name
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/set/name/_index.md" >}}
-#### modify <template> set nested
+#### modify {template} set nested
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/set/nested/_index.md" >}}
-#### modify <template> set network-card
+#### modify {template} set network-card
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/set/network-card/_index.md" >}}
-#### modify <template> set policy
+#### modify {template} set policy
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/set/policy/_index.md" >}}
-#### modify <template> set ram
+#### modify {template} set ram
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/set/ram/_index.md" >}}
-### modify <template> show
+### modify {template} show
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/show/_index.md" >}}
-#### modify <template> show custom-variables
+#### modify {template} show custom-variables
 {{< include file="./shared/content/en/docs/Anka CLI/partials/modify/show/custom-variables/_index.md" >}}
 ## Mount
 {{< include file="./shared/content/en/docs/Anka CLI/partials/mount/_index.md" >}}

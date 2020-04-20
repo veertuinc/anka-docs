@@ -1,6 +1,6 @@
 ```shell
 > sudo anka create --help
-Usage: anka create [OPTIONS] <template>
+Usage: anka create [OPTIONS] {template}
 
   Creates a VM
 

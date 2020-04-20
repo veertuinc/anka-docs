@@ -19,13 +19,15 @@ sudo anka create --ram-size 4G --cpu-count 2 --disk-size 80G --app /Applications
 
 > For Catalina Anka VMs, --ram-size value should be > 4G and --disk-size should be > 80G.
 
-By default [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) creates macOS VM with administrative `user - anka and password - admin`. You can change this default user by using these ENV variables with [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) command.
+By default [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) creates macOS VM with administrative `user - anka & password - admin`. You can change this default user by using these ENV variables with [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) command.
 
 ```shell
 ANKA_DEFAULT_PASSWD=passwd ANKA_DEFAULT_USER=usrname sudo anka create --ram-size 4G --cpu-count 2 --disk-size 60G -a /Applications/Install\ macOS\ High\ Sierra.app HiSierravm
 ```
 
 {{< include file="shared/content/en/docs/Anka CLI/partials/create/_index.md" >}}
+
+> It's recommended to divide the number of VM instances you plan on running within a single Node at once by the virtual cores available on the host and set `--cpu-count` to the result. Example: If you plan on running two VMs on a Node at once, and the Node has 12 vcpu cores (6 physical), you'd set `--cpu-count` to 6.
 
 While creating VM with [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) make sure to specify enough --disk-size:
 
@@ -43,16 +45,16 @@ vm created successfully with uuid: 8f0e1111-a14b-11e7-aaa4-003ee1cbb8b4
 
 > The output of [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) command is a VM created and it's in suspended state. [`anka start`]({{< relref "docs/Anka CLI/command-reference.md#start" >}}) from suspended state bypasses the full boot and starts the VM in 1-2 seconds.  
 
-> VMs are created with SIP/Kext Consent disabled by default. It's strongly advised to keep these settings for optimal Anka performance. If you need to re-enable SIP/Kext Consent, then use this command `anka modify <template> set custom-variable sys.csr-active-config 0`.
+> VMs are created with SIP/Kext Consent disabled by default. It's strongly advised to keep these settings for optimal Anka performance. If you need to re-enable SIP/Kext Consent, then use this command `anka modify {template} set custom-variable sys.csr-active-config 0`.
 
 > VMs are created with administrative `user - anka and password - admin` with auto login enabled for this user. It is possible to delete this user and create your own administrative user.
 
 ### Start VM
 The VM can now be successfully started. The VM is pre-configured with a default administrative username `anka` and password `admin`. You will see the VM boot up and have to complete the macOS keypad setup steps.
 
-`sudo anka start <template>` will start the VM in headless mode.
+`sudo anka start {template}` will start the VM in headless mode.
 
-`sudo anka start -v <template>` will start the VM with the VM viewer window.
+`sudo anka start -v {template}` will start the VM with the VM viewer window.
 
 ```shell
 > sudo anka start 133b387
@@ -81,10 +83,10 @@ The VM can now be successfully started. The VM is pre-configured with a default 
 +-----------------------+--------------------------------------+
 ```
 
-Validate by running the following command `sudo anka run <template> ls -l` from the host. It should display ls -l contents of the host current directory. The VM is correctly created.
+Validate by running the following command `sudo anka run {template} ls -l` from the host. It should display ls -l contents of the host current directory. The VM is correctly created.
 You can manually work within the VM with `sudo anka view sierravm`. This will open the VM window.
 
-Do `sudo anka show <template>` to view IP and other runtime details of the VM.
+Do `sudo anka show {template}` to view IP and other runtime details of the VM.
 
 ```shell
 > anka show 133b387
@@ -128,7 +130,7 @@ You can specify initial disk space while creating Anka VM with [`anka create`]({
 Change the disk space on an existing VM with the following commands.
 
 ```shell
-sudo anka modify <template> set hard-drive 0 <disk size>
+sudo anka modify {template} set hard-drive 0 <disk size>
 sudo anka run -n VM diskutil apfs resizeContainer disk0s2 <disk size>
 ```
 
@@ -149,15 +151,15 @@ You can manually work within the VM with `anka view sierravm`. This will open th
 **SSH to the VM and execute commands**  
 
 SSH into the VM from the host where its running with the following command.
-`ssh anka@<IP>`, where `<IP>` is the VM IP shown in `sudo anka show <template>` command.
+`ssh anka@<IP>`, where `<IP>` is the VM IP shown in `sudo anka show {template}` command.
 
 To SSH into the VM from another host, first enable ssh port forwarding. Use [`anka modify`]({{< relref "docs/Anka CLI/command-reference.md#modify" >}}) command.
 
 ```shell
-sudo anka modify <template> add port-forwarding --host-port 0 --guest-port 22 ssh
+sudo anka modify {template} add port-forwarding --host-port 0 --guest-port 22 ssh
 rule added successfully
 ```
-When the port forwarding rule is successfully added, you will see the following in the `anka show <template>` output.
+When the port forwarding rule is successfully added, you will see the following in the `anka show {template}` output.
 
 ```shell
 port_forwarding
@@ -178,14 +180,14 @@ Similar to `docker exec`, [`anka run`]({{< relref "docs/Anka CLI/command-referen
 
 Example
 ```shell
-sudo anka run -n -N <template> ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-sudo anka run -n <template> sudo gem install xcode-install
+sudo anka run -n -N {template} ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+sudo anka run -n {template} sudo gem install xcode-install
 
 #saving user/pass of app store
 echo FASTLANE_USER=user >> appstore_login
 echo FASTLANE_PASSWORD=password >> appstore_passwd
 
-sudo anka run -f appstore_login -nE <template> xcversion install 10.1
+sudo anka run -f appstore_login -nE {template} xcversion install 10.1
 ```
 
 Go to [Execute operation inside Vm from the host with RUN]({{< relref "accessing-vms.md" >}}) for more details on how to use [`anka run`]({{< relref "docs/Anka CLI/command-reference.md#run" >}}) command.
@@ -200,11 +202,11 @@ If you want to enable ssh based access to the VM from your CI tools, then enable
 Use [`anka modify`]({{< relref "docs/Anka CLI/command-reference.md#modify" >}}) command.
 
 ```shell
-sudo anka modify <template> add port-forwarding --host-port 0 --guest-port 22 ssh
+sudo anka modify {template} add port-forwarding --host-port 0 --guest-port 22 ssh
 rule added successfully
 ```
 
-When the port forwarding rule is successfully added, you will see the following in the `anka show <template>` output.
+When the port forwarding rule is successfully added, you will see the following in the `anka show {template}` output.
 
 ```shell
 port_forwarding
@@ -280,8 +282,8 @@ Start the VM again with guest addons ISO installed.
 sudo anka start -v -o /Library/Application\ Support/Veertu/Anka/guestaddons/anka-addons-mac.iso sierravm
 ```
 
-Complete the guest addons installation inside the VM. Shutdown the VM with `sudo anka stop <template>`.
+Complete the guest addons installation inside the VM. Shutdown the VM with `sudo anka stop {template}`.
 
-Validate by running the following command `sudo anka run <template> ls -l` from the host. It should display ls -l contents of the VM. The VM is correctly created.
+Validate by running the following command `sudo anka run {template} ls -l` from the host. It should display ls -l contents of the VM. The VM is correctly created.
 
 Anka Guest Add-ons also create a default `user: anka`, `passwd: admin` for the VM.

@@ -22,7 +22,7 @@ When upgrading the entire Anka Build infrastructure (Controller/Registry and Nod
 
 3) Upgrade the guest addons inside the VM templates with `anka start -u`. Check the upgrade notes to see if this step is necessary.
 
-4) Push the newly upgraded VM templates to registry with `anka registry push <template> --tag <tag>`.
+4) Push the newly upgraded VM templates to registry with `anka registry push {template} --tag <tag>`.
 
 5) Go to the Controller/Registry and upgrade.
 

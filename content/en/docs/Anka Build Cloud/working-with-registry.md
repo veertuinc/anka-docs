@@ -60,16 +60,16 @@ anka registry set <previouslydefiniedname>
 
 ### Push VM to the Registry 
 ```shell
-anka registry push -d <description> -t <tag> <template>
+anka registry push -d <description> -t <tag> {template}
 ```  
 
 ### Pull VM from the Registry 
 ```shell
-anka registry pull -t <tag> <template>
+anka registry pull -t <tag> {template}
 ```
 ### Pull VM from the Registry with Shrink 
 ```shell
-anka registry pull -s -t <tag> <template>
+anka registry pull -s -t <tag> {template}
 ```
 For example, let's say you have V1, V2 tags in the Registry for a VM. You pull V2. Then, you pull V1 with -s flag. It will optimize the local disk space usage by deleting all V2 related tag/version files.  
 

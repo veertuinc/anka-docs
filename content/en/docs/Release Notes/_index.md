@@ -444,6 +444,6 @@ See upgrade notes at [here](https://ankadoc.bitbucket.io/#Upgrade Instructions a
 - Note     : There is no need to upgrade Anka VM created with 2.0 version to version 2.1.
 - Required : Shared folder is not supported for Catalina Anka VMs. We are waiting for Fuse libraries to be updated for Catalina.
 - Required : This release requires upgrade of Anka package on all of your nodes, controller, registery and all plugins.
-- Required : This release requires upgrade of all existing 1.4.X VM templates. Use anka start -u <template>/VMUUID command.
+- Required : This release requires upgrade of all existing 1.4.X VM templates. Use anka start -u {template}/VMUUID command.
 - Required : Version 1.19 of Jenkins Plugin is not fully compatiable with older version sof controller 1.0.14 or 1.0.14.1. If you upgrade your plugin to version 1.19, you will need to recreate your Anka Cloud configuration in Jenkins.
 - Required : Https registries have to be re-added in 2.0.
