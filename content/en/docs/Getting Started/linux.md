@@ -1,10 +1,9 @@
-
 ---
-title: "Getting started with Anka Build Cloud on Linux using Docker"
-linkTitle: "Run Anka Build Cloud on Linux using Docker"
+title: "Anka Build Cloud on Linux"
+linkTitle: "Anka Build Cloud on Linux using Docker"
 weight: 2
 description: >
-  Set up your Anka Build Cloud on Linux.
+  Set up your Anka Build Cloud on Linux using Docker.
 ---
 
 Welcome! This tutorial guides you through setting up your Anka Build Cloud on Linux using Docker and Docker-Compose.

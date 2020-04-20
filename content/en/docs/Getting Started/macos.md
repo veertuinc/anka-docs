@@ -1,6 +1,6 @@
 ---
-title: "Getting started with Anka Build Cloud on Mac OS"
-linkTitle: "Run Anka Build Cloud on Mac OS"
+title: "Anka Build Cloud on Mac OS"
+linkTitle: "Anka Build Cloud on Mac OS"
 weight: 1
 description: >
   Set up your Anka Build Cloud on Mac OS.
