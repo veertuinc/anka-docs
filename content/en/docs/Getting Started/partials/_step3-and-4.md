@@ -60,7 +60,6 @@ Cluster join success
 
 The command may hang for a few moments and then display `Cluster join success`. Please report any errors you find to support@veertu.com.
 
-
 > Repeat this process on other Nodes that you want to join (after installing Anka CLI).
 
 ## Step 4. Start a VM instance using the Controller UI

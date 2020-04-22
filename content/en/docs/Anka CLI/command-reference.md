@@ -192,6 +192,16 @@ You can set the following custom variables:
 {{< include file="./shared/content/en/docs/Anka CLI/partials/usb/_index.md" >}}
 ### usb claim
 {{< include file="./shared/content/en/docs/Anka CLI/partials/usb/claim/_index.md" >}}
+
+##### EXAMPLE - claiming with Yubikey 
+
+Unloading of ifdreader service should precede claiming to avoid access collisions:
+
+```shell
+sudo launchctl stop com.apple.ifdreader
+sudo anka usb claim $LOCATION
+```
+
 ### usb list
 {{< include file="./shared/content/en/docs/Anka CLI/partials/usb/list/_index.md" >}}
 ### usb release

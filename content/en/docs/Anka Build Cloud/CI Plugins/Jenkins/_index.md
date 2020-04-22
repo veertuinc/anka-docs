@@ -23,13 +23,16 @@ The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud w
 
 The Jenkins Anka Plugin requires a VM with Java, SSH sharing, and port forwarding:
 
+> The below list are the absolute neccessities needed to execute commands in a VM through your CI. You may have to include other dependencies (like git) depending on your setup.
+
 1. In the VM, install the proper OpenJDK version.
     - Within Jenkins, visit **/systemInfo** (`System Properties`) and look for `java.version`.
     - Use the value to determine the proper OpenJDK version you need to download and install in your VM Template. For example if the `java.version` is set to `1.8.0_242`, you can download and install the [AdoptOpenJDK jdk8u242-b08.pkg](https://github.com/AdoptOpenJDK/openjdk8-binaries/releases).
 2. In the VM, make sure remote login is enabled (`System Preferences > Sharing`).
-3. On the host, enable [port forwarding]({{< relref "docs/Anka CLI/command-reference.md#example---add-port-forwarding" >}}) for your VM Template using the Anka CLI. _We recommend not specifying --host-port._
-4. `sudo anka suspend <VM Template name>`
-5. `sudo anka registry push <VM Template name> <Tag name>`
+3. On the host, enable [port forwarding]({{< relref "docs/Anka CLI/command-reference.md#example---add-port-forwarding" >}}) for your VM Template using the Anka CLI.
+> _We recommend not specifying `--host-port`._
+4. `sudo anka suspend {VM Template name}`
+5. `sudo anka registry push {VM Template name} {Tag name}`
 
 ## Install and Configure the Anka Plugin in Jenkins
 

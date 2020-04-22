@@ -7,22 +7,48 @@ description: >
   Instructions on how to use Gitlab with Anka Build Cloud
 ---
 
-
-### OVERVIEW
-If you are using Gitlab CI as your CI tool, Veertu provides and maintains a [Gitlab CI Runner](https://github.com/veertuinc/gitlab-runner) for Anka Build. The runner connects Gitlab to anka controller and builds your project upon the VM . You can run the runner on any machine.
+If you are using GitLab, Veertu provides and maintains the [Anka Gitlab Runner](https://github.com/veertuinc/gitlab-runner). The runner connects GitLab to the Anka Cloud Controller to perform Instance creation and much more.
  
-## Prepare VM Template: 
+## VM Template & Tag Requirements
 
-1. Start or create an Anka VM. Install git and your build/test dependencies 
-2. Suspend the VM
-3. If you haven't changed your vm default networking, configure port forwarding for ssh: anka modify $VM_NAME add port-forwarding --guest-port 2--host-port 0 ssh
-4. Push the VM to the registry.
+> The below list are the absolute neccessities needed to execute commands in a VM through your CI. You may have to include other dependencies depending on your setup.
 
-Now you have a base image to use for GitLab CI.	
+1. In the VM:
+    - Install `git`
+    - Make sure remote login is enabled (`System Preferences > Sharing`).
+2. On the host, enable [port forwarding]({{< relref "docs/Anka CLI/command-reference.md#example---add-port-forwarding" >}}) for your VM Template using the Anka CLI.
+> _We recommend not specifying `--host-port`._
+3. `sudo anka suspend {VM Template name}`
+4. `sudo anka registry push {VM Template name} {Tag name}`
 
-**There are two options to activate the runner.** 
+## Install the Anka GitLab Runner
 
-## Option 1 - Gitlab-anka runner on docker
+> These steps are based on GitLab 12.9.4 (9d231b25b49). Your version and UI may differ slightly.
+
+> You can run the Anka GitLab Runner on any machine with network access to the Controller and your GitLab.
+
+{{< include file="shared/content/en/docs/Anka Build Cloud/CI Plugins/Gitlab/partials/_download-and-install-runner.md" >}}
+
+
+## Gitlab Setup
+
+There are two methods to use the runner:
+
+1. Set up a shared Runner
+2. Set up a repo specific Runner
+
+
+
+
+
+
+## Install and Configure the Anka Runner in GitLab
+
+There are two options to activate the runner:
+
+1. `Admin Area` > 
+
+1. Gitlab-anka runner on docker
 
 **1**. Go to your **project settings**→ **CI/CD** → **runner**, and you will see this screen.
 
