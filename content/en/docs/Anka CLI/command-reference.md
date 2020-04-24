@@ -186,6 +186,9 @@ You can set the following custom variables:
 {{< include file="./shared/content/en/docs/Anka CLI/partials/stop/_index.md" >}}
 ## Suspend
 {{< include file="./shared/content/en/docs/Anka CLI/partials/suspend/_index.md" >}}
+
+> Suspended VM Templates and Tags created on a Mac Mini 2018 will not function on Mac Mini 2013 (avx256 instruction set incompatibility).
+
 ## Unmount
 {{< include file="./shared/content/en/docs/Anka CLI/partials/unmount/_index.md" >}}
 ## Usb
