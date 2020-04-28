@@ -30,34 +30,7 @@ When joining the nodes using `ankacluster join`, use sudo. Anka is multi user en
 
 You can also set other parameters like name(the name that shows up in controller dashboard for this host), max-vm-count (number of concurrent VMs to run) etc. 
 
-#### Available Flags
-
-> All of the following flags are optional
-
-| Flag | Shorthand | Type | Description |
-| :---  | :----: | --- | --- |
-|`--max-vm-count` | -m | number | Maximum number of VMs this node is allowed to run (default 2) |
-|`--host` | -H | string | Specify the address (IP or Hostname) of the Node that the Controller will use when communicating with CI tools/plugins. This is useful when your CI tool does not know the local IP address of the Node, but does have access to an external IP or hostname for it (proxy, load balancer, etc). |
-|`--name` | -n | NAME | Node name alias |
-|`--reserve-space` |  - | Size  | Disk space to reserve when pulling. Number followed by magnitude (1024B, 10KB, 140MB, 45GB...). When `--reserve-space` flag is set, controller will always reserve the disk space before pulling VM template on the node. If there is not enough disk space after allocating for `--reserve-space`, then controller will not pull the Vm Template. This flag is provided to avoid scenario where there is no disk psace left on the node to accomodate for extra disk usage duing builds inside the VM.
-|`--heartbeat` |  - | duration (5s is 5 seconds) | Override the duration between updates
-|`--no-central-logging` |  - | no value |Don't send logs to central logging system
-|`--groups` | -G | string   | Specify group name (or names sepearated by ',') to add this node to
-|`--capacity-mode` | -M   | string| Capacity mode (resource|number). 'resource' will take vm jobs according to resources, number will take vm jobs according to max-vm-count (default "number")
-|`--vcpu-override` | -V |int| Override the max vcpu that this node can handle (when using capacity-mode resource). defaults to (cpu count * 2)
-|`--tls` | -t |no value| Use tls for communicating with the queue (optional)
-|`--ram-override` | -R |int | Override the max RAM in GB that this node can handle (when using capacity-mode resource). defaults to (total ram - 2GB)
-|`--cacert` |  -c        | path |  to CA bundle file (PEM/X509)
-|`--root-cert` | -r | path | Path to CA bundle file (PEM/X509) 
-|`--cert` | -C |path        | client certificate file (PEM/X509) 
-|`--cert-key` | -K | path   | client certificate key file (PEM/X509) 
-|`--keystore` | -k |path | Path to certificate and keystore (PEM, PKCS12) 
-|`--keystore-pass` |  -p | string | password for certificate and keystore 
-|`--skip-tls-verification` |  - | no value | Skip TLS verification 
-|`--skip-tests` |  - | no value | Skip the connection test before starting the agent 
-|`--force-no-sudo` | -f | no value | Force the agent to start without sudo
-|`--global` | -g | no value | DEPRECATED! Install agent into system domain 
-
+{{< include file="shared/content/en/docs/Anka Build Cloud/Anka Cluster CLI/partials/join/_index.md" >}}
 
 #### Getting Help
 Executing the command with the `--help` flag will show the usage:  
