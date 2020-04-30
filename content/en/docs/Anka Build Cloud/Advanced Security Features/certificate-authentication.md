@@ -11,7 +11,7 @@ description: >
 
 ## Obtain a Root CA certificate
 
-For this tutorial you will need a CA certificate with it's private key. For more information about CAs, see https://en.wikipedia.org/wiki/Certificate_authority.
+For this tutorial you will need a CA certificate with its private key. For more information about CAs, see https://en.wikipedia.org/wiki/Certificate_authority.
 
 For the rest of this section, CA certificate and key will be referred to as **anka-ca-crt.pem** and **anka-ca-key.pem**. 
 
