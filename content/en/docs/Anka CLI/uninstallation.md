@@ -7,8 +7,9 @@ description: >
   Steps to remove the Anka CLI
 ---
 
-### Uninstall
-From the command line, execute the following command. Make sure all your VMs are stopped.
+From the command line, execute the following command:
+
+> Make sure all your VMs are stopped.
 
 `sudo /Library/Application\ Support/Veertu/Anka/tools/uninstall.sh`
 
@@ -21,7 +22,8 @@ Options:
 -f|--force			Force mode (do not ask user confirmation)
 -h|--help			Show this message
 ```
-***Note*** Uninstall doesn't remove the license. To remove license execute `sudo anka license remove` before uninstalling. Make a note of the fulfillment id that is displayed in the output of `sudo anka license remove`.
+
+> Uninstall doesn't remove the license. To remove license execute `sudo anka license remove` before uninstalling. Make a note of the fulfillment id that is displayed in the output of `sudo anka license remove`.
 
 ### Moving license from one host to another
 
