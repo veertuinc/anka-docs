@@ -4,13 +4,13 @@ You can find our releases on the [Anka Gitlab Runner GitHub repo](https://github
 
 You can then curl down the version you need for your OS and architecture:
 
-> We'll be using an amd64 mac for our guide. However, the commands also work for Linux
+> We'll be using an amd64 mac for our guide. However, the commands also work for Linux with slight alterations.
 
 ```shell
 curl -L https://github.com/veertuinc/gitlab-runner/releases/download/1.0-rc1/anka-gitlab-runner-darwin-amd64.tar.gz
 tar -xzvf anka-gitlab-runner-darwin-amd64.tar.gz
-cp -rfp $LOCATION/anka-gitlab-runner $BIN_LOCATION
-chmod +x $BIN_LOCATION
+cp -rfp anka-gitlab-runner-darwin-amd64 /usr/local/bin/anka-gitlab-runner
+chmod +x /usr/local/bin/anka-gitlab-runner
 ```
 
 Confirm that the binary now exists:
