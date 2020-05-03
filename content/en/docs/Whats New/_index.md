@@ -7,6 +7,13 @@ description: >
   Published March 23, 2020 
 ---
 
+## What's New in Anka Version 2.2.3
+### Anka 2.2.3 - May 03, 2020
+
+**When using Anka Viewer, provided a way to get out of full screen, after in full screen mode (using the green full screen button on the window's top bar)**
+
+**Updated license terms**
+
 ## What's New in Controller Version 1.7.0
 
 **Disk Usage for Node is displayed in the controller Dahsboard and REST API**

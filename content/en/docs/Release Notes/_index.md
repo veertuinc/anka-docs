@@ -11,15 +11,17 @@ description: >
 
 ## Current Versions
 
-### Anka 2.2.2 - Mar 03, 2020
-- Bug Fix : Nested virtualization not working since rel 2.2.0
-- Bug Fix : Anka command failed: time data ‘2020-02-27T03:52:23Z’ does not match format ‘%d %b %Y %H:%M:%S’
-- Bug Fix : license pass-through from root VM to nested VM doesn't work
-- Bug Fix : anka run sources both .bash_profile and .profile. Requires`anka start -u` for existing VM templates.
-- Bug Fix : after rebooting a running vm with anka run VM sudo reboot`,  network doesn't work.
-- New feature : Allow to specify display physical(DPI) parameters. Requires `anka start -u` for existing VM templates.
+### Anka 2.2.3 - May 03, 2020
+- Bug Fix : Starting multiple VMs from suspended state with bridge networking configuration
+- Bug Fix : Unable to set up port forwarding to 127.0.0.1
+- Bug Fix : VNC connection error
+- Bug Fix : DHCP bug related to renew lease in some Anka environment
+- Bug Fix : anka VMs can get corrupted when using nanka kext in cases of force shutdown
+- Bug Fix : Trying to start a VM result in failed state - with logs saying bind: Address already in use
+- New feature : When using Anka Viewer, after clicking the green full screen button on the window's top bar, it's unclear how to get out of full screen
+- New feature : Updated license terms
 
-> There is no need to upgrade the VM templates from previous anka version 2.2.1 to version 2.2.2, unless you need to use the items from the above list which explicitly state the requirement of `anka start -u`.
+> There is no requirement to upgrade the VM templates from previous anka version 2.2.2 to version 2.2.3.
 
 ### Change Log Anka Controller & Registry combined package (Mac) version 1.7.1 - Apr 14, 2020
 - Bug Fix : Anka agent miscalculates free space to keep when pulling images on the node
@@ -48,6 +50,16 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka 2.2.2 - Mar 03, 2020
+- Bug Fix : Nested virtualization not working since rel 2.2.0
+- Bug Fix : Anka command failed: time data ‘2020-02-27T03:52:23Z’ does not match format ‘%d %b %Y %H:%M:%S’
+- Bug Fix : license pass-through from root VM to nested VM doesn't work
+- Bug Fix : anka run sources both .bash_profile and .profile. Requires`anka start -u` for existing VM templates.
+- Bug Fix : after rebooting a running vm with anka run VM sudo reboot`,  network doesn't work.
+- New feature : Allow to specify display physical(DPI) parameters. Requires `anka start -u` for existing VM templates.
+
+> There is no need to upgrade the VM templates from previous anka version 2.2.1 to version 2.2.2, unless you need to use the items from the above list which explicitly state the requirement of `anka start -u`.
 
 ### Anka Controller & Registry (Mac) 1.7.0 - Mar 23, 2020
 - Bug Fix : ankacluster doesn't pass max vm count to agent
