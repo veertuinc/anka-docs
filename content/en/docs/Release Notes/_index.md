@@ -18,7 +18,7 @@ description: >
 - Bug Fix : DHCP bug related to renew lease in some Anka environment
 - Bug Fix : anka VMs can get corrupted when using nanka kext in cases of force shutdown
 - Bug Fix : Trying to start a VM result in failed state - with logs saying bind: Address already in use
-- New feature : When using Anka Viewer, after clicking the green full screen button on the window's top bar, it's unclear how to get out of full screen
+- New feature : When using Anka Viewer, after clicking the green full screen button on the window's top bar, it's unclear how to get out of full screen. Now, if you move your mouse to the top of the screen you will expose the bar and green button.
 - New feature : Updated license terms
 
 > There is no requirement to upgrade the VM templates from previous anka version 2.2.2 to version 2.2.3.
