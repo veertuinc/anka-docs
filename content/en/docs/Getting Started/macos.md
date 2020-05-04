@@ -1,33 +1,40 @@
-
 ---
-title: "Getting started with Anka Build Cloud on Mac OS"
-linkTitle: "Run Anka Build Cloud on Mac OS"
-weight: 2
+title: "Anka Build Cloud on Mac OS"
+linkTitle: "Anka Build Cloud on Mac OS"
+weight: 1
 description: >
   Set up your Anka Build Cloud on Mac OS.
 ---
 
 Welcome! This tutorial will guide you through setting up your Anka Build Cloud.
 
-## Necessary hardware
+## Necessary Hardware
 
 1. A Mac to install the Anka Controller & Registry.
 2. A second Mac to install the Anka CLI (the "Node").
 
-> ***NOTE***   
 > You can complete this tutorial with only one machine running Mac OS, but it's not recommended.
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_what-we-are-doing.md" >}}
 
-{{< include file="shared/content/en/docs/Getting Started/partials/_install-anka-cli.md" >}}
+## Step 1: Get familiar with the Anka CLI
 
-For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
+### Install the Anka CLI
+
+{{< include file="shared/content/en/docs/Anka CLI/partials/_install-guide.md" >}}
+
+For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/command-reference.md" >}}).
+
+### Create your first VM Template
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_create-vm-template.md" >}}
 
+> You can find detailed instructions for [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) [here.]({{< relref "docs/Anka CLI/creating-templates-and-tags.md" >}})
+
+> You can continue on to Step 2 while you wait for this to finish.
+
 ## Step 2. Install Anka Controller & Registry
 
-> ***NOTE***  
 > Perform the following steps on the machine intended to run the Controller & Registry.
 
 ### Download the Controller & Registry PKG
@@ -81,21 +88,21 @@ Logs are written to `/Library/Logs/Veertu/AnkaController` by default:
 /Library/Logs/Veertu/AnkaController/anka-controller.WARNING
 /Library/Logs/Veertu/AnkaController/anka-controller.ERROR
 ```
-> ***NOTE***   
+ 
 > You can modify the destination in the `/usr/local/bin/anka-controllerd` file ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging)).
 
 You can also watch the logs live (similar to tail -f):
 ```shell
 sudo anka-controller logs
 ```
-> ***NOTE***   
+ 
 > The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging))
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_step3-and-4.md" >}}
 
 ## What next?
 
-- Browse the [Anka CLI Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).  
+- Browse the [Anka CLI Command Reference]({{< relref "docs/Anka CLI/command-reference.md" >}}).  
 - Connect your cloud to a [CI server]({{< relref "docs/Anka Build Cloud/CI Plugins/_index.md" >}}).  
 - Find out how to use the [Controller REST API]({{< relref "docs/Anka Build Cloud/controller-api.md">}}).  
-- Learn how to work with [USB devices]({{< relref "docs/Anka Build Cloud/using-real-devices-attached-to-anka-vms.md">}})
+- Learn how to work with [USB devices]({{< relref "docs/Getting Started/working-with-usb-devices.md">}})

@@ -1,9 +1,7 @@
-
 Great! Now that we have our Anka Controller & Registry up and running, let's add Nodes!
 
 ## Step 3. Link the Anka CLI Node to the Controller
 
-> ***NOTE***  
 > Perform the following steps on the Node where you created your first VM Template.
 
 ### Add the Registry
@@ -58,11 +56,11 @@ Cluster join success
 ```
 
 - Replace `<ip>` with the IP of the machine hosting your controller:
-- If you changed the default port for the controller (from 80), you'ds need to add the new port at the end of the IP. Otherwise, leave it off.
+- If you changed the default port for the controller from 80, you'll need to use the new port at the end of the IP. Otherwise, leave it off.
 
-The command may hang for a few moments and then display `"Cluster join success"`. Please report any errors you find to support@veertu.com.
+The command may hang for a few moments and then display `Cluster join success`. Please report any errors you find to support@veertu.com.
 
-> ***NOTE***  
+
 > Repeat this process on other Nodes that you want to join (after installing Anka CLI).
 
 ## Step 4. Start a VM instance using the Controller UI
@@ -75,10 +73,10 @@ The command may hang for a few moments and then display `"Cluster join success"`
 
     ![new instances view](/images/getting-started/new-instance.png)
 
-3. Select the VM Template and click **Start**. The **Create New Instances** view closes and returns you to the **Instances** view. You should now see the Instance in a `Scheduling` or `Pulling` **State**:
+3. Select the VM Template and click **Start**. The **Create New Instances** view closes and returns you to the **Instances** view. You should now see the Instance in a **Scheduling** or **Pulling** **State**:
     ![a scheduling instance](/images/getting-started/scheduling.png)
 
-4. After the `Scheduling` and `Pulling` finishes, the VM starts on one of the Nodes and shows a `Started` **State** in the Controller UI:
+4. After the **Scheduling** and **Pulling** finishes, the VM starts on one of the Nodes and shows a **Started** **State** in the Controller UI:
 
     ![a started instance](/images/getting-started/started-vm.png)
 
@@ -86,7 +84,7 @@ You can now confirm the Instance is running from inside the Node:
 
 - JSON output is available for scripting/automation using `anka --machine-readable`
     
-```
+```shell
 sudo anka --machine-readable list | jq
 {
   "status": "OK",

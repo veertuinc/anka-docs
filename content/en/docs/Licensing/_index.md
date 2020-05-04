@@ -7,8 +7,6 @@ description: >
   Detailed information on Anka Licensing
 ---
 
-
-
 ## Licensing
 Anka licenses are available for the following products.  
 
@@ -20,26 +18,7 @@ Anka licenses are available for the following products.
 
 ### Anka Build Tier Datasheet
 
-**     ** | **Basic** | **Enterprise** | **Enterprise Plus**
---- | --- | --- |  ---
-Core based licensing | Yes | Yes | Yes
-Cloud Controller with REST APIs | Yes(Single instance of Anka controller included) | Yes(Single instance of Anka controller included) | Yes
-Central Registry | Yes(Single instance Anka Registry included) | Yes(Single instance Anka Registry included) | Yes
-Jenkins Anka Cloud plugin | Yes | Yes | Yes
-TeamCity Plugin | Yes | Yes | Yes
-Gitlab Ci Plugin | Yes | Yes | Yes
-BuildKite Plugin Support | Yes | Yes | Yes
-HA for Controller configuration setup | Yes (Additional controller/registry instances needed) | Yes (Additional controller/registry instances needed) | Yes
-Priority scheduling of VMs through controller |    | Yes | Yes
-Clustering (Grouping) of Nodes |    | Yes | Yes 
-USB support (to connect real devices to the VM) |    | Yes | Yes
-Basic controller authentication, also includes REST APIs (Superlogin user) |    | Yes | Yes
-Multi-user authorization support through SSO support |    |    | Yes
-Controller API activity logging |    |    | Yes
-VM full disk encryption for Build VMs |    |    | Yes
-Control VM runtime (Networking, Access to host) and functional properties with policies |    |    | Yes 
-
-
+{{< include file="shared/content/en/docs/Licensing/partials/_data-sheet.md" >}}
 
 ### Trial License
 Trial license for Anka products is valid for 30 days from the date of trial registration. You can use the same activation key on multiple machines (Depending upon the quantity specified at the time of trial registration).  

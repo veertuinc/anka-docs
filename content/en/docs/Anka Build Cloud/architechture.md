@@ -5,7 +5,7 @@ title: "Architecture"
 linkTitle: "Architecture"
 weight: 10
 description: >
-  Architecture of Anka Build Cloud.
+  Architecture of Anka Build Cloud
 draft: true
 ---
 

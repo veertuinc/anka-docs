@@ -1,49 +1,56 @@
-
 ---
-title: "Getting started with Anka Build Cloud on Linux using Docker"
-linkTitle: "Run Anka Build Cloud on Linux using Docker"
-weight: 3
+title: "Anka Build Cloud on Linux"
+linkTitle: "Anka Build Cloud on Linux using Docker"
+weight: 2
 description: >
-  Set up your Anka Build Cloud on Linux.
+  Set up your Anka Build Cloud on Linux using Docker.
 ---
 
 Welcome! This tutorial guides you through setting up your Anka Build Cloud on Linux using Docker and Docker-Compose.
 
-## Necessary hardware 
+## Necessary Hardware 
 
 1. A machine running Linux to install the Anka Controller & Registry.
 2. A Mac to install Anka CLI as a Node.
 
-> ***NOTE***  
 > While it's possible to run Docker on mac, it's not recommended. An Anka Controller & Registry package exists.
 
-## Necessary software
+## Necessary Software
 1. {{< ext-link href="https://docs.docker.com/install/" text="Docker" >}} 
 2. {{< ext-link href="https://docs.docker.com/compose/install/" text="Docker-Compose" >}} -- Be sure to follow the {{< ext-link href="https://docs.docker.com/install/linux/linux-postinstall/" text="Post Installation setup" >}} in order to run docker-compose without using sudo.  
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_what-we-are-doing.md" >}}
 
-{{< include file="shared/content/en/docs/Getting Started/partials/_install-anka-cli.md" >}}
+## Step 1: Get familiar with the Anka CLI
 
-For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).
+### Install the Anka CLI
+
+{{< include file="shared/content/en/docs/Anka CLI/partials/_install-guide.md" >}}
+
+For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/command-reference.md" >}}).
+
+### Create your first VM Template
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_create-vm-template.md" >}}
 
-## Step 2. Install Anka Controller & Registry
+> You can find detailed instructions for [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) [here.]({{< relref "docs/Anka CLI/creating-templates-and-tags.md" >}})
 
-> ***NOTE***  
+> You can continue on to Step 2 while you wait for this to finish.
+
+## Step 2: Install Anka Controller & Registry
+
 > Perform the following steps on the machine intended to run the Controller & Registry.
 
 ### Download and extract the Controller & Registry
 
 ```shell
-mkdir -p ~/anka-controller-registry
-cd ~/anka-controller-registry
-curl -L -o anka-controller-registry.tar.gz https://veertu.com/downloads/ankacontroller-registry-docker-latest
-tar -xzvf anka-controller-registry.tar.gz
+mkdir -p ~/anka-docker-controller-registry
+cd ~/anka-docker-controller-registry
+curl -L -o anka-docker-controller-registry.tar.gz https://veertu.com/downloads/ankacontroller-registry-docker-latest
+tar -xzvf anka-docker-controller-registry.tar.gz
 ```
 
-You can also download the file called "Cloud Controller & Registry (Run on Linux Instance)" from {{< ext-link href="https://veertu.com/download-anka-build" text="Anka Build Download page" >}}.
+You can also manually download the file called "Cloud Controller & Registry (Run on Linux Instance)" from the {{< ext-link href="https://veertu.com/download-anka-build" text="Anka Build Download page." >}}
 
 #### Configuration
 
@@ -126,12 +133,11 @@ First, edit the `docker-compose.yml`.
     - /var/anka:/mnt/vol
     ``` 
 
-> ***NOTE***  
+
 > If you're running these containers on mac, you need to also change etcd's local volume destination from `/var/etcd-data` to a writable location on your mac.
 
 #### Start the containers
 
-> ***NOTE***   
 > Ensure you're in the same directory as the `docker-compose.yml`.
 
 ```shell
@@ -140,15 +146,12 @@ docker-compose up -d
 
 This command builds your containers and runs the services defined as a daemon.
 
-> ***NOTE***  
 > To stop the docker containers, run: `docker-compose down`
 
 ### Verify the containers are running
 ```shell
 docker ps
-```
-You should be seeing a response similar to the following:
-```shell
+
 CONTAINER ID        IMAGE                 COMMAND                  CREATED              STATUS              PORTS                    NAMES
 aa1de7c150e7        test_anka-controller   "/bin/bash -c 'anka-…"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp       test_anka-controller_1
 0ac3a6f8b0a1        test_anka-registry     "/bin/bash -c 'anka-…"   About a minute ago   Up About a minute   0.0.0.0:8089->8089/tcp   test_anka-registry_1
@@ -174,14 +177,13 @@ To see the Registry's logs:
 docker logs --tail 100 -f test_anka-registry_1
 ```
 
-> ***NOTE***   
 > The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging))
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_step3-and-4.md" >}}
 
 ## What next?
 
-- Browse the [Anka CLI Command Reference]({{< relref "docs/Anka CLI/commands.md" >}}).  
+- Browse the [Anka CLI Command Reference]({{< relref "docs/Anka CLI/command-reference.md" >}}).  
 - Connect your cloud to a [CI server]({{< relref "docs/Anka Build Cloud/CI Plugins/_index.md" >}}).  
 - Find out how to use the [Controller REST API]({{< relref "docs/Anka Build Cloud/controller-api.md">}}).  
-- Learn how to work with [USB devices]({{< relref "docs/Anka Build Cloud/using-real-devices-attached-to-anka-vms.md">}})
+- Learn how to work with [USB devices]({{< relref "docs/Getting Started/working-with-usb-devices.md">}})

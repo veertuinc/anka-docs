@@ -123,7 +123,7 @@ sudo ankacluster disjoin
 ## Anka Agent Upgrade
 
 ### Upgrading Anka Package
-1. Before upgrading, you will also need to force stop any suspended VMs with the `anka stop -f vmname` command.
+1. Before upgrading, you will also need to force stop any suspended VMs with the `anka stop -f {template}` command.
 2. Download the latest version of Anka package (Anka.pkg).
 3. Install the new package.
 
@@ -131,12 +131,12 @@ sudo ankacluster disjoin
 > For major Anka releases, it maybe required to upgrade guest addons in existing Anka VMs.  
 > Check the release notes to identify if this step is required or not.
 
-4. Upgrade guest addons on the VM. Execute the `anka start -u vmname` to upgrade guest addons in existing VMs to the current release. If you are not able to upgrade the guest add-ons tool using the `anka start -u vmname` command, then you have a very old version of guest addon tools on your VM. You will first need to manually update them. Contact Veertu support.
+4. Upgrade guest addons on the VM. Execute the `anka start -u {template}` to upgrade guest addons in existing VMs to the current release. If you are not able to upgrade the guest add-ons tool using the `anka start -u {template}` command, then you have a very old version of guest addon tools on your VM. You will first need to manually update them. Contact Veertu support.
 5. Push your upgraded VMs to the Registry.
 
 ```
-anka stop -f vmname
-anka start -u vmname
+anka stop -f {template}
+anka start -u {template}
 Preparing update configuration
 Installing updates
 Suspending
