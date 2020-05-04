@@ -35,6 +35,7 @@ progress       | float  | the pull progress, in case the VM is in state "Pulling
 group_id       | string | the id of the group that the instance belongs to
 name           | string | name of the instance. non unique
 external_id    | string | a string saved with the instance, can be used to save the vm id on an external system. non unique
+metadata       | object | key-value object. keys are strings. values are strings, integers or booleans
 
 
 
@@ -70,6 +71,7 @@ external_id    | string | a string saved with the instance, can be used to save 
  usb_device | string | Name of the USB device to attach to the VM | -
  vcpu      |  int    | Override the number of the VM's CPU cores **only works when the template VM is stopped**.
  vram      |  int    | Override the VM's RAM size in MB **only works when the template VM is stopped**.
+ metadata  | object  | Sets the instance metadata, a key-value object. Keys are strings. Values are strings, ints or booleans | -
 
 **Returns:**  
 - *status:* Operation Result (OK|FAIL)  
@@ -108,6 +110,7 @@ external_id    | string | a string saved with the instance, can be used to save 
  ---           | ---    |   ---                    | ---
  name          | string | A name for the instance  | -
  external_id   | string | An arbitrary string to be saved with the instance   | -
+ metadata      | object | Updates the instance metadata, a key-value object. Keys are strings. Values are strings, ints or booleans | -
 
  **Returns:**  
 - *status:* Operation Result (OK|FAIL)  
