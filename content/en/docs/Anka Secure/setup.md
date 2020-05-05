@@ -8,9 +8,6 @@ description: >
   How to install, uninstall and upgrade Anka Secure.
 ---
 
-
-
-
 ## Installation and Configuration
 Anka when activated with the Anka Secure license enables installation of Anka package all mac hardware with Secure modules. It enables administrators to create policies for the VM and assign users/groups to the VM policy.
 
