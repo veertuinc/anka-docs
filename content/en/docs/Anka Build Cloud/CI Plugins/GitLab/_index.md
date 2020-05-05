@@ -77,12 +77,13 @@ executed
 
 Ensure that GitLab shows **just now** under the **Last contact** column.
 
-## Using our pre-built docker images 
+## Using our Docker images 
 
 [Docker Hub - i386 Repo](https://hub.docker.com/repository/docker/veertu/anka-gitlab-runner-i386)
+
 [Docker Hub - amd64 Repo](https://hub.docker.com/repository/docker/veertu/anka-gitlab-runner-i386)
 
-When executing docker run, any arguments included are used as options for `anka-gitlab-runner register --non-interactive`:
+When executing `docker run`, any arguments included are used as options for `anka-gitlab-runner register --non-interactive`:
 
 ```shell
 ❯ docker run -ti --rm veertu/anka-gitlab-runner-amd64 --help
@@ -101,9 +102,9 @@ OPTIONS:
    -c value, --config value . . .
 ```
 
-> We run `update-ca-certificates` each time you start the container
+> We run `update-ca-certificates` each time you start the container. You can add a volume to mount in your certificates if needed.
 
-You use the same non-interactive arguments that we mentioned above when executing the binary (but without `--non-interactive`):
+You use the same non-interactive arguments that we mentioned in [the Registration section]({{< relref "docs/Anka Build Cloud/CI Plugins/GitLab/_index.md#registration" >}}) when executing the binary (but without `--non-interactive`):
 
 ```shell
 ❯ docker run -ti --rm veertu/anka-gitlab-runner-amd64 --url "http://anka-gitlab-ce:8084/" --registration-token nHKqG3sYV4B5roRK1ZhW --ssh-user anka --ssh-password admin --name "localhost shared runner" --anka-controller-address "https://anka.controller:8080/" --anka-template-uuid d09f2a1a-e621-463d-8dfd-8ce9ba9f4160 --anka-tag base:port-forward-22:brew-git:gitlab --executor anka --anka-root-ca-path /Users/nathanpierce/anka-ca-crt.pem --anka-cert-path /Users/nathanpierce/anka-gitlab-crt.pem --anka-key-path /Users/nathanpierce/anka-gitlab-key.pem --clone-url "http://anka-gitlab-ce:8084" --tag-list "localhost-shared,localhost,iOS"
