@@ -77,11 +77,62 @@ executed
 
 Ensure that GitLab shows **just now** under the **Last contact** column.
 
+## Using our pre-built docker images 
+
+[Docker Hub - i386 Repo](https://hub.docker.com/repository/docker/veertu/anka-gitlab-runner-i386)
+[Docker Hub - amd64 Repo](https://hub.docker.com/repository/docker/veertu/anka-gitlab-runner-i386)
+
+When executing docker run, any arguments included are used as options for `anka-gitlab-runner register --non-interactive`:
+
+```shell
+❯ docker run -ti --rm veertu/anka-gitlab-runner-amd64 --help
+Updating certificates in /etc/ssl/certs...
+0 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d...
+done.
+Runtime platform                                    arch=amd64 os=linux pid=693 revision=6c1a9836 version=12.10.0/1.0-rc1
+NAME:
+   anka-gitlab-runner register - register a new runner
+
+USAGE:
+   anka-gitlab-runner register [command options] [arguments...]
+
+OPTIONS:
+   -c value, --config value . . .
+```
+
+> We run `update-ca-certificates` each time you start the container
+
+You use the same non-interactive arguments that we mentioned above when executing the binary (but without `--non-interactive`):
+
+```shell
+❯ docker run -ti --rm veertu/anka-gitlab-runner-amd64 --url "http://anka-gitlab-ce:8084/" --registration-token nHKqG3sYV4B5roRK1ZhW --ssh-user anka --ssh-password admin --name "localhost shared runner" --anka-controller-address "https://anka.controller:8080/" --anka-template-uuid d09f2a1a-e621-463d-8dfd-8ce9ba9f4160 --anka-tag base:port-forward-22:brew-git:gitlab --executor anka --anka-root-ca-path /Users/nathanpierce/anka-ca-crt.pem --anka-cert-path /Users/nathanpierce/anka-gitlab-crt.pem --anka-key-path /Users/nathanpierce/anka-gitlab-key.pem --clone-url "http://anka-gitlab-ce:8084" --tag-list "localhost-shared,localhost,iOS"
+Updating certificates in /etc/ssl/certs...
+0 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d...
+done.
+Runtime platform                                    arch=amd64 os=linux pid=693 revision=7b532a90 version=12.10.0/1.0-rc1
+Running in system-mode.                            
+                                                   
+Registering runner... succeeded                     runner=nHKqG3sY
+Updated:  /etc/gitlab-runner/anka-config.toml      
+Feel free to start anka-gitlab-runner, but if it's running already the config should be automatically reloaded! 
+Runtime platform                                    arch=amd64 os=linux pid=705 revision=7b532a90 version=12.10.0/1.0-rc1
+Starting multi-runner from /etc/gitlab-runner/anka-config.toml...  builds=0
+Running in system-mode.                            
+                                                   
+Configuration loaded                                builds=0
+listen_address not defined, metrics & debug endpoints disabled  builds=0
+[session_server].listen_address not defined, session endpoints disabled  builds=0
+```
+
+When you stop or exit the container, it will automatically unregister it from your GitLab.
+
 ---
 
 ## Common Questions
 
-- We've defaulted retries to 0, but you can modify this using:
+- We've defaulted preparation retries to 2, but you can modify this using:
 
     ```
     --preparation-retries value           Set the amount of preparation retries for a job (default: "0") [$PREPARATION_RETRIES]
