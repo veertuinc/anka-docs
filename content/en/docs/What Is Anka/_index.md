@@ -7,53 +7,64 @@ description: >
   All about Veertu's Anka Software
 ---
 
-Anka virtualizes macOS to create, run macOS VMs on top of macOS and enables you to use automated and container like DevOps workflows when working with macOS virtual machines and macOS virtual machines with connected physical iOS devices. Anka exposes the following features:
+Anka is a suite of software for creating and managing macOS VMs to run on top of Apple hardware and macOS. It allows the creation of or integration with existing container-like DevOps workflows.
 
-## General
 * Easy installation
-* Native hypervisor - uses macOS resource scheduling and power management for guest VMs
-* Instant boot for macOS VMs
-* Para virtual drivers increase network and disk performance inside Anka macOS VMs
-* `anka` CLI - automate iOS CI management workflows, similar to working with container
-* Supports running docker and Android Emulator inside macOS VMs
-* Works with T2 enabled Mac hardware
+* Built on the native hypervisor, utilizing macOS resource scheduling and power management for Anka VMs
+* Optimized VM network and disk performance using paravirtual drivers
+* Manual or automated control of Anka VMs is available through our Anka CLI
+* Anka VMs can be suspended and then started again instantly
+* Run Docker and Android Emulator inside your VMs
+* Easily attach physical iOS devices to your VMs for on-device testing
+* Compatibility with T2 enabled Apple hardware
 
-## Continuous Delivery and Integration
-* Automate the provisioning of on-demand virtual machines
-* Integrate with your CI system using `Controller` REST APIs for VM management
-* Manage macOS infrastructure-as-a-code
-* _INSTANT BOOT_ - Eliminates the long boot time issue with macOS VMs, making running multiple VMs extremely fast and responsive
-* Use `Registry` to version and tag virtual machines for distribution
-* Easily connect/remove physical iOS devices to your VMs for on-device testing
+DevOps workflows typically include lots of automation. Because of this, Anka includes multiple techniques for you to either integrate with existing workflows/tools or create them from scratch.
+
+* Build VM Templates (a.k.a "images") for different versions of macOS and then Tags containing various dependencies for your projects
+* Store/Version Control your VM Templates and Tags in the Anka Cloud Registry so you can distribute them to different machines in a specific state
+* A REST API for VM management
+* Use [one of our maintained CI plugins]({{< relref "docs/Anka Build Cloud/CI Plugins/_index.md" >}})
 
 ## What makes Anka different?
 
-Unlike existing macOS virtualization solutions, Anka lets the macOS operationg system manage virtual machines in the same manner as other native macOS applications. Anka virtualization uses macOS native Hypervisor features. As a result, it can run on any mac heardware, including the ones with T2 security chip.
+Unlike existing macOS virtualization solutions, Anka lets the macOS operating system manage virtual machines in the same manner as other native macOS applications. Anka virtualization uses macOS native Hypervisor features, so run on any Apple hardware.
 
-Combined with the powerful `anka` CLI, Anka makes creating and running macOS VMs extremely automated, fast and reliable. Using `anka`, `Controller` & `Registry` you can execute simple workflows to quickly build macOS virtual machines and deploy them to your developers, or CI with ease.
-
-`anka` allows for other advantages as well, such as _INSTANT START_, to make multiple virtual machines extremely fast and responsive to your needs. Anka Registry lets you tag and version control your VMs, and is built specifically with DevOps workflows in mind. Lastly, Anka is the **ONLY** virtualization solution geared specifically towards making macOS and iOS CI workflows easy to manage. `anka` allows you to use [_real_ iOS devices](../testing-on-devices) for testing workflows while connected to your Apple hardware. Anka provides commands to easily manage the devices, check them out, or move them between test environments.
+* With the Anka CLI, creating and running macOS VMs easy, fast, and reliable. 
+* With the Anka Build Cloud Controller, you can manage your Nodes (host machines) and VMs through the GUI or API.
+* With the Anka Cloud Registry you can keep track of VM Templates and versions (Tags) used by different projects within your organization. You can then distribute from the Anka Build Cloud Controller or manually pull them to any machine running the Anka CLI.
 
 ## Understanding VM Templates, Tags, and Disk Usage
 
-{{< include file="./shared/content/en/docs/What Is Anka/partials/understanding-templates-and-tags.md" >}}
+{{< include file="./shared/content/en/docs/What Is Anka/partials/_understanding-templates-and-tags.md" >}}
 
---- 
+---
+
+## Anka Build
 
 ### What's included in Anka Build?
-Anka Build solution includes `anka.pkg`, `Controller/Registry` and plugins to integrate with existing commonly used CI systems like Jenkins, Teamcity, GitLab CI, BuildKite etc.
-
-### What's included in Anka Flow?
-Anka Flow solution includes `anka.pkg` to run on developer mac workstations. Doesn't require Anka Build. Can co-exit with Anka Build. Anka Flow runs on developer mac workstations (macbook models and iMac).
-
-### What's included in Anka Secure?
-Anka Secure solution includes `anka.pkg` to run on mac end clients and the `Registry`. Doesn't require Anka Build. Can co-exit with Anka Build. Anka Flow runs on developer mac workstations (macbook models and iMac).
+The Anka Build solution includes the CLI, Cloud Controller (GUI + API) & Registry, and plugins to integrate with commonly used CI systems like Jenkins, Teamcity, GitLab, and Buildkite.
 
 ### Who should use Anka Build?
-Anka Build is for anyone who wants to configure a private macOS cloud for CI purposes. The private macOS cloud can be configured on-prem or on hosted macs.
+Anka Build is for anyone wanting to configure a private macOS cloud in their CI system. The private macOS cloud can be configured using on-prem or offsite hardware.
+
+---
+---
+
+## Anka Flow
+
+### What's included in Anka Flow?
+Anka Flow solution includes the CLI and Cloud Registry. Developers can use this to create Templates and Tags to run VMs locally on their workstations. It has no requirement on the Cloud Controller. Only available on Macbook and iMac hardware.
 
 ### Who should use Anka Flow?
-Anka Flow is for anyone wanting to maximize developer productivity by enabling iOS and macOS developers to build and test in local macOS VMs, pulled from the central Anka Build Registry.
+Anka Flow is for anyone wanting to maximize developer productivity by enabling the running of builds and tests inside of VMs on their local machine. Each VM can contain specific dependencies and configurations for the project and avoid dependency problems/complexity on their local machine.
+
+---
+---
+
+## Anka Secure
+
+### What's included in Anka Secure?
+Anka Secure solution includes the CLI (with additional features like policy management) and Cloud Registry. Only available on Macbook and iMac hardware.
 
 ### Who should use Anka Secure?
-Anyone who is looking to provide sandbox and policy managed macOS environments to end users using mac hardware for privileged user data access, example technical support or for iOS developers and testers.
+Anka Secure is for users who are looking to provide sandbox and policy (network policies, sharing policies, etc) managed macOS environments to end users using Apple hardware. This is useful for technical support teams and remote developers with access to sensitive information and no home network security.
