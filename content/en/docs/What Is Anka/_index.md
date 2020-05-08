@@ -27,9 +27,7 @@ DevOps workflows typically include lots of automation. Because of this, Anka has
 * Manage your VMs from the Anka Build Cloud Controller's REST API
 * Get up and running quickly with [one of our maintained CI plugins]({{< relref "docs/Anka Build Cloud/CI Plugins/_index.md" >}})
 
-## Understanding VM Templates, Tags, and Disk Usage
-
-{{< include file="./shared/content/en/docs/What Is Anka/partials/_understanding-templates-and-tags.md" >}}
+> Information about how VM Template and Tags work can be found in our [Getting Started creating your first VM guide.]({{< relref "docs/Getting Started/creating-your-first-vm.md" >}})
 
 ---
 

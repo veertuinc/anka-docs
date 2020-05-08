@@ -1,11 +1,11 @@
----
+<!-- ---
 date: 2019-12-12T00:00:00-00:00
 title: "Using Infrastructure as Code"
 linkTitle: "Using Infrastructure as Code"
 weight: 6
 description: >
   Various techniques for managing Anka with Infrastructure as Code
----
+--- -->
 
 IaC (Infrastructure as Code) tools can be overwhelming when you first start looking into them. In this _non-exhaustive_ guide, we want to expose you to proven ways to manage Anka software and VMs.
 
