@@ -40,7 +40,6 @@ The Anka Build solution includes the CLI, Cloud Controller (GUI + API) & Registr
 Anka Build is for anyone wanting to configure a private macOS cloud in their CI system. The private macOS cloud can be configured using on-prem or offsite hardware.
 
 ---
----
 
 ## Anka Flow
 
@@ -50,7 +49,6 @@ The Anka Flow solution includes the CLI and Cloud Registry. Developers can use t
 ### Who should use Anka Flow?
 Anka Flow is for anyone wanting to maximize developer productivity by enabling the running of builds and tests inside of VMs on their local machine. Each VM can contain specific dependencies and configurations for the project and avoid dependency problems/complexity on their local machine.
 
----
 ---
 
 ## Anka Secure
