@@ -7,7 +7,7 @@ description: >
   Instructions on how to use Jenkins with Anka Build Cloud
 ---
 
-The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud with Jenkins. The plugin helps Jenkins jobs dynamically provision Anka VM instances (based on the label used).
+The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud with Jenkins. The plugin helps Jenkins jobs dynamically provision Anka VM instances (based on the label used) for building, testing, and more.
 
 - Support for both **Pipeline** and **Freestyle** Jenkins jobs.
 - Supports both Static Slave Templates (under Configure Clouds) and Dynamic Labelling (in your repo's Jenkinsfile).

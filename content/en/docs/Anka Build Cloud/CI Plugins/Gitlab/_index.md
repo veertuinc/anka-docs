@@ -1,6 +1,6 @@
 ---
 date: 2019-07-03T22:24:47-05:00
-title: "Integrating Gitlab and Anka Build Cloud"
+title: "Using Gitlab and Anka Build Cloud"
 linkTitle: "Gitlab"
 weight: 8
 description: >

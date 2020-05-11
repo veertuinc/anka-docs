@@ -7,7 +7,7 @@ description: >
   Instructions on how to use TeamCity with Anka Build Cloud
 ---
 
-The TeamCity **Anka Build Cloud** provides a quick way to integrate Anka Build Cloud with TeamCity. The plugin will dynamically provision Anka VM instances for your projects.
+The TeamCity **Anka Build Cloud** provides a quick way to integrate Anka Build Cloud with TeamCity. The plugin will dynamically provision Anka VM instances for building, testing, and more.
 
 ## VM Template & Tag Requirements
 
