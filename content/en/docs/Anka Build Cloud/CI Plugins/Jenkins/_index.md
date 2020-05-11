@@ -21,7 +21,7 @@ The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud w
 
 ## VM Template & Tag Requirements
 
-The Jenkins Anka Plugin requires a VM with Java, SSH sharing, and port forwarding:
+The Jenkins Anka Plugin requires a VM with Java, SSH Remote Login, and port forwarding:
 
 1. In the VM, install the proper OpenJDK version.
     - Within Jenkins, visit **/systemInfo** (`System Properties`) and look for `java.version`.
