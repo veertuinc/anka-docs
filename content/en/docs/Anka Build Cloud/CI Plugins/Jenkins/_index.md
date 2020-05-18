@@ -148,7 +148,7 @@ pipeline {
 - [Simple Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/simple-example/Jenkinsfile)
 - [Scripted Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/scripted-example/Jenkinsfile)
 - [Scripted (no def) Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/scripted-no-def-example/Jenkinsfile)
-- [Nested Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/nested-example/Jenkinsfile)
+- [Nested Cache Builder Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/nested-cache-builder-example/Jenkinsfile)
 
 --- 
 
@@ -191,7 +191,7 @@ You can find the **Cache Builder** in the Anka Cloud Slave Template definition u
 
 Pipelines can have multiple agents running in one build (also in parallel). Therefore, the plugin relies on the buildResult to tell if it needs to execute the "save image request". You have two options to prevent pushing the new Tag prematurely:
 
-1. Wrap your step-level commands in a catchError ([from our Nested Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/nested-example/Jenkinsfile)):
+1. Wrap your step-level commands in a catchError ([from our Nested Cache Builder Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/nested-cache-builder-example/Jenkinsfile)):
     ```javascript
     stage("run-on-NESTED_LABEL-vm") {
       agent { label "${NESTED_LABEL}" }
@@ -207,7 +207,7 @@ Pipelines can have multiple agents running in one build (also in parallel). Ther
 
 ### Configuring Caching with Dynamic Labelling
 
-Please review our [Nested Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/nested-example/Jenkinsfile).
+Please review our [Nested Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/nested-cache-builder-example/Jenkinsfile).
 
 - The **AGENT_LABEL** VM instance is created to handle the first stage.
 - The second stage creates a second VM instance that is configured to push to the Registry once the buildResult is a successful status.
