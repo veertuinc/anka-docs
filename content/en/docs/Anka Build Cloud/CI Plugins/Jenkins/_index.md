@@ -207,7 +207,7 @@ Pipelines can have multiple agents running in one build (also in parallel). Ther
 
 ### Configuring Caching with Dynamic Labelling
 
-Please review our [Nested Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/nested-cache-builder-example/Jenkinsfile).
+Please review our [Nested Cache Builder Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/nested-cache-builder-example/Jenkinsfile).
 
 - The **AGENT_LABEL** VM instance is created to handle the first stage.
 - The second stage creates a second VM instance that is configured to push to the Registry once the buildResult is a successful status.
