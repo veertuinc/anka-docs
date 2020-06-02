@@ -31,6 +31,6 @@ Assuming you chose to download Mojave:
 sudo anka create --app /Applications/Install\ macOS\ Catalina.app/ catalina
 ```
 
-> We recommend versioning the Templates so it's clear what version of OSX is it.
+> The above example uses "catalina" as the Template name. This might be alright for testing, however we recommend adding a version to the Template name so it's clear what version of OSX it is.
 
 The VM creation should take around 30 minutes.
