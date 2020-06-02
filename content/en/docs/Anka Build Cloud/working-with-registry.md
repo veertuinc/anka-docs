@@ -18,34 +18,9 @@ Registry operations are available through Anka Client command line and through R
 ## Working with registry using Anka CLI
 
 View all of the available registry commands by running `anka registry --help`.
-```shell
-anka registry --help
-Usage: anka registry [OPTIONS] COMMAND [ARGS]...
 
-  VMs registry
+{{< include file="./shared/content/en/docs/Anka CLI/partials/registry/_index.md" >}}
 
-Options:
-  -r, --remote TEXT           Use repository name instead of 'default'
-  -a, --registry-path TEXT    Use repository URL instead of 'default'
-  -c, -i, --cert, --pem PATH  Client certificate if required
-  -k, --key PATH              Private key, if the client certificate doesn't contain one
-  --cacert, --root-cert PATH  Alternate ca_bundle
-  --insecure                  Skip TLS verification
-  --help                      Show this message and exit.
-
-Commands:
-  add                  Add repository
-  check-download-size  Returns size of the data to be downloaded
-  delete               Forget repository
-  describe             Shows VM description
-  list                 List VMs in repository
-  list-repos           List registry repositories
-  pull                 Pull certain VM
-  push                 Push VM version (tag) to repository
-  set                  Set default registry
-
-
-```
 ### Add registry to a Node/machine running Anka
 ```shell
 anka registry add <givesomename> <registryURLwithport>
@@ -139,7 +114,7 @@ curl "http://anka.registry.net:8089/registry/vm"
       },
       {
          "id" : "1820b42d-6581-46af-bf42-f64caa1e9633",
-         "name" : "Mojave-base",
+         "name" : "catalina",
          "size" : 20643704832
       },
       {
