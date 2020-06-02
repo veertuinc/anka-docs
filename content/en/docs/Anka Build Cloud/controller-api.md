@@ -584,7 +584,7 @@ curl "http://anka.controller.net/api/v1/registry/vm"
       },
       {
          "id" : "1820b42d-6581-46af-bf42-f64caa1e9633",
-         "name" : "Mojave-base",
+         "name" : "catalina",
          "size" : 20643704832
       },
       {

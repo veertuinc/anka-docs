@@ -24,7 +24,7 @@ sudo anka --machine-readable list | jq
   "body": [
     {
       "status": "suspended",
-      "name": "mojave-base",
+      "name": "catalina",
       "stop_date": "2020-04-01T21:30:59.798697Z",
       "creation_date": "2020-04-01T00:00:13.656296Z",
       "version": "base",
@@ -32,7 +32,7 @@ sudo anka --machine-readable list | jq
     },
     {
       "status": "running",
-      "name": "mgmtManaged-mojave-base-1585776660490226000",
+      "name": "mgmtManaged-catalina-1585776660490226000",
       "stop_date": "2020-04-01T21:36:11.742662Z",
       "creation_date": "2020-04-01T21:31:01.055250Z",
       "version": "",

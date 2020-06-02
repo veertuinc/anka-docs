@@ -37,21 +37,10 @@ Verify the installation by running [`anka version`]({{< relref "docs/Anka CLI/co
 
 View all settings for Anka installation on the host with `anka config -l` command.
 
-```
-anka config --help
-Usage: anka config [OPTIONS] [PARAM]...
-
-  Manage Anka configuration
-
-Options:
-  -l, --list   List value parameter(s)
-  -r, --reset  Reset value of parameter(s)
-  --help       Show this message and exit.
-
-```
 Activate with your Anka Flow license key.  
+
 ```
-sudo anka license activate <key>
+anka license activate <key>
 ```
 
 ### Upgrading the Anka Package
