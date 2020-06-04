@@ -11,11 +11,15 @@ description: >
 
 Enabling root token authentication is a simple process. The root user has what we call "superuser" (full) access to the controller and various features.
 
-### Configuring for the Mac Controller & Registry
+> We recommend disjoining your nodes before performing these steps
 
-Edit `/usr/local/bin/anka-controllerd` and append `--root-token $ROOT_TOKEN` to the end of the **$CONTROLLER_BIN** line.
+### Configuring
 
-### Configuring for the Linux/Docker Controller & Registry
+#### Mac Controller & Registry
+
+Edit `/usr/local/bin/anka-controllerd` and append `--enable-auth --root-token $ROOT_TOKEN` to the end of the **$CONTROLLER_BIN** line.
+
+#### Linux/Docker Controller & Registry
 
 Edit `docker-compose.yml` and under the `anka-controller` service uncomment **ENABLE_AUTH** and **ROOT_TOKEN**, then modify **ROOT_TOKEN** with the token you want:
 
@@ -46,9 +50,22 @@ anka-controller:
 
 {{</ highlight >}}
 
-If you're using root token auth for your Controller UI without certificate authentication, Nodes will no longer be able to connect to port 80 when running `ankacluster join`. You'll need to [setup an interface for them to communicate]({{< relref "docs/Anka Build Cloud/configuration-reference#separate-queue-interface" >}}):
+### Testing Controller Dashboard authentication
 
-{{< highlight dockerfile "hl_lines=19" >}}
+If everything is configured correctly, you can visit your Controller Dashboard and a login box should appear. Enter the token you specified and ensure that it logs you in.
+
+
+### Joining Nodes
+
+If you're using root token auth for your Controller UI without certificate authentication, Nodes will no longer be able to connect to port 80 when running `ankacluster join`. You'll need to [setup an interface for them to communicate]({{< relref "docs/Anka Build Cloud/configuration-reference#separate-queue-interface" >}}).
+
+#### Mac Controller & Registry
+
+Edit `/usr/local/bin/anka-controllerd` and append `--queue-addr ":8100"` to the end of the **$CONTROLLER_BIN** line.
+
+#### Linux/Docker Controller & Registry
+
+{{< highlight dockerfile "hl_lines=9 20" >}}
 
 . . .
 
@@ -58,6 +75,7 @@ anka-controller:
       dockerfile: anka-controller.docker
    ports:
       - "80:80"
+      - "8100:8100"
    volumes:
      # Path to ssl certificates directory
      - /home/ubuntu:/mnt/cert
@@ -82,7 +100,3 @@ Cluster join success
 ```
 
 You can also setup certificate authentication/authorization for the queue interface independent of the Controller.
-
-### Testing Controller Dashboard authentication
-
-If everything is configured correctly, you can visit your Controller Dashboard and a login box should appear. Enter the token you specified and ensure that it logs you in.
