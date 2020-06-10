@@ -9,13 +9,19 @@ description: >
 
 > This guide requires an Anka Enterprise (or higher) license.
 
+For this tutorial you will need:
+
+1. A Root CA certificate. For more information about CAs, see https://en.wikipedia.org/wiki/Certificate_authority. Usually provided by your organization or where you obtain your certificate signing. We will refer to this as **anka-ca-crt.pem** and **anka-ca-key.pem**.
+2. A certificate (signed with the Root CA) for the Anka Build Cloud Controller & Registry.
+3. Certificates (signed with the Root CA) for your Anka Build Nodes so they can connect/authenticate with the Anka Build Cloud Controller & Registry.
+
+The guide will show you how to generate self-signed versions of these. If you already have certificates, you can skip the generation steps/commands.
+
+> If you're using a signed certificate for the controller dashboard, but self-signed certificates for your nodes and CI tools, you'll need to specify the `--cacert` for `ankacluster join` and `anka registry add` commands and point it to the signed CA certificate. You'll usually see `SSLError: ("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",)` if the wrong CA is being used.
+
 ## Obtain a Root CA certificate
 
-For this tutorial you will need a CA certificate with it's private key. For more information about CAs, see https://en.wikipedia.org/wiki/Certificate_authority.
-
-For the rest of this section, CA certificate and key will be referred to as **anka-ca-crt.pem** and **anka-ca-key.pem**. 
-
-If you don’t have one, you can create it with openssl and add it to your keychain:
+If you don’t have a, you can create it with openssl and add it to your keychain:
 
 ```shell
 cd ~
@@ -149,7 +155,9 @@ openssl req -new -sha256 -key node-$NODE_NAME-key.pem -out node-$NODE_NAME-csr.p
 openssl x509 -req -days 365 -sha256 -in node-$NODE_NAME-csr.pem -CA anka-ca-crt.pem -CAkey anka-ca-key.pem -CAcreateserial -out node-$NODE_NAME-crt.pem
 ```
 
-## Configuring the Controller & Registry with the CA Root certificate and enabling authentication
+## Configuring the Controller & Registry with the CA Root certificate and enable authentication
+
+> The CA_CERT is the authority that is used to validate the node certificates you'll pass in later.
 
 ### Installing for the Mac Controller & Registry
 
