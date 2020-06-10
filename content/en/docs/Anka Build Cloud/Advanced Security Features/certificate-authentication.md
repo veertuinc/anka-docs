@@ -19,7 +19,7 @@ The guide will show you how to generate self-signed versions of these. If you al
 
 > If you're using a signed certificate for the controller dashboard, but self-signed certificates for your nodes and CI tools, you'll need to specify the `--cacert` for `ankacluster join` and `anka registry add` commands and point it to the signed CA certificate. You'll usually see `SSLError: ("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",)` if the wrong CA is being used.
 
-## Obtain a Root CA certificate
+## Obtain a self-signed Root CA certificate
 
 If you don’t have a, you can create it with openssl and add it to your keychain:
 
@@ -143,7 +143,7 @@ Start or restart your Controller and test the new TLS configuration using `https
 
 If that doesn’t work, try to repeat the above steps and validate that the file names and paths are correct. If you are still having trouble, debug the system as explained in the Debugging Controller section.
 
-## Creating Node Certificates
+## Creating self-signed Node Certificates
 
 The Controller's authentication module uses the Root CA (anka-ca-crt.pem) to authenticate the Node certificates. When the Node sends the requests to the Controller, it will present it's certificates. Those certificates will then be validated against the configured CA.
 
