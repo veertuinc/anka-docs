@@ -25,4 +25,6 @@ Anka package `anka.pkg` can be installed on mac machines running Hi Sierra(10.13
 
 5. Disable spotlight on the node(host) with `sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist`
 
+6. Reboot the host.
+
 
