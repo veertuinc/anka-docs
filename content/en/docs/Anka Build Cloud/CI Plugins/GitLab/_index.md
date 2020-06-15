@@ -255,6 +255,7 @@ When you stop or exit the container, it will automatically unregister it from yo
 
 ## Answers to Common Questions
 
+- You can override the default VM Template and Tag using environment variables: `ANKA_TEMPLATE_UUID` & `ANKA_TAG_NAME`
 - If you see "Missing anka-gitlab-runner. Uploading artifacts is disabled" at the end of jobs that have archiving enabled, [you need to install the anka-gitlab-runner in your VM Tag](https://stackoverflow.com/questions/45567587/uploading-artifacts-is-disabled).
 - We've defaulted preparation retries to 2, but you can modify this using:
 
