@@ -69,8 +69,8 @@ metadata       | object | key-value object. keys are strings. values are strings
  group_id  | string | Run the VM on a node from this group. | -
  priority  | int    | Priority of this instance in range 1-10000 (lower is more urgent). | 1000
  usb_device | string | Name of the USB device to attach to the VM | -
- vcpu      |  int    | Override the number of the VM's CPU cores **only works when the template VM is stopped**.
- vram      |  int    | Override the VM's RAM size in MB **only works when the template VM is stopped**.
+ vcpu      |  int    | Override the number of CPU cores for the VM Template **(only works when the template VM is stopped)**.
+ vram      |  int    | Override the VM's RAM size in MB (1GB = 1024MB) **(only works when the template VM is stopped)**.
  metadata  | object  | Sets the instance metadata, a key-value object. Keys are strings. Values are strings, ints or booleans | -
 
 **Returns:**  

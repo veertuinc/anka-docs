@@ -9,7 +9,7 @@ description: >
 
 ## What's New in Anka Build Cloud Controller Version 1.8.0
 
-VM creation now supports custom metadata that you can choose to display on the Anka Build Cloud Controller dashboard
+### Set custom instance metadata and show it in the dashboard
 
 ![Custom Column](/images/whatsnew/controller-instances-custom-column.png)
 
@@ -25,6 +25,58 @@ Create an instance with metadata:
 Then show it as a column in the dashboard:
 
 ![Custom Column from Metadata](/images/whatsnew/controller-instances-custom-metadata-column.png)
+
+### Change the vCPU and RAM for a stopped VM Template
+
+```bash
+❯ sudo anka show 10.15.4-stopped
++----------------+--------------------------------------+
+| uuid           | 3a65b45e-c08d-44e9-84e2-ba45d646af4a |
++----------------+--------------------------------------+
+| name           | 10.15.4-stopped (test)               |
++----------------+--------------------------------------+
+| created        | 100 seconds ago                      |
++----------------+--------------------------------------+
+| cpu_cores      | 6                                    |
++----------------+--------------------------------------+
+| ram            | 10G                                  |
++----------------+--------------------------------------+
+| display        | 1                                    |
++----------------+--------------------------------------+
+| hard_drive     | 80Gi (16.6Gi on disk)                |
++----------------+--------------------------------------+
+| addons_version | 2.2.3.118                            |
++----------------+--------------------------------------+
+| status         | stopped 29 seconds ago               |
++----------------+--------------------------------------+
+```
+
+Create your instance and set the CPU and RAM:
+
+```bash
+❯ curl -X POST "http://anka.controller:8090/api/v1/vm" -H "Content-Type: application/json" \
+-d '{"vmid": "3a65b45e-c08d-44e9-84e2-ba45d646af4a", "count": 1, "vcpu": 4, "ram": 8192 }'
+
+{"status":"OK","message":"","body":["ac653ec9-5c7e-4b99-5749-ec0d242ca958"]}
+```
+
+This is change the values of the cloned/started VM:
+
+```bash
+sh-3.2# anka show mgmtManaged-10.15.4-stopped-1592271338138326000
++-----------------------+-------------------------------------------------+
+| uuid                  | e767f994-e366-460a-9dbd-5e2eb9729242            |
++-----------------------+-------------------------------------------------+
+| name                  | mgmtManaged-10.15.4-stopped-1592271338138326000 |
++-----------------------+-------------------------------------------------+
+| created               | 10 seconds ago                                  |
++-----------------------+-------------------------------------------------+
+| cpu_cores             | 4                                               |
++-----------------------+-------------------------------------------------+
+| ram                   | 8G                                              |
+...
+```
+
 
 ## What's New in Anka Virtualization CLI Version 2.2.3
 ### Anka 2.2.3 - May 03, 2020
