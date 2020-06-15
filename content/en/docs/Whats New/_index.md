@@ -7,14 +7,33 @@ description: >
   Published March 23, 2020 
 ---
 
-## What's New in Anka Version 2.2.3
+## What's New in Anka Build Cloud Controller Version 1.8.0
+
+VM creation now supports custom metadata that you can choose to display on the Anka Build Cloud Controller dashboard
+
+![Custom Column](/images/whatsnew/controller-instances-custom-column.png)
+
+Create an instance with metadata:
+
+```bash
+❯ curl -X POST "http://anka.controller:8090/api/v1/vm" -H "Content-Type: application/json" \
+-d '{"vmid": "c0847bc9-5d2d-4dbc-ba6a-240f7ff08032", "count": 1, "metadata": { "test": true }}'
+
+{"status":"OK","message":"","body":["a681f959-b4db-4f3b-7a88-0384ad146bf4"]}
+```
+
+Then show it as a column in the dashboard:
+
+![Custom Column from Metadata](/images/whatsnew/controller-instances-custom-metadata-column.png)
+
+## What's New in Anka Virtualization CLI Version 2.2.3
 ### Anka 2.2.3 - May 03, 2020
 
 **When using Anka Viewer, provided a way to get out of full screen, after in full screen mode (using the green full screen button on the window's top bar)**
 
 **Updated license terms**
 
-## What's New in Controller Version 1.7.0
+## What's New in Anka Build Cloud Controller Version 1.7.0
 
 **Disk Usage for Node is displayed in the controller Dahsboard and REST API**
 
