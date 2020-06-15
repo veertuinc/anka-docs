@@ -8,10 +8,7 @@ description: >
   How to install, uninstall and upgrade Anka Secure.
 ---
 
-
-
-
-## Installation and Configurationdddd
+## Installation and Configuration
 Anka when activated with the Anka Secure license enables installation of Anka package all mac hardware with Secure modules. It enables administrators to create policies for the VM and assign users/groups to the VM policy.
 
 Installing the Anka Hypervisor binary is remarkably simple, just download it from [Anka Secure Download page](https://veertu.com/download-anka-secure/).  
@@ -29,18 +26,6 @@ Verify the installation by running [`anka version`]({{< relref "docs/Anka CLI/co
 
 View all settings for Anka installation on the host with `anka config -l` command.
 
-```
-anka config --help
-Usage: anka config [OPTIONS] [PARAM]...
-
-  Manage Anka configuration
-
-Options:
-  -l, --list   List value parameter(s)
-  -r, --reset  Reset value of parameter(s)
-  --help       Show this message and exit.
-
-```
 Activate with your Anka Secure license key.  
 ```
 sudo anka license activate <key>

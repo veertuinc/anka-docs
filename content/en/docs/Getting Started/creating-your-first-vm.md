@@ -12,7 +12,7 @@ For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/
 
 ## Understanding VM Templates, Tags, and Disk Usage
 
-{{< include file="./shared/content/en/docs/What Is Anka/partials/understanding-templates-and-tags.md" >}}
+{{< include file="./shared/content/en/docs/Getting Started/partials/_understanding-templates-and-tags.md" >}}
 
 ## Creating a VM Template
 

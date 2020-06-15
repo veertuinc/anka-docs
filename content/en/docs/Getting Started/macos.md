@@ -98,7 +98,27 @@ sudo anka-controller logs
  
 > The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging))
 
-{{< include file="shared/content/en/docs/Getting Started/partials/_step3-and-4.md" >}}
+## Step 3: Link the Anka CLI Node to the Controller
+
+Great! Now that we have our Anka Controller & Registry up and running, let's add Nodes!
+
+> Perform the following steps on the Node where you created your first VM Template.
+
+### Add the Registry
+
+{{< include file="shared/content/en/docs/Getting Started/partials/_add-the-registry.md" >}}
+
+### Push the VM to the Registry
+
+{{< include file="shared/content/en/docs/Getting Started/partials/_push-vm-to-registry.md" >}}
+
+### Join to the Controller & Registry
+
+{{< include file="shared/content/en/docs/Getting Started/partials/_join-to-cluster.md" >}}
+
+## Step 4: Start a VM instance using the Controller UI
+
+{{< include file="shared/content/en/docs/Getting Started/partials/_start-vm-instance-using-controller-ui.md" >}}
 
 ## What next?
 

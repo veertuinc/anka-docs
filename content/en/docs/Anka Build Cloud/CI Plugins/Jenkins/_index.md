@@ -7,7 +7,7 @@ description: >
   Instructions on how to use Jenkins with Anka Build Cloud
 ---
 
-The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud with Jenkins. The plugin helps Jenkins jobs dynamically provision Anka VM instances (based on the label used).
+The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud with Jenkins. The plugin helps Jenkins jobs dynamically provision Anka VM instances (based on the label used) for building, testing, and more.
 
 - Support for both **Pipeline** and **Freestyle** Jenkins jobs.
 - Supports both Static Slave Templates (under Configure Clouds) and Dynamic Labelling (in your repo's Jenkinsfile).
@@ -15,17 +15,20 @@ The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud w
 - Supports automated VM Tag creation after your jobs run. This Cache Builder feature helps optimize subsequent builds as the dependencies are already on the VM.
 - Supports both **JNLP** and **SSH** based connections to Anka VMs.
   
-> Since v1.20, the Slave Template builder plugin merged with the Anka Plugin. Be sure to uninstall the old Slave Template builder plugin if you're upgrading to v1.20.
+> Since v1.20, the Slave Template builder plugin merged with the Jenkins Anka Plugin. Be sure to uninstall the old Slave Template builder plugin if you're upgrading to v1.20.
 
 > In order to follow these instructions, you will need to [install the Anka CLI]({{< relref "docs/Anka CLI/installation.md" >}}) and an understanding of how to [start the VM]({{< relref "docs/Anka CLI/command-reference.md#start-vm" >}}) and [launch the viewer]({{< relref "docs/Anka CLI/command-reference.md#open-vm-windowviewer" >}}).
 
 ## VM Template & Tag Requirements
 
-The Jenkins Anka Plugin requires a VM with Java, SSH sharing, and port forwarding:
+The Jenkins Anka Plugin requires a VM with Java, SSH Remote Login, and port forwarding:
 
 1. In the VM, install the proper OpenJDK version.
     - Within Jenkins, visit **/systemInfo** (`System Properties`) and look for `java.version`.
     - Use the value to determine the proper OpenJDK version you need to download and install in your VM Template. For example if the `java.version` is set to `1.8.0_242`, you can download and install the [AdoptOpenJDK jdk8u242-b08.pkg](https://github.com/AdoptOpenJDK/openjdk8-binaries/releases).
+
+> You can run any version of JAVA you want **as long as the version inside of the VM matches your Jenkins server**
+
 2. In the VM, make sure remote login is enabled (`System Preferences > Sharing`).
 3. On the host, enable [port forwarding]({{< relref "docs/Anka CLI/command-reference.md#example---add-port-forwarding" >}}) for your VM Template using the Anka CLI. _We recommend not specifying --host-port._
 4. `sudo anka suspend <VM Template name>`
@@ -37,7 +40,7 @@ The Jenkins Anka Plugin requires a VM with Java, SSH sharing, and port forwardin
 
 1. Navigate to `Manage Jenkins > Manage Plugins` and click on the **Available** tab. Search in **Filter** for "Anka", then install it. _You won't see any results if it's already installed._
 
-2. Now you can configure the Anka Cloud. Navigate to `Manage Jenkins > Manage Nodes and Clouds` and find the section called `Configure Clouds`. Inside of `Configure Clouds`, click on **Add a new Cloud** at the bottom of the page and then click on **Anka Cloud**.
+2. Now you can configure the Anka Cloud. Navigate to `Manage Jenkins > Manage Nodes and Clouds` and find the section called `Configure Clouds` (on older versions you can find this under `Configure System`). Inside of `Configure Clouds`, click on **Add a new Cloud** at the bottom of the page and then click on **Anka Cloud**.
 
 3. You now have an Anka Cloud panel exposed to do your configuration. You can set **Anka Build Cloud** to be anything you want. However, you'll need to set **Build Controller URL with port** to the proper URL of your controller, and _**make sure you include the port**_: `http://<ip/domain>:80`. Once you're done, click **Save**.
 
@@ -145,7 +148,7 @@ pipeline {
 - [Simple Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/simple-example/Jenkinsfile)
 - [Scripted Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/scripted-example/Jenkinsfile)
 - [Scripted (no def) Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/scripted-no-def-example/Jenkinsfile)
-- [Nested Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/nested-example/Jenkinsfile)
+- [Nested Cache Builder Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/nested-cache-builder-example/Jenkinsfile)
 
 --- 
 
@@ -188,7 +191,7 @@ You can find the **Cache Builder** in the Anka Cloud Slave Template definition u
 
 Pipelines can have multiple agents running in one build (also in parallel). Therefore, the plugin relies on the buildResult to tell if it needs to execute the "save image request". You have two options to prevent pushing the new Tag prematurely:
 
-1. Wrap your step-level commands in a catchError ([from our Nested Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/nested-example/Jenkinsfile)):
+1. Wrap your step-level commands in a catchError ([from our Nested Cache Builder Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/nested-cache-builder-example/Jenkinsfile)):
     ```javascript
     stage("run-on-NESTED_LABEL-vm") {
       agent { label "${NESTED_LABEL}" }
@@ -204,7 +207,7 @@ Pipelines can have multiple agents running in one build (also in parallel). Ther
 
 ### Configuring Caching with Dynamic Labelling
 
-Please review our [Nested Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/nested-example/Jenkinsfile).
+Please review our [Nested Cache Builder Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/nested-cache-builder-example/Jenkinsfile).
 
 - The **AGENT_LABEL** VM instance is created to handle the first stage.
 - The second stage creates a second VM instance that is configured to push to the Registry once the buildResult is a successful status.

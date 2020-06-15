@@ -43,13 +43,14 @@ vm created successfully with uuid: 8f0e1111-a14b-11e7-aaa4-003ee1cbb8b4
 
 [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) configures a lot of things inside the VM, while creating Anka VM to optimize it for performance and usability for CI purposes.
 
-> The output of [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) command is a VM created and it's in suspended state. [`anka start`]({{< relref "docs/Anka CLI/command-reference.md#start" >}}) from suspended state bypasses the full boot and starts the VM in 1-2 seconds.  
+> The output of [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) command is a VM created and it's in suspended state. [`anka start`]({{< relref "docs/Anka CLI/command-reference.md#start" >}}) from suspended state bypasses the full boot and starts the VM in 1-2 seconds.
 
 > VMs are created with SIP/Kext Consent disabled by default. It's strongly advised to keep these settings for optimal Anka performance. If you need to re-enable SIP/Kext Consent, then use this command `anka modify {template} set custom-variable sys.csr-active-config 0`.
 
 > VMs are created with administrative `user - anka and password - admin` with auto login enabled for this user. It is possible to delete this user and create your own administrative user.
 
 ### Start VM
+
 The VM can now be successfully started. The VM is pre-configured with a default administrative username `anka` and password `admin`. You will see the VM boot up and have to complete the macOS keypad setup steps.
 
 `sudo anka start {template}` will start the VM in headless mode.
@@ -124,6 +125,9 @@ port_forwarding
 |           22 | tcp        | jenkins |       10000 |           0 | 0.0.0.0   |
 +--------------+------------+---------+-------------+-------------+-----------+
 ```
+
+> **It's very important that when you suspend from a started state that the VM has fully booted and logged into a user. If you don't, the VM will fail to start.**
+
 #### Managing VM Disk space
 You can specify initial disk space while creating Anka VM with [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) command. However, in some scenarios, you need to increase the disk space on an existing VM.
 
