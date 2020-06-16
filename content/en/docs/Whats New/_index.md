@@ -55,7 +55,7 @@ Create your instance and set the CPU and RAM:
 
 ```bash
 ❯ curl -X POST "http://anka.controller:8090/api/v1/vm" -H "Content-Type: application/json" \
--d '{"vmid": "3a65b45e-c08d-44e9-84e2-ba45d646af4a", "count": 1, "vcpu": 4, "ram": 8192 }'
+-d '{"vmid": "3a65b45e-c08d-44e9-84e2-ba45d646af4a", "count": 1, "vcpu": 4, "vram": 8192 }'
 
 {"status":"OK","message":"","body":["ac653ec9-5c7e-4b99-5749-ec0d242ca958"]}
 ```
