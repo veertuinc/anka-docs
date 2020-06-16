@@ -11,7 +11,7 @@ description: >
 
 ## Current Versions
 
-### Anka 2.2.3 - May 03, 2020
+### Anka Virtualization CLI 2.2.3 - May 03, 2020
 - Bug Fix : Starting multiple VMs from suspended state with bridge networking configuration
 - Bug Fix : Unable to set up port forwarding to 127.0.0.1
 - Bug Fix : VNC connection error
@@ -23,11 +23,26 @@ description: >
 
 > There is no requirement to upgrade the VM templates from previous anka version 2.2.2 to version 2.2.3.
 
-### Change Log Anka Controller & Registry combined package (Mac) version 1.7.1 - Apr 14, 2020
-- Bug Fix : Anka agent miscalculates free space to keep when pulling images on the node
+### Anka Controller & Registry combined package (Mac) version 1.8.0 - June 16, 2020
+- New Feature : Controller REST API now supports modifying the vCPU and RAM for VMs in a stopped state
+- New Feature : Controller REST API Start VM Instance object allows for custom key/value metadata
+- New Feature : [Controller Instances page now allows users to add custom columns (from metadata key/value)]({{< relref "docs/Whats New/_index.md" >}})
+- New feature : Updated license terms
+- Bug Fix : Agent process stays alive despite disjoin
+- Bug Fix : Instance sorting in controller UI was not kept on update
+- Bug Fix : Sorting in instances page in dashboard is reversed
+- Bug Fix : Agent's HTTP client would sometime fail to parse controller's responses
 
-### Change Log Anka Controller & Registry combined package (linux) version 1.7.1 - Apr 14, 2020
-- Bug Fix : Anka agent miscalculates free space to keep when pulling images on the node
+### Anka Controller & Registry combined package (linux) version 1.8.0 - June 16, 2020
+- New Feature : Controller REST API now supports modifying the vCPU and RAM for VMs in a stopped state
+- New Feature : Controller REST API Start VM Instance object allows for custom key/value metadata
+- New Feature : [Controller Instances page now allows users to add custom columns (from metadata key/value)]({{< relref "docs/Whats New/_index.md" >}})
+- New feature : Updated license terms
+- Bug Fix : Agent process stays alive despite disjoin
+- Bug Fix : Instance sorting in controller UI was not kept on update
+- Bug Fix : Sorting in instances page in dashboard is reversed
+- Bug Fix : Agent's HTTP client would sometime fail to parse controller's responses
+
 
 ### Jenkins Plugin 1.23.0 - Mar 23, 2020
 - Bug Fix : Controller IP is inaccessible from the Jenkins and Jenkins page is stuck on “loading” forever
@@ -50,6 +65,12 @@ description: >
 ---
 
 ## Previous Versions
+
+### Change Log Anka Controller & Registry combined package (Mac) version 1.7.1 - Apr 14, 2020
+- Bug Fix : Anka agent miscalculates free space to keep when pulling images on the node
+
+### Change Log Anka Controller & Registry combined package (linux) version 1.7.1 - Apr 14, 2020
+- Bug Fix : Anka agent miscalculates free space to keep when pulling images on the node
 
 ### Anka 2.2.2 - Mar 03, 2020
 - Bug Fix : Nested virtualization not working since rel 2.2.0
