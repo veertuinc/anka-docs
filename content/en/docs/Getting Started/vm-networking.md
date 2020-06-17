@@ -17,7 +17,7 @@ ssh anka@<VM IP>
 
 > Anka VMs are created with the default user `anka` and a password of `admin`.
 
-In order to access this VM from outside of the host it’s running, [enable port forwarding]({{< relref "docs/Anka CLI/command-reference.md#example---add-port-forwarding" >}}).
+In order to access this VM from outside of the host it’s running, [enable port forwarding]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#example---add-port-forwarding" >}}).
 
 ## Changing the network configuration for Anka VMs
 
@@ -27,7 +27,7 @@ sudo anka modify set network-card [OPTIONS] INDEX
 
 Options are:
 
-{{< include file="shared/content/en/docs/Anka CLI/partials/modify/set/network-card/_index.md" >}}
+{{< include file="shared/content/en/docs/Anka Build Cloud/Virtualization CLI/partials/modify/set/network-card/_index.md" >}}
 
 > [INDEX] is always 0 since Anka doesn’t support more than 1 NIC per VM.
 
@@ -61,7 +61,7 @@ Since anka settings can be overwritten with env variables, the following will wo
 
 `ANKA_BRIDGE_NAME=en0 anka start VM …`
 
-VMs with this network type is visible in the network as independent nodes. VMs can be accessed from external networks directly. Since [`sudo anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) process leaves guest macOS in “Using DHCP” mode, external DHCP server could be needed to get network up immediately, or manual IP address assignment will be needed.
+VMs with this network type is visible in the network as independent nodes. VMs can be accessed from external networks directly. Since [`sudo anka create`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#create" >}}) process leaves guest macOS in “Using DHCP” mode, external DHCP server could be needed to get network up immediately, or manual IP address assignment will be needed.
 
 ### Disconnected type
 With this type of networking the VMs see only “disconnected” ethernet cable. No network communications is available. This mode is pretty much like removal of entire NIC from a VM’s configuration.

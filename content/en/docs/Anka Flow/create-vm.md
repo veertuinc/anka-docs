@@ -14,12 +14,12 @@ description: >
 ## Create VM
 Anka makes it very simple manage your macOS CI infrastructure-as-a-code.
 
-Use [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) command to create macOS VMs from the `.app` installer app.
+Use [`anka create`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#create" >}}) command to create macOS VMs from the `.app` installer app.
 `anka create --ram-size 4G --cpu-count 2 --disk-size 80G --app /Applications/Install\ macOS\ High\ Sierra.app Hisierravm`
 
 ***Note*** For Catalina Anka VMs, --ram-size value should be 4G and --disk-size should be 80G.
 
-By default [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) creates macOS VM with administrative `user - anka and password - admin`. You can change this default user by using these ENV variables with [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) command.
+By default [`anka create`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#create" >}}) creates macOS VM with administrative `user - anka and password - admin`. You can change this default user by using these ENV variables with [`anka create`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#create" >}}) command.
 
 `ANKA_DEFAULT_PASSWD=passwd ANKA_DEFAULT_USER=usrname anka create --ram-size 4G --cpu-count 2 --disk-size 60G -a /Applications/Install\ macOS\ High\ Sierra.app HiSierravm`
 
@@ -54,7 +54,7 @@ Waiting for installation to complete in the guest (about thirty minutes approx.)
 vm created successfully with uuid: 8f0e1111-a14b-11e7-aaa4-003ee1cbb8b4
 
 ```
-The output of [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) command is a VM created and it's in suspended state. [`anka start`]({{< relref "docs/Anka CLI/command-reference.md#start" >}}) from suspended state bypasses the full boot and starts the Vm in 1-2 seconds.  
+The output of [`anka create`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#create" >}}) command is a VM created and it's in suspended state. [`anka start`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#start" >}}) from suspended state bypasses the full boot and starts the Vm in 1-2 seconds.  
 
 ***Note*** VMs are created with SIP/Kext Consent disabled by default. It's strongly advised to keep these settings for optimal Anka performance.  
 
@@ -140,7 +140,7 @@ There are multiple methods to install various software packages and work inside 
 
 #### Manual method
 You can manually work within the VM with `anka view sierravm`. This will open the VM view window.
-[`anka view`]({{< relref "docs/Anka CLI/command-reference.md#view" >}}) supports working in full screen and also retina mode. Retina mode is supported for Anka VMs running Mojave or later.
+[`anka view`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#view" >}}) supports working in full screen and also retina mode. Retina mode is supported for Anka VMs running Mojave or later.
 
 #### Automated methods
 **SSH to the VM and execute commands**  
@@ -148,7 +148,7 @@ You can manually work within the VM with `anka view sierravm`. This will open th
 SSH into the VM from the host where its running with the following command.
 `ssh anka@ip`, where ip is the Vm IP shown in `anka show {template}` command.
 
-To SSH into the VM from another host, first enable ssh port forwarding. Use [`anka modify`]({{< relref "docs/Anka CLI/command-reference.md#modify" >}}) command.
+To SSH into the VM from another host, first enable ssh port forwarding. Use [`anka modify`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#modify" >}}) command.
 
 ```
 anka modify {template} add port-forwarding --host-port 0 --guest-port 22 ssh
@@ -169,7 +169,7 @@ port_forwarding
 Access it with `ssh anka@hotsip -p host_port`
 
 **Use anka run and execute commands**
-Similar to `docker exec`, [`anka run`]({{< relref "docs/Anka CLI/command-reference.md#run" >}}) allows execution of commands inside of a VM.
+Similar to `docker exec`, [`anka run`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#run" >}}) allows execution of commands inside of a VM.
 
 Example
 ```
@@ -183,7 +183,7 @@ echo FASTLANE_PASSWORD=password >> appstore_passwd
 anka run -f appstore_login -nE {template} xcversion install 10.1
 ```
 
-Refer here for more details on how to use [`anka run`]({{< relref "docs/Anka CLI/command-reference.md#run" >}}) command.
+Refer here for more details on how to use [`anka run`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#run" >}}) command.
 
 ### Using an ISO file to create Anka VM - Yosemite & ElCapitan VMs
 
@@ -205,7 +205,7 @@ For example:
 /Library/Application\ Support/Veertu/Anka/tools/create_macos_install_image.sh /Applications/Install\ macOS\ Sierra.app
 ```
 
-To create a VM from `.iso`, you will use [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) command as you typically would. It will create an empty VM.
+To create a VM from `.iso`, you will use [`anka create`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#create" >}}) command as you typically would. It will create an empty VM.
 Note - > While creating VM with anka create, make sure to specify enough --disk-size parameter. Currently, it's not possible to change the disk size for an existing VM.
 
 ```

@@ -11,7 +11,7 @@ description: >
 
 
 ## Installation and Configuration
-Anka when activated with the Anka Flow license enables installation of Anka package on the developer mac machines. It enables the developers to create and work inside Anka macOS VMs on their local machines. Developers can use the [`anka run`]({{< relref "docs/Anka CLI/command-reference.md#run" >}}) interface to work inside Anka VMs in a container like manner.  
+Anka when activated with the Anka Flow license enables installation of Anka package on the developer mac machines. It enables the developers to create and work inside Anka macOS VMs on their local machines. Developers can use the [`anka run`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#run" >}}) interface to work inside Anka VMs in a container like manner.  
 
 You can also use Anka Flow in combination with Anka Build and enable your developers to pull the build environments from the central registry on their local machines.
 
@@ -27,13 +27,13 @@ If using command line, use the following command `sudo installer -applyChoiceCha
 
 After running the installer package, `anka` is found at `/usr/local/bin/anka`.
 
-Verify the installation by running [`anka version`]({{< relref "docs/Anka CLI/command-reference.md#version" >}}) command.
+Verify the installation by running [`anka version`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#version" >}}) command.
 
 After install, if the users want to, they can change the location of this default Anka install location link manually.
 
 Execute `sudo mv /usr/local/bin/anka /to/any/other/location/`.
 
-Verify the installation by running [`anka version`]({{< relref "docs/Anka CLI/command-reference.md#version" >}}) command.
+Verify the installation by running [`anka version`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#version" >}}) command.
 
 View all settings for Anka installation on the host with `anka config -l` command.
 
