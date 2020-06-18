@@ -52,10 +52,8 @@ description: >
 ### TeamCity Plugin 1.7.0 - Nov 05, 2019
 - Bug Fix : Remove extra log messages in TC plugin
 
-### Packer Plugin 1.1.0 - Dec 08, 2019
-- New feature : Add hyper-threading support for Packer plugin
-- New feature : Add verbose output while creating image
-- New feature : Integrate packer plugin with ansible
+### Packer Plugin 1.3.0 - June 18, 2020
+- New feature : Properly handle cleanup of VM when halted or cancelled
 
 ### Gitlab CI Plugin 0.6b - Dec 08, 2019
 - New feature : update gitlab runner to new gitlab codebase
@@ -65,6 +63,11 @@ description: >
 ---
 
 ## Previous Versions
+
+### Packer Plugin 1.1.0 - Dec 08, 2019
+- New feature : Add hyper-threading support for Packer plugin
+- New feature : Add verbose output while creating image
+- New feature : Integrate packer plugin with ansible
 
 ### Change Log Anka Controller & Registry combined package (Mac) version 1.7.1 - Apr 14, 2020
 - Bug Fix : Anka agent miscalculates free space to keep when pulling images on the node
