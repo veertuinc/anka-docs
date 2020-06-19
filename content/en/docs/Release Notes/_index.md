@@ -2,7 +2,7 @@
 date: 2018-03-06
 title: "Release Notes"
 linkTitle: "Release Notes"
-weight: 10
+weight: 7
 description: >
   Detailed Release Notes
 ---
@@ -43,7 +43,6 @@ description: >
 - Bug Fix : Sorting in instances page in dashboard is reversed
 - Bug Fix : Agent's HTTP client would sometime fail to parse controller's responses
 
-
 ### Jenkins Plugin 1.23.0 - Mar 23, 2020
 - Bug Fix : Controller IP is inaccessible from the Jenkins and Jenkins page is stuck on “loading” forever
 
@@ -55,10 +54,11 @@ description: >
 ### Packer Plugin 1.3.0 - June 18, 2020
 - New feature : Properly handle cleanup of VM when halted or cancelled
 
-### Gitlab CI Plugin 0.6b - Dec 08, 2019
+### Anka GitLab Runner 0.6b - Dec 08, 2019
 - New feature : update gitlab runner to new gitlab codebase
 
-### Anka Registry (Mac) - Version 1.1.1
+### Anka VM GitHub Action v1.0.0-beta - June 17, 2020
+- Beta released to public
 
 ---
 

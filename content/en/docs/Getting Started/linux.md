@@ -25,15 +25,15 @@ Welcome! This tutorial guides you through setting up your Anka Build Cloud on Li
 
 ### Install the Anka CLI
 
-{{< include file="shared/content/en/docs/Anka CLI/partials/_install-guide.md" >}}
+{{< include file="shared/content/en/docs/Anka Build Cloud/Virtualization CLI/partials/_install-guide.md" >}}
 
-For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka CLI/command-reference.md" >}}).
+For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md" >}}).
 
 ### Create your first VM Template
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_create-vm-template.md" >}}
 
-> You can find detailed instructions for [`anka create`]({{< relref "docs/Anka CLI/command-reference.md#create" >}}) [here.]({{< relref "docs/Anka CLI/creating-templates-and-tags.md" >}})
+> You can find detailed instructions for [`anka create`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#create" >}}) [here.]({{< relref "docs/Anka Build Cloud/Virtualization CLI/creating-templates-and-tags.md" >}})
 
 > You can continue on to Step 2 while you wait for this to finish.
 
@@ -203,7 +203,7 @@ Great! Now that we have our Anka Controller & Registry up and running, let's add
 
 ## What next?
 
-- Browse the [Anka CLI Command Reference]({{< relref "docs/Anka CLI/command-reference.md" >}}).  
-- Connect your cloud to a [CI server]({{< relref "docs/Anka Build Cloud/CI Plugins/_index.md" >}}).  
-- Find out how to use the [Controller REST API]({{< relref "docs/Anka Build Cloud/controller-api.md">}}).  
+- Browse the [Anka CLI Command Reference]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md" >}}).  
+- Connect the cloud to your [CI software]({{< relref "docs/CI Plugins and Integrations/_index.md" >}}).  
+- Find out how to use the [Controller REST API]({{< relref "docs/Anka Build Cloud/Controller and Registry/controller-api.md">}}).  
 - Learn how to work with [USB devices]({{< relref "docs/Getting Started/working-with-usb-devices.md">}})

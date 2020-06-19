@@ -9,6 +9,8 @@ description: >
 
 Anka is a suite of software for creating and managing macOS VMs to run on top of Apple hardware and macOS. It enables the creation of or integration with existing container-like DevOps workflows. Unlike existing macOS virtualization solutions, Anka lets the macOS operating system manage virtual machines in the same manner as other native macOS applications. Anka virtualization uses macOS native Hypervisor features so it can run on any Apple hardware.
 
+> Anka can be installed on macOS machines running High Sierra (10.13.x) or higher.
+
 * Easy to install
 * Built on the native hypervisor, utilizing macOS resource scheduling and power management for Anka VMs
 * Optimized VM network and disk performance using paravirtual drivers
@@ -25,7 +27,7 @@ DevOps workflows typically include lots of automation. Because of this, Anka has
 * Write scripts for Template & Tag creation in your preferred language, or use our [packer builder](https://github.com/veertuinc/packer-builder-veertu-anka)
 * Store your VM Templates and Tags in the Anka Cloud Registry so you can distribute or pull them to different machines and ensure the same VM state
 * Manage your VMs from the Anka Build Cloud Controller's REST API
-* Get up and running quickly with [one of our maintained CI plugins]({{< relref "docs/Anka Build Cloud/CI Plugins/_index.md" >}})
+* Get up and running quickly with [one of our maintained CI plugins or integrations]({{< relref "docs/CI Plugins and Integrations/_index.md" >}})
 
 > Information about how VM Template and Tags work can be found in our [Getting Started creating your first VM guide.]({{< relref "docs/Getting Started/creating-your-first-vm.md" >}})
 

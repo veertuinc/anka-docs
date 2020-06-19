@@ -4,6 +4,15 @@ Anka VM “Templates” contain the base macOS installation and are optimized to
 
 > Our getting started guide has some great information on scripting the download of a macOS installer package.
 
+At this time, Anka VM Templates only support the following macOS versions:
+
+- `10.15.x` (macOS Catalina)
+- `10.14.x` (macOS Mojave)
+- `10.13.x` (macOS Hi Sierra)
+- `10.12.x` (macOS Sierra)
+- `10.11.x` (macOS El Capitan)
+- `10.10.x` (macOS Yosemite)
+
 After a Template is created, you can use `anka view` and `anka run` commands to install and configure whatever dependencies and software you need inside of the VM.
 
 Once you've installed everything you need in a VM, you can then use `anka suspend` to save the state of the VM.

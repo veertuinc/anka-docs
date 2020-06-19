@@ -16,13 +16,13 @@ Run the `anka.pkg` installer. The Anka package includes the Core hypervisor and 
 
 After running the installer package, `anka` is found at `/usr/local/bin/anka`.
 
-Verify the installation by running [`anka version`]({{< relref "docs/Anka CLI/command-reference.md#version" >}}) command.
+Verify the installation by running [`anka version`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#version" >}}) command.
 
 After install, if the users want to, they can change the location of this default Anka install location link manually.
 
 Execute `sudo mv /usr/local/bin/anka /to/any/other/location/`.
 
-Verify the installation by running [`anka version`]({{< relref "docs/Anka CLI/command-reference.md#version" >}}) command.
+Verify the installation by running [`anka version`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#version" >}}) command.
 
 View all settings for Anka installation on the host with `anka config -l` command.
 

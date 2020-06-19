@@ -2,7 +2,7 @@
 date: 2020-01-27
 title: "What's New"
 linkTitle: "What's New"
-weight: 12
+weight: 8
 description: >
   Published March 23, 2020 
 ---
