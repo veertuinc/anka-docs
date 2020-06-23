@@ -43,10 +43,14 @@ description: >
 - Bug Fix : Sorting in instances page in dashboard is reversed
 - Bug Fix : Agent's HTTP client would sometime fail to parse controller's responses
 
-### Jenkins Plugin 1.23.0 - Mar 23, 2020
-- Bug Fix : Controller IP is inaccessible from the Jenkins and Jenkins page is stuck on “loading” forever
+### Jenkins Plugin 2.1.0 - June 22, 2020
 
-> Currently issues in amazon-ecs-plugin version 1.26 cause problems with Jenkins-Anka Plugin. In order to fix this, downgrade to amazon-ecs-plugin version 1.22 or disable amazon-ecs-plugin. Check https://github.com/jenkinsci/amazon-ecs-plugin/issues/158 for more details.
+- Various stability / performance improvements
+- New feature : Passing new API information for controller 1.8.0's custom metadata/column feature
+- New feature : A warning will display when users upgrade within the plugin center
+- New feature : Ability to set an instance cap per Static Slave Template or per Anka Cloud
+- Bug Fix : VMs were being left in started stage after job completed/aborted in Jenkins
+- Bug Fix : When cache building, "Checking save image status" would immediately return success and the Job would complete even though the cache tag was still being pushed.
 
 ### TeamCity Plugin 1.7.0 - Nov 05, 2019
 - Bug Fix : Remove extra log messages in TC plugin
@@ -63,6 +67,10 @@ description: >
 ---
 
 ## Previous Versions
+
+### Jenkins Plugin 1.23.0 - Mar 23, 2020
+- Bug Fix : Controller IP is inaccessible from the Jenkins and Jenkins page is stuck on “loading” forever
+- Issues in amazon-ecs-plugin version 1.26 cause problems with Jenkins-Anka Plugin. In order to fix this, downgrade to amazon-ecs-plugin version 1.22 or disable amazon-ecs-plugin. Check https://github.com/jenkinsci/amazon-ecs-plugin/issues/158 for more details.
 
 ### Packer Plugin 1.1.0 - Dec 08, 2019
 - New feature : Add hyper-threading support for Packer plugin
