@@ -4,7 +4,7 @@ title: "What's New"
 linkTitle: "What's New"
 weight: 8
 description: >
-  Published March 23, 2020 
+  Description of new Anka software features
 ---
 
 ## What's New in Jenkins Plugin Versions 2.1.0
