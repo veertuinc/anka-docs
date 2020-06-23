@@ -15,8 +15,6 @@ The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud w
 - Supports automated VM Tag creation after your jobs run. This Cache Builder feature helps optimize subsequent builds as the dependencies are already on the VM.
 - Supports both **JNLP** and **SSH** based connections to Anka VMs.
   
-> Since v1.20, the Slave Template builder plugin merged with the Jenkins Anka Plugin. Be sure to uninstall the old Slave Template builder plugin if you're upgrading to v1.20.
-
 > In order to follow these instructions, you will need to [install the Anka CLI]({{< relref "docs/Anka Build Cloud/Virtualization CLI/installation.md" >}}) and an understanding of how to [start the VM]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#start-vm" >}}) and [launch the viewer]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#open-vm-windowviewer" >}}).
 
 ## VM Template & Tag Requirements
