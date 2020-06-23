@@ -11,17 +11,19 @@ description: >
 
 ## Current Versions
 
-### Anka Virtualization CLI 2.2.3 - May 03, 2020
-- Bug Fix : Starting multiple VMs from suspended state with bridge networking configuration
-- Bug Fix : Unable to set up port forwarding to 127.0.0.1
-- Bug Fix : VNC connection error
-- Bug Fix : DHCP bug related to renew lease in some Anka environment
-- Bug Fix : anka VMs can get corrupted when using nanka kext in cases of force shutdown
-- Bug Fix : Trying to start a VM result in failed state - with logs saying bind: Address already in use
-- New feature : When using Anka Viewer, after clicking the green full screen button on the window's top bar, it's unclear how to get out of full screen. Now, if you move your mouse to the top of the screen you will expose the bar and green button.
-- New feature : Updated license terms
+### Jenkins Plugin 2.1.0 - June 22, 2020
 
-> There is no requirement to upgrade the VM templates from previous anka version 2.2.2 to version 2.2.3.
+> **This update requires that you back up your Static Slave Templates (config.xml) and add them again if you are using any 1.X.X versions. They will be lost in the upgrade.**
+
+- Various stability / performance improvements
+- New feature : Node/slave name and jenkins url is passed to the controller to display within the instances page
+- New feature : A warning will display when users upgrade within the plugin center
+- New feature : Ability to set an instance cap per Static Slave Template or per Anka Cloud
+- Bug Fix : VMs were being left in started stage after job completed/aborted in Jenkins
+- Bug Fix : When cache building, "Checking save image status" would immediately return success and the Job would complete even though the cache tag was still being pushed.
+
+### Anka VM GitHub Action v1.2.0-beta - June 17, 2020
+- Beta released to public
 
 ### Anka Controller & Registry combined package (Mac) version 1.8.0 - June 16, 2020
 - New Feature : Controller REST API now supports modifying the vCPU and RAM for VMs in a stopped state
@@ -43,16 +45,17 @@ description: >
 - Bug Fix : Sorting in instances page in dashboard is reversed
 - Bug Fix : Agent's HTTP client would sometime fail to parse controller's responses
 
-### Jenkins Plugin 2.1.0 - June 22, 2020
+### Anka Virtualization CLI 2.2.3 - May 03, 2020
+- Bug Fix : Starting multiple VMs from suspended state with bridge networking configuration
+- Bug Fix : Unable to set up port forwarding to 127.0.0.1
+- Bug Fix : VNC connection error
+- Bug Fix : DHCP bug related to renew lease in some Anka environment
+- Bug Fix : anka VMs can get corrupted when using nanka kext in cases of force shutdown
+- Bug Fix : Trying to start a VM result in failed state - with logs saying bind: Address already in use
+- New feature : When using Anka Viewer, after clicking the green full screen button on the window's top bar, it's unclear how to get out of full screen. Now, if you move your mouse to the top of the screen you will expose the bar and green button.
+- New feature : Updated license terms
 
-> **This update requires that you back up your Static Slave Templates (config.xml) and add them again if you are using any 1.X.X versions. They will be lost in the upgrade.**
-
-- Various stability / performance improvements
-- New feature : Node/slave name and jenkins url is passed to the controller to display within the instances page
-- New feature : A warning will display when users upgrade within the plugin center
-- New feature : Ability to set an instance cap per Static Slave Template or per Anka Cloud
-- Bug Fix : VMs were being left in started stage after job completed/aborted in Jenkins
-- Bug Fix : When cache building, "Checking save image status" would immediately return success and the Job would complete even though the cache tag was still being pushed.
+> There is no requirement to upgrade the VM templates from previous anka version 2.2.2 to version 2.2.3.
 
 ### TeamCity Plugin 1.7.0 - Nov 05, 2019
 - Bug Fix : Remove extra log messages in TC plugin
@@ -62,9 +65,6 @@ description: >
 
 ### Anka GitLab Runner 0.6b - Dec 08, 2019
 - New feature : update gitlab runner to new gitlab codebase
-
-### Anka VM GitHub Action v1.0.0-beta - June 17, 2020
-- Beta released to public
 
 ---
 
