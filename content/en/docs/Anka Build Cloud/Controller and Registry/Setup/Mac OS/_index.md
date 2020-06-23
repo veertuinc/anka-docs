@@ -5,7 +5,7 @@ title: "Mac OS"
 linkTitle: "Mac OS"
 weight: 2
 description: >
-  Anka Build Cloud installation instructions for Mac OS.
+  Anka Build Cloud installation instructions for Mac OS
 ---
 
 [//]: # (TODO: split this to files and add configuration )

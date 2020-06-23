@@ -1,11 +1,11 @@
 
 ---
 date: 2019-07-03T22:24:47-05:00
-title: "Linux"
-linkTitle: "Linux"
+title: "Linux & Docker"
+linkTitle: "Linux & Docker"
 weight: 1
 description: >
-  Anka Build Cloud installation instructions for Linux.
+  Anka Build Cloud installation instructions for Linux & Docker
 ---
 
 [//]: # (TODO: split this to files and add configuration )

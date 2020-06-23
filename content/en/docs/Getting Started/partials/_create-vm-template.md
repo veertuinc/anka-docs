@@ -1,4 +1,4 @@
-### Obtain the Mac OS installer
+### Obtain the macOS installer
 
 There are multiple ways to obtain the installer .app file for Mac OSX that we'll detail for you below:
 
@@ -25,12 +25,12 @@ There are multiple ways to obtain the installer .app file for Mac OSX that we'll
       ```
 3. Have your local IT department provide a network volume or download links.
 
-### Run [`anka create`](../../anka-cli/command-reference#create) to generate the Template
-Assuming you chose to download Mojave:
+### Generate the Template
+
 ```shell
-sudo anka create --app /Applications/Install\ macOS\ Catalina.app/ catalina
+sudo anka create --app /Applications/Install\ macOS\ Catalina.app/ 10.15.4
 ```
 
-> The above example uses "catalina" as the Template name. This might be alright for testing, however we recommend adding a version to the Template name so it's clear what version of OSX it is.
+> We recommend adding a version to the Template name so it's clear what version of OSX it is.
 
-The VM creation should take around 30 minutes.
+> The VM creation should take around 30 minutes.
