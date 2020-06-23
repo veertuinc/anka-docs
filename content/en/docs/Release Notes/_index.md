@@ -45,6 +45,8 @@ description: >
 
 ### Jenkins Plugin 2.1.0 - June 22, 2020
 
+> **This update requires that you back up your Static Slave Templates (config.xml) and add them again if you are using any 1.X.X versions. They will be lost in the upgrade.**
+
 - Various stability / performance improvements
 - New feature : Node/slave name and jenkins url is passed to the controller to display within the instances page
 - New feature : A warning will display when users upgrade within the plugin center
