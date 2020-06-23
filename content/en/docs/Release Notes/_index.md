@@ -46,7 +46,7 @@ description: >
 ### Jenkins Plugin 2.1.0 - June 22, 2020
 
 - Various stability / performance improvements
-- New feature : Passing new API information for controller 1.8.0's custom metadata/column feature
+- New feature : Node/slave name and jenkins url is passed to the controller to display within the instances page
 - New feature : A warning will display when users upgrade within the plugin center
 - New feature : Ability to set an instance cap per Static Slave Template or per Anka Cloud
 - Bug Fix : VMs were being left in started stage after job completed/aborted in Jenkins

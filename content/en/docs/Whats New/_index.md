@@ -7,6 +7,34 @@ description: >
   Published March 23, 2020 
 ---
 
+## What's New in Jenkins Plugin Versions 2.1.0
+
+### Static Slave and Cloud Instance Limits (support for || label operator)
+
+When specifying the label to use in your Jenkins pipelines, you're able to use operators like `||` (OR). Previous versions of our Jenkins plugin had problems with this as each Static Slave Template you configured would be able to use unlimited instances (as many as your controller allowed). In 2.1.0, you have the ability to set a cap on the amount of instances allowed to be created for the specific Static Slave Template or even for the entire Anka Cloud definition. As an example:
+
+- Your pipeline uses `large-fleet-ios || small-fleet-ios`
+- You have two Static Slave Templates: 
+    1. label `large-fleet-ios`
+        - has lots of resources per VM, but far less total VMs that can run
+        - has an instance/VM cap of 5
+    2. label `small-fleet-ios` that has less resources because more VMs are running at once
+        - has an instance/VM cap of 20
+- Your large node fleet has a total of 10 VMs that can run at once (5 nodes, 2 VMs per node) (more expensive mac minis with lots of cpu and memory)
+- Your small node fleet has a total of 30 VMs that can run at once (15 nodes, 2 VMs per node) (cheaper mac minis with less resources)
+
+When someone runs an iOS build, you want it to use the large-fleet if possible so the builds and tests take less time. With this setup, your pipeline will run and request a VM from the Static Slave Template with `large-fleet-ios` as the label. However, if other pipeline jobs are already running and using all 5 instance slots, it will then fall back onto using `small-fleet-ios`.
+
+Notice that our instance cap for `large-fleet-ios` is 5 and we have 10 total VMs for the large-fleet. This allows other labels for the large fleet the remaining 5 slots at all times if there are lots of `large-fleet-ios` requests. This helps balance the usage between multiple projects.
+
+### Slave/Node name is now available within the 1.8.0 Controller
+
+Changes to the way we communicate with the Controller API now allows for the slave name and slave/jenkins UI URL to be displayed under the custom columns.
+
+![Jenkins 2.1.0 Slave/Node Info Page](/images/whatsnew/jenkins-2.1.0-slave-info-page.png)
+
+![Custom Column Jenkins 2.1.0](/images/whatsnew/jenkins-2.1.0-custom-columns.png)
+
 ## What's New in Anka Build Cloud Controller Version 1.8.0
 
 ### Set custom instance metadata and show it in the dashboard
