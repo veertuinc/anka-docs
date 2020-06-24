@@ -1,5 +1,7 @@
 ## Managing Permissions Groups
 
+> **This feature requires Enterprise Plus**
+
 Permission groups are configurable from your Controller's `https://<controller address>/admin/ui` page.
 
 > The permission groups here differ from the groups you assign to nodes
