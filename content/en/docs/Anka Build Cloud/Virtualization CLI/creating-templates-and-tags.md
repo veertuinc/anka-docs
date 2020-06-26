@@ -9,7 +9,7 @@ description: >
 
 Anka makes it very simple to manage your macOS CI infrastructure-as-a-code.
 
-> Be aware of the user you're executing Anka CLI commands as. If you create Templates as root, they won't be able (when running [`anka list`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#list" >}})) to other users on the system and vice versa.
+> Be aware of the user you're executing Anka CLI commands as. If you create Templates as root, they won't be available (when running [`anka list`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#list" >}})) to other users on the system and vice versa.
 
 > If you're running these commands over SSH, and not in an active GUI session, enable automatic login for the current user: Go to `Preferences > Users > enable automatic login`.
 
