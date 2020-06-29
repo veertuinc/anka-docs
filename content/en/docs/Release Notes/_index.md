@@ -13,13 +13,13 @@ description: >
 
 ### Jenkins Plugin 2.1.1 - June 29, 2020
 
-> **If updating from 1.23: This update requires that you back up your Static Slave Templates (config.xml) and add them again if you are using any 1.X.X versions. They will be lost in the upgrade.**
+> **If updating from 1.X.X: This update requires that you back up your Static Slave Templates (config.xml) and add them again.**
 
 - Bug Fix : createDynamicAnkaNode remoteFS and launchMethod are being ignored
 
 ### Jenkins Plugin 2.1.0 - June 22, 2020
 
-> **This update requires that you back up your Static Slave Templates (config.xml) and add them again if you are using any 1.X.X versions. They will be lost in the upgrade.**
+> **If updating from 1.X.X: This update requires that you back up your Static Slave Templates (config.xml) and add them again.**
 
 - Various stability / performance improvements
 - New feature : Node/slave name and jenkins url is passed to the controller to display within the instances page
@@ -62,9 +62,6 @@ description: >
 - New feature : Updated license terms
 
 > There is no requirement to upgrade the VM templates from previous anka version 2.2.2 to version 2.2.3.
-
-### TeamCity Plugin 1.7.0 - Nov 05, 2019
-- Bug Fix : Remove extra log messages in TC plugin
 
 ### Packer Plugin 1.3.0 - June 18, 2020
 - New feature : Properly handle cleanup of VM when halted or cancelled
