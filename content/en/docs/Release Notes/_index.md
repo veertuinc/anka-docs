@@ -11,6 +11,11 @@ description: >
 
 ## Current Versions
 
+### TeamCity Plugin 1.7.1 - July 1, 2019
+
+- Bug Fix : Retries for the communication from our plugin to the Anka Build Cloud Controller were being performed by both the plugin and also the Apache HTTP client and causing long-running threads
+- Bug Fix : As more Anka VM Instances were being created, the UI would become extremely slow
+
 ### Jenkins Plugin 2.1.1 - June 29, 2020
 
 > **If updating from 1.X.X: This update requires that you back up your Static Slave Templates (config.xml) and add them again.**
