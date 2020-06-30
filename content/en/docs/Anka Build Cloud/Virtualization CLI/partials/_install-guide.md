@@ -13,9 +13,11 @@ curl -L -o Anka.pkg https://veertu.com/downloads/ankabuild-latest
 ```shell
 sudo installer -pkg Anka.pkg -tgt /
 ```
-Or, if you need nested virtualization to run Docker or Android Emulator inside of the VM:
+Or, if you need nested virtualization to run Docker inside of the VM:
 
 > You can find Nested Virtualization inside of the Custom Install section of the guided installer. You can get there using the `Customize` button on the **Installation Type** stage.
+
+> We currently only support Docker within Nested Virtualization
 
 ```shell
 sudo installer -applyChoiceChangesXML nanka.xml -pkg Ankaxx.pkg -target /
