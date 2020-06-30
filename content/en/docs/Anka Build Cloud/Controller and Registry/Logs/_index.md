@@ -1,7 +1,7 @@
 ---
 title: "Anka Logs"
 linkTitle: "Anka Logs"
-weight: 5
+weight: 11
 description: >
   Working with Anka logs
 ---
