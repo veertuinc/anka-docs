@@ -21,6 +21,8 @@ Or, if you need nested virtualization to run Docker or Android Emulator inside o
 sudo installer -applyChoiceChangesXML nanka.xml -pkg Ankaxx.pkg -target /
 ```
 
+> You'll need modify your Anka VM Template and Tags with `anka modify name set nested 1`
+
 #### Verify the installation
 ```shell 
 anka version
