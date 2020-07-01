@@ -11,6 +11,9 @@ description: >
 
 ## Current Versions
 
+### Anka VM GitHub Action v1.3.0-beta - June 30, 2020
+- Bug Fix : removed the need to escape quotes in commands
+
 ### Jenkins Plugin 2.1.1 - June 29, 2020
 
 > **If updating from 1.X.X: This update requires that you back up your Static Slave Templates (config.xml) and add them again.**
@@ -27,9 +30,6 @@ description: >
 - New feature : Ability to set an instance cap per Static Slave Template or per Anka Cloud
 - Bug Fix : VMs were being left in started stage after job completed/aborted in Jenkins
 - Bug Fix : When cache building, "Checking save image status" would immediately return success and the Job would complete even though the cache tag was still being pushed.
-
-### Anka VM GitHub Action v1.3.0-beta - June 30, 2020
-- Bug Fix : removed the need to escape quotes in commands
 
 ### Anka Controller & Registry combined package (Mac) version 1.8.0 - June 16, 2020
 - New Feature : Controller REST API now supports modifying the vCPU and RAM for VMs in a stopped state
