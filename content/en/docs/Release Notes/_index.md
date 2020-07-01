@@ -28,8 +28,8 @@ description: >
 - Bug Fix : VMs were being left in started stage after job completed/aborted in Jenkins
 - Bug Fix : When cache building, "Checking save image status" would immediately return success and the Job would complete even though the cache tag was still being pushed.
 
-### Anka VM GitHub Action v1.2.0-beta - June 17, 2020
-- Beta released to public
+### Anka VM GitHub Action v1.3.0-beta - June 30, 2020
+- Bug Fix : removed the need to escape quotes in commands
 
 ### Anka Controller & Registry combined package (Mac) version 1.8.0 - June 16, 2020
 - New Feature : Controller REST API now supports modifying the vCPU and RAM for VMs in a stopped state
@@ -72,6 +72,9 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka VM GitHub Action v1.2.0-beta - June 17, 2020
+- Beta released to public
 
 ### Jenkins Plugin 1.23.0 - Mar 23, 2020
 - Bug Fix : Controller IP is inaccessible from the Jenkins and Jenkins page is stuck on “loading” forever
