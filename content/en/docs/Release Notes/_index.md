@@ -11,6 +11,10 @@ description: >
 
 ## Current Versions
 
+### TeamCity Plugin version 1.7.1
+- Bug Fix : Long-running threads were being created
+- Bug Fix : UI Slowness the more Instances/Agents you created
+
 ### Anka VM GitHub Action v1.3.0-beta - June 30, 2020
 - Bug Fix : removed the need to escape quotes in commands
 
@@ -346,9 +350,6 @@ Other : Version number change to 1.5.4 to make it match with the mac package
 - Bug Fix : Handle the scenario of special char/whitespace in tag name in slave template prepare plugin
 - Bug Fix : Support ssh slaves 1.30.0 in jenkins Plugin
 - Bug Fix : subfolder structure in jenkins job causes salve template builder plugin to fail due to special char
-
-### TeamCity Plugin version 1.6.0
-- Bug Fix : handle reference to non-existent tag in registry from TC plugin gracefully
 
 ### GitLab CI Plugin
 - Note : No Changes
