@@ -33,7 +33,7 @@ For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/
 
 > You can continue on to Step 2 while you wait for this to finish.
 
-## Step 2. Install Anka Controller & Registry
+## Step 2. Install the Anka Build Cloud Controller & Registry
 
 > Perform the following steps on the machine intended to run the Controller & Registry.
 

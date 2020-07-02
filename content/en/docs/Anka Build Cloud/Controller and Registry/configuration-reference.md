@@ -33,6 +33,8 @@ Push registry  | string            | Comma separated list of Registry addresses 
 ETCD defrag interval| duration         | Defrag ETCD (all servers) in this interval. Pass 0 to disable  | 3h | `--defrag-db-interval` | defrag_db_interval | ANKA_DEFRAG_DB_INTERVAL
 Instance time out| duration         | The time that instances stay in 'Terminated' state | 1m      | `--instance-time-out` | instance_time_out | ANKA_INSTANCE_TIME_OUT
 
+> Event logging requires a Enterprise Plus license and will show under the Controller's Logs section after the first instance is created.
+
 ### Logging 
 
  Name       | Type        |   Description               | default value | command line | ini    | env 

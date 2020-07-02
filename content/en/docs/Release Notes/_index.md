@@ -11,6 +11,10 @@ description: >
 
 ## Current Versions
 
+### TeamCity Plugin version 1.7.1
+- Bug Fix : Long-running threads were being created
+- Bug Fix : UI Slowness the more Instances/Agents you created
+
 ### Anka VM GitHub Action v1.3.0-beta - June 30, 2020
 - Bug Fix : removed the need to escape quotes in commands
 
