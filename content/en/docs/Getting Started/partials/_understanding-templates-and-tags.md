@@ -30,7 +30,7 @@ If you're interested in _Infrastructure as Code_ to automate the creation of you
 1. Write scripts that:
     - Parse and iterate commands, in order, from a data serialization language like JSON and execute them inside of the VM before suspending and pushing to the Registry.
     - Or execute commands on the VM from within the script itself ([example](https://gist.github.com/NorseGaud/b637dc9c2b18116a48a040c825b16a47)).
-2. Use the Packager Builder: https://github.com/veertuinc/packer-builder-veertu-anka
+2. Use the Packer Builder: https://github.com/veertuinc/packer-builder-veertu-anka
 
 Lastly, each Template and specific Tag can be cloned to create a new Template. You have two options:
 
