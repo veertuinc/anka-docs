@@ -137,6 +137,7 @@ You can set the following custom variables:
 #### modify {template} set display
 {{< include file="./shared/content/en/docs/Anka Build Cloud/Virtualization CLI/partials/modify/set/display/_index.md" >}}
 #### modify {template} set hard-drive
+> It's currently impossible to downsize an Anka VM's available space. We suggest creating your initial VM Template and Tag with a smaller amount of available disk and then increase in subsequent Tags.
 {{< include file="./shared/content/en/docs/Anka Build Cloud/Virtualization CLI/partials/modify/set/hard-drive/_index.md" >}}
 #### modify {template} set name
 {{< include file="./shared/content/en/docs/Anka Build Cloud/Virtualization CLI/partials/modify/set/name/_index.md" >}}
