@@ -16,7 +16,7 @@ description: >
 - Bug Fix : UI Slowness the more Instances/Agents you created
 - Bug Fix : HTTPS without certificate authentication enabled doesn't work
 
-### Jenkins Plugin 2.1.1 - July 7, 2020
+### Jenkins Plugin 2.1.2 - July 7, 2020
 
 > **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
 
