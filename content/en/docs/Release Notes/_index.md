@@ -18,13 +18,13 @@ description: >
 
 ### Jenkins Plugin 2.1.1 - July 7, 2020
 
-> **If updating from 1.X.X: This update requires that you back up your Static Slave Templates (config.xml) and add them again.**
+> **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
 
 - Bug Fix : createDynamicAnkaNode remoteFS and launchMethod are being ignored
 
 ### Jenkins Plugin 2.1.0 - June 22, 2020
 
-> **If updating from 1.X.X: This update requires that you back up your Static Slave Templates (config.xml) and add them again.**
+> **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
 
 - Various stability / performance improvements
 - New feature : Node/slave name and jenkins url is passed to the controller to display within the instances page
