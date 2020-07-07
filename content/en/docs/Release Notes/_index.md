@@ -11,14 +11,12 @@ description: >
 
 ## Current Versions
 
-### TeamCity Plugin version 1.7.1
+### TeamCity Plugin version 1.7.1 - July 7, 2020
 - Bug Fix : Long-running threads were being created
 - Bug Fix : UI Slowness the more Instances/Agents you created
+- Bug Fix : HTTPS without certificate authentication enabled doesn't work
 
-### Anka VM GitHub Action v1.3.0-beta - June 30, 2020
-- Bug Fix : removed the need to escape quotes in commands
-
-### Jenkins Plugin 2.1.1 - June 29, 2020
+### Jenkins Plugin 2.1.1 - July 7, 2020
 
 > **If updating from 1.X.X: This update requires that you back up your Static Slave Templates (config.xml) and add them again.**
 
