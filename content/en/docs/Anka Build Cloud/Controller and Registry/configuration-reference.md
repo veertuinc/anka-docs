@@ -32,6 +32,10 @@ Enable central logging |      bool  | Enables central logging                   
 Push registry  | string            | Comma separated list of Registry addresses to use for push operations | -      | `--push-registry`   | push_registry   | ANKA_PUSH_REGISTRY
 ETCD defrag interval| duration         | Defrag ETCD (all servers) in this interval. Pass 0 to disable  | 3h | `--defrag-db-interval` | defrag_db_interval | ANKA_DEFRAG_DB_INTERVAL
 Instance time out| duration         | The time that instances stay in 'Terminated' state | 1m      | `--instance-time-out` | instance_time_out | ANKA_INSTANCE_TIME_OUT
+Manage mac addresses | bool         | Let the controller manage VM'd mac addresses | false     | `--manage-mac-addresses` | manage_mac_addresses | ANKA_MANAGE_MAC_ADDRESSES
+Clean mac addresses interval | duration         | Interval between cleanings of unused mac addresses | 1h      | `--clean-mac-address-interval` | clean_mac_address_interval | ANKA_CLEAN_MAC_ADDRESS_INTERVAL
+
+> **Managing mac addresses** requires templates to be stored in stopped state (and not suspended).
 
 > Event logging requires a Enterprise Plus license and will show under the Controller's Logs section after the first instance is created.
 

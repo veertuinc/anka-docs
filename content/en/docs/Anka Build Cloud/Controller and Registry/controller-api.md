@@ -35,6 +35,7 @@ group_id       | string | the id of the group that the instance belongs to
 name           | string | name of the instance. non unique
 external_id    | string | a string saved with the instance, can be used to save the vm id on an external system. non unique
 metadata       | object | key-value object. keys are strings. values are strings, integers or booleans
+mac_address       | string | represents the assigned mac address
 
 
 
@@ -71,6 +72,7 @@ metadata       | object | key-value object. keys are strings. values are strings
  vcpu      |  int    | Override the number of CPU cores for the VM Template **(only works when the template VM is stopped)**.
  vram      |  int    | Override the VM's RAM size in MB (1GB = 1024MB) **(only works when the template VM is stopped)**.
  metadata  | object  | Sets the instance metadata, a key-value object. Keys are strings. Values are strings, ints or booleans | -
+  mac_address      |  string    | Specify mac address for the VM. (Capital letters and ':' as saeparators) **(only works when the template VM is stopped and when manage-mac-addresses flag is set for the controller)**.
 
 **Returns:**  
 - *status:* Operation Result (OK|FAIL)  
