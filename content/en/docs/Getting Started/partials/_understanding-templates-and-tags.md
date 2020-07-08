@@ -25,6 +25,8 @@ You can then push the Template to the Registry using `anka registry push` and se
 
 Tags contain only the delta from the base Template or previous Tag, saving a lot of disk space and bandwidth. They can be built in a sequence from the base Template, each new Tag receiving the contents of the last Tag.
 
+> Tags store state of the VM Template. So, if you've got TemplateX and a Tag named Tag1 for it, then change the name of TemplateX to TemplateZ, you'll need to create a new Tag to store that difference. The old Tag1 will still store TemplateX.
+
 If you're interested in _Infrastructure as Code_ to automate the creation of your Templates and Tags, you have several options:
 
 1. Write scripts that:
