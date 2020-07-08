@@ -16,6 +16,13 @@ description: >
 - Bug Fix : UI Slowness the more Instances/Agents you created
 - Bug Fix : HTTPS without certificate authentication enabled doesn't work
 
+### Jenkins Plugin 2.1.2 - July 8, 2020
+
+> **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
+
+- Bug Fix : createDynamicAnkaNode remoteFS and launchMethod are being ignored
+- Bug Fix : HTTPS without certificate authentication enabled doesn't work
+
 ### Jenkins Plugin 2.1.0 - June 22, 2020
 
 > **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
