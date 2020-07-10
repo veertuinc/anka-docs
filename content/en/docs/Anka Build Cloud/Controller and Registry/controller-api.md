@@ -1148,7 +1148,7 @@ curl -X DELETE "http://anka.controller.net/api/v1/group?id=89a66167-62b1-42bb-5a
  Parameter | Type         | Description       | Default
  ---       | ---          |   ---             | ---
  group_ids | string array | List of group ids to add the nodes to. | []
- node_ids  | string array | List of Nodes to add to the specified Groups. | []
+ node_ids  | string array | List of nodes to add to the specified groups. | []
 
 **Returns:**  
 - *status:* Operation Result (OK|FAIL)  
@@ -1176,8 +1176,8 @@ curl -X POST "http://anka.controller.net/api/v1/node/group" -d '{"group_ids": ["
 
  Parameter | Type         | Description       | Default
  ---       | ---          |   ---             | ---
- group_ids | string array | List of group ids to add the nodes to. | []
- node_ids  | string array | List of Nodes to add to the specified Groups. | []
+ group_ids | string array | List of group ids to remove the nodes from. | []
+ node_ids  | string array | List of nodes to remove from the specified group ids. | []
 
 **Returns:**  
 - *status:* Operation Result (OK|FAIL)  
