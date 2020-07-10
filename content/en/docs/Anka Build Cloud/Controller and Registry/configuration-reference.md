@@ -88,8 +88,8 @@ export ANKA_ANKA_REGISTRY="http://anka.registry:8091"
 | Push registry | string | Comma separated list of Registry addresses to use for push operations | - | ANKA_PUSH_REGISTRY |
 | ETCD defrag interval | duration | Defrag ETCD (all servers) in this interval. Pass 0 to disable | 3h | ANKA_DEFRAG_DB_INTERVAL |
 | Instance time out | duration | The time that instances stay in 'Terminated' state | 1m | ANKA_INSTANCE_TIME_OUT |
-| Manage MAC addresses | bool | Let the controller manage VM'd mac addresses. **`Requires VM Templates/Tags be stored in your Registry in a stopped state (vs suspended).`** | false | ANKA_MANAGE_MAC_ADDRESSES |
-| Clean MAC addresses interval | duration | Interval between cleanings of unused mac addresses | 1h | ANKA_CLEAN_MAC_ADDRESS_INTERVAL |
+| Manage MAC addresses | bool | Let the controller manage VM MAC addresses to ensure uniqueness/prevent collision. **`Requires VM Templates/Tags be stored in your Registry in a stopped state (vs suspended).`** | false | ANKA_MANAGE_MAC_ADDRESSES |
+| Clean MAC addresses interval | duration | Interval between cleanings of unused MAC addresses | 1h | ANKA_CLEAN_MAC_ADDRESS_INTERVAL |
 
 ### Logging 
 
