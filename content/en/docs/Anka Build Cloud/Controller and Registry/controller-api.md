@@ -35,6 +35,7 @@ group_id       | string | the id of the group that the instance belongs to
 name           | string | name of the instance. non unique
 external_id    | string | a string saved with the instance, can be used to save the vm id on an external system. non unique
 metadata       | object | key-value object. keys are strings. values are strings, integers or booleans
+mac_address       | string | represents the assigned MAC address
 
 
 
@@ -54,23 +55,24 @@ metadata       | object | key-value object. keys are strings. values are strings
 
 **Optional Body Parameters:**   
 
- Parameter | Type   | Description       | Default
- ---       | ---    |   ---             | --- 
- tag       | string | Specify a specific tag to use | Latest tag.
- version   | int    | Specify a version number instead of a tag. | -
- name      | string | A name for the instance. | -
- external_id | string | An arbitrary string to be saved with the instance | -
- count     | int    | Number of instances to start. | 1
- node_id   | string | Start the instance on this specific node | -
- startup_script | string | Script to be executed after the instance is started, encoded as a base64 string. | -
- startup_script_condition | int | Options are 0 or 1. If 0 is passed the script will run after the VM's network is up, if 1 is passed the script will run as soon as the VM boots. | wait for network 
- name_template | string | Name template for the vm name (on the Node), available vars are $template_name $template_id and $ts (timestamp) | -
- group_id  | string | Run the VM on a node from this group. | -
- priority  | int    | Priority of this instance in range 1-10000 (lower is more urgent). | 1000
- usb_device | string | Name of the USB device to attach to the VM | -
- vcpu      |  int    | Override the number of CPU cores for the VM Template **(only works when the template VM is stopped)**.
- vram      |  int    | Override the VM's RAM size in MB (1GB = 1024MB) **(only works when the template VM is stopped)**.
- metadata  | object  | Sets the instance metadata, a key-value object. Keys are strings. Values are strings, ints or booleans | -
+Parameter | Type   | Description       | Default
+---       | ---    |   ---             | --- 
+tag       | string | Specify a specific tag to use | Latest tag.
+version   | int    | Specify a version number instead of a tag. | -
+name      | string | A name for the instance. | -
+external_id | string | An arbitrary string to be saved with the instance | -
+count     | int    | Number of instances to start. | 1
+node_id   | string | Start the instance on this specific node | -
+startup_script | string | Script to be executed after the instance is started, encoded as a base64 string. | -
+startup_script_condition | int | Options are 0 or 1. If 0 is passed the script will run after the VM's network is up, if 1 is passed the script will run as soon as the VM boots. | wait for network 
+name_template | string | Name template for the vm name (on the Node), available vars are $template_name $template_id and $ts (timestamp) | -
+group_id  | string | Run the VM on a node from this group. | -
+priority  | int    | Priority of this instance in range 1-10000 (lower is more urgent). | 1000
+usb_device | string | Name of the USB device to attach to the VM | -
+vcpu      |  int    | Override the number of CPU cores for the VM Template **(only works when the template VM is stopped)**.
+vram      |  int    | Override the VM's RAM size in MB (1GB = 1024MB) **(only works when the template VM is stopped)**.
+metadata  | object  | Sets the instance metadata, a key-value object. Keys are strings. Values are strings, ints or booleans | -
+mac_address      |  string    | Specify MAC address for the VM (Capital letters and ':' as separators) **(only works when the template VM is stopped and when --manage-mac-addresses flag is set in the controller config)**.
 
 **Returns:**  
 - *status:* Operation Result (OK|FAIL)  
@@ -1146,7 +1148,7 @@ curl -X DELETE "http://anka.controller.net/api/v1/group?id=89a66167-62b1-42bb-5a
  Parameter | Type         | Description       | Default
  ---       | ---          |   ---             | ---
  group_ids | string array | List of group ids to add the nodes to. | []
- node_ids  | string array | List of Nodes to add to the specified Groups. | []
+ node_ids  | string array | List of nodes to add to the specified groups. | []
 
 **Returns:**  
 - *status:* Operation Result (OK|FAIL)  
@@ -1174,8 +1176,8 @@ curl -X POST "http://anka.controller.net/api/v1/node/group" -d '{"group_ids": ["
 
  Parameter | Type         | Description       | Default
  ---       | ---          |   ---             | ---
- group_ids | string array | List of group ids to add the nodes to. | []
- node_ids  | string array | List of Nodes to add to the specified Groups. | []
+ group_ids | string array | List of group ids to remove the nodes from. | []
+ node_ids  | string array | List of nodes to remove from the specified group ids. | []
 
 **Returns:**  
 - *status:* Operation Result (OK|FAIL)  

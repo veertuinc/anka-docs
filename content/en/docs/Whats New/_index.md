@@ -7,7 +7,17 @@ description: >
   Description of new Anka software features
 ---
 
-## What's New in Jenkins Plugin Versions 2.1.0
+## What's New in Anka Build Cloud Controller & Registry Version 1.9.0
+
+### Track MAC Addresses for VMs and prevent rare collision situations
+
+It's extremely rare that MAC addresses assigned to VMs collide. We've added the ability for the Controller to keep track of MAC addresses and prevent reuse. You can also manually specify the MAC address for the VM using the Controller API.
+
+> Your VM Templates and Tags must be in a stopped state in the Registry/on your Nodes to set the MAC address properly.
+
+> If you have VMs already running when you upgrade your Controller, they will not be managed by this feature until they are restarted through the Controller.
+
+## What's New in Jenkins Plugin Version 2.1.0
 
 ### Static Slave and Cloud Instance Limits (support for || label operator)
 
