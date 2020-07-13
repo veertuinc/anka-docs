@@ -41,6 +41,8 @@ Depending on the package you're using (native or docker), you can set ENV variab
 
 #### /usr/local/bin/anka-controllerd (native)
 
+> You must comment out the export to disable
+
 ```bash
 #!/bin/bash
 
