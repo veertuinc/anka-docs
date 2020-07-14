@@ -57,14 +57,17 @@ export ANKA_REGISTRY_BASE_PATH="/Library/Application Support/Veertu/Anka/registr
 export ANKA_REGISTRY_LISTEN_ADDRESS="anka.registry:8091"
 export ANKA_ANKA_REGISTRY="http://anka.registry:8091"
 
-#export ANKA_USE_HTTPS="false"
-#export ANKA_SKIP_TLS_VERIFICATION="false"
-#export ANKA_SERVER_CERT="/mnt/cert/anka-controller-crt.pem"
-#export ANKA_SERVER_KEY="/mnt/cert/anka-controller-key.pem"
-#export ANKA_CA_CERT="/mnt/cert/anka-ca-crt.pem"
-#export ANKA_ENABLE_AUTH="false"
+#export ANKA_USE_HTTPS="true"
+#export ANKA_SKIP_TLS_VERIFICATION="true"
+#export ANKA_SERVER_CERT="/Users/MyUser/anka-controller-crt.pem"
+#export ANKA_SERVER_KEY="/Users/MyUser/anka-controller-key.pem"
+#export ANKA_CA_CERT="/Users/MyUser/anka-ca-crt.pem"
+#export ANKA_CLIENT_CERT="/Users/MyUser/anka-controller-crt.pem"
+#export ANKA_CLIENT_CERT_KEY="/Users/MyUser/anka-controller-key.pem"
+
+#export ANKA_ENABLE_AUTH="true"
+#export ANKA_ENABLE_REGISTRY_AUTHORIZATION="true"
 #export ANKA_ROOT_TOKEN="1111111111"
-#export ANKA_CERTS_LOCATION="/Users/myUserName"
 
 /Library/Application\ Support/Veertu/Anka/bin/anka-controller
 ```
