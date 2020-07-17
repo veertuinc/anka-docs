@@ -4,7 +4,7 @@ title: "Controller API Reference"
 linkTitle: "Controller API Reference"
 weight: 7
 description: >
-  Using the Controller REST API.
+  Using the Controller REST API
 ---
 
 > Note
@@ -79,9 +79,9 @@ mac_address      |  string    | Specify MAC address for the VM (Capital letters 
 - *body:* Array of instance UUIDs  
 - *message:* Error message in case of an error 
 
-**CURL Example**
+#### Example
 ```shell
- curl -X POST "http://anka.controller.net/api/v1/vm" -H "Content-Type: application/json" \
+ curl -X POST "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" \
   -d '{"vmid": "6b135004-0c89-43bb-b892-74796b8d266c", "count": 2}'
 
 {
@@ -117,9 +117,9 @@ mac_address      |  string    | Specify MAC address for the VM (Capital letters 
 - *status:* Operation Result (OK|FAIL)  
 - *message:* Error message in case of an error 
 
-**CURL Example**
+#### Example
 ```shell
- curl -X PUT "http://anka.controller.net/api/v1/vm?id=c0f36a87-41d9-44a8-66e1-6c5afae15b80" -H "Content-Type: application/json" \
+ curl -X PUT "http://anka.controller/api/v1/vm?id=c0f36a87-41d9-44a8-66e1-6c5afae15b80" -H "Content-Type: application/json" \
   -d '{"name": "My VM name"}'
 
 {
@@ -145,15 +145,14 @@ mac_address      |  string    | Specify MAC address for the VM (Capital letters 
  - *message:* Error message in case of an error 
 
 
-**CURL Example**
+#### Example
 ```shell
-curl -X DELETE "http://anka.controller.net/api/v1/vm" -H "Content-Type: application/json" -d '{"id": "c983c3bf-a0c0-43dc-54dc-2fd9f7d62fce"}' 
-
+curl -X DELETE "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" \
+-d '{"id": "c983c3bf-a0c0-43dc-54dc-2fd9f7d62fce"}' | jq
 {
    "status" : "OK",
    "message" : ""
 }
-
 ```
 
 ### List VM Instances
@@ -173,12 +172,11 @@ curl -X DELETE "http://anka.controller.net/api/v1/vm" -H "Content-Type: applicat
  - *Body*:  Array of Instances 
  - *message:* Error message in case of an error 
 
-**CURL Example**
+#### Example
 ```shell
 # List all VMs
 
-curl  "http://anka.controller.net/api/v1/vm" -H "Content-Type: application/json" 
-
+curl  "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" | jq
 {
    "status" : "OK",
    "body" : [
@@ -274,7 +272,7 @@ curl  "http://anka.controller.net/api/v1/vm" -H "Content-Type: application/json"
 
 # Show specific VM
 
-curl "http://anka.controller.net/api/v1/vm?id=04b7ca7a-945c-4bdc-5123-68b2e4c8ad13" -H "Content-Type: application/json" 
+curl "http://anka.controller/api/v1/vm?id=04b7ca7a-945c-4bdc-5123-68b2e4c8ad13" -H "Content-Type: application/json" 
 
 {
    "message" : "",
@@ -310,8 +308,6 @@ curl "http://anka.controller.net/api/v1/vm?id=04b7ca7a-945c-4bdc-5123-68b2e4c8ad
       "tag" : "t1"
    }
 }
-
-
 ```
 
 
@@ -355,18 +351,15 @@ anka_disk_usage | int   | Disk space used by Anka in bytes
  ---       |   ---  |          ---
  id      | string | Return the Node with that ID. If the node does not exists the server will return the status `FAIL` 
 
-
  **Returns:** 
  - *Status:* Operation Result (OK|FAIL)  
  - *Body*:  Array of Nodes 
  - *message:* Error message in case of an error 
 
-**CURL Example**  
+#### Examples
 ```shell
-# List all Nodes
-
-curl "http://anka.controller.net/api/v1/node" -H "Content-Type: application/json"
-
+# List Nodes
+curl "http://anka.controller/api/v1/node" -H "Content-Type: application/json" | jq
 {
    "body" : [
       {
@@ -401,10 +394,52 @@ curl "http://anka.controller.net/api/v1/node" -H "Content-Type: application/json
    "message" : ""
 }
 
+# List Nodes (with groups assigned in the Controller; Enterprise and Enterprise+ license feature)
+curl "http://anka.controller/api/v1/node" -H "Content-Type: application/json" | jq
+{
+  "status": "OK",
+  "message": "",
+  "body": [
+    {
+      "node_id": "3c101836-9540-4733-9482-604d0c5fbe30",
+      "node_name": "Veertu.local",
+      "cpu_count": 8,
+      "ram": 32,
+      "vm_count": 0,
+      "vcpu_count": 0,
+      "vram": 0,
+      "cpu_util": 0.09658847,
+      "ram_util": 0,
+      "ip_address": "192.168.0.106",
+      "state": "Active",
+      "capacity": 2,
+      "groups": [
+        {
+          "id": "bc288727-676c-4ab5-47b3-d1cd04227d11",
+          "name": "iOS",
+          "description": "Used for iOS builds and tests",
+          "fallback_group_id": null
+        }
+      ],
+      "anka_version": {
+        "product": "Anka Build Enterpriseplus",
+        "version": "2.2.3",
+        "build": "118",
+        "license": "com.veertu.anka.entplus"
+      },
+      "usb_devices": null,
+      "capacity_mode": "number",
+      "vcpu_override": 0,
+      "ram_override": 0,
+      "disk_size": 1000240963584,
+      "free_disk_space": 387449434112,
+      "anka_disk_usage": 37276504000
+    }
+  ]
+}
+
 # Show specific Node
-
-curl  "http://anka.controller.net/api/v1/node?id=f8707005-4630-4c9c-8403-c9c5964097f6" -H "Content-Type: application/json" 
-
+curl "http://anka.controller/api/v1/node?id=f8707005-4630-4c9c-8403-c9c5964097f6" -H "Content-Type: application/json" | jq
 {
    "message" : "",
    "status" : "OK",
@@ -438,8 +473,6 @@ curl  "http://anka.controller.net/api/v1/node?id=f8707005-4630-4c9c-8403-c9c5964
       }
    ]
 }
-
-
 ```
 
 ### Update Node
@@ -471,11 +504,10 @@ curl  "http://anka.controller.net/api/v1/node?id=f8707005-4630-4c9c-8403-c9c5964
  - *Body*:  Array of Nodes 
  - *message:* Error message in case of an error 
 
-**CURL Example**
+#### Example
 ```shell
-curl -X POST "http://anka.controller.net/api/v1/node/config" -H "Content-Type: application/json" \
- -d '{"node_id": "f8707005-4630-4c9c-8403-c9c5964097f6", "name": "MacPro1", "max_vm_count": 6}' 
-
+curl -X POST "http://anka.controller/api/v1/node/config" -H "Content-Type: application/json" \
+ -d '{"node_id": "f8707005-4630-4c9c-8403-c9c5964097f6", "name": "MacPro1", "max_vm_count": 6}' | jq
 {
    "status":"OK",
    "message":""
@@ -500,11 +532,10 @@ curl -X POST "http://anka.controller.net/api/v1/node/config" -H "Content-Type: a
  - *Status:* Operation Result (OK|FAIL)  
  - *message:* Error message in case of an error 
 
-**CURL Example**
+#### Example
 ```shell
-curl -X DELETE "http://anka.controller.net/api/v1/node" -H "Content-Type: application/json" \
- -d '{"node_id": "f8707005-4630-4c9c-8403-c9c5964097f6"}' 
-
+curl -X DELETE "http://anka.controller/api/v1/node" -H "Content-Type: application/json" \
+ -d '{"node_id": "f8707005-4630-4c9c-8403-c9c5964097f6"}' | jq
 {
    "status":"OK",
    "message":""
@@ -574,12 +605,10 @@ config_file    | string | Name of the tag's config file
  - *config_file:* Name of the version's VM config file
  - *nvram:* Name of the VM nvram file
 
-**CURL Example**  
+#### Example  
 ```shell
 # List example
-
-curl "http://anka.controller.net/api/v1/registry/vm" 
-
+curl "http://anka.controller/api/v1/registry/vm" | jq
 {
    "message" : "",
    "body" : [
@@ -613,10 +642,8 @@ curl "http://anka.controller.net/api/v1/registry/vm"
 }
 
 
-# Get Single Template 
-
-curl "http://anka.controller.net/api/v1/registry/vm?id=00510971-5c37-4a60-a9c6-ea185397d9b4" 
-
+# Get Single Template
+curl "http://anka.controller/api/v1/registry/vm?id=00510971-5c37-4a60-a9c6-ea185397d9b4" | jq
 {
    "message" : "",
    "body" : {
@@ -656,7 +683,6 @@ curl "http://anka.controller.net/api/v1/registry/vm?id=00510971-5c37-4a60-a9c6-e
    },
    "status" : "OK"
 }
-
 ```
 
 ### Delete Template
@@ -674,10 +700,9 @@ curl "http://anka.controller.net/api/v1/registry/vm?id=00510971-5c37-4a60-a9c6-e
  - *Status:* Operation Result (OK|FAIL)  
  - *message:* Error message in case of an error 
 
-**CURL Example**
+#### Example
 ```shell
-curl -X DELETE "http://anka.controller.net/api/v1/registry/vm?id=00510971-5c37-4a60-a9c6-ea185397d9b4" 
-
+curl -X DELETE "http://anka.controller/api/v1/registry/vm?id=00510971-5c37-4a60-a9c6-ea185397d9b4" | jq
 {
    "status":"OK",
    "message":""
@@ -706,12 +731,10 @@ curl -X DELETE "http://anka.controller.net/api/v1/registry/vm?id=00510971-5c37-4
  - *Status:* Operation Result (OK|FAIL)  
  - *message:* Error message in case of an error 
 
-**CURL Example**
+#### Example
 ```shell
 # Delete latest version
-
-curl -X DELETE  "http://anka.controller.net/api/v1/registry/revert?id=00510971-5c37-4a60-a9c6-ea185397d9b4"
-
+curl -X DELETE  "http://anka.controller/api/v1/registry/revert?id=00510971-5c37-4a60-a9c6-ea185397d9b4" | jq
 {
    "body" : null,
    "message" : "",
@@ -719,9 +742,7 @@ curl -X DELETE  "http://anka.controller.net/api/v1/registry/revert?id=00510971-5
 }
 
 # Revert to the first version of the template
-
-curl -X DELETE  "http://anka.controller.net/api/v1/registry/revert?id=a3cc47f0-3a73-11e9-b515-c4b301c47c6b&number=0" 
-
+curl -X DELETE  "http://anka.controller/api/v1/registry/revert?id=a3cc47f0-3a73-11e9-b515-c4b301c47c6b&number=0" | jq
 {
    "status" : "OK",
    "body" : null,
@@ -729,17 +750,12 @@ curl -X DELETE  "http://anka.controller.net/api/v1/registry/revert?id=a3cc47f0-3
 }
 
 # Revert to a specific Tag
-
-
-curl -X DELETE  "http://anka.controller.net/api/v1/registry/revert?id=a3cc47f0-3a73-11e9-b515-c4b301c47c6b&tag=p120190904183122" 
-
+curl -X DELETE  "http://anka.controller/api/v1/registry/revert?id=a3cc47f0-3a73-11e9-b515-c4b301c47c6b&tag=p120190904183122" | jq
 {
    "status" : "OK",
    "body" : null,
    "message" : ""
 }
-
-
 ```
 
 ### Distribute Template
@@ -770,10 +786,10 @@ curl -X DELETE  "http://anka.controller.net/api/v1/registry/revert?id=a3cc47f0-3
 - *body:* Request id of the distribution request
 - *message:* Error message in case of an error 
 
-**CURL Example**
+#### Example
 ```shell
-curl -X POST "http://anka.controller.net/api/v1/registry/vm/distribute" -d '{"template_id": "eaef3af8-cb54-4c3e-baf9-839053472f15"}' 
-
+curl -X POST "http://anka.controller/api/v1/registry/vm/distribute" \
+-d '{"template_id": "eaef3af8-cb54-4c3e-baf9-839053472f15"}' | jq
 {
    "body" : {
       "request_id" : "74efc824-2fcb-4e07-5e7d-7f9cc98e0ee5"
@@ -781,8 +797,6 @@ curl -X POST "http://anka.controller.net/api/v1/registry/vm/distribute" -d '{"te
    "message" : "",
    "status" : "OK"
 }
-
-
 ```
 
 ### Get distribution status 
@@ -811,12 +825,10 @@ curl -X POST "http://anka.controller.net/api/v1/registry/vm/distribute" -d '{"te
   - *template_id:* The Template being distributed
   - *time_requested:* The time of the request
 
-**CURL Example**
+#### Example
 ```shell
 # List all distribution requests
-
-curl  "http://anka.controller.net/api/v1/registry/vm/distribute" 
-
+curl  "http://anka.controller/api/v1/registry/vm/distribute" | jq
 {
    "message" : "",
    "body" : [
@@ -838,9 +850,7 @@ curl  "http://anka.controller.net/api/v1/registry/vm/distribute"
 }
 
 # Get a specific distribution request
-
-curl  "http://anka.controller.net/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e07-5e7d-7f9cc98e0ee5" 
-
+curl  "http://anka.controller/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e07-5e7d-7f9cc98e0ee5" | jq
 {
    "status" : "OK",
    "body" : {
@@ -858,9 +868,6 @@ curl  "http://anka.controller.net/api/v1/registry/vm/distribute?id=74efc824-2fcb
    },
    "message" : ""
 }
-
-
-
 ```
 
 ### Save Template Image
@@ -893,10 +900,10 @@ curl  "http://anka.controller.net/api/v1/registry/vm/distribute?id=74efc824-2fcb
  - *Body:* The created request id 
  - *message:* Error message in case of an error 
 
-**CURL Example**
+#### Example
 ```shell
-curl -X POST "http://anka.controller.net/api/v1/image" -H "Content-Type: application/json" -d '{"id": "cfc3cafd-d326-459d-7b3b-3c41b1a3efb7", "target_vm_id": "cb1473f2-1f0a-413c-a376-236bfd7d718f", "tag": "my-new-vm-1901", "revert_before_push": true, "revert_tag": "latest-vm-1801"}' 
-
+curl -X POST "http://anka.controller/api/v1/image" -H "Content-Type: application/json" \
+-d '{"id": "cfc3cafd-d326-459d-7b3b-3c41b1a3efb7", "target_vm_id": "cb1473f2-1f0a-413c-a376-236bfd7d718f", "tag": "my-new-vm-1901", "revert_before_push": true, "revert_tag": "latest-vm-1801"}' | jq
 {
    "status" : "OK",
    "body" : {
@@ -904,7 +911,6 @@ curl -X POST "http://anka.controller.net/api/v1/image" -H "Content-Type: applica
    },
    "message" : ""
 }
-
 ```
 
 ### List Save Template Image Requests
@@ -929,12 +935,11 @@ curl -X POST "http://anka.controller.net/api/v1/image" -H "Content-Type: applica
 - *request* - An object that represents the request
 - *error* - Error message if status is error
 
-**CURL Example**
+#### Example
 ```shell
 # List all requests
 
-curl "http://anka.controller.net/api/v1/image" 
-
+curl "http://anka.controller/api/v1/image" | jq
 {
    "body" : [
       {
@@ -967,8 +972,7 @@ curl "http://anka.controller.net/api/v1/image"
 
 # Get specific request
 
-curl "http://anka.controller.net/api/v1/image?id=cc55f7dd-5280-4120-461c-9b0ef9b40131" 
-
+curl "http://anka.controller/api/v1/image?id=cc55f7dd-5280-4120-461c-9b0ef9b40131" | jq
 {
    "status" : "OK",
    "message" : "",
@@ -1024,10 +1028,9 @@ curl "http://anka.controller.net/api/v1/image?id=cc55f7dd-5280-4120-461c-9b0ef9b
 - *body:* The new Group object
 - *message:* Error message in case of an error 
 
-**CURL Example**
+#### Example
 ```shell
- curl -X POST "http://anka.controller.net/api/v1/group" -d '{"name": "GreateNodes", "description": "best of my macs"}'
-
+ curl -X POST "http://anka.controller/api/v1/group" -d '{"name": "GreateNodes", "description": "best of my macs"}' | jq
 {
    "status" : "OK",
    "message" : "",
@@ -1057,10 +1060,9 @@ curl "http://anka.controller.net/api/v1/image?id=cc55f7dd-5280-4120-461c-9b0ef9b
 - *description* - The group's description
 - *fallback_group_id* - Id of a the fallback group (group that requests go to if the current group is in full capacity)
 
-**CURL Example**
+#### Example
 ```shell
-curl "http://anka.controller.net/api/v1/group" 
-
+curl "http://anka.controller/api/v1/group" | jq
 {
    "message" : "",
    "body" : [
@@ -1073,8 +1075,6 @@ curl "http://anka.controller.net/api/v1/group"
    ],
    "status" : "OK"
 }
-
-
 ```
 
 ### Update Group
@@ -1100,14 +1100,14 @@ curl "http://anka.controller.net/api/v1/group"
 - *status:* Operation Result (OK|FAIL)  
 - *message:* Error message in case of an error 
 
-**CURL Example**
+#### Example
 ```shell
-curl -X PUT "http://anka.controller.net/api/v1/group?id=89a66167-62b1-42bb-5a0b-ff667906b8f5" -d '{"name": "Creme-de-la-nodes", "description": "A selected group of my favorite computers"}'
+curl -X PUT "http://anka.controller/api/v1/group?id=89a66167-62b1-42bb-5a0b-ff667906b8f5" \
+-d '{"name": "Creme-de-la-nodes", "description": "A selected group of my favorite computers"}' | jq
 {
    "message" : "",
    "status" : "OK"
 }
-
 ```
 
 ### Delete Group
@@ -1121,20 +1121,17 @@ curl -X PUT "http://anka.controller.net/api/v1/group?id=89a66167-62b1-42bb-5a0b-
  ---       |   ---  |          ---
  id        | string | The id of the Group to delete
 
-
 **Returns:**  
 - *status:* Operation Result (OK|FAIL)  
 - *message:* Error message in case of an error 
 
-**CURL Example**
+#### Example
 ```shell
-curl -X DELETE "http://anka.controller.net/api/v1/group?id=89a66167-62b1-42bb-5a0b-ff667906b8f5" 
-
+curl -X DELETE "http://anka.controller/api/v1/group?id=89a66167-62b1-42bb-5a0b-ff667906b8f5" | jq
 {
    "message" : "",
    "status" : "OK"
 }
-
 ```
 
 ### Add Nodes to Group
@@ -1154,15 +1151,14 @@ curl -X DELETE "http://anka.controller.net/api/v1/group?id=89a66167-62b1-42bb-5a
 - *status:* Operation Result (OK|FAIL)  
 - *message:* Error message in case of an error 
 
-**CURL Example**
+#### Example
 ```shell
-curl -X POST "http://anka.controller.net/api/v1/node/group" -d '{"group_ids": ["e41d4b47-4c10-4264-5519-2d52af568bdd"], "node_ids": ["64230242-321c-442a-bd96-d87edd0943a3"]}'
-
+curl -X POST "http://anka.controller/api/v1/node/group" \
+-d '{"group_ids": ["e41d4b47-4c10-4264-5519-2d52af568bdd"], "node_ids": ["64230242-321c-442a-bd96-d87edd0943a3"]}' | jq
 {
    "status" : "OK",
    "message" : ""
 }
-
 ```
 
 ### Remove nodes from a group
@@ -1183,15 +1179,14 @@ curl -X POST "http://anka.controller.net/api/v1/node/group" -d '{"group_ids": ["
 - *status:* Operation Result (OK|FAIL)  
 - *message:* Error message in case of an error 
 
-**CURL Example**
+#### Example
 ```shell
-curl -X DELETE "http://anka.controller.net/api/v1/node/group" -d '{"group_ids": ["e41d4b47-4c10-4264-5519-2d52af568bdd"], "node_ids": ["64230242-321c-442a-bd96-d87edd0943a3"]}'
-
+curl -X DELETE "http://anka.controller/api/v1/node/group" \
+-d '{"group_ids": ["e41d4b47-4c10-4264-5519-2d52af568bdd"], "node_ids": ["64230242-321c-442a-bd96-d87edd0943a3"]}' | jq
 {
    "status" : "OK",
    "message" : ""
 }
-
 ```
 ## USB
 ### List Devices
@@ -1210,10 +1205,9 @@ Each key is the device group name
 - *available:* Number of available devices of this key
 - *busy:* Number of busy devices of this key
 
-**CURL Example**
+#### Example
 ```shell
-curl "http://anka.controller.net/api/v1/usb" 
-
+curl "http://anka.controller/api/v1/usb" | jq
 {
    "message" : "",
    "body" : {
@@ -1228,8 +1222,6 @@ curl "http://anka.controller.net/api/v1/usb"
    },
    "status" : "OK"
 }
-
-
 ```
 
 
