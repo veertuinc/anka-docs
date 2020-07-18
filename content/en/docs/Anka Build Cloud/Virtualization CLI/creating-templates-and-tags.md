@@ -16,7 +16,7 @@ Anka makes it very simple to manage your macOS CI infrastructure-as-a-code.
 Use [`anka create`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#create" >}}) command to create macOS VMs from the `.app` installer app.  
 
 ```shell
-sudo anka create --ram-size 4G --cpu-count 2 --disk-size 80G --app /Applications/Install\ macOS\ High\ Sierra.app Hisierravm
+sudo anka create --ram-size 8G --cpu-count 4 --disk-size 80G --app /Applications/Install\ macOS\ Catalina.app 10.15.5
 ```
 
 > For Catalina Anka VMs, --ram-size value should be > 4G and --disk-size should be > 80G.
@@ -24,7 +24,7 @@ sudo anka create --ram-size 4G --cpu-count 2 --disk-size 80G --app /Applications
 By default [`anka create`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#create" >}}) creates macOS VM with administrative `user - anka & password - admin`. You can change this default user by using these ENV variables with [`anka create`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#create" >}}) command.
 
 ```shell
-ANKA_DEFAULT_PASSWD=passwd ANKA_DEFAULT_USER=usrname sudo anka create --ram-size 4G --cpu-count 2 --disk-size 60G -a /Applications/Install\ macOS\ High\ Sierra.app HiSierravm
+ANKA_DEFAULT_PASSWD=passwd ANKA_DEFAULT_USER=usrname sudo anka create --ram-size 8G --cpu-count 4 --disk-size 80G -a /Applications/Install\ macOS\ Catalina.app 10.15.5
 ```
 
 {{< include file="shared/content/en/docs/Anka Build Cloud/Virtualization CLI/partials/create/_index.md" >}}
@@ -34,8 +34,8 @@ ANKA_DEFAULT_PASSWD=passwd ANKA_DEFAULT_USER=usrname sudo anka create --ram-size
 While creating VM with [`anka create`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#create" >}}) make sure to specify enough --disk-size:
 
 ```shell
-> sudo anka create --ram-size 4G --cpu-count 2 --disk-size 80G --app /Applications/Install\ macOS\ High\ Sierra.app build73sierra
-Installing macOS 10.13...
+> sudo anka create --ram-size 8G --cpu-count 4 --disk-size 80G --app /Applications/Install\ macOS\ Catalina.app 10.15.5
+Installing macOS 10.15...
 Preparing target disk...
 Copying addons...
 Converting to ANKA format...
@@ -76,7 +76,7 @@ The VM can now be successfully started. The VM is pre-configured with a default 
 +-----------------------+--------------------------------------+
 | display               | 1                                    |
 +-----------------------+--------------------------------------+
-| hard_drive            | 40Gi (43.8Gi on disk)                |
+| hard_drive            | 80Gi (43.8Gi on disk)                |
 +-----------------------+--------------------------------------+
 | addons_version        | 2.0.0.107 (update recommended)       |
 +-----------------------+--------------------------------------+
@@ -108,7 +108,7 @@ Do `sudo anka show {template}` to view IP and other runtime details of the VM.
 +-----------------------+--------------------------------------+
 | display               | 1                                    |
 +-----------------------+--------------------------------------+
-| hard_drive            | 40Gi (44.1Gi on disk)                |
+| hard_drive            | 80Gi (44.1Gi on disk)                |
 +-----------------------+--------------------------------------+
 | addons_version        | 2.0.0.107 (update recommended)       |
 +-----------------------+--------------------------------------+
@@ -136,8 +136,8 @@ You can specify initial disk space while creating Anka VM with [`anka create`]({
 Change the disk space on an existing VM with the following commands.
 
 ```shell
-sudo anka modify {template} set hard-drive 0 <disk size>
-sudo anka run -n VM diskutil apfs resizeContainer disk0s2 <disk size>
+anka modify {template} set hard-drive -s 100GB
+anka run -n {template} diskutil apfs resizeContainer disk1 0
 ```
 
 #### Upgrading macOS VM inside Anka VM
