@@ -122,6 +122,8 @@ View all default configuration settings for Anka installation on the host with `
 
 If the Nodes on which you installed Anka have insufficient storage for Anka VMs, you can tell Anka to use external storage.
 
+> It's recommended to keep the vm_lib_dir on the local disk as it contains file locks.
+
 There are three configuration parameters to control location for storing Anka VMs.
 
 Assuming you want to store your Templates on **/Volumes/ExternalDrive/**, perform these steps:
