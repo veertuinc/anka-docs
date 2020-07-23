@@ -11,9 +11,8 @@ description: >
 
 ## Current Versions
 
-### Anka Build Cloud Controller & Registry 1.9.0 - June 10, 2020
-- New Feature : Management of MAC Addresses to prevent rare collision
-- New Feature : MAC Address can be specified when creating a VM using the API
+### Anka Build Cloud Controller & Registry 1.9.1 - June 23, 2020
+- Bug Fix : When a user sets a custom img_lib_dir location, the anka agent doesn't calculate disk usage for the new location
 
 ### TeamCity Plugin version 1.7.1 - July 7, 2020
 - Bug Fix : Long-running threads were being created
@@ -63,7 +62,12 @@ description: >
 
 ## Previous Versions
 
-### Anka Build Cloud Controller & Registry combined package 1.8.0 - June 16, 2020
+
+### Anka Build Cloud Controller & Registry 1.9.0 - June 10, 2020
+- New Feature : Management of MAC Addresses to prevent rare collision
+- New Feature : MAC Address can be specified when creating a VM using the API
+
+### Anka Build Cloud Controller & Registry 1.8.0 - June 16, 2020
 - New Feature : Controller REST API now supports modifying the vCPU and RAM for VMs in a stopped state
 - New Feature : Controller REST API Start VM Instance object allows for custom key/value metadata
 - New Feature : [Controller Instances page now allows users to add custom columns (from metadata key/value)]({{< relref "docs/Whats New/_index.md" >}})
