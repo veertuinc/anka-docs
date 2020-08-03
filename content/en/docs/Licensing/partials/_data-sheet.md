@@ -12,7 +12,7 @@ USB Device control through the CLI |  Yes  | Yes | Yes
 USB Device control through Controller API |    | Yes | Yes
 Priority scheduling of VMs through controller |    | Yes | Yes
 Clustering (Grouping) of Nodes |    | Yes | Yes 
-Basic controller authentication (Certificate + Root Superuser Token) |    | Yes | Yes
+Basic controller authentication (Certificate & Root Superuser Token) |    | Yes | Yes
 Multi-user & group authorization with admin panel + OpenID/SSO support |    |    | Yes
 Controller API activity logging |    |    | Yes
 VM full disk encryption for Build VMs |    |    | Yes
