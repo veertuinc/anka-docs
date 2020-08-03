@@ -285,6 +285,10 @@ If everthing is configured correctly, you should see something like this (I used
 * Closing connection 0
 ```
 
+> The Controller UI will not function properly until you enable [Root Token Authentication]({{< relref "docs/Anka Build Cloud/Controller and Registry/Advanced Security Features/root-token-authentication.md" >}})
+
 ---
 
-{{< include file="shared/content/en/docs/Anka Build Cloud/Controller and Registry/Advanced Security Features/partials/_group-permissions.md" >}}
+## Managing User/Group Permissions
+
+{{< include file="shared/content/en/docs/Anka Build Cloud/Controller and Registry/Advanced Security Features/partials/_managing-permissions.md" >}}

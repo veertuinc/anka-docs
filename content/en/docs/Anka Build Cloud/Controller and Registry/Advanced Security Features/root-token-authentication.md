@@ -1,7 +1,7 @@
 ---
 date: 2019-07-03T22:24:47-05:00
-title: "Configuring Root Token authentication"
-linkTitle: "Root Token authentication"
+title: "Configuring Root Token Authentication"
+linkTitle: "Root Token Authentication"
 weight: 1
 description: >
   How to set up root token based authentication for your Controller dashboard.
