@@ -24,7 +24,7 @@ sudo anka create --ram-size 8G --cpu-count 4 --disk-size 80G --app /Applications
 By default [`anka create`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#create" >}}) creates macOS VM with administrative `user - anka & password - admin`. You can change this default user by using these ENV variables with [`anka create`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#create" >}}) command.
 
 ```shell
-ANKA_DEFAULT_PASSWD=passwd ANKA_DEFAULT_USER=usrname sudo anka create --ram-size 8G --cpu-count 4 --disk-size 80G -a /Applications/Install\ macOS\ Catalina.app 10.15.5
+ANKA_DEFAULT_PASSWD=passwd ANKA_DEFAULT_USER=usrname sudo -E anka create --ram-size 8G --cpu-count 4 --disk-size 80G -a /Applications/Install\ macOS\ Catalina.app 10.15.5
 ```
 
 {{< include file="shared/content/en/docs/Anka Build Cloud/Virtualization CLI/partials/create/_index.md" >}}
