@@ -228,7 +228,7 @@ Ok
 Cluster join success
 ```
 
-### Testing Controller API authentication
+### Testing Controller API Authentication
 
 Restart your Controller & Registry and then test the status endpoint with curl:
 
