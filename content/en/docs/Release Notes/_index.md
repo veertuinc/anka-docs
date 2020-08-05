@@ -11,10 +11,8 @@ description: >
 
 ## Current Versions
 
-### Anka Build Cloud Controller & Registry 1.10.0 - August 5, 2020
-- Bug Fix : Central Logging was preventing nodes from joining
-- Bug Fix : Certificates with a space in the Organization (O=) were not supported when trying to set permission groups.
-- Bug Fix : Controller crashes if client tries to show permission group after deletion
+### Anka Build Cloud Controller & Registry 1.9.1 - June 23, 2020
+- Bug Fix : When a user sets a custom img_lib_dir location, the anka agent doesn't calculate disk usage for the new location
 
 ### TeamCity Plugin version 1.7.1 - July 7, 2020
 - Bug Fix : Long-running threads were being created
@@ -64,8 +62,6 @@ description: >
 
 ## Previous Versions
 
-### Anka Build Cloud Controller & Registry 1.9.1 - June 23, 2020
-- Bug Fix : When a user sets a custom img_lib_dir location, the anka agent doesn't calculate disk usage for the new location
 
 ### Anka Build Cloud Controller & Registry 1.9.0 - June 10, 2020
 - New Feature : Management of MAC Addresses to prevent rare collision
