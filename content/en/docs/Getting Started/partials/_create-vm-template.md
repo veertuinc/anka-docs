@@ -10,7 +10,7 @@ There are multiple ways to obtain the installer .app file for Mac OSX that we'll
 
     - Download and run the script:  
       ```shell
-      curl --fail --silent -L -O https://raw.githubusercontent.com/munki/macadmin-scripts/master/installinstallmacos.py
+      curl --fail --silent -L -O https://raw.githubusercontent.com/munki/macadmin-scripts/main/installinstallmacos.py
       sudo chmod +x installinstallmacos.py
       sudo ./installinstallmacos.py --raw
       ```
