@@ -40,7 +40,7 @@ Flags:
   -M, --capacity-mode string        Set the capacity mode (resource or number) the Node will use when pulling jobs from the Anka Cloud Cluster queue. 'resource' will look at available resources (see --vcp-override and --ram-override) / 'number' will only accept if --max-vm-count isn't already met (default "number")
   -C, --cert string                 Specify the path to the Node's certificate file (PEM/X509)
   -K, --cert-key string             Specify the path to the Node's certificate key file (PEM/X509)
-      --enable-vm-monitor           Enable VM monitoring
+      --enable-vm-monitor           Enabled unresponsive VM monitoring. This will throw a failure when the VM becomes unresponsive for longer than the --vm-stuck-timeout
   -f, --force-no-sudo               Force the anka_agent to start without sudo
   -g, --global                      DEPRECATED! Install agent into system domain
   -G, --groups string               Specify group name (or multiple names sepearated by ',') to add the current Node to
@@ -59,8 +59,8 @@ Flags:
       --skip-tls-verification       Skip TLS verification
   -t, --tls                         Enable TLS for communicating with the Anka Cloud Cluster
   -V, --vcpu-override int           Set the max vcpus that this Node can handle. (default: {current physical cpu count} * 2)
-      --vm-stuck-delay duration     Delay between vm is stuck health check
-      --vm-stuck-timeout duration   VM response timeout to consider a vm as stuck
+      --vm-stuck-delay duration     The time between unresponsive VM checks (default: 30s - Duration examples: 3500s, 20m, 5h)
+      --vm-stuck-timeout duration   The time to wait until the VM is considered unresponsive (default: 10s - Duration examples: 3500s, 20m, 5h)
   ```
 
 ## Disjoining
