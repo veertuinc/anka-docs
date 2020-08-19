@@ -64,5 +64,54 @@ Starting from Controller release version 1.0.12, logs will be available for down
 
 ![image10](/images/using-controller/image10.png) 
 
+---
 
+## Enterprise License Features
 
+### Node Groups
+
+![node groups](/images/using-controller/anka-controller-node-group-page.png) 
+
+This feature allows users to add Anka Virtualization Nodes to groups which can then be used in our CI/CD plugins. You can even create fallback groups should the primary group you assign to a node has met capacity. This is useful when you have multiple projects in your organization and wish to prevent some from using all of the Anka Nodes available. 
+
+> Both the Controller UI and API allow control of groups
+
+> You can assign a Node to a group in the Controller Nodes UI, API, or even using `ankacluster join` (`--groups`)
+
+### Priority Scheduling 
+
+When requesting multiple VMs through the API, a priority can be assigned. The lower the priority integer, the higher the urgency:
+
+```bash
+# Request a VM with the highest priority (default priority is 1000)
+curl -X POST "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" \
+  -d '{"vmid": "6b135004-0c89-43bb-b892-74796b8d266c", "count": 2, "priority": 1}'
+
+{
+  "status": "OK",
+  "message": "",
+  "body": [
+    "c983c3bf-a0c0-43dc-54dc-2fd9f7d62fce",
+    "e74dfc0e-dc94-4ca2-575e-3219ac08ffa2"
+  ]
+}
+```
+
+### USB Device Control (Controller API)
+
+USB device control is possible using the Anka Virtualization CLI with a non-Enterprise license. However, this doesn't allow you to control devices using the Controller API. With an Enterprise or higher license, you can attach one or more devices to your Anka VMs by making an API call:
+
+```bash
+# Claim a device using the location ID
+curl -X POST "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" \
+  -d '{"vmid": "6b135004-0c89-43bb-b892-74796b8d266c", "count": 2, "usb_device": "336675856"}'
+
+{
+  "status": "OK",
+  "message": "",
+  "body": [
+    "c983c3bf-a0c0-43dc-54dc-2fd9f7d62fce",
+    "e74dfc0e-dc94-4ca2-575e-3219ac08ffa2"
+  ]
+}
+```
