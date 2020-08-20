@@ -12,7 +12,7 @@ description: >
 ## Current Versions
 
 ### Anka Build Cloud Controller & Registry 1.10.1 - August 20, 2020
-- New feature : Unresponsive VM monitoring with `ankacluster join --enable-vm-monitor`
+- New feature : [Unresponsive VM monitoring with `ankacluster join --enable-vm-monitor`]({{< relref "docs/Whats New/_index.md#unresponsive-vm-monitor" >}})
 
 ### TeamCity Plugin version 1.7.1 - July 7, 2020
 - Bug Fix : Long-running threads were being created
