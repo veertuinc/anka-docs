@@ -7,8 +7,7 @@ description: >
   Detailed information on Anka Licensing
 ---
 
-## Licensing
-Anka licenses are available for the following products.  
+Anka licenses are available for the following products:
 
 + **Anka Build Basic** - All Basic features to configure and run macOS CI Cloud infrastructure
 + **Anka Build Enterprise** - Basic + additional features for grouping, priority provisioning etc
