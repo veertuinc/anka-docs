@@ -20,6 +20,8 @@ When upgrading the entire Anka Build Cloud Software, execute these steps in the 
 
 5) Go to your Controller & Registry and upgrade to the latest version: [ [Linux Guide]({{< relref "docs/Anka Build Cloud/Controller and Registry/Setup/Linux and Docker/_index.md" >}}) OR [MacOS Guide]({{< relref "docs/Anka Build Cloud/Controller and Registry/Setup/Mac OS/_index.md" >}}) ]
 
+6) Run `curl -O http://anka.controller:8090/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on your nodes to pull the latest Anka Agent binary and ensure proper communication between the CLI and the Controller API.
+
 ## Anka Build Cloud upgrade note matrix
 
 Existing Version | Target Version | Recommendation
