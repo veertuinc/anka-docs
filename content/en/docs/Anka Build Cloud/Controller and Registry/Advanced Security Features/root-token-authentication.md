@@ -92,8 +92,11 @@ anka-controller:
 
 {{</ highlight >}}
 
+> You must have at least one node with a Enterprise or higher license joined to the Controller for these features to work.
+
 Then, join your Nodes and skip tests:
-```
+
+```bash
 ❯ sudo ankacluster join --skip-tests http://anka.controller:8100
 Tests skipped
 Cluster join success

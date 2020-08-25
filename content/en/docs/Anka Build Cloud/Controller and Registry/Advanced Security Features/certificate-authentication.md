@@ -9,6 +9,8 @@ description: >
 
 > This guide requires an Anka Enterprise (or higher) license.
 
+> You must have at least one node with a Enterprise or higher license joined to the Controller for these features to work.
+
 For this tutorial you will need:
 
 1. A Root CA certificate. For more information about CAs, see https://en.wikipedia.org/wiki/Certificate_authority. Usually provided by your organization or where you obtain your certificate signing. We will refer to this as **anka-ca-crt.pem** and **anka-ca-key.pem**.

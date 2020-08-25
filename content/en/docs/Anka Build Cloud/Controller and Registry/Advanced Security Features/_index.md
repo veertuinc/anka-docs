@@ -9,6 +9,8 @@ description: >
 
 > Advanced security features are currently only available for our Enterprise Tier licenses.
 
+> You must have at least one node with a Enterprise or higher license joined to the Controller for these features to work.
+
 Our Enterprise Tiers include features to encrypt VMs at REST and even control VM properties like networking, copy/paste, etc through the VM policy ([Anka Secure](https://veertu.com/anka-secure/)).
 
 There are three different authentication methods available:

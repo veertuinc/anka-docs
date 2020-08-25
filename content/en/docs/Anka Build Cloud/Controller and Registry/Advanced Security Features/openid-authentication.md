@@ -11,6 +11,8 @@ description: >
 
 > Before you begin, you will need to setup [Certificate Authentication]({{< relref "docs/Anka Build Cloud/Controller and Registry/Advanced Security Features/certificate-authentication.md" >}}). This allows your Anka Nodes to join (and attach your Enterprise Plus license) to the Controller properly, since `ANKA_ENABLE_AUTH` will be turned on.
 
+> You must have at least one node with a Enterprise or higher license joined to the Controller for these features to work.
+
 Many organizations and developers are already familiar with OpenID Connect (OIDC). OIDC is a layer that sits on top of OAuth 2.0 and performs the authorization necessary to access protected resources, such as the Anka Build Cloud Controller.
 
 When using OIDC, you'll need an Authorization Server. In this guide, we will use **Keycloak** as our Authorization Server as it's fairly easy to run and setup. It will contain the realm, client ID, user, group, and anything else we will need for logging into the Anka Build Cloud Controller.
