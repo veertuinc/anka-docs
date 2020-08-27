@@ -11,8 +11,11 @@ description: >
 
 ## Current Versions
 
-### Anka Build Cloud Controller & Registry 1.10.1 - August 20, 2020
-- New feature : [Unresponsive VM monitoring with `ankacluster join --enable-vm-monitor`]({{< relref "docs/Whats New/_index.md#unresponsive-vm-monitor" >}})
+### Anka Build Cloud Controller & Registry 1.11.0 - August 31, 2020
+- New Feature : `anka-controller` executable from macOS native package now supports `--tail {lines}`
+- Improvement : Removed all unnecessary files from docker .tar.gz archive
+- Bug Fix : Pulling a template/tag now calculates the size of the tag properly (instead of only the latest tag for the template)
+- Bug Fix : VNC url in Controller UI > Instances page is now a link again
 
 ### TeamCity Plugin version 1.7.1 - July 7, 2020
 - Bug Fix : Long-running threads were being created
@@ -61,6 +64,9 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Build Cloud Controller & Registry 1.10.1 - August 20, 2020
+- New feature : [Unresponsive VM monitoring with `ankacluster join --enable-vm-monitor`]({{< relref "docs/Whats New/_index.md#unresponsive-vm-monitor" >}})
 
 ### Anka Build Cloud Controller & Registry 1.10.0 - August 5, 2020
 - Bug Fix : Central Logging was preventing nodes from joining
