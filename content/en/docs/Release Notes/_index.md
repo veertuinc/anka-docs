@@ -43,8 +43,8 @@ description: >
 
 > There is no requirement to upgrade the VM templates from previous anka version 2.2.2 to version 2.2.3.
 
-### Packer Plugin 1.3.0 - June 18, 2020
-- New feature : Properly handle cleanup of VM when halted or cancelled
+### Packer Plugin 1.5.0 - June 18, 2020
+- New feature : Added ability to modify cpu core count, ram, and disk size when cloning from an existing VM Template
 
 ### Anka GitLab Runner 0.6b - Dec 08, 2019
 - New feature : update gitlab runner to new gitlab codebase
@@ -52,6 +52,9 @@ description: >
 ---
 
 ## Previous Versions
+
+### Packer Plugin 1.3.0 - June 18, 2020
+- New feature : Properly handle cleanup of VM when halted or cancelled
 
 ### Jenkins Plugin 2.1.2 - July 8, 2020
 
