@@ -22,23 +22,11 @@ description: >
 - Bug Fix : UI Slowness the more Instances/Agents you created
 - Bug Fix : HTTPS without certificate authentication enabled doesn't work
 
-### Jenkins Plugin 2.1.2 - July 8, 2020
+### Jenkins Plugin 2.2.0 - August 31, 2020
 
 > **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
 
-- Bug Fix : createDynamicAnkaNode remoteFS and launchMethod are being ignored
-- Bug Fix : HTTPS without certificate authentication enabled doesn't work
-
-### Jenkins Plugin 2.1.0 - June 22, 2020
-
-> **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
-
-- Various stability / performance improvements
-- New feature : Node/slave name and jenkins url is passed to the controller to display within the instances page
-- New feature : A warning will display when users upgrade within the plugin center
-- New feature : Ability to set an instance cap per Static Slave Template or per Anka Cloud
-- Bug Fix : VMs were being left in started stage after job completed/aborted in Jenkins
-- Bug Fix : When cache building, "Checking save image status" would immediately return success and the Job would complete even though the cache tag was still being pushed.
+- Bug Fix : vmPollTime definitions in Configuration as Code aren't working due to typo
 
 ### Anka VM GitHub Action v1.2.0-beta - June 17, 2020
 - Beta released to public
@@ -64,6 +52,24 @@ description: >
 ---
 
 ## Previous Versions
+
+### Jenkins Plugin 2.1.2 - July 8, 2020
+
+> **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
+
+- Bug Fix : createDynamicAnkaNode remoteFS and launchMethod are being ignored
+- Bug Fix : HTTPS without certificate authentication enabled doesn't work
+
+### Jenkins Plugin 2.1.0 - June 22, 2020
+
+> **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
+
+- Various stability / performance improvements
+- New feature : Node/slave name and jenkins url is passed to the controller to display within the instances page
+- New feature : A warning will display when users upgrade within the plugin center
+- New feature : Ability to set an instance cap per Static Slave Template or per Anka Cloud
+- Bug Fix : VMs were being left in started stage after job completed/aborted in Jenkins
+- Bug Fix : When cache building, "Checking save image status" would immediately return success and the Job would complete even though the cache tag was still being pushed.
 
 ### Anka Build Cloud Controller & Registry 1.10.1 - August 20, 2020
 - New feature : [Unresponsive VM monitoring with `ankacluster join --enable-vm-monitor`]({{< relref "docs/Whats New/_index.md#unresponsive-vm-monitor" >}})
