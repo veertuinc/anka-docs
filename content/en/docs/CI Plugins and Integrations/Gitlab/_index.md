@@ -35,7 +35,7 @@ You can then curl down the version you need for your OS and architecture:
 > We'll be using a amd64 mac for our guide. However, the commands also work for Linux with slight alterations.
 
 ```shell
-curl -L https://github.com/veertuinc/gitlab-runner/releases/download/v1.0.0/anka-gitlab-runner-v1.0.0-darwin-amd64.tar.gz
+curl -L -o anka-gitlab-runner-v1.0.0-darwin-amd64.tar.gz https://github.com/veertuinc/gitlab-runner/releases/download/v1.0.0/anka-gitlab-runner-v1.0.0-darwin-amd64.tar.gz
 tar -xzvf anka-gitlab-runner-v1.0.0-darwin-amd64.tar.gz
 cp -f anka-gitlab-runner-darwin-amd64 /usr/local/bin/anka-gitlab-runner
 chmod +x /usr/local/bin/anka-gitlab-runner
