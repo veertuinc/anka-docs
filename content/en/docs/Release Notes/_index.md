@@ -2,7 +2,7 @@
 date: 2018-03-06
 title: "Release Notes"
 linkTitle: "Release Notes"
-weight: 7
+weight: 8
 description: >
   Detailed Release Notes
 ---

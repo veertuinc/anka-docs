@@ -2,7 +2,7 @@
 date: 2020-01-27
 title: "What's New"
 linkTitle: "What's New"
-weight: 8
+weight: 9
 description: >
   Description of new Anka software features
 ---
