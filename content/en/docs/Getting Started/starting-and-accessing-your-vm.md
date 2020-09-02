@@ -23,7 +23,6 @@ Launch the Anka application found under /Applications. Once launched, you will s
 
 ![anka ui](/images/getting-started/starting-and-accessing-your-vm/anka-ui.png)
 
-
 ### With the CLI
 
 To start the VM in headless mode: `sudo anka start {templateName}`
