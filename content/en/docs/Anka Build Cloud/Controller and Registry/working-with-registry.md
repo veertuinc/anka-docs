@@ -8,7 +8,7 @@ description: >
   How to work with the Anka Registry.
 ---
 
-Anka registry provides an easy way to store, version, and distribute macOS VMs that are used for CI and development. Once you've completed creation and setup of your VMs, use [`anka registry`]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#registry" >}}) command to work with the registry.  
+Anka registry provides an easy way to store, version, and distribute macOS VMs that are used for CI and development. Once you've completed creation and setup of your VMs, use [`anka registry`]({{< relref "docs/Anka Virtualization/command-reference.md#registry" >}}) command to work with the registry.  
 
 Store your build and test VM templates in the registry.  
 Then, you can pull them, modify them and push them again with a different tag to the Registry. This way you can maintain versions. Pull specific VM template and tag to a different machine running Anka package.
@@ -19,7 +19,7 @@ Registry operations are available through Anka Client command line and through R
 
 View all of the available registry commands by running `anka registry --help`.
 
-{{< include file="./shared/content/en/docs/Anka Build Cloud/Virtualization CLI/partials/registry/_index.md" >}}
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/registry/_index.md" >}}
 
 ### Add registry to a Node/machine running Anka
 ```shell
@@ -35,16 +35,16 @@ anka registry set <previouslydefiniedname>
 
 ### Push VM to the Registry 
 ```shell
-anka registry push -d <description> -t <tag> {template}
+anka registry push -d <description> -t <tag> {templateName}
 ```  
 
 ### Pull VM from the Registry 
 ```shell
-anka registry pull -t <tag> {template}
+anka registry pull -t <tag> {templateName}
 ```
 ### Pull VM from the Registry with Shrink 
 ```shell
-anka registry pull -s -t <tag> {template}
+anka registry pull -s -t <tag> {templateName}
 ```
 For example, let's say you have V1, V2 tags in the Registry for a VM. You pull V2. Then, you pull V1 with -s flag. It will optimize the local disk space usage by deleting all V2 related tag/version files.  
 

@@ -1,8 +1,7 @@
 ---
 title: "Anka Build Cloud"
 linkTitle: "Anka Build Cloud"
-sidebar_menu_sub_sections_exposed: true
-weight: 3
+weight: 4
 description: >
   Using the Anka Build Cloud to orchestrate Anka macOS VMs and VM Template/Tag storage
 ---
@@ -13,7 +12,7 @@ Docker and DockerHub revolutionized the way developers could build and test thei
 
 ### Anka Virtualization Nodes
 
-These Nodes have our [Virtualization software]({{< relref "docs/Anka Build Cloud/Virtualization CLI/_index.md" >}}) installed to run the VMs that you launch from the Controller (or through your CI/CD software).
+These Nodes have our [Virtualization software]({{< relref "docs/Anka Virtualization/_index.md" >}}) installed to run the VMs that you launch from the Controller (or through your CI/CD software).
 
 ### Anka Controller
 

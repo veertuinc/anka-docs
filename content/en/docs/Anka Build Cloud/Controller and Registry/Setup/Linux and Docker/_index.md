@@ -10,7 +10,7 @@ description: >
 
 ## Installing
 
-Instructions can be found under our [Getting Started with Linux & Docker guide]({{< relref "docs/Getting Started/linux.md#step-2-install-the-anka-build-cloud-controller--registry" >}})
+Instructions can be found under our [Getting Started with Linux & Docker guide]({{< relref "docs/Anka Build Cloud/installing-on-linux.md#step-2-install-the-anka-build-cloud-controller--registry" >}})
 
 ## Upgrading
 

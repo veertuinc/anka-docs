@@ -1,21 +1,53 @@
 ---
 title: "Creating your first VM"
 linkTitle: "Creating your first VM"
-weight: 3
+weight: 2
 description: >
-  Create your first VM using the Anka CLI.
+  Step by step on how to create your first VM
 ---
 
-## [Install the Anka CLI]({{< relref "docs/Anka Build Cloud/Virtualization CLI/installation.md" >}})
+## Prerequisites
 
-For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md" >}}).
+1. [You've installed the Anka Virtualization package]({{< relref "docs/Getting Started/installing-the-anka-virtualization-package.md" >}})
+2. [You've got an active license]({{< relref "docs/Licensing/_index.md" >}})
 
-## Understanding VM Templates, Tags, and Disk Usage
+## 1. Obtain the macOS installer
+
+{{< include file="shared/content/en/docs/Getting Started/partials/_supported-macos-versions.md" >}}
+
+{{< include file="shared/content/en/docs/Getting Started/partials/_obtain-macos-installer.md" >}}
+
+> As an alternative to the macOS installer, [you can also use an iso]({{< relref "docs/Anka Virtualization/creating-a-vm-template-with-an-iso.md" >}})
+
+## 2. Create your VM
+
+> The Anka VM is pre-configured with a default administrative username `anka` and password `admin`.
+
+> **Anka Develop license:** While you can create as many VMs as you wish, the free Anka Develop license only allows you to run one VM at a time and will only function on MacBook hardware.
+
+> **Anka Build license:** When determining how many cores or memory your VM needs, you can divide the number of VMs you plan on running simultaneously within a single machine by the total **virtual cores** it has. So, if I have 12vCPUs on my 6core Mac Mini, and I want to allow 2 VMs at once, I will set the VM Template/Tag to have 6cores (12 / 2). However, with RAM, you'll need to allow ~2GB of memory for the Anka Software and host ((totalRAM / 2)-1).
+
+### Using the Anka UI
+
+1. Click on **Create new VM**
+[PICTURE]
+2. Choose the installer (will automatically search /Applications), or drop it into the window
+[PICTURE]
+3. Click on Options and set any non-default values you want
+[PICTURE]
+4. Be patient while creating
+[PICTURE]
+
+Once the VM template is created, you will see it on the sidebar.
+
+### Using the Anka CLI
+
+{{< include file="shared/content/en/docs/Anka Virtualization/partials/create/_index.md" >}}
+
+{{< include file="shared/content/en/docs/Getting Started/partials/_anka-create.md" >}}
+
+---
+
+## (Anka Build license + Cloud) Understanding VM Templates, Tags, and Disk Usage
 
 {{< include file="./shared/content/en/docs/Getting Started/partials/_understanding-templates-and-tags.md" >}}
-
-## Creating a VM Template
-
-{{< include file="shared/content/en/docs/Getting Started/partials/_create-vm-template.md" >}}
-
-#### The advanced guide for creating Templates and Tags can be found [here.]({{< relref "docs/Anka Build Cloud/Virtualization CLI/creating-templates-and-tags.md" >}})

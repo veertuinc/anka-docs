@@ -10,7 +10,7 @@ description: >
 
 ## Installing
 
-Instructions can be found under our [Getting Started with Mac OS guide]({{< relref "docs/Getting Started/macos.md#step-2-install-the-anka-build-cloud-controller--registry" >}})
+Instructions can be found under our [Getting Started with Mac OS guide]({{< relref "docs/Anka Build Cloud/installing-on-macos.md#step-2-install-the-anka-build-cloud-controller--registry" >}})
 
 ### Expectations
 

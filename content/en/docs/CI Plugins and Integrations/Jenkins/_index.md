@@ -15,7 +15,7 @@ The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud w
 - Supports automated VM Tag creation after your jobs run. This Cache Builder feature helps optimize subsequent builds as the dependencies are already on the VM.
 - Supports both **JNLP** and **SSH** based connections to Anka VMs.
   
-> In order to follow these instructions, you will need to [install the Anka CLI]({{< relref "docs/Anka Build Cloud/Virtualization CLI/installation.md" >}}) and an understanding of how to [start the VM]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#start-vm" >}}) and [launch the viewer]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#open-vm-windowviewer" >}}).
+> In order to follow these instructions, you will need to [install the Anka CLI]({{< ref "docs/Getting Started/installing-the-anka-virtualization-package.md" >}}) and an understanding of how to [start the VM]({{< relref "docs/Anka Virtualization/command-reference.md#start-vm" >}}) and [launch the viewer]({{< relref "docs/Anka Virtualization/command-reference.md#open-vm-windowviewer" >}}).
 
 ## VM Template & Tag Requirements
 
@@ -28,7 +28,7 @@ The Jenkins Anka Plugin requires a VM with Java, SSH Remote Login, and port forw
 > You can run any version of JAVA you want **as long as the version inside of the VM matches your Jenkins server**
 
 2. In the VM, make sure remote login is enabled (`System Preferences > Sharing`).
-3. On the host, enable [port forwarding]({{< relref "docs/Anka Build Cloud/Virtualization CLI/command-reference.md#example---add-port-forwarding" >}}) for your VM Template using the Anka CLI. _We recommend not specifying --host-port._
+3. On the host, enable [port forwarding]({{< relref "docs/Anka Virtualization/command-reference.md#example---add-port-forwarding" >}}) for your VM Template using the Anka CLI. _We recommend not specifying --host-port._
 4. `sudo anka suspend <VM Template name>`
 5. `sudo anka registry push <VM Template name> <Tag name>`
 

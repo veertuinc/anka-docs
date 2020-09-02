@@ -1,7 +1,7 @@
 ---
 title: "Controller & Registry"
 linkTitle: "Controller & Registry"
-weight: 2
+weight: 1
 description: >
   How to use the Anka Build Controller & Registry
 ---
