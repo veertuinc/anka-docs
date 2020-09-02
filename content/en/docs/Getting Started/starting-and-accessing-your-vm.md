@@ -17,14 +17,14 @@ description: >
 
 ## Anka Start
 
-## With the UI
+### With the UI
 
 Launch the Anka application found under /Applications. Once launched, you will see the VM Template on the right sidebar. You can double click the VM to not only start it but also launch the Anka Viewer window.
 
 ![anka ui](/images/getting-started/starting-and-accessing-your-vm/anka-ui.png)
 
 
-## With the CLI
+### With the CLI
 
 To start the VM in headless mode: `sudo anka start {templateName}`
 
