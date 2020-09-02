@@ -24,7 +24,7 @@ Anka licenses are available for the following products:
 
 Trial licenses for Anka products is valid for 30 days from the date of trial registration. They enable unlimited access to product features. You can use the same activation key on multiple machines depending upon the quantity specified at the time of trial registration. They can be obtained at [https://veertu.com/getting-started-anka-trials/](https://veertu.com/getting-started-anka-trials/).
 
-## Anka Feature Differences
+## Anka License Feature Differences
 
 | **Feature** | **Develop** | **Build** | **Flow** | **Secure** |
 | --- | --- | --- | --- | --- |
@@ -34,7 +34,7 @@ Trial licenses for Anka products is valid for 30 days from the date of trial reg
 | Ability to communicate with Anka Build Cloud (Controller & Registry) | No | Yes | Yes | Yes |
 | Runs on all macOS hardware models | No (MacBook only) | Yes | No (Macbook and iMac only) | Yes |
 
-## Anka Build Feature Differences
+## Anka Build License Feature Differences
 
 **Feature** | **Basic** | **Enterprise** | **Enterprise Plus**
 --- | --- | --- |  ---
