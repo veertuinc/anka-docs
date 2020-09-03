@@ -67,7 +67,7 @@ Control VM runtime (Networking, Access to host) and functional properties with p
 
 ### Pricing
 
-+ **Anka Build** - Cost is core based. For example, if you are setting up a cloud consisting of 2 6-core mac minis, then total core count will be 12 cores.
++ **Anka Build** - Cost is core based. For example, if you are setting up a cloud consisting of 2 6-core mac minis, then total core count will be 12 cores. For very large core count, there are other licensing models.
 + **Anka Flow** - Cost is per machine. For example, if you are installing Anka Flow on 10 developer machines, then quantity will be 10.
 + **Anka Secure** - Cost is per machine. For example, if you are installing Anka Flow on 10 mac workstations, then quantity will be 10.
 
