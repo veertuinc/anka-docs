@@ -38,7 +38,7 @@ DevOps workflows typically include lots of automation. Because of this, Anka has
 ### What's included in Anka Develop?
 Developers with laptops (Macbook, Macbook Pro, and Macbook Air) can use the free Anka Develop license to create and start a single VM for local development and testing. Users can expect all features except for suspending, tagging, and registry commands.
 
-### Who should use Anka Build?
+### Who should use Anka Develop?
 Anka Develop is for developers wanting to test their applications in a sandbox environment.
 
 ---
@@ -46,7 +46,7 @@ Anka Develop is for developers wanting to test their applications in a sandbox e
 ## Anka Build
 
 ### What's included in Anka Build?
-The Anka Build solution includes the CLI, Cloud Controller (GUI + API) & Registry, and plugins to integrate with commonly used CI systems like Jenkins, Teamcity, GitLab, and Buildkite.
+The Anka Build solution includes the CLI, Cloud Controller (GUI + API) & Registry, and plugins to integrate with commonly used CI systems like Jenkins, Teamcity, GitLab, Buildkite and GitHub Action.
 
 ### Who should use Anka Build?
 Anka Build is for anyone wanting to configure a private macOS cloud in their CI system. The private macOS cloud can be configured using on-prem or offsite hardware.
