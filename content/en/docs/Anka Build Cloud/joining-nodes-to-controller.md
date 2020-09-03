@@ -1,10 +1,10 @@
 ---
 date: 2019-12-12T00:00:00-00:00
-title: "Connecting your Anka Nodes"
-linkTitle: "Connecting your Anka Nodes"
+title: "Joining your Nodes to the Controller"
+linkTitle: "Joining your Nodes to the Controller"
 weight: 4
 description: >
-  Connecting your Anka Build Virtualization Nodes to your Anka Build Cloud Controller
+  How to join your Anka Build Virtualization Nodes to the Anka Build Cloud Controller
 ---
 
 ## Prerequisites
