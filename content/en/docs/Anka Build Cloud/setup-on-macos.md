@@ -35,7 +35,7 @@ For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/
 
 #### Using the Anka CLI
 
-{{< include file="shared/content/en/docs/Getting Started/partials/_anka-create.md" >}}
+{{< include file="shared/content/en/docs/Anka Virtualization/partials/create/_example.md" >}}
 
 > You can find detailed instructions for [`anka create`]({{< relref "docs/Anka Virtualization/command-reference.md#create" >}}) [here.]({{< relref "docs/Getting Started/creating-your-first-vm.md" >}})
 

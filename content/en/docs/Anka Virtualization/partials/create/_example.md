@@ -3,13 +3,13 @@ sudo anka create --ram-size 8G --cpu-count 4 --disk-size 80G \
 --app /Applications/Install\ macOS\ Catalina.app 10.15.6
 ```
 
-> **Be aware of the user you're executing Anka CLI commands as.** If you create Templates as root, they won't be available (when running `anka list`) to other users on the system and vice versa
+> We recommend naming your initial VM after the version of macOS
+
+> **Be aware of the user you're executing Anka CLI commands as.** If you create VMs as root, they won't be available (when running `anka list`) to other users on the system and vice versa
 
 > By default `anka create` creates a VM Template with the username `anka` and password `admin`. Environment variable are available to change these: `ANKA_DEFAULT_USER` and `ANKA_DEFAULT_PASSWD` (be sure to use sudo -E when issuing the create command)
 
-> Catalina VMs require > 4G of RAM and a > 80G disk size.
-
-> We recommend using the version of macOS in the Template name
+> Catalina VMs require > 4G of RAM and a > 80G disk size
 
 > The VM creation should take around 30 minutes
 

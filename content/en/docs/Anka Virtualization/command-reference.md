@@ -17,6 +17,7 @@ description: >
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/config/_index.md" >}}
 ## Create
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/create/_index.md" >}}
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/create/_example.md" >}}
 
 > [Advanced usage guide for `anka create`](({{< relref "docs/Getting Started/creating-your-first-vm.md" >}}))
 
@@ -56,7 +57,6 @@ description: >
 #### modify {templateName} add port-forwarding
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/add/port-forwarding/_index.md" >}}
 {{< include file="shared/content/en/docs/Anka Virtualization/partials/modify/add/port-forwarding/_example.md" >}}
-
 
 #### modify {templateName} add usb-device
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/add/usb-device/_index.md" >}}
