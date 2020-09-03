@@ -41,6 +41,8 @@ Developers with Macbook hardware can use the free Anka Develop license to create
 ### Who should use Anka Build?
 Anka Develop is for developers wanting to test their applications in a sandbox environment.
 
+---
+
 ## Anka Build
 
 ### What's included in Anka Build?
