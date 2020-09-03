@@ -1,9 +1,9 @@
 ---
-title: "Anka Build Cloud on Mac OS"
-linkTitle: "Anka Build Cloud on Mac OS"
+title: "Setting up on macOS"
+linkTitle: "Setting up on macOS"
 weight: 2
 description: >
-  Set up your Anka Build Cloud on Mac OS.
+  Set up your Anka Build Cloud on macOS
 ---
 
 Welcome! This tutorial will guide you through setting up your Anka Build Cloud.
@@ -128,9 +128,44 @@ Great! Now that we have our Anka Controller & Registry up and running, let's add
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_start-vm-instance-using-controller-ui.md" >}}
 
+## Orientation
+
+### Anka Controller and Registry package
+- Default Ports: Anka Controller: 80 / Anka Registry: 8089  
+- Binaries and scripts: Anka Controller has only one combined binary. It can run Anka Controller, Anka Registry and ETCD Server.  
+    Installed at: `/Library/Application Support/Veertu/Anka/bin/anka-controller`  
+    Start script: `/usr/local/bin/anka-controllerd`  
+    Start/Stop script: `/usr/local/bin/anka-controller`  
+    Launchd daemon: `/Library/LaunchDaemons/com.veertu.anka.controller.plist`
+- Configuration files: Configuration for this package is done by altering the start script at `/usr/local/bin/anka-controllerd`.
+- Logs: `/Library/Logs/Veertu/AnkaController`
+- Data:
+    ETCD data will be saved at: `/Library/Application Support/Veertu/Anka/anka-controller`  
+    Registry data will be saved at: `/Library/Application Support/Veertu/Anka/registry`
+
+### Standalone Anka Registry
+- Default Ports: 80
+- Binaries and scripts:
+    Anka Registry for Mac binary is installed at: `/Library/Application Support/Veertu/Anka/bin/ankaregd`  
+    Launchd daemon: `/Library/LaunchDaemons/com.veertu.anka.registry.plist`
+- Configuration files: Configuration for this package is done by altering the Launcd daemon xml file at `/Library/LaunchDaemons/com.veertu.anka.registry.plist`.
+- Data: Will be saved at: `/Library/Application Support/Veertu/Anka/registry`
+
 ## What next?
 
 - Browse the [Anka CLI Command Reference]({{< relref "docs/Anka Virtualization/command-reference.md" >}}).  
 - Connect the cloud to your [CI software]({{< relref "docs/CI Plugins and Integrations/_index.md" >}}).  
-- Find out how to use the [Controller REST API]({{< relref "docs/Anka Build Cloud/Controller and Registry/controller-api.md">}}).  
+- Find out how to use the [Controller REST API]({{< relref "docs/Anka Build Cloud/controller-api.md">}}).  
 - Learn how to work with [USB devices]({{< relref "docs/Anka Virtualization/working-with-usb-devices.md">}})
+
+
+
+
+
+
+
+
+
+
+
+

@@ -9,7 +9,7 @@ description: >
 
 > This guide and feature require an Anka Enterprise Plus license.
 
-> Before you begin, you will need to setup [Certificate Authentication]({{< relref "docs/Anka Build Cloud/Controller and Registry/Advanced Security Features/certificate-authentication.md" >}}). This allows your Anka Nodes to join (and attach your Enterprise Plus license) to the Controller properly, since `ANKA_ENABLE_AUTH` will be turned on.
+> Before you begin, you will need to setup [Certificate Authentication]({{< relref "docs/Anka Build Cloud/Advanced Security Features/certificate-authentication.md" >}}). This allows your Anka Nodes to join (and attach your Enterprise Plus license) to the Controller properly, since `ANKA_ENABLE_AUTH` will be turned on.
 
 > You must have at least one node with a Enterprise or higher license joined to the Controller for these features to work.
 
@@ -46,7 +46,7 @@ At this point, you'll have Keycloak ready to use with your Anka Build Cloud Cont
 
 In order to enable OpenID, you'll need to modify your `docker-compose.yml` (if you're using our docker package) or the `/usr/local/bin/anka-controllerd` (if you're using the native Mac package).
 
-> You can find a list of configuration options in the [Configuration Reference]({{< relref "docs/Anka Build Cloud/Controller and Registry/configuration-reference.md" >}}) by searching for `ANKA_OIDC`
+> You can find a list of configuration options in the [Configuration Reference]({{< relref "docs/Anka Build Cloud/configuration-reference.md" >}}) by searching for `ANKA_OIDC`
 
 Here is what your `docker-compose.yml` should look like for use with Keycloak:
 
@@ -111,6 +111,6 @@ Under the **Admin** page, we want to add a **New Group**. **The Group Name will 
 
 ## Managing User/Group Permissions
 
-{{< include file="shared/content/en/docs/Anka Build Cloud/Controller and Registry/Advanced Security Features/partials/_managing-permissions.md" >}}
+{{< include file="shared/content/en/docs/Anka Build Cloud/Advanced Security Features/partials/_managing-permissions.md" >}}
 
 Once you've added all of the proper permissions, you can now go back to the main Controller page and log out of the superuser. You can now choose **Login with Keycloak**, which will redirect you to your Keycloak to have you log in with the user you created earlier in this guide. You will then be taken to the Controller UI and be logged in as that user.

@@ -116,15 +116,11 @@ View all default configuration settings for Anka installation on the host with `
   - img_lib_dir - `/Users/XXX/Library/Application Support/Veertu/Anka/img_lib/`
 - The log directory is `/Users/XXX/Library/Logs/Anka/` and log file is `anka.log`.
 
-## Modifying the configuration
+## Changing the default Anka VM storage location
 
-### Using external storage
-
-If the Nodes on which you installed Anka have insufficient storage for Anka VMs, you can tell Anka to use external storage.
+Depending on how many Anka VMs you have, the disk usage might be too much for the default storage location. There are three configuration parameters to control location for storing Anka VMs. 
 
 > It's recommended to keep the vm_lib_dir on the local disk as it contains file locks.
-
-There are three configuration parameters to control location for storing Anka VMs.
 
 Assuming you want to store your Templates on **/Volumes/ExternalDrive/**, perform these steps:
 

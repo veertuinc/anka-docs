@@ -1,9 +1,9 @@
 ---
-title: "Anka Build Cloud on Linux"
-linkTitle: "Anka Build Cloud on Linux using Docker"
-weight: 3
+title: "Setting up on Linux using Docker"
+linkTitle: "Setting up on Linux using Docker"
+weight: 1
 description: >
-  Set up your Anka Build Cloud on Linux using Docker.
+  Set up your Anka Build Cloud on Linux using Docker
 ---
 
 Welcome! This tutorial guides you through setting up your Anka Build Cloud on Linux using Docker and Docker-Compose.
@@ -209,9 +209,25 @@ Great! Now that we have our Anka Controller & Registry up and running, let's add
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_start-vm-instance-using-controller-ui.md" >}}
 
+## Orientation
+
+### Anka Controller Docker container
+- Default Ports: 80
+- Binaries and scripts: `/usr/bin/anka-controller`
+- Configuration files: Configuration is done through docker-compose file or through environment variables.
+- Logs will be written to: `/var/log/anka-controller`. It's also possible to get the logs through `docker logs` command.   
+- Data Storage: No data is saved on the container.
+
+### Anka Registry Docker container
+- Default Ports: 8089
+- Binaries and scripts: `/usr/bin/anka-registry`
+- Configuration files: Configuration is done through docker-compose file or through environment variables.
+- Logs will be written to: `/var/log/anka-registry`. It's also possible to get the logs through `docker logs` command.  
+- Registry data will be written to: `/mnt/vol`
+
 ## What next?
 
 - Browse the [Anka CLI Command Reference]({{< relref "docs/Anka Virtualization/command-reference.md" >}}).  
 - Connect the cloud to your [CI software]({{< relref "docs/CI Plugins and Integrations/_index.md" >}}).  
-- Find out how to use the [Controller REST API]({{< relref "docs/Anka Build Cloud/Controller and Registry/controller-api.md">}}).  
+- Find out how to use the [Controller REST API]({{< relref "docs/Anka Build Cloud/controller-api.md">}}).  
 - Learn how to work with [USB devices]({{< relref "docs/Anka Virtualization/working-with-usb-devices.md">}})

@@ -57,7 +57,7 @@ If everything is configured correctly, you can visit your Controller Dashboard a
 
 ### Joining Nodes
 
-If you're using root token auth for your Controller UI without certificate authentication, Nodes will no longer be able to connect to port 80 when running `ankacluster join`. You'll need to [setup an interface for them to communicate]({{< relref "docs/Anka Build Cloud/Controller and Registry/configuration-reference#separate-queue-interface" >}}).
+If you're using root token auth for your Controller UI without certificate authentication, Nodes will no longer be able to connect to port 80 when running `ankacluster join`. You'll need to [setup an interface for them to communicate]({{< relref "docs/Anka Build Cloud/configuration-reference#separate-queue-interface" >}}).
 
 #### Mac Controller & Registry
 

@@ -24,8 +24,8 @@ HA for Controller configuration setup | Yes (Additional controller/registry inst
 [USB Device control through Controller API]({{< relref "#usb-device-control-controller-api" >}}) |    | Yes | Yes
 [Priority scheduling of VMs through controller]({{< relref "#priority-scheduling" >}}) |    | Yes | Yes
 [Clustering (Grouping) of Nodes]({{< relref "#node-groups" >}}) |    | Yes | Yes 
-[Basic controller authentication (Certificate & Root Superuser Token)]({{< relref "docs/Anka Build Cloud/Controller and Registry/Advanced Security Features/_index.md" >}}) |    | Yes | Yes
-[Multi-user & group authorization with admin panel + OpenID/SSO support]({{< relref "docs/Anka Build Cloud/Controller and Registry/Advanced Security Features/openid-authentication.md" >}}) |    |    | Yes
+[Basic controller authentication (Certificate & Root Superuser Token)]({{< relref "docs/Anka Build Cloud/Advanced Security Features/_index.md" >}}) |    | Yes | Yes
+[Multi-user & group authorization with admin panel + OpenID/SSO support]({{< relref "docs/Anka Build Cloud/Advanced Security Features/openid-authentication.md" >}}) |    |    | Yes
 Controller API activity logging |    |    | Yes
 VM full disk encryption for Build VMs |    |    | Yes
 Control VM runtime (Networking, Access to host) and functional properties with policies |    |    | Yes 
@@ -34,23 +34,23 @@ Control VM runtime (Networking, Access to host) and functional properties with p
 
 ### Node Groups
 
-{{< include file="shared/content/en/docs/Anka Build Cloud/Controller and Registry/partials/_node_groups.md" >}}
+{{< include file="shared/content/en/docs/Anka Build Cloud/partials/_node_groups.md" >}}
 
 ### Priority Scheduling
 
-{{< include file="shared/content/en/docs/Anka Build Cloud/Controller and Registry/partials/_priority-scheduling.md" >}}
+{{< include file="shared/content/en/docs/Anka Build Cloud/partials/_priority-scheduling.md" >}}
 
 ### USB Device Control (Controller API)
 
-{{< include file="shared/content/en/docs/Anka Build Cloud/Controller and Registry/partials/_usb-device-control-api.md" >}}
+{{< include file="shared/content/en/docs/Anka Build Cloud/partials/_usb-device-control-api.md" >}}
 
-### [Basic controller authentication (Certificate & Root Superuser Token)]({{< relref "docs/Anka Build Cloud/Controller and Registry/Advanced Security Features/_index.md" >}})
+### [Basic controller authentication (Certificate & Root Superuser Token)]({{< relref "docs/Anka Build Cloud/Advanced Security Features/_index.md" >}})
 
 Authentication support includes Root token authentication access to the Controller Dashboard and certificate authentication for the following clients: Build nodes, plugins, API access, anka command line access to the registry.
 
 ## Enterprise Plus License Features
 
-### [Multi-user & group authorization with admin panel + OpenID/SSO support]({{< relref "docs/Anka Build Cloud/Controller and Registry/Advanced Security Features/openid-authentication.md" >}})
+### [Multi-user & group authorization with admin panel + OpenID/SSO support]({{< relref "docs/Anka Build Cloud/Advanced Security Features/openid-authentication.md" >}})
 
 Multi-user access authentication and authorization based access to Controller portal dashboard and REST API operations is provided through OpenID/SSO based integration.
 

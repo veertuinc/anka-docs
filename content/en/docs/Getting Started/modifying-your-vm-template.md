@@ -11,7 +11,6 @@ description: >
 1. [You've installed the Anka Virtualization package]({{< relref "docs/Getting Started/installing-the-anka-virtualization-package.md" >}})
 2. [You've got an active license]({{< relref "docs/Licensing/_index.md" >}})
 3. [You've created your first VM Template]({{< relref "docs/Getting Started/creating-your-first-vm.md" >}})
-4. [You understand how to start and access your VM]({{< relref "docs/Getting Started/starting-and-accessing-your-vm.md" >}})
 
 ---
 

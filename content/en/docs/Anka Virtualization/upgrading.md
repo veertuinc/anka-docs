@@ -1,7 +1,7 @@
 ---
 date: 2019-12-12T00:00:00-00:00
-title: "Upgrade"
-linkTitle: "Upgrade"
+title: "Upgrading"
+linkTitle: "Upgrading"
 weight: 6
 description: How to upgrade the Anka Virtualization package
 ---

@@ -1,10 +1,10 @@
 
 You can find the various Anka installation packages on the [veertu.com website](https://veertu.com/download-anka-build/).
 
-## Download and install the latest Anka Package
+## Download and install the latest Anka Virtualization package
 
 ```shell
-curl -L -o AnkaVirtualization.pkg https://veertu.com/downloads/ankabuild-latest
+curl -L -o AnkaVirtualization.pkg https://veertu.com/downloads/anka-virtualization
 sudo installer -pkg AnkaVirtualization.pkg -tgt /
 ```
 
@@ -14,7 +14,7 @@ sudo installer -pkg AnkaVirtualization.pkg -tgt /
 anka version
 ```
 
-The output should be similar to `Anka Build Basic version 2.X.X (XXXX)`.
+The output should be similar to `Anka... version 2.X.X (XXXX)`.
 
 ---
 

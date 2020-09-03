@@ -9,9 +9,9 @@ description: >
 
 ## Prerequisites
 
-* [Anka Build Cloud Controller should be configured and running before your Anka Node can join]({{< relref "docs/Anka Build Cloud/Controller and Registry/Setup/_index.md" >}})
+* [Anka Build Cloud Controller should be configured and running before your Anka Node can join]({{< relref "docs/Anka Build Cloud/_index.md" >}})
 * [Your Node should be licensed]({{< relref "docs/Licensing/_index.md" >}})
-* [Your Node should be prepared for high availability]({{< relref "docs/Anka Build Cloud/Controller and Registry/Setup/prepare-nodes.md" >}})
+* [Your Node should be prepared for high availability]({{< relref "docs/Anka Build Cloud/prepare-nodes.md" >}})
 
 ## Joining to your Anka Build Cloud Controller
 
