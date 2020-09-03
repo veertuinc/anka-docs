@@ -33,7 +33,7 @@ DevOps workflows typically include lots of automation. Because of this, Anka has
 
 ---
 
-## Anka Develop (Free)
+## Anka Develop
 
 ### What's included in Anka Develop?
 Developers with Macbook hardware can use the free Anka Develop license to create and start a single VM for local development and testing. Users can expect all features except for suspending, tagging, and registry commands.
