@@ -7,31 +7,39 @@ description: >
   All about Veertu's Anka Software
 ---
 
-Anka is a suite of software for creating and managing macOS VMs to run on top of Apple hardware and macOS. It enables the creation of or integration with existing container-like DevOps workflows. Unlike existing macOS virtualization solutions, Anka lets the macOS operating system manage virtual machines in the same manner as other native macOS applications. Anka virtualization uses macOS native Hypervisor features so it can run on any Apple hardware.
+Anka is a suite of software for creating and managing macOS VMs to run on top of Apple hardware and macOS. It's built on top of the native [Apple Hypervisor](https://developer.apple.com/documentation/hypervisor) technology for maximum performance. It enables the creation of or integration with existing container based DevOps workflows. Unlike existing macOS virtualization solutions, Anka lets the macOS operating system manage virtual machines in the same manner as other native macOS applications.
 
 > Anka can be installed on macOS machines running High Sierra (10.13.x) or higher.
 
 * Easy to install
-* Built on the native hypervisor, utilizing macOS resource scheduling and power management for Anka VMs
-* Optimized VM network and disk performance using paravirtual drivers
-* Control VMs through the Anka CLI
-* Suspended and then instantly start Anka VMs
-* Run Docker and Android Emulator inside your VMs
-* Attach physical iOS devices to VMs for on-device testing
+* Built on the native Apple hypervisor, utilizing macOS resource scheduling, power management, and flexibility
+* Optimized VM network and disk performance using para-virtual drivers
+* VM management through the Anka Virtualization CLI, UI app, or web based Build Cloud Controller UI
+* Ability to suspended and then instantly start VMs from a specific state
+* Nested Virtualization for running Docker containers inside of your Anka VMs
+* Attach physical USB devices (like an iPhone) to VMs for on-device testing
 * Compatibility with T2 enabled Apple hardware
 
-DevOps workflows typically include lots of automation. Because of this, Anka has multiple options for you to either integrate with existing workflows/tools or create them from scratch.
+DevOps workflows typically include lots of automation. Because of this, Anka has multiple options for you to either integrate with existing workflows/tools or create them from scratch:
 
 * Build VM Templates (a.k.a "images") for different versions of macOS
-* Create Tags on top of a VM Template containing the different dependencies for your projects
-* Write scripts for Template & Tag creation in your preferred language, or use our [packer builder](https://github.com/veertuinc/packer-builder-veertu-anka)
+* Create Tags on top of a VM Template containing the different dependencies for each of your projects
+* Write scripts for automated Template & Tag creation in your preferred language, or use our [packer builder](https://github.com/veertuinc/packer-builder-veertu-anka)
 * Store your VM Templates and Tags in the Anka Cloud Registry so you can distribute or pull them to different machines and ensure the same VM state
-* Manage your VMs from the Anka Build Cloud Controller's REST API
+* Manage your VMs from the Anka Build Cloud Controller's UI or REST API
 * Get up and running quickly with [one of our maintained CI plugins or integrations]({{< relref "docs/CI Plugins and Integrations/_index.md" >}})
 
-> Information about how VM Template and Tags work can be found in our [Getting Started creating your first VM guide.]({{< relref "docs/Getting Started/creating-your-first-vm.md" >}})
+> Information about how VM Template and Tags work can be found in our [Getting Started > Creating your first VM]({{< relref "docs/Getting Started/creating-your-first-vm.md" >}}) guide.
 
 ---
+
+## Anka Develop (Free)
+
+### What's included in Anka Develop?
+Developers with Macbook hardware can use the free Anka Develop license to create and start a single VM for local development and testing. Users can expect all features except for suspending, tagging, and registry commands.
+
+### Who should use Anka Build?
+Anka Develop is for developers wanting to test their applications in a sandbox environment.
 
 ## Anka Build
 
