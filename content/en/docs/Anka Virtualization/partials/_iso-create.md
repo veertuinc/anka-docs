@@ -53,6 +53,6 @@ Start the VM again with guest addons ISO installed.
 sudo anka start -v -o /Library/Application\ Support/Veertu/Anka/guestaddons/anka-addons-mac.iso sierravm
 ```
 
-Complete the guest addons installation inside the VM. Shutdown the VM with `sudo anka stop {templateName}`.
+Complete the guest addons installation inside the VM. Shutdown the VM with `sudo anka stop {vmNameOrUUID}`.
 
-Validate by running the following command `sudo anka run {templateName} ls -l` from the host. It should display ls -l contents of the VM. The VM is correctly created.
+Validate by running the following command `sudo anka run {vmNameOrUUID} ls -l` from the host. It should display ls -l contents of the VM. The VM is correctly created.

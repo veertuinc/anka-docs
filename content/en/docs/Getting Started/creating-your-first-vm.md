@@ -30,15 +30,14 @@ description: >
 ### Using the Anka UI
 
 1. Click on **Create new VM**
-[PICTURE]
 2. Choose the installer (will automatically search /Applications), or drop it into the window
-[PICTURE]
 3. Click on Options and set any non-default values you want
-[PICTURE]
-4. Be patient while creating
-[PICTURE]
+![installer with pkg](/images/getting-started/creating-your-first-vm/create-vm-window-with-options.png)
+4. **Please be patient while it's creating. This process can take up to half an hour.**
 
 Once the VM template is created, you will see it on the sidebar.
+
+![ui with vm in the sidebar list](/images/getting-started/creating-your-first-vm/ui-vm-in-sidebar.png)
 
 ### Using the Anka CLI
 

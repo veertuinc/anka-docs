@@ -7,4 +7,16 @@ description: >
   How to install the Anka Virtualization software on your macOS
 ---
 
-{{< include file="shared/content/en/docs/Anka Virtualization/partials/_install.md" >}}
+## Download and install
+
+{{< include file="shared/content/en/docs/Anka Virtualization/partials/_download-and-install.md" >}}
+
+## Verify the installation
+
+{{< include file="shared/content/en/docs/Anka Virtualization/partials/_verify-installation.md" >}}
+
+---
+
+## (alternative) Download and install with your terminal
+
+{{< include file="shared/content/en/docs/Anka Virtualization/partials/_download-and-install-with-terminal.md" >}}

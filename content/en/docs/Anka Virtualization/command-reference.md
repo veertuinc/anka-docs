@@ -46,64 +46,64 @@ description: >
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/list/_index.md" >}}
 ## Modify
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/_index.md" >}}
-### modify {templateName} add
+### modify {vmNameOrUUID} add
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/add/_index.md" >}}
-#### modify {templateName} add hard-drive
+#### modify {vmNameOrUUID} add hard-drive
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/add/hard-drive/_index.md" >}}
-#### modify {templateName} add network-card
+#### modify {vmNameOrUUID} add network-card
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/add/network-card/_index.md" >}}
-#### modify {templateName} add optical-drive
+#### modify {vmNameOrUUID} add optical-drive
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/add/optical-drive/_index.md" >}}
-#### modify {templateName} add port-forwarding
+#### modify {vmNameOrUUID} add port-forwarding
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/add/port-forwarding/_index.md" >}}
 {{< include file="shared/content/en/docs/Anka Virtualization/partials/modify/add/port-forwarding/_example.md" >}}
 
-#### modify {templateName} add usb-device
+#### modify {vmNameOrUUID} add usb-device
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/add/usb-device/_index.md" >}}
-### modify {templateName} delete
+### modify {vmNameOrUUID} delete
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/delete/_index.md" >}}
-#### modify {templateName} delete custom-variable
+#### modify {vmNameOrUUID} delete custom-variable
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/delete/custom-variable/_index.md" >}}
-#### modify {templateName} delete hard-drive
+#### modify {vmNameOrUUID} delete hard-drive
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/delete/hard-drive/_index.md" >}}
-#### modify {templateName} delete network-card
+#### modify {vmNameOrUUID} delete network-card
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/delete/network-card/_index.md" >}}
-#### modify {templateName} delete optical-drive
+#### modify {vmNameOrUUID} delete optical-drive
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/delete/optical-drive/_index.md" >}}
-#### modify {templateName} delete policy
+#### modify {vmNameOrUUID} delete policy
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/delete/policy/_index.md" >}}
-#### modify {templateName} delete port-forwarding
+#### modify {vmNameOrUUID} delete port-forwarding
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/delete/port-forwarding/_index.md" >}}
-#### modify {templateName} delete usb-device
+#### modify {vmNameOrUUID} delete usb-device
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/delete/usb-device/_index.md" >}}
-### modify {templateName} set
+### modify {vmNameOrUUID} set
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/_index.md" >}}
-#### modify {templateName} set cpu
+#### modify {vmNameOrUUID} set cpu
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/cpu/_index.md" >}}
-#### modify {templateName} set custom-variable
+#### modify {vmNameOrUUID} set custom-variable
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/custom-variable/_index.md" >}}
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/custom-variable/_example.md" >}}
-#### modify {templateName} set description
+#### modify {vmNameOrUUID} set description
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/description/_index.md" >}}
-#### modify {templateName} set display
+#### modify {vmNameOrUUID} set display
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/display/_index.md" >}}
-#### modify {templateName} set hard-drive
+#### modify {vmNameOrUUID} set hard-drive
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/hard-drive/_index.md" >}}
 > It's currently impossible to downsize a VM's hard-drive. We suggest creating your initial VM Template with a smaller amount of available disk and then increase in subsequent Tags.
-#### modify {templateName} set name
+#### modify {vmNameOrUUID} set name
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/name/_index.md" >}}
-#### modify {templateName} set nested
+#### modify {vmNameOrUUID} set nested
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/nested/_index.md" >}}
-#### modify {templateName} set network-card
+#### modify {vmNameOrUUID} set network-card
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/network-card/_index.md" >}}
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/network-card/_example.md" >}}
-#### modify {templateName} set policy
+#### modify {vmNameOrUUID} set policy
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/policy/_index.md" >}}
-#### modify {templateName} set ram
+#### modify {vmNameOrUUID} set ram
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/ram/_index.md" >}}
-### modify {templateName} show
+### modify {vmNameOrUUID} show
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/show/_index.md" >}}
-#### modify {templateName} show custom-variables
+#### modify {vmNameOrUUID} show custom-variables
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/show/custom-variables/_index.md" >}}
 ## Mount
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/mount/_index.md" >}}

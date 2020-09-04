@@ -8,7 +8,7 @@ You can then `anka suspend` to save the state of the VM. Suspending the VM allow
 
 > It's very important that when you suspend from a started state that the VM has fully booted and logged into a user. If you don't, the VM will fail to start.
 
-You can then push the Template to your Anka Build Cloud Registry using `anka registry push` and set the Tag. Or, use `anka registry push -l {templateName} -t {tag}` to only create the Tag locally (useful if you don't have a registry yet and want to quickly switch between tags/dependencies).
+You can then push the Template to your Anka Build Cloud Registry using `anka registry push` and set the Tag. Or, use `anka registry push -l {vmNameOrUUID} -t {tag}` to only create the Tag locally (useful if you don't have a registry yet and want to quickly switch between tags/dependencies).
 
 Our use of Tags is similar to docker. Tags contain only the delta from the base Template or previous Tag, saving a lot of disk space and bandwidth. They can be built in a sequence from the base Template, each new Tag receiving the contents of the last Tag.
 

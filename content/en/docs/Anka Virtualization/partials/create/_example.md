@@ -15,4 +15,4 @@ sudo anka create --ram-size 8G --cpu-count 4 --disk-size 80G \
 
 > **Anka Build licenses:** Your VM will by default be in a suspended state. Our free Anka Develop license only supports stopped VMs
 
-> VMs are created with SIP/Kext Consent disabled by default. It's strongly advised to keep these settings for optimal Anka performance. If you need to re-enable SIP/Kext Consent, then use this command `anka modify {templateName} set custom-variable sys.csr-active-config 0`
+> VMs are created with SIP/Kext Consent disabled by default. It's strongly advised to keep these settings for optimal Anka performance. If you need to re-enable SIP/Kext Consent, then use this command `anka modify {vmNameOrUUID} set custom-variable sys.csr-active-config 0`

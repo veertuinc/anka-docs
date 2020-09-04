@@ -21,13 +21,13 @@ description: >
 
 Launch the Anka application found under /Applications. Once launched, you will see the VM Template on the right sidebar. You can double click the VM to not only start it but also launch the Anka Viewer window.
 
-![anka ui](/images/getting-started/starting-and-accessing-your-vm/anka-ui.png)
+![ui with vm in the sidebar list](/images/getting-started/creating-your-first-vm/ui-vm-in-sidebar.png)
 
 ### With the CLI
 
-To start the VM in headless mode: `sudo anka start {templateName}`
+To start the VM in headless mode: `sudo anka start {vmNameOrUUID}`
 
-> `sudo anka start -v {templateName}` will start the VM and launch the Anka Viewer window.
+> `sudo anka start -v {vmNameOrUUID}` will start the VM and launch the Anka Viewer window.
 
 ```shell
 ❯ anka start 11.0.0-beta5
@@ -103,15 +103,13 @@ round-trip min/avg/max/stddev = 16.992/21.940/25.797/3.416 ms
 
 {{< include file="shared/content/en/docs/Anka Virtualization/partials/view/_index.md" >}}
 
-Alternatively, you can `anka view` to launch the Anka Viewer window:
+{{< imgwithlink src="/images/getting-started/starting-and-accessing-your-vm/anka-start-view-viewer-window.png" >}}
 
-![using anka view to open the Anka Viewer](/images/getting-started/starting-and-accessing-your-vm/anka-view.png)
-
-> You can set the resolution of the Viewer under the View menu. Or, you can use the Live Resolution and Enter Fullscreen.
+> You can set the resolution of the VM under the `Apple Menu > View`. Or, you can use the Live Resolution and Enter Fullscreen.
 
 ## SSH
 
-In order to SSH into the VM, you'll need to enable **Remote Login** under **System Preferences > Sharing** (enabled by default). Next, check that networking has fully started on the VM by running `anka show {templateName}`:
+In order to SSH into the VM, you'll need to enable **Remote Login** under **System Preferences > Sharing** (enabled by default). Next, check that networking has fully started on the VM by running `anka show {vmNameOrUUID}`:
 
 ```shell
 ❯ anka show 11.0.0-beta5
@@ -146,7 +144,7 @@ If you do not see the row **ip**, then networking has not fully been started yet
 
 Once you do see an ip, you can then SSH with the user and ip: `ssh anka@{ip}`
 
-![ssh into vm](/images/getting-started/starting-and-accessing-your-vm/anka-show-remote-login-and-ssh.png)
+{{< imgwithlink src="/images/getting-started/starting-and-accessing-your-vm/anka-show-remote-login-and-ssh.png" >}}
 
 > We provide a fixed IP inside of the VM for accessing the host: `192.168.64.1` (or `192.168.128.1` for "host" type).
 
@@ -155,7 +153,7 @@ Once you do see an ip, you can then SSH with the user and ip: `ssh anka@{ip}`
 - [`anka run`]({{< relref "docs/Anka Virtualization/command-reference.md#run" >}}) doesn't support TTY mode, but you could easily use POSIX streams as with regular bash tool:
     ```shell
     anka run -n VNMANE whoami > /dev/null
-    cat file.txt | anka run -n {templateName} md5
+    cat file.txt | anka run -n {vmNameOrUUID} md5
     ```
 - You can set the resolution of the Anka Viewer using `sudo anka modify 10.15.4 set display -r 1200x800`
 - [Port forwarding of VM ports is supported]({{< relref "docs/Anka Virtualization/command-reference.md#example---add-port-forwarding" >}})

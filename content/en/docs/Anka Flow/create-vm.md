@@ -24,7 +24,7 @@ By default [`anka create`]({{< relref "docs/Anka Virtualization/command-referenc
 `ANKA_DEFAULT_PASSWD=passwd ANKA_DEFAULT_USER=usrname anka create --ram-size 4G --cpu-count 2 --disk-size 60G -a /Applications/Install\ macOS\ High\ Sierra.app HiSierravm`
 
 ```
-anka create [OPTIONS] {templateName}
+anka create [OPTIONS] {vmNameOrUUID}
 
   Creates a VM
 
@@ -58,7 +58,7 @@ The output of [`anka create`]({{< relref "docs/Anka Virtualization/command-refer
 
 ***Note*** VMs are created with SIP/Kext Consent disabled by default. It's strongly advised to keep these settings for optimal Anka performance.  
 
-If you need to re-enable SIP/Kext Consent, then use this command `anka modify {templateName} set custom-variable sys.csr-active-config 0`.
+If you need to re-enable SIP/Kext Consent, then use this command `anka modify {vmNameOrUUID} set custom-variable sys.csr-active-config 0`.
 
 ***Note*** VMs created are in suspended mode to enable fast boot/Instant Start.  
 ### Run VM
@@ -91,10 +91,10 @@ anka start 133b387
 +-----------------------+--------------------------------------+
 ```
 
-Validate by running the following command `anka run {templateName} ls -l` from the host. It should display ls -l contents of the host current directory. The VM is correctly created.
+Validate by running the following command `anka run {vmNameOrUUID} ls -l` from the host. It should display ls -l contents of the host current directory. The VM is correctly created.
 You can manually work within the VM with `anka view sierravm`. This will open the VM window.
 
-Do `anka show {templateName}` to view IP and other runtime details of the VM.
+Do `anka show {vmNameOrUUID}` to view IP and other runtime details of the VM.
 
 ```
 anka show 133b387
@@ -146,15 +146,15 @@ You can manually work within the VM with `anka view sierravm`. This will open th
 **SSH to the VM and execute commands**  
 
 SSH into the VM from the host where its running with the following command.
-`ssh anka@ip`, where ip is the Vm IP shown in `anka show {templateName}` command.
+`ssh anka@ip`, where ip is the Vm IP shown in `anka show {vmNameOrUUID}` command.
 
 To SSH into the VM from another host, first enable ssh port forwarding. Use [`anka modify`]({{< relref "docs/Anka Virtualization/command-reference.md#modify" >}}) command.
 
 ```
-anka modify {templateName} add port-forwarding --host-port 0 --guest-port 22 ssh
+anka modify {vmNameOrUUID} add port-forwarding --host-port 0 --guest-port 22 ssh
 rule added successfully
 ```
-When the port forwarding rule is successfully added, you will see the following in the `anka show {templateName}` output.
+When the port forwarding rule is successfully added, you will see the following in the `anka show {vmNameOrUUID}` output.
 
 ```
 port_forwarding
@@ -173,14 +173,14 @@ Similar to `docker exec`, [`anka run`]({{< relref "docs/Anka Virtualization/comm
 
 Example
 ```
-anka run -n -N {templateName} ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-anka run -n {templateName} sudo gem install xcode-install
+anka run -n -N {vmNameOrUUID} ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+anka run -n {vmNameOrUUID} sudo gem install xcode-install
 
 #saving user/pass of app store
 echo FASTLANE_USER=user >> appstore_login
 echo FASTLANE_PASSWORD=password >> appstore_passwd
 
-anka run -f appstore_login -nE {templateName} xcversion install 10.1
+anka run -f appstore_login -nE {vmNameOrUUID} xcversion install 10.1
 ```
 
 Refer here for more details on how to use [`anka run`]({{< relref "docs/Anka Virtualization/command-reference.md#run" >}}) command.
@@ -238,9 +238,9 @@ Start the VM again with guest addons ISO installed.
 anka start -v -o /Library/Application\ Support/Veertu/Anka/guestaddons/anka-addons-mac.iso sierravm
 ```
 
-Complete the guest addons installation inside the VM. Shutdown the VM with `anka stop {templateName}`.
+Complete the guest addons installation inside the VM. Shutdown the VM with `anka stop {vmNameOrUUID}`.
 
-Validate by running the following command `anka run {templateName} ls -l` from the host. It should display ls -l contents of the VM. The VM is correctly created.
+Validate by running the following command `anka run {vmNameOrUUID} ls -l` from the host. It should display ls -l contents of the VM. The VM is correctly created.
 
 Anka Guest Addons also create a default `user - anka`, `passwd - admin` for the VM.
 

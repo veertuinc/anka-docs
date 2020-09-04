@@ -28,7 +28,7 @@ description: >
 
 - Bug Fix : vmPollTime definitions in Configuration as Code aren't working due to typo
 
-### Anka VM GitHub Action v1.2.0-beta - June 17, 2020
+### Anka VM GitHub Action 1.2.0-beta - June 17, 2020
 - Beta released to public
 
 ### Anka Virtualization CLI 2.2.3 - May 03, 2020
@@ -46,8 +46,38 @@ description: >
 ### Packer Plugin 1.5.0 - August 31, 2020
 - New feature : Added ability to modify cpu core count, ram, and disk size when cloning from an existing VM Template
 
-### Anka GitLab Runner 0.6b - Dec 08, 2019
-- New feature : update gitlab runner to new gitlab codebase
+### Anka GitLab Runner 1.0.0 - Set 03, 2020
+- Upgraded base to 13.2-stable
+- Handling canceled jobs properly now by sending a termination to the controller
+- Handling terminated or errored VM statuses properly now
+- Users can override the runner's default template and tag by specifying variables:
+    ```yaml
+    test:
+      tags:
+        - localhost-shared
+      stage: test
+      variables:
+        ANKA_TEMPLATE_UUID: "c0847bc9-5d2d-4dbc-ba6a-240f7ff08032"
+        ANKA_TAG_NAME: "base"
+      script:
+        - hostname
+        - echo "Echo from inside of the VM!"
+    ```
+- Added retries to any (doRequest) HTTP calls to the controller to handle when the controller crashes or returns bad data + exponential backoff sleep
+- Added script to generate docker tags and push them to veertu docker hub
+- Added SkipTLSVerification to controller calls
+- Added Controller certificate support:
+    ```shell
+      --anka-root-ca-path value             Specify the path to your Controller's Root CA certificate [$ROOT_CA_PATH]
+      --anka-cert-path value                Specify the path to the GitLab Certificate (used for connecting to the Controller) (requires you also specify the key) [$CERT_PATH]
+      --anka-key-path value                 Specify the path to your GitLab Certificate Key (used for connecting to the Controller) [$KEY_PATH]
+    ```
+- It can now run independently of other gitlab-runners on the host / config.toml -> anka-config.tml
+- Added `--preparation-retries`
+- Better registration experience with errors thrown for bad data (prompt messages, etc)
+- Added a bunch of tests
+- Readme update with developer guide and changes we've made from the gitlabhq repo
+- Fixed all of the tests
 
 ---
 

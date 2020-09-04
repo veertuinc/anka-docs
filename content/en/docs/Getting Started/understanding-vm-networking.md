@@ -19,7 +19,7 @@ description: >
 
 By default, we use Apple's VMNET interface for networking. We also configure the network service as "Using DHCP".
 
-Anka VMs, by default, use a shared networking configuration with the host. It’s a kind of NAT + DHCP. Every time you start/resume a VM, it gets assigned an IP that you can see with `sudo anka show {templateName}` command.
+Anka VMs, by default, use a shared networking configuration with the host. It’s a kind of NAT + DHCP. Every time you start/resume a VM, it gets assigned an IP that you can see with `sudo anka show {vmNameOrUUID}` command.
 
 > SSH access ("Remote Login") is enabled by by default on Anka VMs.
 

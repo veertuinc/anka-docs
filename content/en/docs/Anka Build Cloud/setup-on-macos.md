@@ -21,7 +21,13 @@ Welcome! This tutorial will guide you through setting up your Anka Build Cloud.
 
 ### Install the Anka Virtualization package
 
-{{< include file="shared/content/en/docs/Anka Virtualization/partials/_install.md" >}}
+#### Download and install with your terminal
+
+{{< include file="shared/content/en/docs/Anka Virtualization/partials/_download-and-install-with-terminal.md" >}}
+
+#### Verify the installation
+
+{{< include file="shared/content/en/docs/Anka Virtualization/partials/_verify-installation.md" >}}
 
 For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/Anka Virtualization/command-reference.md" >}}).
 

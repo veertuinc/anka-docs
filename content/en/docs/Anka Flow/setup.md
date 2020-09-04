@@ -45,21 +45,21 @@ anka license activate <key>
 
 ### Upgrading the Anka Package
 1. Download the latest version of Anka package (.pkg) and stop all running VMs.
-2. Before upgrading, you will also need to force stop any suspended VMs with the `anka stop -f {templateName}` command.
+2. Before upgrading, you will also need to force stop any suspended VMs with the `anka stop -f {vmNameOrUUID}` command.
 
 ***Note*** For major Anka releases, it maybe required to upgrade guest addons in existing Anka VMs. Check the release notes to identify if this step is required or not.
 
 3. Upgrade guest addons on the VM. Execute the following command to upgrade guest addons in existing VMs to the current release.
 
 ```
-anka stop -f {templateName}
-anka start -u {templateName}
+anka stop -f {vmNameOrUUID}
+anka start -u {vmNameOrUUID}
 Preparing update configuration
 Installing updates
 Suspending
 update succeeded
 ```
-If you are not able to upgrade the guest addons tool using the `anka start -u {templateName}` command, then you have a very old version of guest addon tools on your VM. You will first need to manually update them. Contact Veertu support.
+If you are not able to upgrade the guest addons tool using the `anka start -u {vmNameOrUUID}` command, then you have a very old version of guest addon tools on your VM. You will first need to manually update them. Contact Veertu support.
 4. Push your upgraded VMs to the Registry.
 
 ### Uninstall
