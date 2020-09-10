@@ -26,13 +26,13 @@ Trial licenses for Anka products is valid for 30 days from the date of trial reg
 
 ## Anka License Feature Differences
 
-| **Feature** | **Develop** | **Build** | **Flow** | **Secure** |
+| **Feature** | **Develop** | **Flow** | **Build** | **Secure** |
 | --- | --- | --- | --- | --- |
 | Run Multiple VMs | No | Yes | Yes | Yes |
 | State Snapshot / Suspend VM | No | Yes | Yes | Yes |
 | USB Device Support | No | Yes | Yes | Yes |
 | Ability to communicate with Anka Build Cloud (Controller & Registry) | No | Yes | Yes | Yes |
-| Runs on all macOS hardware models | No (Macbook and iMac only) | Yes | No (Macbook and iMac only) | Yes |
+| Runs on all macOS hardware models | No (Macbook and iMac only) | No (Macbook and iMac only) | Yes | Yes |
 
 ## Anka Build License Feature Differences
 

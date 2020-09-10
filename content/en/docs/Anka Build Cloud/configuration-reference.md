@@ -37,7 +37,7 @@ Depending on the package you're using (native or docker), you can set ENV variab
        - anka-registry
     restart: always
     environment:
-      ANKA_REGISTRY_ADDR: "http://anka.registry:8091"
+      ANKA_REGISTRY_ADDR: "http://anka.registry:8089"
       ANKA_USE_HTTPS: "false"
       ANKA_SKIP_TLS_VERIFICATION: "false"
       ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
@@ -62,8 +62,8 @@ export ANKA_LOG_DIR="/Library/Logs/Veertu/AnkaController"
 
 export ANKA_RUN_REGISTRY="true"
 export ANKA_REGISTRY_BASE_PATH="/Library/Application Support/Veertu/Anka/registry"
-export ANKA_REGISTRY_LISTEN_ADDRESS="anka.registry:8091"
-export ANKA_ANKA_REGISTRY="http://anka.registry:8091"
+export ANKA_REGISTRY_LISTEN_ADDRESS="anka.registry:8089"
+export ANKA_ANKA_REGISTRY="http://anka.registry:8089"
 
 #export ANKA_USE_HTTPS="true"
 #export ANKA_SKIP_TLS_VERIFICATION="true"
@@ -214,7 +214,7 @@ Depending on the package you're using (native or docker), you can include flags 
        - etcd
        - anka-registry
     restart: always
-    entrypoint: ["/bin/bash", "-c", "anka-controller --standalone --enable-central-logging --anka-registry http://anka.registry:8091 --etcd-endpoints etcd:2379 --log_dir /var/log/anka-controller --local-anka-registry http://anka-registry:8085"]
+    entrypoint: ["/bin/bash", "-c", "anka-controller --standalone --enable-central-logging --anka-registry http://anka.registry:8089 --etcd-endpoints etcd:2379 --log_dir /var/log/anka-controller --local-anka-registry http://anka-registry:8085"]
 
   anka-registry:
     container_name: anka-registry
@@ -222,7 +222,7 @@ Depending on the package you're using (native or docker), you can include flags 
         context: .
         dockerfile: anka-registry.docker
     ports:
-        - "8091:8089"
+        - "8089:8089"
     restart: always
     volumes:
       - "/Library/Application Support/Veertu/Anka/registry:/mnt/vol"
@@ -252,8 +252,8 @@ REGISTRY_BASE_PATH="/Library/Application Support/Veertu/Anka/registry"
 --data-dir "$DATA_DIR" \
 --run-registry \
 --registry-base-path  "$REGISTRY_BASE_PATH" \
---registry-listen-address "anka.registry:8091" \
---anka-registry "http://anka.registry:8091"
+--registry-listen-address "anka.registry:8089" \
+--anka-registry "http://anka.registry:8089"
 ```
 
 
