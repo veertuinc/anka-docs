@@ -33,7 +33,7 @@ If you're interested in _Infrastructure as Code_ to automate the creation of you
 
 1. Write scripts that:
     - Parse and iterate commands, in order, from a data serialization language like JSON and execute them inside of the VM before suspending and pushing to the Registry.
-    - Or execute commands on the VM from within the script itself ([example](https://github.com/veertuinc/getting-started/blob/master/ANKA_BUILD_CLOUD/create-tags.bash)).
+    - Or execute commands on the VM from within the script itself ([example](https://github.com/veertuinc/getting-started/blob/master/create-vm-template-tags.bash)).
 2. Use the Packer Builder: https://github.com/veertuinc/packer-builder-veertu-anka
 
 Lastly, each Template and specific/current Tag can be cloned to create a new Template. You have two options:
