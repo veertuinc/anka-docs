@@ -32,3 +32,7 @@ We must mention that the differences between how our customers have deployed Kub
 Once it's up and running, you can [join your nodes to the Controller load balancer IP/hostname.]({{< relref "docs/Anka Build Cloud/Controller and Registry/Setup/connect-nodes.md" >}})
 
 > You will also need to expose the Registry load balancer if you want to connect your laptop to push new VM Templates or Tags.
+
+## Answers to Frequently Asked Questions
+
+- When using an AWS NLB, there is an immutable idle connection timeout value of 350s. This can cause registry push/pull actions to timeout. You'll need to create an ingress ALB that accepts longer connections.
