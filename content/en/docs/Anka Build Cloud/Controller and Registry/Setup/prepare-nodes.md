@@ -9,7 +9,11 @@ description: >
 
 Once the Anka Build Virtualization software has been installed onto a macOS machine, you'll typically want to ensure that the machine has high availability. This requires turning off sleep and several other default features that would cause the machine to become unavailable. Below are the preparatory steps we suggest:
 
-1. **Enable automatic login for the current user:** Go to Preferences > Users > enable automatic login.
+1. **Enable automatic login for the current user:** Go to Preferences > Users > enable automatic login. Or through your CLI:
+
+```shell
+sudo defaults write /Library/Preferences/com.apple.loginwindow "autoLoginUser" '<USERNAME>'
+```
 
 2. **Disable require password after screensaver has started:** Go to Preferences > Security > under General > uncheck `require password after screensave or sleep begins` option.
 
