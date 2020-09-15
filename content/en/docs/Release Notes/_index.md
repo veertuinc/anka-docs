@@ -11,11 +11,12 @@ description: >
 
 ## Current Versions
 
-### Anka Build Cloud Controller & Registry 1.11.0 - August 31, 2020
+### Anka Build Cloud Controller & Registry 1.11.0 (1.11.0-59d63cca) - August 31, 2020
 - New Feature : `anka-controller` executable from macOS native package now supports `--tail {lines}`
 - Improvement : Removed all unnecessary files from docker .tar.gz archive
 - Bug Fix : Pulling a template/tag now calculates the size of the tag properly (instead of only the latest tag for the template)
 - Bug Fix : VNC url in Controller UI > Instances page is now a link again
+- (Standalone Registry: 1.11.0-d43f91c)
 
 ### TeamCity Plugin version 1.7.1 - July 7, 2020
 - Bug Fix : Long-running threads were being created
@@ -31,7 +32,7 @@ description: >
 ### Anka VM GitHub Action v1.2.0-beta - June 17, 2020
 - Beta released to public
 
-### Anka Virtualization CLI 2.2.3 - May 03, 2020
+### Anka Virtualization CLI 2.2.3 (2.2.3.118) - May 03, 2020
 - Bug Fix : Starting multiple VMs from suspended state with bridge networking configuration
 - Bug Fix : Unable to set up port forwarding to 127.0.0.1
 - Bug Fix : VNC connection error
