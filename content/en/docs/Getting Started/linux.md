@@ -44,10 +44,12 @@ For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/
 ### Download and extract the Controller & Registry
 
 ```shell
-mkdir -p ~/anka-docker-controller-registry
-cd ~/anka-docker-controller-registry
-curl -L -o anka-docker-controller-registry.tar.gz https://veertu.com/downloads/ankacontroller-registry-docker-latest
-tar -xzvf anka-docker-controller-registry.tar.gz
+FULL_FILE_NAME=$(echo $(curl -Ls -r 0-1 -o /dev/null -w %{url_effective} https://veertu.com/downloads/ankacontroller-registry-docker-latest) | cut -d/ -f4)
+PARTIAL_FILE_NAME=$(echo $FULL_FILE_NAME | awk -F'.tar.gz' '{print $1}')
+mkdir -p $PARTIAL_FILE_NAME
+cd $PARTIAL_FILE_NAME
+curl -Ls https://veertu.com/downloads/ankacontroller-registry-docker-latest -o $FULL_FILE_NAME
+tar -xzvf $FULL_FILE_NAME
 ```
 
 You can also manually download the file called "Cloud Controller & Registry (Run on Linux Instance)" from the {{< ext-link href="https://veertu.com/download-anka-build" text="Anka Build Download page." >}}
