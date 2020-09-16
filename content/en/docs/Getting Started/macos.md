@@ -42,7 +42,7 @@ For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/
 Download the file called "Cloud Controller & Registry (Run on Mac)" from {{< ext-link href="https://veertu.com/download-anka-build" text="Anka Build Download page." >}}
 If you are more comfortable with the command line, you can download the file with curl:
 ```shell
-curl -S -L -o ~/Downloads/AnkaControllerRegistry.pkg https://veertu.com/downloads/ankacontroller-registry-mac-latest
+curl -S -L -o ~/Downloads/$(echo $(curl -Ls -r 0-1 -o /dev/null -w %{url_effective} https://veertu.com/downloads/ankacontroller-registry-mac-latest) | cut -d/ -f4) https://veertu.com/downloads/ankacontroller-registry-mac-latest
 ```
 
 ### Install the Controller & Registry PKG
@@ -50,7 +50,7 @@ curl -S -L -o ~/Downloads/AnkaControllerRegistry.pkg https://veertu.com/download
 Double click on the .pkg to start the UI install process.
 - Or, you can install the package using the command line:
     ```shell
-    sudo installer -pkg ~/Downloads/AnkaControllerRegistry.pkg -target /
+    sudo installer -pkg ~/Downloads/$(echo $(curl -Ls -r 0-1 -o /dev/null -w %{url_effective} https://veertu.com/downloads/ankacontroller-registry-mac-latest) | cut -d/ -f4) -target /
     ```
 
 ### Verify your installation
