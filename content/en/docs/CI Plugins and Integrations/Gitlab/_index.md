@@ -88,8 +88,6 @@ However, all of those require a Registration Token. Here are the GitLab UI locat
 1. **Shared Runner**: Admin Area > Overview > Runners (/admin/runners)
 2. **Specific Runner**: Under your repo > Settings > CI / CD > Click on Expand next to Runners
 
-> You can script this with 
-
 ### Registration
 
 > Obtaining the registration tokens can be scripted, but it requires access to the docker container:
