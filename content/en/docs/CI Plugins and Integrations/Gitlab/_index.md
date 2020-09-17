@@ -191,7 +191,7 @@ OPTIONS:
 
 You should now see the runner in your GitLab:
 
-![gitlab runner attached](/images/gitlab-runner-attached.png)
+![gitlab runner attached](/images/ci-plugins-and-integrations/admin-panel-runners.png)
 
 You can now start the anka-gitlab-runner: 
 
