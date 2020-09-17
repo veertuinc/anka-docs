@@ -14,7 +14,7 @@ There are many ways to deploy your Anka Build Cloud into Kubernetes. Our [Gettin
 The YAML we generate includes:
 
 - A namespace and context for Anka
-- 4 ETCD pods
+- 3 ETCD pods
 - 2 Build Cloud pods, each with two containers housing the Controller and Registry
 - A shared volume for both Registry containers so they see the same VM Templates and Tags
 - Load Balancers for each service
