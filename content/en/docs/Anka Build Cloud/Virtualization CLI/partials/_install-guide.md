@@ -35,3 +35,8 @@ anka version
 ```shell
 sudo anka license activate <key>
 ```
+
+#### Accept the Anka EULA
+```shell
+sudo anka license accept-eula
+```
