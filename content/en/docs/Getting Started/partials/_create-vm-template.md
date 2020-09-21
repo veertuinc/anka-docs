@@ -19,7 +19,7 @@ There are multiple ways to obtain the installer .app file for Mac OSX that we'll
       ```shell
       mkdir -p /tmp/app
       hdiutil attach "<installinstallmacos.py image path>" -mountpoint /tmp/app
-      cp -r "/tmp/app/Applications/Install Mac OS Mojave.app" /Applications/
+      cp -r "/tmp/app/Applications/Install Mac OS Catalina.app" /Applications/
       hdiutil detach /tmp/app -force
       rm -f "<installinstallmacos.py image path>"
       ```
