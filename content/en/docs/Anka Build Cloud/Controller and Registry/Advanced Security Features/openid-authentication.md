@@ -65,7 +65,7 @@ Here is what your `docker-compose.yml` should look like for use with Keycloak:
        - anka-registry
     restart: always
     environment:
-      ANKA_REGISTRY_ADDR: "https://anka.registry:8091"
+      ANKA_REGISTRY_ADDR: "https://anka.registry:8089"
       ANKA_USE_HTTPS: "true"
       ANKA_SKIP_TLS_VERIFICATION: "false"
       ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
