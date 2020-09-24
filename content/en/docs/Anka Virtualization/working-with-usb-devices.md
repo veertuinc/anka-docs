@@ -33,7 +33,7 @@ sh-3.2# anka usb list
     anka usb claim -n iphones 275a5e5f1313b22305c9beaffc4d58d985ebxxxx
     ```
 
-> If you have more than one iPhone, using a claim name (`-n`) to group them is usually good practice. This allows you to specify `iphones` when starting a VM. **Be aware:** If you've assigned multiple devices to the claim name, the VM will nondeterministically choose a non-busy device.
+> If you have more than one iPhone, using a claim name (`--claim-name`) to group them is usually good practice. This allows you to specify `iphones` when starting a VM. **Be aware:** If you've assigned multiple devices to the claim name, the VM will nondeterministically choose a non-busy device.
     
 3. Confirm that it's claimed (`is_claimed = 1`):
     ```shell
@@ -44,7 +44,7 @@ sh-3.2# anka usb list
 
 4. Now attach the device to a VM using the _name_, _vendor_id_, _location_, or _claim_name_ (we'll use the claim name):
     ```shell
-    sh-3.2# anka start -d iphones 10.15.4
+    sh-3.2# anka start --usb iphones 10.15.4
     Downloading files  [####################################]  100%
     vm pulled successfully with uuid: e56b4aaf-0797-42dd-9ebe-41908bf10a4d
     +-----------------------+---------------------------------------------+
@@ -106,7 +106,7 @@ USB:
     anka usb release 275a5e5f1313b22305c9beaffc4d58d985ebxxxx
     device released successfully
 
-    anka usb claim -n iphones 275a5e5f1313b22305c9beaffc4d58d985ebxxxx
+    anka usb claim --claim-name iphones 275a5e5f1313b22305c9beaffc4d58d985ebxxxx
     device claimed successfully
 
     curl https://127.0.0.1:8080/api/v1/usb

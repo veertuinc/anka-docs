@@ -23,8 +23,8 @@ If you're interested in _Infrastructure as Code_ to automate the creation of you
 
 Lastly, existing VM Templates can be cloned to create a new Template. You have two options:
 
-1. Use `anka clone` **without** `-c` (recommended): The new cloned Template will have no Tags, but will link to the layers/contents from the previous Template and Tag's state. No new disk space will be used until you modify that new Template. The Tag you create on the new Template will only contain the delta.
-2. Use `anka clone` **with** `-c`: The new cloned Template will have no Tags, but will link to the layers/contents from the previous Template and Tag's state. An independent copy of the Template and Tag will be made, in many cases doubling the disk usage.
+1. Use `anka clone` **without** `--copy` (recommended): The new cloned Template will have no Tags, but will link to the layers/contents from the previous Template and Tag's state. No new disk space will be used until you modify that new Template. The Tag you create on the new Template will only contain the delta.
+2. Use `anka clone` **with** `--copy`: The new cloned Template will have no Tags, but will link to the layers/contents from the previous Template and Tag's state. An independent copy of the Template and Tag will be made, in many cases doubling the disk usage.
 
-> When creating a clone without `-c`, deletion of the first Template will not delete the contents of the second cloned Template. Anka CLI will intelligently know that the layers are still in use by the new Template.
+> When creating a clone without `--copy`, deletion of the first Template will not delete the contents of the second cloned Template. Anka CLI will intelligently know that the layers are still in use by the new Template.
 

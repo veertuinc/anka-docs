@@ -27,7 +27,7 @@ Launch the Anka application found under /Applications. Once launched, you will s
 
 To start the VM in headless mode: `sudo anka start {vmNameOrUUID}`
 
-> `sudo anka start -v {vmNameOrUUID}` will start the VM and launch the Anka Viewer window.
+> `sudo anka start --view {vmNameOrUUID}` will start the VM and launch the Anka Viewer window.
 
 ```shell
 ❯ anka start 11.0.0-beta5
@@ -95,7 +95,7 @@ round-trip min/avg/max/stddev = 16.992/21.940/25.797/3.416 ms
 
 > The [`anka run`]({{< relref "docs/Anka Virtualization/command-reference.md#run" >}}) command doesn't source .profile or .bash_profile. You have to source the file before executing other commands
 
-> To inherit the host's environment, use `anka run -E` command. However, existing VM variables will not be overridden by host's variables. You can also pass them inside of a file like `anka run --env-file environment.txt`, where environment.txt is a text file in the form `VARIABLE=VALUE`, one variable per line.
+> To inherit the host's environment, use `anka run --env` command. However, existing VM variables will not be overridden by host's variables. You can also pass them inside of a file like `anka run --env-file environment.txt`, where environment.txt is a text file in the form `VARIABLE=VALUE`, one variable per line.
 
 > An advanced usage example of `anka run` inside of a bash script can be found [HERE](https://github.com/veertuinc/getting-started/blob/master/ANKA_BUILD_CLOUD/create-tags.bash)
 
@@ -155,5 +155,5 @@ Once you do see an ip, you can then SSH with the user and ip: `ssh anka@{ip}`
     anka run -n VNMANE whoami > /dev/null
     cat file.txt | anka run -n {vmNameOrUUID} md5
     ```
-- You can set the resolution of the Anka Viewer using `sudo anka modify 10.15.4 set display -r 1200x800`
+- You can set the resolution of the Anka Viewer using `sudo anka modify 10.15.4 set display --resolution 1200x800`
 - [Port forwarding of VM ports is supported]({{< relref "docs/Anka Virtualization/command-reference.md#example---add-port-forwarding" >}})

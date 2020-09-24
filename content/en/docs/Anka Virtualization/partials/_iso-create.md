@@ -31,7 +31,7 @@ vm created successfully with uuid: dfaa97c5-2154-11e8-881d-acbc32ad1d59
 Then, start the VM with the sierra ISO attached:
 
 ```shell
-sudo anka start -v -o sierra.iso sierravm
+sudo anka start --view -o sierra.iso sierravm
 +-----------------------+--------------------------------------+
 | uuid                  | dfaa97c5-2154-11e8-881d-acbc32ad1d59 |
 | name                  | sierravm                             |

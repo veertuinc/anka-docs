@@ -11,7 +11,7 @@ description: >
 
 ## Viewing the configuration
 
-View all default configuration settings for Anka installation on the host with `anka config -l` command:
+View all default configuration settings for Anka installation on the host with `anka config --list` command:
 
 {{< highlight shell "hl_lines=13 27 31 57" >}}
 ❯ anka config -l

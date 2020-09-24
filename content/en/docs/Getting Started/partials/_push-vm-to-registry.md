@@ -1,5 +1,5 @@
 ```shell
-sudo anka registry push catalina -t base
+sudo anka registry push catalina --tag base
 ```
 
 After the push completes, you should see your new Template in the "Templates" section of the controller UI.
