@@ -8,7 +8,7 @@ At this time, Anka VM Templates only support the following macOS versions:
 
 - `10.15.x` (macOS Catalina)
 - `10.14.x` (macOS Mojave)
-- `10.13.x` (macOS Hi Sierra)
+- `10.13.x` (macOS High Sierra)
 - `10.12.x` (macOS Sierra)
 - `10.11.x` (macOS El Capitan)
 - `10.10.x` (macOS Yosemite)
@@ -42,4 +42,3 @@ Lastly, each Template and specific/current Tag can be cloned to create a new Tem
 2. Use `anka clone` **with** `-c`: The new cloned Template will have no Tags, but will link to the layers/contents from the previous Template and Tag's state. An independent copy of the Template and Tag will be made, in many cases doubling the disk usage.
 
 > When creating a clone without `-c`, deletion of the first Template will not delete the contents of the second cloned Template. Anka CLI will intelligently know that the layers are still in use by the new Template.
-
