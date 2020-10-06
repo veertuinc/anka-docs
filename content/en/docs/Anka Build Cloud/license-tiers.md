@@ -44,6 +44,10 @@ Control VM runtime (Networking, Access to host) and functional properties with p
 
 {{< include file="shared/content/en/docs/Anka Build Cloud/partials/_usb-device-control-api.md" >}}
 
+### Event logging and automated pushing
+
+{{< include file="shared/content/en/docs/Anka Build Cloud/partials/_event-logging-endpoint-pushing.md" >}}
+
 ### [Basic controller authentication (Certificate & Root Superuser Token)]({{< relref "docs/Anka Build Cloud/Advanced Security Features/_index.md" >}})
 
 Authentication support includes Root token authentication access to the Controller Dashboard and certificate authentication for the following clients: Build nodes, plugins, API access, anka command line access to the registry.

@@ -79,3 +79,7 @@ Starting from Controller release version 1.0.12, logs will be available for down
 ### USB Device Control (Controller API)
 
 {{< include file="shared/content/en/docs/Anka Build Cloud/partials/_usb-device-control-api.md" >}}
+
+### Event logging and automated pushing
+
+{{< include file="shared/content/en/docs/Anka Build Cloud/partials/_event-logging-endpoint-pushing.md" >}}

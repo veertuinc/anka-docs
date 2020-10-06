@@ -11,27 +11,14 @@ description: >
 
 ## Current Versions
 
-### Anka Build Cloud Controller & Registry 1.11.0 - August 31, 2020
+### Anka Build Cloud Controller & Registry 1.11.0 (1.11.0-59d63cca) - August 31, 2020
 - New Feature : `anka-controller` executable from macOS native package now supports `--tail {lines}`
 - Improvement : Removed all unnecessary files from docker .tar.gz archive
 - Bug Fix : Pulling a template/tag now calculates the size of the tag properly (instead of only the latest tag for the template)
 - Bug Fix : VNC url in Controller UI > Instances page is now a link again
+- (Standalone Registry: 1.11.0-d43f91c)
 
-### TeamCity Plugin version 1.7.1 - July 7, 2020
-- Bug Fix : Long-running threads were being created
-- Bug Fix : UI Slowness the more Instances/Agents you created
-- Bug Fix : HTTPS without certificate authentication enabled doesn't work
-
-### Jenkins Plugin 2.2.0 - August 31, 2020
-
-> **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
-
-- Bug Fix : vmPollTime definitions in Configuration as Code aren't working due to typo
-
-### Anka VM GitHub Action 1.2.0-beta - June 17, 2020
-- Beta released to public
-
-### Anka Virtualization CLI 2.2.3 - May 03, 2020
+### Anka Virtualization CLI 2.2.3 (2.2.3.118) - May 03, 2020
 - Bug Fix : Starting multiple VMs from suspended state with bridge networking configuration
 - Bug Fix : Unable to set up port forwarding to 127.0.0.1
 - Bug Fix : VNC connection error
@@ -41,10 +28,30 @@ description: >
 - New feature : When using Anka Viewer, after clicking the green full screen button on the window's top bar, it's unclear how to get out of full screen. Now, if you move your mouse to the top of the screen you will expose the bar and green button.
 - New feature : Updated license terms
 
-> There is no requirement to upgrade the VM templates from previous anka version 2.2.2 to version 2.2.3.
+    > There is no requirement to upgrade the VM templates from previous anka version 2.2.2 to version 2.2.3.
+
+### TeamCity Plugin version 1.7.1 - July 7, 2020
+- Bug Fix : Long-running threads were being created
+- Bug Fix : UI Slowness the more Instances/Agents you created
+- Bug Fix : HTTPS without certificate authentication enabled doesn't work
+
+### Jenkins Plugin 2.2.0 - August 31, 2020
+- Bug Fix : vmPollTime definitions in Configuration as Code aren't working due to typo
+
+    > **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
+
+### Anka VM GitHub Action v1.2.0-beta - June 17, 2020
+- Beta released to public
 
 ### Packer Plugin 1.5.0 - August 31, 2020
 - New feature : Added ability to modify cpu core count, ram, and disk size when cloning from an existing VM Template
+
+### Anka GitLab Runner 1.1.0 - Sep 28, 2020
+- Feature Change : When limiting jobs to a specific node using the enterprise license feature "node groups", you no longer use the `GROUP_ID` ENV and instead set it with `--anka-node_group` on registration or the ENV `NODE_GROUP`.
+
+---
+
+## Previous Versions
 
 ### Anka GitLab Runner 1.0.0 - Set 03, 2020
 - Upgraded base to 13.2-stable
@@ -79,9 +86,8 @@ description: >
 - Readme update with developer guide and changes we've made from the gitlabhq repo
 - Fixed all of the tests
 
----
-
-## Previous Versions
+### Anka GitLab Runner 0.6b - Dec 08, 2019
+- New feature : update gitlab runner to new gitlab codebase
 
 ### Packer Plugin 1.3.0 - June 18, 2020
 - New feature : Properly handle cleanup of VM when halted or cancelled

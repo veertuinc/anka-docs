@@ -98,7 +98,7 @@ export ANKA_ANKA_REGISTRY="http://anka.registry:8089"
 | Enable event logging | bool | Enables event logging. **`Requires a Enterprise Plus license and will show under the Controller's Logs section after the first instance is created.`** | false | ANKA_ENABLE_EVENT_LOGGING |
 | Event log url | string | The URL to post events (in json format) | - | ANKA_EVENT_LOG_URL |
 | Enable central logging | bool | Enables central logging | false | ANKA_ENABLE_CENTRAL_LOGGING |
-| Push registry | string | Comma separated list of Registry addresses to use for push operations | - | ANKA_PUSH_REGISTRY |
+| Push registry | string | Comma separated list of Registry addresses to use for push operations (saveImage/Jenkins cache building) | - | ANKA_PUSH_REGISTRY |
 | ETCD defrag interval | duration | Defrag ETCD (all servers) in this interval. Pass 0 to disable | 3h | ANKA_DEFRAG_DB_INTERVAL |
 | Instance time out | duration | The time that instances stay in 'Terminated' state | 1m | ANKA_INSTANCE_TIME_OUT |
 | Manage MAC addresses | bool | Let the controller manage VM MAC addresses to ensure uniqueness/prevent collision. **`Requires VM Templates/Tags be stored in your Registry in a stopped state (vs suspended).`** | false | ANKA_MANAGE_MAC_ADDRESSES |
