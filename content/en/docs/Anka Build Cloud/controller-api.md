@@ -19,7 +19,7 @@ Use the REST APIs to integrate Anka Build cloud with your CI system(If there is 
 Property       | Type   | Description 
  ---           | ---    | ---
 instance_id    | string | identifier for the instance
-instance_state | string | the instance's state options are "Scheduling", "Pulling", "Started", "Stopping", "Stopped", "Terminating", "Terminated", "Error", "Pushing"
+instance_state | string | the instance's state options are "Scheduling", "Pulling", "Started", "Stopping", "Stopped", "Terminating", "Terminated", "Error", "Pushing" (Scheduling -> Pulling, Started, Stopped, Pushing, or Error -> Terminating -> Terminated)
 message        | string | Error message in case of an error
 anka_registry  | string | the URL of the registry where the template is saved
 vmid           | string | the Id of the template that the VM is created from
