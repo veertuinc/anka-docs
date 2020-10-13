@@ -11,12 +11,9 @@ description: >
 
 ## Current Versions
 
-### Anka Build Cloud Controller & Registry 1.11.0 (1.11.0-59d63cca) - August 31, 2020
-- New Feature : `anka-controller` executable from macOS native package now supports `--tail {lines}`
-- Improvement : Removed all unnecessary files from docker .tar.gz archive
-- Bug Fix : Pulling a template/tag now calculates the size of the tag properly (instead of only the latest tag for the template)
-- Bug Fix : VNC url in Controller UI > Instances page is now a link again
-- (Standalone Registry: 1.11.0-d43f91c)
+### Anka Build Cloud Controller & Registry 1.11.1 (1.11.1-1df83172) - Oct 13, 2020
+- Bug Fix : Cache building / Save Image was causing the node to go offline and terminating any other VMs running on it.
+- (Standalone Registry: 1.11.1-b8cecfd)
 
 ### Anka Virtualization CLI 2.2.3 (2.2.3.118) - May 03, 2020
 - Bug Fix : Starting multiple VMs from suspended state with bridge networking configuration
@@ -52,6 +49,13 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Build Cloud Controller & Registry 1.11.0 (1.11.0-59d63cca) - August 31, 2020
+- New Feature : `anka-controller` executable from macOS native package now supports `--tail {lines}`
+- Improvement : Removed all unnecessary files from docker .tar.gz archive
+- Bug Fix : Pulling a template/tag now calculates the size of the tag properly (instead of only the latest tag for the template)
+- Bug Fix : VNC url in Controller UI > Instances page is now a link again
+- (Standalone Registry: 1.11.0-d43f91c)
 
 ### Anka GitLab Runner 0.6b - Dec 08, 2019
 - New feature : update gitlab runner to new gitlab codebase
