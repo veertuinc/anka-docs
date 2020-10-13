@@ -43,7 +43,7 @@ description: >
 ### Anka VM GitHub Action v1.2.0-beta - June 17, 2020
 - Beta released to public
 
-### Packer Plugin 1.5.0 - August 31, 2020
+### Packer Plugin 1.5.0 - Oct 13th, 2020
 - New feature : Added ability to modify cpu core count, ram, and disk size when cloning from an existing VM Template
 
 ### Anka GitLab Runner 1.1.0 - Sep 28, 2020
