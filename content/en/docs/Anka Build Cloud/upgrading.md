@@ -22,6 +22,8 @@ When upgrading the entire Anka Build Cloud Software, execute these steps in the 
 
 6) Run `curl -O http://anka.controller:8090/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on your nodes to pull the latest Anka Agent binary and ensure proper communication between the CLI and the Controller API.
 
+> **If you need to downgrade, be sure to follow step 6 to downgrade the agent version on each node**
+
 ## Anka Build Cloud upgrade note matrix
 
 Existing Version | Target Version | Recommendation
