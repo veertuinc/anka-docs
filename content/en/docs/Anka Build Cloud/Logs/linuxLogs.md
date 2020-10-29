@@ -8,6 +8,8 @@ description: >
 
 ## OVERVIEW
 
+> All logs older than 7 days are deleted every day (hard coded; no logrotate configuration)
+
 Anka controller and registry services can run with linux, using docker containers. logs are available via the controller dashboard , docker logs and via directories in correspondence with anka services. Generally, log files are created for each vm upon vm start .   
 Anka controller is responsible for cleaning unused vms logs. 
 

@@ -8,6 +8,8 @@ description: >
 
 ## OVERVIEW
 
+> All logs older than 7 days are deleted every day (hard coded; no logrotate configuration)
+
 Anka logs are available via the controller dashboard and several directories in correspondence with 'Anka' and it's microservices (controller, registry and agent). Generally, log files are created for each vm upon vm start.  
 Anka controller is responsible for cleaning unused vms logs. 
 * anka Agent 
