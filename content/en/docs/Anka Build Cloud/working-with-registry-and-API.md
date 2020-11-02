@@ -1,10 +1,10 @@
 ---
 date: 2019-12-12T00:00:00-00:00
-title: "Working with the Registry"
-linkTitle: "Working with the Registry"
+title: "Working with the Registry and API"
+linkTitle: "Working with the Registry and API"
 weight: 5
 description: >
-  How to work with the Anka Registry.
+  How to work with the Anka Registry and API
 ---
 
 Anka registry provides an easy way to store, version, and distribute macOS VMs that are used for CI and development. Once you've completed creation and setup of your VMs, use [`anka registry`]({{< relref "docs/Anka Virtualization/command-reference.md#registry" >}}) command to work with the registry.  
