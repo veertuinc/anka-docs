@@ -11,9 +11,13 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
 
 1. **Enable automatic login for the current user:** Go to Preferences > Users > enable automatic login. Or through your CLI:
 
-```shell
-sudo defaults write /Library/Preferences/com.apple.loginwindow "autoLoginUser" '<USERNAME>'
-```
+    ```shell
+    sudo defaults write /Library/Preferences/com.apple.loginwindow "autoLoginUser" '<USERNAME>'
+    ```
+
+    If using the CLI method, you must also XOR-encrypt the login password and add it to `/etc/kcpassword`.
+    The `/etc/kcpassword` file must be owned by `root:wheel` with a mode of `0600`.
+    See the GitHub repository [xfreebird/kcpassword](https://github.com/xfreebird/kcpassword) for help generating the encrypted password string.
 
 2. **Disable require password after screensaver has started:** Go to Preferences > Security > under General > uncheck `require password after screensave or sleep begins` option.
 
@@ -29,7 +33,7 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow "autoLoginUser" '
     # Disable disk sleep
     sudo pmset -a disksleep 0
     # Hibernate mode is a problem on some mac minis; best to just disable
-    Sudo pmset -a hibernatemode 0 
+    Sudo pmset -a hibernatemode 0
     ```
 
 4. **Disable spotlight:** `sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist`
