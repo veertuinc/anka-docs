@@ -148,6 +148,39 @@ Once you do see an ip, you can then SSH with the user and ip: `ssh anka@{ip}`
 
 > We provide a fixed IP inside of the VM for accessing the host: `192.168.64.1` (or `192.168.128.1` for "host" type).
 
+## VNC
+
+By default, without any modifications to the VM post-create, you'll be able to access the VM with VNC using the `vnc_connection_string` under a started VM's `anka show` output:
+
+```bash
+❯ anka start 10.15.6
++-----------------------+--------------------------------------+
+| uuid                  | c0847bc9-5d2d-4dbc-ba6a-240f7ff08032 |
++-----------------------+--------------------------------------+
+| name                  | 10.15.6 (base)                       |
++-----------------------+--------------------------------------+
+| created               | Sep 25 14:02                         |
++-----------------------+--------------------------------------+
+| cpu_cores             | 6                                    |
++-----------------------+--------------------------------------+
+| ram                   | 10G                                  |
++-----------------------+--------------------------------------+
+| display               | 1                                    |
++-----------------------+--------------------------------------+
+| hard_drive            | 80Gi (14.5Gi on disk)                |
++-----------------------+--------------------------------------+
+| addons_version        | 2.2.3.118.804 (update recommended)   |
++-----------------------+--------------------------------------+
+| status                | running                              |
++-----------------------+--------------------------------------+
+| mac                   | aa:2c:55:82:9e:8c                    |
++-----------------------+--------------------------------------+
+| vnc_connection_string | vnc://:admin@192.168.0.110:5900      |
++-----------------------+--------------------------------------+
+```
+
+However, this is a very limited VNC with no extensions (copy/paste, extended authorization, etc). To use Apple's VNC with all extensions enabled, you'll need to `anka view` into the VM and enable Screen Sharing under System Preferences. Once enabled, you need to stop the VM with `anka stop`, then use the [modify command to set port-forwarding]({{< relref "docs/Anka Virtualization/command-reference.md#example---add-port-forwarding" >}}) of the VNC port from within the VM to a port on the host. This will allow you to VNC to the host IP and the forwarded port (usually 10000-10005).
+
 ## Answers to Frequently Asked Questions
 
 - [`anka run`]({{< relref "docs/Anka Virtualization/command-reference.md#run" >}}) doesn't support TTY mode, but you could easily use POSIX streams as with regular bash tool:
