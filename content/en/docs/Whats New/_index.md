@@ -7,11 +7,15 @@ description: >
   Description of new Anka software features
 ---
 
-## What's new in Anka Virtualization 2.3.0
+## What's new in Anka Virtualization 2.3.0-Beta
 
-### Anka Develop is free!
+> **This is not a production ready release**
 
-Anka Develop is a free, but limited, version of our Anka Virtualization software. You will see the license enabled by default after you install the Anka Virtualization.
+> This release does not make significant changes to macOS Catalina and older. They will function the same as prior releases of Anka.
+
+### Use Anka for free!
+
+Our new Anka Develop license is a free, but limited, version of our Anka Virtualization software. You will see the license enabled by default after you install the Anka Virtualization.
 
 Anka Develop is currently restricted to running a single VM at a time. It also does not include VM suspension, tagging, or use of the registry CLI commands. Finally, it will only function on Macbook, Macbook Pro, and Macbook Air hardware.
 
