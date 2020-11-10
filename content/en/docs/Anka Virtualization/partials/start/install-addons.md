@@ -18,3 +18,5 @@ lrwxr-xr-x   1 root  wheel     1B Nov  9 14:15 Macintosh HD -> /
 drwxr-xr-x@  4 anka  staff   136B Nov  6 12:51 Anka Guest Addons 2.2.3(118.6755654)
 drwxr-xr-x  22 root  admin   704B Sep 25 11:48 ..
 ```
+
+You can now go into the VM and manually install addons using the installer package inside of the `Anka Guest Addons 2.2.3(118.6755654)` mounted disk.
