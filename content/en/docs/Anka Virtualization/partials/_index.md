@@ -3,33 +3,34 @@
 Usage: anka [OPTIONS] COMMAND [ARGS]...
 
 Options:
-  --machine-readable              JSON output format
+  --machine-readable              Output a machine readable format (JSON)
   --log-level [debug|info|error]
   --debug
   -l, --login TEXT                Specify the vm policy user (if configured)
-  --help                          Show this message and exit.
+  --help                          Display usage information
 
 Commands:
-  attach    Attach USB device(s) to running VM
-  clone     Clones a VM
-  config    Manage Anka configuration
+  attach    Attach USB device(s) to a running VM
+  clone     Clone a suspended or stopped VM
+  config    Manage the CLI configuration
+  cp        Copy files in and out of the VM and host
   create    Creates a VM
-  delete    Deletes a VM(s)
-  describe  Shows VM configuration
-  detach    Detach USB device(s) from the VM
-  license   Licensing commands
-  list      List VM library contents
-  modify    Modifies a VM settings
-  mount     Mounts local folder into VM
-  reboot    Restarts a VM(s)
-  registry  VMs registry
-  run       Run commands inside VM environment
-  show      Shows VM runtime properties
-  start     Starts or resumes paused VM
-  stop      Shuts down a VM(s)
-  suspend   Suspends a VM(s)
-  unmount   Unmount shared folder
+  delete    Delete a VM(s)
+  describe  Show a VM's configuration
+  detach    Detach USB device(s) from a VM
+  license   Control Licensing
+  list      List the current user's VM Template library
+  modify    Modify a VM's configuration
+  mount     Mounts a host directory into the VM
+  reboot    Restart a running VM(s)
+  registry  Configure and control the Anka Cloud Registry
+  run       Run a command inside of a VM (will start VM...
+  show      Show a VM's runtime properties
+  start     Start or resume a stopped or suspended VM
+  stop      Shut down a VM(s)
+  suspend   Suspend a running VM(s)
+  unmount   Unmount the mounted host directory
   usb       Manage USB devices
-  version   Prints out version
-  view      Open VM display viewer
+  version   Output the Anka version
+  view      Open VM in Anka Viewer
 ```

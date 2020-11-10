@@ -1,7 +1,7 @@
 > WiFi interfaces are not supported yet
 
 ```shell
-❯ anka describe 11.0.0-beta5
+❯ anka describe 11.0.1
 . . .
 network_cards
 
@@ -12,9 +12,9 @@ network_cards
 +------------+--------+--------+-----------+
 . . .
 
-❯ anka modify 11.0.0-beta5 set network-card 0 -t bridge
+❯ anka modify 11.0.1 set network-card 0 -t bridge
 
-❯ anka describe 11.0.0-beta5
+❯ anka describe 11.0.1
 . . .
 network_cards
 

@@ -2,8 +2,9 @@
 title: "Troubleshooting Guides and FAQs"
 linkTitle: "Troubleshooting Guides and FAQs"
 weight: 7
-description: >
-  Troubleshooting guides and FAQs
+hideSubPagesInLeftMenu: true
+---
+
 ---
 
 ## Anka Virtualization
@@ -12,9 +13,19 @@ description: >
 
 ### FAQs
 
-## Anka Build Cloud Controller & Registry
+---
+
+## Anka Build Cloud
 
 ### Troubleshooting Guides
+
+#### Controller
+
+- [VMs stuck in "Scheduling"]({{< relref "docs/Troubleshooting Guides and FAQs/anka-build-cloud/controller/vm-stuck-scheduling.md" >}})
+
+
+#### Registry
+
 
 ### FAQs
 
@@ -27,7 +38,11 @@ description: >
 
 ### Troubleshooting Guides
 
+- [VMs not starting]({{< relref "docs/Troubleshooting Guides and FAQs/jenkins-plugin/vms-not-starting.md">}})
+
 ### FAQs
+
+---
 
 ## GitLab Runner
 
@@ -35,17 +50,23 @@ description: >
 
 ### FAQs
 
+---
+
 ## BuildKite Agent
 
 ### Troubleshooting Guides
 
 ### FAQs
 
-## Teamcity
+---
+
+## Teamcity Plugin
 
 ### Troubleshooting Guides
 
 ### FAQs
+
+---
 
 ## GitHub Actions
 

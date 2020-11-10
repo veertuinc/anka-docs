@@ -13,6 +13,10 @@ sudo anka create --ram-size 8G --cpu-count 4 --disk-size 80G \
 
 > The VM creation should take around 30 minutes
 
-> **Anka Build licenses:** Your VM will by default be in a suspended state. Our free Anka Develop license only supports stopped VMs
+> **Anka Develop licenses** default your VM in a stopped state (the only available state)
 
-> VMs are created with SIP/Kext Consent disabled by default. It's strongly advised to keep these settings for optimal Anka performance. If you need to re-enable SIP/Kext Consent, then use this command `anka modify {vmNameOrUUID} set custom-variable sys.csr-active-config 0`
+> **Anka Build licenses** default your VM in a suspended state
+
+> **Catalina and lower** VMs are created with SIP/Kext Consent disabled by default. It's strongly advised to keep these settings for optimal Anka performance. If you need to re-enable SIP/Kext Consent, then use this command `anka modify {vmNameOrUUID} set custom-variable sys.csr-active-config 0`
+
+> **Big Sur and higher** VMs are created with SIP/Kext Consent enabled by default.

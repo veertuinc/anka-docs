@@ -38,8 +38,10 @@ DevOps workflows typically include lots of automation. Because of this, Anka has
 ### What's included in Anka Develop?
 Developers with laptops (Macbook, Macbook Pro, and Macbook Air) can use the free Anka Develop license to create and start a single VM for local development and testing. Users can expect all features except for suspending, tagging, and registry commands.
 
+> Post-install of the Anka Virtualization package, the free Anka Develop will be automatically enabled.
+
 ### Who should use Anka Develop?
-Anka Develop is for developers wanting to test their applications in a sandbox environment.
+Anka Develop is for developers wanting to test their iOS or macOS applications in a sandbox environment.
 
 ---
 

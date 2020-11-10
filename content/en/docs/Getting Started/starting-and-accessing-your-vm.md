@@ -30,11 +30,11 @@ To start the VM in headless mode: `sudo anka start {vmNameOrUUID}`
 > `sudo anka start --view {vmNameOrUUID}` will start the VM and launch the Anka Viewer window.
 
 ```shell
-❯ anka start 11.0.0-beta5
+❯ anka start 11.0.1
 +-----------------------+--------------------------------------+
 | uuid                  | 55b27ccc-81e2-47e3-9702-e678540f7219 |
 +-----------------------+--------------------------------------+
-| name                  | 11.0.0-beta5                         |
+| name                  | 11.0.1                         |
 +-----------------------+--------------------------------------+
 | created               | Sep 01 08:30                         |
 +-----------------------+--------------------------------------+
@@ -64,12 +64,14 @@ Similar to `docker exec`, [`anka run`]({{< relref "docs/Anka Virtualization/comm
 
 > If the VM is in a _suspended_ or _stopped_ state, [`anka run`]({{< relref "docs/Anka Virtualization/command-reference.md#run" >}}) will start it.
 
-> When running [`anka run`]({{< relref "docs/Anka Virtualization/command-reference.md#run" >}}) with no options/flags, it will mount the current folder from the host into the VM and execute commands in this mounted location. This can be disabled using the [`-n`]({{< relref "docs/Anka Virtualization/command-reference.md#run" >}}) option.
+> **Catalina and lower:** When running [`anka run`]({{< relref "docs/Anka Virtualization/command-reference.md#run" >}}) with no options/flags, it will mount the current directory from the host into the VM and execute commands in this mounted location. This can be disabled using the [`-n`]({{< relref "docs/Anka Virtualization/command-reference.md#run" >}}) option.
+
+> **Big Sur:** When running [`anka run`]({{< relref "docs/Anka Virtualization/command-reference.md#run" >}}) with no options/flags, the current directory will not be mounted in by default. This requires the [manual installation of addons]({{< relref "docs/Anka Virtualization/command-reference.md#install-addons">}}).
 
 Once started, you can use `anka run` _on the host terminal_ to validate things are working properly:
 
 ```shell
-❯ anka run 11.0.0-beta5 bash -c "hostname && ls -l && ping -c 5 google.com"
+❯ anka run 11.0.1 bash -c "hostname && ls -l && ping -c 5 google.com"
 Mac-mini.local
 total 102872
 drwxr-xr-x   13 anka  staff       416 Aug 31 10:35 _diag
@@ -97,9 +99,11 @@ round-trip min/avg/max/stddev = 16.992/21.940/25.797/3.416 ms
 
 > To inherit the host's environment, use `anka run --env` command. However, existing VM variables will not be overridden by host's variables. You can also pass them inside of a file like `anka run --env-file environment.txt`, where environment.txt is a text file in the form `VARIABLE=VALUE`, one variable per line.
 
-> An advanced usage example of `anka run` inside of a bash script can be found [HERE](https://github.com/veertuinc/getting-started/blob/master/ANKA_BUILD_CLOUD/create-tags.bash)
+> An advanced usage example of `anka run` inside of a bash script can be found in our [Getting Started Repo's Tag Creation Script](https://github.com/veertuinc/getting-started/blob/master/create-vm-template-tags.bash)
 
 ## Anka View
+
+> On Big Sur, many of the resolution/graphics features in Anka View do not work unless you [manually install addons]({{< relref "docs/Anka Virtualization/command-reference.md#install-addons">}})
 
 {{< include file="shared/content/en/docs/Anka Virtualization/partials/view/_index.md" >}}
 
@@ -112,11 +116,11 @@ round-trip min/avg/max/stddev = 16.992/21.940/25.797/3.416 ms
 In order to SSH into the VM, you'll need to enable **Remote Login** under **System Preferences > Sharing** (enabled by default). Next, check that networking has fully started on the VM by running `anka show {vmNameOrUUID}`:
 
 ```shell
-❯ anka show 11.0.0-beta5
+❯ anka show 11.0.1
 +-----------------------+--------------------------------------+
 | uuid                  | 55b27ccc-81e2-47e3-9702-e678540f7219 |
 +-----------------------+--------------------------------------+
-| name                  | 11.0.0-beta5                         |
+| name                  | 11.0.1                         |
 +-----------------------+--------------------------------------+
 | created               | Sep 01 08:30                         |
 +-----------------------+--------------------------------------+

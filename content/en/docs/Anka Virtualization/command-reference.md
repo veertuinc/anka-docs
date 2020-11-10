@@ -15,6 +15,9 @@ description: >
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/clone/_index.md" >}}
 ## Config
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/config/_index.md" >}}
+## Cp
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/cp/_index.md" >}}
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/cp/_example.md" >}}
 ## Create
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/create/_index.md" >}}
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/create/_example.md" >}}
@@ -135,6 +138,8 @@ description: >
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/show/_index.md" >}}
 ## Start
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/start/_index.md" >}}
+### Install Addons
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/start/install-addons.md" >}}
 ## Stop
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/stop/_index.md" >}}
 ## Suspend

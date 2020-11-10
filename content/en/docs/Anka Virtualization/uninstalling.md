@@ -7,13 +7,13 @@ description: >
   Steps for uninstalling the Anka Virtualization package
 ---
 
-> Uninstall doesn't remove the license. To remove license execute `sudo anka license remove` before uninstalling. Make a note of the fulfillment id that is displayed in the output of `sudo anka license remove`.
+> Uninstall doesn't remove the license. To remove license execute `sudo anka license remove` before uninstalling. Make a note of the fulfillment id!
 
 From the command line, execute the following command. Make sure all your VMs are stopped.
 
 `sudo /Library/Application\ Support/Veertu/Anka/tools/uninstall.sh`
 
-```
+```bash
 /Library/Application\ Support/Veertu/Anka/tools/uninstall.sh --help
 Usage: uninstall.sh [OPTIONS...]
 

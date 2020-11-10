@@ -9,11 +9,11 @@ description: >
 
 ## What is Anka Develop?
 
-Anka Develop is a free, but limited version, of our Anka Virtualization software.
+Anka Develop is a free, but limited, version of our Anka Virtualization software.
 
 ## How does it differ from Anka Build, Flow, and Secure?
 
-Anka Develop is currently restricted to running a single VM at a time. It also does not include suspension, tagging, or use of the registry CLI commands. Finally, it will only function on Macbook, Macbook Pro, and Macbook Air hardware.
+Anka Develop is currently restricted to running a single VM at a time. It also does not include VM suspension, tagging, or use of the registry CLI commands. Finally, it will only function on Macbook, Macbook Pro, and Macbook Air hardware.
 
 ## How to install Anka Develop?
 

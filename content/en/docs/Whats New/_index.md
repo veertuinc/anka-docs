@@ -7,6 +7,39 @@ description: >
   Description of new Anka software features
 ---
 
+## What's new in Anka Virtualization 2.3.0
+
+### Anka Develop is free!
+
+Anka Develop is a free, but limited, version of our Anka Virtualization software. You will see the license enabled by default after you install the Anka Virtualization.
+
+Anka Develop is currently restricted to running a single VM at a time. It also does not include VM suspension, tagging, or use of the registry CLI commands. Finally, it will only function on Macbook, Macbook Pro, and Macbook Air hardware.
+
+### VM Management UI
+
+We now have a management UI allowing you to start, stop, delete, and create VMs. This is used as an alternative to the CLI.
+
+![installer with pkg](/images/getting-started/creating-your-first-vm/create-vm-window-with-options.png)
+
+### Big Sur (11.X) Support
+
+> We are still in beta for this support. If you find any issues, please reach out to support.
+
+You can now use `anka create` to create 11.X macOS versions.
+
+### Anka is now driverless!
+
+Starting in Big Sur, we have recreated our driver addons as driverless addons. This allows for much more feature flexibility moving forward. This opens up many opportunities for our developers to add new features.
+
+### New `anka cp` / Deprecated `anka mount` and `anka run` automatic mounting
+
+Due to security changes in Big Sur, we've had to rewrite all of our addons to be driverless. This means that `anka mount` and `anka run (mounting)` no longer work with Big Sur VMs. However, they do still function for Catalina and below.
+
+As an alternative, we now have `anka cp` which allows transferring files and folders into the VM. The transfer speeds have shown to be much faster than SCP.
+
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/cp/_index.md" >}}
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/cp/_example.md" >}}
+
 ## What's New in Anka Build Cloud Controller & Registry Version 1.10.1
 
 ### Unresponsive VM Monitor
