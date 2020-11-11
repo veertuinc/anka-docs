@@ -11,9 +11,9 @@ description: >
 
 ## Current Versions
 
-### Anka Build Cloud Controller & Registry 1.11.1 (1.11.1-1df83172) - Oct 13, 2020
-- Bug Fix : Cache building / Save Image was causing the node to go offline and terminating any other VMs running on it.
-- (Standalone Registry: 1.11.1-b8cecfd)
+### Anka Build Cloud Controller & Registry 1.11.2 (1.11.2-ae2c9036) - Nov 10, 2020
+- Bug Fix : Memory leak in controller
+- (Standalone Registry: 1.11.2-886e687)
 
 ### Anka Virtualization CLI 2.2.3 (2.2.3.118) - May 03, 2020
 - Bug Fix : Starting multiple VMs from suspended state with bridge networking configuration
@@ -49,6 +49,10 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Build Cloud Controller & Registry 1.11.1 (1.11.1-1df83172) - Oct 13, 2020
+- Bug Fix : Cache building / Save Image was causing the node to go offline and terminating any other VMs running on it.
+- (Standalone Registry: 1.11.1-b8cecfd)
 
 ### Anka Build Cloud Controller & Registry 1.11.0 (1.11.0-59d63cca) - August 31, 2020
 - New Feature : `anka-controller` executable from macOS native package now supports `--tail {lines}`
