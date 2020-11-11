@@ -39,10 +39,12 @@ Starting in Big Sur, we have recreated our driver addons as driverless addons. T
 
 Due to security changes in Big Sur, we've had to rewrite all of our addons to be driverless. This means that `anka mount` and `anka run (mounting)` no longer work with Big Sur VMs. However, they do still function for Catalina and below.
 
-As an alternative, we now have `anka cp` which allows transferring files and folders into the VM. The transfer speeds have shown to be much faster than SCP.
+As an alternative, we now have `anka cp` which allows transferring files into the VM. The transfer speeds have shown to be much faster than SCP.
 
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/cp/_index.md" >}}
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/cp/_example.md" >}}
+
+> Be sure to update addons with `anka start -u 10.15.7` to use `anka cp`
 
 ## What's New in Anka Build Cloud Controller & Registry Version 1.10.1
 

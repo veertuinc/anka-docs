@@ -14,9 +14,9 @@ description: >
 Anka licenses are available for the following products:
 
 + **[Anka Develop]({{< relref "docs/Anka Develop/_index.md" >}})** - Very limited features allowing a developer to run a single VM at a time. Supported only on laptops (Macbook, Macbook Pro, and Macbook Air).
-+ **[Anka Build Basic]({{< relref "docs/Anka Build Cloud/license-tiers.md" >}})** - All Basic features to configure and run macOS CI Cloud infrastructure.
-+ **[Anka Build Enterprise]({{< relref "docs/Anka Build Cloud/license-tiers.md" >}})** - Basic + additional features for grouping, priority provisioning, etc.
-+ **[Anka Build Enterprise Plus]({{< relref "docs/Anka Build Cloud/license-tiers.md" >}})** - Enterprise + additional features to support SSO, VM encryption, event logging.
++ **[Anka Build Basic]({{< relref "docs/Anka Build Cloud/build-license-tiers.md" >}})** - All Basic features to configure and run macOS CI Cloud infrastructure.
++ **[Anka Build Enterprise]({{< relref "docs/Anka Build Cloud/build-license-tiers.md" >}})** - Basic + additional features for grouping, priority provisioning, etc.
++ **[Anka Build Enterprise Plus]({{< relref "docs/Anka Build Cloud/build-license-tiers.md" >}})** - Enterprise + additional features to support SSO, VM encryption, event logging.
 + **[Anka Flow]({{< relref "docs/Anka Flow/_index.md" >}})** - Install and configure Anka on developer mac workstations. Supported only on macbook models and iMac.
 + **[Anka Secure]({{< relref "docs/Anka Secure/_index.md" >}})** - Install and configure Anka on mac workstations to create secure, sandbox macOS working environments for privileged data access, etc.
 
@@ -26,13 +26,7 @@ Trial licenses for Anka products is valid for 30 days from the date of trial reg
 
 ## Anka License Feature Differences
 
-| **Feature** | **Develop** | **Flow** | **Build** | **Secure** |
-| --- | --- | --- | --- | --- |
-| Run Multiple VMs | No | Yes | Yes | Yes |
-| State Snapshot / Suspend VM | No | Yes | Yes | Yes |
-| USB Device Support | No | Yes | Yes | Yes |
-| Ability to communicate with Anka Build Cloud (Controller & Registry) | No | Yes | Yes | Yes |
-| Runs on all macOS hardware models | No (Macbook and iMac only) | No (Macbook and iMac only) | Yes | Yes |
+{{< include file="./shared/content/en/docs/Licensing/partials/feature-differences.md" >}}
 
 ## Anka Build License Feature Differences
 

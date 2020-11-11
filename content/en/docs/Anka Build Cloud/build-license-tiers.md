@@ -1,11 +1,15 @@
 ---
 date: 2019-12-12T00:00:00-00:00
-title: "License Tiers"
-linkTitle: "License Tiers"
+title: "Build License Tiers"
+linkTitle: "Build License Tiers"
 weight: 12
 description: >
   All about the Anka Build Cloud license tiers
 ---
+
+## Anka License Feature Differences
+
+{{< include file="./shared/content/en/docs/Licensing/partials/feature-differences.md" >}}
 
 ## Anka Build License Tier Datasheet
 
