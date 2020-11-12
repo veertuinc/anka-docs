@@ -11,6 +11,9 @@ description: >
 
 ## Current Versions
 
+### Jenkins Plugin 2.2.1 - Nov 11, 2020
+- Bug Fix : Dynamic Anka Node pipeline step causes job to hang
+
 ### Anka Build Cloud Controller & Registry 1.11.2 (1.11.2-ae2c9036) - Nov 10, 2020
 - Bug Fix : Memory leak in controller
 - (Standalone Registry: 1.11.2-886e687)
@@ -32,11 +35,6 @@ description: >
 - Bug Fix : UI Slowness the more Instances/Agents you created
 - Bug Fix : HTTPS without certificate authentication enabled doesn't work
 
-### Jenkins Plugin 2.2.0 - August 31, 2020
-- Bug Fix : vmPollTime definitions in Configuration as Code aren't working due to typo
-
-    > **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
-
 ### Anka VM GitHub Action v1.2.0-beta - June 17, 2020
 - Beta released to public
 
@@ -49,6 +47,11 @@ description: >
 ---
 
 ## Previous Versions
+
+### Jenkins Plugin 2.2.0 - August 31, 2020
+- Bug Fix : vmPollTime definitions in Configuration as Code aren't working due to typo
+
+    > **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
 
 ### Anka Build Cloud Controller & Registry 1.11.1 (1.11.1-1df83172) - Oct 13, 2020
 - Bug Fix : Cache building / Save Image was causing the node to go offline and terminating any other VMs running on it.
