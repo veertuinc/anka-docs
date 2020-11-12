@@ -1,5 +1,5 @@
 ![terminal installation](/images/anka-virtualization/terminal-installation.png)
 ```shell
-curl -L -o AnkaVirtualization.pkg https://veertu.com/downloads/anka-virtualization-latest
+curl -L -o AnkaVirtualization.pkg https://veertu.com/downloads/anka-virtualization-beta
 sudo installer -pkg AnkaVirtualization.pkg -tgt /
 ```
