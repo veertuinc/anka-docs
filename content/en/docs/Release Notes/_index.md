@@ -11,16 +11,21 @@ description: >
 
 ## Current Versions
 
-### Anka Virtualization CLI 2.3.0 BETA (2.3.0) -  03, 2020
+### Anka Virtualization CLI 2.3.0 **BETA** (118.166) -  03, 2020
+
+> Not for use in production
+
 - New feature: A free, but limited, license for developers and small teams (on by default)
 - New feature: Anka App now has a management UI where you can stop, start, delete, and create VMs
 - New feature: anka create support for Big Sur (avoiding having to upgrade Catalina)
 - New feature: SIP is now enabled by default for Big Sur
 - New feature: `anka cp` is replacing our older `anka mount` and automatic mounting for `anka run` due to changes Apple has made in Big Sur.
-Known Issues:
-  - In the create UI: When creating a Big Sur VM, ensure that `virtio-blk` and `virtio-net` are used, not the older `SATA/BLK` and `VeertuNet`
-  - In the create UI: When creating a Catalina or older macOS VM, ensure that `SATA/BLK` and `VeertuNet` are used
-  - `anka start -u` for existing VMs build with versions <= 2.2.3 will time out on the first attempt. Run it a second time and it will work.
+
+> Known Issues:
+>  - In the create UI: When creating a Big Sur VM, ensure that `virtio-blk` and `virtio-net` are used, not the older `SATA/BLK` and `VeertuNet`
+>  - In the create UI: When creating a Catalina or older macOS VM, ensure that `SATA/BLK` and `VeertuNet` are used
+>  - `anka start -u` for existing VMs build with versions <= 2.2.3 will time out on the first attempt. Run it a second time and it will work.
+>  - Homebrew fails to install with anka run, you need to go into the VM first and then install it from the VM terminal
 
 ### Jenkins Plugin 2.2.1 - Nov 11, 2020
 - Bug Fix : Dynamic Anka Node pipeline step causes job to hang
@@ -34,8 +39,9 @@ Known Issues:
 - Bug Fix : UI Slowness the more Instances/Agents you created
 - Bug Fix : HTTPS without certificate authentication enabled doesn't work
 
-### Anka VM GitHub Action v1.2.0-beta - June 17, 2020
-- Beta released to public
+### Anka VM GitHub Action v1.2.2-beta - Oct 1st, 2020
+- Maintenance: core/actions version bump
+- New feature: using Code QL
 
 ### Packer Plugin 1.5.0 - Oct 13th, 2020
 - New feature : Added ability to modify cpu core count, ram, and disk size when cloning from an existing VM Template
@@ -180,7 +186,7 @@ Known Issues:
 - Bug Fix : after rebooting a running vm with anka run VM sudo reboot`,  network doesn't work.
 - New feature : Allow to specify display physical(DPI) parameters. Requires `anka start -u` for existing VM templates.
 
-> There is no need to upgrade the VM templates from previous anka version 2.2.1 to version 2.2.2, unless you need to use the items from the above list which explicitly state the requirement of `anka start -u`.
+> There is no need to upgrade the VM templates from previous anka version 2.2.1 to version 2.2.2, unless you need to use the items from the above list which explicitly state the requirement of `anka `.
 
 ### Anka Build Cloud Controller & Registry 1.7.0 - Mar 23, 2020
 - Bug Fix : ankacluster doesn't pass max vm count to agent

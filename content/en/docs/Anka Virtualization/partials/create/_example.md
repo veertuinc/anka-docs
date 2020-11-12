@@ -3,6 +3,8 @@ sudo anka create --ram-size 8G --cpu-count 4 --disk-size 80G \
 --app /Applications/Install\ macOS\ Catalina.app 10.15.6
 ```
 
+> If you leave out `--ram-size` and `--cpu-count`, Anka will choose for you based on your total CPU and RAM. It will try to halve the total CPU and RAM values, but has a min of 2CPU/4GB and a max of 8CPU/8GB.
+
 > We recommend naming your initial VM after the version of macOS
 
 > **Be aware of the user you're executing Anka CLI commands as.** If you create VMs as root, they won't be available (when running `anka list`) to other users on the system and vice versa
