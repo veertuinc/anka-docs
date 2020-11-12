@@ -11,31 +11,28 @@ description: >
 
 ## Current Versions
 
-### Anka Build Cloud Controller & Registry 1.11.1 (1.11.1-1df83172) - Oct 13, 2020
-- Bug Fix : Cache building / Save Image was causing the node to go offline and terminating any other VMs running on it.
-- (Standalone Registry: 1.11.1-b8cecfd)
+### Anka Virtualization CLI 2.3.0 BETA (2.3.0) -  03, 2020
+- New feature: A free, but limited, license for developers and small teams (on by default)
+- New feature: Anka App now has a management UI where you can stop, start, delete, and create VMs
+- New feature: anka create support for Big Sur (avoiding having to upgrade Catalina)
+- New feature: SIP is now enabled by default for Big Sur
+- New feature: `anka cp` is replacing our older `anka mount` and automatic mounting for `anka run` due to changes Apple has made in Big Sur.
+Known Issues:
+  - In the create UI: When creating a Big Sur VM, ensure that `virtio-blk` and `virtio-net` are used, not the older `SATA/BLK` and `VeertuNet`
+  - In the create UI: When creating a Catalina or older macOS VM, ensure that `SATA/BLK` and `VeertuNet` are used
+  - `anka start -u` for existing VMs build with versions <= 2.2.3 will time out on the first attempt. Run it a second time and it will work.
 
-### Anka Virtualization CLI 2.2.3 (2.2.3.118) - May 03, 2020
-- Bug Fix : Starting multiple VMs from suspended state with bridge networking configuration
-- Bug Fix : Unable to set up port forwarding to 127.0.0.1
-- Bug Fix : VNC connection error
-- Bug Fix : DHCP bug related to renew lease in some Anka environment
-- Bug Fix : anka VMs can get corrupted when using nanka kext in cases of force shutdown
-- Bug Fix : Trying to start a VM result in failed state - with logs saying bind: Address already in use
-- New feature : When using Anka Viewer, after clicking the green full screen button on the window's top bar, it's unclear how to get out of full screen. Now, if you move your mouse to the top of the screen you will expose the bar and green button.
-- New feature : Updated license terms
+### Jenkins Plugin 2.2.1 - Nov 11, 2020
+- Bug Fix : Dynamic Anka Node pipeline step causes job to hang
 
-    > There is no requirement to upgrade the VM templates from previous anka version 2.2.2 to version 2.2.3.
+### Anka Build Cloud Controller & Registry 1.11.2 (1.11.2-ae2c9036) - Nov 10, 2020
+- Bug Fix : Memory leak in controller
+- (Standalone Registry: 1.11.2-886e687)
 
 ### TeamCity Plugin version 1.7.1 - July 7, 2020
 - Bug Fix : Long-running threads were being created
 - Bug Fix : UI Slowness the more Instances/Agents you created
 - Bug Fix : HTTPS without certificate authentication enabled doesn't work
-
-### Jenkins Plugin 2.2.0 - August 31, 2020
-- Bug Fix : vmPollTime definitions in Configuration as Code aren't working due to typo
-
-    > **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
 
 ### Anka VM GitHub Action v1.2.0-beta - June 17, 2020
 - Beta released to public
@@ -49,6 +46,23 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Virtualization CLI 2.2.3 (2.2.3.118) - May 03, 2020
+- Bug Fix : Starting multiple VMs from suspended state with bridge networking configuration
+- Bug Fix : Unable to set up port forwarding to 127.0.0.1
+- Bug Fix : VNC connection error
+- Bug Fix : DHCP bug related to renew lease in some Anka environment
+- Bug Fix : anka VMs can get corrupted when using nanka kext in cases of force shutdown
+- Bug Fix : Trying to start a VM result in failed state - with logs saying bind: Address already in use
+- New feature : When using Anka Viewer, after clicking the green full screen button on the window's top bar, it's unclear how to get out of full screen. Now, if you move your mouse to the top of the screen you will expose the bar and green button.
+- New feature : Updated license terms
+
+    > There is no requirement to upgrade the VM templates from previous anka version 2.2.2 to version 2.2.3.
+
+### Jenkins Plugin 2.2.0 - August 31, 2020
+- Bug Fix : vmPollTime definitions in Configuration as Code aren't working due to typo
+
+    > **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
 
 ### Anka GitLab Runner 1.0.0 - Set 03, 2020
 - Upgraded base to 13.2-stable
@@ -82,6 +96,10 @@ description: >
 - Added a bunch of tests
 - Readme update with developer guide and changes we've made from the gitlabhq repo
 - Fixed all of the tests
+
+### Anka Build Cloud Controller & Registry 1.11.1 (1.11.1-1df83172) - Oct 13, 2020
+- Bug Fix : Cache building / Save Image was causing the node to go offline and terminating any other VMs running on it.
+- (Standalone Registry: 1.11.1-b8cecfd)
 
 ### Anka Build Cloud Controller & Registry 1.11.0 (1.11.0-59d63cca) - August 31, 2020
 - New Feature : `anka-controller` executable from macOS native package now supports `--tail {lines}`
