@@ -22,7 +22,7 @@ Anka licenses are available for the following products:
 
 ## Obtaining a trial license
 
-Trial licenses for Anka products is valid for 30 days from the date of trial registration. They enable unlimited access to product features. You can use the same activation key on multiple machines depending upon the quantity specified at the time of trial registration. They can be obtained at [https://veertu.com/getting-started-anka-trials/](https://veertu.com/getting-started-anka-trials/).
+Trial licenses for Anka products is valid for 30 days from the date of trial registration. They enable unlimited access to product features. You can use the same activation key on multiple machines depending upon the quantity specified at the time of trial registration. They can be obtained at https://veertu.com/getting-started-anka-trials/.
 
 ## Anka License Feature Differences
 
