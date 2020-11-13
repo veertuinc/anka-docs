@@ -16,7 +16,7 @@ When upgrading the entire Anka Build Cloud Software, execute these steps in the 
 
 2) [Install the latest Anka Build Virtualization CLI]({{< ref "docs/Getting Started/installing-the-anka-virtualization-package.md" >}})
 
-3) **Catalina or older OS Only:**_(only needed if noted in the [CLI notes matrix]({{< relref "docs/Anka Virtualization/upgrading.md#anka-build-virtualization-cli-upgrade-note-matrix" >}}))_ Upgrade the guest addons inside existing VM templates with `anka start -u`, then push the newly upgraded VM templates to registry with `anka registry push {vmNameOrUUID} --tag <tag>`
+3) _(only needed if noted in the [CLI notes matrix]({{< relref "docs/Anka Virtualization/upgrading.md#anka-build-virtualization-cli-upgrade-note-matrix" >}}))_ Upgrade the guest addons inside existing VM templates with `anka start -u`, then push the newly upgraded VM templates to registry with `anka registry push {vmNameOrUUID} --tag <tag>`
 
 5) Go to your Controller & Registry and upgrade to the latest version: [ [Linux Guide]({{< relref "docs/Anka Build Cloud/setup-on-linux-with-docker.md" >}}) OR [MacOS Guide]({{< relref "docs/Anka Build Cloud/setup-on-macos.md" >}}) ]
 
