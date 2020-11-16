@@ -127,6 +127,11 @@ Client certificate | string | Path to client certificate. The Controller will us
 Client certificate key| string | Path to the client certificate's private key | - | ANKA_CLIENT_CERT_KEY
 Client keystore| string | Path to a client keystore file in pkcs12 format. The Controller will use the certificate from this key store when making http requests (mainly to the Registry). | - | ANKA_CLIENT_KEYSTORE
 Client keystore password | string | Password for the client keystore (optional). | - | ANKA_CLIENT_KEYPASS
+Allowed TLS Cipher Suites | comma separated, strings | A list of cipher suites to use for tls. Options: tls_rsa_with_3des_ede_cbc_sha, tls_rsa_with_aes_128_cbc_sha, tls_rsa_with_aes_256_cbc_sha, tls_rsa_with_aes_128_gcm_sha256, tls_rsa_with_aes_256_gcm_sha384, tls_aes_128_gcm_sha256, tls_aes_256_gcm_sha384, tls_chacha20_poly1305_sha256, tls_ecdhe_ecdsa_with_aes_128_cbc_sha, tls_ecdhe_ecdsa_with_aes_256_cbc_sha, tls_ecdhe_rsa_with_3des_ede_cbc_sha, tls_ecdhe_rsa_with_aes_128_cbc_sha, tls_ecdhe_rsa_with_aes_256_cbc_sha, tls_ecdhe_ecdsa_with_aes_128_gcm_sha256, tls_ecdhe_ecdsa_with_aes_256_gcm_sha384, tls_ecdhe_rsa_with_aes_128_gcm_sha256, tls_ecdhe_rsa_with_aes_256_gcm_sha384, tls_ecdhe_rsa_with_chacha20_poly1305_sha256, tls_ecdhe_ecdsa_with_chacha20_poly1305_sha256 | | ANKA_CIPHER_SUITES
+Minimal TLS Version | string | The min tls version to use. Options: tls_1.0, tls_1.1, tls_1.2, tls_1.3
+ | | ANKA_MIN_TLS_VERSION
+Maximal TLS Version | string | The max tls version to use. Options: tls_1.0, tls_1.1, tls_1.2, tls_1.3
+ | | ANKA_MAX_TLS_VERSION
 
 ### Built in Registry
 
@@ -302,12 +307,11 @@ Client certificate | string | Path to client certificate. The Controller will us
 Client certificate key| string | Path to the client certificate's private key | - | `--client-cert-key`
 Client keystore| string | Path to a client keystore file in pkcs12 format. The Controller will use the certificate from this key store when making http requests (mainly to the Registry). | - | `--client-keystore`
 Client keystore password | string | Password for the client keystore (optional). | - | `--client-keypass`
-Allowed TLS Cipher Suites | string list | A list of cipher suites to use for tls. Options: tls_rsa_with_3des_ede_cbc_sha, tls_rsa_with_aes_128_cbc_sha, tls_rsa_with_aes_256_cbc_sha, tls_rsa_with_aes_128_gcm_sha256, tls_rsa_with_aes_256_gcm_sha384, tls_aes_128_gcm_sha256, tls_aes_256_gcm_sha384, tls_chacha20_poly1305_sha256, tls_ecdhe_ecdsa_with_aes_128_cbc_sha, tls_ecdhe_ecdsa_with_aes_256_cbc_sha, tls_ecdhe_rsa_with_3des_ede_cbc_sha, tls_ecdhe_rsa_with_aes_128_cbc_sha, tls_ecdhe_rsa_with_aes_256_cbc_sha, tls_ecdhe_ecdsa_with_aes_128_gcm_sha256, tls_ecdhe_ecdsa_with_aes_256_gcm_sha384, tls_ecdhe_rsa_with_aes_128_gcm_sha256, tls_ecdhe_rsa_with_aes_256_gcm_sha384, tls_ecdhe_rsa_with_chacha20_poly1305_sha256, tls_ecdhe_ecdsa_with_chacha20_poly1305_sha256 | | `--cipher-suites`
+Allowed TLS Cipher Suites | comma separated, strings | A list of cipher suites to use for tls. Options: tls_rsa_with_3des_ede_cbc_sha, tls_rsa_with_aes_128_cbc_sha, tls_rsa_with_aes_256_cbc_sha, tls_rsa_with_aes_128_gcm_sha256, tls_rsa_with_aes_256_gcm_sha384, tls_aes_128_gcm_sha256, tls_aes_256_gcm_sha384, tls_chacha20_poly1305_sha256, tls_ecdhe_ecdsa_with_aes_128_cbc_sha, tls_ecdhe_ecdsa_with_aes_256_cbc_sha, tls_ecdhe_rsa_with_3des_ede_cbc_sha, tls_ecdhe_rsa_with_aes_128_cbc_sha, tls_ecdhe_rsa_with_aes_256_cbc_sha, tls_ecdhe_ecdsa_with_aes_128_gcm_sha256, tls_ecdhe_ecdsa_with_aes_256_gcm_sha384, tls_ecdhe_rsa_with_aes_128_gcm_sha256, tls_ecdhe_rsa_with_aes_256_gcm_sha384, tls_ecdhe_rsa_with_chacha20_poly1305_sha256, tls_ecdhe_ecdsa_with_chacha20_poly1305_sha256 | | `--cipher-suites`
 Minimal TLS Version | string | The min tls version to use. Options: tls_1.0, tls_1.1, tls_1.2, tls_1.3
  | | `--min-tls-version`
 Maximal TLS Version | string | The max tls version to use. Options: tls_1.0, tls_1.1, tls_1.2, tls_1.3
  | | `--max-tls-version`
-
 
 ### Built in Registry
 
