@@ -11,6 +11,8 @@ hideSubPagesInLeftMenu: true
 
 ### Troubleshooting Guides
 
+- [anka run shows "-anka: communication timeout"]({{< relref "docs/Troubleshooting Guides and FAQs/anka-virtualization/anka-run-communication-timeout.md" >}})
+
 ### FAQs
 
 ---

@@ -10,22 +10,22 @@ description: How to upgrade the Anka Build Cloud
 
 ## Upgrade Procedure
 
+> **If Downgrading, be sure to follow step 5 to downgrade the agent version on each node**
+
 When upgrading the entire Anka Build Cloud Software, execute these steps in the following sequence:
 
-1) Run `sudo ankacluster disjoin` on your nodes
+1) Run `sudo ankacluster disjoin` on your nodes. Then, wait for all active VMs/CI jobs to finish running.
 
 2) [Install the latest Anka Build Virtualization CLI]({{< ref "docs/Getting Started/installing-the-anka-virtualization-package.md" >}})
 
 3) _(only needed if noted in the [CLI notes matrix]({{< relref "docs/Anka Virtualization/upgrading.md#anka-build-virtualization-cli-upgrade-note-matrix" >}}))_ Upgrade the guest addons inside existing VM templates with `anka start -u`, then push the newly upgraded VM templates to registry with `anka registry push {vmNameOrUUID} --tag <tag>`
 
-5) Go to your Controller & Registry server:
+4) Go to your Controller & Registry server:
 
-  - Docker: Make a backup of your `docker-compose.yml`! [Download and extract the latest package]({{< relref "docs/Anka Build Cloud/setup-on-linux-with-docker.md#step-2-install-the-anka-build-cloud-controller--registry" >}})), then either configure the values in the `docker-compose.yml` or copy your previous `docker-compose.yml` in and then run `docker-compose up --build --force-recreate --remove-orphans -d`
-  - Native macOS package: Make a backup of your `/usr/local/bin/anka-controllerd`! Run `sudo anka-controller stop`, install the new .pkg (see the [MacOS Guide]({{< relref "docs/Anka Build Cloud/setup-on-macos.md" >}}), and then run `sudo anka-controller start`.
-  
-6) Run `curl -O http://anka.controller:8090/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on your nodes to pull the latest Anka Agent binary and ensure proper communication between the CLI and the Controller API.
-
-> **If you need to downgrade, be sure to follow step 6 to downgrade the agent version on each node**
+    - Docker: Make a backup of your `docker-compose.yml`! [Download and extract the latest package]({{< relref "docs/Anka Build Cloud/setup-on-linux-with-docker.md#step-2-install-the-anka-build-cloud-controller--registry" >}}), then either configure the values in the `docker-compose.yml` or copy your previous `docker-compose.yml` in and then run `docker-compose up --build --force-recreate --remove-orphans -d`
+    - Native macOS package: Make a backup of your `/usr/local/bin/anka-controllerd`! Run `sudo anka-controller stop`, install the new .pkg (see the [MacOS Guide]({{< relref "docs/Anka Build Cloud/setup-on-macos.md" >}}), and then run `sudo anka-controller start`.
+    
+5) Run `curl -O http://anka.controller:80/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on your nodes to pull the latest Anka Agent binary and ensure proper communication between the CLI and the Controller API.
 
 ## Anka Build Cloud upgrade note matrix
 
