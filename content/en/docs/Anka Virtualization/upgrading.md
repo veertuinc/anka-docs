@@ -22,17 +22,17 @@ description: How to upgrade the Anka Virtualization package
 
 When upgrading the entire Anka Build infrastructure (Controller/Registry and Nodes), execute the steps in the following sequence:
 
-1) Run `sudo ankacluster disjoin` on your nodes
+1) Wait for all CI/CD jobs to finish. Run `sudo ankacluster disjoin` on your nodes.
 
-2) Install the new anka pkg. Follow the [install instructions]({{< ref "docs/Getting Started/installing-the-anka-virtualization-package.md" >}})
+2) Install the new anka pkg. Follow the [install instructions]({{< ref "docs/Getting Started/installing-the-anka-virtualization-package.md" >}}).
 
-3) Upgrade the guest addons inside the VM templates with `anka start --update`
+3) Upgrade the guest addons inside the VM templates with `anka start --update`.
 
-4) Push the newly upgraded VM templates to registry with `anka registry push {vmNameOrUUID} --tag <tag>`
+4) Push the newly upgraded VM templates to registry with `anka registry push {vmNameOrUUID} --tag <tag>`.
 
-5) Go to the Controller & Registry and upgrade to the latest version.
+5) Go to the Controller & Registry server and [upgrade to the latest version]({{< ref "docs/Anka Build Cloud/upgrading.md" >}}).
 
-6) On the nodes, run `sudo ankacluster join http://{controller address}`
+6) On the nodes, run `sudo ankacluster join http://{controller address}`.
 
 ## Anka Build Virtualization CLI upgrade note matrix
 

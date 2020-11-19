@@ -10,22 +10,38 @@ description: How to upgrade the Anka Build Cloud
 
 ## Upgrade Procedure
 
-> **If downgrading, you can follow these same steps. However, make sure to run step 5 to downgrade the agent version on each node**
+> These steps also apply to downgrading
+
+> If upgrade the Anka Virtualization package:
+>
+>   1. Block CI/CD jobs from starting or being assigned to agents
+>   2. Wait for all CI/CD jobs to complete on your nodes
+>   3. Run `sudo ankacluster disjoin` on each node
+>
+> You can then safely [install the latest Anka Build Virtualization CLI]({{< ref "docs/Getting Started/installing-the-anka-virtualization-package.md" >}})
+
+> If your existing version is noted in the [CLI notes matrix below]({{< relref "docs/Anka Virtualization/upgrading.md#anka-build-virtualization-cli-upgrade-note-matrix" >}}):
+>
+>   1. Upgrade the guest addons inside existing VM templates with `anka start -u`
+>   2. Push the newly upgraded VM templates to registry with `anka registry push {vmNameOrUUID} --tag <tag>`
 
 When upgrading the entire Anka Build Cloud Software, execute these steps in the following sequence:
 
-1) Run `sudo ankacluster disjoin` on your nodes. Then, wait for all active VMs/CI jobs to finish running.
+1. Go to your Controller & Registry server:
 
-2) [Install the latest Anka Build Virtualization CLI]({{< ref "docs/Getting Started/installing-the-anka-virtualization-package.md" >}})
+    - Docker:
+        1. Make a backup of your `docker-compose.yml`.
+        2. [Download and extract the latest package]({{< relref "docs/Anka Build Cloud/setup-on-linux-with-docker.md#step-2-install-the-anka-build-cloud-controller--registry" >}}).
+        3. Configure the values in the `docker-compose.yml` or copy your previous `docker-compose.yml` to the new directory.
+        4. Run `docker-compose build` to prepare the new docker tag.
+        5. Run `docker-compose down` to take down the older version.
+        6. Run `docker-compose up -d` in the newer version directory.
+    - Native macOS package:
+        1. Make a backup of your `/usr/local/bin/anka-controllerd`.
+        2. Install the new .pkg (see the [MacOS Guide]({{< relref "docs/Anka Build Cloud/setup-on-macos.md" >}})).
+        3. Run `sudo anka-controller restart`.
 
-3) _(only needed if noted in the [CLI notes matrix]({{< relref "docs/Anka Virtualization/upgrading.md#anka-build-virtualization-cli-upgrade-note-matrix" >}}))_ Upgrade the guest addons inside existing VM templates with `anka start -u`, then push the newly upgraded VM templates to registry with `anka registry push {vmNameOrUUID} --tag <tag>`
-
-4) Go to your Controller & Registry server:
-
-    - Docker: Make a backup of your `docker-compose.yml`! [Download and extract the latest package]({{< relref "docs/Anka Build Cloud/setup-on-linux-with-docker.md#step-2-install-the-anka-build-cloud-controller--registry" >}}), then either configure the values in the `docker-compose.yml` or copy your previous `docker-compose.yml` in and then run `docker-compose up --build --force-recreate --remove-orphans -d`
-    - Native macOS package: Make a backup of your `/usr/local/bin/anka-controllerd`! Run `sudo anka-controller stop`, install the new .pkg (see the [MacOS Guide]({{< relref "docs/Anka Build Cloud/setup-on-macos.md" >}}), and then run `sudo anka-controller start`.
-    
-5) Run `curl -O http://anka.controller:80/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on your nodes to pull the latest Anka Agent binary and ensure proper communication between the CLI and the Controller API.
+2. Run `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on your nodes to pull the latest Anka Agent binary and ensure proper communication between the CLI and the Controller API.
 
 ## Anka Build Cloud upgrade note matrix
 
