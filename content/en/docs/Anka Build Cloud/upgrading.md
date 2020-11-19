@@ -10,7 +10,7 @@ description: How to upgrade the Anka Build Cloud
 
 ## Upgrade Procedure
 
-> **If Downgrading, be sure to follow step 5 to downgrade the agent version on each node**
+> **If downgrading, you can follow these same steps. However, make sure to run step 5 to downgrade the agent version on each node**
 
 When upgrading the entire Anka Build Cloud Software, execute these steps in the following sequence:
 
