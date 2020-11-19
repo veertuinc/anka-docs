@@ -70,7 +70,7 @@ description: >
 
     > **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
 
-### Anka GitLab Runner 1.0.0 - Set 03, 2020
+### Anka GitLab Runner 1.0.0 - Sep 03, 2020
 - Upgraded base to 13.2-stable
 - Handling canceled jobs properly now by sending a termination to the controller
 - Handling terminated or errored VM statuses properly now
