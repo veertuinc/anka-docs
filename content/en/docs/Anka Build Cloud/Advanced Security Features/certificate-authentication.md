@@ -7,21 +7,19 @@ description: >
   How to set up certificate based authentication.
 ---
 
-> This guide requires an Anka Enterprise (or higher) license.
+> **This guide requires an Anka Enterprise (or higher) license**
 
-> You must have at least one node with a Enterprise or higher license joined to the Controller for these features to work.
+## Requirements
 
-For this tutorial you will need:
-
-1. A Root CA certificate. For more information about CAs, see https://en.wikipedia.org/wiki/Certificate_authority. Usually provided by your organization or where you obtain your certificate signing. We will refer to this as **anka-ca-crt.pem** and **anka-ca-key.pem**.
+1. A Root CA certificate. For more information about CAs, see https://en.wikipedia.org/wiki/Certificate_authority. Usually provided by your organization or where you obtain your certificate signing. We will refer to this as **anka-ca-crt.pem** and **anka-ca-key.pem** throughout the guide.
 2. A certificate (signed with the Root CA) for the Anka Build Cloud Controller & Registry.
 3. Certificates (signed with the Root CA) for your Anka Build Nodes so they can connect/authenticate with the Anka Build Cloud Controller & Registry.
 
-The guide will show you how to generate self-signed versions of these. If you already have certificates, you can skip the generation steps/commands.
+> **The guide will show you how to generate self-signed versions of these. If you already have certificates, you can skip the commands.**
 
-> If you're using a signed certificate for the controller dashboard, but self-signed certificates for your nodes and CI tools, you'll need to specify the `--cacert` for `ankacluster join` and `anka registry add` commands and point it to the signed CA certificate. You'll usually see `SSLError: ("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",)` if the wrong CA is being used.
+---
 
-## Obtain a self-signed Root CA certificate
+## 1. Create a self-signed Root CA certificate
 
 If you don’t have a, you can create it with openssl and add it to your keychain:
 
@@ -32,9 +30,9 @@ openssl req -new -nodes -x509 -days 365 -keyout anka-ca-key.pem -out anka-ca-crt
 sudo security add-trusted-cert -d -k /Library/Keychains/System.keychain anka-ca-crt.pem
 ```
 
-## Configuring TLS for Controller & Registry
+## 2. Configuring TLS for Controller & Registry
 
-> The **Controller certificate** is not part of the authentication process and doesn't need to be derived from the CA you just generated. This means that you can use certificates supplied by your organization or a 3rd party.
+> The **Controller TLS certificate** ("`server`" cert options) is not part of the authentication process and doesn't need to be derived from the CA you just generated. This means that you can use certificates supplied by your organization or a 3rd party for TLS/HTTPS.
 
 > For this guide, we're running the Controller & Registry locally, so we use 127.0.0.1. Update this depending on where you have things hosted.
 
@@ -48,27 +46,35 @@ openssl req -new -nodes -sha256 -key anka-controller-key.pem -out anka-controlle
 openssl x509 -req -days 365 -sha256 -in anka-controller-csr.pem -CA anka-ca-crt.pem -CAkey anka-ca-key.pem -CAcreateserial -out anka-controller-crt.pem -extfile <(echo subjectAltName = IP:$CONTROLLER_ADDRESS)
 ```
 
-> You can use the same certificate for both.
+> You can use the same certificate for both the Controller and Registry
 
 Ensure that the certificate has **Signature Algorithm: sha256WithRSAEncryption** using `openssl x509 -text -noout -in ~/anka-controller-crt.pem | grep Signature` (https://support.apple.com/en-us/HT210176)
 
-### Installing for the Mac Controller & Registry
+### Native macOS Controller & Registry package
 
 Edit `/usr/local/bin/anka-controllerd` in the following manner:
 
 1. Change `LISTEN_ADDRESS=":80"` to `LISTEN_ADDRESS=":443"`
 
-> SSL will work on any port you want.
+> SSL will work on any port you want
 
 2. Append the following parameters on the end of the **$CONTROLLER_BIN** line:
 
     ```shell
-    --use-https --server-cert /Users/$USER_WHERE_CERTS_ARE/anka-controller-crt.pem --server-key /Users/$USER_WHERE_CERTS_ARE/anka-controller-key.pem --anka-registry "https://$REGISTRY_ADDRESS:8089" --registry-listen-address "$REGISTRY_ADDRESS:8089"
+    --use-https \
+    --server-cert $CERT_FOLDER/anka-controller-crt.pem \
+    --server-key $CERT_FOLDER/anka-controller-key.pem
     ```
 
-> The Controller & Registry runs as root; This is why you need to specify the absolute path to the location where you generated the certs.
+3. Ensure https is in the registry URL:
 
-### Installing for the Linux/Docker Controller & Registry
+    ```shell
+    --anka-registry "https://$REGISTRY_ADDRESS:8089" \
+    ```
+
+> The Controller & Registry runs as root. This is why you need to specify the absolute path to the location where you generated the certs.
+
+### Linux/Docker Controller & Registry
 
 Within the `docker-compose.yml`:
 
@@ -145,9 +151,9 @@ Start or restart your Controller and test the new TLS configuration using `https
 
 If that doesn’t work, try to repeat the above steps and validate that the file names and paths are correct. If you are still having trouble, debug the system as explained in the Debugging Controller section.
 
-## Creating self-signed Node Certificates
+## 3. Creating self-signed Node Certificates
 
-The Controller's authentication module uses the Root CA (anka-ca-crt.pem) to authenticate the Node certificates. When the Node sends the requests to the Controller, it will present it's certificates. Those certificates will then be validated against the configured CA.
+The Controller's authentication module uses the Root CA (anka-ca-crt.pem) to authenticate the Node certificates. When the Node sends the requests to the Controller, it will present its certificates. Those certificates will then be validated against the configured CA.
 
 You can use the following openssl commands to create Node certificates using the Root CA:
 
@@ -157,19 +163,24 @@ openssl req -new -sha256 -key node-$NODE_NAME-key.pem -out node-$NODE_NAME-csr.p
 openssl x509 -req -days 365 -sha256 -in node-$NODE_NAME-csr.pem -CA anka-ca-crt.pem -CAkey anka-ca-key.pem -CAcreateserial -out node-$NODE_NAME-crt.pem
 ```
 
-## Configuring the Controller & Registry with the CA Root certificate and enable authentication
+## 4. Configuring the Controller & Registry with the CA Root certificate and enable authentication
 
 > The CA_CERT is the authority that is used to validate the node certificates you'll pass in later.
 
-### Installing for the Mac Controller & Registry
+### Native macOS Controller & Registry package
 
 Edit the `/usr/local/bin/anka-controllerd` and add the following onto the end of the **$CONTROLLER_BIN** line:
 
 ```shell
---enable-auth --ca-cert /Users/$USER_WHERE_CERTS_ARE/anka-ca-crt.pem
+--enable-auth \
+--ca-cert $CERT_FOLDER/anka-ca-crt.pem \
+--enable-registry-authorization \
+--skip-tls-verification \
+--client-cert $CERT_FOLDER/anka-controller-crt.pem \
+--client-key $CERT_FOLDER/anka-controller-key.pem
 ```
 
-### Installing for the Linux/Docker Controller & Registry
+### Linux/Docker Controller & Registry package
 
 Within the `docker-compose.yml`, search for the environment variables **ENABLE_AUTH** and **CA_CERT**. Edit both **anka-controller** and **anka-registry** so they look like the configuration below (assuming that a certificate folder is already mounted at /mnt/cert).
 
@@ -202,10 +213,13 @@ anka-controller:
      SERVER_KEY:             --server-key /mnt/cert/anka-controller-key.pem
      ENABLE_AUTH:            --enable-auth 
      CA_CERT:                --ca-cert /mnt/cert/anka-ca-crt.pem
+     ANKA_ENABLE_REGISTRY_AUTHORIZATION: "true"
 
 . . .
 
 {{</ highlight >}}
+
+Then, add `ANKA_ENABLE_REGISTRY_AUTHORIZATION` and set it to `"true"` (example above).
 
 > **Make sure to perform the same changes for the anka-registry container.**
 
@@ -213,7 +227,9 @@ anka-controller:
 
 > If you're connecting the Anka CLI with the HTTPS Registy, you can use the Node certificates: `anka registry --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem --cacert /Users/$USER_WHERE_CERTS_ARE/anka-ca-crt.pem add $REGISTRY_NAME https://$REGISTRY_ADDRESS:8089`
 
-## Joining your Node to the Controller with the Node certificate
+## 5. Joining your Node to the Controller with the Node certificate
+
+> If you're using a signed certificate for the controller dashboard, but self-signed certificates for your nodes and CI tools, you'll need to specify the `--cacert` for `ankacluster join` and `anka registry add` commands and point it to the signed CA certificate. You'll usually see `SSLError: ("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",)` if the wrong CA is being used.
 
 > If you previously joined your Nodes to the Controller, you'll want to `sudo ankacluster disjoin` on each before proceeding (if it hangs, use `ps aux | grep anka_agent | awk '{print $2}' | xargs kill -9` and try disjoin again).
 
@@ -287,7 +303,7 @@ If everthing is configured correctly, you should see something like this (I used
 * Closing connection 0
 ```
 
-> The Controller UI will not function properly until you enable [Root Token Authentication]({{< relref "docs/Anka Build Cloud/Advanced Security Features/root-token-authentication.md" >}})
+> **The Controller UI will not function properly until you enable [Root Token Authentication]({{< relref "docs/Anka Build Cloud/Advanced Security Features/root-token-authentication.md" >}})**
 
 ---
 

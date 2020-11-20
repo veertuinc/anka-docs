@@ -44,7 +44,37 @@ Depending on the package you're using (native or docker), you can set ENV variab
       ANKA_SERVER_KEY: "/mnt/cert/anka-controller-key.pem"
       ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
       ANKA_ENABLE_AUTH: "false"
-      ANKA_ROOT_TOKEN: "1111111111"
+      # SSL + Cert Auth
+      #ANKA_USE_HTTPS: "true"
+      #ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
+      #ANKA_SERVER_KEY: "/mnt/cert/anka-controller-key.pem"
+      #ANKA_SKIP_TLS_VERIFICATION: "true"
+      #ANKA_ENABLE_AUTH: "true"
+      #ANKA_ROOT_TOKEN: "1111111111"
+      #ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
+      #ANKA_CLIENT_CERT="/mnt/cert/anka-controller-crt.pem"
+      #ANKA_CLIENT_CERT_KEY="/mnt/cert/anka-controller-key.pem"
+  anka-registry:
+    container_name: anka-registry
+    build:
+        context: .
+        dockerfile: anka-registry.docker
+    ports:
+        - "8089:8089"
+    restart: always
+    volumes:
+      - "/Library/Application Support/Veertu/Anka/registry:/mnt/vol"
+      # SSL + Cert Auth | - /Users/myUser/mycerts:/mnt/cert
+    # SSL + Cert Auth | environment:
+      #ANKA_USE_HTTPS: "true"
+      #ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
+      #ANKA_SERVER_KEY: "/mnt/cert/anka-controller-key.pem"
+      #ANKA_SKIP_TLS_VERIFICATION: "true"
+      #ANKA_ENABLE_REGISTRY_AUTHORIZATION: "true"
+      #ANKA_ENABLE_AUTH: "true"
+      #ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
+      #ANKA_CLIENT_CERT="/mnt/cert/anka-controller-crt.pem"
+      #ANKA_CLIENT_CERT_KEY="/mnt/cert/anka-controller-key.pem"
 ```
 
 #### /usr/local/bin/anka-controllerd (native)
@@ -65,16 +95,18 @@ export ANKA_REGISTRY_BASE_PATH="/Library/Application Support/Veertu/Anka/registr
 export ANKA_REGISTRY_LISTEN_ADDRESS="anka.registry:8089"
 export ANKA_ANKA_REGISTRY="http://anka.registry:8089"
 
+# SSL + Cert Auth
+#export ANKA_ANKA_REGISTRY="https://anka.registry:8089"
 #export ANKA_USE_HTTPS="true"
 #export ANKA_SKIP_TLS_VERIFICATION="true"
 #export ANKA_SERVER_CERT="/Users/MyUser/anka-controller-crt.pem"
 #export ANKA_SERVER_KEY="/Users/MyUser/anka-controller-key.pem"
-#export ANKA_CA_CERT="/Users/MyUser/anka-ca-crt.pem"
-#export ANKA_CLIENT_CERT="/Users/MyUser/anka-controller-crt.pem"
-#export ANKA_CLIENT_CERT_KEY="/Users/MyUser/anka-controller-key.pem"
 
 #export ANKA_ENABLE_AUTH="true"
 #export ANKA_ENABLE_REGISTRY_AUTHORIZATION="true"
+#export ANKA_CA_CERT="/Users/MyUser/anka-ca-crt.pem"
+#export ANKA_CLIENT_CERT="/Users/MyUser/anka-controller-crt.pem"
+#export ANKA_CLIENT_CERT_KEY="/Users/MyUser/anka-controller-key.pem"
 #export ANKA_ROOT_TOKEN="1111111111"
 
 /Library/Application\ Support/Veertu/Anka/bin/anka-controller
@@ -207,14 +239,16 @@ Depending on the package you're using (native or docker), you can include flags 
        context: .
        dockerfile: anka-controller.docker
     ports:
-       - "8090:80"
-    volumes:
-       - /Users/myUser/:/mnt/cert
+       - "80:80"
+       # SSL + Cert Auth | - "443:80"
+    # SSL + Cert Auth | volumes:
+    #    - /Users/myUser/mycerts/:/mnt/cert
     depends_on:
        - etcd
        - anka-registry
     restart: always
     entrypoint: ["/bin/bash", "-c", "anka-controller --standalone --enable-central-logging --anka-registry http://anka.registry:8089 --etcd-endpoints etcd:2379 --log_dir /var/log/anka-controller --local-anka-registry http://anka-registry:8085"]
+    # SSL + Cert Auth | entrypoint: ["/bin/bash", "-c", "anka-controller --standalone --enable-central-logging --anka-registry https://anka.registry:8089 --etcd-endpoints etcd:2379 --log_dir /var/log/anka-controller --local-anka-registry http://anka-registry:8085 --use-https --server-cert /mnt/cert/anka-controller-crt.pem --server-key /mnt/cert/anka-controller-key.pem --enable-auth --ca-cert /mnt/cert/anka-ca-crt.pem --enable-registry-authorization --skip-tls-verification --client-cert /mnt/cert/anka-controller-crt.pem --client-key /mnt/cert/anka-controller-key.pem --root-token 1111111111"]
 
   anka-registry:
     container_name: anka-registry
@@ -226,37 +260,46 @@ Depending on the package you're using (native or docker), you can include flags 
     restart: always
     volumes:
       - "/Library/Application Support/Veertu/Anka/registry:/mnt/vol"
-      - /Users/myUser/:/mnt/cert
-    #environment:
+      # SSL + Cert Auth | - /Users/myUser/mycerts:/mnt/cert
+    # SSL + Cert Auth | environment:
       #ANKA_USE_HTTPS: "true"
-      #ANKA_SKIP_TLS_VERIFICATION: "true"
       #ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
       #ANKA_SERVER_KEY: "/mnt/cert/anka-controller-key.pem"
+      #ANKA_SKIP_TLS_VERIFICATION: "true"
+      #ANKA_ENABLE_REGISTRY_AUTHORIZATION: "true"
+      #ANKA_ENABLE_AUTH: "true"
       #ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
-      #ANKA_ENABLE_AUTH: "false"
+      #ANKA_CLIENT_CERT="/mnt/cert/anka-controller-crt.pem"
+      #ANKA_CLIENT_CERT_KEY="/mnt/cert/anka-controller-key.pem"
 ```
 
 #### /usr/local/bin/anka-controllerd (native)
 
 ```bash
 #!/bin/bash
-LOG_DIR="/Library/Logs/Veertu/AnkaController"
-LISTEN_ADDRESS=":8090"
-DATA_DIR="/Library/Application Support/Veertu/Anka/anka-controller"
-REGISTRY_BASE_PATH="/Library/Application Support/Veertu/Anka/registry"
 /Library/Application\ Support/Veertu/Anka/bin/anka-controller \
 --standalone \
---listen_addr "$LISTEN_ADDRESS" \
---enable-central-logging \
---log_dir "$LOG_DIR" \
---data-dir "$DATA_DIR" \
+--listen_addr ":8090" \
 --run-registry \
---registry-base-path  "$REGISTRY_BASE_PATH" \
---registry-listen-address "anka.registry:8089" \
---anka-registry "http://anka.registry:8089"
+--anka-registry "http://anka.registry:8089" \
+--registry-listen-address ":8089" \
+--enable-central-logging \
+--log_dir "/Library/Logs/Veertu/AnkaController" \
+--data-dir "/Library/Application Support/Veertu/Anka/anka-controller" \
+--registry-base-path "/Library/Application Support/Veertu/Anka/registry" \
+# SSL + Cert Auth
+# --anka-registry "https://anka.registry:8089" \
+# --use-https \
+# --enable-auth \
+# --root-token "1111111111" \
+# --enable-registry-authorization \
+# --skip-tls-verification \
+# --ca-cert $CERT_FOLDER/anka-ca-crt.pem \
+# --server-cert $CERT_FOLDER/anka-controller-crt.pem \
+# --server-key $CERT_FOLDER/anka-controller-key.pem \
+# --client-cert $CERT_FOLDER/anka-controller-crt.pem \
+# --client-cert-key $CERT_FOLDER/anka-controller-key.pem
 ```
-
-
 ### General and Common
 
 | Name | Type | Description | Default Value | flag / opt |
