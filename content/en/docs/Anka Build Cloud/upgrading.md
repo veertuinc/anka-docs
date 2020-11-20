@@ -6,26 +6,26 @@ weight: 9
 description: How to upgrade the Anka Build Cloud
 ---
 
-> We follow [semantic versioning](https://semver.org/); minor and major version increases can have significant changes.
-
-## Upgrade Procedure
+> We follow [semantic versioning](https://semver.org/); minor and major version increases can have significant changes
 
 > These steps also apply to downgrading
 
-> If upgrade the Anka Virtualization package:
+> It is generally safe to upgrade the controller while VMs are running and nodes are joined. However, we do recommend temporarily pausing CI/CD jobs or assigning to agents and letting the currently running jobs drain before moving forward if you want to be extra careful
+
+> **If upgrade the Anka Virtualization package:**
 >
 >   1. Block CI/CD jobs from starting or being assigned to agents
 >   2. Wait for all CI/CD jobs to complete on your nodes
 >   3. Run `sudo ankacluster disjoin` on each node
 >
 > You can then safely [install the latest Anka Build Virtualization CLI]({{< ref "docs/Getting Started/installing-the-anka-virtualization-package.md" >}})
-
-> If your existing version is noted in the [CLI notes matrix below]({{< relref "docs/Anka Virtualization/upgrading.md#anka-build-virtualization-cli-upgrade-note-matrix" >}}):
+>
+> If your existing Anka Virtualization version is noted in the [Anka Virtualization Upgrade Matrix]({{< relref "docs/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}):
 >
 >   1. Upgrade the guest addons inside existing VM templates with `anka start -u`
 >   2. Push the newly upgraded VM templates to registry with `anka registry push {vmNameOrUUID} --tag <tag>`
 
-When upgrading the entire Anka Build Cloud Software, execute these steps in the following sequence:
+> Before upgrading, check if your current version is noted in the [Pre-Upgrade Considerations]({{< relref "docs/Anka Build Cloud/upgrading.md#pre-upgrade-considerations" >}}) and adjust your upgrade plan accordingly.
 
 1. Go to your Controller & Registry server:
 
@@ -43,7 +43,7 @@ When upgrading the entire Anka Build Cloud Software, execute these steps in the 
 
 2. Run `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on your nodes to pull the latest Anka Agent binary and ensure proper communication between the CLI and the Controller API.
 
-## Anka Build Cloud upgrade note matrix
+## Pre-Upgrade Considerations
 
 Existing Version | Target Version | Recommendation
 --- | --- | ---
