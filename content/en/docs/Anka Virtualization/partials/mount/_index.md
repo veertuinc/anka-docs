@@ -2,8 +2,8 @@
 > sudo anka mount --help
 Usage: anka mount [OPTIONS] VMID [DIR]...
 
-  Mounts local folder into VM
+  Mounts a host directory into the VM
 
 Options:
-  --help  Show this message and exit.
+  --help  Display usage information
 ```

@@ -1,15 +1,16 @@
 ```shell
-> sudo anka modify 10.15.4 set network-card --help
+> sudo anka modify 11.0.1 set network-card --help
 Usage: anka modify set network-card [OPTIONS] [INDEX]...
 
-  modify network card settings
+  Modify network card settings
 
 Options:
   -t, --type [shared|host|bridge|disconnected]
-  -b, --bridge TEXT               host interface name to bridge with (Wi-Fi is not supported)
+  -b, --bridge TEXT               host interface name to bridge with
   -m, --mac TEXT                  specify fixed MAC address
   -n, --no-mac                    deassign fixed MAC address
-  --help                          Show this message and exit.
+  -v, --vlan INTEGER              assign VLAN ID
+  -c, --controller [anet|virtio-net]
+                                  set controller
+  --help                          Display usage information
 ```
-
-> [INDEX] is always 0 since Anka doesn’t support more than 1 NIC per VM.

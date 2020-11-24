@@ -1,9 +1,9 @@
 ```shell
-> sudo anka modify 10.15.4 set description --help
+> sudo anka modify 11.0.1 set description --help
 Usage: anka modify set description [OPTIONS] TEXT
 
-  set textual description of the VM
+  Set description of the VM
 
 Options:
-  --help  Show this message and exit.
+  --help  Display usage information
 ```

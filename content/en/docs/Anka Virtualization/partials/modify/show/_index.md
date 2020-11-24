@@ -1,10 +1,10 @@
 ```shell
-> sudo anka modify 10.15.4 show --help
+> sudo anka modify 11.0.1 show --help
 Usage: anka modify show [OPTIONS] COMMAND [ARGS]...
 
 Options:
-  --help  Show this message and exit.
+  --help  Display usage information
 
 Commands:
-  custom-variables
+  custom-variables  Display custom nvmram & smb variables
 ```

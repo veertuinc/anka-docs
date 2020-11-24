@@ -1,19 +1,19 @@
 ```shell
-> sudo anka modify 10.15.4 set --help
+> sudo anka modify 11.0.1 set --help
 Usage: anka modify set [OPTIONS] COMMAND [ARGS]...
 
 Options:
-  --help  Show this message and exit.
+  --help  Display usage information
 
 Commands:
-  cpu              set number of cpu cores and frequency
-  custom-variable  configure variables
-  description      set textual description of the VM
-  display          configure displays
-  hard-drive       modify hard drive settings
-  name             set new name for the VM
-  nested           enable nested virtualization
-  network-card     modify network card settings
+  cpu              Set number of cpu cores and frequency
+  custom-variable  Set custom nvram & smb variables (Example: .
+  description      Set description of the VM
+  display          Configure displays
+  hard-drive       Modify hard drive settings
+  name             Set new template name for the VM
+  nested           Enable nested virtualization
+  network-card     Modify network card settings
   policy           Enable VM access management
-  ram              set RAM size and parameters
+  ram              Set RAM size and parameters
 ```

@@ -1,9 +1,9 @@
 ```shell
-> sudo anka modify 10.15.4 set policy --help
+> sudo anka modify 11.0.1 set policy --help
 Usage: anka modify set policy [OPTIONS] [FILE]...
 
   Enable VM access management
 
 Options:
-  --help  Show this message and exit.
+  --help  Display usage information
 ```

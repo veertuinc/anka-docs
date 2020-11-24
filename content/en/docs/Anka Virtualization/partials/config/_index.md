@@ -2,11 +2,11 @@
 > sudo anka config --help
 Usage: anka config [OPTIONS] [PARAM]...
 
-  Manage Anka configuration
+  Manage the CLI configuration
 
 Options:
-  -l, --list                     List value parameter(s)
-  -r, --reset                    Reset value of parameter(s)
-  -s, --sorted / -S, --unsorted  Sort the output in alphabetical orders
-  --help                         Show this message and exit.
+  -l, --list                     List parameter(s)
+  -r, --reset                    Reset parameter(s) back to default
+  -s, --sorted / -S, --unsorted  Sort the output in alphabetical order
+  --help                         Display usage information
 ```

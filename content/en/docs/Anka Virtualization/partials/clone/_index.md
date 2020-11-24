@@ -1,10 +1,10 @@
 ```shell
 > sudo anka clone --help
-Usage: anka clone [OPTIONS] VM_ID NEW_VM_NAME
+Usage: anka clone [OPTIONS] VM_ID [NEW_VM_NAME]...
 
-  Clones a VM
+  Clone a suspended or stopped VM
 
 Options:
-  -c, --copy  Create independent copy instead of clone
-  --help      Show this message and exit.
+  -c, --copy  Create an independent copy (disables caching and consumes more disk space)
+  --help      Display usage information
 ```

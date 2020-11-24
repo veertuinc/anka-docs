@@ -2,8 +2,8 @@
 > sudo anka version --help
 Usage: anka version [OPTIONS]
 
-  Prints out version
+  Output the Anka version
 
 Options:
-  --help  Show this message and exit.
+  --help  Display usage information
 ```

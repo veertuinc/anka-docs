@@ -1,12 +1,14 @@
 ```shell
-> sudo anka modify 10.15.4 set hard-drive --help
+> sudo anka modify 11.0.1 set hard-drive --help
 Usage: anka modify set hard-drive [OPTIONS] [INDEX]...
 
-  modify hard drive settings
+  Modify hard drive settings
 
 Options:
-  -s, --size TEXT                 Disk size
+  -c, --controller [ablk|virtio-blk|sata]
+                                  Set controller
+  -s, --size TEXT                 Set disk size
   -e, --enc [aes-128|aes-192|aes-256|none]
                                   Set OTFE algorithm
-  --help                          Show this message and exit.
+  --help                          Display usage information
 ```

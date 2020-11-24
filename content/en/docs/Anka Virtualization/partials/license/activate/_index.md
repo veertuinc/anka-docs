@@ -2,10 +2,10 @@
 > sudo anka license activate --help
 Usage: anka license activate [OPTIONS] KEY
 
-  activate license key (root privileges)
+  Activate license key (requires root privileges)
 
 Options:
-  -f, --force  silently override current license
-  --cid TEXT   provide CustomerID
-  --help       Show this message and exit.
+  -f, --force  Silently override the current license
+  --cid TEXT   Submit the CustomerID
+  --help       Display usage information
 ```

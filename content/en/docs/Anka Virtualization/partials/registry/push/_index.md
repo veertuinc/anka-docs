@@ -2,12 +2,12 @@
 > sudo anka registry push --help
 Usage: anka registry push [OPTIONS] VM_ID [TAGNAME]...
 
-  Push VM version (tag) to repository
+  Push a VM template (and tag) to the Cloud Registry
 
 Options:
-  -t, --tag TEXT          Specify tag to push
-  -d, --description TEXT  Assign description to the tag
-  -v, --remote-vm TEXT    Push the tag to the remote vm specified
-  -l, --local             Commit new tag only, don't upload
-  --help                  Show this message and exit.
+  -t, --tag TEXT          Set the tag name to push
+  -d, --description TEXT  Set the description of the tag
+  -v, --remote-vm TEXT    The name of a registry template you want to push the local template (and tag) onto
+  -l, --local             Assign a tag to your local template and avoid pushing to the Registry
+  --help                  Display usage information
 ```

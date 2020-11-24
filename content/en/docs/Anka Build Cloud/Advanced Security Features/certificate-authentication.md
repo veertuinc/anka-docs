@@ -177,7 +177,7 @@ Edit the `/usr/local/bin/anka-controllerd` and add the following onto the end of
 --enable-registry-authorization \
 --skip-tls-verification \
 --client-cert $CERT_FOLDER/anka-controller-crt.pem \
---client-key $CERT_FOLDER/anka-controller-key.pem
+--client-cert-key $CERT_FOLDER/anka-controller-key.pem
 ```
 
 ### Linux/Docker Controller & Registry package
@@ -238,7 +238,7 @@ Copy both the Node certificates (node-$NODE_NAME-crt.pem, node-$NODE_NAME-key.pe
 Then, use the `ankacluster` command to connect it to the Controller in the following manner:
 
 ```shell
-sudo ankacluster join https://$CONTROLLER_ADDRESS --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --cert-key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem --cacert /Users/$USER_WHERE_CERTS_ARE/anka-ca-crt.pem
+sudo ankacluster join https://$CONTROLLER_ADDRESS --skip-tls-verification --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --cert-key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem --cacert /Users/$USER_WHERE_CERTS_ARE/anka-ca-crt.pem
 You should see output similar to the following:
 Testing connection to Controller...: OK
 Testing connection to registry….: OK

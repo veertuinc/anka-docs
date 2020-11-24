@@ -2,9 +2,9 @@
 > sudo anka detach --help
 Usage: anka detach [OPTIONS] VMID [DEVID]...
 
-  Detach USB device(s) from the VM
+  Detach USB device(s) from a VM
 
 Options:
-  -a, --all  detach all devices from the vm
-  --help     Show this message and exit.
+  -a, --all  Detach all devices from the vm
+  --help     Display usage information
 ```

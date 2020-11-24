@@ -2,8 +2,8 @@
 > sudo anka registry list --help
 Usage: anka registry list [OPTIONS] [VMID]...
 
-  List VMs in repository
+  List VMs in registry
 
 Options:
-  --help  Show this message and exit.
+  --help  Display usage information
 ```

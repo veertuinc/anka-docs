@@ -2,8 +2,8 @@
 > sudo anka attach --help
 Usage: anka attach [OPTIONS] VMID [DEVID]...
 
-  Attach USB device(s) to running VM
+  Attach USB device(s) to a running VM
 
 Options:
-  --help  Show this message and exit.
+  --help  Display usage information
 ```

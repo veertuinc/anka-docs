@@ -1,7 +1,9 @@
 ```shell
-> sudo anka modify 10.15.4 show custom-variables --help
+> sudo anka modify 11.0.1 show custom-variables --help
 Usage: anka modify show custom-variables [OPTIONS]
 
+  Display custom nvmram & smb variables
+
 Options:
-  --help  Show this message and exit.
+  --help  Display usage information
 ```

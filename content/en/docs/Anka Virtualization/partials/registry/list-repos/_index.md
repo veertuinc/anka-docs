@@ -2,9 +2,9 @@
 > sudo anka registry list-repos --help
 Usage: anka registry list-repos [OPTIONS]
 
-  List registry repositories
+  List registries you have configured
 
 Options:
-  -d, --default  show only default repository
-  --help         Show this message and exit.
+  -d, --default  show only the default registry
+  --help         Display usage information
 ```
