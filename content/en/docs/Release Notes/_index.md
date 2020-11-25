@@ -28,6 +28,10 @@ description: >
 - Bug Fix: Unable to upgrade 10.14 VM to 10.14.1
 
 > `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
+
+> Known Issues:
+> 
+> 1. With Big Sur VMs, DHCP/IP assignment seems flakey and will cause a random IP to be applied.
 ### Jenkins Plugin 2.2.1 - Nov 11, 2020
 - Bug Fix: Dynamic Anka Node pipeline step causes job to hang
 
