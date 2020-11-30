@@ -9,6 +9,15 @@ description: >
 
 > **This guide requires an Anka Enterprise (or higher) license**
 
+
+There are several different ways you can enable Certificate authentication:
+
+1. With the combined (controller + registry) native macOS package: You'll edit the `/usr/local/bin/anka-controllerd`, enabling TLS/HTTPS (required) and then certificate authentication (with either ENVs or options/flags).
+2. With the docker package: You'll edit the `docker-compose.yml`, enabling TLS/HTTPS and then certificate authentication (with ENVs).
+3. With either the controller or registry standalone: You'll edit the proper config files, enabling TLS/HTTPS (required) and then certification authentication (with either ENVs or options/flags).
+
+> If you're using the Enterprise Plus license, [you will need to setup authorization for your certificate]({{< relref "docs/Anka Build Cloud/Advanced Security Features/certificate-authentication.md#managing-usergroup-permissions-authorization" >}})
+
 ## Requirements
 
 1. A Root CA certificate. For more information about CAs, see https://en.wikipedia.org/wiki/Certificate_authority. Usually provided by your organization or where you obtain your certificate signing. We will refer to this as **anka-ca-crt.pem** and **anka-ca-key.pem** throughout the guide.
@@ -31,6 +40,8 @@ sudo security add-trusted-cert -d -k /Library/Keychains/System.keychain anka-ca-
 ```
 
 ## 2. Configuring TLS for Controller & Registry
+
+> Required
 
 > The **Controller TLS certificate** ("`server`" cert options) is not part of the authentication process and doesn't need to be derived from the CA you just generated. This means that you can use certificates supplied by your organization or a 3rd party for TLS/HTTPS.
 
@@ -305,6 +316,6 @@ If everthing is configured correctly, you should see something like this (I used
 
 ---
 
-## Managing User/Group Permissions
+## Managing User/Group Permissions (Authorization)
 
 {{< include file="shared/content/en/docs/Anka Build Cloud/Advanced Security Features/partials/_managing-permissions.md" >}}
