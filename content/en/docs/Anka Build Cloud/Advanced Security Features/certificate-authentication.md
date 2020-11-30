@@ -26,7 +26,7 @@ If you don’t have a, you can create it with openssl and add it to your keychai
 ```shell
 cd ~
 openssl req -new -nodes -x509 -days 365 -keyout anka-ca-key.pem -out anka-ca-crt.pem -subj "/O=$ORGANIZATION/OU=$ORG_UNIT/CN=$CA_CN"
-# Add the Root CA to the System keychain so the Root CA is trusted
+# Add the Root CA to the System keychain so the Root CA is trusted and you can avoid warnings when you go to access the Controller UI; if you have a better method to do this without using the system keychain, feel free to use it
 sudo security add-trusted-cert -d -k /Library/Keychains/System.keychain anka-ca-crt.pem
 ```
 
@@ -174,10 +174,7 @@ Edit the `/usr/local/bin/anka-controllerd` and add the following onto the end of
 ```shell
 --enable-auth \
 --ca-cert $CERT_FOLDER/anka-ca-crt.pem \
---enable-registry-authorization \
---skip-tls-verification \
---client-cert $CERT_FOLDER/anka-controller-crt.pem \
---client-cert-key $CERT_FOLDER/anka-controller-key.pem
+--skip-tls-verification
 ```
 
 ### Linux/Docker Controller & Registry package
@@ -213,13 +210,11 @@ anka-controller:
      SERVER_KEY:             --server-key /mnt/cert/anka-controller-key.pem
      ENABLE_AUTH:            --enable-auth 
      CA_CERT:                --ca-cert /mnt/cert/anka-ca-crt.pem
-     ANKA_ENABLE_REGISTRY_AUTHORIZATION: "true"
+
 
 . . .
 
 {{</ highlight >}}
-
-Then, add `ANKA_ENABLE_REGISTRY_AUTHORIZATION` and set it to `"true"` (example above).
 
 > **Make sure to perform the same changes for the anka-registry container.**
 
@@ -271,7 +266,7 @@ The response you should get is a **401 Authentication Required** similar to belo
 {"status":"FAIL","message":"Authentication Required"}
 ```
 
-If this is the response you get, it means the authentication module is working.
+**If this is the response you get, it means the authentication module is working.**
 
 Let’s try to get a response using the Node certificate we created. Execute the same command, but now pass Node certificate and key:
 
@@ -303,7 +298,10 @@ If everthing is configured correctly, you should see something like this (I used
 * Closing connection 0
 ```
 
-> **The Controller UI will not function properly until you enable [Root Token Authentication]({{< relref "docs/Anka Build Cloud/Advanced Security Features/root-token-authentication.md" >}})**
+## 6. Final Notes
+
+- You may notice that the Controller UI doesn't load or acts strangely. You will need to enable [Root Token Authentication]({{< relref "docs/Anka Build Cloud/Advanced Security Features/root-token-authentication.md" >}}) to access the controller UI.
+- If you get an invalid cert error from the Controller UI, make sure that you add the root CA you generated to your system keychain.
 
 ---
 

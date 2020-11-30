@@ -21,6 +21,11 @@ description: >
 - New Feature: `anka cp` is replacing our older `anka mount` and automatic mounting for `anka run` due to changes Apple has made in Big Sur.
 - New Feature: Ability to control hostname inside of VM with `propagate_name` config option and `ANKA_HOSTNAME` env variable
 - New Feature: Bridged network modes now support VLANs with the `anka modify --vlan` option
+- Change: `anka create` default CPU, RAM, and DISK are now:
+    - CPU: (totalVirtualCPUCount / 2) with a min of 2 and a max of 8
+    - RAM: (totalRamAvailable / 2) with a min of 2GB and a max of 8GB
+    - DISK: 128G (137438953472)
+    > Configurable with `anka config`
 - Bug Fix: Suspending a VM with a mounted disk (`anka start -o`) will cause it to fail on boot
 - Bug Fix: Inability to interrupt `anka registry pull`
 - Bug Fix: License activation didn't work on Big Sur host
