@@ -17,7 +17,6 @@ description: >
 - New Feature: Anka App now has a management UI where you can stop, start, delete, and create VMs
 - New Feature: Anka Viewer now prompts you, when you try to close the window, whether you want to stop the VM or keep it running in the background
 - New Feature: anka create support for Big Sur (avoiding having to upgrade Catalina)
-- New Feature: SIP is now enabled by default for Big Sur
 - New Feature: `anka cp` is replacing our older `anka mount` and automatic mounting for `anka run` due to changes Apple has made in Big Sur.
 - New Feature: Ability to control hostname inside of VM with `propagate_name` config option and `ANKA_HOSTNAME` env variable
 - New Feature: Bridged network modes now support VLANs with the `anka modify --vlan` option
