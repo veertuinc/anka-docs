@@ -2,9 +2,9 @@
 > sudo anka usb release --help
 Usage: anka usb release [OPTIONS] [DEVID]...
 
-  release a device(s) back to host availability
+  Release a device(s) back to host
 
 Options:
-  -a, --all  release all devices
-  --help     Show this message and exit.
+  -a, --all  Release all devices
+  --help     Display usage information
 ```

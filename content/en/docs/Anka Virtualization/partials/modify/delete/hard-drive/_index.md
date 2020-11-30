@@ -1,7 +1,7 @@
 ```shell
-> sudo anka modify 10.15.4 delete hard-drive --help
+> sudo anka modify 11.0.1 delete hard-drive --help
 Usage: anka modify delete hard-drive [OPTIONS] [INDEX]...
 
 Options:
-  --help  Show this message and exit.
+  --help  Display usage information
 ```

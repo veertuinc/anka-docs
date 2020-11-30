@@ -1,5 +1,5 @@
-```bash
-❯ anka cp --help
+```shell
+> sudo anka cp --help
 Usage: anka cp [OPTIONS] [SRC]... DST
 
   Copy files in and out of the VM and host

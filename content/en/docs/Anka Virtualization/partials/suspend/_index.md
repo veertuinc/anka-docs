@@ -2,9 +2,9 @@
 > sudo anka suspend --help
 Usage: anka suspend [OPTIONS] [VMID]...
 
-  Suspends a VM(s)
+  Suspend a running VM(s)
 
 Options:
-  -a, --all  suspend all running vms
-  --help     Show this message and exit.
+  -a, --all  Suspend all running vms
+  --help     Display usage information
 ```

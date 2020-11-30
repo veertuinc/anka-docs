@@ -2,10 +2,10 @@
 > sudo anka registry describe --help
 Usage: anka registry describe [OPTIONS] VM_ID
 
-  Shows VM description
+  Show a VM template description and tags
 
 Options:
   -t, --tag TEXT
   -v, --version INTEGER
-  --help                 Show this message and exit.
+  --help                 Display usage information
 ```

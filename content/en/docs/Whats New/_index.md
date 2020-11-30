@@ -7,11 +7,9 @@ description: >
   Description of new Anka software features
 ---
 
-## What's new in Anka Virtualization 2.3.0-Beta
+## What's new in Anka Virtualization 2.3.0
 
-> **This is not a production ready release**
-
-> This release does not make significant changes to macOS Catalina and older. They will function the same as prior releases of Anka.
+> This release does not make significant changes to macOS Catalina (and older) VMs. They will function the same as prior releases of Anka. We recommend updating addons regardless.
 
 ### Use Anka for free!
 
@@ -26,8 +24,6 @@ We now have a management UI allowing you to start, stop, delete, and create VMs.
 ![installer with pkg](/images/getting-started/creating-your-first-vm/create-vm-window-with-options.png)
 
 ### Big Sur (11.X) Support
-
-> We are still in beta for this support. If you find any issues, please reach out to support.
 
 You can now use `anka create` to create 11.X macOS versions.
 
@@ -44,7 +40,25 @@ As an alternative, we now have `anka cp` which allows transferring files into th
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/cp/_index.md" >}}
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/cp/_example.md" >}}
 
-> Be sure to update addons with `anka start -u 10.15.7` to use `anka cp`
+> Be sure to update addons with `anka start -u 10.15.7` to use `anka cp` with Catalina (or older) VMs
+
+### Customize the Hostname inside of your VM on start
+
+You can now automatically set the VM hostname to the VM name on start by enabling `propagate_name`:
+
+```bash
+❯ anka config propagate_name True
+```
+
+If you'd like to customize the hostname, you can set the `ANKA_HOSTNAME` env first:
+
+```bash
+❯ hostname
+Node-1.local
+
+❯ ANKA_HOSTNAME="$(hostname)-$RANDOM" anka run 11.0.1 bash -c "echo \$(hostname)"
+node-1-10180.local
+```
 
 ## What's New in Anka Build Cloud Controller & Registry Version 1.10.1
 

@@ -2,9 +2,9 @@
 > sudo anka unmount --help
 Usage: anka unmount [OPTIONS] VMID [DIR]...
 
-  Unmount shared folder
+  Unmount the mounted host directory
 
 Options:
-  -a, --all  unmount all mounted folders
-  --help     Show this message and exit.
+  -a, --all  Unmount all mounted directories
+  --help     Display usage information
 ```

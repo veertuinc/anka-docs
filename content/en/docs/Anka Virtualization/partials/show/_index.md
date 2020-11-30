@@ -2,8 +2,8 @@
 > sudo anka show --help
 Usage: anka show [OPTIONS] VM_ID [PROPERTY]...
 
-  Shows VM runtime properties
+  Show a VM's runtime properties
 
 Options:
-  --help  Show this message and exit.
+  --help  Display usage information
 ```

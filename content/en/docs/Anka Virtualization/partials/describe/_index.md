@@ -2,8 +2,8 @@
 > sudo anka describe --help
 Usage: anka describe [OPTIONS] VM_ID
 
-  Shows VM configuration
+  Show a VM's configuration
 
 Options:
-  --help  Show this message and exit.
+  --help  Display usage information
 ```

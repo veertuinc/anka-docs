@@ -2,9 +2,9 @@
 > sudo anka registry delete --help
 Usage: anka registry delete [OPTIONS] [REMOTE]...
 
-  Forget repository
+  Remove the registry from your configuration
 
 Options:
-  -a, --all  Forget all repositories
-  --help     Show this message and exit.
+  -a, --all  Forget all registries
+  --help     Display usage information
 ```

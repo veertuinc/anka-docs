@@ -1,10 +1,10 @@
 ```shell
-> sudo anka modify 10.15.4 set ram --help
+> sudo anka modify 11.0.1 set ram --help
 Usage: anka modify set ram [OPTIONS] [SIZE]...
 
-  set RAM size and parameters
+  Set RAM size and parameters
 
 Options:
-  --prefetch / --no-prefetch  enable/disable prefetch logic
-  --help                      Show this message and exit.
+  --prefetch / --no-prefetch  Enable/disable prefetch logic
+  --help                      Display usage information
 ```

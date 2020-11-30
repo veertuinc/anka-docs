@@ -1,9 +1,9 @@
 ```shell
-> sudo anka modify 10.15.4 add --help
+> sudo anka modify 11.0.1 add --help
 Usage: anka modify add [OPTIONS] COMMAND [ARGS]...
 
 Options:
-  --help  Show this message and exit.
+  --help  Display usage information
 
 Commands:
   hard-drive

@@ -1,9 +1,9 @@
 ```shell
-> sudo anka modify 10.15.4 delete --help
+> sudo anka modify 11.0.1 delete --help
 Usage: anka modify delete [OPTIONS] COMMAND [ARGS]...
 
 Options:
-  --help  Show this message and exit.
+  --help  Display usage information
 
 Commands:
   custom-variable

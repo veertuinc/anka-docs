@@ -2,10 +2,10 @@
 > sudo anka modify --help
 Usage: anka modify [OPTIONS] VM_ID COMMAND [ARGS]...
 
-  Modifies a VM settings
+  Modify a VM's configuration
 
 Options:
-  --help  Show this message and exit.
+  --help  Display usage information
 
 Commands:
   add

@@ -11,6 +11,8 @@ hideSubPagesInLeftMenu: true
 
 ### Troubleshooting Guides
 
+- [anka run shows "-anka: communication timeout"]({{< relref "docs/Troubleshooting Guides and FAQs/anka-virtualization/anka-run-communication-timeout.md" >}})
+
 ### FAQs
 
 ---
@@ -23,6 +25,7 @@ hideSubPagesInLeftMenu: true
 
 - [VMs stuck in "Scheduling"]({{< relref "docs/Troubleshooting Guides and FAQs/anka-build-cloud/controller/vm-stuck-scheduling.md" >}})
 - [ETCD throws "database space exceeded" error]({{< relref "docs/Troubleshooting Guides and FAQs/anka-build-cloud/controller/etcd-database-space-exceeded.md" >}})
+- [UI is slow]({{< relref "docs/Troubleshooting Guides and FAQs/anka-build-cloud/controller/ui-is-slow.md" >}})
 
 #### Registry
 

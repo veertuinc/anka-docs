@@ -8,7 +8,6 @@ description: >
 ---
 
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/_index.md" >}}
-
 ## Attach
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/attach/_index.md" >}}
 ## Clone
@@ -20,10 +19,8 @@ description: >
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/cp/_example.md" >}}
 ## Create
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/create/_index.md" >}}
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/create/_extra.md" >}}
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/create/_example.md" >}}
-
-> [Advanced usage guide for `anka create`](({{< relref "docs/Getting Started/creating-your-first-vm.md" >}}))
-
 ## Delete
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/delete/_index.md" >}}
 ## Describe
@@ -40,9 +37,6 @@ description: >
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/license/remove/_index.md" >}}
 ### license show
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/license/show/_index.md" >}}
-
-> To see current core consumption information for your license, use `anka license show <licensekey>`
-
 ### license validate
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/license/validate/_index.md" >}}
 ## List
@@ -59,8 +53,7 @@ description: >
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/add/optical-drive/_index.md" >}}
 #### modify {vmNameOrUUID} add port-forwarding
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/add/port-forwarding/_index.md" >}}
-{{< include file="shared/content/en/docs/Anka Virtualization/partials/modify/add/port-forwarding/_example.md" >}}
-
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/add/port-forwarding/_example.md" >}}
 #### modify {vmNameOrUUID} add usb-device
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/add/usb-device/_index.md" >}}
 ### modify {vmNameOrUUID} delete
@@ -85,6 +78,7 @@ description: >
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/cpu/_index.md" >}}
 #### modify {vmNameOrUUID} set custom-variable
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/custom-variable/_index.md" >}}
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/custom-variable/_extra.md" >}}
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/custom-variable/_example.md" >}}
 #### modify {vmNameOrUUID} set description
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/description/_index.md" >}}
@@ -92,13 +86,14 @@ description: >
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/display/_index.md" >}}
 #### modify {vmNameOrUUID} set hard-drive
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/hard-drive/_index.md" >}}
-> It's currently impossible to downsize a VM's hard-drive. We suggest creating your initial VM Template with a smaller amount of available disk and then increase in subsequent Tags.
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/hard-drive/_extra.md" >}}
 #### modify {vmNameOrUUID} set name
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/name/_index.md" >}}
 #### modify {vmNameOrUUID} set nested
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/nested/_index.md" >}}
 #### modify {vmNameOrUUID} set network-card
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/network-card/_index.md" >}}
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/network-card/_extra.md" >}}
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/network-card/_example.md" >}}
 #### modify {vmNameOrUUID} set policy
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/policy/_index.md" >}}
@@ -138,8 +133,6 @@ description: >
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/show/_index.md" >}}
 ## Start
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/start/_index.md" >}}
-### Install Addons
-{{< include file="./shared/content/en/docs/Anka Virtualization/partials/start/install-addons.md" >}}
 ## Stop
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/stop/_index.md" >}}
 ## Suspend

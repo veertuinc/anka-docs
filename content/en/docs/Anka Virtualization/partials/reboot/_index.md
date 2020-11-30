@@ -2,10 +2,10 @@
 > sudo anka reboot --help
 Usage: anka reboot [OPTIONS] [VMID]...
 
-  Restarts a VM(s)
+  Restart a running VM(s)
 
 Options:
-  -f, --force  flag. restarts the vm process
-  -a, --all    reboot all running vms
-  --help       Show this message and exit.
+  -f, --force  Forcefully stop the VM
+  -a, --all    Reboot all running vms
+  --help       Display usage information
 ```

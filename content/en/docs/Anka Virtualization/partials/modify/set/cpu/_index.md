@@ -1,12 +1,12 @@
 ```shell
-> sudo anka modify 10.15.4 set cpu --help
+> sudo anka modify 11.0.1 set cpu --help
 Usage: anka modify set cpu [OPTIONS] [NCPU]...
 
-  set number of cpu cores and frequency
+  Set number of cpu cores and frequency
 
 Options:
-  -c, --cores INTEGER      number of cores
-  -h, --htt / --no-htt     enable/disable hyper-threading
-  -f, --frequency INTEGER  base CPU frequency (Hz)
-  --help                   Show this message and exit.
+  -c, --cores INTEGER      Set the number of cores
+  -h, --htt / --no-htt     Enable/disable hyper-threading
+  -f, --frequency INTEGER  Set the base CPU frequency (Hz)
+  --help                   Display usage information
 ```

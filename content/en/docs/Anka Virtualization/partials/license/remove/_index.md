@@ -2,8 +2,8 @@
 > sudo anka license remove --help
 Usage: anka license remove [OPTIONS]
 
-  removes the current license (root privileges)
+  Remove the current license (requires root privileges)
 
 Options:
-  --help  Show this message and exit.
+  --help  Display usage information
 ```

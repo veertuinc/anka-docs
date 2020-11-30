@@ -2,8 +2,8 @@
 > sudo anka usb list --help
 Usage: anka usb list [OPTIONS] [DEVID]...
 
-  list available usb devices
+  List available usb devices
 
 Options:
-  --help  Show this message and exit.
+  --help  Display usage information
 ```
