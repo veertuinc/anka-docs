@@ -117,6 +117,7 @@ group | string | -  | Group ID to start the instance in (_Available only in Ente
 numberOfExecutors | int | `1` | Number of Jenkins executors to run on the Node (we recommend 1) | -
 description | string | -  | On creation of the instance, set the description | -
 labelString | string | -  | Override the returned label (not recommended) | -
+dontAppendTimestamp | boolean | `false`  | Do not append timestamp to the tag being pushed | -
 
 #### Dynamic Jenkinsfile Example
 

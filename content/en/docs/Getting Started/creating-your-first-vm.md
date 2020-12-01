@@ -21,7 +21,7 @@ description: >
 
 ## 2. Create your VM
 
-> The Anka VM is pre-configured with a default administrative username `anka` and password `admin`.
+> The Anka VM is pre-configured with a default administrative username `anka` and password `admin`. You can override this with ENVs: `ANKA_DEFAULT_USER` and `ANKA_DEFAULT_PASSWD`
 
 > **Anka Develop license (default):** While you can create as many VMs as you wish, the free Anka Develop license only allows you to run one VM at a time and will only function on laptops (Macbook, Macbook Pro, and Macbook Air).
 

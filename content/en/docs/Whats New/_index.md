@@ -7,6 +7,118 @@ description: >
   Description of new Anka software features
 ---
 
+
+## What's New in Packer Plugin 1.6.0
+
+### Base VM and Clone defualt name changes
+
+Base VMs are now created with `anka-packer-base-{macOSVersion}` and cloned VM with `anka-packer-{10RandomChars}`.
+
+### Ability to set port-forwarding
+
+```json
+{
+  "variables": {
+    "source_vm_name": ""
+  },
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sleep 5",
+        "echo hello world",
+        "echo llamas rock"
+      ]
+    }
+  ],
+  "builders": [{
+    "type": "veertu-anka",
+    "cpu_count": 8,
+    "ram_size": "10G",
+    "source_vm_name": "{{user `source_vm_name`}}",
+    "port_forwarding_rules": [
+      {
+        "port_forwarding_guest_port": 80,
+        "port_forwarding_host_port": 12345,
+        "port_forwarding_rule_name": "website"
+      },
+      {
+        "port_forwarding_guest_port": 8080
+      }
+    ]
+  }]
+}
+```
+
+### Ability to set hw.UUID
+
+
+```json
+{
+  "variables": {
+    "source_vm_name": "",
+    "hw_uuid": "{{env `HW_UUID`}}"
+  },
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sleep 5",
+        "echo hello world",
+        "echo llamas rock"
+      ]
+    }
+  ],
+  "builders": [
+    {
+      "type": "veertu-anka",
+      "hw_uuid": "{{user `hw_uuid`}}",
+      "cpu_count": 10,
+      "ram_size": "12G",
+      "source_vm_name": "{{user `source_vm_name`}}"
+    }
+  ]
+}
+```
+
+
+### Modifying disk_size now automatically resizes the internal disk by executing `diskutil`
+
+```bash
+==> veertu-anka: Modifying VM anka-packer-UUFnqCbIGf disk size to 150G
+2020/12/01 12:58:33 packer-builder-veertu-anka plugin: 2020/12/01 12:58:33 Executing anka --machine-readable modify anka-packer-UUFnqCbIGf set hard-drive -s 150G
+2020/12/01 12:59:21 packer-builder-veertu-anka plugin: 2020/12/01 12:59:21 {"status": "OK", "body": {}, "message": ""}
+2020/12/01 12:59:21 packer-builder-veertu-anka plugin: 2020/12/01 12:59:21 Starting command: anka run -n anka-packer-UUFnqCbIGf sh
+2020/12/01 12:59:21 packer-builder-veertu-anka plugin: 2020/12/01 12:59:21 Executing on sh: diskutil apfs resizeContainer disk1 0
+2020/12/01 12:59:21 packer-builder-veertu-anka plugin: 2020/12/01 12:59:21 Waiting for command to run
+2020/12/01 13:00:03 packer-builder-veertu-anka plugin: 2020/12/01 13:00:03 Command finished in 42.58007918s with <nil>
+```
+
+## What's New in Jenkins Plugin 2.3.0
+
+### Ability to disable timestamp
+
+When using the cache builder to automate your VM template creation in Jenkins, you can now remove the appended timestamp.
+
+**Static Templates (found under `/configureClouds`):** You will see a `Don't append Timestamp` checkbox under the Cache Builder section of your Static Template definition.
+
+**Dynamic Labelling Function (`CreateDynamicAnkaNode`):** You can set `dontAppendTimestamp` to true.
+
+## What's New in Anka Build Cloud Controller & Registry Version 1.12.0
+
+### Control allowed TLS/SSL Protocols and Ciphers
+
+You can now set the allowed Cipher Suites and min/max TLS versions that the controller will accept. This is great if your security teams require forcing certain suites and versions.
+
+`/usr/local/bin/anka-controllerd` example:
+
+```
+export ANKA_CIPHER_SUITES="tls_ecdhe_ecdsa_with_chacha20_poly1305_sha256"
+export ANKA_MAX_TLS_VERSION="tls_1.0"
+```
+
+A full list of options is available in the [configuration reference]({{< relref "docs/Anka Build Cloud/configuration-reference.md#tls" >}}).
+
 ## What's new in Anka Virtualization 2.3.0
 
 > This release does not make significant changes to macOS Catalina (and older) VMs. They will function the same as prior releases of Anka. We recommend updating addons regardless.
@@ -23,7 +135,7 @@ We now have a management UI allowing you to start, stop, delete, and create VMs.
 
 ![installer with pkg](/images/getting-started/creating-your-first-vm/create-vm-window-with-options.png)
 
-### Big Sur (11.X) Support
+### Big Sur (11.X) support
 
 You can now use `anka create` to create 11.X macOS versions.
 
