@@ -11,6 +11,28 @@ description: >
 
 ## Current Versions
 
+### Anka Build Cloud Controller & Registry 1.12.0 (1.12.0-65cba643) - Dec 1st, 2020
+- Bug Fix: Uninstaller throws exit code of 1
+- New Feature: Allow configuration of TLS/SSL Protocols and Ciphers for Controller & Registry
+- (Standalone Registry: 1.12.0-1f2c3e1)
+
+### Jenkins Plugin 2.3.0 - Dec 1st, 2020
+- New Feature: Disable appending timestamp to Cache Builder/tags
+
+### Packer Plugin 1.6.0 - Dec 1st, 2020
+- Better logging, examples for Catalina, bug fixes, and security/module updates
+- New Feature: .app file's Info.plist will be used to obtain the macOS version automatically and create base VM name with the version + cloned vm name improvements https://github.com/veertuinc/packer-builder-veertu-anka/issues/31 https://github.com/veertuinc/packer-builder-veertu-anka/pull/32 
+- New Feature: reuse base VM if it already exists
+- New Feature: added set port forwarding feature https://github.com/veertuinc/packer-builder-veertu-anka/issues/20
+- New Feature: added set hw.UUID feature https://github.com/veertuinc/packer-builder-veertu-anka/issues/39
+- New Feature: setting disk_size will now modify, with diskutil, the size inside of the VM
+- PR: https://github.com/veertuinc/packer-builder-veertu-anka/pull/38
+
+### Anka GitLab Runner 1.2.0 - Dec 1st, 2020
+- Improvement: added node info to runner logs so customers know where a vm ran
+- New Feature: support changing http headers for controller communication
+
+
 ### Anka Virtualization CLI 2.3.0 (2.3.0.122) - Nov 24, 2020
 
 - New Feature: A free, but limited, license for developers and small teams (on by default)
@@ -36,13 +58,6 @@ description: >
 > Known Issues:
 > 
 > 1. With Big Sur VMs, DHCP/IP assignment seems flakey and will cause a random IP to be applied.
-### Jenkins Plugin 2.2.1 - Nov 11, 2020
-- Bug Fix: Dynamic Anka Node pipeline step causes job to hang
-
-### Anka Build Cloud Controller & Registry 1.11.2 (1.11.2-ae2c9036) - Nov 10, 2020
-- Bug Fix: Memory leak in controller
-- (Standalone Registry: 1.11.2-886e687)
-
 ### TeamCity Plugin version 1.7.1 - July 7, 2020
 - Bug Fix: Long-running threads were being created
 - Bug Fix: UI Slowness the more Instances/Agents you created
@@ -52,16 +67,23 @@ description: >
 - Maintenance: core/actions version bump
 - New Feature: using Code QL
 
-### Packer Plugin 1.5.0 - Oct 13th, 2020
-- New Feature: Added ability to modify cpu core count, ram, and disk size when cloning from an existing VM Template
-
-### Anka GitLab Runner 1.1.0 - Sep 28, 2020
-- Feature Change: When limiting jobs to a specific node using the enterprise license feature "node groups", you no longer use the `GROUP_ID` ENV and instead set it with `--anka-node_group` on registration or the ENV `NODE_GROUP`.
-
 ---
 
 ## Previous Versions
 
+### Anka GitLab Runner 1.1.0 - Sep 28, 2020
+- Feature Change: When limiting jobs to a specific node using the enterprise license feature "node groups", you no longer use the `GROUP_ID` ENV and instead set it with `--anka-node_group` on registration or the ENV `NODE_GROUP`.
+
+
+### Packer Plugin 1.5.0 - Oct 13th, 2020
+- New Feature: Added ability to modify cpu core count, ram, and disk size when cloning from an existing VM Template
+
+### Jenkins Plugin 2.2.1 - Nov 11, 2020
+- Bug Fix: Dynamic Anka Node pipeline step causes job to hang
+
+### Anka Build Cloud Controller & Registry 1.11.2 (1.11.2-ae2c9036) - Nov 10, 2020
+- Bug Fix: Memory leak in controller
+- (Standalone Registry: 1.11.2-886e687)
 ### Anka Virtualization CLI 2.2.3 (2.2.3.118) - May 03, 2020
 - Bug Fix: Starting multiple VMs from suspended state with bridge networking configuration
 - Bug Fix: Unable to set up port forwarding to 127.0.0.1

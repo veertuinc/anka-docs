@@ -43,9 +43,9 @@ sudo security add-trusted-cert -d -k /Library/Keychains/System.keychain anka-ca-
 
 > Required
 
-> The **Controller TLS certificate** ("`server`" cert options) is not part of the authentication process and doesn't need to be derived from the CA you just generated. This means that you can use certificates supplied by your organization or a 3rd party for TLS/HTTPS.
+> The **Controller TLS certificate** ("`server`" cert options) is not part of the authentication process and doesn't need to be derived from the CA you just generated. This means that you can use certificates supplied by your organization or a 3rd party for TLS/HTTPS
 
-> For this guide, we're running the Controller & Registry locally, so we use 127.0.0.1. Update this depending on where you have things hosted.
+> For this guide, we're running the Controller & Registry locally, so we use 127.0.0.1. Update this depending on where you have things hosted
 
 If you do not have TLS certificates for your Controller & Registry, you can create them now:
 
@@ -60,6 +60,8 @@ openssl x509 -req -days 365 -sha256 -in anka-controller-csr.pem -CA anka-ca-crt.
 > You can use the same certificate for both the Controller and Registry
 
 Ensure that the certificate has **Signature Algorithm: sha256WithRSAEncryption** using `openssl x509 -text -noout -in ~/anka-controller-crt.pem | grep Signature` (https://support.apple.com/en-us/HT210176)
+
+> Beginning in Controller version 1.12.0, [you can control the allowed TLS Cipher Suites and minimum/maximum TLS versions]({{< relref "docs/Anka Build Cloud/configuration-reference.md#tls" >}})
 
 ### Native macOS Controller & Registry package
 
