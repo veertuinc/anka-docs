@@ -45,6 +45,8 @@ sudo security add-trusted-cert -d -k /Library/Keychains/System.keychain anka-ca-
 
 > The **Controller TLS certificate** ("`server`" cert options) is not part of the authentication process and doesn't need to be derived from the CA you just generated. This means that you can use certificates supplied by your organization or a 3rd party for TLS/HTTPS
 
+> Ensure your signed key is decrypted using `openssl rsa`
+
 > For this guide, we're running the Controller & Registry locally, so we use 127.0.0.1. Update this depending on where you have things hosted
 
 If you do not have TLS certificates for your Controller & Registry, you can create them now:
