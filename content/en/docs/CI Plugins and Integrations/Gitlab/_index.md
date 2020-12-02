@@ -183,6 +183,7 @@ OPTIONS:
    --anka-root-ca-path value             Specify the path to your Controller's Root CA certificate [$ROOT_CA_PATH]
    --anka-cert-path value                Specify the path to the GitLab Certificate (used for connecting to the Controller) (requires you also specify the key) [$CERT_PATH]
    --anka-key-path value                 Specify the path to your GitLab Certificate Key (used for connecting to the Controller) [$KEY_PATH]
+   --anka-controller-http-headers value  In JSON format, specify headers to set for the HTTP requests to the controller (quotes must be escaped) (example: { \"HOST\": \"testing123.com\", \"CustomHeaderName\": \"test123\" }) [$CONTROLLER_HTTP_HEADERS]
    --anka-skip-tls-verification          Skip TLS Verification when connecting to your Controller [$SKIP_TLS_VERIFICATION]
    --anka-keep-alive-on-error            Keep the VM alive for debugging job failures [$KEEP_ALIVE_ON_ERROR]
 ```
@@ -272,6 +273,23 @@ When you stop or exit the container, it will automatically unregister it from yo
       script:
         - hostname
         - echo "Echo from inside of the VM!"
+    ```
+- You can also override the HTTP headers used when communicating with the controller:
+
+    ```bash
+    /tmp/anka-gitlab-runner-darwin-amd64 register --non-interactive \
+      --url "https://gitlab.url.net/" \
+      --registration-token <REDACTED> \
+      --ssh-user anka \
+      --ssh-password admin \
+      --name "mobile-dev-4 via IP and HOST header" \
+      --anka-controller-address "http://10.34.7.167" \
+      --anka-template-uuid 21d57182-c124-4b2b-afd5-d3c371c1b5c7 \
+      --anka-tag base:port-forward-22:brew-git:gitlab \
+      --executor anka \
+      --anka-controller-http-headers "{ \"HOST\": \"anka-controller.url.net\" }" \
+      --clone-url "https://gitlab.url.net/" \
+      --tag-list "anka-poc"
     ```
 - If you see "Missing anka-gitlab-runner. Uploading artifacts is disabled" at the end of jobs that have archiving enabled, [you need to install the anka-gitlab-runner in your VM Template/Tag](https://stackoverflow.com/questions/45567587/uploading-artifacts-is-disabled).
 - We've defaulted preparation (requesting a VM from the Controller) retries to 0, but you can modify this using:
