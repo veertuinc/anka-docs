@@ -15,7 +15,7 @@ description: >
 
 - New Feature: [You can now `anka delete {vmName}:{tagName}` in order to remove the tag LABEL from your VM. However, this does not remove the STATE of the tag from the VM, allowing you to create a new tag without losing the previous tag's config, installed dependencies, etc.]({{< relref "docs/Getting Started/creating-your-first-vm.md#re-pushing-an-existing-registry-tag" >}})
 - Bug Fix: Hostmachines running 10.13.6 were locking up when executing `anka run` and `anka cp` on them
-- Bug Fix: Random IPs were being assigned when DHCP couldn't
+- Bug Fix: Incorrect DHCP handling logic caused random IP to be assigned to VM
 - Bug Fix: `anka modify set custom-variable sys.csr-active-config 0` doesn't work as expected
 
 > NEW IN 2.3: `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
