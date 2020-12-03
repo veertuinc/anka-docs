@@ -27,9 +27,9 @@ anka registry push -t tag2 VM
 
 ## What's New in Packer Plugin 1.6.0
 
-### Base VM and Clone defualt name changes
+### Base VM and Clone default name changes
 
-Base VMs are now created with `anka-packer-base-{macOSVersion}` and cloned VM with `anka-packer-{10RandomChars}`.
+To remove a lengthy part of iteration when starting from an installer app, base VMs are now created with the stable name of `anka-packer-base-{macOSVersion}` and cloned VMs with `anka-packer-{10RandomChars}`.
 
 ### Ability to set port-forwarding
 
