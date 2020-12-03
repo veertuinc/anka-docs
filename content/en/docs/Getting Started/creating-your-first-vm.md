@@ -80,3 +80,21 @@ are you sure you want to delete vm 77f33f4a-75c3-47aa-b3f6-b99e7cdac001 test [y/
 ## (Anka Build license + Cloud) Understanding VM Templates, Tags, and Disk Usage
 
 {{< include file="./shared/content/en/docs/Getting Started/partials/_understanding-templates-and-tags.md" >}}
+
+## Re-pushing an existing registry tag
+
+> Only available for versions >= 2.3.1
+
+On pushing to the registry, a tag is created. It will also be assigned a specific commit ID (not visible to users). Even if you modify the tag locally, such as adding port-forwarding, changes will not be pushed to the registry until you push with a different tag name.
+
+Now, you can simply untag the VM locally and then push it with the same name (after [deleting the VM template]({{< relref "docs/Anka Build Cloud/working-with-controller-and-api.md#delete-template" >}}) or [reverting the tag]({{< relref "docs/Anka Build Cloud/working-with-controller-and-api.md#revert-template-tag" >}})):
+
+> Locally, this does not remove the current STATE of the tag from the VM. Your installed dependencies inside of the VM will remain as long as you don't pull or switch to a different tag.
+
+```bash
+anka registry pull -t tag2 VM
+anka delete VM:tag2
+anka modify VM add port-forwarding...
+curl ... (delete or revert from registry)
+anka registry push -t tag2 VM
+```

@@ -7,6 +7,23 @@ description: >
   Description of new Anka software features
 ---
 
+## What's new in Anka Virtualization 2.3.1
+
+### You can now untag a VM
+
+On pushing to the registry, a tag is created. It will also be assigned a specific commit ID (not visible to users). Even if you modify the tag locally, such as adding port-forwarding, changes will not be pushed to the registry until you push with a different tag name.
+
+Now, you can simply untag the VM locally and then push it with the same name (after [deleting the VM template]({{< relref "docs/Anka Build Cloud/working-with-controller-and-api.md#delete-template" >}}) or [reverting the tag]({{< relref "docs/Anka Build Cloud/working-with-controller-and-api.md#revert-template-tag" >}})):
+
+> Locally, this does not remove the current STATE of the tag from the VM. Your installed dependencies inside of the VM will remain as long as you don't pull or switch to a different tag.
+
+```bash
+anka registry pull -t tag2 VM
+anka delete VM:tag2
+anka modify VM add port-forwarding...
+curl ... (delete or revert from registry)
+anka registry push -t tag2 VM
+```
 
 ## What's New in Packer Plugin 1.6.0
 

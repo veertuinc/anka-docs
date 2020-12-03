@@ -11,6 +11,15 @@ description: >
 
 ## Current Versions
 
+### Anka Virtualization CLI 2.3.1 (2.3.1.124) - Dec 3rd, 2020
+
+- New Feature: [You can now `anka delete {vmName}:{tagName}` in order to remove the tag LABEL from your VM. However, this does not remove the STATE of the tag from the VM, allowing you to create a new tag without losing the previous tag's config, installed dependencies, etc.]({{< relref "docs/Getting Started/creating-your-first-vm.md#re-pushing-an-existing-registry-tag" >}})
+- Bug Fix: Hostmachines running 10.13.6 were locking up when executing `anka run` and `anka cp` on them
+- Bug Fix: Random IPs were being assigned when DHCP couldn't
+- Bug Fix: `anka modify set custom-variable sys.csr-active-config 0` doesn't work as expected
+
+> NEW IN 2.3: `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
+
 ### Anka Build Cloud Controller & Registry 1.12.0 (1.12.0-65cba643) - Dec 1st, 2020
 - Bug Fix: Uninstaller throws exit code of 1
 - New Feature: Allow configuration of TLS/SSL Protocols and Ciphers for Controller & Registry
@@ -32,7 +41,18 @@ description: >
 - Improvement: added node info to runner logs so customers know where a vm ran
 - New Feature: support changing http headers for controller communication
 
+### TeamCity Plugin version 1.7.1 - July 7, 2020
+- Bug Fix: Long-running threads were being created
+- Bug Fix: UI Slowness the more Instances/Agents you created
+- Bug Fix: HTTPS without certificate authentication enabled doesn't work
 
+### Anka VM GitHub Action v1.2.2-beta - Oct 1st, 2020
+- Maintenance: core/actions version bump
+- New Feature: using Code QL
+
+---
+
+## Previous Versions
 ### Anka Virtualization CLI 2.3.0 (2.3.0.122) - Nov 24, 2020
 
 - New Feature: A free, but limited, license for developers and small teams (on by default)
@@ -53,23 +73,11 @@ description: >
 - Bug Fix: Reboots from within VM sometimes show a black screen
 - Bug Fix: Unable to upgrade 10.14 VM to 10.14.1
 
-> `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
+> NEW IN 2.3: `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
 
 > Known Issues:
 > 
 > 1. With Big Sur VMs, DHCP/IP assignment seems flakey and will cause a random IP to be applied.
-### TeamCity Plugin version 1.7.1 - July 7, 2020
-- Bug Fix: Long-running threads were being created
-- Bug Fix: UI Slowness the more Instances/Agents you created
-- Bug Fix: HTTPS without certificate authentication enabled doesn't work
-
-### Anka VM GitHub Action v1.2.2-beta - Oct 1st, 2020
-- Maintenance: core/actions version bump
-- New Feature: using Code QL
-
----
-
-## Previous Versions
 
 ### Anka GitLab Runner 1.1.0 - Sep 28, 2020
 - Feature Change: When limiting jobs to a specific node using the enterprise license feature "node groups", you no longer use the `GROUP_ID` ENV and instead set it with `--anka-node_group` on registration or the ENV `NODE_GROUP`.
