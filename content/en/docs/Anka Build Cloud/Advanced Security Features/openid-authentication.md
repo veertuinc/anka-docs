@@ -9,7 +9,7 @@ description: >
 
 > This guide and feature require an Anka Enterprise Plus license.
 
-> Before you begin, you will need to setup [Certificate Authentication]({{< relref "docs/Anka Build Cloud/Advanced Security Features/certificate-authentication.md" >}}). This allows your Anka Nodes to join (and attach your Enterprise Plus license) to the Controller properly, since `ANKA_ENABLE_AUTH` will be turned on.
+> If you're using root token auth for your Controller UI, without certificate authentication, Nodes will no longer be able to connect to port 80 when running `ankacluster join`. You'll need to setup an interface for them to communicate. [See our documentation on this.]({{< relref "docs/Anka Build Cloud/Advanced Security Features/root-token-authentication.md#joining-nodes" >}})
 
 > You must have at least one node with a Enterprise or higher license joined to the Controller for these features to work.
 
