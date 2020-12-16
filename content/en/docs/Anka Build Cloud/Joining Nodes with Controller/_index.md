@@ -63,6 +63,9 @@ Flags:
       --vm-stuck-timeout duration   The time to wait until the VM is considered unresponsive (default: 10s - Duration examples: 3500s, 20m, 5h)
   ```
 
+The Anka agent is listening on a socket to provide status information at runtime.
+You can override the path of the socket by setting the `ANKA_AGENT_SOCKET` env var.
+
 ## Disjoining
 
 > You don't need to disjoin nodes to upgrade the Anka Virtualization package
@@ -71,3 +74,43 @@ Flags:
 ❯ sudo ankacluster disjoin
 Disjoined from the Anka Cloud Cluster
 ```
+
+## Status
+
+You can check the status of the Anka agent using the `ankacluster status` command.
+
+
+```shell
+❯ ankacluster status
+status: running
+config:
+  vm_limit: 2
+  optimization_threshold: 5
+  num_workers: 2
+  controller_addresses:
+  - http://anka.controller.dev
+  version: 1.13.0-6cd34a2c
+  capacity_mode: number
+  heartbeat: 5s
+  node_name: MyMacMiniNode
+  vm_stuck_check_delay: 30s
+  vm_stuck_check_timeout: 10s
+```
+
+For infomation check out `ankacluster status --help`
+
+```shell
+❯ sudo ankacluster status --help
+Returns the status of the Anka Node Agent
+
+Usage:
+  ankacluster status [flags]
+
+Flags:
+  -h, --help               help for status
+  -m, --machine-readable   Output the response in json format
+```
+
+
+The Anka agent is listening on a socket to provide the information at runtime.
+In case the agent is configured to listen on a custom socket, you can use the `ANKA_AGENT_SOCKET` env var to override it.
