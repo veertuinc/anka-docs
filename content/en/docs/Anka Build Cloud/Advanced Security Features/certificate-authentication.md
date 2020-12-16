@@ -322,4 +322,16 @@ If everthing is configured correctly, you should see something like this (I used
 
 ## Managing User/Group Permissions (Authorization)
 
+When creating certificates, you'll want to specify CSR values using openssl's `-subj` option. For example, if we're going to generate a certificate so our Jenkins instance can access the Controller & Registry, you'll want to use something like this:
+
+```shell
+-subj "/O=MyOrgName/OU=$ORG_UNIT/CN=Jenkins"
+```
+
+> Required values are `O=` and `CN=`
+
+> Spaces are supported in `O=` and Anka Build Cloud Controller version >= 1.10
+
+Within the Controller, we use **`O=`** as the **permission group name** and **`CN=`** as the **username**. The **Group Name** will be `MyOrgName`, like we used in the `-subj` above.
+
 {{< include file="shared/content/en/docs/Anka Build Cloud/Advanced Security Features/partials/_managing-permissions.md" >}}

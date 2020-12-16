@@ -4,18 +4,6 @@ Permission groups are configurable from your Controller's `https://<controller a
 
 > The permission groups here differ from the groups you assign to nodes within the Controller UI
 
-When creating certificates, you'll want to specify CSR values using openssl's `-subj` option. For example, if we're going to generate a certificate so our Jenkins instance can access the Controller & Registry, you'll want to use something like this:
-
-```shell
--subj "/O=MyOrgName/OU=$ORG_UNIT/CN=Jenkins"
-```
-
-> Required values are `O=` and `CN=`
-
-> Spaces are supported in `O=` and Anka Build Cloud Controller version >= 1.10
-
-Within the Controller, we use **`O=`** as the **permission group name** and **`CN=`** as the **username**. The **Group Name** will be `MyOrgName`, like we used in the `-subj` above.
-
 The **Available Permissions** list will display all of the permissions we can assign to the group (see below for the full list). These permissions will allow plugins/users (like Jenkins) to communicate with the Controller & Registry:
 
 - `get_groups`

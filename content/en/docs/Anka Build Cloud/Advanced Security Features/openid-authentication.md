@@ -109,7 +109,9 @@ Once logged in, you will see **Admin** on the left navigation
 
 Under the **Admin** page, we want to add a **New Group**. **The Group Name will be the name of the group you created within Keycloak.** 
 
-## Managing User/Group Permissions
+## Managing User/Group Permissions (Authorization)
+
+Once user and group are created and assigned to each other, you can then add the exact group name from your keycloak (or other authorization server software) to the controller's permission management panel. This gives any users associated to the group in that cloud permission group the specific permissions to the API and even controller UI.
 
 {{< include file="shared/content/en/docs/Anka Build Cloud/Advanced Security Features/partials/_managing-permissions.md" >}}
 
