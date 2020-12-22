@@ -11,7 +11,7 @@ description: >
 
 ## Current Versions
 
-### Anka VM GitHub Action v1.0.0 - Dec 22nd, 2020
+### Anka VM GitHub Action v1.3.0 - Dec 22nd, 2020
 - New Feature: anka cp support for getting host files in and also out + better tests
 - Change: commands -> vm-commands
 - Change: anka-tag -> anka-vm-tag-name
