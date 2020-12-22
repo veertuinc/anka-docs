@@ -11,6 +11,15 @@ description: >
 
 ## Current Versions
 
+### Anka VM GitHub Action v1.0.0 - Dec 22nd, 2020
+- New Feature: anka cp support for getting host files in and also out + better tests
+- Change: commands -> vm-commands
+- Change: anka-tag -> anka-vm-tag-name
+- Change: artifacts-root-directory -> artifacts-directory-on-host
+- Change: anka-template -> anka-vm-template-name
+- Better tests + big sur
+- Out of beta!
+
 ### Anka Virtualization CLI 2.3.1 (2.3.1.124) - Dec 3rd, 2020
 
 - New Feature: [You can now `anka delete {vmName}:{tagName}` in order to remove the tag LABEL from your VM. However, this does not remove the STATE of the tag from the VM, allowing you to create a new tag without losing the previous tag's config, installed dependencies, etc.]({{< relref "docs/Getting Started/creating-your-first-vm.md#re-pushing-an-existing-registry-tag" >}})
@@ -46,13 +55,13 @@ description: >
 - Bug Fix: UI Slowness the more Instances/Agents you created
 - Bug Fix: HTTPS without certificate authentication enabled doesn't work
 
-### Anka VM GitHub Action v1.2.2-beta - Oct 1st, 2020
-- Maintenance: core/actions version bump
-- New Feature: using Code QL
-
 ---
 
 ## Previous Versions
+
+### Anka VM GitHub Action v1.2.2-beta - Oct 1st, 2020
+- Maintenance: core/actions version bump
+- New Feature: using Code QL
 ### Anka Virtualization CLI 2.3.0 (2.3.0.122) - Nov 24, 2020
 
 - New Feature: A free, but limited, license for developers and small teams (on by default)
