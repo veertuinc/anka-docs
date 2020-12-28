@@ -11,6 +11,16 @@ description: >
 
 ## Current Versions
 
+### Packer Plugin 1.6.1 - Dec 28th, 2020
+- Bug Fix: Creation wasn't setting cpu/ram/disk_size values [PR](https://github.com/veertuinc/packer-builder-veertu-anka/pull/50)
+
+### Anka GitLab Runner 1.2.1 - Dec 28th, 2020
+- Bug Fix: Description quotes were breaking help/flag listing [PR](https://github.com/veertuinc/gitlab-runner/pull/8)
+### Anka Build Cloud Controller & Registry 1.13.0 (1.13.0-24e848a5) - Dec 28th, 2020
+- Bug Fix: The controller was terminating VMs after a few minutes of the node or the controller being down
+- New Feature: [`ankacluster status` now shows more details about the Node (includes `--machine-readable` flag for JSON output)]({{< relref "docs/Whats New/_index.md#ankacluster-status-now-shows-more-details-about-the-node" >}})
+- (Standalone Registry: 1.13.0-9fae2f3)
+
 ### Anka VM GitHub Action v1.3.0 - Dec 22nd, 2020
 - New Feature: anka cp support for getting host files in and also out + better tests
 - Change: commands -> vm-commands
@@ -29,13 +39,17 @@ description: >
 
 > NEW IN 2.3: `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
 
-### Anka Build Cloud Controller & Registry 1.12.0 (1.12.0-65cba643) - Dec 1st, 2020
-- Bug Fix: Uninstaller throws exit code of 1
-- New Feature: Allow configuration of TLS/SSL Protocols and Ciphers for Controller & Registry
-- (Standalone Registry: 1.12.0-1f2c3e1)
-
 ### Jenkins Plugin 2.3.0 - Dec 1st, 2020
 - New Feature: Disable appending timestamp to Cache Builder/tags
+
+### TeamCity Plugin version 1.7.1 - July 7, 2020
+- Bug Fix: Long-running threads were being created
+- Bug Fix: UI Slowness the more Instances/Agents you created
+- Bug Fix: HTTPS without certificate authentication enabled doesn't work
+
+---
+
+## Previous Versions
 
 ### Packer Plugin 1.6.0 - Dec 1st, 2020
 - Better logging, examples for Catalina, bug fixes, and security/module updates
@@ -49,16 +63,10 @@ description: >
 ### Anka GitLab Runner 1.2.0 - Dec 1st, 2020
 - Improvement: added node info to runner logs so customers know where a vm ran
 - New Feature: support changing http headers for controller communication
-
-### TeamCity Plugin version 1.7.1 - July 7, 2020
-- Bug Fix: Long-running threads were being created
-- Bug Fix: UI Slowness the more Instances/Agents you created
-- Bug Fix: HTTPS without certificate authentication enabled doesn't work
-
----
-
-## Previous Versions
-
+### Anka Build Cloud Controller & Registry 1.12.0 (1.12.0-65cba643) - Dec 1st, 2020
+- Bug Fix: Uninstaller throws exit code of 1
+- New Feature: Allow configuration of TLS/SSL Protocols and Ciphers for Controller & Registry
+- (Standalone Registry: 1.12.0-1f2c3e1)
 ### Anka VM GitHub Action v1.2.2-beta - Oct 1st, 2020
 - Maintenance: core/actions version bump
 - New Feature: using Code QL

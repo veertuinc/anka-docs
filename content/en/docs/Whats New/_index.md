@@ -7,6 +7,58 @@ description: >
   Description of new Anka software features
 ---
 
+## What's New in Anka Build Cloud Controller & Registry Version 1.13.0
+
+### `ankacluster status` now shows more details about the Node
+
+```bash
+❯ sudo ankacluster status
+Password:
+status: running
+config:
+  vm_limit: 2
+  optimization_threshold: 5
+  num_workers: 2
+  controller_addresses:
+  - http://anka.controller:8090
+  version: 1.13.0-24e848a5
+  capacity_mode: number
+  heartbeat: 5s
+  node_name: Veertu.fios-router.home
+  vm_stuck_check_delay: 30s
+  vm_stuck_check_timeout: 10s
+
+
+❯ sudo ankacluster status --machine-readable | jq
+{
+  "status": "running",
+  "config": {
+    "vm_limit": 2,
+    "optimization_threshold": 5,
+    "tls_certs": {
+      "UseTLS": false,
+      "RootCert": "",
+      "ClientKeyStore": "",
+      "KeyStorePass": "",
+      "ClientCert": "",
+      "ClientCertKey": "",
+      "CACert": "",
+      "SkipTLSVerification": false
+    },
+    "num_workers": 2,
+    "controller_addresses": [
+      "http://anka.controller:8090"
+    ],
+    "version": "1.13.0-24e848a5",
+    "capacity_mode": "number",
+    "heartbeat": 5000000000,
+    "node_name": "Veertu.fios-router.home",
+    "vm_stuck_check_delay": 30000000000,
+    "vm_stuck_check_timeout": 10000000000
+  }
+}
+```
+
 ## What's new in Anka Virtualization 2.3.1
 
 ### You can now untag a VM
