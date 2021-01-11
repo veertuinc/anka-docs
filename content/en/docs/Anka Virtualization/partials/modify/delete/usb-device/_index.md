@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 11.0.1 delete usb-device --help
+> sudo anka modify 11.1.0 delete usb-device --help
 Usage: anka modify delete usb-device [OPTIONS] [DEVICE]...
 
 Options:

@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 11.0.1 set nested --help
+> sudo anka modify 11.1.0 set nested --help
 Usage: anka modify set nested [OPTIONS] NESTED
 
   Enable nested virtualization

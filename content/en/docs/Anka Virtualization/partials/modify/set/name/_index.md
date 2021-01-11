@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 11.0.1 set name --help
+> sudo anka modify 11.1.0 set name --help
 Usage: anka modify set name [OPTIONS] NAME
 
   Set new template name for the VM

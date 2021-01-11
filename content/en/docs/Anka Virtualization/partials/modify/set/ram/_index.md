@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 11.0.1 set ram --help
+> sudo anka modify 11.1.0 set ram --help
 Usage: anka modify set ram [OPTIONS] [SIZE]...
 
   Set RAM size and parameters

@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 11.0.1 set custom-variable --help
+> sudo anka modify 11.1.0 set custom-variable --help
 Usage: anka modify set custom-variable [OPTIONS] KEY VALUE
 
   Set custom nvram & smb variables (Example: . . . set custom-variable hw.serial "<SERIAL>"
