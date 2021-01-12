@@ -6,7 +6,7 @@ weight: 1
 
 ## Scenario
 
-Anka VMs error or disappear and you see in the Controller logs `E1108 23:09:28.804391       1 queue_server.go:184] Server Internal error: etcdserver: mvcc: database space exceeded.`. There was plenty of available space on disk. Running `etcdctl compact 3` followed by `etcdctl alarm disarm` fixes it, but you'd like to prevent this in the future.
+Anka VMs error or disappear and you see in the Controller logs `E1108 23:09:28.804391       1 queue_server.go:184] Server Internal error: etcdserver: mvcc: database space exceeded.`. There was plenty of available space on disk. Running `etcdctl compact $(ETCDCTL_API=3 etcdctl --endpoints=:2379 endpoint status --write-out="json" | egrep -o '"revision":[0-9]*' | egrep -o '[0-9].*')`, `etcdctl debug --command-timeout=20s`, followed by `etcdctl alarm disarm` fixes it, but you'd like to prevent this in the future.
 
 ## Common reasons
 

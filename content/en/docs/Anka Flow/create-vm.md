@@ -133,7 +133,7 @@ port_forwarding
 +--------------+------------+---------+-------------+-------------+-----------+
 ```
 ### Upgrading macOS VM inside Anka VM
-***Note*** Don't use the System Preference installer to update macOS inside Anka VM. Use the `softwareupdate -Ri` command line tool to upgrade macOS inside Anka VM. Stop the Vm and then restart it.
+Anka supports `softwareupdate` and also the System Preferences method of upgrading.
 
 ### Work inside the VM
 There are multiple methods to install various software packages and work inside the VM.

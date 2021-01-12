@@ -11,6 +11,19 @@ description: >
 
 ## Current Versions
 
+### Anka Virtualization CLI 2.3.2 (125) - Jan 12th, 2021
+
+- Improvement: Refined --help messages for CLI
+- Improvement: VM Networking speeds and stability
+- New Feature: Support for PG graphics ("Metal") devices in the VM
+- Bug Fix: It's possible that the ankarund process can fail due to other software requesting access to usb devices inside of the VM. This was causing `anka run` to not function.
+- Bug Fix: ENVs with special characters were causing `non CF convertable type passed` errors on the CLI.
+- Bug Fix: `Failed to find bundle for accelerator bundle named: AnkaMTLDriver errno: 0` was displaying in simulator logs, causing CI/CD to fail.
+- Bug Fix: 10.14 wasn't allowing nested virtualization
+- Bug Fix: Running `anka --machine-readable license show` on a machine without a license throws an error
+
+> NEW IN 2.3: `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
+
 ### Packer Plugin 1.6.1 - Dec 28th, 2020
 - Bug Fix: Creation wasn't setting cpu/ram/disk_size values [PR](https://github.com/veertuinc/packer-builder-veertu-anka/pull/50)
 
@@ -30,15 +43,6 @@ description: >
 - Better tests + big sur
 - Out of beta!
 
-### Anka Virtualization CLI 2.3.1 (2.3.1.124) - Dec 3rd, 2020
-
-- New Feature: [You can now `anka delete {vmName}:{tagName}` in order to remove the tag LABEL from your VM. However, this does not remove the STATE of the tag from the VM, allowing you to create a new tag without losing the previous tag's config, installed dependencies, etc.]({{< relref "docs/Getting Started/creating-your-first-vm.md#re-pushing-an-existing-registry-tag" >}})
-- Bug Fix: Hostmachines running 10.13.6 were locking up when executing `anka run` and `anka cp` on them
-- Bug Fix: Incorrect DHCP handling logic caused random IP to be assigned to VM
-- Bug Fix: `anka modify set custom-variable sys.csr-active-config 0` doesn't work as expected
-
-> NEW IN 2.3: `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
-
 ### Jenkins Plugin 2.3.0 - Dec 1st, 2020
 - New Feature: Disable appending timestamp to Cache Builder/tags
 
@@ -50,6 +54,15 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Virtualization CLI 2.3.1 (2.3.1.124) - Dec 3rd, 2020
+
+- New Feature: [You can now `anka delete {vmName}:{tagName}` in order to remove the tag LABEL from your VM. However, this does not remove the STATE of the tag from the VM, allowing you to create a new tag without losing the previous tag's config, installed dependencies, etc.]({{< relref "docs/Getting Started/creating-your-first-vm.md#re-pushing-an-existing-registry-tag" >}})
+- Bug Fix: Hostmachines running 10.13.6 were locking up when executing `anka run` and `anka cp` on them
+- Bug Fix: Incorrect DHCP handling logic caused random IP to be assigned to VM
+- Bug Fix: `anka modify set custom-variable sys.csr-active-config 0` doesn't work as expected
+
+> NEW IN 2.3: `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
 
 ### Packer Plugin 1.6.0 - Dec 1st, 2020
 - Better logging, examples for Catalina, bug fixes, and security/module updates

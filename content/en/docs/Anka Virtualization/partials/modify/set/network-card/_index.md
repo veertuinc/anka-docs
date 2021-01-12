@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 11.0.1 set network-card --help
+> sudo anka modify 11.1.0 set network-card --help
 Usage: anka modify set network-card [OPTIONS] [INDEX]...
 
   Modify network card settings
