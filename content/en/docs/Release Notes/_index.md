@@ -11,7 +11,7 @@ description: >
 
 ## Current Versions
 
-### Anka Virtualization CLI 2.3.2 (125) - Jan 12th, 2021
+### Anka Virtualization CLI 2.3.2 (2.3.2.125) - Jan 12th, 2021
 
 - Improvement: Refined --help messages for CLI
 - Improvement: VM Networking speeds and stability
