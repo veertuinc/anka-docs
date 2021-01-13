@@ -60,6 +60,14 @@ anka registry list
 
 ## REST API
 
+
+### Status
+
+```bash
+❯ curl -s http://anka.registry:8089/registry/status                                                        
+{"status":"OK","body":{"status":"Running","version":"1.13.0-24e848a5"},"message":""}
+```
+
 ### List VMS  
 
 > **Note**   

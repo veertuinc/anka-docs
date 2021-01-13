@@ -86,13 +86,19 @@ Starting from Controller release version 1.0.12, logs will be available for down
 
 ---
 
-## API
+## REST API
 
 > Note
 > Run these against IP:Port of the Controller.
 
 Use the REST APIs to integrate Anka Build cloud with your CI system(If there is no plugin/integration available).
 
+### Status
+
+```bash
+❯ curl -s http://anka.controller:8090/api/v1/status         
+{"status":"OK","message":"","body":{"status":"Running","version":"1.13.0-24e848a5","registry_address":"http://anka.registry:8089","registry_status":"Running","license":"enterprise plus"}}
+```
 ## VM Instance
 
 **Object Model:**
