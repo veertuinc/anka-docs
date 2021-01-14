@@ -7,6 +7,40 @@ description: >
   Description of new Anka software features
 ---
 
+## What's new in Anka Virtualization 2.3.2
+
+### PG ("Metal") support inside of the VM
+
+Apple has included Paravirtualized Graphics support for VMs in Big Sur, allowing us to support graphics acceleration for Anka customers.
+
+To enable this feature, you simply need to:
+
+1. Upgrade the host to Big Sur
+2. Set the display: `anka modify {vmName} set display -c pg`
+
+```bash
+❯ anka modify 11.1.0 set display --help
+Usage: anka modify set display [OPTIONS]
+
+  Configure displays
+
+Options:
+  -n, --count INTEGER         Configure number of displays (2 max)
+  --headless                  same as --count 0
+  -p, --password              Prompt for VNC password
+  -v, --vnc TEXT              Configure VNC
+  --no-vnc                    Disable VNC access to the VM
+  -d, --dpi INTEGER           Set DPI (default is 72)
+  -r, --resolution TEXT       Set resolution, e.g. 1024x768 or 'default' to reset to default
+  -c, --controller [fbuf|pg]  Set video controller
+  --host-gpu-location TEXT    Specify location of the host GPU to use, or 'any'
+  --host-gpu-name TEXT        Specify name of the host GPU to use, or 'any'
+  --features INTEGER          Specify extended features flags as a bit mask
+  --help                      Display usage information
+```
+
+> At the moment, the `pg` video controller only works for stopped VMs
+
 ## What's New in Anka Build Cloud Controller & Registry Version 1.13.0
 
 ### `ankacluster status` now shows more details about the Node
