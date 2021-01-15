@@ -24,6 +24,8 @@ description: >
 
 > NEW IN 2.3: `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
 
+> Known issue: PG and Nested Virtualization are not compatible.
+
 ### Packer Plugin 1.6.1 - Dec 28th, 2020
 - Bug Fix: Creation wasn't setting cpu/ram/disk_size values [PR](https://github.com/veertuinc/packer-builder-veertu-anka/pull/50)
 
