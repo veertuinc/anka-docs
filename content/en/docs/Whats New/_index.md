@@ -7,6 +7,15 @@ description: >
   Description of new Anka software features
 ---
 
+## What's New in Anka Build Cloud Controller & Registry Version 1.14.0
+
+### Customize the range of MAC addresses the controller uses for creating VMs
+
+You can now specify the range of MAC addresses that the controller uses with the `ANKA_MANAGE_MAC_ADDRESSES` config.
+
+Once configured, [you can use the API to list or delete/regenerate the MAC list from a new range]({{< relref "docs/Anka Build Cloud/working-with-controller-and-api.md#mac-addresses-management" >}}).
+
+> Requires that you enable `ANKA_MANAGE_MAC_ADDRESSES`
 ## What's new in Anka Virtualization 2.3.2
 
 ### PG ("Metal") support inside of the VM

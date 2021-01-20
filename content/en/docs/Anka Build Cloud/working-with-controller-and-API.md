@@ -1311,4 +1311,44 @@ curl "http://anka.controller/api/v1/usb" | jq
 }
 ```
 
+## MAC Addresses Management
+
+### List Addresses
+
+**Description:** Lists or counts mac address  
+**Path:** /api/v1/macaddr  
+**Method:** GET  
+
+**Optional Query Parameters:**
+
+| Parameter | Type | Description | Default |
+| --- | --- | --- | --- |
+| count | int | Return the number of mac addresses available | - |
+| in_use | int | Return only the number of mac addresses in use | - |
+| limit | string | Return a list of mac addresses and limit the results to the amount specified | - |
+| last | string | (pagination) Return the amount of items specified in `limit`, but start from a specific MAC address (ex: `limit=500&last=00:00:00:00:FF:FF`) |
+
+**Returns:**
+- *status:* Operation Result (OK|FAIL)
+- *message:* Error message in case of an error
+
+### Force population of internal MAC list
+
+**Description:** Triggers the internal MAC address population (useful if DELETE was submitted with API call)  
+**Path:** /api/v1/macaddr  
+**Method:** PUT  
+
+**Returns:**
+- *status:* Operation Result (OK|FAIL)
+- *message:* Error message in case of an error
+
+### Force purge of internal MAC list
+
+**Description:** Deletes all internal MAC addresses (run this before PUT to re-generate your initial range)  
+**Path:** /api/v1/macaddr  
+**Method:** DELETE  
+
+**Returns:**
+- *status:* Operation Result (OK|FAIL)
+- *message:* Error message in case of an error
 
