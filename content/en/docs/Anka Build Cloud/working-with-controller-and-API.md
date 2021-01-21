@@ -28,6 +28,12 @@ You can view all active build nodes, instances running on them, their cpu and ra
 
 ![image2](/images/using-controller/image2.png)
 
+#### Explanation of Node States
+- **Offline:** Node has not checked in recently
+- **Inactive:** (Invalid License): License has likely expired; log in to the node and run `anka license show`
+- **Active:** Node is healthy
+- **Updating:** Node is downloading and installing the proper agent pkg (if the controller has been upgraded)
+- **Unhealthy:** VMs running on Node are in an errored or failed
 ### Templates View
 Click on templates to look at all VMs stored in the registry.
 
