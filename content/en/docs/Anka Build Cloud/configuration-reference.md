@@ -135,7 +135,7 @@ export ANKA_ANKA_REGISTRY="http://anka.registry:8089"
 | Instance time out | duration | The time that instances stay in 'Terminated' state | 1m | ANKA_INSTANCE_TIME_OUT |
 | Manage MAC addresses | bool | Let the controller manage VM MAC addresses to ensure uniqueness/prevent collision. **`Requires VM Templates/Tags be stored in your Registry in a stopped state (vs suspended).`** | false | ANKA_MANAGE_MAC_ADDRESSES |
 | Clean MAC addresses interval | duration | Interval between cleanings of unused MAC addresses | 1h | ANKA_CLEAN_MAC_ADDRESS_INTERVAL |
-| Limit MAC addresses to a range | string | Allows passing the range of mac addresses to use. `ANKA_MANAGE_MAC_ADDRESSES` must be set to true to use this option. Format: `<FROM>-<TO>` (example: 00:00:00:00:00:00-FF:FF:FF:FF:FF:FF) | - | ANKA_MAC_ADDR_RANGE |
+| Limit MAC addresses to a range | string | Allows passing the range of mac addresses to use. `ANKA_MANAGE_MAC_ADDRESSES` must be set to true to use this option. Format: `<FROM>-<TO>` (example: 00:00:00:00:00:00-FF:FF:FF:FF:FF:FF) (The 00:00:00:00:00:00 and FF:FF:FF:FF:FF:FF will be used) | - | ANKA_MAC_ADDR_RANGE |
 | MAC address request retries | int | Times to retry to get mac address from the database before giving up and returning an error. | 100 | ANKA_MAC_ADDR_RANGE_MAX_RETRIES |
 | MAC address range validation interval | duration | Interval to execute the mac address range validation. | 3h | ANKA_FILL_MAC_ADDRESS_RANGE_INTERVAL |
 
@@ -327,7 +327,7 @@ Depending on the package you're using (native or docker), you can include flags 
 | Instance time out | duration | The time that instances stay in 'Terminated' state | 1m | `--instance-time-out` |
 | Manage MAC addresses | bool | Let the controller manage VM MAC addresses to ensure uniqueness/prevent collision. **`Requires VM Templates/Tags be stored in your Registry in a stopped state (vs suspended).`** | false | `--manage-mac-addresses` |
 | Clean MAC addresses interval | duration | Interval between cleanings of unused MAC addresses | 1h | `--clean-mac-address-interval` |
-| Limit MAC addresses to a range | string | Allows passing the range of mac addresses to use. `--manage-mac-addresses` must be set to true to use this option. Format: `<FROM>-<TO>` (example: 00:00:00:00:00:00-FF:FF:FF:FF:FF:FF) | - | `--mac-addr-range` |
+| Limit MAC addresses to a range | string | Allows passing the range of mac addresses to use. `--manage-mac-addresses` must be set to true to use this option. Format: `<FROM>-<TO>` (example: 00:00:00:00:00:00-FF:FF:FF:FF:FF:FF) (The 00:00:00:00:00:00 and FF:FF:FF:FF:FF:FF will be used) | - | `--mac-addr-range` |
 | MAC address request retries | int | Times to retry to get mac address from the database before giving up and returning an error. | 100 | `--mac-addr-range-max-retries` |
 | MAC address range validation interval | duration | Interval to execute the mac address range validation. | 3h | `--fill-mac-address-range-interval` |
 
