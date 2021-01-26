@@ -50,4 +50,6 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
     mdutil -a -i off
     ```
 
-5. **Reboot the host**
+5. **Disable `coreduetd:`** `sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.coreduetd.osx.plist `
+
+6. **Reboot the host**
