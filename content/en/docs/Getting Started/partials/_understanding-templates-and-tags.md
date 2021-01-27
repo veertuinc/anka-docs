@@ -36,11 +36,12 @@ You have two options:
 Here is a diagram of this:
 
 ```
-11.1.0 (stopped) -> clone -> xcode12.3 (stopped) |
-                                                 | -> clone -> project1 (with fastlane-v1.X) (suspended)
-                                                 | -> clone -> project2 (with fastlane-v2.X) (suspended)
-       -> clone -> xcode11.7 (stopped) |
-                                       | -> clone -> project3 (suspended)
+11.1.0 (stopped)  | 
+                  | -> clone -> xcode12.3 (stopped) |
+                  |                                 | -> clone -> project1 (with fastlane-v1.X) (suspended)
+                  |                                 | -> clone -> project2 (with fastlane-v2.X) (suspended)
+                  |
+                  | -> clone -> xcode11.7 (stopped) -> clone -> project3 (suspended)
 ```
 
 If you're interested in _Infrastructure as Code_ to automate the creation of your Templates and Tags, you have several options:
