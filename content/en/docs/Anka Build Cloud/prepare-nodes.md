@@ -50,4 +50,6 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
     mdutil -a -i off
     ```
 
+5. **Big Sur Only (optional):** Disable Apple's mitigations with `sudo anka config vmx_mitigations 0`. Without it, performance will be ~10% worse inside of the VM.
+
 5. **Reboot the host**
