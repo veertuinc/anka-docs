@@ -42,12 +42,12 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
 
     ```shell
     # Disable indexing volumes
-    defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Volumes"
-    defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Network"
-    killall mds
+    sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Volumes"
+    sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Network"
+    sudo killall mds
     # Make sure indexing is DISABLED for the main volume
-    mdutil -a -i off /
-    mdutil -a -i off
+    sudo mdutil -a -i off /
+    sudo mdutil -a -i off
     ```
 
 5. **Big Sur Only (optional):** Disable Apple's mitigations with `sudo anka config vmx_mitigations 0`. Without it, performance will be ~10% worse inside of the VM.
