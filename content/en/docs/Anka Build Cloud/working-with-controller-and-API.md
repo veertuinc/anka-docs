@@ -1325,7 +1325,9 @@ curl "http://anka.controller/api/v1/usb" | jq
 **Path:** /api/v1/macaddr  
 **Method:** GET  
 
-**Optional Query Parameters:**
+> This endpoint requires either `count/in_use` or `limit/last`
+
+**Query Parameters:**
 
 | Parameter | Type | Description | Default |
 | --- | --- | --- | --- |
