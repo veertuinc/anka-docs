@@ -81,11 +81,14 @@ are you sure you want to delete vm 77f33f4a-75c3-47aa-b3f6-b99e7cdac001 test [y/
 
 {{< include file="./shared/content/en/docs/Getting Started/partials/_understanding-templates-and-tags.md" >}}
 
-> It's recommended that you disable Spotlight and CoreDuetD inside of the VM to eliminate services that are known to need high CPU:
-> ```bash
-> sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.coreduetd.osx.plist 
-> sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
-> ```
+## Optimizing your VM
+
+It's recommended that you disable Spotlight and CoreDuetD inside of the VM to eliminate services that are known to need high CPU:
+```bash
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.coreduetd.osx.plist 
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
+```
+
 ## Re-pushing an existing registry tag
 
 > Only available for versions >= 2.3.1
