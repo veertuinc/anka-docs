@@ -11,12 +11,14 @@ description: >
 
 ## Current Versions
 
-### Anka Virtualization CLI 2.3.3 (XXXXX) - Jan 28th, 2021
+### Anka Virtualization CLI 2.3.3 (XXXXX) - Feb 1st, 2021
 
 - Improvement: New low latency timer emulation logic (performance)
 - Bug Fix: `anka cp` symlink copying produces corrupted links
 - Bug Fix: VM resume instability
 - Bug Fix: `ankanetd` was found to crash on older Mac Pros
+- New Feature: License Fulfillment ID is now visible from `anka license show`
+- New Feature: `anka config` options to modify Apple's mitigations.
 
 > NEW IN 2.3: `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
 

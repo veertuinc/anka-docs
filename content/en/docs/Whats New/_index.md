@@ -7,6 +7,29 @@ description: >
   Description of new Anka software features
 ---
 
+## What's new in Anka Virtualization 2.3.3
+
+### You can now collect your license Fulfillment IDs before you remove the license
+
+Failing hardware is rare, but when it happens it leaves customers without the ability to run `anka license remove` and send us to Fulfillment ID to detatch the used cores.
+
+Starting in 2.3.3 you can now run `anka license show` and see the ID. We recommend storing these IDs in your internal documentation.
+
+```bash 
+anka license show
++---------------------+------------------------------+
+| license_type        | com.veertu.anka.entplus.host |
++---------------------+------------------------------+
+| status              | valid                        |
++---------------------+------------------------------+
+| expires             | 31-dec-2021                  |
++---------------------+------------------------------+
+| max_number_of_cores | 32                           |
++---------------------+------------------------------+
+| fulfillment         | 36094XXXXX                   |
++---------------------+------------------------------+
+```
+
 ## What's new in Anka Virtualization 2.3.2
 
 ### PG ("Metal") support inside of the VM
