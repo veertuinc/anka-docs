@@ -25,7 +25,7 @@ description: >
 
 ### Packer Plugin 1.7.0 - Feb 3rd, 2021
 - New Feature: `anka cp` support for uploading files and folders into VM [PR](https://github.com/veertuinc/packer-builder-veertu-anka/pull/58)
-- New Feature: `40GB` default disk size for Big Sur VM creation
+- Bug Fix: `40GB` default disk size for Big Sur VM creation
 
 ### Anka GitLab Runner 1.2.1 - Dec 28th, 2020
 - Bug Fix: Description quotes were breaking help/flag listing [PR](https://github.com/veertuinc/gitlab-runner/pull/8)
