@@ -10,7 +10,6 @@ description: >
 > Not all plugins are maintained by Veertu Inc developers. You might not see them listed here.
 
 ## Current Versions
-
 ### Anka Virtualization CLI 2.3.3 (2.3.3.127) - Feb 3rd, 2021
 
 - Improvement: New low latency timer emulation logic (performance)
@@ -21,6 +20,8 @@ description: >
 - New Feature: `anka config` options to modify Apple's mitigations on host.
 
 > NEW IN 2.3: `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
+
+> Known issue: 11.2 no longer supports the deprecated FUSE drivers. This could impact packer versions <= 1.6.1. Packer version 1.7.0 will support `anka cp` instead.
 
 ### Packer Plugin 1.6.1 - Dec 28th, 2020
 - Bug Fix: Creation wasn't setting cpu/ram/disk_size values [PR](https://github.com/veertuinc/packer-builder-veertu-anka/pull/50)
