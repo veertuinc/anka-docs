@@ -23,8 +23,9 @@ description: >
 
 > Known issue: 11.2 no longer supports the deprecated FUSE drivers. This could impact packer versions <= 1.6.1. Packer version 1.7.0 will support `anka cp` instead.
 
-### Packer Plugin 1.6.1 - Dec 28th, 2020
-- Bug Fix: Creation wasn't setting cpu/ram/disk_size values [PR](https://github.com/veertuinc/packer-builder-veertu-anka/pull/50)
+### Packer Plugin 1.7.0 - Feb 3rd, 2021
+- New Feature: `anka cp` support for uploading files and folders into VM [PR](https://github.com/veertuinc/packer-builder-veertu-anka/pull/58)
+- New Feature: `40GB` default disk size for Big Sur VM creation
 
 ### Anka GitLab Runner 1.2.1 - Dec 28th, 2020
 - Bug Fix: Description quotes were breaking help/flag listing [PR](https://github.com/veertuinc/gitlab-runner/pull/8)
@@ -53,6 +54,9 @@ description: >
 ---
 
 ## Previous Versions
+
+### Packer Plugin 1.6.1 - Dec 28th, 2020
+- Bug Fix: Creation wasn't setting cpu/ram/disk_size values [PR](https://github.com/veertuinc/packer-builder-veertu-anka/pull/50)
 
 ### Anka Virtualization CLI 2.3.2 (2.3.2.125) - Jan 12th, 2021
 
