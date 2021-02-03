@@ -34,12 +34,15 @@ anka license show
 
 ### PG ("Metal") support inside of the VM
 
+> A Big Sur Host and VM is required
+
 Apple has included Paravirtualized Graphics support for VMs in Big Sur, allowing us to support graphics acceleration for Anka customers.
 
 To enable this feature, you simply need to:
 
 1. Upgrade the host to Big Sur
-2. Set the display: `anka modify {vmName} set display -c pg`
+2. Create a Big Sur VM
+3. Set the display: `anka modify {vmName} set display -c pg`
 
 ```bash
 ❯ anka modify 11.1.0 set display --help
