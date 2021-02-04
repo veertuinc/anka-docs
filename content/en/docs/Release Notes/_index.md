@@ -23,6 +23,8 @@ description: >
 
 > Known issue: 11.2 no longer supports the deprecated FUSE drivers. This could impact packer versions <= 1.6.1. Packer version 1.7.0 will support `anka cp` instead.
 
+> Known issue: `anet` network card does not work for Big Sur VMs running on Catalina Hosts. You need to switch to `anka modify {vmName} set network-card -c virtio-net`
+
 ### Packer Plugin 1.7.0 - Feb 3rd, 2021
 - New Feature: `anka cp` support for uploading files and folders into VM [PR](https://github.com/veertuinc/packer-builder-veertu-anka/pull/58)
 - Bug Fix: `40GB` default disk size for Big Sur VM creation
