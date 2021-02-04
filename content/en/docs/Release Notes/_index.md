@@ -19,6 +19,8 @@ description: >
 - New Feature: License Fulfillment ID is now visible from `anka license show`
 - New Feature: `anka config` options to modify Apple's mitigations on host.
 
+> Please update addons for your Templates and Tags.
+
 > NEW IN 2.3: `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
 
 > Known issue: 11.2 no longer supports the deprecated FUSE drivers. This could impact packer versions <= 1.6.1. Packer version 1.7.0 will support `anka cp` instead.
