@@ -67,7 +67,10 @@ hideSubPagesInLeftMenu: true
 
 ### Troubleshooting Guides
 
+- [Build stuck in queue and no Agents spawning]({{< ref "docs/Troubleshooting Guides and FAQs/teamcity-plugin/build-stuck-in-queued.md">}})
+
 ### FAQs
+
 
 ---
 
