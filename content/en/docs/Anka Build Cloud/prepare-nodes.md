@@ -45,6 +45,7 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
     sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Volumes"
     sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Network"
     sudo killall mds
+    sleep 60
     # Make sure indexing is DISABLED for the main volume
     sudo mdutil -a -i off /
     sudo mdutil -a -i off
