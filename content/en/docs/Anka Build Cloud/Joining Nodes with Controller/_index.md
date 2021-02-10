@@ -12,10 +12,11 @@ description: >
 * [Anka Build Cloud Controller should be configured and running before your Anka Node can join]({{< relref "docs/Anka Build Cloud/_index.md" >}})
 * [Your Node should be licensed]({{< relref "docs/Licensing/_index.md" >}})
 * [Your Node should be prepared for high availability]({{< relref "docs/Anka Build Cloud/prepare-nodes.md" >}})
-
 ## Joining to your Anka Build Cloud Controller
 
 > Be sure to run ankacluster as root
+
+> **DO NOT use underscores in your CNAME/URLs**
 
 ```shell
 ❯ sudo ankacluster join http://anka.controller:8090

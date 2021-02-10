@@ -23,9 +23,10 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
 
     ```shell
     # Never go into computer sleep mode
-    systemsetup -setcomputersleep Off
+    sudo systemsetup -setcomputersleep Off
+    systemsetup -setcomputersleep Off || true
     # Disable standby
-    pmset -a standby 0
+    sudo pmset -a standby 0
     # Disable disk sleep
     sudo pmset -a disksleep 0
     # Hibernate mode is a problem on some mac minis; best to just disable
