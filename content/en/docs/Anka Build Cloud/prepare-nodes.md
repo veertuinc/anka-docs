@@ -9,11 +9,7 @@ description: >
 
 Once the Anka Build Virtualization software has been installed onto a macOS machine, you'll typically want to ensure that the machine has high availability. This requires turning off sleep and several other default features that would cause the machine to become unavailable. Below are the preparatory steps we suggest:
 
-1. **Enable automatic login for the current user:** Go to Preferences > Users > enable automatic login. Or through your CLI:
-
-    ```shell
-    sudo defaults write /Library/Preferences/com.apple.loginwindow "autoLoginUser" '<USERNAME>'
-    ```
+1. **Enable automatic login for the current user:** Go to Preferences > Users > enable automatic login. Or, [using the CLI]](https://github.com/veertuinc/kcpassword).
 
     > If using the CLI method, you must also XOR-encrypt the login password and add it to `/etc/kcpassword`.
     > The `/etc/kcpassword` file must be owned by `root:wheel` with a mode of `0600`.
