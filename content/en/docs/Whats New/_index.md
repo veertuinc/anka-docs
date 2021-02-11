@@ -7,6 +7,7 @@ description: >
   Description of new Anka software features
 ---
 
+<<<<<<< HEAD
 ## What's New in Anka Build Cloud Controller & Registry Version 1.14.0
 
 ### Customize the range of MAC addresses the controller uses for creating VMs
@@ -16,16 +17,44 @@ You can now specify the range of MAC addresses that the controller uses with the
 Once configured, [you can use the API to list or delete/regenerate the MAC list from a new range]({{< relref "docs/Anka Build Cloud/working-with-controller-and-api.md#mac-addresses-management" >}}).
 
 > Requires that you enable `ANKA_MANAGE_MAC_ADDRESSES`
+=======
+## What's new in Anka Virtualization 2.3.3
+
+### You can now collect your license Fulfillment IDs before you remove the license
+
+Failing hardware is rare, but when it happens it leaves customers without the ability to run `anka license remove` and send us to Fulfillment ID to detatch the used cores.
+
+Starting in 2.3.3 you can now run `anka license show` and see the ID. We recommend storing these IDs in your internal documentation.
+
+```bash 
+anka license show
++---------------------+------------------------------+
+| license_type        | com.veertu.anka.entplus.host |
++---------------------+------------------------------+
+| status              | valid                        |
++---------------------+------------------------------+
+| expires             | 31-dec-2021                  |
++---------------------+------------------------------+
+| max_number_of_cores | 32                           |
++---------------------+------------------------------+
+| fulfillment         | 36094XXXXX                   |
++---------------------+------------------------------+
+```
+
+>>>>>>> master
 ## What's new in Anka Virtualization 2.3.2
 
 ### PG ("Metal") support inside of the VM
+
+> A Big Sur Host and VM is required
 
 Apple has included Paravirtualized Graphics support for VMs in Big Sur, allowing us to support graphics acceleration for Anka customers.
 
 To enable this feature, you simply need to:
 
 1. Upgrade the host to Big Sur
-2. Set the display: `anka modify {vmName} set display -c pg`
+2. Create a Big Sur VM
+3. Set the display: `anka modify {vmName} set display -c pg`
 
 ```bash
 ❯ anka modify 11.1.0 set display --help

@@ -9,11 +9,7 @@ description: >
 
 Once the Anka Build Virtualization software has been installed onto a macOS machine, you'll typically want to ensure that the machine has high availability. This requires turning off sleep and several other default features that would cause the machine to become unavailable. Below are the preparatory steps we suggest:
 
-1. **Enable automatic login for the current user:** Go to Preferences > Users > enable automatic login. Or through your CLI:
-
-    ```shell
-    sudo defaults write /Library/Preferences/com.apple.loginwindow "autoLoginUser" '<USERNAME>'
-    ```
+1. **Enable automatic login for the current user:** Go to Preferences > Users > enable automatic login. Or, [using the CLI]](https://github.com/veertuinc/kcpassword).
 
     > If using the CLI method, you must also XOR-encrypt the login password and add it to `/etc/kcpassword`.
     > The `/etc/kcpassword` file must be owned by `root:wheel` with a mode of `0600`.
@@ -27,9 +23,10 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
 
     ```shell
     # Never go into computer sleep mode
-    systemsetup -setcomputersleep Off
+    sudo systemsetup -setcomputersleep Off
+    systemsetup -setcomputersleep Off || true
     # Disable standby
-    pmset -a standby 0
+    sudo pmset -a standby 0
     # Disable disk sleep
     sudo pmset -a disksleep 0
     # Hibernate mode is a problem on some mac minis; best to just disable
@@ -42,12 +39,15 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
 
     ```shell
     # Disable indexing volumes
-    defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Volumes"
-    defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Network"
-    killall mds
+    sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Volumes"
+    sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Network"
+    sudo killall mds
+    sleep 60
     # Make sure indexing is DISABLED for the main volume
-    mdutil -a -i off /
-    mdutil -a -i off
+    sudo mdutil -a -i off /
+    sudo mdutil -a -i off
     ```
+
+5. **Big Sur Only (optional):** Disable Apple's mitigations with `sudo anka config vmx_mitigations 0`. Without it, performance will be ~10% worse inside of the VM.
 
 5. **Reboot the host**

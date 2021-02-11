@@ -16,10 +16,7 @@ You can then `anka suspend` to save the state of the VM. Suspending the VM allow
 
 You can then push the Template to your Anka Build Cloud Registry using `anka registry push` and set a Tag. Or, use `anka registry push -l {vmNameOrUUID} -t {tag}` to only create the Tag locally (useful if you don't have a registry yet and want to quickly switch between Tags/dependencies locally while testing).
 
-> **Important:** When you start a VM and make changes, your changes are added to a new layer on top of the existing ones. This means that when you modify a Template or Tag, then push to the registry, or even pull down a new Template or Tag to an Anka Node, you're sharing existing layers and saving disk space and bandwidth. It's important to think about which clone/tagging/layering approach is best for you and your company.
-
-> **Warning:** This can cause disk space to increase over time, even if you delete the older versions of your dependencies inside before creating the new Tag. It's best to delete/revert a tag or Template and clone a fresh one when you need to upgrade dependencies.
-
+> **Important:** When you start a VM and make changes, your changes are added to a new layer on top of the existing ones. This means that when you modify a Template or Tag, then push to the registry, or even pull down a new Template or Tag to an Anka Node, you're sharing existing layers and saving disk space and bandwidth. It's important to think about which clone/tagging/layering approach is best for you and your company. _Also, each Start of a VM will cause disk space to increase, even if you delete the older versions of your dependencies inside before installing the new. It's best to delete/revert a tag or Template and clone a fresh one when you need to upgrade dependencies._
 
 Tags may not be the easiest and most flexible solution for you. If that's the case, we recommend using cloned Templates. You have two options:
 
@@ -30,7 +27,7 @@ Tags may not be the easiest and most flexible solution for you. If that's the ca
 
 Here is a diagram of this:
 
-```
+```bash
 11.1.0 (stopped)  | 
                   | -> clone -> xcode12.3 (stopped) |
                   |                                 | -> clone -> project1 (with fastlane-v1.X) (suspended)

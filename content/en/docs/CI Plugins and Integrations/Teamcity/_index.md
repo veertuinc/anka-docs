@@ -61,3 +61,8 @@ The TeamCity plugin requires a VM with Java, SSH Remote Login, port-forwarding, 
 Once saved, you will now see the object under your Agents page named after the `Image Name` you chose in the configuration/setup.
 
 Anytime you execute a build for the project, it will request a new VM from the Anka Build Cloud Controller and wait for it to start. Once started, the plugin will SSH into the VM and add the necessary values to the `buildAgent.properties` config. The Agent will then start and run your job. It's important to ensure that access from TeamCity to the Node (which hosts the VMs), VM (using port-forwarding), and then from the VM itself back to TeamCity is possible.
+
+
+## Common Issues
+
+1. [Build stuck in queue and no Agents spawning]({{< ref "docs/Troubleshooting Guides and FAQs/teamcity-plugin/build-stuck-in-queued.md">}})
