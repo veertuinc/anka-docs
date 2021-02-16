@@ -17,6 +17,15 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
 
 2. **Disable require password after screensaver has started:** Go to Preferences > Security > under General > uncheck `require password after screensave or sleep begins` option.
 
+    > VNC may be required to disable this. It's possible your hardware does not have VNC enabled and you also don't have physical access. The following are the commands necessary to enable VNC from an SSH:
+    >  ```bash
+    >  The following examples are only for OS X 10.5 and later.
+    >  cd /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/
+    >  sudo ./kickstart -configure -allowAccessFor -specifiedUsers
+    >  sudo ./kickstart -configure -allowAccessFor -allUsers -privs -all
+    >  sudo ./kickstart -activate
+    >  ```
+
 3. **Disable all forms of sleep:** Go to Preferences > Energy Saver > disable any sleep options.
 
     Alternatively, you can do this from the command-line:
