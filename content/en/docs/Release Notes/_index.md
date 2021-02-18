@@ -10,6 +10,18 @@ description: >
 > Not all plugins are maintained by Veertu Inc developers. You might not see them listed here.
 
 ## Current Versions
+
+### Anka Prometheus Exporter (2.0.0) - Feb 18th, 2021
+- Improvement: [Updated with many new metrics](https://github.com/veertuinc/anka-prometheus-exporter#exposed-metrics)
+
+### Anka Build Cloud Controller & Registry 1.14.0 (1.14.0-17620328) - Feb 18th, 2021
+- New Feature: [A button will now show in the Controller UI allowing you to delete an Offline node (instead of having to issue an API call)]({{< relref "docs/Whats New/_index.md#delete-button-will-show-for-offline-nodes" >}})
+- New Feature: [You can now set a specific range of MAC addresses that are assigned to VM instances]({{< relref "docs/Whats New/_index.md#customize-the-range-of-mac-addresses-the-controller-uses-for-creating-vms" >}})
+- Improvement: The registry now supports ANKA_ environment variables, similar to the controller
+
+### Jenkins Plugin 2.4.0 - Feb 18th, 2021
+- New Feature: [You can now set the Launch timeout values to handle network/resource conditions that delay VMs initializing their networking]({{< relref "docs/Whats New/_index.md#set-various-vm-launch-timeout-values" >}})
+
 ### Anka Virtualization CLI 2.3.3 (2.3.3.127) - Feb 3rd, 2021
 
 - Improvement: New low latency timer emulation logic (performance)
@@ -33,10 +45,6 @@ description: >
 
 ### Anka GitLab Runner 1.2.1 - Dec 28th, 2020
 - Bug Fix: Description quotes were breaking help/flag listing [PR](https://github.com/veertuinc/gitlab-runner/pull/8)
-### Anka Build Cloud Controller & Registry 1.13.0 (1.13.0-24e848a5) - Dec 28th, 2020
-- Bug Fix: The controller was terminating VMs after a few minutes of the node or the controller being down
-- New Feature: [`ankacluster status` now shows more details about the Node (includes `--machine-readable` flag for JSON output)]({{< relref "docs/Whats New/_index.md#ankacluster-status-now-shows-more-details-about-the-node" >}})
-- (Standalone Registry: 1.13.0-9fae2f3)
 
 ### Anka VM GitHub Action v1.3.0 - Dec 22nd, 2020
 - New Feature: anka cp support for getting host files in and also out + better tests
@@ -47,9 +55,6 @@ description: >
 - Better tests + big sur
 - Out of beta!
 
-### Jenkins Plugin 2.3.0 - Dec 1st, 2020
-- New Feature: Disable appending timestamp to Cache Builder/tags
-
 ### TeamCity Plugin version 1.7.1 - July 7, 2020
 - Bug Fix: Long-running threads were being created
 - Bug Fix: UI Slowness the more Instances/Agents you created
@@ -59,6 +64,12 @@ description: >
 
 ## Previous Versions
 
+### Jenkins Plugin 2.3.0 - Dec 1st, 2020
+- New Feature: Disable appending timestamp to Cache Builder/tags
+### Anka Build Cloud Controller & Registry 1.13.0 (1.13.0-24e848a5) - Dec 28th, 2020
+- Bug Fix: The controller was terminating VMs after a few minutes of the node or the controller being down
+- New Feature: [`ankacluster status` now shows more details about the Node (includes `--machine-readable` flag for JSON output)]({{< relref "docs/Whats New/_index.md#ankacluster-status-now-shows-more-details-about-the-node" >}})
+- (Standalone Registry: 1.13.0-9fae2f3)
 ### Packer Plugin 1.6.1 - Dec 28th, 2020
 - Bug Fix: Creation wasn't setting cpu/ram/disk_size values [PR](https://github.com/veertuinc/packer-builder-veertu-anka/pull/50)
 

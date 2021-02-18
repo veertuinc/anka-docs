@@ -7,9 +7,16 @@ description: >
   Description of new Anka software features
 ---
 
-<<<<<<< HEAD
+## What's New in Jenkins Plugin 2.4.0
+
+### Set various VM Launch timeout values
+
+![Launch Values Configurable 2.4.0](/images/whatsnew/jenkins-2.4.0-launch-values.png)
 ## What's New in Anka Build Cloud Controller & Registry Version 1.14.0
 
+### Delete button will show for Offline Nodes
+
+![Controller Delete Node Button](/images/whatsnew/controller-1.14.0-delete-node-button.png)
 ### Customize the range of MAC addresses the controller uses for creating VMs
 
 You can now specify the range of MAC addresses that the controller uses with the `ANKA_MANAGE_MAC_ADDRESSES` config.
@@ -17,7 +24,6 @@ You can now specify the range of MAC addresses that the controller uses with the
 Once configured, [you can use the API to list or delete/regenerate the MAC list from a new range]({{< relref "docs/Anka Build Cloud/working-with-controller-and-api.md#mac-addresses-management" >}}).
 
 > Requires that you enable `ANKA_MANAGE_MAC_ADDRESSES`
-=======
 ## What's new in Anka Virtualization 2.3.3
 
 ### You can now collect your license Fulfillment IDs before you remove the license
@@ -41,7 +47,6 @@ anka license show
 +---------------------+------------------------------+
 ```
 
->>>>>>> master
 ## What's new in Anka Virtualization 2.3.2
 
 ### PG ("Metal") support inside of the VM
