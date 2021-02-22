@@ -119,7 +119,7 @@ export ANKA_ANKA_REGISTRY="http://anka.registry:8089"
 | Name | Type | Description | Default Value | ENV |
 | --- | :---: | --- | :---: | :---: |
 | Version | bool | Prints controller version and exits | - | ANKA_VERSION | 
-| Registry address | string | Anka Registry external URL (http[s]://hostname:[port]). This is passed to the Nodes, so they can download (and start) VMs | (required) | ANKA_ANKA_REGISTRY |
+| External Registry address | string | Anka Registry external URL (http[s]://hostname:[port]). This is passed to the Nodes, so they can download (and start) VMs | (required) | ANKA_ANKA_REGISTRY |
 | Configuration file | string | Path to a configuration file in INI format. You can use the file with/without the command line parameters and env variables | - | ANKA_CONFIG |
 | Listen address | string | Listen on this address (:80 is equivalent to 0.0.0.0:80). Use the format `[address]:port` | :80 | ANKA_LISTEN_ADDR |
 | Local Registry Address | string | Anka Registry local address in format `http[s]://hostname:[port]`. This parameter is for situations where the Controller and Registry are on the same network. For example `http://locahost:8089` | - | ANKA_LOCAL_ANKA_REGISTRY |
@@ -311,10 +311,10 @@ Depending on the package you're using (native or docker), you can include flags 
 | Name | Type | Description | Default Value | flag / opt |
 | --- | :---: | --- | :---: | :---: |
 | Version | bool | Prints controller version and exits | - | `--version` | 
-| Registry address | string | Anka Registry external URL (http[s]://hostname:[port]). This is passed to the Nodes, so they can download (and start) VMs | (required) | `--anka-registry` |
+| External Registry address | string | Anka Registry external URL (http[s]://hostname:[port]). This is passed to the Nodes, so they can download (and start) VMs | **(required)** | `--anka-registry` |
 | Configuration file | string | Path to a configuration file in INI format. You can use the file with/without the command line parameters and env variables | - | `--config` |
 | Listen address | string | Listen on this address (:80 is equivalent to 0.0.0.0:80). Use the format `[address]:port` | :80 | `--listen_addr` |
-| Local Registry Address | string | Anka Registry local address in format `http[s]://hostname:[port]`. This parameter is for situations where the Controller and Registry are on the same network. For example `http://locahost:8089` | - | `--local-anka-registry` |
+| Local Registry Address | string | Anka Registry local address in format `http[s]://hostname:[port]`. This parameter is for situations where the Controller and Registry are on the same network. For example `http://locahost:8089`. This is NOT used for Nodes. If not specified, External address is used. | - | `--local-anka-registry` |
 | Number of concurrent workers | int | The number of concurrent workers processing node tasks | 2 | `--num-workers` |
 | Standalone mode | bool | Run an embedded ETCD server alongside the controller | false | `--standalone` |
 | ETCD endpoints | string | Comma separated list of etcd hosts | 127.0.0.1:2379 | `--etcd-endpoints` |
@@ -331,6 +331,8 @@ Depending on the package you're using (native or docker), you can include flags 
 | MAC address request retries | int | Times to retry to get mac address from the database before giving up and returning an error. | 100 | `--mac-addr-range-max-retries` |
 | MAC address range validation interval | duration | Interval to execute the mac address range validation. | 3h | `--fill-mac-address-range-interval` |
 
+> External Registry Address: Required | Nodes use the external URL
+> Local Registry Address: Optional | Nodes do NOT use local URL | If not specified/empty, External URL is used
 ### Logging 
 
 | Name | Type | Description | Default Value | flag / opt |
