@@ -130,7 +130,7 @@ external_id    | string | a string saved with the instance, can be used to save 
 metadata       | object | key-value object. keys are strings. values are strings, integers or booleans
 mac_address       | string | represents the assigned MAC address
 
-> The following fields are not returned unless populated: `vmid`, `matadata`, `group_id`, and `usb_device`
+> All fields but the following are omitted if empty: `vmid`, `group_id`, and `usb_device`
 
 ### Start VM instances 
 
