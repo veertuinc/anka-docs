@@ -11,9 +11,8 @@ description: >
 
 ## Current Versions
 
-### Anka Prometheus Exporter (2.0.0) - Feb 18th, 2021
-- Improvement: [Updated with many new metrics](https://github.com/veertuinc/anka-prometheus-exporter#exposed-metrics)
-
+### Anka Prometheus Exporter (2.1.0) - Feb 24th, 2021
+- Bug Fix: Metric naming was wrong for `anka_registry_disk_used_space` [PR](https://github.com/veertuinc/anka-prometheus-exporter/issues/5)
 ### Anka Build Cloud Controller & Registry 1.14.0 (1.14.0-17620328) - Feb 18th, 2021
 - New Feature: [A button will now show in the Controller UI allowing you to delete an Offline node (instead of having to issue an API call)]({{< relref "docs/Whats New/_index.md#delete-button-will-show-for-offline-nodes" >}})
 - New Feature: [You can now set a specific range of MAC addresses that are assigned to VM instances]({{< relref "docs/Whats New/_index.md#customize-the-range-of-mac-addresses-the-controller-uses-for-creating-vms" >}})
@@ -63,6 +62,9 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Prometheus Exporter (2.0.0) - Feb 18th, 2021
+- Improvement: [Updated with many new metrics](https://github.com/veertuinc/anka-prometheus-exporter#exposed-metrics)
 
 ### Jenkins Plugin 2.3.0 - Dec 1st, 2020
 - New Feature: Disable appending timestamp to Cache Builder/tags
@@ -135,7 +137,7 @@ description: >
 - Bug Fix: Reboots from within VM sometimes show a black screen
 - Bug Fix: Unable to upgrade 10.14 VM to 10.14.1
 
-> NEW IN 2.3: `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
+> NEW IN 2.3: `anka mount` and the automated current directory mounting for `anka run` are not available by default with **Big Sur VMs**. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI. Catalina will still receive the older drivers.
 
 > Known Issues:
 > 
