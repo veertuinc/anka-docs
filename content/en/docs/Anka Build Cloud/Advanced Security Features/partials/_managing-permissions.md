@@ -6,21 +6,20 @@ Permission groups are configurable from your Controller's `https://<controller a
 
 The **Available Permissions** list will display all of the permissions we can assign to the group (see below for the full list). These permissions will allow plugins/users (like Jenkins) to communicate with the Controller & Registry:
 
+#### Controller
+
 - `get_groups`
 - `get_registry_disk_info`
-- `head_push_vms`
 - `list_images`
 - `list_nodes`
 - `list_vms`
-- `pull_vm`
-- `push_vm`
-- `registry_list`
 - `save_image`
 - `start_vm`
 - `terminate_vm`
 - `update_vm`
-- `upload_file`
 - `view_logs`
+
+
 
 ### Controller Permissions
 | Permission | Description |
