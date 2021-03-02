@@ -7,11 +7,11 @@ Usage: anka run [OPTIONS] VM_NAME COMMAND [ARGS]...
 Options:
   -w, --workdir PATH              Working directory inside the VM
   -v, --volumes-from, --volume PATH
-                                  Mount a host directory into VM (defaults to current directory)'--volumes-from'
-                                  is deprecated form
+                                  Mount a host directory into VM (defaults to current directory)'--volumes-from' is
+                                  deprecated form
   -n, --no-volumes-from, --no-volume
-                                  Use this flag to prevent implicit mounting of current folder(see --volume
-                                  option). '--no-volumes-from' is deprecated form
+                                  Use this flag to prevent implicit mounting of current folder(see --volume option).
+                                  '--no-volumes-from' is deprecated form
   -E, -e, --env                   Inherit environment variables ('-e' is the deprecated form)
   -f, --env-file PATH             Provide environment variables from file
   -N, --wait-network              Delay execution until guest network interface is fully up

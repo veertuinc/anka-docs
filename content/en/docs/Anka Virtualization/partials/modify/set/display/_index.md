@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 11.1 set display --help
+> sudo anka modify 11.2 set display --help
 Usage: anka modify set display [OPTIONS]
 
   Configure displays

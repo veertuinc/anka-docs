@@ -7,6 +7,16 @@ description: >
   Description of new Anka software features
 ---
 
+## What's new in Anka Virtualization 2.3.4
+
+### Expose the bridged VM's MAC address on the host so that DHCP can assign properly
+
+> Requires bridged networking 
+
+```bash
+anka modify VmName set network-card 0 --type bridged --direct-mac
+```
+
 ## What's New in Jenkins Plugin 2.4.0
 
 ### Set various VM Launch timeout values

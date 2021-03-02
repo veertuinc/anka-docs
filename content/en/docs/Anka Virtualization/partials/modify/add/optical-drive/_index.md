@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 11.1 add optical-drive --help
+> sudo anka modify 11.2 add optical-drive --help
 Usage: anka modify add optical-drive [OPTIONS] ISO
 
 Options:

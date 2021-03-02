@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 11.1 delete optical-drive --help
+> sudo anka modify 11.2 delete optical-drive --help
 Usage: anka modify delete optical-drive [OPTIONS] [INDEX]...
 
 Options:

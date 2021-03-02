@@ -11,6 +11,13 @@ description: >
 
 ## Current Versions
 
+### Anka Virtualization CLI 2.3.4 (2.3.4.128) - Mar 2nd, 2021
+
+- Bug Fix: Default VNC (running on 590X ports) was frozen
+- New Feature: Ability to set `anka modify VmName set network-card 0 --direct-mac` and expose the MAC address to the Host so that DHCP can assign the proper IP (requires bridged mode)
+
+> Upgrading Addons is **not** necessary
+
 ### Anka Prometheus Exporter (2.1.0) - Feb 24th, 2021
 - Bug Fix: Metric naming was wrong for `anka_registry_disk_used_space` [PR](https://github.com/veertuinc/anka-prometheus-exporter/issues/5)
 ### Anka Build Cloud Controller & Registry 1.14.0 (1.14.0-17620328) - Feb 18th, 2021
@@ -20,23 +27,6 @@ description: >
 
 ### Jenkins Plugin 2.4.0 - Feb 18th, 2021
 - New Feature: [You can now set the Launch timeout values to handle network/resource conditions that delay VMs initializing their networking]({{< relref "docs/Whats New/_index.md#set-various-vm-launch-timeout-values" >}})
-
-### Anka Virtualization CLI 2.3.3 (2.3.3.127) - Feb 3rd, 2021
-
-- Improvement: New low latency timer emulation logic (performance)
-- Bug Fix: `anka cp` symlink copying produces corrupted links
-- Bug Fix: VM resume instability
-- Bug Fix: `ankanetd` was found to crash on older Mac Pros
-- New Feature: License Fulfillment ID is now visible from `anka license show`
-- New Feature: `anka config` options to modify Apple's mitigations on host.
-
-> Please update addons for your Templates and Tags.
-
-> NEW IN 2.3: `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
-
-> Known issue: 11.2 no longer supports the deprecated FUSE drivers. This could impact packer versions <= 1.6.1. Packer version 1.7.0 will support `anka cp` instead.
-
-> Known issue: `anet` network card does not work for Big Sur VMs. You need to switch to `anka modify {vmName} set network-card -c virtio-net`
 
 ### Packer Plugin 1.7.0 - Feb 3rd, 2021
 - New Feature: `anka cp` support for uploading files and folders into VM [PR](https://github.com/veertuinc/packer-builder-veertu-anka/pull/58)
@@ -62,6 +52,23 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Virtualization CLI 2.3.3 (2.3.3.127) - Feb 3rd, 2021
+
+- Improvement: New low latency timer emulation logic (performance)
+- Bug Fix: `anka cp` symlink copying produces corrupted links
+- Bug Fix: VM resume instability
+- Bug Fix: `ankanetd` was found to crash on older Mac Pros
+- New Feature: License Fulfillment ID is now visible from `anka license show`
+- New Feature: `anka config` options to modify Apple's mitigations on host.
+
+> Please update addons for your Templates and Tags.
+
+> NEW IN 2.3: `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
+
+> Known issue: 11.2 no longer supports the deprecated FUSE drivers. This could impact packer versions <= 1.6.1. Packer version 1.7.0 will support `anka cp` instead.
+
+> Known issue: `anet` network card does not work for Big Sur VMs. You need to switch to `anka modify {vmName} set network-card -c virtio-net`
 
 ### Anka Prometheus Exporter (2.0.0) - Feb 18th, 2021
 - Improvement: [Updated with many new metrics](https://github.com/veertuinc/anka-prometheus-exporter#exposed-metrics)

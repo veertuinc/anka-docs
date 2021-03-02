@@ -5,13 +5,13 @@ Usage: anka cp [OPTIONS] [SRC]... DST
   Copy files in and out of the VM and host
 
 Options:
-  -R      copy the src and its entire subtree to the dst
-  -L      all symbolic links are followed
-  -H      symbolic links in the command are followed
-  -P      do not follow a symbolic links (default)
-  -f      remove and create the dst file on open failure
-  -n      do not overwrite an existing file.
-  -p      preserve the source file attributes
-  -a      same as -pPR options
+  -R      Copy the SRC and its entire subtree to the DST (required for folders)
+  -L      All symbolic links within your SRC directory are followed
+  -H      Symbolic links in the command are followed
+  -P      Do not follow symbolic links (enabled by default)
+  -f      Overwrite if DST already exists
+  -n      Skips if object already exists at DST
+  -p      Preserve the SRC object attributes
+  -a      Alias for -pPR
   --help  Display usage information
 ```

@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 11.1 add --help
+> sudo anka modify 11.2 add --help
 Usage: anka modify add [OPTIONS] COMMAND [ARGS]...
 
 Options:
