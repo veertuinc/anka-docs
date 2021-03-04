@@ -42,3 +42,5 @@ sudo anka --machine-readable list | jq
   "message": ""
 }
 ```
+
+> Timestamp format: https://www.ietf.org/rfc/rfc3339.txt
