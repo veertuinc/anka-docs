@@ -42,7 +42,7 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
     sudo pmset -a hibernatemode 0
     ```
 
-4. **Disable spotlight:** `sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist`
+4. **Disable spotlight:**
 
     If you cannot perform launchctl commands, you can execute these commands from the command-line:
 
@@ -56,6 +56,8 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
     sudo mdutil -a -i off /
     sudo mdutil -a -i off
     ```
+
+    > MDS can be disable with `sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist`, but only if SIP is disabled on the host (not recommended)
 
 5. **Big Sur Only (optional):** Disable Apple's mitigations with `sudo anka config vmx_mitigations 0`. Without it, performance will be ~10% worse inside of the VM.
 
