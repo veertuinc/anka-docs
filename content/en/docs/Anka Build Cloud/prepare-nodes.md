@@ -9,13 +9,15 @@ description: >
 
 Once the Anka Build Virtualization software has been installed onto a macOS machine, you'll typically want to ensure that the machine has high availability. This requires turning off sleep and several other default features that would cause the machine to become unavailable. Below are the preparatory steps we suggest:
 
-1. **Enable automatic login for the current user:** Go to Preferences > Users > enable automatic login. Or, [using the CLI]](https://github.com/veertuinc/kcpassword).
+1. **You must log into your machine's administrator user** to ensure Apple's services are started.
+
+2. **Enable automatic login for the current user:** Go to Preferences > Users > enable automatic login. Or, [using the CLI]](https://github.com/veertuinc/kcpassword).
 
     > If using the CLI method, you must also XOR-encrypt the login password and add it to `/etc/kcpassword`.
     > The `/etc/kcpassword` file must be owned by `root:wheel` with a mode of `0600`.
     > See the GitHub repository [veertuinc/kcpassword](https://github.com/veertuinc/kcpassword) for help generating the encrypted password string.
 
-2. **Disable require password after screensaver has started:** Go to Preferences > Security > under General > uncheck `require password after screensave or sleep begins` option.
+3. **Disable require password after screensaver has started:** Go to Preferences > Security > under General > uncheck `require password after screensave or sleep begins` option.
 
     > VNC may be required to disable this. It's possible your hardware does not have VNC enabled and you also don't have physical access. The following are the commands necessary to enable VNC from an SSH:
     >  ```bash
@@ -26,7 +28,7 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
     >  sudo ./kickstart -activate
     >  ```
 
-3. **Disable all forms of sleep:** Go to Preferences > Energy Saver > disable any sleep options.
+4. **Disable all forms of sleep:** Go to Preferences > Energy Saver > disable any sleep options.
 
     Alternatively, you can do this from the command-line:
 
@@ -42,7 +44,7 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
     sudo pmset -a hibernatemode 0
     ```
 
-4. **Disable spotlight:**
+5. **Disable spotlight:**
 
     If you cannot perform launchctl commands, you can execute these commands from the command-line:
 
@@ -59,6 +61,6 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
 
     > MDS can be disable with `sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist`, but only if SIP is disabled on the host (not recommended)
 
-5. **Big Sur Only (optional):** Disable Apple's mitigations with `sudo anka config vmx_mitigations 0`. Without it, performance will be ~10% worse inside of the VM.
+6. **Big Sur Only (optional):** Disable Apple's mitigations with `sudo anka config vmx_mitigations 0`. Without it, performance will be ~10% worse inside of the VM.
 
-5. **Reboot the host**
+7. **Reboot the host**
