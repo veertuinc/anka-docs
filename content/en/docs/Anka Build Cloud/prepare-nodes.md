@@ -11,7 +11,7 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
 
 1. **You must log into your machine's administrator user** to ensure Apple's services are started.
 
-2. **Enable automatic login for the current user:** Go to Preferences > Users > enable automatic login. Or, [using the CLI]](https://github.com/veertuinc/kcpassword).
+2. **Enable automatic login for the current user:** Go to Preferences > Users > enable automatic login. Or, [using the CLI](https://github.com/veertuinc/kcpassword).
 
     > If using the CLI method, you must also XOR-encrypt the login password and add it to `/etc/kcpassword`.
     > The `/etc/kcpassword` file must be owned by `root:wheel` with a mode of `0600`.
