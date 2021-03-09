@@ -9,7 +9,7 @@ description: >
 
 Once the Anka Build Virtualization software has been installed onto a macOS machine, you'll typically want to ensure that the machine has high availability. This requires turning off sleep and several other default features that would cause the machine to become unavailable. Below are the preparatory steps we suggest:
 
-1. **You must log into your machine's administrator user** to ensure Apple's services are started.
+1. **Start a UI session by logging into your node's user** to ensure Apple's services are started (it doesn't have to be an administrator).
 
 2. **Enable automatic login for the current user:** Go to Preferences > Users > enable automatic login. Or, [using the CLI](https://github.com/veertuinc/kcpassword).
 
