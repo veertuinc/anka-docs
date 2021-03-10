@@ -11,6 +11,10 @@ description: >
 
 ## Current Versions
 
+### Packer Plugin 1.8.0 - Mar 10th, 2021
+- New Feature: Support for the free Anka Develop license (it will stop the VM instead of suspend)
+- New Feature: You can now upgrade addons with `update_addons: true` on VM start (this will cause the VM to be force-stopped and suspended state to be lost)
+- **Breaking Change:** Packer 1.7.0 is now a requirement!
 ### Anka Virtualization CLI 2.3.4 (2.3.4.128) - Mar 2nd, 2021
 
 - Bug Fix: Default VNC (running on 590X ports) was frozen
@@ -27,10 +31,6 @@ description: >
 
 ### Jenkins Plugin 2.4.0 - Feb 18th, 2021
 - New Feature: [You can now set the Launch timeout values to handle network/resource conditions that delay VMs initializing their networking]({{< relref "docs/Whats New/_index.md#set-various-vm-launch-timeout-values" >}})
-
-### Packer Plugin 1.7.0 - Feb 3rd, 2021
-- New Feature: `anka cp` support for uploading files and folders into VM [PR](https://github.com/veertuinc/packer-builder-veertu-anka/pull/58)
-- Bug Fix: `40GB` default disk size for Big Sur VM creation
 
 ### Anka GitLab Runner 1.2.1 - Dec 28th, 2020
 - Bug Fix: Description quotes were breaking help/flag listing [PR](https://github.com/veertuinc/gitlab-runner/pull/8)
@@ -52,6 +52,10 @@ description: >
 ---
 
 ## Previous Versions
+
+### Packer Plugin 1.7.0 - Feb 3rd, 2021
+- New Feature: `anka cp` support for uploading files and folders into VM [PR](https://github.com/veertuinc/packer-builder-veertu-anka/pull/58)
+- Bug Fix: `40GB` default disk size for Big Sur VM creation
 
 ### Anka Virtualization CLI 2.3.3 (2.3.3.127) - Feb 3rd, 2021
 

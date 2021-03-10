@@ -1,12 +1,12 @@
 ---
-title: "-anka: communication timeout"
-linkTitle: "-anka: communication timeout"
-weight: 1
+title: "Anka VMs are in a \"failed\" status"
+linkTitle: "Anka VMs are in a \"failed\" status"
+weight: 2
 ---
 
 ## Scenario
 
-Anka Run throws `-anka: communication timeout`
+Anka show indicates `"failed"` for the status
 
 ## Common reasons
 
