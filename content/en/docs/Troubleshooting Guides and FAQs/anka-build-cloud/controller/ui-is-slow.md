@@ -10,13 +10,13 @@ Loading the UI seems to be very slow. Node status, CPU, etc, all seem to be dela
 
 ## Common reasons
 
-1. Lots of VMS and Nodes
+1. Lots of VMS, Nodes, and not enough load balancing/instances of the controller, etcd, etc.
 
-## Solution
+## Solutions:
 
-Increase the space quota from the default 2GB: [https://etcd.io/docs/current/op-guide/maintenance/#space-quota]
+1. Increase the space quota from the default 2GB: [https://etcd.io/docs/current/op-guide/maintenance/#space-quota]
+2. Rejoin your nodes with a higher `--heartbeat` value
 
 ## Still experiencing problems?
 
 Talk to us! we are available via [slack](https://slack.veertu.com/) or [email](mailto:support@veertu.com)
-
