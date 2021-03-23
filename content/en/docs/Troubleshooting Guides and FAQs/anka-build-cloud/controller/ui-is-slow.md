@@ -14,7 +14,7 @@ Loading the UI seems to be very slow. Node status, CPU, etc, all seem to be dela
 
 ## Solution
 
-Increase the space quota from the default 2GB: [https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/maintenance.md#space-quota](https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/maintenance.md#space-quota)
+Increase the space quota from the default 2GB: [https://etcd.io/docs/current/op-guide/maintenance/#space-quota]
 
 ## Still experiencing problems?
 
