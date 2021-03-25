@@ -26,7 +26,7 @@ hideSubPagesInLeftMenu: true
 
 - [VMs stuck in "Scheduling"]({{< relref "docs/Troubleshooting Guides and FAQs/anka-build-cloud/controller/vm-stuck-scheduling.md" >}})
 - [ETCD throws "database space exceeded" error]({{< relref "docs/Troubleshooting Guides and FAQs/anka-build-cloud/controller/etcd-database-space-exceeded.md" >}})
-- [UI is slow]({{< relref "docs/Troubleshooting Guides and FAQs/anka-build-cloud/controller/ui-is-slow.md" >}})
+- [UI Slowness, Nodes temporarily showing Offline, or Instances temporarily showing Error]({{< relref "docs/Troubleshooting Guides and FAQs/anka-build-cloud/controller/ui-strangeness.md" >}})
 - [Unable to join a VM using the ankacluster command]({{< relref "docs/Troubleshooting Guides and FAQs/anka-build-cloud/controller/unable-to-join.md" >}})
 
 #### Registry
