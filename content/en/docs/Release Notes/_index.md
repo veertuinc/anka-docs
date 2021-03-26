@@ -24,8 +24,7 @@ description: >
 
 ### Anka Prometheus Exporter (2.1.2) - Mar 25th, 2021
 - Bug Fix: Gaps in metrics due to improperly placed reset logic
-### Anka Prometheus Exporter (2.1.0) - Feb 24th, 2021
-- Bug Fix: Metric naming was wrong for `anka_registry_disk_used_space` [PR](https://github.com/veertuinc/anka-prometheus-exporter/issues/5)
+
 ### Anka Build Cloud Controller & Registry 1.14.0 (1.14.0-17620328) - Feb 18th, 2021
 - New Feature: [A button will now show in the Controller UI allowing you to delete an Offline node (instead of having to issue an API call)]({{< relref "docs/Whats New/_index.md#delete-button-will-show-for-offline-nodes" >}})
 - New Feature: [You can now set a specific range of MAC addresses that are assigned to VM instances]({{< relref "docs/Whats New/_index.md#customize-the-range-of-mac-addresses-the-controller-uses-for-creating-vms" >}})
@@ -54,6 +53,9 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Prometheus Exporter (2.1.0) - Feb 24th, 2021
+- Bug Fix: Metric naming was wrong for `anka_registry_disk_used_space` [PR](https://github.com/veertuinc/anka-prometheus-exporter/issues/5)
 
 ### Packer Plugin 1.7.0 - Feb 3rd, 2021
 - New Feature: `anka cp` support for uploading files and folders into VM [PR](https://github.com/veertuinc/packer-builder-veertu-anka/pull/58)
