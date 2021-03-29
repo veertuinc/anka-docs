@@ -1333,7 +1333,7 @@ curl "http://anka.controller/api/v1/usb" | jq
 | --- | --- | --- | --- |
 | count | int | Return the number of mac addresses available | - |
 | in_use | int | Return only the number of mac addresses in use | - |
-| limit | string | Return a list of mac addresses and limit the results to the amount specified | - |
+| limit | string | Return a list of mac addresses and limit the results to the amount specified (ex: `in_use=1,limit=500`) | - |
 | last | string | (pagination) Return the amount of items specified in `limit`, but start from a specific MAC address (ex: `limit=500&last=00:00:00:00:FF:FF`) |
 
 **Returns:**
