@@ -11,6 +11,10 @@ description: >
 
 ## Current Versions
 
+### Jenkins Plugin 2.5.0 - Mar 30th, 2021
+- Support for Jenkins versions `2.277.1` and above (new UI changes)
+
+> Previous Jenkins versions are backwards compatible.
 ### Packer Plugin 1.8.0 - Mar 10th, 2021
 - New Feature: Support for the free Anka Develop license (it will stop the VM instead of suspend)
 - New Feature: You can now upgrade addons with `update_addons: true` on VM start (this will cause the VM to be force-stopped and suspended state to be lost)
@@ -29,9 +33,6 @@ description: >
 - New Feature: [A button will now show in the Controller UI allowing you to delete an Offline node (instead of having to issue an API call)]({{< relref "docs/Whats New/_index.md#delete-button-will-show-for-offline-nodes" >}})
 - New Feature: [You can now set a specific range of MAC addresses that are assigned to VM instances]({{< relref "docs/Whats New/_index.md#customize-the-range-of-mac-addresses-the-controller-uses-for-creating-vms" >}})
 - Improvement: The registry now supports ANKA_ environment variables, similar to the controller
-
-### Jenkins Plugin 2.4.0 - Feb 18th, 2021
-- New Feature: [You can now set the Launch timeout values to handle network/resource conditions that delay VMs initializing their networking]({{< relref "docs/Whats New/_index.md#set-various-vm-launch-timeout-values" >}})
 
 ### Anka GitLab Runner 1.2.1 - Dec 28th, 2020
 - Bug Fix: Description quotes were breaking help/flag listing [PR](https://github.com/veertuinc/gitlab-runner/pull/8)
@@ -53,6 +54,9 @@ description: >
 ---
 
 ## Previous Versions
+
+### Jenkins Plugin 2.4.0 - Feb 18th, 2021
+- New Feature: [You can now set the Launch timeout values to handle network/resource conditions that delay VMs initializing their networking]({{< relref "docs/Whats New/_index.md#set-various-vm-launch-timeout-values" >}})
 
 ### Anka Prometheus Exporter (2.1.2) - Mar 25th, 2021
 - Bug Fix: Gaps in metrics due to improperly placed reset logic
