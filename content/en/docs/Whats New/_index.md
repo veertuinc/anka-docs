@@ -7,6 +7,31 @@ description: >
   Description of new Anka software features
 ---
 
+## What's new in Anka Virtualization 2.4.0
+
+### VM networking is now isolated for improved security
+
+VMs can now be isolated from access to other VMs or even then host itself using `sudo anka modify 11.2.3 set network-card --no-local`.
+
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/network-card/_index.md" >}}
+### Registry pushing and pulling of VM Templates/Tags are now chunked for better performance
+
+Pushing and pulling templates/tags that are large can be impacted by network interrupts or limits. We've added the ability for you to set the chunk size using `anka config chunk_size {bytes}` on your nodes to solve this.
+
+> `chunk_size` must be set BEFORE VM creation
+
+> `chunk_size` of 0 is unlimited (the entire layer is uploaded at once)
+
+```shell
+❯ anka config chunk_size
+0
+
+# Set 2GB chunk size
+❯ anka config chunk_size 2147483648
+```
+
+> We'll parallelize the push or pull chunks to the number set in `anka config puller_threads` (puller_threads is also used for push threads; there is no push_threads)
+
 ## What's new in Anka Virtualization 2.3.4
 
 ### Expose the bridged VM's MAC address on the host so that DHCP can assign properly

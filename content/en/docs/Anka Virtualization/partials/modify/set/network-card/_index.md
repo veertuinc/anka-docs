@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 11.2 set network-card --help
+> sudo anka modify 11.2.3 set network-card --help
 Usage: anka modify set network-card [OPTIONS] [INDEX]...
 
   Modify network card settings
@@ -14,5 +14,6 @@ Options:
   -v, --vlan INTEGER              assign VLAN ID
   -c, --controller [anet|virtio-net]
                                   set controller
+  --local / --no-local            enable (default)/disable inter-VM and VM-host communication
   --help                          Display usage information
 ```

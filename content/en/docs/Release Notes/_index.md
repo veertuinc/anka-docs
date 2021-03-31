@@ -11,6 +11,20 @@ description: >
 
 ## Current Versions
 
+### Anka Virtualization CLI 2.4.0 (2.4.0.129) - Mar 31st, 2021
+
+> Upgrading Addons **is** necessary
+
+- New Feature: (improved security) [VM network isolation when using shared type network-card]({{< relref "docs/Whats New/_index.md#vm-networking-is-now-isolated-for-improved-security" >}}). This also means that any access to the host also blocked (192.168.64.1).
+- New Feature: [Pushing and pulling from the registry is now chunked]({{< relref "docs/Whats New/_index.md#registry-pushing-and-pulling-of-vm-templatestags-are-now-chunked-for-better-performance" >}}).
+- Improvement: Suspended VMs that fail to start for a temporary issue will not become corrupted anymore. This allows a second start to happen without having to re-pull the suspended VM again from the registry.
+- Improvement: Anka clone now preserves the source VM creation date.
+- Bug Fix: Anka run suddenly throws `-anka: communication timeout`
+- Bug Fix: When /var/tmp/ankafs.0 is created as one user, and another user in the VM tries to use it, it fails with `Permission Denied`
+- Bug Fix: ENVs passing into the VM using `anka run --env` throw `-anka: communication timeout`
+- Bug Fix: RealVNC client crash
+- Bug Fix: Whenever multiple creations are run in parallel with packer, it will fail with `hdiutil: attach failed - Resource busy`
+
 ### Jenkins Plugin 2.5.0 - Mar 30th, 2021
 - Support for Jenkins versions `2.277.1` and above (new UI changes)
 
@@ -19,12 +33,6 @@ description: >
 - New Feature: Support for the free Anka Develop license (it will stop the VM instead of suspend)
 - New Feature: You can now upgrade addons with `update_addons: true` on VM start (this will cause the VM to be force-stopped and suspended state to be lost)
 - **Breaking Change:** Packer 1.7.0 is now a requirement!
-### Anka Virtualization CLI 2.3.4 (2.3.4.128) - Mar 2nd, 2021
-
-- Bug Fix: Default VNC (running on 590X ports) was frozen
-- New Feature: Ability to set `anka modify VmName set network-card 0 --direct-mac` and expose the MAC address to the Host so that DHCP can assign the proper IP (requires bridged mode)
-
-> Upgrading Addons is **not** necessary
 
 ### Anka Prometheus Exporter (2.1.3) - Mar 26th, 2021
 - Bug Fix: Placement of cleanup caused more gaps in metrics
@@ -54,6 +62,13 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Virtualization CLI 2.3.4 (2.3.4.128) - Mar 2nd, 2021
+
+- Bug Fix: Default VNC (running on 590X ports) was frozen
+- New Feature: Ability to set `anka modify VmName set network-card 0 --direct-mac` and expose the MAC address to the Host so that DHCP can assign the proper IP (requires bridged mode)
+
+> Upgrading Addons is **not** necessary
 
 ### Jenkins Plugin 2.4.0 - Feb 18th, 2021
 - New Feature: [You can now set the Launch timeout values to handle network/resource conditions that delay VMs initializing their networking]({{< relref "docs/Whats New/_index.md#set-various-vm-launch-timeout-values" >}})

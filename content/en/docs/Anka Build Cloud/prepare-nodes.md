@@ -63,4 +63,6 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
 
 6. **Big Sur Only (optional):** Disable Apple's mitigations with `sudo anka config vmx_mitigations 0`. Without it, performance will be ~10% worse inside of the VM.
 
-7. **Reboot the host**
+7. Set the same `chunk_size` across your nodes with `anka config chunk_size 2147483648` (2GB). Any of the machines that create VM templates/tags need to also have this set.
+
+8. **Reboot the host**

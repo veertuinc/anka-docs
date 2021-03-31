@@ -150,7 +150,7 @@ Once you do see an ip, you can then SSH with the user and ip: `ssh anka@{ip}`
 
 {{< imgwithlink src="/images/getting-started/starting-and-accessing-your-vm/anka-show-remote-login-and-ssh.png" >}}
 
-> We provide a fixed IP inside of the VM for accessing the host: `192.168.64.1` (or `192.168.128.1` for "host" type).
+> We provide a fixed IP inside of the VM for accessing the host: `192.168.64.1` (or `192.168.128.1` for "host" type) (not available with VM network isolation enabled)
 
 ## VNC
 
