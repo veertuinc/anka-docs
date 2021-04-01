@@ -17,7 +17,9 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
     > The `/etc/kcpassword` file must be owned by `root:wheel` with a mode of `0600`.
     > See the GitHub repository [veertuinc/kcpassword](https://github.com/veertuinc/kcpassword) for help generating the encrypted password string.
 
-3. **Disable require password after screensaver has started:** Go to Preferences > Security > under General > uncheck `require password after screensave or sleep begins` option.
+3. **Uncheck `Log out after X minutes of inactivity`** under System Preferences > Security & Privacy > Advanced
+
+3. **Uncheck `Require password X after sleep or screen saver begins`** under System Preferences > Security
 
     > VNC may be required to disable this. It's possible your hardware does not have VNC enabled and you also don't have physical access. The following are the commands necessary to enable VNC from an SSH:
     >  ```bash
