@@ -1,20 +1,20 @@
 ---
-title: "license active: -anka: Could not get key information"
-linkTitle: "license activate: -anka: Could not get key information"
+title: "-anka: communication timeout"
+linkTitle: "-anka: communication timeout"
 weight: 1
 ---
 
 ## Scenario
 
-Anka license activate throws `-anka: Could not get key information`
+Anka Run throws `-anka: communication timeout`
 
 ## Common reasons
 
-1. Networking conditions prevent the license server from returning license information in the default timeout.
+1. [No active/logged in (to UI) user, Autologin disabled, and a few other prep steps aren't performed]({{< ref "docs/Anka Build Cloud/prepare-nodes.md" >}})
 
 ## Solution
 
-Set the ENV `RLM_ACT_TIMEOUT=240` (or higher)
+Ensure common reasons (above) are performed
 
 ## Still experiencing problems?
 
