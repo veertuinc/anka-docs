@@ -11,6 +11,10 @@ description: >
 
 ## Current Versions
 
+### Anka Build Cloud Controller & Registry 1.15.0 (1.15.0-c69e2600) - Apr 6th, 2021
+- Bug Fix: Client-side load-balancing with three etcd and/or controller containers throws `etcdserver: mvcc: required revision is a future revision` and causes a random loss of VMs
+- New Feature: `script_result` object is now returned from [Save Image Template API]({{< relref "docs/Anka Build Cloud/working-with-controller-and-API.md##list-save-template-image-requests" >}})
+
 ### Anka Virtualization CLI 2.4.0 (2.4.0.129) - Mar 31st, 2021
 
 > Upgrading Addons **is** necessary
@@ -37,11 +41,6 @@ description: >
 ### Anka Prometheus Exporter (2.1.3) - Mar 26th, 2021
 - Bug Fix: Placement of cleanup caused more gaps in metrics
 
-### Anka Build Cloud Controller & Registry 1.14.0 (1.14.0-17620328) - Feb 18th, 2021
-- New Feature: [A button will now show in the Controller UI allowing you to delete an Offline node (instead of having to issue an API call)]({{< relref "docs/Whats New/_index.md#delete-button-will-show-for-offline-nodes" >}})
-- New Feature: [You can now set a specific range of MAC addresses that are assigned to VM instances]({{< relref "docs/Whats New/_index.md#customize-the-range-of-mac-addresses-the-controller-uses-for-creating-vms" >}})
-- Improvement: The registry now supports ANKA_ environment variables, similar to the controller
-
 ### Anka GitLab Runner 1.2.1 - Dec 28th, 2020
 - Bug Fix: Description quotes were breaking help/flag listing [PR](https://github.com/veertuinc/gitlab-runner/pull/8)
 
@@ -62,6 +61,11 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Build Cloud Controller & Registry 1.14.0 (1.14.0-17620328) - Feb 18th, 2021
+- New Feature: [A button will now show in the Controller UI allowing you to delete an Offline node (instead of having to issue an API call)]({{< relref "docs/Whats New/_index.md#delete-button-will-show-for-offline-nodes" >}})
+- New Feature: [You can now set a specific range of MAC addresses that are assigned to VM instances]({{< relref "docs/Whats New/_index.md#customize-the-range-of-mac-addresses-the-controller-uses-for-creating-vms" >}})
+- Improvement: The registry now supports ANKA_ environment variables, similar to the controller
 
 ### Anka Virtualization CLI 2.3.4 (2.3.4.128) - Mar 2nd, 2021
 

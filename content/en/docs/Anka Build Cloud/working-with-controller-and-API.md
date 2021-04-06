@@ -965,28 +965,33 @@ curl  "http://anka.controller/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e0
 
 ### Save Template Image
 
-**Description:** Create a "Save Image" request. Save a running VM instance to the Registry as a new Tag or Template.  
+**Description:** Create a "Save Image" request. Save a running VM instance to the Registry as a new Tag or Template.
+
+> **The instance you have running will no longer exist/be running after using this Save Template Image.**
+
 **Path:** /api/v1/image  
 **Method:** POST  
 **Required Body Parameters:**  
 
  Parameter | Type   | Description 
  ---       |   ---  |          ---
- id        | string | Id of the instance to save.
+ id        | string | The ID of a running Controller Instance you want to save to the registry
+ new_template_name  | string  | Create a new VM Template with a specific name. _Required if target_vm_id not supplied_ | -
 
+ 
  **Optional Body Parameters:**   
 
  Parameter          | Type    | Description              | Default
  ---                | ---     |   ---                    | ---
- target_vm_id       | string  | The template to save the VM as. This should be empty if creating a new Image Template | -
- new_template_name  | string  | Create a new Image Template from the running instance, using this name. Required if target_vm_id not supplied | -
- tag                | string  | The tag name to use for the new tag | -
+ target_vm_id       | string  | The template id to save the tag to | -
+ tag                | string  | The tag name to set | -
  description        | string  | The description to use for the new tag | -
  suspend            | bool    | If true, suspends the vm before pushing | true 
  script             | string  | Script to be executed before the instance is stopped/suspended, encoded as a base64 string. | -
  revert_before_push | bool    | If `target_vm_id` is not empty, revert the latest tag of the template or tag specified in `revert_tag` | false
  revert_tag         | string  | Revert this specific tag. In case the tag does not exist, revert operation does not take place. | -
  do_suspend_sanity_test | bool | If suspend is true, perform a suspend sanity test before pushing the VM to the registry | false
+ cancel_on_script_failure | bool | Don't save the image if the script does not have `return_code: 0` in `GET\|/api/v1/image\|script_result` | false
 
  **Returns:** 
  - *Status:* Operation Result (OK|FAIL)  
@@ -1004,6 +1009,24 @@ curl -X POST "http://anka.controller/api/v1/image" -H "Content-Type: application
    },
    "message" : ""
 }
+
+❯ echo '#!/bin/bash
+echo $(hostname)
+echo
+env
+export TEST=true
+bash -c "echo $TEST"' | base64 -i -
+IyEvYmluL2Jhc2gKZWNobyAkKGhvc3RuYW1lKQplY2hvCmVudgpleHBvcnQgVEVTVD10cnVlCmJhc2ggLWMgImVjaG8gJFRFU1QiCg==
+
+❯ curl -X POST "http://anka.controller:8090/api/v1/image" -H "Content-Type: application/json" -d '{"id": "6f1776ad-3b6d-40b3-4bf9-21fe986bc26d", "target_vm_id": "e2729233-fbca-4e71-82de-511028191e33", "tag": "test123", "script": "IyEvYmluL2Jhc2gKZWNobyAkKGhvc3RuYW1lKQplY2hvCmVudgpleHBvcnQgVEVTVD10cnVlCmJhc2ggLWMgImVjaG8gJFRFU1QiCg==" }' | jq
+{
+   "status" : "OK",
+   "body" : {
+      "request_id" : "ad84c5aa-2b1d-4ff5-72ef-9b519646b212"
+   },
+   "message" : ""
+}
+
 ```
 
 ### List Save Template Image Requests
@@ -1025,6 +1048,7 @@ curl -X POST "http://anka.controller/api/v1/image" -H "Content-Type: application
 **Save Image request format**
 - *id* - The request’s id
 - *status* - The request's current status. Options are pending/done/error
+- *script_result* - Details about what was executed in `script`. Example: `{ "stdout": "", "stderr": "", "errors": [], "return_code": 0 }`
 - *request* - An object that represents the request
 - *error* - Error message if status is error
 
@@ -1032,35 +1056,38 @@ curl -X POST "http://anka.controller/api/v1/image" -H "Content-Type: application
 ```shell
 # List all requests
 
-curl "http://anka.controller/api/v1/image" | jq
+❯ curl -s "http://anka.controller:8090/api/v1/image" | jq '.body[1]'
+
 {
-   "body" : [
-      {
-         "id" : "cc55f7dd-5280-4120-461c-9b0ef9b40131",
-         "status" : "pending",
-         "request" : {
-            "Suspend" : true,
-            "InstanceID" : "cfc3cafd-d326-459d-7b3b-3c41b1a3efb7",
-            "RequestId" : "cc55f7dd-5280-4120-461c-9b0ef9b40131",
-            "RegistryAddr" : "http://192.168.1.108:8089",
-            "NewTemplateName" : "",
-            "Priority" : 0,
-            "Description" : "",
-            "Timestamp" : 1577364097,
-            "NodeID" : "64230242-321c-442a-bd96-d87edd0943a3",
-            "RevertTag" : "latest-vm-1801",
-            "Tag" : "my-new-vm-1901",
-            "TemplateID" : "cb1473f2-1f0a-413c-a376-236bfd7d718f",
-            "Script" : "",
-            "RevertBeforePush" : true,
-            "VMID" : "578a3be9-ad37-49c3-99fc-59c41b79dc59",
-            "DoSuspendTest" : false
-         },
-         "error" : null
-      }
-   ],
-   "message" : "",
-   "status" : "OK"
+  "id": "ad84c5aa-2b1d-4ff5-72ef-9b519646b212",
+  "request": {
+    "RequestId": "ad84c5aa-2b1d-4ff5-72ef-9b519646b212",
+    "Priority": 0,
+    "Timestamp": 1617720316,
+    "ReserveExpiryTimestamp": 0,
+    "RegistryAddr": "http://anka.registry:8089",
+    "VMID": "bd07b49e-201c-44ad-8103-be39ec1b9a2c",
+    "InstanceID": "6f1776ad-3b6d-40b3-4bf9-21fe986bc26d",
+    "NodeID": "3c101836-9540-4733-9482-604d0c5fbe30",
+    "TemplateID": "e2729233-fbca-4e71-82de-511028191e33",
+    "NewTemplateName": "",
+    "Tag": "test123",
+    "Description": "",
+    "Suspend": true,
+    "Script": "IyEvYmluL2Jhc2gKZWNobyAkKGhvc3RuYW1lKQplY2hvCmVudgpleHBvcnQgVEVTVD10cnVlCmJhc2ggLWMgImVjaG8gJFRFU1QiCg==",
+    "DoSuspendTest": false,
+    "RevertBeforePush": false,
+    "RevertTag": "",
+    "CancelOnScriptFailure": false
+  },
+  "status": "done",
+  "error": null,
+  "script_result": {
+    "stdout": "mgmtmanaged-11-2-3-openjdk-1-8-0-242-teamcity-1617720254314199000.local\n\nSHELL=/bin/bash\nTMPDIR=/var/folders/by/jq7dzyxj0151058zdlzj_st00000gn/T/\nUSER=anka\nSSH_AUTH_SOCK=/private/tmp/com.apple.launchd.hregPBnx2b/Listeners\n__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0\nPATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin\nPWD=/Users/anka\nXPC_FLAGS=0x0\nXPC_SERVICE_NAME=0\nSHLVL=2\nHOME=/Users/anka\nLOGNAME=anka\n_=/usr/bin/env\ntrue\n",
+    "stderr": "",
+    "errors": null,
+    "return_code": 0
+  }
 }
 
 # Get specific request
@@ -1090,7 +1117,8 @@ curl "http://anka.controller/api/v1/image?id=cc55f7dd-5280-4120-461c-9b0ef9b4013
          "Description" : ""
       },
       "error" : null,
-      "id" : "cc55f7dd-5280-4120-461c-9b0ef9b40131"
+      "id" : "cc55f7dd-5280-4120-461c-9b0ef9b40131",
+      "script_result": null
    }
 }
 
