@@ -991,7 +991,7 @@ curl  "http://anka.controller/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e0
  revert_before_push | bool    | If `target_vm_id` is not empty, revert the latest tag of the template or tag specified in `revert_tag` | false
  revert_tag         | string  | Revert this specific tag. In case the tag does not exist, revert operation does not take place. | -
  do_suspend_sanity_test | bool | If suspend is true, perform a suspend sanity test before pushing the VM to the registry | false
- cancel_on_script_failure | bool | Don't save the image if the script does not have `return_code: 0` in `GET\|/api/v1/image\|script_result` | false
+ cancel_on_script_failure | bool | Don't save the image if the script does not have `return_code: 0` in `GET /api/v1/image: script_result` (see below) | false
 
  **Returns:** 
  - *Status:* Operation Result (OK|FAIL)  
