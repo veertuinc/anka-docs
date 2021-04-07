@@ -44,14 +44,8 @@ description: >
 ### Anka GitLab Runner 1.2.1 - Dec 28th, 2020
 - Bug Fix: Description quotes were breaking help/flag listing [PR](https://github.com/veertuinc/gitlab-runner/pull/8)
 
-### Anka VM GitHub Action v1.3.0 - Dec 22nd, 2020
-- New Feature: anka cp support for getting host files in and also out + better tests
-- Change: commands -> vm-commands
-- Change: anka-tag -> anka-vm-tag-name
-- Change: artifacts-root-directory -> artifacts-directory-on-host
-- Change: anka-template -> anka-vm-template-name
-- Better tests + big sur
-- Out of beta!
+### Anka VM GitHub Action v1.3.1 - Apr 7th, 2021
+- Security patches
 
 ### TeamCity Plugin version 1.7.1 - July 7, 2020
 - Bug Fix: Long-running threads were being created
@@ -61,6 +55,15 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka VM GitHub Action v1.3.0 - Dec 22nd, 2020
+- New Feature: anka cp support for getting host files in and also out + better tests
+- Change: commands -> vm-commands
+- Change: anka-tag -> anka-vm-tag-name
+- Change: artifacts-root-directory -> artifacts-directory-on-host
+- Change: anka-template -> anka-vm-template-name
+- Better tests + big sur
+- Out of beta!
 
 ### Anka Build Cloud Controller & Registry 1.14.0 (1.14.0-17620328) - Feb 18th, 2021
 - New Feature: [A button will now show in the Controller UI allowing you to delete an Offline node (instead of having to issue an API call)]({{< relref "docs/Whats New/_index.md#delete-button-will-show-for-offline-nodes" >}})
