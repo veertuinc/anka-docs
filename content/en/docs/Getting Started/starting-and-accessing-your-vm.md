@@ -185,6 +185,8 @@ By default, without any modifications to the VM post-create, you'll be able to a
 
 However, this is a very limited VNC with no extensions (copy/paste, extended authorization, etc). To use Apple's VNC with all extensions enabled, you'll need to `anka view` into the VM and enable Screen Sharing under System Preferences. Once enabled, you need to stop the VM with `anka stop`, then use the [modify command to set port-forwarding]({{< relref "docs/Anka Virtualization/command-reference.md#example---add-port-forwarding" >}}) of the VNC port from within the VM to a port on the host. This will allow you to VNC to the host IP and the forwarded port (usually 10000-10005).
 
+> When using a Linux or Windows VNC client like RealVNC, ensure it's using TrueColor settings (32 bit), not 256 colors (indexed). This may be called "Picture Quality" in your client (set it to Medium).
+
 ## Answers to Frequently Asked Questions
 
 - [`anka run`]({{< relref "docs/Anka Virtualization/command-reference.md#run" >}}) doesn't support TTY mode, but you could easily use POSIX streams as with regular bash tool:
