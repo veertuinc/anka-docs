@@ -11,6 +11,9 @@ description: >
 
 ## Current Versions
 
+### Anka Prometheus Exporter (2.1.4) - Apr 12th, 2021
+- New Feature: template_name now available on anka_instance_state_per_template [pull/12](https://github.com/veertuinc/anka-prometheus-exporter/pull/12)
+
 ### Anka Build Cloud Controller & Registry 1.15.0 (1.15.0-c69e2600) - Apr 6th, 2021
 - Bug Fix: Client-side load-balancing with three etcd and/or controller containers throws `etcdserver: mvcc: required revision is a future revision` and causes a random loss of VMs
 - New Feature: `script_result` object is now returned from [Save Image Template API]({{< relref "docs/Anka Build Cloud/working-with-controller-and-API.md##list-save-template-image-requests" >}})
@@ -38,9 +41,6 @@ description: >
 - New Feature: You can now upgrade addons with `update_addons: true` on VM start (this will cause the VM to be force-stopped and suspended state to be lost)
 - **Breaking Change:** Packer 1.7.0 is now a requirement!
 
-### Anka Prometheus Exporter (2.1.3) - Mar 26th, 2021
-- Bug Fix: Placement of cleanup caused more gaps in metrics
-
 ### Anka GitLab Runner 1.2.1 - Dec 28th, 2020
 - Bug Fix: Description quotes were breaking help/flag listing [PR](https://github.com/veertuinc/gitlab-runner/pull/8)
 
@@ -55,6 +55,9 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Prometheus Exporter (2.1.3) - Mar 26th, 2021
+- Bug Fix: Placement of cleanup caused more gaps in metrics
 
 ### Anka VM GitHub Action v1.3.0 - Dec 22nd, 2020
 - New Feature: anka cp support for getting host files in and also out + better tests
