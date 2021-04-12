@@ -9,7 +9,7 @@ description: >
 
 By default, all `anka config` options are available as Environment Variables by simply converting their name to uppercase and prefixing it with `ANKA_`. So, `default_user` becomes `ANKA_DEFAULT_USER` **and the ENV takes precedence**.
 
-Outside of these config environments, there are a few others you might find useful:
+Outside of the config environment variables, there are a few others you might find useful:
 
 | Name | Description |
 | --- | --- |
@@ -19,7 +19,6 @@ Outside of these config environments, there are a few others you might find usef
 | ANKA_BLOCK_SIZE                 | ANKA image block size (1MB default) |
 | ANKA_GPU_LOCATION               | allows to specify GPU location on VM start |
 | ANKA_GPU_NAME                   | allows to specify GPU name on VM start |
-| ANKA_BRIDGE                     | default bridge interface name |
 | ANKA_CHECK_CONSISTENCY          | 0 turns off file system integrity checks |
 | ANKA_CHECK_FREE_SPACE           | 0 turns off free space validation on pull |
 | ANKA_CLAIM_NAME                 | implicit claim name in the `usb claim` command |
