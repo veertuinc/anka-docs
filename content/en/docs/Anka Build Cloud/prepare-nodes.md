@@ -67,6 +67,8 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
 
 7. Set the same `chunk_size` across your nodes with `anka config chunk_size 2147483648` (2GB). Any of the machines that create VM templates/tags need to also have this set.
 
+    > If the chunk_size is too small, you may hit `Too many open files` when trying to start VMs. You can try to modify the system's maxfiles (`sudo launchctl limit maxfiles 4096 unlimited`), but it may also be a good idea to increase the `chunk_size` to a larger size as well.
+
 8. **Reboot the host**
 
 > You may also want to have your nodes restart on host level failure: `systemsetup -setrestartpowerfailure on` & `systemsetup -setrestartfreeze on`
