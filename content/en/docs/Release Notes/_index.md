@@ -17,6 +17,7 @@ description: >
 ### Anka Build Cloud Controller & Registry 1.15.0 (1.15.0-c69e2600) - Apr 6th, 2021
 - Bug Fix: Client-side load-balancing with three etcd and/or controller containers throws `etcdserver: mvcc: required revision is a future revision` and causes a random loss of VMs
 - New Feature: `script_result` object is now returned from [Save Image Template API]({{< relref "docs/Anka Build Cloud/working-with-controller-and-API.md##list-save-template-image-requests" >}})
+- Bug Fix: The start vm queue code sometimes check tasks from the controller queue. It doesn't take the tasks but it can create load on the db
 
 ### Anka Virtualization CLI 2.4.0 (2.4.0.129) - Mar 31st, 2021
 

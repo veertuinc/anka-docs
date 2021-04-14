@@ -14,6 +14,7 @@ hideSubPagesInLeftMenu: true
 - [`anka run` shows "-anka: communication timeout"]({{< relref "docs/Troubleshooting Guides and FAQs/anka-virtualization/anka-run-communication-timeout.md" >}})
 - [VM is showing as status "failed"]({{< relref "docs/Troubleshooting Guides and FAQs/anka-virtualization/failed-vms.md" >}})
 - [`anka license activate` "-anka: Could not get key information"]({{< relref "docs/Troubleshooting Guides and FAQs/anka-virtualization/anka-license-activate-could-not-get-key-information.md" >}})
+- [`Too many open files` in `{UUID}.log`]({{< relref "docs/Troubleshooting Guides and FAQs/anka-virtualization/too-many-open-files.md" >}})
 
 ### FAQs
 
