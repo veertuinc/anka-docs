@@ -11,8 +11,10 @@ description: >
 
 ## Current Versions
 
-### Anka Prometheus Exporter (2.1.4) - Apr 12th, 2021
-- New Feature: template_name now available on anka_instance_state_per_template [pull/12](https://github.com/veertuinc/anka-prometheus-exporter/pull/12)
+### Anka Prometheus Exporter (2.2.0) - Apr 15th, 2021
+- A dockerhub repo is now available with a lightweight linux tag you can use to run the anka-prometheus-exporter: https://hub.docker.com/r/veertu/anka-prometheus-exporter/tags?page=1&ordering=last_updated
+- Added support for ENVs (they override binary flags if present)
+- A few logging fixes (missing controller_address now provides a logrus formatted error  instead of string)
 
 ### Anka Build Cloud Controller & Registry 1.15.0 (1.15.0-c69e2600) - Apr 6th, 2021
 - Bug Fix: Client-side load-balancing with three etcd and/or controller containers throws `etcdserver: mvcc: required revision is a future revision` and causes a random loss of VMs
@@ -56,6 +58,9 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Prometheus Exporter (2.1.4) - Apr 12th, 2021
+- New Feature: template_name now available on anka_instance_state_per_template [pull/12](https://github.com/veertuinc/anka-prometheus-exporter/pull/12)
 
 ### Anka Prometheus Exporter (2.1.3) - Mar 26th, 2021
 - Bug Fix: Placement of cleanup caused more gaps in metrics
