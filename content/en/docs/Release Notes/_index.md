@@ -21,19 +21,16 @@ description: >
 - New Feature: `script_result` object is now returned from [Save Image Template API]({{< relref "docs/Anka Build Cloud/working-with-controller-and-API.md##list-save-template-image-requests" >}})
 - Bug Fix: The start vm queue code sometimes check tasks from the controller queue. It doesn't take the tasks but it can create load on the db
 
-### Anka Virtualization CLI 2.4.0 (2.4.0.129) - Mar 31st, 2021
+### Anka Virtualization CLI 2.4.1 (2.4.1.130) - Apr 19th, 2021
 
-> Upgrading Addons **is** necessary
+> Upgrading Addons is **NOT** necessary
 
-- New Feature: (improved security) [VM network isolation when using shared type network-card]({{< relref "docs/Whats New/_index.md#vm-networking-is-now-isolated-for-improved-security" >}}). This also means that any access to the host also blocked (192.168.64.1).
-- New Feature: [Pushing and pulling from the registry is now chunked]({{< relref "docs/Whats New/_index.md#registry-pushing-and-pulling-of-vm-templatestags-are-now-chunked-for-better-performance" >}}).
-- Improvement: Suspended VMs that fail to start for a temporary issue will not become corrupted anymore. This allows a second start to happen without having to re-pull the suspended VM again from the registry.
-- Improvement: Anka clone now preserves the source VM creation date.
-- Bug Fix: Anka run suddenly throws `-anka: communication timeout`
-- Bug Fix: When /var/tmp/ankafs.0 is created as one user, and another user in the VM tries to use it, it fails with `Permission Denied`
-- Bug Fix: ENVs passing into the VM using `anka run --env` throw `-anka: communication timeout`
-- Bug Fix: RealVNC client crash
-- Bug Fix: Whenever multiple creations are run in parallel with packer, it will fail with `hdiutil: attach failed - Resource busy`
+- Improvement: Preliminary 11.3 support
+- Bug Fix: Machine-readable output is sometimes empty
+- Bug Fix: Block deallocation logic fails on some guest images
+- Improvement: If available, `anka registry pull` will now use the local copy of your template/tag and avoid making a network pull/connection
+- Improvement: If a template with a certain name exists on your machine/node, but doesn't match the UUID of the template with the same name in the registry, we are now blocking you from pulling the template from the registry to prevent duplicates
+- New feature: `anka config` now contains `delete_logs` which, if set to False, will keep /Library/Logs/Anka/{UUID}.log files around even after deletion of the VM
 
 ### Jenkins Plugin 2.5.0 - Mar 30th, 2021
 - Support for Jenkins versions `2.277.1` and above (new UI changes)
@@ -59,6 +56,19 @@ description: >
 
 ## Previous Versions
 
+### Anka Virtualization CLI 2.4.0 (2.4.0.129) - Mar 31st, 2021
+
+> Upgrading Addons **is** necessary
+
+- New Feature: (improved security) [VM network isolation when using shared type network-card]({{< relref "docs/Whats New/_index.md#vm-networking-is-now-isolated-for-improved-security" >}}). This also means that any access to the host also blocked (192.168.64.1).
+- New Feature: [Pushing and pulling from the registry is now chunked]({{< relref "docs/Whats New/_index.md#registry-pushing-and-pulling-of-vm-templatestags-are-now-chunked-for-better-performance" >}}).
+- Improvement: Suspended VMs that fail to start for a temporary issue will not become corrupted anymore. This allows a second start to happen without having to re-pull the suspended VM again from the registry.
+- Improvement: Anka clone now preserves the source VM creation date.
+- Bug Fix: Anka run suddenly throws `-anka: communication timeout`
+- Bug Fix: When /var/tmp/ankafs.0 is created as one user, and another user in the VM tries to use it, it fails with `Permission Denied`
+- Bug Fix: ENVs passing into the VM using `anka run --env` throw `-anka: communication timeout`
+- Bug Fix: RealVNC client crash
+- Bug Fix: Whenever multiple creations are run in parallel with packer, it will fail with `hdiutil: attach failed - Resource busy`
 ### Anka Prometheus Exporter (2.1.4) - Apr 12th, 2021
 - New Feature: template_name now available on anka_instance_state_per_template [pull/12](https://github.com/veertuinc/anka-prometheus-exporter/pull/12)
 
