@@ -22,11 +22,8 @@ description: >
 - Improvement: If a template with a certain name exists on your machine/node, but doesn't match the UUID of the template with the same name in the registry, we are now blocking you from pulling the template from the registry to prevent duplicates
 - New feature: `anka config` now contains `delete_logs` which, if set to False, will keep /Library/Logs/Anka/{UUID}.log files around even after deletion of the VM
 
-### Anka Prometheus Exporter (2.2.0) - Apr 15th, 2021
-- A dockerhub repo is now available with a lightweight linux tag you can use to run the anka-prometheus-exporter: https://hub.docker.com/r/veertu/anka-prometheus-exporter/tags?page=1&ordering=last_updated
-- Added support for ENVs (they override binary flags if present)
-- A few logging fixes (missing controller_address now provides a logrus formatted error  instead of string)
-
+### Anka Prometheus Exporter (2.2.1) - Apr 19th, 2021
+- Bug Fix: Several node_group metrics show the same exact values
 ### Anka Build Cloud Controller & Registry 1.15.0 (1.15.0-c69e2600) - Apr 6th, 2021
 - Bug Fix: Client-side load-balancing with three etcd and/or controller containers throws `etcdserver: mvcc: required revision is a future revision` and causes a random loss of VMs
 - New Feature: `script_result` object is now returned from [Save Image Template API]({{< relref "docs/Anka Build Cloud/working-with-controller-and-API.md##list-save-template-image-requests" >}})
@@ -56,6 +53,11 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Prometheus Exporter (2.2.0) - Apr 15th, 2021
+- A dockerhub repo is now available with a lightweight linux tag you can use to run the anka-prometheus-exporter: https://hub.docker.com/r/veertu/anka-prometheus-exporter/tags?page=1&ordering=last_updated
+- Added support for ENVs (they override binary flags if present)
+- A few logging fixes (missing controller_address now provides a logrus formatted error  instead of string)
 
 ### Anka Virtualization CLI 2.4.0 (2.4.0.129) - Mar 31st, 2021
 
