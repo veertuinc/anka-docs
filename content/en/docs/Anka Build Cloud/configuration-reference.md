@@ -19,6 +19,8 @@ Configuring your Anka Build Cloud Controller & Registry to enable features or cu
 
 Depending on the package you're using (native or docker), you can set ENV variables to modify the configuration of your controller and registry.
 
+> **The .docker files in the docker/linux package include a mix of ENVs and flags (in the ENTRYPOINT). While we work on simplifying the docker package to support the `ANKA_` environment variables, you may need to remove the flags and non-`ANKA_` ENVs from the .docker file. Using ANKA_LISTEN_ADDR for example while the ENTRYPOINT has `--listen_addr` defined will cause a problem.**
+
 #### docker-compose.yml (docker)
 
 ```yml
@@ -234,7 +236,7 @@ Dump flags | bool | Dumps values for all flags defined in the app into stdout in
 
 ---
 
-Depending on the package you're using (native or docker), you can include flags to modify the configuration of your controller and registry. However, you need to override the default entrypoint (you can find the default in the .docker file).
+Depending on the package you're using (native or docker), you can include flags to modify the configuration of your controller and registry. 
 
 #### docker-compose.yml (docker)
 
