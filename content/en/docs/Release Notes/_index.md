@@ -11,6 +11,17 @@ description: >
 
 ## Current Versions
 
+### Anka Virtualization CLI 2.4.1 (2.4.1.130) - Apr 19th, 2021
+
+> Upgrading Addons is **NOT** necessary
+
+- Improvement: Preliminary 11.3 support
+- Bug Fix: Machine-readable output is sometimes empty
+- Bug Fix: Block deallocation logic fails on some guest images
+- Improvement: If available, `anka registry pull` will now revert to/use the local copy of your template/tag and avoid making a network pull/connection
+- Improvement: If a template with a certain name exists on your machine/node, but doesn't match the UUID of the template with the same name in the registry, we are now blocking you from pulling the template from the registry to prevent duplicates
+- New feature: `anka config` now contains `delete_logs` which, if set to False, will keep /Library/Logs/Anka/{UUID}.log files around even after deletion of the VM
+
 ### Anka Prometheus Exporter (2.2.0) - Apr 15th, 2021
 - A dockerhub repo is now available with a lightweight linux tag you can use to run the anka-prometheus-exporter: https://hub.docker.com/r/veertu/anka-prometheus-exporter/tags?page=1&ordering=last_updated
 - Added support for ENVs (they override binary flags if present)
@@ -20,17 +31,6 @@ description: >
 - Bug Fix: Client-side load-balancing with three etcd and/or controller containers throws `etcdserver: mvcc: required revision is a future revision` and causes a random loss of VMs
 - New Feature: `script_result` object is now returned from [Save Image Template API]({{< relref "docs/Anka Build Cloud/working-with-controller-and-API.md##list-save-template-image-requests" >}})
 - Bug Fix: The start vm queue code sometimes check tasks from the controller queue. It doesn't take the tasks but it can create load on the db
-
-### Anka Virtualization CLI 2.4.1 (2.4.1.130) - Apr 19th, 2021
-
-> Upgrading Addons is **NOT** necessary
-
-- Improvement: Preliminary 11.3 support
-- Bug Fix: Machine-readable output is sometimes empty
-- Bug Fix: Block deallocation logic fails on some guest images
-- Improvement: If available, `anka registry pull` will now use the local copy of your template/tag and avoid making a network pull/connection
-- Improvement: If a template with a certain name exists on your machine/node, but doesn't match the UUID of the template with the same name in the registry, we are now blocking you from pulling the template from the registry to prevent duplicates
-- New feature: `anka config` now contains `delete_logs` which, if set to False, will keep /Library/Logs/Anka/{UUID}.log files around even after deletion of the VM
 
 ### Jenkins Plugin 2.5.0 - Mar 30th, 2021
 - Support for Jenkins versions `2.277.1` and above (new UI changes)

@@ -53,3 +53,9 @@ Anka will dynamically assign MAC addresses to your VM. In Catalina and higher, y
 > Dynamic MAC Addresses are not guaranteed to be unique, though, reuse/collision is rare
 
 > **In Mojave or older macOS versions:** Even if a custom MAC is set, Apple's VMNET doesn't recognize it on the network outside of the VM. We do a translation from the custom MAC to the one VMNET assigns. This causes the external to VM network to see the VMNET MAC, but inside of the VM you'll see the custom MAC.
+
+
+
+## Answers to Frequently Asked Questions
+
+- IPV6 support:  Not available for Shared networking (default; macOS internet sharing looks for IPv4 only). However, it should work just fine with Bridged networking.
