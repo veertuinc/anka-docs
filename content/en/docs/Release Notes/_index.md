@@ -31,6 +31,7 @@ description: >
 - Bug Fix: Client-side load-balancing with three etcd and/or controller containers throws `etcdserver: mvcc: required revision is a future revision` and causes a random loss of VMs
 - New Feature: `script_result` object is now returned from [Save Image Template API]({{< relref "docs/Anka Build Cloud/working-with-controller-and-API.md##list-save-template-image-requests" >}})
 - Bug Fix: The start vm queue code sometimes check tasks from the controller queue. It doesn't take the tasks but it can create load on the db
+- (Standalone Registry: 1.15.0-a88b7bc)
 
 ### Jenkins Plugin 2.5.0 - Mar 30th, 2021
 - Support for Jenkins versions `2.277.1` and above (new UI changes)
@@ -88,6 +89,7 @@ description: >
 - New Feature: [A button will now show in the Controller UI allowing you to delete an Offline node (instead of having to issue an API call)]({{< relref "docs/Whats New/_index.md#delete-button-will-show-for-offline-nodes" >}})
 - New Feature: [You can now set a specific range of MAC addresses that are assigned to VM instances]({{< relref "docs/Whats New/_index.md#customize-the-range-of-mac-addresses-the-controller-uses-for-creating-vms" >}})
 - Improvement: The registry now supports ANKA_ environment variables, similar to the controller
+- (Standalone Registry: 1.14.0-1e39461)
 
 ### Anka Virtualization CLI 2.3.4 (2.3.4.128) - Mar 2nd, 2021
 
