@@ -12,15 +12,14 @@ Configuring your Anka Build Cloud Controller & Registry to enable features or cu
 
 > If you're using the standalone Registry package, you'll need to use Flags/Options and edit your `/Library/LaunchDaemons/com.veertu.anka.registry.plist`, then restart it with `launchctl unload /Library/. . . && launchctl load /Library/. . .`
 
+> **The .docker files in the docker/linux package and dockerhub tags include a mix of non-`ANKA_` ENVs and flags (in the ENTRYPOINT). While we work on simplifying the docker package to support the `ANKA_` environment variables, you may need to remove the flags and non-`ANKA_` ENVs from the .docker file. Using ANKA_LISTEN_ADDR for example while the ENTRYPOINT has `--listen_addr` defined will cause a problem.**
+
 {{< tabs tabTotal="2" tabID="1" tabName1="Environment Variables" tabName2="Flags / Options" >}}
 {{< tab tabNum="1" >}}
 
 ---
 
 Depending on the package you're using (native or docker), you can set ENV variables to modify the configuration of your controller and registry.
-
-> **The .docker files in the docker/linux package include a mix of ENVs and flags (in the ENTRYPOINT). While we work on simplifying the docker package to support the `ANKA_` environment variables, you may need to remove the flags and non-`ANKA_` ENVs from the .docker file. Using ANKA_LISTEN_ADDR for example while the ENTRYPOINT has `--listen_addr` defined will cause a problem.**
-
 #### docker-compose.yml (docker)
 
 ```yml
