@@ -5,6 +5,14 @@ weight: 7
 hideSubPagesInLeftMenu: true
 ---
 
+Versions which are EOL:
+
+- Anka Virtualization versions (Anka mac binary) < 2.0
+- Anka Build Cloud Controller and Registry versions < 1.10
+- Jenkins Plugin versions < 2.0
+- Anka GitLab Runner versions < 1.0
+
+
 ---
 
 ## Anka Virtualization
