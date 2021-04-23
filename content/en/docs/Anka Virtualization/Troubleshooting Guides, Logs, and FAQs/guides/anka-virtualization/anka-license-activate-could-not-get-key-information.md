@@ -1,6 +1,6 @@
 ---
-title: "license active: -anka: Could not get key information"
-linkTitle: "license activate: -anka: Could not get key information"
+title: "license activation: -anka: Could not get key information"
+linkTitle: "license activation: -anka: Could not get key information"
 weight: 1
 ---
 

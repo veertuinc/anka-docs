@@ -2,8 +2,6 @@
 title: "Builds stuck in queued"
 linkTitle: "Builds stuck in queued"
 weight: 4
-description: >
-  How to debug teamcity not starting agents for a build.
 ---
 ## Scenario
 
@@ -13,7 +11,7 @@ You configured Anka Build Cloud alongside the Teamcity plugin. You are now tryin
 
 1. Cloud Profile configuration mistakes; Missing `Server URL:`
 2. SSH port forwarding not set correctly on VM 
-3. The Anka Cloud can't run VMs (see [VM is stuck at scheduling]({{< relref "docs/Troubleshooting Guides and FAQs/anka-build-cloud/controller/vm-stuck-scheduling.md">}}))
+3. The Anka Cloud can't run VMs (see [VM is stuck at scheduling]({{< relref "docs/Anka Build Cloud/Troubleshooting Guides, Logs, and FAQs/guides/anka-build-cloud/controller/vm-stuck-scheduling.md">}}))
 
 
 If the controller has started the VM, you can take a look at the logs inside of the VM and look for the failure logs:

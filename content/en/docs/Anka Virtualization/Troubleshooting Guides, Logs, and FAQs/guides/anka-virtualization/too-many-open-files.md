@@ -1,6 +1,6 @@
 ---
-title: "Too many open files"
-linkTitle: "Too many open files"
+title: "\"Too many open files\" in {UUID}.log"
+linkTitle: "\"Too many open files\" in {UUID}.log"
 weight: 3
 ---
 

@@ -39,8 +39,9 @@ description: >
 - New Feature: You can now upgrade addons with `update_addons: true` on VM start (this will cause the VM to be force-stopped and suspended state to be lost)
 - **Breaking Change:** Packer 1.7.0 is now a requirement!
 
-### Anka GitLab Runner 1.2.1 - Dec 28th, 2020
-- Bug Fix: Description quotes were breaking help/flag listing [PR](https://github.com/veertuinc/gitlab-runner/pull/8)
+### Anka GitLab Runner 1.3.0 - Apr 23rd, 2021
+- Improvement: Upgraded gitlab-runner core to 13.11.0
+- New Feature: Added `ANKA_NODE_GROUP` ENV so you can change the target node group in your variables section in the YAML
 
 ### Anka VM GitHub Action v1.3.1 - Apr 7th, 2021
 - Security patches
@@ -53,6 +54,9 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka GitLab Runner 1.2.1 - Dec 28th, 2020
+- Bug Fix: Description quotes were breaking help/flag listing [PR](https://github.com/veertuinc/gitlab-runner/pull/8)
 
 ### Anka Prometheus Exporter (2.2.0) - Apr 15th, 2021
 - A dockerhub repo is now available with a lightweight linux tag you can use to run the anka-prometheus-exporter: https://hub.docker.com/r/veertu/anka-prometheus-exporter/tags?page=1&ordering=last_updated

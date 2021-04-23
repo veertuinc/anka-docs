@@ -1,6 +1,6 @@
 ---
-title: "-anka: communication timeout"
-linkTitle: "-anka: communication timeout"
+title: "anka run \"-anka: communication timeout\""
+linkTitle: "anka run \"-anka: communication timeout\""
 weight: 1
 ---
 

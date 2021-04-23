@@ -2,8 +2,6 @@
 title: "Jenkins doesn't start VMs"
 linkTitle: "Jenkins doesn't start VMs"
 weight: 3
-description: >
-  How to debug Anka Jenkins plugin common issues.
 ---
 
 
@@ -24,13 +22,13 @@ You configured Anka Build Cloud alongside the Jenkins plugin. You are now trying
 3. JNLP port is not accessible from VM
 4. Outdated Jenkins environment
 5. VM has different version of Java from the Master
-6. The Anka Cloud can't run VMs (see [VM is stuck at scheduling]({{< relref "docs/Troubleshooting Guides and FAQs/anka-build-cloud/controller/vm-stuck-scheduling.md">}}))
+6. The Anka Cloud can't run VMs (see [VM is stuck at scheduling]({{< relref "docs/Anka Build Cloud/Troubleshooting Guides, Logs, and FAQs/guides/anka-build-cloud/controller/vm-stuck-scheduling.md">}}))
 
 
 > If you are not sure that your cloud can run VMs, it's a good place to start.  
 > Go to your dashboard and start a VM Instance.  
 > If it starts and you can connect to it, the problem is probably around Jenkins configuration or compatibility with Jenkins.  
-> If your VM does **not** start try to [troubleshoot it]({{< relref "docs/Troubleshooting Guides and FAQs/anka-build-cloud/controller/vm-stuck-scheduling.md">}}) 
+> If your VM does **not** start try to [troubleshoot it]({{< relref "docs/Anka Build Cloud/Troubleshooting Guides, Logs, and FAQs/guides/anka-build-cloud/controller/vm-stuck-scheduling.md">}}) 
 
 
 ## Configuration mistakes

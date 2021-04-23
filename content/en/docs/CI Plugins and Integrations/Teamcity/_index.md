@@ -65,4 +65,4 @@ Anytime you execute a build for the project, it will request a new VM from the A
 
 ## Common Issues
 
-1. [Build stuck in queue and no Agents spawning]({{< ref "docs/Troubleshooting Guides and FAQs/teamcity-plugin/build-stuck-in-queued.md">}})
+1. [Build stuck in queue and no Agents spawning]({{< ref "docs/Anka Build Cloud/Troubleshooting Guides, Logs, and FAQs/guides/teamcity-plugin/build-stuck-in-queued.md">}})

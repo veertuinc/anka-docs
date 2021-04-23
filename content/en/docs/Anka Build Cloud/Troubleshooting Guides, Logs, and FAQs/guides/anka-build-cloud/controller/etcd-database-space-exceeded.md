@@ -1,6 +1,6 @@
 ---
-title: "ETCD log says \"database space exceeded\""
-linkTitle: "ETCD log says \"database space exceeded\""
+title: "ETCD logs say \"database space exceeded\""
+linkTitle: "ETCD logs say \"database space exceeded\""
 weight: 1
 ---
 

@@ -1,9 +1,7 @@
 ---
-title: "VM Instance is stuck at scheduling state"
-linkTitle: "VM Instance is stuck at scheduling state"
+title: "VM Instance is stuck in scheduling state"
+linkTitle: "VM Instance is stuck in scheduling state"
 weight: 1
-description: >
-  How to troubleshoot situations where VM Instances are stuck at scheduling state.
 ---
 
 
