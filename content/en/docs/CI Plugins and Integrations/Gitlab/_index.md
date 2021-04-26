@@ -261,7 +261,7 @@ When you stop or exit the container, it will automatically unregister it from yo
 
 ## Answers to Common Questions
 
-- You can override the default VM Template and Tag using environment variables: `ANKA_TEMPLATE_UUID` & `ANKA_TAG_NAME`
+- You can override the default VM Template, Tag, and targeted node group using environment variables: `ANKA_TEMPLATE_UUID`, `ANKA_TAG_NAME`, and `ANKA_NODE_GROUP`
     ```yaml
     test:
       tags:
@@ -270,6 +270,7 @@ When you stop or exit the container, it will automatically unregister it from yo
       variables:
         ANKA_TEMPLATE_UUID: "c0847bc9-5d2d-4dbc-ba6a-240f7ff08032"
         ANKA_TAG_NAME: "base"
+        ANKA_NODE_GROUP: "larger-vm-pool"
       script:
         - hostname
         - echo "Echo from inside of the VM!"
