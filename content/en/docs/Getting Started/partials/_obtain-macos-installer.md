@@ -6,4 +6,3 @@ There are multiple ways to obtain the installer .app file for Mac OSX that we'll
 2. On Catalina, you can use `softwareupdate`: `sudo softwareupdate --fetch-full-installer --full-installer-version 10.15.6`
 3. Have your local IT department provide a network volume or download links.
 4. Use our [Getting Started script](https://github.com/veertuinc/getting-started#create-vm-templatebash), but run it with `./create-vm-template.bash --no-anka-create`
-3. Have your local IT department provide a network volume or download links.
