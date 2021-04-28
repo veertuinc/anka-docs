@@ -56,3 +56,9 @@ At times you might need to modify the hardware serial or UUID to run proper buil
 
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/custom-variable/_index.md" >}}
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/custom-variable/_example.md" >}}
+
+---
+
+## What's next?
+
+- [Understanding VM Networking]({{< relref "docs/Getting Started/understanding-vm-networking.md" >}})

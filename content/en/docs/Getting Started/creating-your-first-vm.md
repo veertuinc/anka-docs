@@ -108,3 +108,9 @@ anka modify VM add port-forwarding...
 curl ... (delete or revert from registry)
 anka registry push -t tag2 VM
 ```
+
+---
+
+## What's next?
+
+- [Starting and Accessing your VM]({{< relref "docs/Getting Started/starting-and-accessing-your-vm.md" >}})

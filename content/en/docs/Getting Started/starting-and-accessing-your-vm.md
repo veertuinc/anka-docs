@@ -196,3 +196,9 @@ However, this is a very limited VNC with no extensions (copy/paste, extended aut
     ```
 - You can set the resolution of the Anka Viewer using `sudo anka modify 10.15.4 set display --resolution 1200x800`
 - [Port forwarding of VM ports is supported]({{< relref "docs/Anka Virtualization/command-reference.md#example---add-port-forwarding" >}})
+
+---
+
+## What's next?
+
+- [Modifying your VM Template]({{< relref "docs/Getting Started/modifying-your-vm-template.md" >}})

@@ -20,3 +20,9 @@ description: >
 ## (alternative) Download and install with your terminal
 
 {{< include file="shared/content/en/docs/Anka Virtualization/partials/_download-and-install-with-terminal.md" >}}
+
+---
+
+## What's next?
+
+- [Creating your first VM]({{< relref "docs/Getting Started/creating-your-first-vm.md" >}})

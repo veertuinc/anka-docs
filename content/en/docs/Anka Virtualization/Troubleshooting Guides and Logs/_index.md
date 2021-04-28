@@ -1,6 +1,6 @@
 ---
-title: "Troubleshooting Guides, Logs, and FAQs"
-linkTitle: "Troubleshooting Guides, Logs, and FAQs"
+title: "Troubleshooting Guides and Logs"
+linkTitle: "Troubleshooting Guides and Logs"
 weight: 1
 hideSubPagesInLeftMenu: false
 ---
