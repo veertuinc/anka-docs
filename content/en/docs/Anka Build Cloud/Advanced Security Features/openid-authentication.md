@@ -36,7 +36,7 @@ docker run --rm -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin q
   - I created user `nathan` with the password of `nathan` (turn off Temporary). I filled in my full name too.
   - When creating the Client, I set `anka` as the Client ID, clicked Save, then entered `https://anka.controller:8090` (this is the URL for the controller I run) for the **Valid Redirect URIs**. I also set **Access Type** to **confidential** and enabled **Implicit Flow**.
 
-2. Next, create the `groups` **Client Scope**. Then, under **Clients > anka > Client Scopes**, add the `groups` Client Scope (select it and then click **Add Selected**). Then, back under the `groups` **Client Scope**, click **Add Builtin**, and choose `groups`, then **Add Selected**.
+2. Next, create a **Client Scope** named `groups`. Once created, under **Clients > anka > Client Scopes**, add the `groups` Client Scope (select it and then click **Add Selected**). Then, back under the `groups` **Client Scope**, **Mappers**, click **Add Builtin**, and choose `groups`, then **Add Selected**.
 
 3. You can now create a group called `anka-controller-access` and then join it to the user you created.
 
