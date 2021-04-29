@@ -38,7 +38,10 @@ docker run --rm -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin q
 
 2. Next, create a **Client Scope** named `groups`. Once created, under **Clients > anka > Client Scopes**, add the `groups` Client Scope (select it and then click **Add Selected**). Then, back under the `groups` **Client Scope**, **Mappers**, click **Add Builtin**, and choose `groups`, then **Add Selected**.
 
-3. You can now create a group called `anka-controller-access` and then join it to the user you created.
+2. Under `Roles` add `anka-build-cloud-access`. 
+    > The role is what matches with the group name in the Controller UI's Admin panel where you set specific access permissions for certain groups/users.
+
+3. You can now create a group called `anka-build-cloud-access` and under **Role Mappings**, add the role: `anka-build-cloud-access`. Then, join it to the user you created.
 
 At this point, you'll have Keycloak ready to use with your Anka Build Cloud Controller. Though, we need first to enable it.
 
@@ -111,7 +114,7 @@ Under the **Admin** page, we want to add a **New Group**. **The Group Name will 
 
 ## Managing User/Group Permissions (Authorization)
 
-Once user and group are created and assigned to each other, you can then add the exact group name from your keycloak (or other authorization server software) to the controller's permission management panel. This gives any users associated to the group in that cloud permission group the specific permissions to the API and even controller UI.
+Once user, group, and roles are created and assigned to each other, you can then add the exact role name from your keycloak (or other authorization server software) to the controller's permission management panel. This gives any users associated to the group in that cloud permission group the specific permissions to the API and even controller UI.
 
 {{< include file="shared/content/en/docs/Anka Build Cloud/Advanced Security Features/partials/_managing-permissions.md" >}}
 
