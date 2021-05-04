@@ -11,6 +11,9 @@ description: >
 
 ## Current Versions
 
+### Anka GitLab Runner 1.4.0 - May 4th, 2021
+- New Feature: We're now populating the External ID and Name startVM API call so that External ID shows the full URL to the job and Name is the runner's name. [PR](https://github.com/veertuinc/gitlab-runner/issues/10)
+
 ### Anka Virtualization CLI 2.4.1 (2.4.1.130) - Apr 19th, 2021
 
 > Upgrading Addons is **NOT** necessary
@@ -39,10 +42,6 @@ description: >
 - New Feature: You can now upgrade addons with `update_addons: true` on VM start (this will cause the VM to be force-stopped and suspended state to be lost)
 - **Breaking Change:** Packer 1.7.0 is now a requirement!
 
-### Anka GitLab Runner 1.3.0 - Apr 23rd, 2021
-- Improvement: Upgraded gitlab-runner core to 13.11.0
-- New Feature: Added `ANKA_NODE_GROUP` ENV so you can change the target node group in your variables section in the YAML
-
 ### Anka VM GitHub Action v1.3.1 - Apr 7th, 2021
 - Security patches
 
@@ -54,6 +53,10 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka GitLab Runner 1.3.0 - Apr 23rd, 2021
+- Improvement: Upgraded gitlab-runner core to 13.11.0
+- New Feature: Added `ANKA_NODE_GROUP` ENV so you can change the target node group in your variables section in the YAML
 
 ### Anka GitLab Runner 1.2.1 - Dec 28th, 2020
 - Bug Fix: Description quotes were breaking help/flag listing [PR](https://github.com/veertuinc/gitlab-runner/pull/8)
