@@ -239,6 +239,8 @@ anka-controller:
 
 ## 5. Joining your Node to the Controller with the Node certificate
 
+> Certificates are cached, so if you update/renew them, you need to either: 1. disjoin and re-join them to the controller, issue `sudo pkill -9 anka_agent` on each node to restart the agent, or issue a `<controller>/v1/node/update` PUT to the controller API to forcefully update all nodes.
+
 > If you're using a signed certificate for the controller dashboard, but self-signed certificates for your nodes and CI tools, you'll need to specify the `--cacert` for `ankacluster join` and `anka registry add` commands and point it to the signed CA certificate. You'll usually see `SSLError: ("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",)` if the wrong CA is being used.
 
 > If you previously joined your Nodes to the Controller, you'll want to `sudo ankacluster disjoin` on each before proceeding (if it hangs, use `ps aux | grep anka_agent | awk '{print $2}' | xargs kill -9` and try disjoin again).

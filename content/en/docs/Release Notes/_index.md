@@ -11,6 +11,10 @@ description: >
 
 ## Current Versions
 
+### Anka Build Cloud Controller & Registry 1.16.0 (1.16.0-05de337e) - May 11th, 2021
+- Bug Fix: Root token wasn't working with Chrome browsers
+- (Standalone Registry: 1.16.0-25e4cad)
+
 ### Anka GitLab Runner 1.4.0 - May 4th, 2021
 - New Feature: We're now populating the External ID and Name startVM API call so that External ID shows the full URL to the job and Name is the runner's name. [PR](https://github.com/veertuinc/gitlab-runner/issues/10)
 
@@ -27,11 +31,6 @@ description: >
 
 ### Anka Prometheus Exporter (2.2.1) - Apr 19th, 2021
 - Bug Fix: Several node_group metrics show the same exact values
-### Anka Build Cloud Controller & Registry 1.15.0 (1.15.0-c69e2600) - Apr 6th, 2021
-- Bug Fix: Client-side load-balancing with three etcd and/or controller containers throws `etcdserver: mvcc: required revision is a future revision` and causes a random loss of VMs
-- New Feature: `script_result` object is now returned from [Save Image Template API]({{< relref "docs/Anka Build Cloud/working-with-controller-and-API.md##list-save-template-image-requests" >}})
-- Bug Fix: The start vm queue code sometimes check tasks from the controller queue. It doesn't take the tasks but it can create load on the db
-- (Standalone Registry: 1.15.0-a88b7bc)
 
 ### Jenkins Plugin 2.5.0 - Mar 30th, 2021
 - Support for Jenkins versions `2.277.1` and above (new UI changes)
@@ -53,6 +52,12 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Build Cloud Controller & Registry 1.15.0 (1.15.0-c69e2600) - Apr 6th, 2021
+- Bug Fix: Client-side load-balancing with three etcd and/or controller containers throws `etcdserver: mvcc: required revision is a future revision` and causes a random loss of VMs
+- New Feature: `script_result` object is now returned from [Save Image Template API]({{< relref "docs/Anka Build Cloud/working-with-controller-and-API.md##list-save-template-image-requests" >}})
+- Bug Fix: The start vm queue code sometimes check tasks from the controller queue. It doesn't take the tasks but it can create load on the db
+- (Standalone Registry: 1.15.0-a88b7bc)
 
 ### Anka GitLab Runner 1.3.0 - Apr 23rd, 2021
 - Improvement: Upgraded gitlab-runner core to 13.11.0
