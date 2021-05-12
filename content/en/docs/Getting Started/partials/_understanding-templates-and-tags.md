@@ -6,7 +6,7 @@ After a VM Template is created, you'll have a clean macOS installation to play w
 
 > [An example bash script that shows how to use `anka run` to instal dependencies](https://github.com/veertuinc/getting-started#create-vm-template-tagsbash).
 
-Once the system is configured how you want it, you have two options:
+Once the system/Template is configured how you want it, you have two options:
 
 1. Stop the VM Template
 2. Suspend the VM Template
