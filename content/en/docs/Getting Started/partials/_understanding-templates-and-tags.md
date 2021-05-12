@@ -13,7 +13,7 @@ Once the system/Template is configured how you want it, you have two options:
 
 With option 1, you are issuing a full shutdown -- similar to hitting the power button on your physical machine -- and therefore have to wait the full boot time for the VM to start back up. This usually takes 20 to 30 seconds.
 
-With option 2, you can save the state of the VM/memory to a file which can then be used to start the VM almost instantly. However, these files that contain the state are several GBs in size and shouldn't be used if your hosts are limited on disk space. Stopped Big Sur VMs are ~19GB stopped, but can be more than 30GBs depending on the amount of memory given to the VM.
+With option 2, you can save the state of the VM/memory to a file which can then be used to start the VM almost instantly. However, these files that contain the state are several GBs in size and shouldn't be used if your hosts are limited on disk space. Stopped Big Sur VMs are ~19GB, but can be more than 30GBs depending on the amount of memory given to the VM.
 
 > It's very important that when you suspend from a started state the VM has **fully booted and logged into a user**. If you don't, the VM may be frozen or fail to boot. You can script this using `anka run {VMTemplateName} sleep 60` or manually check with `anka view` to ensure it's in a good state.
 
