@@ -23,7 +23,7 @@ Anka VMs, by default, use a shared networking configuration with the host. It’
 
 > SSH access ("Remote Login") is enabled by default on Anka VMs.
 
-> We provide a fixed IP inside of the VM for accessing the host: `192.168.64.1` (or `192.168.128.1` for "host" type).
+> Within the VM, you can find an IP assigned to the host which can be used to ssh or transfer files out. To determine which IP is assigned to the host, execute `ipconfig getoption en0 server_identifier`
 
 ## Changing the network configuration for Anka VMs
 
