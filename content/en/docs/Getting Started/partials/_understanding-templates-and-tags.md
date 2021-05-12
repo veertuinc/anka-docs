@@ -8,10 +8,10 @@ After a VM Template is created, you'll have a clean macOS installation to play w
 
 Once the system/Template is configured how you want it, you have two options:
 
-1. Stop the VM Template
-2. Suspend the VM Template
+1. Stop the VM Template: `anka stop {templateName}`
+2. Suspend the VM Template: `anka suspend {templateName}`
 
-With option 1, you are issuing a full shutdown -- similar to hitting the power button on your physical machine -- and therefore have to wait the full boot time for the machine to start back up. This usually takes 20 to 30 seconds. 
+With option 1, you are issuing a full shutdown -- similar to hitting the power button on your physical machine -- and therefore have to wait the full boot time for the VM to start back up. This usually takes 20 to 30 seconds.
 
 With option 2, you can save the state of the VM/memory to a file which can then be used to start the VM almost instantly. However, these files that contain the state are several GBs in size and shouldn't be used if your hosts are limited on disk space. Stopped Big Sur VMs are ~19GB stopped, but can be more than 30GBs depending on the amount of memory given to the VM.
 
