@@ -7,17 +7,17 @@ description: >
 
 ## OVERVIEW
 
-> Logs are rotated at 1MB and maintains a maximum of 10 files. This is not configurable.
-
 #### Default Log Location
 - Anka CLI commands executed as root/sudo: **`/Library/logs/anka`**
 - Anka CLI commands as a non-root user: **`$HOME/Library/logs/anka`**
+
+> The above logs are rotated at 1MB and maintains a maximum of 10 files. This is not configurable.
 
 In these directories you will find the following logs:
 
 1. `anka.log` - The primary log including anka commands (Anka CLI, Anka run) STDOUT and STDERR
 
-2. `Opd.log` - License auto-upgrade service logs; it's rarely used and most likely not related to VMs runtime
+2. `lupd.log` - License auto-upgrade service logs; it's rarely used and most likely not related to VMs runtime
 
 3. `ankanetd.log` - Anka VM network service logs; useful for troubleshooting VM networking related problems
 
