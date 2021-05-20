@@ -58,7 +58,7 @@ For Anka CLI commands and options, see the [Command Reference]({{< relref "docs/
 ### Download and extract the Controller & Registry
 
 ```shell
-FULL_FILE_NAME=$(echo $(curl -Ls -r 0-1 -o /dev/null -w %{url_effective} https://veertu.com/downloads/ankacontroller-registry-docker-latest) | cut -d/ -f4)
+FULL_FILE_NAME=$(echo $(curl -Ls -r 0-1 -o /dev/null -w %{url_effective} https://veertu.com/downloads/ankacontroller-registry-docker-latest) | cut -d/ -f5)
 PARTIAL_FILE_NAME=$(echo $FULL_FILE_NAME | awk -F'.tar.gz' '{print $1}')
 mkdir -p $PARTIAL_FILE_NAME
 cd $PARTIAL_FILE_NAME
