@@ -6,7 +6,7 @@ You can find the installation packages on the [veertu.com website](https://veert
 >
 > If you need Nested Virtualization to run Docker inside of the VM, you can find it by clicking the `Customize` button on the **Installation Type** stage of the interactive installer.
 >
-> Or, **if you're on Catalina or lower**, by adding the `applyChoiceChangesXML` to the installer command in your terminal: `sudo installer -applyChoiceChangesXML nanka.xml -pkg AnkaVirtualization.pkg -target /`.
+> Or, **if you're on Catalina or lower with SIP disabled**, by adding the `applyChoiceChangesXML` to the installer command in your terminal: `sudo installer -applyChoiceChangesXML nanka.xml -pkg AnkaVirtualization.pkg -target /`.
 >
 > **nanka.xml**
 >  ```xml
