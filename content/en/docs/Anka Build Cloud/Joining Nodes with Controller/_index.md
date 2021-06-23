@@ -33,8 +33,9 @@ Anka Cloud Cluster join success
 ❯ ankacluster join --help
 Joins the current Node to your Anka Cloud Cluster
 
+
 Usage:
-  ankacluster join [controller_address] [flags]
+  ankacluster join CONTROLLER_ADDRESS[,CONTROLLER_ADDRESS2] [flags]
 
 Flags:
   -c, --cacert string               Specify the path to your Root CA Certificate (PEM/X509)
@@ -53,8 +54,9 @@ Flags:
   -m, --max-vm-count int            Set the maximum number of VMs this Node is allowed to run (default: 2) (default 2)
   -n, --name string                 Set a custom Node name (default: hostname)
       --no-central-logging          Disable sending logs to central logging location
+      --node-id string              Custom node id
   -R, --ram-override int            Set the the max RAM (in GB) that this Node can handle (default: {total ram} - 2GB)
-      --reserve-space string        Set the space the Node will reserve when it receives a job and pulls the Template/Tag. This is useful if you want to ensure there is always enough space for other application/disk usage. (Format: 1024B, 10KB, 140MB, 45GB, etc)
+      --reserve-space string        Disk space to reserve when pulling. Number followed by magnitude (1024B, 10KB, 140MB, 45GB...) (default: 20% of disk size)
   -r, --root-cert string            Identical to --cacert
       --skip-tests                  Disable testing the connection before starting the agent
       --skip-tls-verification       Skip TLS verification
