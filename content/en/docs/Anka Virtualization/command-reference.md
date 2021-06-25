@@ -89,8 +89,6 @@ description: >
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/hard-drive/_extra.md" >}}
 #### modify {vmNameOrUUID} set name
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/name/_index.md" >}}
-#### modify {vmNameOrUUID} set nested
-{{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/nested/_index.md" >}}
 #### modify {vmNameOrUUID} set network-card
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/network-card/_index.md" >}}
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/network-card/_extra.md" >}}

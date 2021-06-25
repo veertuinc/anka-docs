@@ -12,7 +12,6 @@ Commands:
   display          Configure displays
   hard-drive       Modify hard drive settings
   name             Set new template name for the VM
-  nested           Enable nested virtualization
   network-card     Modify network card settings
   policy           Enable VM access management
   ram              Set RAM size and parameters
