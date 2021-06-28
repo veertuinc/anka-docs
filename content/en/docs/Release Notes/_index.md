@@ -11,17 +11,16 @@ description: >
 
 ## Current Versions
 
-### Anka Build Cloud Controller & Registry 1.17.0 (1.17.0-XXXXXXX) - June XXXth, 2021
-- Improvement: If no Node ID is set when joining, the randomly generated Node UUID is now stored in the Anka Agent plist to avoid it changing between crashes or restarts
+### Anka Build Cloud Controller & Registry 1.17.0 (1.17.0-fcb89b75) - June 29th, 2021
+- Improvement: The Node UUID is now stored in the Anka Agent plist to avoid it changing between crashes or restarts
 - Improvement: `ankacluster join` commands will now throw a warning if you have not accepted the Anka EULA
 - Improvement: The exact commands the agent is running will be output to the logs in the event of an error
-- New Feature: When joining the node to the controller, you can now set `--node-id`
 - Bug Fix: Binary parameters are ignored if preceding by an unknown parameter
 - Bug Fix: Groups are now removed from Nodes if ETCD content is reset/deleted
-- Bug Fix: `--vm-stuck-delay` is now functional again
-- (Standalone Registry: 1.17.0-XXXXXXX)
+- Bug Fix: `ankacluster join --vm-stuck-delay` is now functional again
+- (Standalone Registry: 1.17.0-eb513cc)
 
-### Packer Plugin 2.0.0 - XXXXX
+### Packer Plugin 2.0.0 - June 29th, 2021
 - New Feature: Support for the free Anka Develop license (it will stop the VM instead of suspend)
 - New Feature: You can now upgrade addons with `update_addons: true` on VM start (this will cause the VM to be force-stopped and suspended state to be lost)
 - Improvement: Suspended VMs are now gracefully stopped. This allows proper compression of blocks.
@@ -31,15 +30,13 @@ description: >
     3. Builder has been renamed from veertu-anka to veertu-anka-vm-clone and veertu-anka-vm-create.
     4. Pre-version-1.5 "legacy" Packer templates, which were exclusively JSON and follow a different format, are no longer compatible and must be updated to either HCL or the new JSON format: https://www.packer.io/docs/templates/hcl_templates/syntax-json
 
-
-### Jenkins Plugin 2.6.0 - XXXXX
+### Jenkins Plugin 2.6.0 - June 29th, 2021
 - Improvement: New UI design, field names, and descriptions
-- Bug Fix: Jenkins agent templates were deleted when disconnections or URL changes ocurred
+- Bug Fix: Jenkins agent templates are deleted when the Anka Build Cloud URL changes
 > We recommend Jenkins versions >= 2.289.1
 
-### Anka Prometheus Exporter (2.2.2) - XXXXXX
+### Anka Prometheus Exporter (2.2.2) - June 29th, 2021
 - Improvement: Added registry template and tag metrics
-- Bug Fix: Added certificates to docker tag to validate signed certificates
 
 ### Anka GitLab Runner 1.4.0 - May 4th, 2021
 - New Feature: We're now populating the External ID and Name startVM API call so that External ID shows the full URL to the job and Name is the runner's name. [PR](https://github.com/veertuinc/gitlab-runner/issues/10)

@@ -16,7 +16,7 @@ Anka is a suite of software for creating and managing macOS VMs to run on top of
 * Optimized VM network and disk performance using para-virtual drivers
 * VM management through the Anka Virtualization CLI, UI app, or web based Build Cloud Controller UI
 * Ability to suspended and then instantly start VMs from a specific state
-* Nested Virtualization for running Docker containers inside of your Anka VMs
+* Nested Virtualization for running Docker containers and Android Emulators inside of the VM
 * Attach physical USB devices (like an iPhone) to VMs for on-device testing
 * Compatibility with T2 enabled Apple hardware
 
