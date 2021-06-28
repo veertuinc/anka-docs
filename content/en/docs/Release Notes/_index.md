@@ -70,7 +70,7 @@ description: >
 ### Jenkins Plugin 2.5.0 - Mar 30th, 2021
 - Support for Jenkins versions `2.277.1` and above (new UI changes)
 
-> Previous Jenkins versions are backwards compatible.
+> Breaking change: Versions < 2.260 of Jenkins are not supported
 
 ### Packer Plugin 1.8.0 - Mar 10th, 2021
 - New Feature: Support for the free Anka Develop license (it will stop the VM instead of suspend)
