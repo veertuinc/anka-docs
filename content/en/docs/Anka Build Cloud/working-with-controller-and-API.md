@@ -94,10 +94,7 @@ Starting from Controller release version 1.0.12, logs will be available for down
 
 ## REST API
 
-> Note
-> Run these against IP:Port of the Controller.
-
-Use the REST APIs to integrate Anka Build cloud with your CI system(If there is no plugin/integration available).
+Use the REST APIs to integrate Anka Build cloud with your CI system (If there is no plugin/integration available).
 
 ### Status
 

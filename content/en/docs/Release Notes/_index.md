@@ -12,7 +12,7 @@ description: >
 ## Current Versions
 
 ### Anka Build Cloud Controller & Registry 1.17.0 (1.17.0-fcb89b75) - June 29th, 2021
-- Improvement: The Node UUID is now stored in the Anka Agent plist to avoid it changing between crashes or restarts
+- Improvement: The Node UUID is now stored in the Anka Agent plist to avoid it changing between crashes or restarts (be sure to disjoin and join after upgrading)
 - Improvement: `ankacluster join` commands will now throw a warning if you have not accepted the Anka EULA
 - Improvement: The exact commands the agent is running will be output to the logs in the event of an error
 - Bug Fix: Binary parameters are ignored if preceding by an unknown parameter
@@ -33,8 +33,8 @@ description: >
 ### Jenkins Plugin 2.6.0 - June 29th, 2021
 - Improvement: New UI design, field names, and descriptions
 - Bug Fix: Jenkins agent templates are deleted when the Anka Build Cloud URL changes
-> We recommend Jenkins versions >= 2.289.1
 
+> Breaking change: Versions < 2.260 of Jenkins are not supported
 ### Anka Prometheus Exporter (2.2.2) - June 29th, 2021
 - Improvement: Added registry template and tag metrics
 
