@@ -11,9 +11,32 @@ description: >
 
 ## Current Versions
 
-### Anka Build Cloud Controller & Registry 1.16.0 (1.16.0-05de337e) - May 11th, 2021
-- Bug Fix: Root token wasn't working with Chrome browsers
-- (Standalone Registry: 1.16.0-25e4cad)
+### Anka Build Cloud Controller & Registry 1.17.0 (1.17.0-fcb89b75) - June 29th, 2021
+- Improvement: The Node UUID is now stored in the Anka Agent plist to avoid it changing between crashes or restarts (be sure to disjoin and join after upgrading)
+- Improvement: `ankacluster join` commands will now throw a warning if you have not accepted the Anka EULA
+- Improvement: The exact commands the agent is running will be output to the logs in the event of an error
+- Bug Fix: Binary parameters are ignored if preceding by an unknown parameter
+- Bug Fix: Groups are now removed from Nodes if ETCD content is reset/deleted
+- Bug Fix: `ankacluster join --vm-stuck-delay` is now functional again
+- (Standalone Registry: 1.17.0-eb513cc)
+
+### Packer Plugin 2.0.0 - June 29th, 2021
+- New Feature: Support for the free Anka Develop license (it will stop the VM instead of suspend)
+- New Feature: You can now upgrade addons with `update_addons: true` on VM start (this will cause the VM to be force-stopped and suspended state to be lost)
+- Improvement: Suspended VMs are now gracefully stopped. This allows proper compression of blocks.
+- **Breaking Changes:** 
+    1. Plugin will only work with Packer v1.7 or later.
+    2. Plugin has been renamed from packer-builder-veertu-anka to packer-plugin-veertu-anka.
+    3. Builder has been renamed from veertu-anka to veertu-anka-vm-clone and veertu-anka-vm-create.
+    4. Pre-version-1.5 "legacy" Packer templates, which were exclusively JSON and follow a different format, are no longer compatible and must be updated to either HCL or the new JSON format: https://www.packer.io/docs/templates/hcl_templates/syntax-json
+
+### Jenkins Plugin 2.6.0 - June 29th, 2021
+- Improvement: New UI design, field names, and descriptions
+- Bug Fix: Jenkins agent templates are deleted when the Anka Build Cloud URL changes
+
+> Breaking change: Versions < 2.260 of Jenkins are not supported
+### Anka Prometheus Exporter (2.2.2) - June 29th, 2021
+- Improvement: Added registry template and tag metrics
 
 ### Anka GitLab Runner 1.4.0 - May 4th, 2021
 - New Feature: We're now populating the External ID and Name startVM API call so that External ID shows the full URL to the job and Name is the runner's name. [PR](https://github.com/veertuinc/gitlab-runner/issues/10)
@@ -29,18 +52,6 @@ description: >
 - Improvement: If a template with a certain name exists on your machine/node, but doesn't match the UUID of the template with the same name in the registry, we are now blocking you from pulling the template from the registry to prevent duplicates
 - New feature: `anka config` now contains `delete_logs` which, if set to False, will keep /Library/Logs/Anka/{UUID}.log files around even after deletion of the VM
 
-### Anka Prometheus Exporter (2.2.1) - Apr 19th, 2021
-- Bug Fix: Several node_group metrics show the same exact values
-
-### Jenkins Plugin 2.5.0 - Mar 30th, 2021
-- Support for Jenkins versions `2.277.1` and above (new UI changes)
-
-> Previous Jenkins versions are backwards compatible.
-### Packer Plugin 1.8.0 - Mar 10th, 2021
-- New Feature: Support for the free Anka Develop license (it will stop the VM instead of suspend)
-- New Feature: You can now upgrade addons with `update_addons: true` on VM start (this will cause the VM to be force-stopped and suspended state to be lost)
-- **Breaking Change:** Packer 1.7.0 is now a requirement!
-
 ### Anka VM GitHub Action v1.3.1 - Apr 7th, 2021
 - Security patches
 
@@ -52,6 +63,22 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Prometheus Exporter (2.2.1) - Apr 19th, 2021
+- Bug Fix: Several node_group metrics show the same exact values
+
+### Jenkins Plugin 2.5.0 - Mar 30th, 2021
+- Support for Jenkins versions `2.277.1` and above (new UI changes)
+
+> Breaking change: Versions < 2.260 of Jenkins are not supported
+
+### Packer Plugin 1.8.0 - Mar 10th, 2021
+- New Feature: Support for the free Anka Develop license (it will stop the VM instead of suspend)
+- New Feature: You can now upgrade addons with `update_addons: true` on VM start (this will cause the VM to be force-stopped and suspended state to be lost)
+- **Breaking Change:** Packer 1.7.0 is now a requirement!
+### Anka Build Cloud Controller & Registry 1.16.0 (1.16.0-05de337e) - May 11th, 2021
+- Bug Fix: Root token wasn't working with Chrome browsers
+- (Standalone Registry: 1.16.0-25e4cad)
 
 ### Anka Build Cloud Controller & Registry 1.15.0 (1.15.0-c69e2600) - Apr 6th, 2021
 - Bug Fix: Client-side load-balancing with three etcd and/or controller containers throws `etcdserver: mvcc: required revision is a future revision` and causes a random loss of VMs
