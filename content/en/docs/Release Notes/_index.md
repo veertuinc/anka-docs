@@ -21,6 +21,7 @@ description: >
 - (Standalone Registry: 1.17.0-eb513cc)
 
 ### Packer Plugin 2.0.0 - June 29th, 2021
+- This is a redesign of the original builder and requires significant changes if upgrading from 1.8.0. See: https://github.com/veertuinc/packer-plugin-veertu-anka
 - New Feature: Support for the free Anka Develop license (it will stop the VM instead of suspend)
 - New Feature: You can now upgrade addons with `update_addons: true` on VM start (this will cause the VM to be force-stopped and suspended state to be lost)
 - Improvement: Suspended VMs are now gracefully stopped. This allows proper compression of blocks.
