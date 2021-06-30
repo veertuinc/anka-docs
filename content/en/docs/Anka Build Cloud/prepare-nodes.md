@@ -69,6 +69,8 @@ Once the Anka Build Virtualization software has been installed onto a macOS mach
 
     > If the chunk_size is too small, you may hit `Too many open files` when trying to start VMs. You can try to modify the system's maxfiles (`sudo launchctl limit maxfiles 4096 unlimited`), but it may also be a good idea to increase the `chunk_size` to a larger size as well.
 
+    > It's possible to only set it for the creation and/or node that pushes to the registry, post-creation, but it's recommended to set it before creation to minimize errors.
+
 8. **Reboot the host**
 
 > You may also want to have your nodes restart on host level failure: `systemsetup -setrestartpowerfailure on` & `systemsetup -setrestartfreeze on`
