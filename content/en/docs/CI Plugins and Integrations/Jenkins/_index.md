@@ -10,9 +10,9 @@ description: >
 The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud with Jenkins. The plugin helps Jenkins jobs dynamically provision Anka VM instances (based on the label used) for building, testing, and more.
 
 - Support for both **Pipeline** and **Freestyle** Jenkins jobs.
-- Supports both Static Slave Templates (under Configure Clouds) and Dynamic Labelling (in your repo's Jenkinsfile).
+- Supports both Jenkins Node/Agent Templates and Labels (under Configure Clouds) and Dynamic Labelling (in your repo's Jenkinsfile).
 - The VMs become deleted after every job finishes.
-- Supports automated VM Tag creation after your jobs run. This Cache Builder feature helps optimize subsequent builds as the dependencies are already on the VM.
+- Supports automated VM Tag creation after your jobs run. This "Anka VM Template/Tag Creation" feature helps optimize subsequent builds as the dependencies are already on the VM.
 - Supports both **JNLP** and **SSH** based connections to Anka VMs.
   
 > In order to follow these instructions, you will need to [install the Anka CLI]({{< ref "docs/Getting Started/installing-the-anka-virtualization-package.md" >}}) and an understanding of how to [start the VM]({{< relref "docs/Anka Virtualization/command-reference.md#start-vm" >}}) and [launch the viewer]({{< relref "docs/Anka Virtualization/command-reference.md#open-vm-windowviewer" >}}).
@@ -34,45 +34,39 @@ The Jenkins Anka Plugin requires a VM with Java, SSH Remote Login, and port forw
 
 ## Install and Configure the Anka Plugin in Jenkins
 
-> These steps are based on Jenkins 2.222.1. Your version and UI may differ slightly.
+> These steps are based on Jenkins 2.289.1 and the Anka Jenkins Plugin v2.6.0. Your version/UI may differ slightly.
 
 1. Navigate to `Manage Jenkins > Manage Plugins` and click on the **Available** tab. Search in **Filter** for "Anka", then install it. _You won't see any results if it's already installed._
 
-2. Now you can configure the Anka Cloud. Navigate to `Manage Jenkins > Manage Nodes and Clouds` and find the section called `Configure Clouds` (on older versions you can find this under `Configure System`). Inside of `Configure Clouds`, click on **Add a new Cloud** at the bottom of the page and then click on **Anka Cloud**.
+2. Now you can configure the Anka Cloud. Navigate to `Manage Jenkins > Manage Nodes and Clouds` and find the section called `Configure Clouds`. Inside of `Configure Clouds`, click on **Add a new Cloud** at the bottom of the page and then click on **Anka Build Cloud Plugin**.
 
-3. You now have an Anka Cloud panel exposed to do your configuration. You can set **Anka Build Cloud** to be anything you want. However, you'll need to set **Build Controller URL with port** to the proper URL of your controller, and _**make sure you include the port**_: `http://<ip/domain>:80`. Once you're done, click **Save**.
+3. You now have an **Anka Build Cloud Plugin** panel exposed to do your configuration. You can set **Cloud Name** to be anything you want. However, you'll need to set **Full Anka Build Cloud Controller URL** to the proper URL of your controller, and _**make sure you include the port**_: `http://<ip/domain>:80`. Once you're done, click **Save**.
 
-At this point you can either setup [Static Labels]({{< relref "#creating-static-labels" >}}) under Configure Cloud or use [Dynamic Labelling]({{< relref "#using-dynamic-labelling" >}}) in your Jenkinsfile. 
-- **Static Labels** are set up through a **Slave Template** and can then be referenced in your pipeline or job definitions. 
+At this point you can either setup [Static Labels]({{< relref "#creating-static-labels" >}}) or use [Dynamic Labelling]({{< relref "#using-dynamic-labelling" >}}) in your Jenkinsfile. 
+- **Static Labels** are attached to **Agent/Node Templates** and can then be referenced in your pipeline or job definitions.
 - **Dynamic Labels** are set up inside of the Jenkinsfile inside of a pipeline, stage, or step-level definition.
 
 ### Creating Static Labels
 
-1. Return to `Manage Nodes and Clouds > Configure Clouds`. You should now see a **VM Templates** and **Slave Templates** section. Make sure **Show Templates** is checked and click on **Add**. This creates a new Slave Template you can edit.
+1. Return to `Manage Nodes and Clouds > Configure Clouds`. You should now see a **Jenkins Node/Agent Templates and Labels** section. Make sure **Show Agent/Node Templates** is checked and click on **Add**. This creates a new Template you can edit.
 
-2. Under the Slave Template, you want to select the proper **Template** and **Tag** or leave it to the default value to select the latest Tag in the Registry.
+2. Under the Template, you want to select the proper **Anka VM Template** and **Anka VM Template's Tag** or leave the tag selection to the default value to select the latest Tag in the Registry.
 
-3. Leave **# of Executors** to 1.  
+3. (Optional) Set **Node/Agent Description** 
 
-4. Enter the VM user's home path in **Remote FS Root**. If you didn't set up a new user for Jenkins on the VM, you could use the default **anka** user:  `/Users/anka/`.
-
-5. Enter a value in **Labels** that you can then use in your jobs.  
-
-6. Select the **SSH** or **JNLP** method for connection between Jenkins and your Anka VMs.
+4. Select the **SSH** or **JNLP** method for connection between Jenkins and your Anka VMs.
     - SSH: You'll need to add the proper user credentials to Jenkins. If you're using the default user on the VM, use the user: `anka` and pass: `admin`.
     - JNLP: This method downloads an agent.jar and the slave-agent.jnlp file from the **Jenkins URL** you've set in your System Configuration into the VM. If the Jenkins URL doesn't resolve inside of the VM (like if it's set to http://localhost), you won't be able to use JNLP. _If you're seeing any problems post-creation of the agent inside of Jenkins, check the running VMs `/tmp/log.txt` for errors._
 
-7. Enter a value for **Slave name template**. Provisioned VMs names will contain this value.
+5. (Optional) Set **Maximum Allowed Nodes/Agents** if you need to limit the amount of agents that any jobs are allowed to start.
 
-8. You can also pass Environment Variables into the VM.
+6. (Optional) Set **Allowed Executors** if you want to allow a single agent to be used for multiple jobs.
 
-9. Select a **Node Group** if you want VMs provisioned on a specific group defined in your Anka Build Cloud. _Available only in Enterprise and Enterprise Plus Tiers._
+7. (Optional) Set **Anka VM Workspace Path** if you'd like for the job to work within a specific path inside of the VM.
 
-10. Enter **Priority** for VM provisioning. _Available only in Enterprise and Enterprise Plus Tiers._
+8. (Optional) Set any **Environment Variables** necessary for your jobs
 
-11. Save the settings.  
-  
-> You can create multiple Slave Template profiles!
+9. There are several other configs under **Advanced** that may interest you. These include the **Node Group**, **Priority**, and timeouts for Jenkins to communication with the starting Anka VM/agent.
 
 ### Using Dynamic Labelling
 
@@ -151,32 +145,18 @@ pipeline {
 
 --- 
 
-## Using the Cache Builder (Optional)
+## Using Anka VM Template/Tag Creation (Optional)
 
-Cache Tag building is useful when you need to automate the preparation of a VM with dependencies. You can then execute your jobs using this Tag/VM and avoid having to prepare the dependencies over and over again before the build, or test commands run, usually resulting in significant bandwidth and time savings.
-  
+Anka VM Template/Tag Creation is useful when you need to automate the preparation of a VM with dependencies. You can setup a separate Jenkins job/pipeline to execute preparation scripts inside of a VM and then push to the registry with a specific tag. Other jobs can then target the latest tag and immediately start using the new VM template/tag.
+
 > The plugin will push to the Registry for any buildStatus except for **FAILURE**, **ABORTED**, or **UNSTABLE**.
 > You can wrap your step-level commands in `catchError(buildResult: 'FAILURE', stageResult: 'FAILURE')` or use the Build **Execute shell** advanced **Exit code to set build unstable** setting to prevent the VM from pushing.
 
-### Configuring Caching for Static Slave Templating
+### Configuring for Static Labels
 
-You can find the **Cache Builder** in the Anka Cloud Slave Template definition under `Manage Jenkins > Manage Nodes and Clouds > Configure Clouds`.
+You can find the **Anka VM Template/Tag Creation** in the **Jenkins Node/Agent Templates and Labels** section under `Manage Jenkins > Manage Nodes and Clouds > Configure Clouds`.
 
-![image11](/images/using-controller/image11.png)
-
-**Target Template** : A dropdown list of Templates and UUIDs.
-
-**Tag** : Specify a name for the Tag here. However, the current date is appended onto the end: If I use `project1` in this field, I'll end up with a Tag named `project1_20200408121026` in my Registry. (Optional; If left empty, it uses the Jenkins jobname)
-
-**Description** : Description for the VM being pushed (Optional).
-
-**Suspend** : If selected, it will suspend the VM before pushing the Tag. Otherwise, it will stop the VM before pushing.
-
-**Delete Latest Tag** : Deletes the **latest Tag** from the Template/Registry before pushing the newly generated Tag. This is useful to optimize disk space usage.
-  > WARNING: This can delete Tags unrelated to your cache builder configuration.
-
-**Wait For Build Finish** : This causes the plugin to wait until the entire to job finish before pushing the new Tag to the Registry.
-  > WARNING: Using the `Wait for Build Finish` option in combination with ankaGetSaveImageResult results in a deadlock.
+![image11](/images/using-jenkins/template-tag-creation.png)
 
 #### Using the Post Build Step with Static Slave Templates
 
@@ -204,7 +184,7 @@ Pipelines can have multiple agents running in one build (also in parallel). Ther
     ```
 2. Enable **Wait For Build Finish**
 
-### Configuring Caching with Dynamic Labelling
+### Configuring Templat/Tag Creation with Dynamic Labelling
 
 Please review our [Nested Cache Builder Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/nested-cache-builder-example/Jenkinsfile).
 
@@ -237,10 +217,9 @@ timeoutMinutes | int | 120 | Stops waiting for the result of the Tag -> Registry
 
 > Remember, `ankaGetSaveImageResult` returns true immediately if nothing pushes to the Registry in a failed build.
 
-## Notes on using the Cache Builder
-- How often should I cache? : The answer depends on the VM size after you prepare it and also the density of your builds.
-- **The cache build should have a job or pipeline of its own.** Caching after every "regular" build might not make sense as the time that it takes to download code or artifacts is usually the same or shorter than the time it takes to push the Tag to the Registry.
-- You should run your cache build once and check how much time the operation takes. The push can be a few gigabytes and might take some time on slower networks.
-- Only one Tag can push at a time. You can execute multiple cache builds for the same Template, but those requests end up executing serially. 
-- If your build/preparation is fast, you can consider running cache builds a few times a day or even based on commits.
-- If your cache build is slow, consider running one cache build per day (you can schedule it for a time that Jenkins is not busy).
+## Notes on using the Template/Tag Creation
+- How often should I run this? : The answer depends on the VM size after you prepare it and also the density of your builds.
+- **The template/tag creation should have a job or pipeline of its own.** Creation after every "regular" build might not make sense as the time that it takes to download code or artifacts is usually the same or shorter than the time it takes to push the Tag to the Registry.
+- You should run it once and check how much time the operation takes. The push can be a few gigabytes and might take some time on slower networks.
+- Only one Tag can push at a time. You can execute multiple creations for the same Template, but those requests end up executing serially. 
+- If your build/preparation is fast and resulting templates/tags small, you can consider running creation a few times a day or even based on commits. If your creation is slow, consider running one per day (you can schedule it for a time that Jenkins is not busy).
