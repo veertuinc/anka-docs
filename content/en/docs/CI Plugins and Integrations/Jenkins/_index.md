@@ -1,6 +1,6 @@
 ---
 date: 2019-07-03T22:24:47-05:00
-title: "Using Jenkins and Anka Build Cloud"
+title: "Using Jenkins and the Anka Build Cloud"
 linkTitle: "Jenkins"
 weight: 4
 description: >
