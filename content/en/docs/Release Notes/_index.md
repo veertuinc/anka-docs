@@ -53,7 +53,7 @@ description: >
 - Improvement: If a template with a certain name exists on your machine/node, but doesn't match the UUID of the template with the same name in the registry, we are now blocking you from pulling the template from the registry to prevent duplicates
 - New feature: `anka config` now contains `delete_logs` which, if set to False, will keep /Library/Logs/Anka/{UUID}.log files around even after deletion of the VM
 
-### Anka VM GitHub Action v1.3.1 - Apr 7th, 2021
+### Anka VM GitHub Action v1.3.2 - July 2nd, 2021
 - Security patches
 
 ### TeamCity Plugin version 1.7.1 - July 7, 2020
@@ -64,6 +64,9 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka VM GitHub Action v1.3.1 - Apr 7th, 2021
+- Security patches
 
 ### Anka Prometheus Exporter (2.2.1) - Apr 19th, 2021
 - Bug Fix: Several node_group metrics show the same exact values
