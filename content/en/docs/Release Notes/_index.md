@@ -36,8 +36,8 @@ description: >
 - Bug Fix: Jenkins agent templates are deleted when the Anka Build Cloud URL changes
 
 > Breaking change: Versions < 2.260 of Jenkins are not supported
-### Anka Prometheus Exporter (2.2.2) - June 29th, 2021
-- Improvement: Added registry template and tag metrics
+### Anka Prometheus Exporter (2.2.3) - July 13th, 2021
+- Bug Fix: Added certs to scratch tag being generated to allow signed certs on the controller to be validated properly
 
 ### Anka GitLab Runner 1.4.0 - May 4th, 2021
 - New Feature: We're now populating the External ID and Name startVM API call so that External ID shows the full URL to the job and Name is the runner's name. [PR](https://github.com/veertuinc/gitlab-runner/issues/10)
@@ -64,6 +64,9 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Prometheus Exporter (2.2.2) - June 29th, 2021
+- Improvement: Added registry template and tag metrics
 
 ### Anka VM GitHub Action v1.3.1 - Apr 7th, 2021
 - Security patches
