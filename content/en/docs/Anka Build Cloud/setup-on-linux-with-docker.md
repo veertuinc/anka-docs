@@ -146,11 +146,11 @@ First, edit the `docker-compose.yml`.
     It should look like:
 
     ```shell
-    - /var/anka:/mnt/vol
+    - /var/registry:/mnt/vol
     ``` 
 
 
-> If you're running these containers on mac, you need to also change etcd's local volume destination from `/var/etcd-data` to a writable location on your mac.
+> If you're running these containers on mac, you need to also change volume source from `/var/etcd-data` and `/var/registry` to a writable location on your mac.
 
 #### Start the containers
 
