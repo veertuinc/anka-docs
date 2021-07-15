@@ -198,9 +198,11 @@ description: >
 - New Feature: Support for PG graphics ("Metal") devices in the VM
 - Bug Fix: It's possible that the ankarund process can fail due to other software requesting access to usb devices inside of the VM. This was causing `anka run` to not function.
 - Bug Fix: ENVs with special characters were causing `non CF convertable type passed` errors on the CLI.
-- Bug Fix: `Failed to find bundle for accelerator bundle named: AnkaMTLDriver errno: 0` was displaying in simulator logs, causing CI/CD to fail.
+- Bug Fix: `Failed to find bundle for accelerator bundle named: AnkaMTLDriver errno: 0` was displaying in simulator logs, causing CI/CD to fail. (addons update required)
 - Bug Fix: 10.14 wasn't allowing nested virtualization
 - Bug Fix: Running `anka --machine-readable license show` on a machine without a license throws an error
+
+> Upgrading Addons **is** necessary
 
 > NEW IN 2.3: `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
 
