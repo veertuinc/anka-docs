@@ -119,5 +119,24 @@ In case the agent is configured to listen on a custom socket, you can use the `A
 
 ## Answers to Frequently Asked Questions
 
+- Errors like the following are typically the cause of an older version of the agent on your node. You'll want to visit http://downloads.veertu.com/anka#, download the agent version matching your controller's version, and then try your ankacluster join command again:
+    ```bash
+    > sudo ankacluster join http://anka.controller:8090 --reserve-space 20GB
+    Testing connection to controller...: Ok
+    Testing connection to the registry...: Ok
+    Ok
+    exit status 2
+    Log file created at: 2021/07/16 12:36:10
+    Running on machine: hostname1
+    Binary: Built with gc go1.14.3 for darwin/amd64
+    Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+    I0716 12:36:10.164826  8172 log_cleaner.go:34] clean /var/log/veertu/anka_agent*...
+    I0716 12:36:10.166385  8172 log_cleaner.go:56] don't touch: /var/log/veertu/anka_agent.hostname1.root.log.INFO.20210716-123610.8172
+    I0716 12:36:10.172275  8172 main.go:173] starting ankaAgent
+    I0716 12:36:10.172282  8172 main.go:174] Anka Agent version: 1.7.1-9545c9f5
+    I0716 12:36:10.965625  8172 runner.go:43] Anka version is 2.4.1
+    I0716 12:36:10.965806  8172 runner.go:46] Agent Version is v2
+    Joining cluster failed
+    ```
 - The Controller will be checking disk space on every pull/preparation of a VM. If not enough disk space is available, it will automatically delete VM Templates/tags from the Node based on **which has the oldest last used timestamp** until there is enough space for the VM Template/Tag. This cannot be disabled at the moment. This can be modified to some extent by using --reserve-space flag (see explanation above)
 - The registry External URL is used by the Nodes to pull down templates and tags. Be sure to set this URL properly in your Build Cloud Configuration and ensure firewalls allow communication.
