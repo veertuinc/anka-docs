@@ -262,6 +262,7 @@ When you stop or exit the container, it will automatically unregister it from yo
 ## Answers to Common Questions
 
 - The gitlab-runner's default concurrency (amount of jobs that can run in the runner at once) setting in your `~/.gitlab-runner/anka-config.toml` is set to `concurrent = 1`. It's typical for customers to need to increase this value.
+- Your gitlab job will target specific runners tags. **All tags on a given job have to be met by the runner.**
 - You can override the default VM Template, Tag, and targeted node group using environment variables: `ANKA_TEMPLATE_UUID`, `ANKA_TAG_NAME`, and `ANKA_NODE_GROUP`
     ```yaml
     test:
