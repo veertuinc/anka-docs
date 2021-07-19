@@ -10,6 +10,7 @@ description: >
 
 1. [You've installed the Anka Virtualization package]({{< relref "docs/Getting Started/installing-the-anka-virtualization-package.md" >}})
 2. [You've got an active license]({{< relref "docs/Licensing/_index.md" >}})
+3. The machine you wish to use is Intel and not M1 (support for M1 coming soon)
 
 ## 1. Obtain the macOS installer
 
