@@ -84,6 +84,7 @@ description: >
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/description/_index.md" >}}
 #### modify {vmNameOrUUID} set display
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/display/_index.md" >}}
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/display/_extra.md" >}}
 #### modify {vmNameOrUUID} set hard-drive
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/hard-drive/_index.md" >}}
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/set/hard-drive/_extra.md" >}}
