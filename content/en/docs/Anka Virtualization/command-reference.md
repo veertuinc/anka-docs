@@ -128,6 +128,7 @@ description: >
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/registry/set/_index.md" >}}
 ## Run
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/run/_index.md" >}}
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/run/_extra.md" >}}
 ## Show
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/show/_index.md" >}}
 ## Start
