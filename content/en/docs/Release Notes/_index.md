@@ -221,7 +221,7 @@ description: >
 - New Feature: .app file's Info.plist will be used to obtain the macOS version automatically and create base VM name with the version + cloned vm name improvements https://github.com/veertuinc/packer-builder-veertu-anka/issues/31 https://github.com/veertuinc/packer-builder-veertu-anka/pull/32 
 - New Feature: reuse base VM if it already exists
 - New Feature: added set port forwarding feature https://github.com/veertuinc/packer-builder-veertu-anka/issues/20
-- New Feature: added set hw.UUID feature https://github.com/veertuinc/packer-builder-veertu-anka/issues/39
+- New Feature: added set hw.uuid feature https://github.com/veertuinc/packer-builder-veertu-anka/issues/39
 - New Feature: setting disk_size will now modify, with diskutil, the size inside of the VM
 - PR: https://github.com/veertuinc/packer-builder-veertu-anka/pull/38
 
