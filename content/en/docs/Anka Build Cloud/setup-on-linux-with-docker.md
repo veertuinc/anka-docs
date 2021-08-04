@@ -182,16 +182,22 @@ Make configurations by editing `docker-compose.yml`. Most of the stuff you can c
 Check out the variables under the `environment` section of each service. [A full reference is available.](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference)
 
 #### Logging
-Containers are writing logs to stderr, making them available to Docker.  
-To see the Controller's logs:  
+
+Containers are writing logs to STDOUT+ERR, making them available to Docker.  
+
+To see the Controller's logs:
+
 ```shell
 docker logs --tail 100 -f test_anka-controller_1
 ```
 
-To see the Registry's logs:  
+To see the Registry's logs:
+
 ```shell
 docker logs --tail 100 -f test_anka-registry_1
 ```
+
+[By default, no log-rotation is performed. As a result, log-files stored by the default json-file logging driver logging driver can cause a significant amount of disk space to be used for containers that generate much output, which can lead to disk space exhaustion.](https://docs.docker.com/config/containers/logging/configure/)
 
 > The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging))
 
