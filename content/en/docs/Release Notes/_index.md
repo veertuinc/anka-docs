@@ -15,16 +15,12 @@ description: >
 - Bug Fix: Chrome based browsers don't work with root token and SSO/OpenID/Keycloak
 - (Standalone Registry: 1.17.1-0966fcd)
 
-### Packer Plugin 2.0.0 - June 29th, 2021
-- This is a redesign of the original builder and requires significant changes if upgrading from 1.8.0. See: https://github.com/veertuinc/packer-plugin-veertu-anka
-- New Feature: Support for the free Anka Develop license (it will stop the VM instead of suspend)
-- New Feature: You can now upgrade addons with `update_addons: true` on VM start (this will cause the VM to be force-stopped and suspended state to be lost)
-- Improvement: Suspended VMs are now gracefully stopped. This allows proper compression of blocks.
-- **Breaking Changes:** 
-    1. Plugin will only work with Packer v1.7 or later.
-    2. Plugin has been renamed from packer-builder-veertu-anka to packer-plugin-veertu-anka.
-    3. Builder has been renamed from veertu-anka to veertu-anka-vm-clone and veertu-anka-vm-create.
-    4. Pre-version-1.5 "legacy" Packer templates, which were exclusively JSON and follow a different format, are no longer compatible and must be updated to either HCL or the new JSON format: https://www.packer.io/docs/templates/hcl_templates/syntax-json
+### Packer Plugin 2.1.0 - Aug 5th, 2021
+- Improvement: Ensure that we generate the release properly so that `packer init` works [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/75)
+- Improvement: Print friendlier message when tagging locally [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/79)
+- New Feature: Add the `display_controller` option to set pg [GH Issue](https://github.com/veertuinc/packer-plugin-veertu-anka/issues/72)
+- Bug Fix: Ensure file uploading is fixed [GH Issue](https://github.com/veertuinc/packer-plugin-veertu-anka/issues/77)
+- Bug Fix: Changing hw.UUID to hw.uuid as that's what hypervisor looks for
 
 ### Jenkins Plugin 2.6.0 - June 29th, 2021
 - Improvement: New UI design, field names, and descriptions
@@ -35,7 +31,7 @@ description: >
 - Bug Fix: Added certs to scratch tag being generated to allow signed certs on the controller to be validated properly
 
 ### Anka GitLab Runner 1.4.0 - May 4th, 2021
-- New Feature: We're now populating the External ID and Name startVM API call so that External ID shows the full URL to the job and Name is the runner's name. [PR](https://github.com/veertuinc/gitlab-runner/issues/10)
+- New Feature: We're now populating the External ID and Name startVM API call so that External ID shows the full URL to the job and Name is the runner's name. [GH Issue](https://github.com/veertuinc/gitlab-runner/issues/10)
 
 ### Anka Virtualization CLI 2.4.1 (2.4.1.130) - Apr 19th, 2021
 
@@ -59,6 +55,17 @@ description: >
 ---
 
 ## Previous Versions
+
+### Packer Plugin 2.0.0 - June 29th, 2021
+- This is a redesign of the original builder and requires significant changes if upgrading from 1.8.0. See: https://github.com/veertuinc/packer-plugin-veertu-anka
+- New Feature: Support for the free Anka Develop license (it will stop the VM instead of suspend)
+- New Feature: You can now upgrade addons with `update_addons: true` on VM start (this will cause the VM to be force-stopped and suspended state to be lost)
+- Improvement: Suspended VMs are now gracefully stopped. This allows proper compression of blocks.
+- **Breaking Changes:** 
+    1. Plugin will only work with Packer v1.7 or later.
+    2. Plugin has been renamed from packer-builder-veertu-anka to packer-plugin-veertu-anka.
+    3. Builder has been renamed from veertu-anka to veertu-anka-vm-clone and veertu-anka-vm-create.
+    4. Pre-version-1.5 "legacy" Packer templates, which were exclusively JSON and follow a different format, are no longer compatible and must be updated to either HCL or the new JSON format: https://www.packer.io/docs/templates/hcl_templates/syntax-json
 
 ### Anka Build Cloud Controller & Registry 1.17.0 (1.17.0-fcb89b75) - June 29th, 2021
 - Improvement: The Node UUID is now stored in the Anka Agent plist to avoid it changing between crashes or restarts (be sure to disjoin and join after upgrading)
