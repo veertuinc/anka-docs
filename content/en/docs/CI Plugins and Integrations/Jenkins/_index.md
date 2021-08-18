@@ -156,15 +156,13 @@ Anka VM Template/Tag Creation is useful when you need to automate the preparatio
 
 You can find the **Anka VM Template/Tag Creation** in the **Jenkins Node/Agent Templates and Labels** section under `Manage Jenkins > Manage Nodes and Clouds > Configure Clouds`.
 
-![image11](/images/using-jenkins/template-tag-creation.png)
-
 #### Using the Post Build Step with Static Slave Templates
 
 ![image12](/images/anka-build/controller01.png)
 
 **Fail build** : Will set the build as failed if the `image save request` failed (or timed out). If this is not selected, the Post Build Step does nothing.
 
-**Timeout** : Sets the minutes to wait for the Tag push to Registry to complete (this needs to be determined manually or with trial and error).
+**Timeout** : Sets the minutes to wait for the Tag push to Registry to cowmplete (this needs to be determined manually or with trial and error).
 
 #### Using a Jenkinsfile with the Static Slave Template
 

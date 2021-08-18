@@ -37,16 +37,13 @@ description: >
 ### Anka GitLab Runner 1.4.0 - May 4th, 2021
 - New Feature: We're now populating the External ID and Name startVM API call so that External ID shows the full URL to the job and Name is the runner's name. [PR](https://github.com/veertuinc/gitlab-runner/issues/10)
 
-### Anka Virtualization CLI 2.4.1 (2.4.1.130) - Apr 19th, 2021
+### Anka Virtualization CLI 2.5.0 (2.5.0.......) - XXXXth, 2021
 
 > Upgrading Addons is **NOT** necessary
 
-- Improvement: Preliminary 11.3 support
-- Bug Fix: Machine-readable output is sometimes empty
-- Bug Fix: Block deallocation logic fails on some guest images
-- Improvement: If available, `anka registry pull` will now revert to/use the local copy of your template/tag and avoid making a network pull/connection
-- Improvement: If a template with a certain name exists on your machine/node, but doesn't match the UUID of the template with the same name in the registry, we are now blocking you from pulling the template from the registry to prevent duplicates
-- New feature: `anka config` now contains `delete_logs` which, if set to False, will keep /Library/Logs/Anka/{UUID}.log files around even after deletion of the VM
+- Improvement: 
+
+> Nested docker and android emulation is only possible on Big Sur hosts.
 
 ### Anka VM GitHub Action v1.3.2 - July 2nd, 2021
 - Security patches
@@ -59,6 +56,17 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Virtualization CLI 2.4.1 (2.4.1.130) - Apr 19th, 2021
+
+> Upgrading Addons is **NOT** necessary
+
+- Improvement: Preliminary 11.3 support
+- Bug Fix: Machine-readable output is sometimes empty
+- Bug Fix: Block deallocation logic fails on some guest images
+- Improvement: If available, `anka registry pull` will now revert to/use the local copy of your template/tag and avoid making a network pull/connection
+- Improvement: If a template with a certain name exists on your machine/node, but doesn't match the UUID of the template with the same name in the registry, we are now blocking you from pulling the template from the registry to prevent duplicates
+- New feature: `anka config` now contains `delete_logs` which, if set to False, will keep /Library/Logs/Anka/{UUID}.log files around even after deletion of the VM
 
 ### Anka Build Cloud Controller & Registry 1.17.0 (1.17.0-fcb89b75) - June 29th, 2021
 - Improvement: The Node UUID is now stored in the Anka Agent plist to avoid it changing between crashes or restarts (be sure to disjoin and join after upgrading)
