@@ -53,18 +53,6 @@ description: >
 
 ## Previous Versions
 
-<<<<<<< HEAD
-### Packer Plugin 2.0.0 - June 29th, 2021
-- This is a redesign of the original builder and requires significant changes if upgrading from 1.8.0. See: https://github.com/veertuinc/packer-plugin-veertu-anka
-- New Feature: Support for the free Anka Develop license (it will stop the VM instead of suspend)
-- New Feature: You can now upgrade addons with `update_addons: true` on VM start (this will cause the VM to be force-stopped and suspended state to be lost)
-- Improvement: Suspended VMs are now gracefully stopped. This allows proper compression of blocks.
-- **Breaking Changes:** 
-    1. Plugin will only work with Packer v1.7 or later.
-    2. Plugin has been renamed from packer-builder-veertu-anka to packer-plugin-veertu-anka.
-    3. Builder has been renamed from veertu-anka to veertu-anka-vm-clone and veertu-anka-vm-create.
-    4. Pre-version-1.5 "legacy" Packer templates, which were exclusively JSON and follow a different format, are no longer compatible and must be updated to either HCL or the new JSON format: https://www.packer.io/docs/templates/hcl_templates/syntax-json
-=======
 ### Anka Virtualization CLI 2.4.1 (2.4.1.130) - Apr 19th, 2021
 
 > Upgrading Addons is **NOT** necessary
@@ -75,8 +63,18 @@ description: >
 - Improvement: If available, `anka registry pull` will now revert to/use the local copy of your template/tag and avoid making a network pull/connection
 - Improvement: If a template with a certain name exists on your machine/node, but doesn't match the UUID of the template with the same name in the registry, we are now blocking you from pulling the template from the registry to prevent duplicates
 - New feature: `anka config` now contains `delete_logs` which, if set to False, will keep /Library/Logs/Anka/{UUID}.log files around even after deletion of the VM
->>>>>>> release/v1.18.0
 
+### Packer Plugin 2.0.0 - June 29th, 2021
+- This is a redesign of the original builder and requires significant changes if upgrading from 1.8.0. See: https://github.com/veertuinc/packer-plugin-veertu-anka
+- New Feature: Support for the free Anka Develop license (it will stop the VM instead of suspend)
+- New Feature: You can now upgrade addons with `update_addons: true` on VM start (this will cause the VM to be force-stopped and suspended state to be lost)
+- Improvement: Suspended VMs are now gracefully stopped. This allows proper compression of blocks.
+- **Breaking Changes:** 
+    1. Plugin will only work with Packer v1.7 or later.
+    2. Plugin has been renamed from packer-builder-veertu-anka to packer-plugin-veertu-anka.
+    3. Builder has been renamed from veertu-anka to veertu-anka-vm-clone and veertu-anka-vm-create.
+    4. Pre-version-1.5 "legacy" Packer templates, which were exclusively JSON and follow a different format, are no longer compatible and must be updated to either HCL or the new JSON format: https://www.packer.io/docs/templates/hcl_templates/syntax-json
+    
 ### Anka Build Cloud Controller & Registry 1.17.0 (1.17.0-fcb89b75) - June 29th, 2021
 - Improvement: The Node UUID is now stored in the Anka Agent plist to avoid it changing between crashes or restarts (be sure to disjoin and join after upgrading)
 - Improvement: `ankacluster join` commands will now throw a warning if you have not accepted the Anka EULA
