@@ -4,7 +4,7 @@ When using Anka to create a VM, it's best to think of the result as a **VM "Temp
 
 After a VM Template is created, you'll have a clean macOS installation to play with and you can use `anka view` and/or `anka run` commands to install dependencies and software you need inside of the VM, or just configure it to your liking.
 
-> [An example bash script that shows how to use `anka run` to instal dependencies](https://github.com/veertuinc/getting-started#create-vm-template-tagsbash).
+> [An example bash script that shows how to use `anka run` to install dependencies](https://github.com/veertuinc/getting-started#create-vm-template-tagsbash).
 
 Once the system/Template is configured how you want it, you have two options:
 
