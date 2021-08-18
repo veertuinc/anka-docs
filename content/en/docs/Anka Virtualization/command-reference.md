@@ -2,7 +2,7 @@
 date: 2019-12-12T00:00:00-00:00
 title: "Command Reference"
 linkTitle: "Command Reference"
-weight: 8
+weight: 6
 description: >
   Anka CLI Command Reference 
 ---

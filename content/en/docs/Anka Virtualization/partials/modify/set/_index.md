@@ -1,12 +1,12 @@
 ```shell
-> sudo anka modify 11.2.3 set --help
+> sudo anka modify test set --help
 Usage: anka modify set [OPTIONS] COMMAND [ARGS]...
 
 Options:
   --help  Display usage information
 
 Commands:
-  cpu              Set number of cpu cores and frequency
+  cpu              Set number of vcpu cores and frequency
   custom-variable  Set custom nvram & smb variables (Example: .
   description      Set description of the VM
   display          Configure displays

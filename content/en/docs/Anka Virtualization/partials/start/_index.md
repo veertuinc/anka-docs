@@ -9,7 +9,6 @@ Options:
                                  be installed)
   -f, --force                    Start VM with minimum checks
   -v, --view                     Open VM in an Anka Viewer window
-  -o, --optical-drive TEXT       Path to an ISO file or device
   -d, --usb TEXT                 Attach a USB device by Name, Vendor ID, Location, or Claim Name (device must be
                                  claimed)
   --help                         Display usage information

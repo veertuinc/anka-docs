@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 11.2.3 add port-forwarding --help
+> sudo anka modify test add port-forwarding --help
 Usage: anka modify add port-forwarding [OPTIONS] RULE_NAME
 
 Options:

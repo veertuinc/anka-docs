@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 11.2.3 set description --help
+> sudo anka modify test set description --help
 Usage: anka modify set description [OPTIONS] TEXT
 
   Set description of the VM

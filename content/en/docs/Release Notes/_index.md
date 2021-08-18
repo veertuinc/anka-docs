@@ -11,6 +11,24 @@ description: >
 
 ## Current Versions
 
+### Anka Virtualization CLI 2.5.0 (2.5.0.131) - Aug 19th, 2021
+
+> Upgrading Addons from the previous version is recommended but not necessary
+
+- Bug Fix: Inability to create or start Anka VMs over SSH (no active UI) or as the ec2-user/non-root users on AWS EC2 Mac
+- Bug Fix: Inability to run more than one VM on AWS EC2 Mac
+- Bug Fix: Startup scripts through the controller API fail due to slow network/DHCP setup
+- Bug Fix: Anka run doesn't source all available bash/profile source files for the user, only the first. It will now source all files in the following order: `/etc/profile`, `.bash_profile`, `.bash_login`, `.profile`.
+- Improvement: Expanded Nested Virtualization to support Android Emulators and Virtualbox + refactored Docker support for modern macOS versions. **Nested Virtualization is only possible on Big Sur hosts and Big Sur or Catalina VM versions.**
+- Improvement: `anka show` now supports several new commands: `anka show {VMNAME} network`, `anka show {VMNAME} disk`, and `anka show {VMNAME} tags` | [Documentation]({{< relref "docs/Whats New/_index.md#additional-anka-show-commands" >}})
+- Improvement: You can now suspend VMs that have PG display enabled
+- Improvement: `anka create` can now be done in multiple stages so MDM can target the VM to apply profiles on creation | [Documentation]({{< relref "docs/Whats New/_index.md#multi-stage-anka-create-for-mdm-profile-application" >}})
+- New Feature: `anka stop` now detects if VM is unresponsive and issues forceful stop
+- New Feature: Ability to control VM display frame rate with `anka modify {VMNAME} set display --fps 30` (defaults to 30) | [Documentation]({{< relref "docs/Whats New/_index.md#ability-to-control-vm-display-frame-rate" >}})
+- New Feature: Ability to handle VM CPU Noisy-Neighbors (only recommended for advanced users)
+- New Feature: Monterey Beta support
+- Fuse will no longer be installed within newly created VMs
+
 ### Anka Build Cloud Controller & Registry 1.17.1 (1.17.1-4aead62f) - July 14th, 2021
 - Bug Fix: Chrome based browsers don't work with root token and SSO/OpenID/Keycloak
 - (Standalone Registry: 1.17.1-0966fcd)
@@ -33,17 +51,6 @@ description: >
 ### Anka GitLab Runner 1.4.0 - May 4th, 2021
 - New Feature: We're now populating the External ID and Name startVM API call so that External ID shows the full URL to the job and Name is the runner's name. [GH Issue](https://github.com/veertuinc/gitlab-runner/issues/10)
 
-### Anka Virtualization CLI 2.4.1 (2.4.1.130) - Apr 19th, 2021
-
-> Upgrading Addons is **NOT** necessary
-
-- Improvement: Preliminary 11.3 support
-- Bug Fix: Machine-readable output is sometimes empty
-- Bug Fix: Block deallocation logic fails on some guest images
-- Improvement: If available, `anka registry pull` will now revert to/use the local copy of your template/tag and avoid making a network pull/connection
-- Improvement: If a template with a certain name exists on your machine/node, but doesn't match the UUID of the template with the same name in the registry, we are now blocking you from pulling the template from the registry to prevent duplicates
-- New feature: `anka config` now contains `delete_logs` which, if set to False, will keep /Library/Logs/Anka/{UUID}.log files around even after deletion of the VM
-
 ### Anka VM GitHub Action v1.3.2 - July 2nd, 2021
 - Security patches
 
@@ -56,6 +63,17 @@ description: >
 
 ## Previous Versions
 
+### Anka Virtualization CLI 2.4.1 (2.4.1.130) - Apr 19th, 2021
+
+> Upgrading Addons from the previous version is **NOT** necessary
+
+- Improvement: Preliminary 11.3 support
+- Bug Fix: Machine-readable output is sometimes empty
+- Bug Fix: Block deallocation logic fails on some guest images
+- Improvement: If available, `anka registry pull` will now revert to/use the local copy of your template/tag and avoid making a network pull/connection
+- Improvement: If a template with a certain name exists on your machine/node, but doesn't match the UUID of the template with the same name in the registry, we are now blocking you from pulling the template from the registry to prevent duplicates
+- New feature: `anka config` now contains `delete_logs` which, if set to False, will keep /Library/Logs/Anka/{UUID}.log files around even after deletion of the VM
+
 ### Packer Plugin 2.0.0 - June 29th, 2021
 - This is a redesign of the original builder and requires significant changes if upgrading from 1.8.0. See: https://github.com/veertuinc/packer-plugin-veertu-anka
 - New Feature: Support for the free Anka Develop license (it will stop the VM instead of suspend)
@@ -66,7 +84,7 @@ description: >
     2. Plugin has been renamed from packer-builder-veertu-anka to packer-plugin-veertu-anka.
     3. Builder has been renamed from veertu-anka to veertu-anka-vm-clone and veertu-anka-vm-create.
     4. Pre-version-1.5 "legacy" Packer templates, which were exclusively JSON and follow a different format, are no longer compatible and must be updated to either HCL or the new JSON format: https://www.packer.io/docs/templates/hcl_templates/syntax-json
-
+    
 ### Anka Build Cloud Controller & Registry 1.17.0 (1.17.0-fcb89b75) - June 29th, 2021
 - Improvement: The Node UUID is now stored in the Anka Agent plist to avoid it changing between crashes or restarts (be sure to disjoin and join after upgrading)
 - Improvement: `ankacluster join` commands will now throw a warning if you have not accepted the Anka EULA
@@ -117,7 +135,7 @@ description: >
 
 ### Anka Virtualization CLI 2.4.0 (2.4.0.129) - Mar 31st, 2021
 
-> Upgrading Addons **is** necessary
+> Upgrading Addons from the previous version **is** necessary
 
 - New Feature: (improved security) [VM network isolation when using shared type network-card]({{< relref "docs/Whats New/_index.md#vm-networking-is-now-isolated-for-improved-security" >}}). This also means that any access to the host also blocked (192.168.64.1).
 - New Feature: [Pushing and pulling from the registry is now chunked]({{< relref "docs/Whats New/_index.md#registry-pushing-and-pulling-of-vm-templatestags-are-now-chunked-for-better-performance" >}}).
@@ -154,7 +172,7 @@ description: >
 - Bug Fix: Default VNC (running on 590X ports) was frozen
 - New Feature: Ability to set `anka modify VmName set network-card 0 --direct-mac` and expose the MAC address to the Host so that DHCP can assign the proper IP (requires bridged mode)
 
-> Upgrading Addons is **not** necessary
+> Upgrading Addons from the previous version is **not** necessary
 
 ### Jenkins Plugin 2.4.0 - Feb 18th, 2021
 - New Feature: [You can now set the Launch timeout values to handle network/resource conditions that delay VMs initializing their networking]({{< relref "docs/Whats New/_index.md#set-various-vm-launch-timeout-values" >}})
@@ -209,7 +227,7 @@ description: >
 - Bug Fix: 10.14 wasn't allowing nested virtualization
 - Bug Fix: Running `anka --machine-readable license show` on a machine without a license throws an error
 
-> Upgrading Addons **is** necessary
+> Upgrading Addons from the previous version **is** necessary
 
 > NEW IN 2.3: `anka mount` and the automated current directory mounting for `anka run` are not available by default with Big Sur VMs. You can install addons using `anka start -o addons 11.0.X` and then choosing `Legacy addons` under the installer Options to enable them, but it requires manual approval/steps through the GUI.
 
