@@ -231,7 +231,7 @@ To remove a lengthy part of iteration when starting from an installer app, base 
 }
 ```
 
-### Ability to set hw.UUID
+### Ability to set hw.uuid
 
 
 ```json
