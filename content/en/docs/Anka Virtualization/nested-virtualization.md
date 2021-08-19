@@ -24,10 +24,10 @@ Starting in Anka 2.5.0, Nested Virtualization has received a large refactor and 
 
 There are however some steps that you need to perform to get Android emulators to run properly:
 1. Uninstall previous Anka versions using sudo /Library/Application\ Support/Veertu/Anka/tools/uninstall.sh
-2. Ensure Templates/Tags don't have the older nested option enabled:  anka modify {vmName} set nested 0
+2. Ensure Templates/Tags don't have the older nested option enabled:  `anka modify {vmName} set nested 0`
 3. When android studio goes to install the intel HAXM extension, you may need to approve the exception in System Preference > Security & Privacy and then reboot (requires a GUI session).
 4. You need to ensure that the config.ini for your virtual device/emulator has:
-```
-hw.gpu.enabled=yes
-hw.gpu.mode=swiftshader_indirect
-```
+    ```
+    hw.gpu.enabled=yes
+    hw.gpu.mode=swiftshader_indirect
+    ```
