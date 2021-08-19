@@ -19,7 +19,7 @@ description: >
 - Bug Fix: Inability to run more than one VM on AWS EC2 Mac
 - Bug Fix: Startup scripts through the controller API fail due to slow network/DHCP setup
 - Bug Fix: Anka run doesn't source all available bash/profile source files for the user, only the first. It will now source all files in the following order: `/etc/profile`, `.bash_profile`, `.bash_login`, `.profile`.
-- Improvement: Expanded Nested Virtualization to support Android Emulators and Virtualbox + refactored Docker support for modern macOS versions. **Nested Virtualization is only possible on Big Sur hosts and Big Sur or Catalina VM versions.**
+- Improvement: Expanded Nested Virtualization to support Android Emulators and Virtualbox + refactored Docker support for modern macOS versions. **Nested Virtualization is only possible on Big Sur hosts and Big Sur or Catalina VM versions.** | [Documentation]({{< relref "docs/Anka Virtualization/nested-virtualization.md" >}})
 - Improvement: `anka show` now supports several new commands: `anka show {VMNAME} network`, `anka show {VMNAME} disk`, and `anka show {VMNAME} tags` | [Documentation]({{< relref "docs/Whats New/_index.md#additional-anka-show-commands" >}})
 - Improvement: You can now suspend VMs that have PG display enabled
 - Improvement: `anka create` can now be done in multiple stages so MDM can target the VM to apply profiles on creation | [Documentation]({{< relref "docs/Whats New/_index.md#multi-stage-anka-create-for-mdm-profile-application" >}})
