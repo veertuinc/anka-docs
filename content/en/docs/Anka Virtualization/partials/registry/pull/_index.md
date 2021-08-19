@@ -7,7 +7,7 @@ Usage: anka registry pull [OPTIONS] VM_ID
 Options:
   -t, --tag TEXT
   -v, --version INTEGER
-  -l, --local            Avoid pulling the tag from the registry if it already exists on the current machine
+  -l, --local            Avoid pulling the tag from the registry, only checkout
   -s, --shrink           Remove all other local tags to optimize disk usage
   --help                 Display usage information
 ```

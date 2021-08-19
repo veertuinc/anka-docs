@@ -11,13 +11,20 @@ description: >
 
 ## Current Versions
 
-### Anka Virtualization CLI 2.5.0 (2.5.0.......) - XXXXth, 2021
+### Anka Virtualization CLI 2.5.0 (2.5.0.131) - XXXXth, 2021
 
-> Upgrading Addons is **NOT** necessary
+> Upgrading Addons is recommended but not necessary
 
-- Improvement: 
+- Bug Fix: Inability to create or start Anka VMs over SSH (no active UI) or as the ec2-user/non-root users on AWS EC2 Mac
+- Bug Fix: Inability to run more than one VM on AWS EC2 Mac
+- Bug Fix: Startup scripts through the controller API fail due to slow network/DHCP setup
+- Bug Fix: Anka run doesn't source all available bash/profile source files for the user, only the first
+- Improvement: Expanded Nested Virtualization to support Android Emulators and Virtualbox + refactored Docker support for modern macOS versions.
+- Improvement: `anka show` now supports several new commands: `anka show {VMNAME} network`, `anka show {VMNAME} disk`, and `anka show {VMNAME} tags` | [Documentation]({{< relref "docs/Whats New/_index.md#additional-anka-show-commands" >}})
+- New Feature: `anka stop` now detects if VM is unresponsive and issues forceful stop
+- New Feature: Ability to control VM display frame rate with `anka modify {VMNAME} set display --fps 30` (defaults to 30) | [Documentation]({{< relref "docs/Whats New/_index.md#ability-to-control-vm-display-frame-rate" >}})
 
-> Nested docker and android emulation is only possible on Big Sur hosts.
+> Nested docker and android emulation is only possible on macOS versions great than or equal to Big Sur.
 
 ### Anka Build Cloud Controller & Registry 1.17.1 (1.17.1-4aead62f) - July 14th, 2021
 - Bug Fix: Chrome based browsers don't work with root token and SSO/OpenID/Keycloak
