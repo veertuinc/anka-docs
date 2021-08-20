@@ -26,7 +26,7 @@ description: >
 - New Feature: `anka stop` now detects if VM is unresponsive and issues forceful stop
 - New Feature: Ability to control VM display frame rate with `anka modify {VMNAME} set display --fps 30` (defaults to 30) | [Documentation]({{< relref "docs/Whats New/_index.md#ability-to-control-vm-display-frame-rate" >}})
 - New Feature: Ability to handle VM CPU Noisy-Neighbors (only recommended for advanced users)
-- New Feature: Monterey Beta support
+- New Feature: Monterey Beta VM support (requires Monterey host)
 - Fuse will no longer be installed within newly created VMs
 
 ### Anka Build Cloud Controller & Registry 1.17.1 (1.17.1-4aead62f) - July 14th, 2021
