@@ -127,12 +127,12 @@ export ANKA_ANKA_REGISTRY="http://anka.registry:8089"
 | Number of concurrent workers | int | The number of concurrent workers processing node tasks | 2 | ANKA_NUM_WORKERS |
 | Standalone mode | bool | Run an embedded ETCD server alongside the controller | false | ANKA_STANDALONE |
 | ETCD endpoints | string | Comma separated list of etcd hosts | 127.0.0.1:2379 | ANKA_ETCD_ENDPOINTS |
+| ETCD defrag interval | duration | Defrag ETCD (all servers) in this interval. Pass 0 to disable | 3h | ANKA_DEFRAG_DB_INTERVAL |
 | Allow empty registry | bool | Allow controller to start without a 'Registry address' | false | ANKA_ALLOW_EMPTY_REGISTRY |
 | Enable event logging | bool | Enables event logging. **`Requires a Enterprise Plus license and will show under the Controller's Logs section after the first instance is created.`** | false | ANKA_ENABLE_EVENT_LOGGING |
 | Event log url | string | The URL to post events (in json format) | - | ANKA_EVENT_LOG_URL |
 | Enable central logging | bool | Enables central logging | false | ANKA_ENABLE_CENTRAL_LOGGING |
 | Push registry | string | Comma separated list of Registry addresses to use for push operations (saveImage/Jenkins cache building) | - | ANKA_PUSH_REGISTRY |
-| ETCD defrag interval | duration | Defrag ETCD (all servers) in this interval. Pass 0 to disable | 3h | ANKA_DEFRAG_DB_INTERVAL |
 | Instance time out | duration | The time that instances stay in 'Terminated' state | 1m | ANKA_INSTANCE_TIME_OUT |
 | Manage MAC addresses | bool | Let the controller manage VM MAC addresses to ensure uniqueness/prevent collision. **`Requires VM Templates/Tags be stored in your Registry in a stopped state (vs suspended).`** | false | ANKA_MANAGE_MAC_ADDRESSES |
 | Clean MAC addresses interval | duration | Interval between cleanings of unused MAC addresses | 1h | ANKA_CLEAN_MAC_ADDRESS_INTERVAL |
@@ -197,13 +197,21 @@ Compaction retention interval | string | Auto compaction retention length. 0 mea
 
 | Name | Type | Description | Default Value | ENV | 
 | --- | :---: | --- | :---: | :---: | 
-Anable authentication | bool | Enable authentication module. **Must pass this for authentication to work** | false | ANKA_ENABLE_AUTH
+Enable authentication | bool | Enable authentication module. **Must pass this for authentication to work** | false | ANKA_ENABLE_AUTH
 Root static token | string | A token to authenticate as super user | - | ANKA_ROOT_TOKEN
 OpenId connect display name| string | Name of open id server to display in login page. The text will say "Login with X" | - | ANKA_OIDC_DISPLAY_NAME
 OpenId connect provider url| string | Open ID connect provider url | - | ANKA_OIDC_PROVIDER_URL
 OpenId connect  client id | string | Open ID connect client id | - | ANKA_OIDC_CLIENT_ID
 OpenId connect  username claim| string | Open ID connect claim key to use for user name | name | ANKA_OIDC_USERNAME_CLAIM
 OpenId connect groups claim| string | Open ID connect claim key to use for groups, | groups | ANKA_OIDC_GROUPS_CLAIM
+Enable Etcd Authentication| bool | Use TLS certificates for authentication with etcd server. **Must pass this for etcd authentication to work** | false | USE_ETCD_TLS
+Etcd CA Cert| string | Path to CA certificate to be used when connecting to Etcd server | - | ETCD_CA_CERT
+Etcd Client Cert| string | Path to Etcd Client certificate to be used when connecting to Etcd server | - | ETCD_CERT
+Etcd Client Key| string | Path to Etcd Client Key to be used when connecting to Etcd server | - | ETCD_CERT_KEY
+Skip Etcd TLS verification | bool | Don't use TLS verification for Etcd Authentication | false | SKIP_ETCD_TLS_VERIFICATION
+Enable Etcd user login | bool | Enable Etcd user login when connecting to Etcd server | false | USE_ETCD_LOGIN
+Etcd Username | string | Etcd username to be used to login to Etcd server | - | ETCD_USERNAME
+Etcd Password | string | Etcd password to be used to login to Etcd server | - | ETCD_PASSWORD
 
 ### Separate queue interface
 
@@ -319,12 +327,12 @@ Depending on the package you're using (native or docker), you can include flags 
 | Number of concurrent workers | int | The number of concurrent workers processing node tasks | 2 | `--num-workers` |
 | Standalone mode | bool | Run an embedded ETCD server alongside the controller | false | `--standalone` |
 | ETCD endpoints | string | Comma separated list of etcd hosts | 127.0.0.1:2379 | `--etcd-endpoints` |
+| ETCD defrag interval | duration | Defrag ETCD (all servers) in this interval. Pass 0 to disable | 3h | `--defrag-db-interval` |
 | Allow empty registry | bool | Allow controller to start without a 'Registry address' | false | `--allow-empty-registry` |
 | Enable event logging | bool | Enables event logging. **`Requires a Enterprise Plus license and will show under the Controller's Logs section after the first instance is created.`** | false | `--enable-event-logging` |
 | Event log url | string | The URL to post events (in json format) | - | `--event-log-url` |
 | Enable central logging | bool | Enables central logging | false | `--enable-central-logging` |
 | Push registry | string | Comma separated list of Registry addresses to use for push operations | - | `--push-registry` |
-| ETCD defrag interval | duration | Defrag ETCD (all servers) in this interval. Pass 0 to disable | 3h | `--defrag-db-interval` |
 | Instance time out | duration | The time that instances stay in 'Terminated' state | 1m | `--instance-time-out` |
 | Manage MAC addresses | bool | Let the controller manage VM MAC addresses to ensure uniqueness/prevent collision. **`Requires VM Templates/Tags be stored in your Registry in a stopped state (vs suspended).`** | false | `--manage-mac-addresses` |
 | Clean MAC addresses interval | duration | Interval between cleanings of unused MAC addresses | 1h | `--clean-mac-address-interval` |
@@ -398,6 +406,14 @@ OpenId connect provider url| string | Open ID connect provider url | - | `--oidc
 OpenId connect  client id | string | Open ID connect client id | - | `--oidc-client-id`
 OpenId connect  username claim| string | Open ID connect claim key to use for user name | name | `--oidc-username-claim`
 OpenId connect groups claim| string | Open ID connect claim key to use for groups, | groups | `--oidc-groups-claim`
+Enable Etcd Authentication| bool | Use TLS certificates for authentication with etcd server. **Must pass this for etcd authentication to work** | false | `--use-etcd-tls`
+Etcd CA Cert| string | Path to CA certificate to be used when connecting to Etcd server | - | `--etcd-ca-cert`
+Etcd Client Cert| string | Path to Etcd Client certificate to be used when connecting to Etcd server | - | `--etcd-cert`
+Etcd Client Key| string | Path to Etcd Client Key to be used when connecting to Etcd server | - | `--etcd-cert-key`
+Skip Etcd TLS verification | bool | Don't use TLS verification for Etcd Authentication | false | `--skip-etcd-tls-verification`
+Enable Etcd user login | bool | Enable Etcd user login when connecting to Etcd server | false | `--use-etcd-login`
+Etcd Username | string | Etcd username to be used to login to Etcd server | - | `--etcd-username`
+Etcd Password | string | Etcd password to be used to login to Etcd server | - | `--etcd-password`
 
 ### Separate queue interface
 
