@@ -4,6 +4,9 @@ linkTitle: "Logs"
 weight: 1
 ---
 
+
+> You might be interested in changing the verbosity of the following logs. If so, you can set the `ANKA_LOG_LEVEL` ENV to an integer greater than 0 and restart the controller. See [our Configuration Reference]({{< relref "docs/Anka Build Cloud/configuration-reference.md#logging" >}}) for more details.
+
 # Linux / Docker Package
 
 Anka controller and registry services can run with linux, using docker containers. logs are available via the controller dashboard , docker logs and via directories in correspondence with anka services. Generally, log files are created for each vm upon vm start .   
@@ -38,7 +41,7 @@ Anka controller is responsible for cleaning unused vms logs.
 ### Anka Controller 
 
 Logs location : `/Library/Logs/Veertu/AnkaController`
-1. Show logs by command: `sudo anka-controller logs` - Press Ctrl+C to exit. The log level is a number starting with 0 as the lowest, the higher the log level means more verbose. The default log level is 0. 
+1. Show logs by command: `sudo anka-controller logs` - Press Ctrl+C to exit.
  
 2. There are 4 types of log files, in the snapshot you can see log files **without** ID, they are **LINK** files- point to the latest log been created ( the last active vm) , each vm can generate all of the log types below. the robosety of the logs are from highest(INFO) to the lowest(ERROR), you can check this files using 'tail' command:
 

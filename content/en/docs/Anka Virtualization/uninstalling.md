@@ -2,7 +2,7 @@
 date: 2019-12-12T00:00:00-00:00
 title: "Uninstalling"
 linkTitle: "Uninstalling"
-weight: 7
+weight: 8
 description: >
   Steps for uninstalling the Anka Virtualization package
 ---

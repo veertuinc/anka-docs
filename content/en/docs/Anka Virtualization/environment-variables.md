@@ -2,7 +2,7 @@
 date: 2019-12-12T00:00:00-00:00
 title: "Environment Variables"
 linkTitle: "Environment Variables"
-weight: 8
+weight: 7
 description: >
   A list of available environment variables for the Anka CLI 
 ---

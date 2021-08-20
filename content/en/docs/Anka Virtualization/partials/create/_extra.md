@@ -13,3 +13,7 @@
 > **Anka Build licenses** default your VM in a suspended state. You can tell Anka to stop the VM instead of suspending with an ENV: `ANKA_CREATE_SUSPEND=0`
 
 > **Catalina and lower** VMs are created with SIP/Kext Consent disabled by default. It's strongly advised to keep these settings for optimal Anka performance. If you need to re-enable SIP/Kext Consent, then use this command `anka modify {vmNameOrUUID} set custom-variable sys.csr-active-config 0`
+
+> If you're using `--postinstall` and your script is failing, you can see STDOUT/ERR inside of `/var/log/install.log`. This log file is found inside of the VM.
+
+> On Catalina and higher, the `--postinstall` requires a package and will no longer accept scripts like Mojave did. [We have a script that can convert your scripts to pkg files here.](https://github.com/veertuinc/scripts/blob/main/script2pkg.sh)

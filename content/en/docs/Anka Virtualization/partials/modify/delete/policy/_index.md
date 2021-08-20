@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 11.2.3 delete policy --help
+> sudo anka modify test delete policy --help
 Usage: anka modify delete policy [OPTIONS]
 
 Options:

@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 11.2.3 set display --help
+> sudo anka modify test set display --help
 Usage: anka modify set display [OPTIONS]
 
   Configure displays
@@ -12,6 +12,7 @@ Options:
   --no-vnc                    Disable VNC access to the VM
   -d, --dpi INTEGER           Set DPI (default is 72)
   -r, --resolution TEXT       Set resolution, e.g. 1024x768 or 'default' to reset to default
+  -f, --fps INTEGER           Set refresh rate (30fps by default)
   -c, --controller [fbuf|pg]  Set video controller
   --host-gpu-location TEXT    Specify location of the host GPU to use, or 'any'
   --host-gpu-name TEXT        Specify name of the host GPU to use, or 'any'

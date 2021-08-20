@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 11.2.3 delete --help
+> sudo anka modify test delete --help
 Usage: anka modify delete [OPTIONS] COMMAND [ARGS]...
 
 Options:
