@@ -204,14 +204,14 @@ OpenId connect provider url| string | Open ID connect provider url | - | ANKA_OI
 OpenId connect  client id | string | Open ID connect client id | - | ANKA_OIDC_CLIENT_ID
 OpenId connect  username claim| string | Open ID connect claim key to use for user name | name | ANKA_OIDC_USERNAME_CLAIM
 OpenId connect groups claim| string | Open ID connect claim key to use for groups, | groups | ANKA_OIDC_GROUPS_CLAIM
-Enable Etcd Authentication| bool | Use TLS certificates for authentication with etcd server. **Must pass this for etcd authentication to work** | false | USE_ETCD_TLS
-Etcd CA Cert| string | Path to CA certificate to be used when connecting to Etcd server | - | ETCD_CA_CERT
-Etcd Client Cert| string | Path to Etcd Client certificate to be used when connecting to Etcd server | - | ETCD_CERT
-Etcd Client Key| string | Path to Etcd Client Key to be used when connecting to Etcd server | - | ETCD_CERT_KEY
-Skip Etcd TLS verification | bool | Don't use TLS verification for Etcd Authentication | false | SKIP_ETCD_TLS_VERIFICATION
-Enable Etcd user login | bool | Enable Etcd user login when connecting to Etcd server | false | USE_ETCD_LOGIN
-Etcd Username | string | Etcd username to be used to login to Etcd server | - | ETCD_USERNAME
-Etcd Password | string | Etcd password to be used to login to Etcd server | - | ETCD_PASSWORD
+Enable Etcd Authentication| bool | Use TLS certificates for authentication with etcd server. **Must pass this for etcd authentication to work** | false | ANKA_USE_ETCD_TLS
+Etcd CA Cert| string | Path to CA certificate to be used when connecting to Etcd server | - | ANKA_ETCD_CA_CERT
+Etcd Client Cert| string | Path to Etcd Client certificate to be used when connecting to Etcd server | - | ANKA_ETCD_CERT
+Etcd Client Key| string | Path to Etcd Client Key to be used when connecting to Etcd server | - | ANKA_ETCD_CERT_KEY
+Skip Etcd TLS verification | bool | Don't use TLS verification for Etcd Authentication | false | ANKA_SKIP_ETCD_TLS_VERIFICATION
+Enable Etcd user login | bool | Enable Etcd user login when connecting to Etcd server | false | ANKA_USE_ETCD_LOGIN
+Etcd Username | string | Etcd username to be used to login to Etcd server | - | ANKA_ETCD_USERNAME
+Etcd Password | string | Etcd password to be used to login to Etcd server | - | ANKA_ETCD_PASSWORD
 
 ### Separate queue interface
 
