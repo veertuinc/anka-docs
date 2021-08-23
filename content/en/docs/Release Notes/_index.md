@@ -28,9 +28,12 @@ description: >
 - New Feature: Monterey Beta VM support
 - Fuse will no longer be installed within newly created VMs
 
-### Anka Build Cloud Controller & Registry 1.17.1 (1.17.1-4aead62f) - July 14th, 2021
-- Bug Fix: Chrome based browsers don't work with root token and SSO/OpenID/Keycloak
-- (Standalone Registry: 1.17.1-0966fcd)
+### Anka Build Cloud Controller & Registry 1.18.0 (1.18.0-b3bb21bf) - Aug 23rd, 2021
+- Bug Fix: Reserved tasks do not get released back to queue
+- Bug Fix: Prevent controller crashing due to ETCD related panics and when active ETCD endpoint cannot be reached
+- New Feature: Ability to use certs and username/password for controller -> etcd connections | [Documentation]({{< relref "docs/Whats New/_index.md#ability-to-use-certs-and-usernamepassword-for-etcd-connections" >}})
+- Improvement: Upgrading etcd binaries to 3.4.16
+- (Standalone Registry: 1.18.0-04fd94e)
 
 ### Packer Plugin 2.1.0 - Aug 5th, 2021
 - Improvement: Ensure that we generate the release properly so that `packer init` works [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/75)
@@ -61,6 +64,10 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Build Cloud Controller & Registry 1.17.1 (1.17.1-4aead62f) - July 14th, 2021
+- Bug Fix: Chrome based browsers don't work with root token and SSO/OpenID/Keycloak
+- (Standalone Registry: 1.17.1-0966fcd)
 
 ### Anka Virtualization CLI 2.4.1 (2.4.1.130) - Apr 19th, 2021
 
