@@ -261,6 +261,8 @@ When you stop or exit the container, it will automatically unregister it from yo
 
 ## Answers to Common Questions
 
+- We recommend this [Stackoverflow post](https://stackoverflow.com/questions/54534387/how-gitlab-runner-concurrency-works) to understanding runner concurrency and limits
+- Environment variables such as `$RUNNER_LIMIT` require you register the runner with a [template file](https://docs.gitlab.com/runner/register/#runners-configuration-template-file). They will not work when set on the CLI when registering.
 - The gitlab-runner's default concurrency (amount of jobs that can run in the runner at once) setting in your `~/.gitlab-runner/anka-config.toml` is set to `concurrent = 1`. It's typical for customers to need to increase this value.
 - Your gitlab job will target specific runners tags. **All tags on a given job have to be met by the runner.**
 - You can override the default VM Template, Tag, and targeted node group using environment variables: `ANKA_TEMPLATE_UUID`, `ANKA_TAG_NAME`, and `ANKA_NODE_GROUP`
