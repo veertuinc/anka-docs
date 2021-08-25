@@ -1,6 +1,6 @@
 ---
-title: "Unable to join a VM using the ankacluster command"
-linkTitle: "Unable to join a VM using the ankacluster command"
+title: "Unable to join a Node using the ankacluster command"
+linkTitle: "Unable to join a Node using the ankacluster command"
 weight: 1
 ---
 
