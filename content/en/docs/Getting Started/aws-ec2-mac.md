@@ -20,7 +20,7 @@ Running this script will create everything necessary inside of AWS to run an Ank
 
 ### [prepare-anka-node.bash](https://github.com/veertuinc/getting-started/blob/master/AWS/prepare-anka-node.bash)
 
-> Requires you first run `prepare-build-cloud.bash`. If you already have a EC2 Mac instance you can use the scripts in [https://github.com/veertuinc/aws-ec2-mac-amis] instead. 
+> Requires you first run `prepare-build-cloud.bash`. Otherwise, you need to set several necessary environment variables before execution. These ENVs can be found in the script under the comment `# Collect all existing ids and instances`.
 
 Running this script will create everything necessary inside of AWS to run a mac1.metal instance and then install Anka inside. You’ll be prompted for the Anka license to use if the ANKA_LICENSE env variable is not set.
 Both scripts can be run locally from your macOS hardware with an existing AWS credential.
