@@ -28,6 +28,10 @@ description: >
 - New Feature: Monterey Beta VM support
 - Fuse will no longer be installed within newly created VMs
 
+> Known Issues: (fixs coming in 2.5.1)
+> - Several command flags are not functioning properly in this version. Examples: `anka run --env/--env-file`, `anka start --usb/-d`, and `anka list -f`
+> - `sudo anka view` or `anka view` as root seems to have stopped working.
+
 ### Anka Build Cloud Controller & Registry 1.18.0 (1.18.0-b3bb21bf) - Aug 23rd, 2021
 - Bug Fix: Reserved tasks do not get released back to queue
 - Bug Fix: Prevent controller crashing due to ETCD related panics and when active ETCD endpoint cannot be reached
