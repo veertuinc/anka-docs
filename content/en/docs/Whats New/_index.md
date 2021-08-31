@@ -26,6 +26,10 @@ Etcd Password | string | Etcd password to be used to login to Etcd server | - | 
 
 ## What's new in Anka Virtualization 2.5.0
 
+### Previous tag deletion method has been replaced
+
+Previously you had to issue `anka delete {template}:{tag}` in order to remove a tag locally (for example if you needed to re-push it to the registry). This has been been replaced with `anka delete {template} --tag {tag}`.
+
 ### Multi-stage `anka create` for MDM profile application
 
 Some users find that they need to set the `hw.serial` for a VM before they start the installation of macOS within a VM. We now allow users to issue `anka create {VMNAME}` first, then `anka modify` to set the `hw.serial`, and then continue with the creation using `anka create -a {PATH TO INSTALLER} {VMNAME}. . .`.
@@ -45,6 +49,45 @@ Options:
 ```
 
 ### Additional `anka show` commands
+
+1. Ability to display information about specific Template Tag:
+
+    ```bash
+    ❯ sudo anka show 11.5.2 tags
+    +----------------------------------+----------------------+----------------------+
+    | tag                              | creation_date        | last_access          |
+    +----------------------------------+----------------------+----------------------+
+    | vanilla+port-forward-22+brew-git | Aug 18 16:40:28 2021 | Aug 18 17:11:12 2021 |
+    +----------------------------------+----------------------+----------------------+
+    | vanilla                          | Aug 18 16:21:15 2021 | Aug 18 17:11:12 2021 |
+    +----------------------------------+----------------------+----------------------+
+    | vanilla+port-forward-22          | Aug 18 16:24:35 2021 | Aug 18 17:11:12 2021 |
+    +----------------------------------+----------------------+----------------------+
+
+
+    ❯ sudo anka show 11.5.2 --tag vanilla+port-forward-22
+    +---------+--------------------------------------+
+    | uuid    | c12ccfa5-8757-411e-9505-128190e9854e |
+    +---------+--------------------------------------+
+    | name    | 11.5.2                               |
+    +---------+--------------------------------------+
+    | created | Aug 18 16:24:35 2021                 |
+    +---------+--------------------------------------+
+    | vcpu    | 4                                    |
+    +---------+--------------------------------------+
+    | memory  | 8G                                   |
+    +---------+--------------------------------------+
+    | display | 1024x768                             |
+    +---------+--------------------------------------+
+    | disk    | 100GiB (17.31GiB on disk)            |
+    +---------+--------------------------------------+
+    | addons  | 2.5.0.131 10                         |
+    +---------+--------------------------------------+
+    | network | shared                               |
+    +---------+--------------------------------------+
+    | status  | stopped Aug 18 16:24:35 2021         |
+    +---------+--------------------------------------+
+    ```
 
 1. Display verbose disk information for VM
 

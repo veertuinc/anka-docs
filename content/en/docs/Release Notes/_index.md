@@ -67,6 +67,8 @@ description: >
 - Bug Fix: Anka run doesn't source all available bash/profile source files for the user, only the first. It will now source all files in the following order: `/etc/profile`, `.bash_profile`, `.bash_login`, `.profile`.
 - Improvement: Expanded Nested Virtualization to support Android Emulators and Virtualbox + refactored Docker support for modern macOS versions. **Nested Virtualization is only possible on Big Sur hosts and Big Sur or Catalina VM versions.** | [Documentation]({{< relref "docs/Anka Virtualization/nested-virtualization.md" >}})
 - Improvement: `anka show` now supports several new commands: `anka show {VMNAME} network`, `anka show {VMNAME} disk`, and `anka show {VMNAME} tags` | [Documentation]({{< relref "docs/Whats New/_index.md#additional-anka-show-commands" >}})
+- Improvement: `anka show` is now possible for specific local tags | [Documentation]({{< relref "docs/Whats New/_index.md#additional-anka-show-commands" >}})
+- Improvement: `anka delete {template}:{tag}` has been replaced with `anka delete {template} --tag {tag}` | [Documentation]({{ relref "docs/Whats New/_index.md#previous-tag-deletion-method-has-been-replaced" }})
 - Improvement: You can now suspend VMs that have PG display enabled
 - Improvement: `anka create` can now be done in multiple stages so MDM can target the VM to apply profiles on creation | [Documentation]({{< relref "docs/Whats New/_index.md#multi-stage-anka-create-for-mdm-profile-application" >}})
 - New Feature: `anka stop` now detects if VM is unresponsive and issues forceful stop
@@ -74,10 +76,11 @@ description: >
 - New Feature: Monterey Beta VM support
 - Fuse will no longer be installed within newly created VMs
 
-> Known Issues: (fixes coming in 2.5.1)
+> Known Issues we're working on fixes for:
 > - Several command flags are not functioning properly in this version. Examples: `anka run --env/--env-file`, `anka start --usb/-d`, and `anka list -f`
 > - `sudo anka view` or `anka view` as root seems to have stopped working.
-
+> - `anka list -f ram` shows human readable values instead of bytes
+> - `anka start -u` does not work on Mojave hosts
 ### Anka Build Cloud Controller & Registry 1.17.1 (1.17.1-4aead62f) - July 14th, 2021
 - Bug Fix: Chrome based browsers don't work with root token and SSO/OpenID/Keycloak
 - (Standalone Registry: 1.17.1-0966fcd)
