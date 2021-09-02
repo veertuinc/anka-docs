@@ -42,7 +42,9 @@ sudo security add-trusted-cert -d -k /Library/Keychains/System.keychain anka-ca-
 
 ## 2. Configuring TLS for Controller & Registry
 
-> Required
+> TLS must be enabled for certs to work
+
+> Certificates should be in `PEM (PKCS #8)` format
 
 > The **Controller TLS certificate** ("`server`" cert options) is not part of the authentication process and doesn't need to be derived from the CA you just generated. This means that you can use certificates supplied by your organization or a 3rd party for TLS/HTTPS
 
