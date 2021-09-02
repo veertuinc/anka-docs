@@ -81,6 +81,7 @@ description: >
 > - `sudo anka view` or `anka view` as root seems to have stopped working.
 > - `anka list -f ram` shows human readable values instead of bytes
 > - `anka start -u` does not work on Mojave hosts
+
 ### Anka Build Cloud Controller & Registry 1.17.1 (1.17.1-4aead62f) - July 14th, 2021
 - Bug Fix: Chrome based browsers don't work with root token and SSO/OpenID/Keycloak
 - (Standalone Registry: 1.17.1-0966fcd)
