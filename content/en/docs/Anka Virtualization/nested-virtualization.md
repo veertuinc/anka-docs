@@ -7,7 +7,7 @@ description: >
   Running Docker and other types of virtualization within your Anka VMs
 ---
 
-Starting in Anka 2.5.0, Nested Virtualization has received a large refactor and expanded support.
+Starting in Anka 2.5.0, Nested Virtualization has received a large refactor and expanded support. **It is now enabled by default.**
 
 ## System Requirements
 
