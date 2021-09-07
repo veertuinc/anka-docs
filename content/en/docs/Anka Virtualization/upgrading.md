@@ -11,7 +11,8 @@ description: How to upgrade the Anka Virtualization package
 > Upgrading Anka Virtualization software while VMs are running **is safe**
 
 > **Upgrading macOS VM inside Anka VM**
-Anka supports `softwareupdate` and also the System Preferences method of upgrading.
+>
+> Anka VMs support `softwareupdate` and also the System Preferences method of upgrading. However, please ensure that Software Update and other settings are disabled enabled post-update as Apple can force re-enable this feature.
 
 ### Upgrade Procedure (without Anka Build Cloud Controller & Registry)
 
