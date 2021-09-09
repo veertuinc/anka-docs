@@ -126,8 +126,9 @@ export ANKA_ANKA_REGISTRY="http://anka.registry:8089"
 | Local Registry Address | string | Anka Registry local address in format `http[s]://hostname:[port]`. This parameter is for situations where the Controller and Registry are on the same network. For example `http://locahost:8089` | - | ANKA_LOCAL_ANKA_REGISTRY |
 | Number of concurrent workers | int | The number of concurrent workers processing node tasks | 2 | ANKA_NUM_WORKERS |
 | Standalone mode | bool | Run an embedded ETCD server alongside the controller | false | ANKA_STANDALONE |
-| ETCD endpoints | string | Comma separated list of etcd hosts | 127.0.0.1:2379 | ANKA_ETCD_ENDPOINTS |
-| ETCD defrag interval | duration | Defrag ETCD (all servers) in this interval. Pass 0 to disable | 3h | ANKA_DEFRAG_DB_INTERVAL |
+| ETCD endpoints | string | Comma-separated list of etcd addresses. These endpoints are used for the Application DB (instance, group, node information) and the Queue DB (if not defined separately with `ANKA_QUEUE_ETCD_ENDPOINTS`) | 127.0.0.1:2379 | ANKA_ETCD_ENDPOINTS |
+| Queue ETCD endpoints | string | Comma-separated list of etcd addresses to use for only the Queue DB (task information). | 127.0.0.1:2379 | ANKA_QUEUE_ETCD_ENDPOINTS |
+| ETCD defrag interval | duration | Defrag ETCD (all servers) at this interval (0 to disable) | 3h | ANKA_DEFRAG_DB_INTERVAL |
 | Allow empty registry | bool | Allow controller to start without a 'Registry address' | false | ANKA_ALLOW_EMPTY_REGISTRY |
 | Enable event logging | bool | Enables event logging. **`Requires a Enterprise Plus license and will show under the Controller's Logs section after the first instance is created.`** | false | ANKA_ENABLE_EVENT_LOGGING |
 | Event log url | string | The URL to post events (in json format) | - | ANKA_EVENT_LOG_URL |
@@ -326,8 +327,9 @@ Depending on the package you're using (native or docker), you can include flags 
 | Local Registry Address | string | Anka Registry local address in format `http[s]://hostname:[port]`. This parameter is for situations where the Controller and Registry are on the same network. For example `http://locahost:8089`. This is NOT used for Nodes. If not specified, External address is used. | - | `--local-anka-registry` |
 | Number of concurrent workers | int | The number of concurrent workers processing node tasks | 2 | `--num-workers` |
 | Standalone mode | bool | Run an embedded ETCD server alongside the controller | false | `--standalone` |
-| ETCD endpoints | string | Comma separated list of etcd hosts | 127.0.0.1:2379 | `--etcd-endpoints` |
-| ETCD defrag interval | duration | Defrag ETCD (all servers) in this interval. Pass 0 to disable | 3h | `--defrag-db-interval` |
+| ETCD endpoints | string | Comma-separated list of etcd addresses. These endpoints are used for the Application DB (instance, group, node information) and the Queue DB (if not defined separately with `ANKA_QUEUE_ETCD_ENDPOINTS`) | 127.0.0.1:2379 | `--etcd-endpoints` |
+| Queue ETCD endpoints | string | Comma-separated list of etcd addresses to use for only the Queue DB (task information). | 127.0.0.1:2379 | `--queue-etcd-endpoints` |
+| ETCD defrag interval | duration | Defrag ETCD (all servers) at this interval (0 to disable) | 3h | `--defrag-db-interval` |
 | Allow empty registry | bool | Allow controller to start without a 'Registry address' | false | `--allow-empty-registry` |
 | Enable event logging | bool | Enables event logging. **`Requires a Enterprise Plus license and will show under the Controller's Logs section after the first instance is created.`** | false | `--enable-event-logging` |
 | Event log url | string | The URL to post events (in json format) | - | `--event-log-url` |
