@@ -11,14 +11,18 @@ description: >
 
 ## Current Versions
 
-### Anka Virtualization CLI 2.5.1 (2.5.1.132) - Aug 30th, 2021
+### Anka Virtualization CLI 2.5.2 (2.5.1.XXX) - Sep 13th, 2021
 
-> Upgrading Addons from the previous version is not necessary
+> Upgrading Addons from the previous version of anka is not necessary. We do however recommend upgrading addons if you're on a previous minor or major version of the CLI.
 
-- Bug Fix: `anka run --env` was not working
-- Bug Fix: `anka list -f` was not working
-- Bug Fix: `anka start --usb` was not working
-- Bug Fix: `sudo anka view` was not working
+- Bug Fix: `anka list -f ram` was showing human readable values, vs the bytes output
+- Bug fix: Addons < v2.3.X were not showing properly
+- Bug Fix: Modifying network card was setting `no_local` to true
+- Bug Fix: Updating addons on Mojave hosts was failing
+- Bug Fix: PG enabled VMs was throwing failures on start
+- Improvement: Deprecation notice added for `anka create --profile` as it no longer works on macOS versions greater than Catalina
+
+> License pass-through for the Anka CLI is not longer available on Big Sur macOS versions
 
 ### Anka Build Cloud Controller & Registry 1.18.0 (1.18.0-b3bb21bf) - Aug 23rd, 2021
 - Bug Fix: Reserved tasks do not get released back to queue
@@ -56,6 +60,15 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Virtualization CLI 2.5.1 (2.5.1.132) - Aug 30th, 2021
+
+> Upgrading Addons from the previous version is not necessary
+
+- Bug Fix: `anka run --env` was not working
+- Bug Fix: `anka list -f` was not working
+- Bug Fix: `anka start --usb` was not working
+- Bug Fix: `sudo anka view` was not working
 
 ### Anka Virtualization CLI 2.5.0 (2.5.0.131) - Aug 19th, 2021
 
