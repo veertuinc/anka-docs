@@ -19,7 +19,7 @@ description: >
 - Bug fix: Addons < v2.3.X were not showing properly
 - Bug Fix: Modifying network card was setting `no_local` to true
 - Bug Fix: Updating addons on Mojave hosts was failing
-- Bug Fix: PG enabled VMs was throwing failures on start
+- Bug Fix: PG enabled VMs were throwing failures on start
 - Improvement: Deprecation notice added for `anka create --profile` as it no longer works on macOS versions greater than Catalina
 
 > License pass-through for the Anka CLI is not longer available for VMs with Big Sur macOS or higher.
