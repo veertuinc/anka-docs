@@ -11,7 +11,7 @@ description: >
 
 ## Current Versions
 
-### Anka Virtualization CLI 2.5.2 (2.5.1.XXX) - Sep 13th, 2021
+### Anka Virtualization CLI 2.5.2 (2.5.2.133) - Sep 13th, 2021
 
 > Upgrading Addons from the previous version of anka is not necessary. We do however recommend upgrading addons if you're on a previous minor or major version of the CLI.
 
