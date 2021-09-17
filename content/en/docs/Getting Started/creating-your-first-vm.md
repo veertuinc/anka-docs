@@ -85,7 +85,7 @@ sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.pl
 
 On pushing to the registry, a tag is created. It will also be assigned a specific commit ID (not visible to users). Even if you modify the tag locally, such as adding port-forwarding, changes will not be pushed to the registry until you push with a different tag name.
 
-Now, you can simply untag the VM locally and then push it with the same name (after [deleting the VM template]({{< relref "docs/Anka Build Cloud/working-with-controller-and-api.md#delete-template" >}}) or [reverting the tag]({{< relref "docs/Anka Build Cloud/working-with-controller-and-api.md#revert-template-tag" >}})):
+Now, you can simply untag the VM locally and then push it with the same name (after [deleting the VM template]({{< relref "docs/Anka Build Cloud/working-with-the-controller-ui-and-api.md#delete-template" >}}) or [reverting the tag]({{< relref "docs/Anka Build Cloud/working-with-the-controller-ui-and-api.md#revert-template-tag" >}})):
 
 > Locally, this does not remove the current STATE of the tag from the VM. Your installed dependencies inside of the VM will remain as long as you don't pull or switch to a different tag.
 

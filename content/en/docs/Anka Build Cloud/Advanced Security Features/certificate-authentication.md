@@ -4,7 +4,9 @@ title: "Certificate Authentication"
 linkTitle: "Certificate Authentication"
 weight: 2
 description: >
-  How to set up certificate based authentication.
+  - Protect your API with certificates (requires HTTPS)
+  
+  - Assign specific permissions to individual certificates.
 ---
 
 > **This guide requires an Anka Enterprise (or higher) license**

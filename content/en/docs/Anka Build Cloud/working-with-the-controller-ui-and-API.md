@@ -1,7 +1,7 @@
 ---
 date: 2019-12-12T00:00:00-00:00
-title: "Working with the Controller and API"
-linkTitle: "Working with the Controller and API"
+title: "Working with the Controller UI and API"
+linkTitle: "Working with the Controller UI and API"
 weight: 4
 description: >
   How to work with the Anka Controller and API
@@ -12,11 +12,14 @@ If you use CI tools like Jenkins, Teamcity. GitLab CI, BuidKite, integrate them 
 
 You can work with controller through the web portal interface, REST APIs or the CI plugins.
 
-## Controller Portal
+## Controller UI
+
 Access it by going to your controller IP - `http://<controllerIP>:port`.
 
 You can view the status of your Anka Build macOS cloud from this UI and also perform basic management operations.  
+
 ### Dashboard View
+
 This view displays the total active build nodes, running VM instances, instance run capacity utilization, registry storage consumption, average cpu and ram utilization across the entire cloud. 
 
 ![image1](/images/using-controller/image1.png)
@@ -102,6 +105,7 @@ Use the REST APIs to integrate Anka Build cloud with your CI system (If there is
 ❯ curl -s http://anka.controller:8090/api/v1/status         
 {"status":"OK","message":"","body":{"status":"Running","version":"1.13.0-24e848a5","registry_address":"http://anka.registry:8089","registry_status":"Running","license":"enterprise plus"}}
 ```
+
 ## VM Instance
 
 **Object Model:**
@@ -1385,3 +1389,140 @@ curl "http://anka.controller/api/v1/usb" | jq
 - *status:* Operation Result (OK|FAIL)
 - *message:* Error message in case of an error
 
+## User Key Management
+
+### Get Key
+
+- **Description:** Display information about api key\[s\]
+
+- **Path:** /api/v1/apikey
+
+- **Method:** GET
+
+**Query Parameters:**
+
+| Parameter | Type | Description | Default |
+| --- | --- | --- | --- |
+| id | string | Return only information about a specific ID (optional) | - |
+
+**Returns:**
+- `status`: Operation Result (OK|FAIL)
+- `message`: Error message in case of an error
+- `body`: JSON returned from API
+
+```bash
+❯ curl -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.controller:8090/api/v1/apikey | jq
+{
+  "status": "OK",
+  "message": "",
+  "body": [
+    {
+      "id": "developer1",
+      "groups": [
+        "testgroup"
+      ],
+      "expiration": "2021-09-21T14:35:08.823236-04:00",
+      "created": "2021-09-20T14:35:08.823236-04:00"
+    },
+    {
+      "id": "developer2",
+      "groups": [
+        "testgroup",
+        "testgroup2"
+      ],
+      "expiration": "2021-09-21T14:39:00.526148-04:00",
+      "created": "2021-09-20T14:39:00.526148-04:00"
+    },
+    {
+      "id": "nathan",
+      "groups": [
+        "testgroup"
+      ],
+      "expiration": "2021-09-21T14:31:11.364844-04:00",
+      "created": "2021-09-20T14:31:11.364845-04:00"
+    }
+  ]
+}
+```
+
+
+### Create Key
+
+- **Description:** Create user key
+
+- **Path:** /api/v1/apikey
+
+- **Method:** POST
+
+**Query Parameters:**
+
+| Parameter | Type | Description | Default |
+| --- | --- | --- | --- |
+| id | string | Set the id/name of the key (required) | - |
+| ttl | int | Set the TTL (time to live) seconds of the key (required) | - |
+| groups | string | Comma separated list of group names for the key (optional) | - |
+| publicKey | string | If supplied, it is expected to be in PKIX ASN.1 DER form (optional) | - |
+
+{{< hint info >}}
+If no publicKey is passed in, we will generate and store it on the server. It may be beneficial to create a single key with `openssl` so that when creating your user key in both the controller and registry, they are the same.
+{{< /hint >}}
+
+**Returns:**
+- `status`: Operation Result (OK|FAIL)
+- `message`: Error message in case of an error
+- `body`: JSON returned from API
+
+```bash
+❯ curl -X POST -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.controller:8090/api/v1/apikey -d '{ "id": "developer3", "ttl": 86400 }'
+{"status":"OK","message":"","body":"MIIEowIBAAKCAQEAxU4GRMjtyFnEw69v/HxCfaw1zj28r2u1TpsnmGgp/q56o/DLSjemVLfYu+wIUKtu3zByIgFv/fbOAKKXEgUUeFl7wObgHeKNT4XOZG2L7yASxUHgFBokkimYCtQgEWy6bj9im+9k5OEA/kBN47NwHoZrnX6Av19WrpdAPaNO10yvaJ3R1jitshZqq6qtwmtKGErAvTPsloDcBOb2ojMghQHOJIVLKyIWwJ/yOsZme88vwO2DZ4wFYb8urnIj9e9P+Rf9WUH4RJ4RBIjoWnvFXEeSu2MeBawNPP1xT+RDNS/By8FUGbs9XutRU2f6trXW0MhjDIKQqXu8xL/rkVMo4QIDAQABAoIBAC2WF3CxE+9kfkfQMwmdFCfBMDVUolHNivh8dKuL9Zf4bDGQowekz/Nm/tZ8dHdfBKDgqp4cwulkqrgO2OS6873SvvsU3NdKzud+vO8LOHepa2zUCZfbanOy1IQ7+qTMAE8Uqg3pQ+B19CrKZL . . .
+```
+
+### Update Key
+
+- **Description:** Update an existing key
+
+- **Path:** /api/v1/apikey
+
+- **Method:** PUT
+
+**Query Parameters:**
+
+| Parameter | Type | Description | Default |
+| --- | --- | --- | --- |
+| id | string | The id/name of the key (required) | - |
+| ttl | int | The TTL (time to live) seconds for the key (optional) | - |
+| groups | string | Comma separated list of group names for the key (optional) | - |
+
+> You cannot change the publicKey.
+
+**Returns:**
+- `status`: Operation Result (OK|FAIL)
+- `message`: Error message in case of an error
+
+```bash
+❯ curl -X PUT -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.controller:8090/api/v1/apikey -d '{ "id": "developer3", "groups": ["test1","test3"] }'
+{"status":"OK","message":""}
+```
+
+### Delete Key
+
+- **Description:** Delete an existing key
+
+- **Path:** /api/v1/apikey
+
+- **Method:** DELETE
+
+**Query Parameters:**
+
+| Parameter | Type | Description | Default |
+| --- | --- | --- | --- |
+| id | string | The id/name of the key (required) | - |
+
+**Returns:**
+- `status`: Operation Result (OK|FAIL)
+- `message`: Error message in case of an error
+
+```bash
+❯ curl -X DELETE -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.controller:8090/api/v1/apikey -d '{ "id": "developer3" }'
+{"status":"OK","message":""}
+```

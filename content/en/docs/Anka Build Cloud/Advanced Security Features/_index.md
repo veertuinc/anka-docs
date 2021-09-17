@@ -4,21 +4,13 @@ title: "Advanced Security Features"
 linkTitle: "Advanced Security Features"
 weight: 8
 description: >
-  Methods to setup authorization within your Controller & Registry.
+  Methods to setup authorization & authentication within your Controller & Registry.
 ---
 
-> Advanced security features are currently only available for our Enterprise Tier licenses.
+> Advanced security features are currently only available for our Enterprise tier licenses.
 
 > You must have at least one node with a Enterprise or higher license joined to the Controller for these features to work.
 
-Our Enterprise Tiers include features to encrypt VMs at REST and even control VM properties like networking, copy/paste, etc through the VM policy ([Anka Secure](https://veertu.com/anka-secure/)).
+> Our Enterprise tiers include features to encrypt VMs at REST and even control VM properties like networking, copy/paste, etc through the VM policy ([Anka Secure](https://veertu.com/anka-secure/)).
 
-There are three different authentication methods available:
-
-**Method** | **Details**
---- | ---
-[Token Authentication]({{< relref "./token-authentication.md" >}}) | Root user access to Anka Controller dashboard & User keys to generate session tokens for API requests.
-[Certificate Authentication]({{< relref "./certificate-authentication.md" >}}) | Certificate based access to the Controller and Registry. API requests, Node joining, and [`anka registry`]({{< relref "docs/Anka Virtualization/command-reference.md#registry" >}}) commands all require a valid certificate.
-[OpenId (SSO) Authentication]({{< relref "./openid-authentication.md" >}}) | Similar to Certificate authentication, but using your existing OpenID certified user directory.
-
-> Authentication can be enabled in your [Controller configuration]({{< relref "docs/Anka Build Cloud/configuration-reference.md#authentication-and-authorization" >}}).
+##### There are three different authentication methods available:

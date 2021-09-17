@@ -14,7 +14,7 @@ Configuring your Anka Build Cloud Controller & Registry to enable features or cu
 
 > **The .docker files in the docker/linux package and dockerhub tags include a mix of non-`ANKA_` ENVs and flags (in the ENTRYPOINT). While we work on simplifying the docker package to support the `ANKA_` environment variables, you may need to remove the flags and non-`ANKA_` ENVs from the .docker file. Using ANKA_LISTEN_ADDR for example while the ENTRYPOINT has `--listen_addr` defined will cause a problem.**
 
-{{< tabs tabTotal="2" tabID="1" tabName1="Environment Variables" tabName2="Flags / Options" >}}
+{{< tabs tabTotal="2" tabID="1" tabName1="Environment Variables" tabName2="Flags / Options (deprecated)" >}}
 {{< tab tabNum="1" >}}
 
 ---
@@ -194,25 +194,12 @@ Auto compaction mode| string | Auto compaction mode, either 'periodic' or 'revis
 Advertise client urls| string | Client urls for etcd server to advertise | http://127.0.0.1:2379 | ANKA_ADVERTISE_CLIENT_URLS
 Compaction retention interval | string | Auto compaction retention length. 0 means disable auto compaction. | 30m | ANKA_AUTO_COMPACTION_RETENTION
 
-### Authentication and Authorization 
+### Authentication and Authorization
 
-| Name | Type | Description | Default Value | ENV | 
-| --- | :---: | --- | :---: | :---: | 
-Enable authentication | bool | Enable authentication module. **Must pass this for authentication to work** | false | ANKA_ENABLE_AUTH
-Root static token | string | A token to authenticate as super user | - | ANKA_ROOT_TOKEN
-OpenId connect display name| string | Name of open id server to display in login page. The text will say "Login with X" | - | ANKA_OIDC_DISPLAY_NAME
-OpenId connect provider url| string | Open ID connect provider url | - | ANKA_OIDC_PROVIDER_URL
-OpenId connect  client id | string | Open ID connect client id | - | ANKA_OIDC_CLIENT_ID
-OpenId connect  username claim| string | Open ID connect claim key to use for user name | name | ANKA_OIDC_USERNAME_CLAIM
-OpenId connect groups claim| string | Open ID connect claim key to use for groups, | groups | ANKA_OIDC_GROUPS_CLAIM
-Enable Etcd Authentication| bool | Use TLS certificates for authentication with etcd server. **Must pass this for etcd authentication to work** | false | ANKA_USE_ETCD_TLS
-Etcd CA Cert| string | Path to CA certificate to be used when connecting to Etcd server | - | ANKA_ETCD_CA_CERT
-Etcd Client Cert| string | Path to Etcd Client certificate to be used when connecting to Etcd server | - | ANKA_ETCD_CERT
-Etcd Client Key| string | Path to Etcd Client Key to be used when connecting to Etcd server | - | ANKA_ETCD_CERT_KEY
-Skip Etcd TLS verification | bool | Don't use TLS verification for Etcd Authentication | false | ANKA_SKIP_ETCD_TLS_VERIFICATION
-Enable Etcd user login | bool | Enable Etcd user login when connecting to Etcd server | false | ANKA_USE_ETCD_LOGIN
-Etcd Username | string | Etcd username to be used to login to Etcd server | - | ANKA_ETCD_USERNAME
-Etcd Password | string | Etcd password to be used to login to Etcd server | - | ANKA_ETCD_PASSWORD
+| Name | Type | Description | Default Value | ENV |
+| --- | :---: | --- | :---: | :---: |
+| Enable authentication | bool | Enable authentication module. **Must pass this for authentication to work** | false | ANKA_ENABLE_AUTH |
+| {{< include file="./shared/content/en/docs/Anka Build Cloud/partials/anka-controller/configuration-reference/_token_auth.md" >}} | {{< include file="./shared/content/en/docs/Anka Build Cloud/partials/anka-controller/configuration-reference/_etcd_auth.md" >}} | {{< include file="./shared/content/en/docs/Anka Build Cloud/partials/anka-controller/configuration-reference/_openid_auth.md" >}}
 
 ### Separate queue interface
 

@@ -200,7 +200,7 @@ anka modify VmName set network-card 0 --type bridged --direct-mac
 
 You can now specify the range of MAC addresses that the controller uses with the `ANKA_MANAGE_MAC_ADDRESSES` config.
 
-Once configured, [you can use the API to list or delete/regenerate the MAC list from a new range]({{< relref "docs/Anka Build Cloud/working-with-controller-and-api.md#mac-addresses-management" >}}).
+Once configured, [you can use the API to list or delete/regenerate the MAC list from a new range]({{< relref "docs/Anka Build Cloud/working-with-the-controller-ui-and-api.md#mac-addresses-management" >}}).
 
 > Requires that you enable `ANKA_MANAGE_MAC_ADDRESSES`
 ## What's new in Anka Virtualization 2.3.3
@@ -321,7 +321,7 @@ config:
 
 On pushing to the registry, a tag is created. It will also be assigned a specific commit ID (not visible to users). Even if you modify the tag locally, such as adding port-forwarding, changes will not be pushed to the registry until you push with a different tag name.
 
-Now, you can simply untag the VM locally and then push it with the same name (after [deleting the VM template]({{< relref "docs/Anka Build Cloud/working-with-controller-and-api.md#delete-template" >}}) or [reverting the tag]({{< relref "docs/Anka Build Cloud/working-with-controller-and-api.md#revert-template-tag" >}})):
+Now, you can simply untag the VM locally and then push it with the same name (after [deleting the VM template]({{< relref "docs/Anka Build Cloud/working-with-the-controller-ui-and-api.md#delete-template" >}}) or [reverting the tag]({{< relref "docs/Anka Build Cloud/working-with-the-controller-ui-and-api.md#revert-template-tag" >}})):
 
 > Locally, this does not remove the current STATE of the tag from the VM. Your installed dependencies inside of the VM will remain as long as you don't pull or switch to a different tag.
 

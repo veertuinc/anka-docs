@@ -4,7 +4,7 @@ title: "Configuring OpenID (SSO) based authentication"
 linkTitle: "OpenID (SSO) Authentication"
 weight: 3
 description: >
-  How to set up OpenID based authentication for your Anka Build Cloud Controller & Registry
+  - Protect your Controller UI with a user login
 ---
 
 > This guide and feature require an Anka Enterprise Plus license.

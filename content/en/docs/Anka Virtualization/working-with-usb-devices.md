@@ -94,7 +94,7 @@ USB:
 
 1. Perform steps outlined above to **claim** USB devices on the host machine.
 
-2. You can now request the USB device list from the [Controller REST API.]({{< relref "docs/Anka Build Cloud/working-with-controller-and-api.md#usb">}}) The `body` object will contain an unordered list of **vendor_id** OR claim group names.
+2. You can now request the USB device list from the [Controller REST API.]({{< relref "docs/Anka Build Cloud/working-with-the-controller-ui-and-api.md#usb">}}) The `body` object will contain an unordered list of **vendor_id** OR claim group names.
 
     ```shell
     anka usb claim 275a5e5f1313b22305c9beaffc4d58d985ebxxxx
