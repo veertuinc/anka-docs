@@ -179,3 +179,9 @@ Upon a successful authentication with the TAP protocol, a session is created and
 ```
 
 This object, encoded in JSON and base64 is what the user supplies in the HTTP Authorization header, with the Bearer prefix, for future requests.
+
+---
+
+## Managing User/Group Permissions (Authorization)
+
+{{< include file="shared/content/en/docs/Anka Build Cloud/Advanced Security Features/partials/_managing-permissions.md" >}}
