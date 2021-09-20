@@ -106,7 +106,7 @@ Use the REST APIs to integrate Anka Build cloud with your CI system (If there is
 {"status":"OK","message":"","body":{"status":"Running","version":"1.13.0-24e848a5","registry_address":"http://anka.registry:8089","registry_status":"Running","license":"enterprise plus"}}
 ```
 
-## VM Instance
+### VM Instance
 
 **Object Model:**
 
@@ -133,7 +133,7 @@ mac_address       | string | represents the assigned MAC address
 
 > All fields but the following are omitted if empty: `vmid`, `group_id`, and `usb_device`
 
-### Start VM instances 
+#### Start VM instances
 
 > Note
 > Group_id, priority and USB_device is only available if you are running Enterprise and higher tier of Anka Build.
@@ -173,7 +173,7 @@ mac_address      |  string    | Specify MAC address for the VM (Capital letters 
 - *body:* Array of instance UUIDs  
 - *message:* Error message in case of an error 
 
-#### Example
+##### Example
 ```shell
  curl -X POST "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" \
   -d '{"vmid": "6b135004-0c89-43bb-b892-74796b8d266c", "count": 2}'
@@ -188,7 +188,7 @@ mac_address      |  string    | Specify MAC address for the VM (Capital letters 
 }
 ```
 
-### Update Instance
+#### Update Instance
 
 **Description:** Update VM Instance
 **Path:**  /api/v1/vm
@@ -211,7 +211,7 @@ mac_address      |  string    | Specify MAC address for the VM (Capital letters 
 - *status:* Operation Result (OK|FAIL)  
 - *message:* Error message in case of an error 
 
-#### Example
+##### Example
 ```shell
  curl -X PUT "http://anka.controller/api/v1/vm?id=c0f36a87-41d9-44a8-66e1-6c5afae15b80" -H "Content-Type: application/json" \
   -d '{"name": "My VM name"}'
@@ -223,7 +223,7 @@ mac_address      |  string    | Specify MAC address for the VM (Capital letters 
 ```
 
 
-### Terminate VM instance
+#### Terminate VM instance
 
 **Description:** Terminate a running VM instance  
 **Path:** /api/v1/vm  
@@ -239,7 +239,7 @@ mac_address      |  string    | Specify MAC address for the VM (Capital letters 
  - *message:* Error message in case of an error 
 
 
-#### Example
+##### Example
 ```shell
 curl -X DELETE "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" \
 -d '{"id": "c983c3bf-a0c0-43dc-54dc-2fd9f7d62fce"}' | jq
@@ -249,7 +249,7 @@ curl -X DELETE "http://anka.controller/api/v1/vm" -H "Content-Type: application/
 }
 ```
 
-### List VM Instances
+#### List VM Instances
 
 **Description:** List all VM instances  
 **Path:** /api/v1/vm  
@@ -266,7 +266,7 @@ curl -X DELETE "http://anka.controller/api/v1/vm" -H "Content-Type: application/
  - *Body*:  Array of Instances 
  - *message:* Error message in case of an error 
 
-#### Example
+##### Example
 ```shell
 # List all VMs
 
@@ -405,7 +405,7 @@ curl "http://anka.controller/api/v1/vm?id=04b7ca7a-945c-4bdc-5123-68b2e4c8ad13" 
 ```
 
 
-## Node 
+### Node 
 
 **Object Model:**
 
@@ -434,7 +434,7 @@ free_disk_space | int   | Node's free disk space in bytes
 anka_disk_usage | int   | Disk space used by Anka in bytes
 
 
-### List Nodes
+#### List Nodes
 
 **Description:** List all build nodes joined to the controller  
 **Path:** /api/v1/node  
@@ -450,7 +450,7 @@ anka_disk_usage | int   | Disk space used by Anka in bytes
  - *Body*:  Array of Nodes 
  - *message:* Error message in case of an error 
 
-#### Examples
+##### Examples
 ```shell
 # List Nodes
 curl "http://anka.controller/api/v1/node" -H "Content-Type: application/json" | jq
@@ -569,7 +569,7 @@ curl "http://anka.controller/api/v1/node?id=f8707005-4630-4c9c-8403-c9c5964097f6
 }
 ```
 
-### Update Node
+#### Update Node
 
 **Description:** Update Node configuration parameters.  
 **Path:** /api/v1/node/config  
@@ -598,7 +598,7 @@ curl "http://anka.controller/api/v1/node?id=f8707005-4630-4c9c-8403-c9c5964097f6
  - *Body*:  Array of Nodes 
  - *message:* Error message in case of an error 
 
-#### Example
+##### Example
 ```shell
 curl -X POST "http://anka.controller/api/v1/node/config" -H "Content-Type: application/json" \
  -d '{"node_id": "f8707005-4630-4c9c-8403-c9c5964097f6", "name": "MacPro1", "max_vm_count": 6}' | jq
@@ -608,7 +608,7 @@ curl -X POST "http://anka.controller/api/v1/node/config" -H "Content-Type: appli
 }
 ```
 
-### Delete Node.
+#### Delete Node.
 
 > Note
 > To remove a Node from the cluster, execute `ankacluster disjoin` on the Node. 
@@ -626,7 +626,7 @@ curl -X POST "http://anka.controller/api/v1/node/config" -H "Content-Type: appli
  - *Status:* Operation Result (OK|FAIL)  
  - *message:* Error message in case of an error 
 
-#### Example
+##### Example
 ```shell
 curl -X DELETE "http://anka.controller/api/v1/node" -H "Content-Type: application/json" \
  -d '{"node_id": "f8707005-4630-4c9c-8403-c9c5964097f6"}' | jq
@@ -636,7 +636,7 @@ curl -X DELETE "http://anka.controller/api/v1/node" -H "Content-Type: applicatio
 }
 ```
 
-## Template
+### Template
 
 **Template Object Model:**
 
@@ -664,7 +664,7 @@ config_file    | string | Name of the tag's config file
 
 
  
-### List Templates  
+#### List Templates  
 
 **Description:** List all templates stored in the Registry.  
 **Path:** /api/v1/registry/vm  
@@ -779,7 +779,7 @@ curl "http://anka.controller/api/v1/registry/vm?id=00510971-5c37-4a60-a9c6-ea185
 }
 ```
 
-### Delete Template
+#### Delete Template
 
 **Description:** Delete a specific VM template and all associated tags from the registry  
 **Path:** /api/v1/registry/vm  
@@ -794,7 +794,7 @@ curl "http://anka.controller/api/v1/registry/vm?id=00510971-5c37-4a60-a9c6-ea185
  - *Status:* Operation Result (OK|FAIL)  
  - *message:* Error message in case of an error 
 
-#### Example
+##### Example
 ```shell
 curl -X DELETE "http://anka.controller/api/v1/registry/vm?id=00510971-5c37-4a60-a9c6-ea185397d9b4" | jq
 {
@@ -803,7 +803,7 @@ curl -X DELETE "http://anka.controller/api/v1/registry/vm?id=00510971-5c37-4a60-
 }
 ```
 
-### Revert Template Tag
+#### Revert Template Tag
 
 **Description:** Revert a Template to a certain Tag or version number. Delete the latest version if none is specified.  
 **Path:** /api/v1/registry/revert  
@@ -825,7 +825,7 @@ curl -X DELETE "http://anka.controller/api/v1/registry/vm?id=00510971-5c37-4a60-
  - *Status:* Operation Result (OK|FAIL)  
  - *message:* Error message in case of an error 
 
-#### Example
+##### Example
 ```shell
 # Delete latest version
 curl -X DELETE  "http://anka.controller/api/v1/registry/revert?id=00510971-5c37-4a60-a9c6-ea185397d9b4" | jq
@@ -852,7 +852,7 @@ curl -X DELETE  "http://anka.controller/api/v1/registry/revert?id=a3cc47f0-3a73-
 }
 ```
 
-### Distribute Template
+#### Distribute Template
 
 > Note
 > Group_id is only available if you are running Enterprise tier of Anka Build.  
@@ -880,7 +880,7 @@ curl -X DELETE  "http://anka.controller/api/v1/registry/revert?id=a3cc47f0-3a73-
 - *body:* Request id of the distribution request
 - *message:* Error message in case of an error 
 
-#### Example
+##### Example
 ```shell
 curl -X POST "http://anka.controller/api/v1/registry/vm/distribute" \
 -d '{"template_id": "eaef3af8-cb54-4c3e-baf9-839053472f15"}' | jq
@@ -893,7 +893,7 @@ curl -X POST "http://anka.controller/api/v1/registry/vm/distribute" \
 }
 ```
 
-### Get distribution status 
+#### Get distribution status 
 
 **Description:** Get the status of a requested distribution  
 **Path:** /api/v1/registry/vm/distribute  
@@ -919,7 +919,7 @@ curl -X POST "http://anka.controller/api/v1/registry/vm/distribute" \
   - *template_id:* The Template being distributed
   - *time_requested:* The time of the request
 
-#### Example
+##### Example
 ```shell
 # List all distribution requests
 curl  "http://anka.controller/api/v1/registry/vm/distribute" | jq
@@ -964,7 +964,7 @@ curl  "http://anka.controller/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e0
 }
 ```
 
-### Save Template Image
+#### Save Template Image
 
 **Description:** Create a "Save Image" request. Save a running VM instance to the Registry as a new Tag or Template.
 
@@ -999,7 +999,7 @@ curl  "http://anka.controller/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e0
  - *Body:* The created request id 
  - *message:* Error message in case of an error 
 
-#### Example
+##### Example
 ```shell
 curl -X POST "http://anka.controller/api/v1/image" -H "Content-Type: application/json" \
 -d '{"id": "cfc3cafd-d326-459d-7b3b-3c41b1a3efb7", "target_vm_id": "cb1473f2-1f0a-413c-a376-236bfd7d718f", "tag": "my-new-vm-1901", "revert_before_push": true, "revert_tag": "latest-vm-1801"}' | jq
@@ -1030,7 +1030,7 @@ IyEvYmluL2Jhc2gKZWNobyAkKGhvc3RuYW1lKQplY2hvCmVudgpleHBvcnQgVEVTVD10cnVlCmJhc2gg
 
 ```
 
-### List Save Template Image Requests
+#### List Save Template Image Requests
 
 **Description:** Get a list of Save Image requests, or specify an id and get a single Save Image request.  
 **Path:** /api/v1/image  
@@ -1053,7 +1053,7 @@ IyEvYmluL2Jhc2gKZWNobyAkKGhvc3RuYW1lKQplY2hvCmVudgpleHBvcnQgVEVTVD10cnVlCmJhc2gg
 - *request* - An object that represents the request
 - *error* - Error message if status is error
 
-#### Example
+##### Example
 ```shell
 # List all requests
 
@@ -1126,8 +1126,8 @@ curl "http://anka.controller/api/v1/image?id=cc55f7dd-5280-4120-461c-9b0ef9b4013
 
 ```
 
-## Group
-### Create Group
+### Group
+#### Create Group
 
 **Description:** Create a new node Group. Group is a "container" object used for grouping nodes.  
 **Path:** /api/v1/group  
@@ -1150,7 +1150,7 @@ curl "http://anka.controller/api/v1/image?id=cc55f7dd-5280-4120-461c-9b0ef9b4013
 - *body:* The new Group object
 - *message:* Error message in case of an error 
 
-#### Example
+##### Example
 ```shell
  curl -X POST "http://anka.controller/api/v1/group" -d '{"name": "GreateNodes", "description": "best of my macs"}' | jq
 {
@@ -1165,7 +1165,7 @@ curl "http://anka.controller/api/v1/image?id=cc55f7dd-5280-4120-461c-9b0ef9b4013
 }
 ```
 
-### List Groups
+#### List Groups
 
 **Description:** List all groups  
 **Path:** /api/v1/group  
@@ -1182,7 +1182,7 @@ curl "http://anka.controller/api/v1/image?id=cc55f7dd-5280-4120-461c-9b0ef9b4013
 - *description* - The group's description
 - *fallback_group_id* - Id of a the fallback group (group that requests go to if the current group is in full capacity)
 
-#### Example
+##### Example
 ```shell
 curl "http://anka.controller/api/v1/group" | jq
 {
@@ -1199,7 +1199,7 @@ curl "http://anka.controller/api/v1/group" | jq
 }
 ```
 
-### Update Group
+#### Update Group
 
 **Description:** Sets one or more parameters of an existing Group object.  
 **Path:** /api/v1/group  
@@ -1222,7 +1222,7 @@ curl "http://anka.controller/api/v1/group" | jq
 - *status:* Operation Result (OK|FAIL)  
 - *message:* Error message in case of an error 
 
-#### Example
+##### Example
 ```shell
 curl -X PUT "http://anka.controller/api/v1/group?id=89a66167-62b1-42bb-5a0b-ff667906b8f5" \
 -d '{"name": "Creme-de-la-nodes", "description": "A selected group of my favorite computers"}' | jq
@@ -1232,7 +1232,7 @@ curl -X PUT "http://anka.controller/api/v1/group?id=89a66167-62b1-42bb-5a0b-ff66
 }
 ```
 
-### Delete Group
+#### Delete Group
 
 **Description:** Delete a Group.  
 **Path:** /api/v1/group  
@@ -1247,7 +1247,7 @@ curl -X PUT "http://anka.controller/api/v1/group?id=89a66167-62b1-42bb-5a0b-ff66
 - *status:* Operation Result (OK|FAIL)  
 - *message:* Error message in case of an error 
 
-#### Example
+##### Example
 ```shell
 curl -X DELETE "http://anka.controller/api/v1/group?id=89a66167-62b1-42bb-5a0b-ff667906b8f5" | jq
 {
@@ -1256,7 +1256,7 @@ curl -X DELETE "http://anka.controller/api/v1/group?id=89a66167-62b1-42bb-5a0b-f
 }
 ```
 
-### Add Nodes to Group
+#### Add Nodes to Group
 
 **Description:** Add one or more Nodes to one or more Groups.  
 **Path:** /api/v1/node/group  
@@ -1273,7 +1273,7 @@ curl -X DELETE "http://anka.controller/api/v1/group?id=89a66167-62b1-42bb-5a0b-f
 - *status:* Operation Result (OK|FAIL)  
 - *message:* Error message in case of an error 
 
-#### Example
+##### Example
 ```shell
 curl -X POST "http://anka.controller/api/v1/node/group" \
 -d '{"group_ids": ["e41d4b47-4c10-4264-5519-2d52af568bdd"], "node_ids": ["64230242-321c-442a-bd96-d87edd0943a3"]}' | jq
@@ -1283,7 +1283,7 @@ curl -X POST "http://anka.controller/api/v1/node/group" \
 }
 ```
 
-### Remove nodes from a group
+#### Remove nodes from a group
 
 
 **Description:** Remove one or more Nodes from one or more Groups.  
@@ -1301,7 +1301,7 @@ curl -X POST "http://anka.controller/api/v1/node/group" \
 - *status:* Operation Result (OK|FAIL)  
 - *message:* Error message in case of an error 
 
-#### Example
+##### Example
 ```shell
 curl -X DELETE "http://anka.controller/api/v1/node/group" \
 -d '{"group_ids": ["e41d4b47-4c10-4264-5519-2d52af568bdd"], "node_ids": ["64230242-321c-442a-bd96-d87edd0943a3"]}' | jq
@@ -1310,8 +1310,9 @@ curl -X DELETE "http://anka.controller/api/v1/node/group" \
    "message" : ""
 }
 ```
-## USB
-### List Devices
+
+### USB
+#### List Devices
 
 **Description:** Get a list of all USB devices attached to the cloud  
 **Path:** /api/v1/usb  
@@ -1327,7 +1328,7 @@ Each key is the device group name
 - *available:* Number of available devices of this key
 - *busy:* Number of busy devices of this key
 
-#### Example
+##### Example
 ```shell
 curl "http://anka.controller/api/v1/usb" | jq
 {
@@ -1346,9 +1347,9 @@ curl "http://anka.controller/api/v1/usb" | jq
 }
 ```
 
-## MAC Addresses Management
+### MAC Addresses Management
 
-### List Addresses
+#### List Addresses
 
 **Description:** Lists or counts mac address  
 **Path:** /api/v1/macaddr  
@@ -1369,7 +1370,7 @@ curl "http://anka.controller/api/v1/usb" | jq
 - *status:* Operation Result (OK|FAIL)
 - *message:* Error message in case of an error
 
-### Force population of internal MAC list
+#### Force population of internal MAC list
 
 **Description:** Triggers the internal MAC address population (useful if DELETE was submitted with API call)  
 **Path:** /api/v1/macaddr  
@@ -1379,7 +1380,7 @@ curl "http://anka.controller/api/v1/usb" | jq
 - *status:* Operation Result (OK|FAIL)
 - *message:* Error message in case of an error
 
-### Force purge of internal MAC list
+#### Force purge of internal MAC list
 
 **Description:** Deletes all internal MAC addresses (run this before PUT to re-generate your initial range)  
 **Path:** /api/v1/macaddr  
@@ -1389,9 +1390,9 @@ curl "http://anka.controller/api/v1/usb" | jq
 - *status:* Operation Result (OK|FAIL)
 - *message:* Error message in case of an error
 
-## User Key Management
+### User Key Management
 
-### Get Key
+#### Get Key
 
 - **Description:** Display information about api key\[s\]
 
@@ -1446,7 +1447,7 @@ curl "http://anka.controller/api/v1/usb" | jq
 ```
 
 
-### Create Key
+#### Create Key
 
 - **Description:** Create user key
 
@@ -1477,7 +1478,7 @@ If no publicKey is passed in, we will generate and store it on the server. It ma
 {"status":"OK","message":"","body":"MIIEowIBAAKCAQEAxU4GRMjtyFnEw69v/HxCfaw1zj28r2u1TpsnmGgp/q56o/DLSjemVLfYu+wIUKtu3zByIgFv/fbOAKKXEgUUeFl7wObgHeKNT4XOZG2L7yASxUHgFBokkimYCtQgEWy6bj9im+9k5OEA/kBN47NwHoZrnX6Av19WrpdAPaNO10yvaJ3R1jitshZqq6qtwmtKGErAvTPsloDcBOb2ojMghQHOJIVLKyIWwJ/yOsZme88vwO2DZ4wFYb8urnIj9e9P+Rf9WUH4RJ4RBIjoWnvFXEeSu2MeBawNPP1xT+RDNS/By8FUGbs9XutRU2f6trXW0MhjDIKQqXu8xL/rkVMo4QIDAQABAoIBAC2WF3CxE+9kfkfQMwmdFCfBMDVUolHNivh8dKuL9Zf4bDGQowekz/Nm/tZ8dHdfBKDgqp4cwulkqrgO2OS6873SvvsU3NdKzud+vO8LOHepa2zUCZfbanOy1IQ7+qTMAE8Uqg3pQ+B19CrKZL . . .
 ```
 
-### Update Key
+#### Update Key
 
 - **Description:** Update an existing key
 
@@ -1504,7 +1505,7 @@ If no publicKey is passed in, we will generate and store it on the server. It ma
 {"status":"OK","message":""}
 ```
 
-### Delete Key
+#### Delete Key
 
 - **Description:** Delete an existing key
 
