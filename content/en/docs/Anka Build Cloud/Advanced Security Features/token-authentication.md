@@ -71,7 +71,7 @@ anka-controller:
    restart: always
    environment:
      ANKA_ENABLE_AUTH: "true"
-     ANKA_ROOT_TOKEN: "0987654321"
+     ANKA_ROOT_TOKEN: "1111111111"
      # ANKA_ENABLE_API_KEYS="true"
 
 anka-registry:
@@ -83,7 +83,7 @@ anka-registry:
    . . .
    environment:
      ANKA_ENABLE_AUTH: "true"
-     ANKA_ROOT_TOKEN: "098765432"
+     ANKA_ROOT_TOKEN: "1111111111"
      # ANKA_ENABLE_API_KEYS="true"
 . . .
 
