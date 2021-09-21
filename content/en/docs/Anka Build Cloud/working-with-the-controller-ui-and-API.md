@@ -1465,7 +1465,7 @@ curl "http://anka.controller/api/v1/usb" | jq
 | publicKey | string | If supplied, it is expected to be in PKIX ASN.1 DER form (optional) | - |
 
 {{< hint info >}}
-If no publicKey is passed in, we will generate and store it on the server. It may be beneficial to create a single key with `openssl` so that when creating your user key in both the controller and registry, they are the same.
+If no `publicKey` is passed in, we will generate and store it on the server (controller: in etcd / registry: on disk) and then return the private key for you to store. It may be beneficial to create your key with `openssl` so that they are the same for both the registry and controller.
 {{< /hint >}}
 
 **Returns:**
