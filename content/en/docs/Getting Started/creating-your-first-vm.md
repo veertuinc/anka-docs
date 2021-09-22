@@ -81,7 +81,7 @@ sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.pl
 
 ## Re-pushing an existing registry tag
 
-> Only available for versions >= 2.3.1
+> Only available for versions >= 2.5.0
 
 On pushing to the registry, a tag is created. It will also be assigned a specific commit ID (not visible to users). Even if you modify the tag locally, such as adding port-forwarding, changes will not be pushed to the registry until you push with a different tag name.
 
@@ -90,11 +90,11 @@ Now, you can simply untag the VM locally and then push it with the same name (af
 > Locally, this does not remove the current STATE of the tag from the VM. Your installed dependencies inside of the VM will remain as long as you don't pull or switch to a different tag.
 
 ```bash
-anka registry pull -t tag2 VM
-anka delete VM:tag2
-anka modify VM add port-forwarding...
+anka registry pull -t tag2 TemplateA
+anka delete -t tag2 TemplateA
+anka modify TemplateA add port-forwarding...
 curl ... (delete or revert from registry)
-anka registry push -t tag2 VM
+anka registry push -t tag2 TemplateA
 ```
 
 ---
