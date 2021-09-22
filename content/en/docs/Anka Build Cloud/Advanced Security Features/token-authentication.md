@@ -39,7 +39,6 @@ Edit `/usr/local/bin/anka-controllerd` and add:
 
 ```bash
 export ANKA_ENABLE_AUTH="true"
-export ANKA_ENABLE_REGISTRY_AUTHORIZATION="true"
 export ANKA_ROOT_TOKEN="{min10chartoken}"
 ```
 
@@ -100,7 +99,7 @@ Enter the token you specified and ensure that it logs you in.
 Finally, you can test the API using:
 
 ```bash
-❯ curl -ksSH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.registry:8089/registry/status
+❯ curl -H "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.registry:8089/registry/status
 {"status":"OK","body":{"status":"Running","version":"1.19.0-309d8150"},"message":""}
 ```
 
@@ -112,7 +111,7 @@ Finally, you can test the API using:
 
 1. Follow the same instruction from the above root token section, but also include `ANKA_ENABLE_API_KEYS` set to `true`.
 
-2. [Use the API to generate a user key.]({{< relref "docs/Anka Build Cloud/working-with-the-controller-ui-and-api.md#user-key-management" >}})
+2. Use the API to generate a user key for [the controller]({{< relref "docs/Anka Build Cloud/working-with-the-controller-ui-and-api.md#user-key-management" >}}) and also [the registry]({{< relref "docs/Anka Build Cloud/working-with-the-registry-API.md#user-key-management" >}}).
 
 3. You can now use the key and ID to communicate with the Controller or Registry.
 

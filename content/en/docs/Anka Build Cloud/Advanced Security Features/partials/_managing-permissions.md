@@ -56,6 +56,14 @@ The **Available Permissions** list will display all of the permissions we can as
 | `view_prmission_groups` | gives the user permission to view permission groups |
 | `update_permission_groups` | gives the user permission to update permission groups |
 | `delete_permission_groups` | gives the user permission to delete permission groups |
+| **Mac Address** | |
+| `mac_address` | gives the user permissions to control the mac address features |
+| **Token Auth** |
+| `create_api_key` | |
+| `delete_api_key` | |
+| `get_api_key` | |
+| `update_api_key` | |
+
 
 ### Registry Permissions
 | Permission | Description |
@@ -88,3 +96,8 @@ The **Available Permissions** list will display all of the permissions we can as
 | `view_prmission_groups` | gives the user permission to view permission groups |
 | `update_permission_groups` | gives the user permission to update permission groups |
 | `delete_permission_groups` | gives the user permission to delete permission groups |
+| **Token Auth** |
+| `create_api_key` | |
+| `delete_api_key` | |
+| `get_api_key` | |
+| `update_api_key` | |
