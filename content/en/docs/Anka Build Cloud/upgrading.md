@@ -41,7 +41,7 @@ description: How to upgrade the Anka Build Cloud
         2. Install the new .pkg (see the [MacOS Guide]({{< relref "docs/Anka Build Cloud/setup-on-macos.md" >}})).
         3. Run `sudo anka-controller restart`.
 
-2. Run `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on your nodes to pull the latest Anka Agent binary and ensure proper communication between the CLI and the Controller API.
+2. It's a good idea to [force the proper agent version to install across all of your nodes]({{< relref "docs/Anka Build Cloud/working-with-controller-and-API.md#force-node-agent-update" >}}). If you want to do it manually, you can `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on each node individually.
 
 ## Pre-Upgrade Considerations
 

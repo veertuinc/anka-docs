@@ -632,6 +632,18 @@ curl -X DELETE "http://anka.controller/api/v1/node" -H "Content-Type: applicatio
 }
 ```
 
+### Force Node Agent Update
+
+**Description:** Forces the current agent package to download and install across all nodes attached to the controller  
+**Path:** /api/v1/node/update  
+**Method:** PUT  
+**Required Body Parameters:** N/A
+
+ **Returns:** 
+ - *Status:* Operation Result (OK|FAIL)  
+ - *message:* Error message in case of an error 
+
+
 ## Template
 
 **Template Object Model:**
