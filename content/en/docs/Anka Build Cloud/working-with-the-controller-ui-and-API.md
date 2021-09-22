@@ -1466,6 +1466,10 @@ curl "http://anka.controller/api/v1/usb" | jq
 
 {{< hint info >}}
 If no `publicKey` is passed in, we will generate and store it on the server (controller: in etcd / registry: on disk) and then return the private key for you to store. It may be beneficial to create your key with `openssl` so that they are the same for both the registry and controller.
+```bash
+openssl genrsa -out $FILE_OUTPUT_DIR/$NAME-key.pem 4096 > /dev/null 2>&1
+openssl rsa -in $FILE_OUTPUT_DIR/$NAME-key.pem -outform PEM -pubout -out $FILE_OUTPUT_DIR/$NAME-pub.pem > /dev/null 2>&1
+```
 {{< /hint >}}
 
 **Returns:**
