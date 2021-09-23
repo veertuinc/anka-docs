@@ -43,3 +43,5 @@ In these directories you will find the following logs:
     >    ```
 
 5. `/var/log/install.log` - Install related STDOUT/ERR
+
+- Anka will also report crashes in `/Library/Logs/DiagnosticReports/anka*.crash`
