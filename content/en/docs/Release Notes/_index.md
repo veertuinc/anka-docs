@@ -11,18 +11,15 @@ description: >
 
 ## Current Versions
 
-### Anka Virtualization CLI 2.5.2 (2.5.2.133) - Sep 13th, 2021
+### Anka Virtualization CLI 2.5.3 (2.5.3.135) - Sep 23rd, 2021
 
-> Upgrading Addons from the previous version of anka is not necessary. We do however recommend upgrading addons if you're on a previous minor or major version of the CLI.
+> Upgrading Addons from the previous version of anka is necessary.
 
-- Bug Fix: `anka list -f ram` was showing human readable values, vs the bytes output
-- Bug fix: Addons < v2.3.X were not showing properly
-- Bug Fix: Modifying network card was setting `no_local` to true
-- Bug Fix: Updating addons on Mojave hosts was failing
-- Bug Fix: PG enabled VMs were throwing failures on start
-- Improvement: Deprecation notice added for `anka create --profile` as it no longer works on macOS versions greater than Catalina
-
-> License pass-through for the Anka CLI is not longer available for VMs with Big Sur macOS or higher.
+- Bug Fix: Apple's automatic software update/download is enabled for newly created VMs. This was causing a problem where the new macOS version installer .app was being downloaded each time a VM was started.
+- Bug Fix: VMs randomly crashing with `failed to get pid: Socket is not connected`
+- Bug Fix: `anka config default_passwd` returning 245 exit code
+- Bug Fix: VM suspension logic was producing stopping VMs
+- Bug Fix: Date strings in `anka list` have overflow in minutes and seconds fields
 
 ### Anka Build Cloud Controller & Registry 1.18.0 (1.18.0-b3bb21bf) - Aug 23rd, 2021
 - Bug Fix: Reserved tasks do not get released back to queue
@@ -60,6 +57,19 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Virtualization CLI 2.5.2 (2.5.2.133) - Sep 13th, 2021
+
+> Upgrading Addons from the previous version of anka is not necessary. We do however recommend upgrading addons if you're on a previous minor or major version of the CLI.
+
+- Bug Fix: `anka list -f ram` was showing human readable values, vs the bytes output
+- Bug fix: Addons < v2.3.X were not showing properly
+- Bug Fix: Modifying network card was setting `no_local` to true
+- Bug Fix: Updating addons on Mojave hosts was failing
+- Bug Fix: PG enabled VMs were throwing failures on start
+- Improvement: Deprecation notice added for `anka create --profile` as it no longer works on macOS versions greater than Catalina
+
+> License pass-through for the Anka CLI is not longer available for VMs with Big Sur macOS or higher.
 
 ### Anka Virtualization CLI 2.5.1 (2.5.1.132) - Aug 30th, 2021
 
