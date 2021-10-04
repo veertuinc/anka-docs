@@ -11,6 +11,11 @@ description: >
 
 ## Current Versions
 
+### Anka Build Cloud Controller & Registry 1.19.0 (1.19.0-7c1c1424) - Oct 4th, 2021
+- Bug Fix: Registry files (tag files and some .ank) were rarely zeroing out due to bad read/write logic
+- Improvement: Controller logs now show with node name instances start on
+- (Standalone Registry: 1.19.0-76bca3a)
+
 ### Anka Virtualization CLI 2.5.3 (2.5.3.135) - Sep 23rd, 2021
 
 > Upgrading Addons from the previous version of anka is necessary.
@@ -20,13 +25,6 @@ description: >
 - Bug Fix: `anka config default_passwd` returning 245 exit code
 - Bug Fix: VM suspension logic was producing stopping VMs
 - Bug Fix: Date strings in `anka list` have overflow in minutes and seconds fields
-
-### Anka Build Cloud Controller & Registry 1.18.0 (1.18.0-b3bb21bf) - Aug 23rd, 2021
-- Bug Fix: Reserved tasks do not get released back to queue
-- Bug Fix: Prevent controller crashing due to ETCD related panics and when active ETCD endpoint cannot be reached
-- New Feature: Ability to use certs and username/password for controller -> etcd connections | [Documentation]({{< relref "docs/Whats New/_index.md#ability-to-use-certs-and-usernamepassword-for-etcd-connections" >}})
-- Improvement: Upgrading etcd binaries to 3.4.16
-- (Standalone Registry: 1.18.0-04fd94e)
 
 ### Packer Plugin 2.1.0 - Aug 5th, 2021
 - Improvement: Ensure that we generate the release properly so that `packer init` works [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/75)
@@ -57,6 +55,13 @@ description: >
 ---
 
 ## Previous Versions
+
+### Anka Build Cloud Controller & Registry 1.18.0 (1.18.0-b3bb21bf) - Aug 23rd, 2021
+- Bug Fix: Reserved tasks do not get released back to queue
+- Bug Fix: Prevent controller crashing due to ETCD related panics and when active ETCD endpoint cannot be reached
+- New Feature: Ability to use certs and username/password for controller -> etcd connections | [Documentation]({{< relref "docs/Whats New/_index.md#ability-to-use-certs-and-usernamepassword-for-etcd-connections" >}})
+- Improvement: Upgrading etcd binaries to 3.4.16
+- (Standalone Registry: 1.18.0-04fd94e)
 
 ### Anka Virtualization CLI 2.5.2 (2.5.2.133) - Sep 13th, 2021
 
