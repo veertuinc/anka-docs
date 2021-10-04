@@ -10,11 +10,11 @@ Anka VMs error or disappear and you see in the Controller logs `E1108 23:09:28.8
 
 ## Common reasons
 
-1. Lots of VMS and Nodes
+1. Lots of VMS, Nodes, and tasks
 
 ## Solution
 
-Increase the space quota from the default 2GB: [https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/maintenance.md#space-quota](https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/maintenance.md#space-quota)
+Increase the space quota from the default 2GB: https://etcd.io/docs/v3.4/op-guide/maintenance/#space-quota
 
 ## Still experiencing problems?
 
