@@ -26,7 +26,7 @@ description: >
 - Bug Fix: VM suspension logic was producing stopping VMs
 - Bug Fix: Date strings in `anka list` have overflow in minutes and seconds fields
 
-> Known Issues we're working on fixes for:
+> Known issues we're working on fixes for:
 > - Creating a VM Template with the name of 11.6 seems to throw not found errors when trying to push, clone, etc.
 
 ### Packer Plugin 2.1.0 - Aug 5th, 2021
