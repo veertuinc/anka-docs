@@ -109,77 +109,75 @@ anka registry list
 ```shell
 # List example
 
-curl "http://anka.registry.net:8089/registry/vm" 
-
-{
-   "message" : "",
-   "body" : [
-      {
-         "id" : "0bf1a7e8-be95-43d9-a0c8-68c6aed0f2dd",
-         "name" : "jenkins-slave",
-         "size" : 16427892736
-      },
-      {
-         "id" : "1820b42d-6581-46af-bf42-f64caa1e9633",
-         "name" : "catalina",
-         "size" : 20643704832
-      },
-      {
-         "id" : "2fa0f10e-e91e-4665-8d42-00a39b9707de",
-         "name" : "Catalina-Xcode-11",
-         "size" : 17834520576
-      }
-   ],
-   "status" : "OK"
+curl -s http://anka.registry:8089/registry/v2/vm | jq                          {
+  "status": "OK",
+  "body": [
+    {
+      "id": "c12ccfa5-8757-411e-9505-128190e9854e",
+      "name": "11.6.0",
+      "size": 21024776192
+    }
+  ],
+  "message": ""
 }
+
 
 # Get Single Template 
 
-curl "http://anka.registry.net:8089/registry/vm?id=00510971-5c37-4a60-a9c6-ea185397d9b4" 
-
+curl -s "http://anka.registry:8089/registry/v2/vm?id=c12ccfa5-8757-411e-9505-128190e9854e" | jq
 {
-   "message" : "",
-   "body" : {
-      "name" : "android-2",
-      "id" : "00510971-5c37-4a60-a9c6-ea185397d9b4",
-      "size" : 18795192320,
-      "versions" : [
-         {
-            "config_file" : "00510971-5c37-4a60-a9c6-ea185397d9b4.yaml",
-            "state_files" : [
-               "c19ba955c706475e9aeade79f174a925.ank"
-            ],
-            "number" : 0,
-            "size" : 18795192320
-            "description" : "",
-            "nvram" : "nvram",
-            "images" : [
-               "83e3eb9a2b694ddbb90f535ffae4cbb8.ank",
-               "fae1423d7c99419c92109c326162c2dd.ank",
-               "51f90db935494831a831dae51c9743e0.ank",
-               "2be4266d24704db2bacbbd258d0d6288.ank",
-               "2d07e328bfc449b58f74b3e08f8d049d.ank",
-               "06ad0ac5-af7a-11e8-884c-c4b301c47c6b.ank",
-               "237a78ab78254cde9f04f2cecaec21b7.ank",
-               "7ae0e540-cae2-11e8-b0c8-c4b301c47c6b.ank",
-               "916cd0f1087345659b70275bb8cc3101.ank",
-               "239bb374545141ceb481d495ec01683e.ank",
-               "4ef1b52304264ac2bacaa34903b7af9c.ank",
-               "d2da3f9b4faa49b1804af2adccf5bccd.ank",
-               "dd94fbf0-c6ed-11e8-920b-c4b301c47c6b.ank",
-               "daba8902e1d24636bc424ac44252a090.ank",
-               "d97298f5-a06c-11e8-964c-c4b301c47c6b.ank",
-               "85ab1ffd-af80-11e8-bd5e-c4b301c47c6b.ank"
-            ],
-            "tag" : "t1"
-         }
-      ]
-   },
-   "status" : "OK"
+  "status": "OK",
+  "body": {
+    "id": "c12ccfa5-8757-411e-9505-128190e9854e",
+    "name": "11.6.0",
+    "versions": [
+      {
+        "number": 0,
+        "tag": "vanilla",
+        "config_file": "c12ccfa5-8757-411e-9505-128190e9854e.yaml",
+        "nvram": "nvram",
+        "images": [
+          "6e45c8998fab41d9bbf4a6a6975efda0.ank"
+        ],
+        "state_files": null,
+        "description": "",
+        "state_file": "",
+        "size": 18645143552
+      },
+      {
+        "number": 1,
+        "tag": "vanilla+port-forward-22",
+        "config_file": "c12ccfa5-8757-411e-9505-128190e9854e.yaml",
+        "nvram": "nvram",
+        "images": [
+          "6e45c8998fab41d9bbf4a6a6975efda0.ank"
+        ],
+        "state_files": null,
+        "description": "",
+        "state_file": "",
+        "size": 18645143552
+      },
+      {
+        "number": 2,
+        "tag": "vanilla+port-forward-22+brew-git",
+        "config_file": "c12ccfa5-8757-411e-9505-128190e9854e.yaml",
+        "nvram": "nvram",
+        "images": [
+          "732787cd099d47e2bcd429f93ba57613.ank",
+          "6e45c8998fab41d9bbf4a6a6975efda0.ank"
+        ],
+        "state_files": null,
+        "description": "",
+        "state_file": "",
+        "size": 21024776192
+      }
+    ],
+    "size": 21024776192
+  },
+  "message": ""
 }
 
 ```
-
 
 ### Delete VM
 
