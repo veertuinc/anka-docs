@@ -6,7 +6,7 @@ weight: 9
 description: How to upgrade the Anka Virtualization package
 ---
 
-#### [Upgrading the Build Cloud too? Check out out upgrade procedure for the Anka Build Cloud Controller & Registry]({{< relref "docs/Anka Build Cloud/upgrading.md" >}})
+> Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Build Cloud Controller & Registry]({{< relref "docs/Anka Build Cloud/upgrading.md" >}})
 
 > We do not follow strict [semantic versioning](https://semver.org/); minor and major version increases can have significant changes
 
