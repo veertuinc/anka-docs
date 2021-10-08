@@ -99,7 +99,7 @@ description: >
 
 ### Anka Virtualization CLI 2.5.0 (2.5.0.131) - Aug 19th, 2021
 
-> Upgrading Addons from the previous version is recommended but not necessary
+> Upgrading Addons from the previous version is recommended. Suspended VMs on 2.4.X seem to be problematic when starting on 2.5.X.
 
 - Bug Fix: Inability to create or start Anka VMs over SSH (no active UI) or as the ec2-user/non-root users on AWS EC2 Mac
 - Bug Fix: Inability to run more than one VM on AWS EC2 Mac
