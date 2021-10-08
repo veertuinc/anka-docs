@@ -16,6 +16,15 @@ description: >
 - Improvement: Controller logs now show with node name instances start on
 - (Standalone Registry: 1.19.0-76bca3a)
 
+> Known issues we're working on fixes for:
+> Please note that there is a temporary workaround required for a bug that started in versions after 1.18.0 of the Controller/Registry agent which runs on your nodes. All versions of the agent, when noticing that the version of itself does not match the version of the controller, will perform a self-upgrade and restart. The restart seems to be problematic on some setups and leaves a zombie anka_agent process and and Offline status in the controller UI. To work around the bug when upgrading your controller/registry, you'll need to change the existing steps to include:
+> - Disjoining all of the nodes first
+> - Do the controller/registry upgrade
+> - Run `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on each node to download the new version
+> - And finally join each node back
+> 
+> We will be fixing the bug in our next release. Thanks for your understanding and we are sorry for the inconvenience this causes.
+
 ### Anka Virtualization CLI 2.5.3 (2.5.3.135) - Sep 23rd, 2021
 
 > Upgrading Addons from the previous version of anka is necessary.
@@ -65,15 +74,6 @@ description: >
 - New Feature: Ability to use certs and username/password for controller -> etcd connections | [Documentation]({{< relref "docs/Whats New/_index.md#ability-to-use-certs-and-usernamepassword-for-etcd-connections" >}})
 - Improvement: Upgrading etcd binaries to 3.4.16
 - (Standalone Registry: 1.18.0-04fd94e)
-
-> Known issues we're working on fixes for:
-> Please note that there is a temporary workaround required for a bug that started in versions after 1.18.0 of the Controller/Registry agent which runs on your nodes. All versions of the agent, when noticing that the version of itself does not match the version of the controller, will perform a self-upgrade and restart. The restart seems to be problematic on some setups and leaves a zombie anka_agent process and and Offline status in the controller UI. To work around the bug when upgrading your controller/registry, you'll need to change the existing steps to include:
-> - Disjoining all of the nodes first
-> - Do the controller/registry upgrade
-> - Run `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on each node to download the new version
-> - And finally join each node back
-> 
-> We will be fixing the bug in our next release. Thanks for your understanding and we are sorry for the inconvenience this causes.
 
 ### Anka Virtualization CLI 2.5.2 (2.5.2.133) - Sep 13th, 2021
 
