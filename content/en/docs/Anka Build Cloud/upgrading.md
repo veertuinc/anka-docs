@@ -49,4 +49,4 @@ The Controller and Anka Nodes communicate through an agent running separate from
 
 | Existing Version | Target Version | Recommendation |
 | --- | --- | --- |
-| 1.18.0 | 1.19.0 | See [Release Notes for 1.19.0]({{< relref "docs/Release Notes/_index.md#anka-build-cloud-controller--registry-1190-1190-7c1c1424---oct-4th-2021"}})
+| 1.18.0 | 1.19.0 | See [Release Notes for 1.19.0]({{< relref "docs/Release Notes/_index.md#anka-build-cloud-controller--registry-1190-1190-7c1c1424---oct-4th-2021" >}})
