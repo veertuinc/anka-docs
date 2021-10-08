@@ -6,24 +6,23 @@ weight: 9
 description: How to upgrade the Anka Virtualization package
 ---
 
+#### [Upgrading the Build Cloud too? Check out out upgrade procedure for the Anka Build Cloud Controller & Registry]({{< relref "docs/Anka Build Cloud/upgrading.md" >}})
+
 > We do not follow strict [semantic versioning](https://semver.org/); minor and major version increases can have significant changes
 
-> Upgrading Anka Virtualization software while VMs are running **is safe**
+> Upgrading Anka Virtualization software while VMs are running **is typically safe.**
 
-> **Upgrading macOS VM inside Anka VM**
->
-> Anka VMs support `softwareupdate` and also the System Preferences method of upgrading. However, please ensure that Software Update and other settings are disabled enabled post-update as Apple can force re-enable this feature.
-
-### Upgrade Procedure (without Anka Build Cloud Controller & Registry)
+### Upgrade Procedure
 
 1. [Download and install the latest version]({{< relref "docs/Getting Started/installing-the-anka-virtualization-package.md" >}})
 
-> If your existing version is noted in the [Pre-Upgrade Considerations]({{< relref "docs/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}):
+> **NOTE:** If your existing version is noted in the [Pre-Upgrade Considerations]({{< relref "docs/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}), or, if you're going between major/minor versions of Anka:
 >
 >   1. Upgrade the guest addons inside existing VM templates with `anka start -u`
->   2. Push the newly upgraded VM templates to registry with `anka registry push {vmNameOrUUID} --tag <tag>`
+>   2. Push the newly upgraded VM templates to registry with `anka registry push {vmNameOrUUID} --tag <newTag>`
+>
+> We cannot guarantee that suspended VMs will start properly between major and minor versions of Anka, though, we do try and ensure the compatibility.
 
-### [Upgrade Procedure (with Anka Build Cloud Controller & Registry)]({{< relref "docs/Anka Build Cloud/upgrading.md" >}})
 ### Pre-Upgrade Considerations
 
 Existing Version | Target Version | Recommendation
@@ -34,3 +33,5 @@ Existing Version | Target Version | Recommendation
 ### Upgrading macOS inside of a running VM
 
 This scenario is possible, however, it's recommended that you upgrade Anka addons before upgrading macOS.
+
+Anka VMs support `softwareupdate` and also the System Preferences method of upgrading. However, please ensure that Software Update and [other settings]({{< relref "docs/Anka Build Cloud/prepare-nodes.md" >}}) are disabled enabled post-update as Apple can force re-enable these features.
