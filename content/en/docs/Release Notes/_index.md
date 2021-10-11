@@ -101,6 +101,8 @@ description: >
 
 > Upgrading Addons from the previous version is recommended. Suspended VMs on 2.4.X seem to be problematic when starting on 2.5.X.
 
+> 10.14.X does not contain the necessary Apple APIs to work with 2.5.X of Anka. You will need to upgrade macOS for your hosts to use 2.5.X.
+
 - Bug Fix: Inability to create or start Anka VMs over SSH (no active UI) or as the ec2-user/non-root users on AWS EC2 Mac
 - Bug Fix: Inability to run more than one VM on AWS EC2 Mac
 - Bug Fix: Startup scripts through the controller API fail due to slow network/DHCP setup
