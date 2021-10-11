@@ -29,7 +29,7 @@ Existing Version | Target Version | Recommendation
 --- | --- | ---
 1.4.3 | 2.x.x | Requires upgrade of all existing VM templates with `anka start --update` and push to the registry
 2.x | 2.1.2 | Only requires upgrade of existing Catalina VM templates with `anka start --update` and push to the registry
-2.x | N/A | macOS 10.14.X does not contain the necessary Apple APIs to work with 2.5.X of Anka. You will need to upgrade the host OS version before trying to install 2.5.X of Anka.
+x.x | 2.x | macOS 10.14.X does not contain the necessary Apple APIs to work with 2.5.X of Anka. You will need to upgrade the host OS version before trying to install 2.5.X of Anka.
 ### Upgrading macOS inside of a running VM
 
 This scenario is possible, however, it's recommended that you upgrade Anka addons before upgrading macOS.
