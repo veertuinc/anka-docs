@@ -301,7 +301,6 @@ When you stop or exit the container, it will automatically unregister it from yo
     ```
     --preparation-retries value           Set the amount of preparation retries for a job (default: "0") [$PREPARATION_RETRIES]
     ```
-- We've stripped out everything but the anka and ssh executors. Fortunately, the `anka-gitlab-runner` is independent and doesn't conflict with the regular `gitlab-runner` if they're running on the same machine. 
-  - The options that aren't associated with the stripped out executors you should still be able to use (cache-s3, maximum-timeout, etc).
+- The `anka-gitlab-runner` is independent and doesn't conflict with the regular `gitlab-runner` if they're running on the same machine. 
 - We use slightly modified versions of the original `gitlab-runner` tests (they didn't pass when we forked 12.10.0).
 - If your controller goes down, the runner will retry the HTTP/API calls for several minutes until finally throwing an error.
