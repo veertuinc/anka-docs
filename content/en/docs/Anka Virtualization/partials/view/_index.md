@@ -1,13 +1,15 @@
 ```shell
-> sudo anka view --help
-Usage: anka view [OPTIONS] VM_ID
+> anka view --help
+usage: view [options] vmid
 
-  Open VM in Anka Viewer
+   Open VM display
 
-Options:
-  -d, --display INTEGER  Specify the displays to view
-  --screenshot           Make png screenshot
-  --click                Send HDI events
-  --click-rec            Record HID events
-  --help                 Display usage information
+options:
+  -d,--display <val>
+                     Specify the display(s) to view
+  -s,--screenshot    Take PNG screenshot
+  --click            Send HDI events
+  --click-rec        Record HID events
+  -o,--output <val>
+                     Specify output file for the view operations
 ```

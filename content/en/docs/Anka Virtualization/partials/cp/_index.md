@@ -1,17 +1,17 @@
 ```shell
-> sudo anka cp --help
-Usage: anka cp [OPTIONS] [SRC]... DST
+> anka cp --help
+usage: cp [options]
 
-  Copy files in and out of the VM and host
+   Copy files in/out of the Anka VM and host
 
-Options:
-  -R      Copy the SRC and its entire subtree to the DST (required for folders)
-  -L      All symbolic links within your SRC directory are followed
-  -H      Symbolic links in the command are followed
-  -P      Do not follow symbolic links (enabled by default)
-  -f      Overwrite if DST already exists
-  -n      Skips if object already exists at DST
-  -p      Preserve the SRC object attributes
-  -a      Alias for -pPR
-  --help  Display usage information
+options:
+  -R                 copy the src and its entire subtree to the dst
+  -L                 all symbolic links are followed
+  -H                 symbolic links in the command are followed
+  -P                 do not follow a symbolic links (default)
+  -f                 remove and create the dst file on open failure
+  -n                 do not overwrite an existing file.
+  -p                 preserve the source file attributes
+  -a                 same as -pPR options
+  -v                 cause cp to be verbose, showing files as they are copied
 ```

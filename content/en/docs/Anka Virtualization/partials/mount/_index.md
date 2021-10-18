@@ -1,9 +1,6 @@
 ```shell
-> sudo anka mount --help
-Usage: anka mount [OPTIONS] VMID [DIR]...
+> anka mount --help
+usage: mount [dir] [mntpoint]
 
-  Mounts a host directory into the VM
-
-Options:
-  --help  Display usage information
+   Mount or check the mounted directories the VM
 ```

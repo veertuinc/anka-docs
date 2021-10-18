@@ -1,10 +1,9 @@
 ```shell
-> sudo anka unmount --help
-Usage: anka unmount [OPTIONS] VMID [DIR]...
+> anka unmount --help
+usage: unmount [options] [dir...]
 
-  Unmount the mounted host directory
+   Unmount the mounted directory
 
-Options:
-  -a, --all  Unmount all mounted directories
-  --help     Display usage information
+options:
+  -a,--all           Unmount all mounted directories
 ```

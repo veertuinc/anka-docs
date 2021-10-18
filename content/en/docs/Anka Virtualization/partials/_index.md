@@ -1,36 +1,33 @@
 ```shell
-> sudo anka  --help
-Usage: anka [OPTIONS] COMMAND [ARGS]...
+> anka  --help
+usage: anka [options] <command>
 
-Options:
-  --machine-readable              Output a machine readable format (JSON)
-  --log-level [debug|info|error]
-  --debug
-  -l, --login TEXT                Specify the vm policy user (if configured)
-  --help                          Display usage information
+   Anka command line tool
 
-Commands:
-  attach    Attach USB device(s) to a running VM
-  clone     Clone a suspended or stopped VM
-  config    Manage the CLI configuration
-  cp        Copy files in and out of the VM and host
-  create    Creates a VM
-  delete    Delete a VM(s)
-  describe  Show a VM's configuration
-  detach    Detach USB device(s) from a VM
-  license   Control Licensing
-  list      List the current user's VM Template library
-  modify    Modify a VM's configuration
-  mount     Mounts a host directory into the VM
-  reboot    Restart a running VM(s)
-  registry  Configure and control the Anka Cloud Registry
-  run       Run a command inside of a VM (will start VM...
-  show      Show a VM's runtime properties
-  start     Start or resume a stopped or suspended VM
-  stop      Shut down a VM(s)
-  suspend   Suspend a running VM(s)
-  unmount   Unmount the mounted host directory
-  usb       Manage USB devices
-  version   Output the Anka version
-  view      Open VM in Anka Viewer
+options:
+  -j,--machine-readable
+                     Output a machine readable format (JSON)
+  --version          Output the Anka version
+
+commands:
+  list               List local VM library
+  config             Manage the CLI configuration
+  show               Show a VM's properties
+  modify             Modify a VM parameters
+  view               Open VM display
+  run                Run a command inside of a VM (will start VM if suspended or stopped
+  create             Creates a VM
+  start              Start or resume a VM
+  stop               Shut down a VM(s)
+  clone              Clone a VM
+  push               Push a VM template the Registry
+  pull               Pull a VM template from the registry
+  suspend            Suspend a running VM(s)
+  mount              Mount or check the mounted directories the VM
+  unmount            Unmount the mounted directory
+  reboot             Reboot a running VM(s)
+  delete             Delete a VM(s) and tags
+  registry           Configure and control the Registry
+  cp                 Copy files in/out of the Anka VM and host
+  license            Control Licensing
 ```

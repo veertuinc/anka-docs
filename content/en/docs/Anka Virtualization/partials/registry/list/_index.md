@@ -1,9 +1,6 @@
 ```shell
-> sudo anka registry list --help
-Usage: anka registry list [OPTIONS] [VMID]...
+> anka registry list --help
+usage: list [vmid]
 
-  List VMs in registry
-
-Options:
-  --help  Display usage information
+   List VMs in registry
 ```

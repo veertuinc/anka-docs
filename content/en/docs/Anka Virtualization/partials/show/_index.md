@@ -1,10 +1,9 @@
 ```shell
-> sudo anka show --help
-Usage: anka show [OPTIONS] VM_ID [PROPERTY]...
+> anka show --help
+usage: show [options] vmid [param...]
 
-  Show a VM's runtime properties
+   Show a VM's properties
 
-Options:
-  -t, --tag TEXT  Specify VM tag, current by default
-  --help          Display usage information
+options:
+  -t,--tag <val>     Specify VM tag, current by default
 ```

@@ -1,11 +1,10 @@
 ```shell
-> sudo anka license activate --help
-Usage: anka license activate [OPTIONS] KEY
+> anka license activate --help
+usage: activate [options] key
 
-  Activate license key (requires root privileges)
+   Activate license key
 
-Options:
-  -f, --force  Silently override the current license
-  --cid TEXT   Submit the CustomerID
-  --help       Display usage information
+options:
+  -f,--force         Silently override the current license
+  --cid <val>        Submit the CustomerID
 ```

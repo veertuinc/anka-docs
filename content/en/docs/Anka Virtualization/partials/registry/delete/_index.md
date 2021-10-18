@@ -1,10 +1,9 @@
 ```shell
-> sudo anka registry delete --help
-Usage: anka registry delete [OPTIONS] [REMOTE]...
+> anka registry delete --help
+usage: delete [options] [REG_NAME]
 
-  Remove the registry from your configuration
+   Remove a registry from your configuration
 
-Options:
-  -a, --all  Forget all registries
-  --help     Display usage information
+options:
+  -a,--all           Forget all registries
 ```

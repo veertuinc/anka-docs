@@ -1,10 +1,9 @@
 ```shell
-> sudo anka reboot --help
-Usage: anka reboot [OPTIONS] [VMID]...
+> anka reboot --help
+usage: reboot [options] [vmid...]
 
-  Restart a running VM(s)
+   Reboot a running VM(s)
 
-Options:
-  -a, --all  Reboot all running vms
-  --help     Display usage information
+options:
+  -a,--all           Reboot all running VMs
 ```

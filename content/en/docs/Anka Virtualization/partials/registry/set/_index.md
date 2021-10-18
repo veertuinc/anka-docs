@@ -1,9 +1,6 @@
 ```shell
-> sudo anka registry set --help
-Usage: anka registry set [OPTIONS] REG_NAME
+> anka registry set --help
+usage: set name
 
-  Set default registry
-
-Options:
-  --help  Display usage information
+   Set default registry
 ```

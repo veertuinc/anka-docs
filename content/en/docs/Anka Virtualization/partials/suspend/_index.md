@@ -1,10 +1,9 @@
 ```shell
-> sudo anka suspend --help
-Usage: anka suspend [OPTIONS] [VMID]...
+> anka suspend --help
+usage: suspend [options] [vmid...]
 
-  Suspend a running VM(s)
+   Suspend a running VM(s)
 
-Options:
-  -a, --all  Suspend all running vms
-  --help     Display usage information
+options:
+  -a,--all           Suspend all running VMs
 ```

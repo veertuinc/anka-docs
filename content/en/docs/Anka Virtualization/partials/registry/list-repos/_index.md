@@ -1,10 +1,9 @@
 ```shell
-> sudo anka registry list-repos --help
-Usage: anka registry list-repos [OPTIONS]
+> anka registry list-repos --help
+usage: list-repos [options]
 
-  List registries you have configured
+   List registries you have configured
 
-Options:
-  -d, --default  show only the default registry
-  --help         Display usage information
+options:
+  -d,--default       Show only the default registry
 ```

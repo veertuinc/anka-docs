@@ -1,11 +1,10 @@
 ```shell
-> sudo anka stop --help
-Usage: anka stop [OPTIONS] [VMID]...
+> anka stop --help
+usage: stop [options] [vmid...]
 
-  Shut down a VM(s)
+   Shut down a VM(s)
 
-Options:
-  -f, --force  Forcefully stop the VM
-  -a, --all    Shutdown all running vms
-  --help       Display usage information
+options:
+  -a,--all           Shutdown all running VMs
+  -f,--force         Forcefully stop the VM(s)
 ```

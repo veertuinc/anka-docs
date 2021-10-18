@@ -1,9 +1,6 @@
 ```shell
-> sudo anka registry add --help
-Usage: anka registry add [OPTIONS] REG_NAME REG_URL
+> anka registry add --help
+usage: add name url
 
-  Add a registry
-
-Options:
-  --help  Display usage information
+   Add a registry
 ```

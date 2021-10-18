@@ -1,10 +1,9 @@
 ```shell
-> sudo anka license show --help
-Usage: anka license show [OPTIONS]
+> anka license show --help
+usage: show <command>
 
-  Show license information
+   Show license information
 
-Options:
-  -k, --key TEXT  Get key information
-  --help          Display usage information
+commands:
+  k,key           
 ```

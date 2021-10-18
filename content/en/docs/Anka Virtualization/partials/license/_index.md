@@ -1,16 +1,12 @@
 ```shell
-> sudo anka license --help
-Usage: anka license [OPTIONS] COMMAND [ARGS]...
+> anka license --help
+usage: license <command>
 
-  Control Licensing
+   Control Licensing
 
-Options:
-  --help  Display usage information
-
-Commands:
-  accept-eula  Accept EULA (requires root privileges)
-  activate     Activate license key (requires root...
-  remove       Remove the current license (requires root...
-  show         Show license information
-  validate     Validate the current license
+commands:
+  show               Show license information
+  activate           Activate license key
+  delete             Remove the current license
+  accept-eula        Accept EULA (requires root privileges)
 ```
