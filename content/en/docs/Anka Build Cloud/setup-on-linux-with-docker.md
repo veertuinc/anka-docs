@@ -179,7 +179,7 @@ aa1de7c150e7        test_anka-controller   "/bin/bash -c 'anka-…"   About a mi
 #### Configuration and scripts
 Make configurations by editing `docker-compose.yml`. Most of the stuff you can configure is listed there but commented out.
 
-Check out the variables under the `environment` section of each service. [A full reference is available.](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference)
+Check out the variables under the `environment` section of each service. [A full reference is available.]({{< relref "docs/Anka Build Cloud/configuration-reference.md" >}})
 
 #### Logging
 
@@ -199,7 +199,7 @@ docker logs --tail 100 -f test_anka-registry_1
 
 [By default, no log-rotation is performed. As a result, log-files stored by the default json-file logging driver logging driver can cause a significant amount of disk space to be used for containers that generate much output, which can lead to disk space exhaustion.](https://docs.docker.com/config/containers/logging/configure/)
 
-> The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging))
+> The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ( [reference]({{< relref "docs/Anka Build Cloud/configuration-reference.md#logging" >}} )
 
 ## Step 3: Link the Anka CLI Node to the Controller
 

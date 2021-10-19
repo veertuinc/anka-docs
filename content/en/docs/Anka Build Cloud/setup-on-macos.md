@@ -80,7 +80,7 @@ Two methods are available:
 
 {{< include file="shared/content/en/docs/Getting Started/partials/_controller-listening-on-80-and-orientation.md" >}}
 
-#### Configuration and scripts ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference))
+#### Configuration and scripts ( [reference]({{< relref "docs/Anka Build Cloud/configuration-reference.md" >}}) )
 
 The Anka Controller **AND Registry** command is installed into `/usr/local/bin/anka-controller`. To see what functions it has, execute the script with root privileges:
 ```shell 
@@ -88,7 +88,7 @@ sudo anka-controller
 usage: /usr/local/bin/anka-controller [start|stop|restart|status|logs]
 ```
 When `sudo anka-controller start` is executed, the script will use `launchd` to load the daemon: `/Library/LaunchDaemons/com.veertu.anka.controller.plist`.
- - The Anka Controller & Registry run script is `/usr/local/bin/anka-controllerd`. This file acts as a run script **and configuration file**. You can modify it to change the default ports used by adding the proper option or ENV. For example, if you want to run the Registry on a different port and use 127.0.0.1, you would add the following above the `"$CONTROLLER_BIN"` line ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference)): 
+ - The Anka Controller & Registry run script is `/usr/local/bin/anka-controllerd`. This file acts as a run script **and configuration file**. You can modify it to change the default ports used by adding the proper option or ENV. For example, if you want to run the Registry on a different port and use 127.0.0.1, you would add the following above the `"$CONTROLLER_BIN"` line ( [reference]({{< relref "docs/Anka Build Cloud/configuration-reference.md" >}}) ): 
     ```shell
     export ANKA_ANKA_REGISTRY="http://127.0.0.1:8081"
     export ANKA_REGISTRY_LISTEN_ADDRESS=":8081" 
@@ -103,14 +103,14 @@ Logs are written to `/Library/Logs/Veertu/AnkaController` by default:
 /Library/Logs/Veertu/AnkaController/anka-controller.ERROR
 ```
  
-> You can modify the destination in the `/usr/local/bin/anka-controllerd` file ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging)).
+> You can modify the destination in the `/usr/local/bin/anka-controllerd` file ( [reference]({{< relref "docs/Anka Build Cloud/configuration-reference.md#logging" >}}) ).
 
 You can also watch the logs live (similar to tail -f):
 ```shell
 sudo anka-controller logs
 ```
  
-> The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([reference](https://ankadocs.veertu.com/docs/anka-build-cloud/configuration-reference/#logging))
+> The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ( [reference]({{< relref "docs/Anka Build Cloud/configuration-reference.md#logging" >}}) )
 
 ## Step 3: Link the Anka CLI Node to the Controller
 
