@@ -6,13 +6,20 @@ weight: 6
 description: >
   Anka CLI Command Reference 
 ---
+
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/_index.md" >}}
+
 ## List
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/list/_index.md" >}}
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/list/_example.md" >}}
 ## Config
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/config/_index.md" >}}
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/config/_example.md" >}}
+
 ## Show
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/show/_index.md" >}}
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/show/_example.md" >}}
+
 ## Modify
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/modify/_index.md" >}}
 ### modify {vmNameOrUUID} name
@@ -31,6 +38,7 @@ description: >
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/view/_index.md" >}}
 ## Run
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/run/_index.md" >}}
+{{< include file="./shared/content/en/docs/Anka Virtualization/partials/run/_example.md" >}}
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/run/_extra.md" >}}
 ## Create
 {{< include file="./shared/content/en/docs/Anka Virtualization/partials/create/_index.md" >}}

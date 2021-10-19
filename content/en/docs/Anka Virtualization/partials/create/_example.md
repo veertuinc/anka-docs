@@ -1,4 +1,5 @@
 ```shell
-sudo anka create --ram-size 8G --cpu-count 4 --disk-size 80G \
---app /Applications/Install\ macOS\ Catalina.app 10.15.6
+❯ anka create 12.0-beta
+######################################################################## 100.0%
+00c44c30-174a-4266-8833-89d6975754bd
 ```
