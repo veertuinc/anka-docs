@@ -15,6 +15,6 @@ DevOps workflows typically include lots of automation. Because of this, Anka has
 * Write scripts for automated Template & Tag creation in your preferred language, or use our [packer builder](https://github.com/veertuinc/packer-builder-veertu-anka)
 * Store your VM Templates and Tags in the Anka Cloud Registry so you can distribute or pull them to different machines and ensure the same VM state
 * Manage your VMs from the Anka Build Cloud Controller's UI or REST API
-* Get up and running quickly with [one of our maintained CI plugins or integrations]({{< relref "arm/CI Plugins and Integrations/_index.md" >}})
+* Get up and running quickly with [one of our maintained CI plugins or integrations]({{< relref "intel/CI Plugins and Integrations/_index.md" >}})
 
-> Information about how VM Template and Tags work can be found in our [Getting Started > Creating your first VM]({{< relref "arm/Getting Started/creating-your-first-vm.md" >}}) guide.
+> Information about how VM Template and Tags work can be found in our [Getting Started > Creating your first VM]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}}) guide.

@@ -8,7 +8,7 @@ description: >
 
 ## Prerequisites
 
-1. [You've installed the Anka Virtualization package]({{< relref "arm/Getting Started/installing-the-anka-virtualization-package.md" >}})
+1. [You've installed the Anka Virtualization package]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})
 2. [You've got an active license]({{< relref "arm/Licensing/_index.md" >}})
 3. The machine you wish to use is Intel and not M1 (support for M1 coming soon)
 
@@ -44,13 +44,13 @@ Once the VM template is created, you will see it on the sidebar.
 
 ### Using the Anka CLI
 
-{{< include file="arm/Anka Virtualization/partials/create/_index.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/create/_index.md" >}}
 
-{{< include file="arm/Anka Virtualization/partials/create/_example.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/create/_example.md" >}}
 
 ## Listing available VMs in the CLI
 
-{{< include file="arm/Anka Virtualization/partials/list/_example.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/list/_example.md" >}}
 
 ## Deleting a VM
 
@@ -83,7 +83,7 @@ sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.pl
 
 On pushing to the registry, a tag is created. It will also be assigned a specific commit ID (not visible to users). Even if you modify the tag locally, such as adding port-forwarding, changes will not be pushed to the registry until you push with a different tag name.
 
-Now, you can simply untag the VM locally and then push it with the same name (after [deleting the VM template]({{< relref "arm/Anka Build Cloud/working-with-controller-and-api.md#delete-template" >}}) or [reverting the tag]({{< relref "arm/Anka Build Cloud/working-with-controller-and-api.md#revert-template-tag" >}})):
+Now, you can simply untag the VM locally and then push it with the same name (after [deleting the VM template]({{< relref "intel/Anka Build Cloud/working-with-controller-and-api.md#delete-template" >}}) or [reverting the tag]({{< relref "intel/Anka Build Cloud/working-with-controller-and-api.md#revert-template-tag" >}})):
 
 > Locally, this does not remove the current STATE of the tag from the VM. Your installed dependencies inside of the VM will remain as long as you don't pull or switch to a different tag.
 
@@ -99,4 +99,4 @@ anka registry push -t tag2 TemplateA
 
 ## What's next?
 
-- [Starting and Accessing your VM]({{< relref "arm/Getting Started/starting-and-accessing-your-vm.md" >}})
+- [Starting and Accessing your VM]({{< relref "intel/Getting Started/starting-and-accessing-your-vm.md" >}})

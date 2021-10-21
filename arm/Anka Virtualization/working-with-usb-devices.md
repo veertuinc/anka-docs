@@ -94,7 +94,7 @@ USB:
 
 1. Perform steps outlined above to **claim** USB devices on the host machine.
 
-2. You can now request the USB device list from the [Controller REST API.]({{< relref "arm/Anka Build Cloud/working-with-controller-and-api.md#usb">}}) The `body` object will contain an unordered list of **vendor_id** OR claim group names.
+2. You can now request the USB device list from the [Controller REST API.]({{< relref "intel/Anka Build Cloud/working-with-controller-and-api.md#usb">}}) The `body` object will contain an unordered list of **vendor_id** OR claim group names.
 
     ```shell
     anka usb claim 275a5e5f1313b22305c9beaffc4d58d985ebxxxx
@@ -126,7 +126,7 @@ USB:
       ]
     }
     ```
-    - If [certificate based authentication]({{< relref "arm/Anka Build Cloud/Advanced Security Features/certificate-authentication.md" >}}) is enabled, you need to include the _--cert_, _--key_, and _--cacert_:
+    - If [certificate based authentication]({{< relref "intel/Anka Build Cloud/Advanced Security Features/certificate-authentication.md" >}}) is enabled, you need to include the _--cert_, _--key_, and _--cacert_:
 
         ```shell
         curl https://127.0.0.1:8080/api/v1/usb --cert ~/node-crt.pem --key ~/node-key.pem --cacert ~/anka-ca-crt.pem

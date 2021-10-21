@@ -8,7 +8,7 @@ description: >
 
 More detailed license information can be found on our [Licensing documentation page]({{< relref "arm/Licensing/_index.md" >}})
 
-{{< include file="arm/Licensing/partials/_activating.md" >}}
+{{< include file="arm/Licensing/partials/activating.md" >}}
 
 ---
 

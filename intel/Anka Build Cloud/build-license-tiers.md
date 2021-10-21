@@ -9,7 +9,7 @@ description: >
 
 ## Anka License Feature Differences
 
-{{< include file="_partials/intel/Licensing/feature-differences.md" >}}
+{{< include file="_partials/Licensing/feature-differences.md" >}}
 
 ## Anka Build License Tier Datasheet
 

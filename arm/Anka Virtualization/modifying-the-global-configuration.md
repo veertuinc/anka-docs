@@ -7,7 +7,7 @@ description: >
   How to modify the Global Anka Virtualization configuration
 ---
 
-{{< include file="arm/Anka Virtualization/partials/config/_index.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/config/_index.md" >}}
 
 ## Viewing the configuration
 

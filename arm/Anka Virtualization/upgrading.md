@@ -6,7 +6,7 @@ weight: 9
 description: How to upgrade the Anka Virtualization package
 ---
 
-> Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Build Cloud Controller & Registry]({{< relref "arm/Anka Build Cloud/upgrading.md" >}})
+> Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Build Cloud Controller & Registry]({{< relref "intel/Anka Build Cloud/upgrading.md" >}})
 
 > We do not follow strict [semantic versioning](https://semver.org/); minor and major version increases can have significant changes
 
@@ -14,7 +14,7 @@ description: How to upgrade the Anka Virtualization package
 
 ### Upgrade Procedure
 
-1. [Download and install the latest version]({{< relref "arm/Getting Started/installing-the-anka-virtualization-package.md" >}})
+1. [Download and install the latest version]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})
 
 > **NOTE:** If your existing version is noted in the [Pre-Upgrade Considerations]({{< relref "arm/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}), or, if you're going between major/minor versions of Anka:
 >
@@ -34,4 +34,4 @@ x.x | 2.x | macOS 10.14.X does not contain the necessary Apple APIs to work with
 
 This scenario is possible, however, it's recommended that you upgrade Anka addons before upgrading macOS.
 
-Anka VMs support `softwareupdate` and also the System Preferences method of upgrading. However, please ensure that Software Update and [other settings]({{< relref "arm/Anka Build Cloud/prepare-nodes.md" >}}) are disabled enabled post-update as Apple can force re-enable these features.
+Anka VMs support `softwareupdate` and also the System Preferences method of upgrading. However, please ensure that Software Update and [other settings]({{< relref "intel/Anka Build Cloud/prepare-nodes.md" >}}) are disabled enabled post-update as Apple can force re-enable these features.

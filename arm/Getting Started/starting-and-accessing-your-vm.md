@@ -9,9 +9,9 @@ description: >
 
 ## Prerequisites
 
-1. [You've installed the Anka Virtualization package]({{< relref "arm/Getting Started/installing-the-anka-virtualization-package.md" >}})
+1. [You've installed the Anka Virtualization package]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})
 2. [You've got an active license]({{< relref "arm/Licensing/_index.md" >}})
-3. [You've created your first VM Template]({{< relref "arm/Getting Started/creating-your-first-vm.md" >}})
+3. [You've created your first VM Template]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
 
 > When running Anka commands on your machine, ensure that you have an active login session (you might have to VNC in if you're connected over SSH) and also have enabled automatic login for the current user: `System Preferences > Users > Enable automatic login`
 
@@ -60,7 +60,7 @@ To start the VM in headless mode: `sudo anka start {vmNameOrUUID}`
 
 Similar to `docker exec`, [`anka run`]({{< relref "arm/Anka Virtualization/command-reference.md#run" >}}) allows execution of commands inside of a VM.
 
-{{< include file="arm/Anka Virtualization/partials/run/_index.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/run/_index.md" >}}
 
 > If the VM is in a _suspended_ or _stopped_ state, [`anka run`]({{< relref "arm/Anka Virtualization/command-reference.md#run" >}}) will start it.
 
@@ -105,7 +105,7 @@ round-trip min/avg/max/stddev = 16.992/21.940/25.797/3.416 ms
 
 > On Big Sur, many of the resolution/graphics features in Anka View do not work unless you [manually install addons]({{< relref "arm/Anka Virtualization/command-reference.md#install-addons">}})
 
-{{< include file="arm/Anka Virtualization/partials/view/_index.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/view/_index.md" >}}
 
 {{< imgwithlink src="/images/getting-started/starting-and-accessing-your-vm/anka-start-view-viewer-window.png" >}}
 
@@ -201,4 +201,4 @@ However, this is a very limited VNC with no extensions (copy/paste, extended aut
 
 ## What's next?
 
-- [Modifying your VM Template]({{< relref "arm/Getting Started/modifying-your-vm-template.md" >}})
+- [Modifying your VM Template]({{< relref "intel/Getting Started/modifying-your-vm-template.md" >}})

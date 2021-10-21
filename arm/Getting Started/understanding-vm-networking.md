@@ -9,11 +9,11 @@ description: >
 
 ## Prerequisites
 
-1. [You've installed the Anka Virtualization package]({{< relref "arm/Getting Started/installing-the-anka-virtualization-package.md" >}})
+1. [You've installed the Anka Virtualization package]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})
 2. [You've got an active license]({{< relref "arm/Licensing/_index.md" >}})
-3. [You've created your first VM Template]({{< relref "arm/Getting Started/creating-your-first-vm.md" >}})
-4. [You understand how to start and access your VM]({{< relref "arm/Getting Started/starting-and-accessing-your-vm.md" >}})
-5. [You grasp how to modify VM settings, like network-card]({{< relref "arm/Getting Started/modifying-your-vm-template.md" >}})
+3. [You've created your first VM Template]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
+4. [You understand how to start and access your VM]({{< relref "intel/Getting Started/starting-and-accessing-your-vm.md" >}})
+5. [You grasp how to modify VM settings, like network-card]({{< relref "intel/Getting Started/modifying-your-vm-template.md" >}})
 
 ---
 
@@ -27,9 +27,9 @@ Anka VMs, by default, use a shared networking configuration with the host. It’
 
 ## Changing the network configuration for Anka VMs
 
-{{< include file="arm/Anka Virtualization/partials/modify/set/network-card/_index.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/modify/set/network-card/_index.md" >}}
 
-{{< include file="arm/Anka Virtualization/partials/modify/set/network-card/_example.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/modify/set/network-card/_example.md" >}}
 
 | Type | Description |
 | --- | --- |
@@ -58,7 +58,7 @@ Anka will dynamically assign MAC addresses to your VM. In Catalina and higher, y
 
 ## What's next?
 
-- [Activating your Anka License]({{< relref "arm/Getting Started/activating-your-anka-license.md" >}})
+- [Activating your Anka License]({{< relref "intel/Getting Started/activating-your-anka-license.md" >}})
 
 ## FAQs
 

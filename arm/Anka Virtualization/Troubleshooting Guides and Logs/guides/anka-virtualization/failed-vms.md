@@ -10,7 +10,7 @@ Anka show indicates `"failed"` for the status
 
 ## Common reasons & Solutions
 
-1. [No active/logged in (to UI) user, Autologin disabled, and a few other prep steps aren't performed.]({{< relref "arm/Anka Build Cloud/prepare-nodes.md" >}})
+1. [No active/logged in (to UI) user, Autologin disabled, and a few other prep steps aren't performed.]({{< relref "intel/Anka Build Cloud/prepare-nodes.md" >}})
 2. The failed state is somehow stuck. Perform `anka start {VM NAME}`, `anka stop -f {VM NAME}`, and then `anka registry pull {VM NAME}` to reset it.
 ## Still experiencing problems?
 

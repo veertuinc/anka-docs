@@ -7,4 +7,4 @@ description: >
   All about the Anka Virtualization package
 ---
 
-{{< include file="arm/Anka Virtualization/partials/_index.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/_index.md" >}}

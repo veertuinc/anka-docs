@@ -8,17 +8,17 @@ description: >
 
 ## Prerequisites
 
-1. [You've installed the Anka Virtualization package]({{< relref "arm/Getting Started/installing-the-anka-virtualization-package.md" >}})
+1. [You've installed the Anka Virtualization package]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})
 2. [You've got an active license]({{< relref "arm/Licensing/_index.md" >}})
-3. [You've created your first VM Template]({{< relref "arm/Getting Started/creating-your-first-vm.md" >}})
+3. [You've created your first VM Template]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
 
 ---
 
 **The rest of this Getting Started guide focuses heavily on the Anka Virtualization CLI (Command-Line Interface). These will be performed from within your [macOS Terminal](https://support.apple.com/guide/terminal/welcome/mac). For all available CLI commands, flags, and options, see the [Command Reference]({{< relref "arm/Anka Virtualization/command-reference.md" >}}).**
 
-{{< include file="arm/Anka Virtualization/partials/modify/_index.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/modify/_index.md" >}}
 
-{{< include file="arm/Anka Virtualization/partials/modify/set/_index.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/modify/set/_index.md" >}}
 
 ## Increase your VM's disk space with `hard-drive`
 
@@ -35,16 +35,16 @@ anka run --no-volume {vmNameOrUUID} diskutil apfs resizeContainer disk1 0
 
 Depending on your network topology, there are instances where you might need to use a bridge mode and assign your VM a unique IP address instead of the default shared IP of the host:
 
-{{< include file="arm/Anka Virtualization/partials/modify/set/network-card/_index.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/modify/set/network-card/_index.md" >}}
 
-{{< include file="arm/Anka Virtualization/partials/modify/set/network-card/_example.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/modify/set/network-card/_example.md" >}}
 
 
 ## Set up your VM for external access with `port-forwarding`
 
 If you wish for the VM to be accessible to other machines on your network, and are using a Shared network mode (the default), you will need to setup port forwarding:
 
-{{< include file="arm/Anka Virtualization/partials/modify/add/port-forwarding/_example.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/modify/add/port-forwarding/_example.md" >}}
 
 The VM can then be accessed using: `ssh anka@{theHostRunningTheVMsIP} -p {host_port}`
 
@@ -54,11 +54,11 @@ The VM can then be accessed using: `ssh anka@{theHostRunningTheVMsIP} -p {host_p
 
 At times you might need to modify the hardware serial or UUID to run proper builds/tests that require specific hardware to function properly:
 
-{{< include file="arm/Anka Virtualization/partials/modify/set/custom-variable/_index.md" >}}
-{{< include file="arm/Anka Virtualization/partials/modify/set/custom-variable/_example.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/modify/set/custom-variable/_index.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/modify/set/custom-variable/_example.md" >}}
 
 ---
 
 ## What's next?
 
-- [Understanding VM Networking]({{< relref "arm/Getting Started/understanding-vm-networking.md" >}})
+- [Understanding VM Networking]({{< relref "intel/Getting Started/understanding-vm-networking.md" >}})

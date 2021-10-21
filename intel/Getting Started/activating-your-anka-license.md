@@ -8,7 +8,7 @@ description: >
 
 More detailed license information can be found on our [Licensing documentation page]({{< relref "intel/Licensing/_index.md" >}})
 
-{{< include file="_partials/intel/Licensing/_activating.md" >}}
+{{< include file="_partials/intel/Licensing/activating.md" >}}
 
 ---
 
