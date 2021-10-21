@@ -20,15 +20,15 @@ Anka licenses are available for the following products:
 + **[Anka Flow]({{< relref "intel/Anka Flow/_index.md" >}})** - Install and configure Anka on developer mac workstations. Supported only on macbook models and iMac.
 + **[Anka Secure]({{< relref "intel/Anka Secure/_index.md" >}})** - Install and configure Anka on mac workstations to create secure, sandbox macOS working environments for privileged data access, etc.
 
-## Obtaining a trial license
+## Trial License
 
 Trial licenses for Anka products is valid for 30 days from the date of trial registration. They enable unlimited access to product features. You can use the same activation key on multiple machines depending upon the quantity specified at the time of trial registration. They can be obtained at https://veertu.com/getting-started-anka-trials/.
 
-## Anka License Feature Differences
+## Anka Virtualization
 
 {{< include file="_partials/intel/Licensing/feature-differences.md" >}}
 
-## Anka Build License Feature Differences
+## Anka Build Cloud
 
 **Feature** | **Basic** | **Enterprise** | **Enterprise Plus**
 --- | --- | --- |  ---

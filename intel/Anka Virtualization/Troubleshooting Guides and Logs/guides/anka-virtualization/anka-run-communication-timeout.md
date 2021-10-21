@@ -14,7 +14,7 @@ Anka Run throws `-anka: communication timeout`
 
 ## Solution
 
-Ensure common reasons (above) are performed
+See above `Common Reasons` for recommendations
 
 ## Still experiencing problems?
 
