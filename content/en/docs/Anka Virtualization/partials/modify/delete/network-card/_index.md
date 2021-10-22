@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify test delete network-card --help
+> sudo anka modify 11.6.0 delete network-card --help
 Usage: anka modify delete network-card [OPTIONS] [INDEX]...
 
 Options:

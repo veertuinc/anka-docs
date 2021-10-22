@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify test add hard-drive --help
+> sudo anka modify 11.6.0 add hard-drive --help
 Usage: anka modify add hard-drive [OPTIONS] ARGUMENT
 
 Options:

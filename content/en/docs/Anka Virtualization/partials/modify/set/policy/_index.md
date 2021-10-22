@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify test set policy --help
+> sudo anka modify 11.6.0 set policy --help
 Usage: anka modify set policy [OPTIONS] [FILE]...
 
   Enable VM access management

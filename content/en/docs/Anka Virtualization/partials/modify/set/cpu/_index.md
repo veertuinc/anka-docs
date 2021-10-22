@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify test set cpu --help
+> sudo anka modify 11.6.0 set cpu --help
 Usage: anka modify set cpu [OPTIONS] [NCPU]...
 
   Set number of vcpu cores and frequency

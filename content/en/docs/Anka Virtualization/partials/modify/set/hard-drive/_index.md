@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify test set hard-drive --help
+> sudo anka modify 11.6.0 set hard-drive --help
 Usage: anka modify set hard-drive [OPTIONS] [INDEX]...
 
   Modify hard drive settings

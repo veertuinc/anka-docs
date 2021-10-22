@@ -9,7 +9,6 @@ Options:
                                  be installed)
   -f, --force                    Start VM with minimum checks
   -v, --view                     Open VM in an Anka Viewer window
-  -d, --usb TEXT                 Attach a USB device by Name, Vendor ID, Location, or Claim Name (device must be
-                                 claimed)
+  -d, --usb TEXT                 Attach a USB device (deprecated, use attach command)
   --help                         Display usage information
 ```
