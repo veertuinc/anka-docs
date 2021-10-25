@@ -7,4 +7,6 @@ description: >
   Detailed information on Anka Licensing
 ---
 
-{{< include file="_partials/Licensing/body.md" >}}
+{{< hint info >}}
+Licensing is not required while Anka M1 is in beta. There is however a 30 day evaluation period per machine.
+{{< /hint >}}

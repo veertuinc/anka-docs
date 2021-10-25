@@ -85,8 +85,7 @@ description: >
 {{< include file="_partials/arm/Anka Virtualization/license/_index.md" >}}
 ### license show
 {{< include file="_partials/arm/Anka Virtualization/license/show/_index.md" >}}
-#### license show k,key
-{{< include file="_partials/arm/Anka Virtualization/license/show/k,key/_index.md" >}}
+
 ### license activate
 {{< include file="_partials/arm/Anka Virtualization/license/activate/_index.md" >}}
 ### license delete
