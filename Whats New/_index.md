@@ -5,6 +5,8 @@ type: "blog"
 menu:
   main:
     weight: 1
+cascade:
+  - type: "blog"
 ---
 
 
