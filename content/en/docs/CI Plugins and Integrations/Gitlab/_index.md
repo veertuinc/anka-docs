@@ -261,6 +261,7 @@ When you stop or exit the container, it will automatically unregister it from yo
 
 ## Answers to Common Questions
 
+- Long running jobs will fail due to the default SSHD configuration within macOS. You can set `ClientAliveInterval` and `ClientAliveMaxCount` in the `/etc/ssh/sshd_config` file of the VM to address this.
 - We recommend this [Stackoverflow post](https://stackoverflow.com/questions/54534387/how-gitlab-runner-concurrency-works) to understanding runner concurrency and limits
 - Environment variables such as `$RUNNER_LIMIT` require you register the runner with a [template file](https://docs.gitlab.com/runner/register/#runners-configuration-template-file). They will not work when set on the CLI when registering.
 - The gitlab-runner's default concurrency (amount of jobs that can run in the runner at once) setting in your `~/.gitlab-runner/anka-config.toml` is set to `concurrent = 1`. It's typical for customers to need to increase this value.
