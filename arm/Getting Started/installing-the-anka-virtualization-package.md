@@ -25,4 +25,4 @@ description: >
 
 ## What's next?
 
-- [Creating your first VM]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
+- [Creating your first VM]({{< relref "arm/Getting Started/creating-your-first-vm.md" >}})

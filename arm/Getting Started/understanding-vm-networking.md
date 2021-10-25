@@ -9,57 +9,106 @@ description: >
 
 ## Prerequisites
 
-1. [You've installed the Anka Virtualization package]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})
-2. [You've got an active license]({{< relref "arm/Licensing/_index.md" >}})
-3. [You've created your first VM Template]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
-4. [You understand how to start and access your VM]({{< relref "intel/Getting Started/starting-and-accessing-your-vm.md" >}})
-5. [You grasp how to modify VM settings, like network-card]({{< relref "intel/Getting Started/modifying-your-vm-template.md" >}})
+1. [You've installed the Anka Virtualization package]({{< relref "arm/Getting Started/installing-the-anka-virtualization-package.md" >}})
+2. [You've created your first VM Template]({{< relref "arm/Getting Started/creating-your-first-vm.md" >}})
+3. [You grasp how to modify VM settings (like `network`)]({{< relref "arm/Getting Started/modifying-your-vm-template.md" >}})
 
 ---
 
-By default, we use Apple's VMNET interface for networking. We also configure the network service as "Using DHCP".
+We use Apple's VMNET interface with "`Using DHCP`" for networking. 
 
-Anka VMs, by default, use a shared networking configuration with the host. It’s a kind of NAT + DHCP. Every time you start/resume a VM, it gets assigned an IP that you can see with `sudo anka show {vmNameOrUUID}` command.
+By default Anka VMs use a shared networking configuration with the host. It’s a kind of NAT + DHCP. 
 
-> SSH access ("Remote Login") is enabled by default on Anka VMs.
+```shell
+❯ anka --machine-readable describe 12.0-beta | jq '.body.network_cards'
+[
+  {
+    "mode": "shared",
+    "controller": "virtio-net"
+  }
+]
+```
 
-> Within the VM, you can find an IP assigned to the host which can be used to ssh or transfer files out. To determine which IP is assigned to the host, execute `ipconfig getoption en0 server_identifier` (typically `192.168.64.1` for **shared** network mode and `192.168.128.1` for **host** network mode)
+Every time you start/resume a VM it will be assigned an IP:
+
+```shell
+❯ anka show 12.0-beta
++---------+--------------------------------------+
+| uuid    | 26c18e20-f67a-4387-a7b7-236a277bb424 |
++---------+--------------------------------------+
+| name    | 12.0-beta (v2)                       |
++---------+--------------------------------------+
+| created | Oct 18 13:57:57 2021                 |
++---------+--------------------------------------+
+| vcpu    | 8                                    |
++---------+--------------------------------------+
+| memory  | 12G                                  |
++---------+--------------------------------------+
+| display | 1024x768                             |
++---------+--------------------------------------+
+| disk    | 128GiB (22.84GiB on disk)            |
++---------+--------------------------------------+
+| addons  | 3.0.0.135.8400565                    |
++---------+--------------------------------------+
+| network | shared 192.168.64.6                  |
++---------+--------------------------------------+
+| status  | running since Oct 25 15:48:36 2021   |
++---------+--------------------------------------+
+
+❯ anka show 12.0-beta network
++------------+-------------------+
+| mode       | shared            |
++------------+-------------------+
+| controller | virtio-net        |
++------------+-------------------+
+| ip         | 192.168.64.6      |
++------------+-------------------+
+| mac        | ce:6b:90:1b:87:da |
++------------+-------------------+
+```
+
+{{< hint warning >}}
+If `anka show` does not display an IP, networking has either:
+1. Not fully started (give it a few more seconds).
+2. Networking cannot start due to some sort of host firewall or policy.
+{{< /hint >}}
+
+{{< hint info >}}
+Within the VM, you can find an IP assigned to the host which can be used to ssh or transfer files out. To determine which IP is assigned to the host, execute `ipconfig getoption en0 server_identifier` (typically `192.168.64.1` for **shared** network mode and `192.168.128.1` for **host** network mode).
+{{< /hint >}}
 
 ## Changing the network configuration for Anka VMs
 
-{{< include file="_partials/arm/Anka Virtualization/modify/set/network-card/_index.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/modify/network/_index.md" >}}
 
-{{< include file="_partials/arm/Anka Virtualization/modify/set/network-card/_example.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/modify/network/_example.md" >}}
 
 | Type | Description |
 | --- | --- |
-| `shared` | The default network type operating as NAT + DHCP. Every VM after the start/resume gets an IP address assigned by the internal DHCP server in range `192.168.64.2 - 192.168.64.254`. Programs inside a VM can access external networks (outside the host) and the internet directly. Also, other VMs on the host are also accessible. {{< rawhtml >}}<br /><br /><blockquote><p>To access ports/services on VMs using a shared network, enable [port forwarding]({{< relref "arm/Anka Virtualization/command-reference.md#modify-templatename-add-port-forwarding" >}}) and connect to the host IP at the forwarded port.</p></blockquote>{{< /rawhtml >}} |
-| `host` | It is very similar to the shared one, but the VM get IP addresses from range `192.168.128.2 - 192.168.128.254` and can’t access external networks outside of the host. |
-| `bridge` | The Bridged type will cause the VM to show in the network as an individual device and receive a unique IP separate from the host. {{< rawhtml >}}<br /><br /><blockquote><p>VMs can be bridged to Ethernet interfaces only (including USB dongles). WiFi interfaces are not supported yet.</p></blockquote><blockquote><p>An ENV is available to set the interface name: `ANKA_BRIDGE_NAME=en0`</p></blockquote><blockquote><p>When using the bridge, port-forwarding is not necessary as the VM will receive a unique IP that will be accessible directly to all other devices on the network.</p></blockquote><blockquote><p>By default, DHCP will not see your VM's MAC address. You'll need to enable `--direct-mac` for the network-card: `anka modify VmName set network-card 0 --type bridged --direct-mac`</p></blockquote>{{< /rawhtml >}} |
+| `shared` | The default network type operating as NAT + DHCP. Every VM after the start/resume gets an IP address assigned by the internal DHCP server in range `192.168.64.2 - 192.168.64.254`. Programs inside a VM can access external networks (outside the host) and the internet directly. Also, other VMs on the host are also accessible. |
+| `host` | {{< hint warning >}}Not currently supported.{{< /hint >}} |
+| `bridge` | The Bridged type will cause the VM to show in the network as an individual device and receive a unique IP separate from the host. {{< hint info >}}An ENV is available to set the interface name: `ANKA_BRIDGE_NAME=en0`{{< /hint >}}{{< hint info >}}When using the bridge, port-forwarding is not necessary as the VM will receive a unique IP that will be accessible directly to all other devices on the network.{{< /hint >}}{{< hint info >}}By default, DHCP will not see your VM's MAC address. You'll need to enable `--direct-mac` for the network-card: `anka modify VmName set network-card 0 --type bridged --direct-mac`{{< /hint >}} {{< hint warning >}}You cannot use bridged networking over Wifi.{{< /hint >}} |
 | `disconnected` | The VM will have a disconnected network cable. |
-
-### Assigning a Static IP
-
-Anka CLI version 2.2 and greater supports Static IP on VMs running on Catalina hosts (the guest OS can be any supported macOS version):
-
-![Static IP VM](/images/anka-vm-networking/anka-vm-networking.png)
 
 ### MAC Addresses
 
-Anka will dynamically assign MAC addresses to your VM. In Catalina and higher, you can assign custom MAC Addresses with the `anka modify set network-card --mac` option.
+Anka will dynamically assign MAC addresses to your VM. In Catalina and higher, you can assign custom MAC Addresses with the `anka modify network --mac` option.
 
-> Be aware that if you clone your VM Template with a specific MAC, both VMs cannot run at the same time
+{{< hint warning >}}
+Be aware that if you clone your VM Template with a specific MAC, both VMs cannot run at the same time
+{{< /hint >}}
 
-> Dynamic MAC Addresses are not guaranteed to be unique, though, reuse/collision is rare
-
-> **In Mojave or older macOS versions:** Even if a custom MAC is set, Apple's VMNET doesn't recognize it on the network outside of the VM. We do a translation from the custom MAC to the one VMNET assigns. This causes the external to VM network to see the VMNET MAC, but inside of the VM you'll see the custom MAC.
+{{< hint warning >}}
+Dynamic MAC Addresses are not guaranteed to be unique, though, reuse/collision is rare
+{{< /hint >}}
 
 ---
 
-## What's next?
-
-- [Activating your Anka License]({{< relref "intel/Getting Started/activating-your-anka-license.md" >}})
 
 ## FAQs
 
 - Should your Firewall software be blocking VM networking, you need to whitelist the `ankanetd` process.
+
+## What's next?
+
+- [Anka CLI Command Reference]({{< relref "arm/Anka Virtualization/command-reference.md" >}})

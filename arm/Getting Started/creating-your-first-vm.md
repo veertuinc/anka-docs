@@ -8,28 +8,21 @@ description: >
 
 ## Prerequisites
 
-1. [You've installed the Anka Virtualization package]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})
-2. [You've got an active license]({{< relref "arm/Licensing/_index.md" >}})
-3. The machine you wish to use is Intel and not M1 (support for M1 coming soon)
+1. [You've installed the Anka Virtualization package]({{< relref "arm/Getting Started/installing-the-anka-virtualization-package.md" >}})
+2. The machine you wish to use is M1 and not Intel
+3. The machine you wish to use has Monterey installed
 
 ## 1. Obtain the macOS installer
 
-{{< include file="_partials/arm/Getting Started/partials/_supported-macos-versions.md" >}}
+In the beta release of Anka 3.0, you will not be able to use installer .app files like you're used to with the Intel (2.X) versions of Anka. Anka 3.0 will download the latest Monterey version for you automatically.
 
-{{< include file="_partials/arm/Getting Started/partials/_obtain-macos-installer.md" >}}
+## 2. Create your first VM Template
 
-> As an alternative to the macOS installer, [you can also use an iso]({{< relref "arm/Anka Virtualization/creating-a-vm-template-with-an-iso.md" >}})
+{{< hint info >}}
+Creating a VM in Anka 3.0 differs from the Intel version. Anka 3.0 requires that you manually set up macOS inside of the VM. See step #3 below.
+{{< /hint >}}
 
-## 2. Create your VM
-
-> The Anka VM is pre-configured with a default administrative username `anka` and password `admin`. You can override this with ENVs: `ANKA_DEFAULT_USER` and `ANKA_DEFAULT_PASSWD`
-
-> **Anka Develop license (default):** While you can create as many VMs as you wish, the free Anka Develop license only allows you to run one VM at a time and will only function on laptops (Macbook, Macbook Pro, and Macbook Air).
-
-> **Anka Build license:** 
-> 1. When determining how many vcpus and ram your VM needs, you can divide the number of VMs you plan on running simultaneously within a host by the total **virtual cores (vcpus)** it has. So, if I have 12vCPUs on my 6core Mac Mini, and I want to allow 2 running VMs at once and not cripple the host machine, I will set the VM Template/Tag to have 6vcpus (12 / 2). However, with RAM, you'll need to allow ~2GB of memory for the Anka Software and host ((totalRAM / 2)-1).
-> 2. Pushing and pulling your VM from the registry can be optimized by setting `anka config chunk_size 2147483648` on the node you create your templates on. It must be set before you create the VM.
-
+{{< include file="_partials/arm/Getting Started/_supported-macos-versions.md" >}}
 ### Using the Anka UI
 
 1. Click on **Create new VM**
@@ -42,12 +35,30 @@ Once the VM template is created, you will see it on the sidebar.
 
 ![ui with vm in the sidebar list](/images/getting-started/creating-your-first-vm/ui-vm-in-sidebar.png)
 
+---
+
 ### Using the Anka CLI
 
 {{< include file="_partials/arm/Anka Virtualization/create/_index.md" >}}
 
 {{< include file="_partials/arm/Anka Virtualization/create/_example.md" >}}
 
+## 3. Start the VM and finish the macOS install
+
+### With the UI
+
+{{< hint warning >}}
+The first beta release does not support mounting addons by starting from the UI. Please use the CLI for now.
+{{< /hint >}}
+
+### With the CLI
+
+You’ll need to start the VM with `anka start -uv` to launch the viewer;
+`anka view` does not currently work post-start unless you started it with -v.
+
+{{< include file="_partials/arm/Anka Virtualization/start/_index.md" >}}
+
+---
 ## Listing available VMs in the CLI
 
 {{< include file="_partials/arm/Anka Virtualization/list/_example.md" >}}
@@ -67,36 +78,6 @@ are you sure you want to delete vm 77f33f4a-75c3-47aa-b3f6-b99e7cdac001 test [y/
 
 ---
 
-## (Anka Build license + Cloud) Understanding VM Templates, Tags, and Disk Usage
-
-{{< include file="_partials/arm/Getting Started/partials/_understanding-templates-and-tags.md" >}}
-
-## Optimizing your VM
-
-It's recommended that you disable Spotlight and CoreDuetD inside of the VM to eliminate services that are known to need high CPU:
-```bash
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.coreduetd.osx.plist 
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
-```
-
-## Re-pushing an existing registry tag
-
-On pushing to the registry, a tag is created. It will also be assigned a specific commit ID (not visible to users). Even if you modify the tag locally, such as adding port-forwarding, changes will not be pushed to the registry until you push with a different tag name.
-
-Now, you can simply untag the VM locally and then push it with the same name (after [deleting the VM template]({{< relref "intel/Anka Build Cloud/working-with-controller-and-api.md#delete-template" >}}) or [reverting the tag]({{< relref "intel/Anka Build Cloud/working-with-controller-and-api.md#revert-template-tag" >}})):
-
-> Locally, this does not remove the current STATE of the tag from the VM. Your installed dependencies inside of the VM will remain as long as you don't pull or switch to a different tag.
-
-```bash
-anka registry pull -t tag2 TemplateA
-anka delete -t tag2 TemplateA
-anka modify TemplateA add port-forwarding...
-curl ... (delete or revert from registry)
-anka registry push -t tag2 TemplateA
-```
-
----
-
 ## What's next?
 
-- [Starting and Accessing your VM]({{< relref "intel/Getting Started/starting-and-accessing-your-vm.md" >}})
+- [Acessing your VM]({{< relref "arm/Getting Started/accessing-your-vm.md" >}})
