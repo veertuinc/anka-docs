@@ -13,5 +13,5 @@ options:
                      
   -q,--quiet         Do not show progress
   -r,--regisry <val>
-                     Specifies alternate source of a pull operation
+                     Specifies an alternate source of a pull operation
 ```
