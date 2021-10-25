@@ -14,5 +14,3 @@ To enable this feature, you'll need to:
 1. Ensure your host is Big Sur
 2. Ensure your VM is using Big Sur
 3. Set the display for the VM with `anka modify {vmName} set display -c pg`
-
-> Suspending the VM is not possible at the moment, so you'll need to stop your VM before pushing to the Anka Build Cloud Registry
