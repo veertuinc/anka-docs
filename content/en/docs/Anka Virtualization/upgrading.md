@@ -12,6 +12,8 @@ description: How to upgrade the Anka Virtualization package
 
 > Upgrading Anka Virtualization software while VMs are running **is typically safe.**
 
+> Upgrading the VM macOS version from within is not stable. We recommend instead to generate a new Anka VM Template for the new version using `anka create`.
+
 ### Upgrade Procedure
 
 1. [Download and install the latest version]({{< relref "docs/Getting Started/installing-the-anka-virtualization-package.md" >}})
@@ -30,8 +32,3 @@ Existing Version | Target Version | Recommendation
 1.4.3 | 2.x.x | Requires upgrade of all existing VM templates with `anka start --update` and push to the registry
 2.x | 2.1.2 | Only requires upgrade of existing Catalina VM templates with `anka start --update` and push to the registry
 x.x | 2.x | macOS 10.14.X does not contain the necessary Apple APIs to work with 2.5.X of Anka. You will need to upgrade the host OS version before trying to install 2.5.X of Anka.
-### Upgrading macOS inside of a running VM
-
-This scenario is possible, however, it's recommended that you upgrade Anka addons before upgrading macOS.
-
-Anka VMs support `softwareupdate` and also the System Preferences method of upgrading. However, please ensure that Software Update and [other settings]({{< relref "docs/Anka Build Cloud/prepare-nodes.md" >}}) are disabled enabled post-update as Apple can force re-enable these features.
