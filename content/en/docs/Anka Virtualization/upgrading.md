@@ -12,7 +12,7 @@ description: How to upgrade the Anka Virtualization package
 
 > Upgrading Anka Virtualization software while VMs are running **is typically safe.**
 
-> Upgrading the VM macOS version from within is not stable. We recommend instead to generate a new Anka VM Template for the new version using `anka create`.
+> Upgrading the VM macOS version from within (using `softwareupdate`) typically works. However, starting in Monterey you will need to switch the `hard_drive` controller to `ablk` before attempting the upgrade: `anka modify {TemplateName} set hard-drive --controller ablk`
 
 ### Upgrade Procedure
 
