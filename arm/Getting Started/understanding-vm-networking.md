@@ -92,7 +92,7 @@ Within the VM, you can find an IP assigned to the host which can be used to ssh 
 
 ### MAC Addresses
 
-Anka will dynamically assign MAC addresses to your VM. In Catalina and higher, you can assign custom MAC Addresses with the `anka modify network --mac` option.
+Anka will dynamically assign MAC addresses to your VM. You can assign custom MAC Addresses with the `anka modify network --mac` option.
 
 {{< hint warning >}}
 Be aware that if you clone your VM Template with a specific MAC, both VMs cannot run at the same time
