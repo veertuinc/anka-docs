@@ -82,7 +82,7 @@ After stopping the "rogue" VM the agent should start your new instance.
 In order to start VMs, the Node has to download them first from the Registry.  
 The registry address is given to the nodes by the Controller.
 You can see the Registry address configured in the upper right corner of the dashboard screen.
-![Registry address](/images/anka-build/troubleshooting/reg_address.png)
+![Registry address]({{< siteurl >}}images/anka-build/troubleshooting/reg_address.png)
 
 *This process has to be repeated for each Node.*
 Go to the Node's terminal and execute the following command (replace `http://192.168.1.105` with your registry URL):  

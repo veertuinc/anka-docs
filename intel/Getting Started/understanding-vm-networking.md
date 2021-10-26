@@ -42,7 +42,7 @@ Anka VMs, by default, use a shared networking configuration with the host. It’
 
 Anka CLI version 2.2 and greater supports Static IP on VMs running on Catalina hosts (the guest OS can be any supported macOS version):
 
-![Static IP VM](/images/anka-vm-networking/anka-vm-networking.png)
+![Static IP VM]({{< siteurl >}}images/anka-vm-networking/anka-vm-networking.png)
 
 ### MAC Addresses
 

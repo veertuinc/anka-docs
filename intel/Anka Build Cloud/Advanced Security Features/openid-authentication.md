@@ -102,13 +102,13 @@ Here is what your `docker-compose.yml` should look like for use with Keycloak:
 
 After that, just `docker-compose down -t 50 && docker-compose up -d` and try accessing the Controller at its HTTPS URL or IP. If you did everything correctly (you enabled certificate authentication and joined your node right?), you should see a Log In box with two options: `Login with Keycloak` and `Login with superuser`
 
-![OpenID Login Buttons](/images/openid/login.png)
+![OpenID Login Buttons]({{< siteurl >}}images/openid/login.png)
 
 We first want to log in with superuser (the `ANKA_ROOT_TOKEN` defined above in the config).
 
 Once logged in, you will see **Admin** on the left navigation
 
-![Admin Navigation](/images/openid/admin.png)
+![Admin Navigation]({{< siteurl >}}images/openid/admin.png)
 
 Under the **Admin** page, we want to add a **New Group**. **The Group Name will be the name of the group you created within Keycloak.** 
 

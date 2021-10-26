@@ -21,7 +21,7 @@ While exactly how you should install Prometheus and Grafana are outside of our b
 Once the getting-started repo is cloned into your local machine, you need to start a docker container with Prometheus. Execute the run in docker script: `cd getting-started && ./PROMETHEUS/run-prometheus-on-docker.bash`. Once running, visit the url and port it created for you (shown in the output of the script).
 
 {{< rawhtml >}}<center>{{< /rawhtml >}}
-![prometheus-browser](/images/anka-build-cloud/monitoring/prometheus-in-browser.png)
+![prometheus-browser]({{< siteurl >}}images/anka-build-cloud/monitoring/prometheus-in-browser.png)
 {{< rawhtml >}}</center>{{< /rawhtml >}}
 
 Prometheus does not collect metrics from the Anka Build Cloud by default. You'll need to run the [Anka Prometheus Exporter](https://github.com/veertuinc/anka-prometheus-exporter) for that. Use the [Getting Started Github Repo](https://github.com/veertuinc/getting-started#prometheus-exporter-prometheus) script for this: 
@@ -50,7 +50,7 @@ This will run the exporter in the background **(it will not be available after y
 Next, you'll want to confirm that the metrics are now available in Prometheus.
 
 {{< rawhtml >}}<center>{{< /rawhtml >}}
-![prometheus-metrics](/images/anka-build-cloud/monitoring/prometheus-metrics.png)
+![prometheus-metrics]({{< siteurl >}}images/anka-build-cloud/monitoring/prometheus-metrics.png)
 {{< rawhtml >}}</center>{{< /rawhtml >}}
 
 Once you've confirmed the metric are available, you can now use the built in graph and alerting for several metrics. For example: `anka_node_states` to see when Node connectivity to the controller fails, `anka_instance_state_count` to see when instances are throwing errors, `anka_node_cpu_util` to trigger alarms when VMs are crippling the Node, and much more. A full list of metrics is available at https://github.com/veertuinc/anka-prometheus-exporter#exposed-metrics.
@@ -60,5 +60,5 @@ We won't go into depth with setting up Grafana as it's already covered on https:
 > Grafana will need to connect to the host and port for Prometheus. This is available at `http://host.docker.internal:8095` if you used the scripts in the Getting Started repo.
 
 {{< rawhtml >}}<center>{{< /rawhtml >}}
-![prometheus-grafana](/images/anka-build-cloud/monitoring/prometheus-grafana.png)
+![prometheus-grafana]({{< siteurl >}}images/anka-build-cloud/monitoring/prometheus-grafana.png)
 {{< rawhtml >}}</center>{{< /rawhtml >}}
