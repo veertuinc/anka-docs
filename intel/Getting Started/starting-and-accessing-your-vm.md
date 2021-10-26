@@ -21,7 +21,7 @@ description: >
 
 Launch the Anka application found under /Applications. Once launched, you will see the VM Template on the right sidebar. You can double click the VM to not only start it but also launch the Anka Viewer window.
 
-![ui with vm in the sidebar list](/anka/images/getting-started/creating-your-first-vm/ui-vm-in-sidebar.png)
+![ui with vm in the sidebar list](/images/getting-started/creating-your-first-vm/ui-vm-in-sidebar.png)
 
 ### With the CLI
 

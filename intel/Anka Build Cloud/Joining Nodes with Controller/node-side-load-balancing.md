@@ -9,7 +9,7 @@ description: >
 
 When a load balancer is not available, you can use agent/node-side load balancing by joining with multiple controller URLs. However, your cloud components need to be setup in a certain way or else VM Templates and VM instances will not be shared/seen.
 
-![gitlab runner attached](/anka/images/anka-build-cloud/node-side-load-balancing.png)
+![gitlab runner attached](/images/anka-build-cloud/node-side-load-balancing.png)
 
 > The diagram above shows each controller/registry/etc component together within a single machine. While you can run an etcd cluster on its own, the guide will describe configuration with united components using Docker and Docker-Compose.
 

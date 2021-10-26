@@ -1,17 +1,17 @@
 1. Go to your Controller dashboard and click on the **Instances** tab:
 
-    ![your instances view](/anka/images/getting-started/instances.png)
+    ![your instances view](/images/getting-started/instances.png)
 
 2. Click on **Create Instance(s)**, and the **Create New Instances** view displays:
 
-    ![new instances view](/anka/images/getting-started/new-instance.png)
+    ![new instances view](/images/getting-started/new-instance.png)
 
 3. Select the VM Template and click **Start**. The **Create New Instances** view closes and returns you to the **Instances** view. You should now see the Instance in a **Scheduling** or **Pulling** **State**:
-    ![a scheduling instance](/anka/images/getting-started/scheduling.png)
+    ![a scheduling instance](/images/getting-started/scheduling.png)
 
 4. After the **Scheduling** and **Pulling** finishes, the VM starts on one of the Nodes and shows a **Started** **State** in the Controller UI:
 
-    ![a started instance](/anka/images/getting-started/started-vm.png)
+    ![a started instance](/images/getting-started/started-vm.png)
 
 You can now confirm the Instance is running from inside the Node:
 
