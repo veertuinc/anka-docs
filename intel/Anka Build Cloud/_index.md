@@ -24,7 +24,7 @@ This is a repository for your Anka [VM Templates and Tags]({{< relref "intel/Get
 
 ---
 
-![High level architechture](/images/anka-build/high-level.png)
+![High level architechture](/anka/images/anka-build/high-level.png)
 
 ---
 

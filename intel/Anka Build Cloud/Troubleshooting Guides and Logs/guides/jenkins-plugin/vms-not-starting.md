@@ -40,11 +40,11 @@ Let's go over the most important configuration parameters, and check that everyt
 Go to *Manage Jenkins* -> *Configure System*, and scroll all the way down to the clouds section.  
 If your address is wrong, or your cloud is offline, you should see a message saying *"Cloud XXX is offline"* just like in the image below (marked in a blue rectangle).
 
-![My awesome cloud is offline](/images/anka-build/troubleshooting/controller-address.png)
+![My awesome cloud is offline](/anka/images/anka-build/troubleshooting/controller-address.png)
 
 **A sign** that the Controller URL is configured properly: you are able to select an Image.
 
-![Can select an image](/images/anka-build/troubleshooting/select-image.png)
+![Can select an image](/anka/images/anka-build/troubleshooting/select-image.png)
 
 ### Remote FS Root
 Remote FS Root is required to be a valid writable path on the VM in order for Jenkins to run the node.
@@ -67,7 +67,7 @@ After the VM Instance is in state `Started` and `VNC connection string` has a va
 In the bottom pane, look at `port forwarding rules`. If nothing is there and the VM has an **IP**, it means that port forwarding needs to be configured (see screenshot).  
 You might have to wait a little bit for the VM to have it's network ready, refresh the page if necessary.
 
-![Port Forwarding rules](/images/anka-build/troubleshooting/port-fwd.png)
+![Port Forwarding rules](/anka/images/anka-build/troubleshooting/port-fwd.png)
 
 
 > **Note**  
@@ -79,13 +79,13 @@ You might have to wait a little bit for the VM to have it's network ready, refre
 Go to *Manage Jenkins* -> *Configure System*, and scroll down to **Jenkins Location**.
 Check that *Jenkins URL* is correct.
 
-![Jenkins URL setting](/images/anka-build/troubleshooting/jenkins-url.png)
+![Jenkins URL setting](/anka/images/anka-build/troubleshooting/jenkins-url.png)
 
 ### Check that JNLP port is enabled
 Go to *Manage Jenkins* -> *Configure Global Security*, and scroll down to **Agents**.  
 Check that `TCP port for JNLP agents` is not set to **disabled**
 
-![JNLP port setting](/images/anka-build/troubleshooting/jnlp.png)
+![JNLP port setting](/anka/images/anka-build/troubleshooting/jnlp.png)
 
 ### Check JNLP log on the VM
 The VM writes a log when trying to connect to Jenkins via JNLP. The location of this log on the VM is `/tmp/log.txt`.  
@@ -126,12 +126,12 @@ nc: connectx to example.jenkins.com port 50001 (tcp) failed: Connection refused
 Jenkins uses a [library](https://github.com/jenkinsci/remoting) to handle `master <> agent` communication. Broken communication between Jenkins and it's agents can be sometimes fixed by upgrading Jenkins to a version with a newer remoting library.  
 Browse the [Jenkins changelog](https://jenkins.io/changelog) and look for an update in remoting library.  
 
-![remoting update in Jenkins changelog](/images/anka-build/troubleshooting/jenkins-changelog.png)
+![remoting update in Jenkins changelog](/anka/images/anka-build/troubleshooting/jenkins-changelog.png)
 
 ## VM has different version of Java from the Master
 ### Check your Jenkins's host Java version
 Go to *Manage Jenkins* -> *System Information*, look at the Java version parameters.
-![Jenkins Java info](/images/anka-build/troubleshooting/jenkins-java-version.png)
+![Jenkins Java info](/anka/images/anka-build/troubleshooting/jenkins-java-version.png)
 
 ### Check the Java version on the VM matches
 If you don't have a VM running, start the job that would start the VM and go to your Anka Cloud dashboard. Then wait for the VM to be started.  

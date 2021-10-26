@@ -158,7 +158,7 @@ You can find the **Anka VM Template/Tag Creation** in the **Jenkins Node/Agent T
 
 #### Using the Post Build Step with Static Slave Templates
 
-![image12](/images/anka-build/controller01.png)
+![image12](/anka/images/anka-build/controller01.png)
 
 **Fail build** : Will set the build as failed if the `image save request` failed (or timed out). If this is not selected, the Post Build Step does nothing.
 

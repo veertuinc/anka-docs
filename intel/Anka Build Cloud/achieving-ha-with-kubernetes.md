@@ -22,7 +22,7 @@ The YAML we generate includes:
 <p>Here is a visual diagram for this:
 
 {{< rawhtml >}}<center>{{< /rawhtml >}}
-![installer with pkg](/images/kubernetes-anka-build-cloud-ha-diagram.png)
+![installer with pkg](/anka/images/kubernetes-anka-build-cloud-ha-diagram.png)
 {{< rawhtml >}}</center>{{< /rawhtml >}}
 
 We must mention that the differences between how our customers have deployed Kubernetes (AWS vs. google cloud vs. self-hosted) can require significant changes from the examples we provide. We've kept our examples simple to show the configuration and the necessary connections between components. For example, exposing your load balancer for the Controller service on the network may not be required (internal DNS might be available since your CI/CD tool is also inside of Kubernetes). Or, it may require approval and a specific process due to security.

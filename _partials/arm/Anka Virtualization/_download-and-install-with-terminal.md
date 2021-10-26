@@ -1,4 +1,4 @@
-![terminal installation](/images/anka-virtualization/terminal-installation.png)
+![terminal installation](/anka/images/anka-virtualization/terminal-installation.png)
 
 ```shell
 FULL_FILE_NAME="$(curl -Ls -r 0-1 -o /dev/null -w %{url_effective} https://veertu.com/downloads/anka-m1-beta | cut -d/ -f5)"

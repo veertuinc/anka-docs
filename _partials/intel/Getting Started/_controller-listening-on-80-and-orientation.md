@@ -2,7 +2,7 @@ Anka Controller should be listening on port 80 (HTTP). Try pointing your browser
 
 Your new dashboard should look like the picture below
 
-![How your new dashboard looks like](/images/getting-started/new-dashboard.png)
+![How your new dashboard looks like](/anka/images/getting-started/new-dashboard.png)
 
 ### Orientation
 Let's take a look at what is now running on your machine:

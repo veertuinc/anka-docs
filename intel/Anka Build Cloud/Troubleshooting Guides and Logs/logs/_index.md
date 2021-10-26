@@ -26,7 +26,7 @@ Location : the directory you spcified in the docker-compose.yml, for mounting th
 
 2. the registry and agent logs share the same file. you can see it in Controller dashboard at the 'log' tab under the name of your host.
 
-![agent logs](/images/anka-build/logs/dashboardlogs.png)
+![agent logs](/anka/images/anka-build/logs/dashboardlogs.png)
 
 ----
 
@@ -50,7 +50,7 @@ Logs location : `/Library/Logs/Veertu/AnkaController`
  * `anka-controller.ERROR` - contains just ERRORS.
  * `anka_agent.FATAL` - Only FATAL ERRORS (both controller and agent).
 
-![controller logs](/images/anka-build/logs/ankaControllerlogs.png)
+![controller logs](/anka/images/anka-build/logs/ankaControllerlogs.png)
 
 
 3. The controller is an API, so all the communication made from Anka-agent or CI platforms(Jenkins) stored in the controller logs. If a vm fails to start it suggests first to check this logs.
@@ -71,5 +71,5 @@ Logs location : `/var/log/veertu`
 4. `vlaunchd.log`: Holds communication logs between registry **<--->** agent **--->** controller.
 3. You can see the agents and registry logs via the UI in the controller dashboard it will be under the name of your host. 
 
-![agent logs](/images/anka-build/logs/dashboardlogs.png)
+![agent logs](/anka/images/anka-build/logs/dashboardlogs.png)
 

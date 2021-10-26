@@ -190,12 +190,12 @@ anka modify VmName set network-card 0 --type bridged --direct-mac
 
 ### Set various VM Launch timeout values
 
-![Launch Values Configurable 2.4.0](/images/whatsnew/jenkins-2.4.0-launch-values.png)
+![Launch Values Configurable 2.4.0](/anka/images/whatsnew/jenkins-2.4.0-launch-values.png)
 ## What's New in Anka Build Cloud Controller & Registry Version 1.14.0
 
 ### Delete button will show for Offline Nodes
 
-![Controller Delete Node Button](/images/whatsnew/controller-1.14.0-delete-node-button.png)
+![Controller Delete Node Button](/anka/images/whatsnew/controller-1.14.0-delete-node-button.png)
 ### Customize the range of MAC addresses the controller uses for creating VMs
 
 You can now specify the range of MAC addresses that the controller uses with the `ANKA_MANAGE_MAC_ADDRESSES` config.
@@ -458,7 +458,7 @@ Anka Develop is currently restricted to running a single VM at a time. It also d
 
 We now have a management UI allowing you to start, stop, delete, and create VMs. This is used as an alternative to the CLI.
 
-![installer with pkg](/images/getting-started/creating-your-first-vm/create-vm-window-with-options.png)
+![installer with pkg](/anka/images/getting-started/creating-your-first-vm/create-vm-window-with-options.png)
 
 ### Big Sur (11.X) support
 
@@ -556,15 +556,15 @@ Notice that our instance cap for `large-fleet-ios` is 5 and we have 10 total VMs
 
 Changes to the way we communicate with the Controller API now allows for the slave name and slave/jenkins UI URL to be displayed under the custom columns.
 
-![Jenkins 2.1.0 Slave/Node Info Page](/images/whatsnew/jenkins-2.1.0-slave-info-page.png)
+![Jenkins 2.1.0 Slave/Node Info Page](/anka/images/whatsnew/jenkins-2.1.0-slave-info-page.png)
 
-![Custom Column Jenkins 2.1.0](/images/whatsnew/jenkins-2.1.0-custom-columns.png)
+![Custom Column Jenkins 2.1.0](/anka/images/whatsnew/jenkins-2.1.0-custom-columns.png)
 
 ## What's New in Anka Build Cloud Controller Version 1.8.0
 
 ### Set custom instance metadata and show it in the dashboard
 
-![Custom Column](/images/whatsnew/controller-instances-custom-column.png)
+![Custom Column](/anka/images/whatsnew/controller-instances-custom-column.png)
 
 Create an instance with metadata:
 
@@ -577,7 +577,7 @@ Create an instance with metadata:
 
 Then show it as a column in the dashboard:
 
-![Custom Column from Metadata](/images/whatsnew/controller-instances-custom-metadata-column.png)
+![Custom Column from Metadata](/anka/images/whatsnew/controller-instances-custom-metadata-column.png)
 
 ### Change the vCPU and RAM for a stopped VM Template
 
@@ -642,21 +642,21 @@ sh-3.2# anka show mgmtManaged-10.15.4-stopped-1592271338138326000
 
 **Disk Usage for Node is displayed in the controller Dahsboard and REST API**
 
-![Node Disk Usage Information](/images/whatsnew/Nodestorageinfo.png)
+![Node Disk Usage Information](/anka/images/whatsnew/Nodestorageinfo.png)
 
 **Size information for Templates and tags is displayed in the controller dashboard and REST API**
 
-![Template Size Information](/images/whatsnew/templatesize.png)
+![Template Size Information](/anka/images/whatsnew/templatesize.png)
 
 **Jenkins job/Node information is displayed for the VM provisioned in the controller dashboard**
 
-![Jenkins Job Information](/images/whatsnew/JenkinsInfoportal.png)
+![Jenkins Job Information](/anka/images/whatsnew/JenkinsInfoportal.png)
 
 **New reserve disk flag in ankacluster join command**
 
 When `–reserve-space` flag is set, controller will always reserve the disk space before pulling VM template on the node. If there is not enough disk space after allocating for `–reserve-space`, then controller will not pull the Vm Template. This flag is provided to avoid scenario where there is no disk psace left on the node to accomodate for extra disk usage duing builds inside the VM.
 
-![reservedisk ankacluster flah](/images/whatsnew/ankaclusterreservediskspace.png)
+![reservedisk ankacluster flah](/anka/images/whatsnew/ankaclusterreservediskspace.png)
 
 ## What's New in Anka Version 2.2.2
 
