@@ -7,6 +7,6 @@ description: >
   All about Veertu's Anka Software
 ---
 
-{{< include file="_partials/What Is Anka/_short-what-is.md" >}}
+{{< include file="_partials/What Is Anka/short-what-is.md" >}}
 
-{{< include file="_partials/What Is Anka/_bullet-info.md" >}}
+{{< include file="_partials/What Is Anka/bullet-info.md" >}}

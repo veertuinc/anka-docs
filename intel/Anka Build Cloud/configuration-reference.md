@@ -17,8 +17,6 @@ Configuring your Anka Build Cloud Controller & Registry to enable features or cu
 {{< tabpane >}}
 {{< tab header="Environment Variables" >}}
 
----
-
 Depending on the package you're using (native or docker), you can set ENV variables to modify the configuration of your controller and registry.
 #### docker-compose.yml (docker)
 

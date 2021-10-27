@@ -1,11 +1,4 @@
-
 ---
-title: "Setup"
-linkTitle: "Setup"
-weight: 3
-date: 2019-12-12
-description: >
-  How to install, uninstall and upgrade Anka Secure.
 ---
 
 ## Installation and Configuration

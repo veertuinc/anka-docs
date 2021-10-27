@@ -1,17 +1,5 @@
-
-
-
 ---
-title: "VM Policy"
-linkTitle: "VM Policy"
-weight: 4
-date: 2019-12-12
-description: >
-  VM Policy is extensible and flexible mechanism to control access to certain resources and functionality while at the same time preserving consistency and hardening runtime for increased security.
 ---
-
-
-
 
 ## Creating VM Policy
 
@@ -214,6 +202,7 @@ pci_slot: 29
 vnc_ip: 0.0.0.0
 width: 1024
 ```
+
 Users who don’t know Anka VNC password are not able to infer it neither with [`anka describe`]({{< relref "intel/Anka Virtualization/command-reference.md#describe" >}}), neither [`anka show`]({{< relref "intel/Anka Virtualization/command-reference.md#show" >}}) commands. There is no special policy rule, controlling Anka VNC module for now.  
 
 To control connectivity to the guest’s Screen Sharing service, disable local networking, and close guest port 5900 from port forwarding.

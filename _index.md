@@ -4,7 +4,7 @@ linkTitle: "Welcome Anka Community"
 type: "community"
 ---
 
-{{< include file="_partials/What Is Anka/_short-what-is.md" >}}
+{{< include file="_partials/What Is Anka/short-what-is.md" >}}
 
 ---
 
