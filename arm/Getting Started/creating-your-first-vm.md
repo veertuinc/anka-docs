@@ -25,13 +25,16 @@ Creating a VM in Anka 3.0 differs from the Intel version. Anka 3.0 requires that
 {{< include file="_partials/arm/Getting Started/_supported-macos-versions.md" >}}
 ### Using the Anka UI
 
-1. Click on **Create new VM**
-2. Choose the installer (will automatically search /Applications), or drop it into the window
-3. Click on Options and set any non-default values you want
+1. Click on **Create new VM**.
+2. Click on Options and set any non-default values you want.
 ![installer with pkg]({{< siteurl >}}images/getting-started/creating-your-first-vm/create-vm-window-with-options.png)
-4. **Please be patient while it's creating. This process can take up to half an hour.**
+3. Be patient while it's creating.
 
 Once the VM template is created, you will see it on the sidebar.
+
+{{< hint warning >}}
+Suspending VMs is currently not available.
+{{< /hint >}}
 
 ![ui with vm in the sidebar list]({{< siteurl >}}images/getting-started/creating-your-first-vm/ui-vm-in-sidebar.png)
 
