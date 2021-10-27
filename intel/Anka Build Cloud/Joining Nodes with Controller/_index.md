@@ -119,7 +119,7 @@ In case the agent is configured to listen on a custom socket, you can use the `A
 
 ## Answers to Frequently Asked Questions
 
-- Errors like the following are typically the cause of an older version of the agent on your node. You'll want to visit http://downloads.veertu.com/anka#, download the agent version matching your controller's version, and then try your ankacluster join command again:
+- Errors like the following are typically the cause of an older version of the agent on your node. You'll want to visit http://downloads.veertu.com, download the agent version matching your controller's version, and then try your ankacluster join command again:
     ```bash
     > sudo ankacluster join http://anka.controller:8090 --reserve-space 20GB
     Testing connection to controller...: Ok
