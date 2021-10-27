@@ -6,3 +6,7 @@ Anka VM Templates support the following macOS versions:
 - `10.14.x` (macOS Mojave)
 - `10.13.x` (macOS High Sierra)
 - `10.12.x` (macOS Sierra)
+
+{{< hint warning >}}
+Monterey installation seems to be much longer than previous versions. Please be patient and **DO NOT** interfere with the installation manually. If you want to confirm it's progressing you can launch the VM viewer with `anka view`.
+{{< /hint >}}
