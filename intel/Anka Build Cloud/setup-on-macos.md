@@ -161,7 +161,7 @@ Great! Now that we have our Anka Controller & Registry up and running, let's add
 
 - Browse the [Anka CLI Command Reference]({{< relref "intel/Anka Virtualization/command-reference.md" >}}).  
 - Connect the cloud to your [CI software]({{< relref "intel/CI Plugins and Integrations/_index.md" >}}).  
-- Find out how to use the [Controller REST API]({{< relref "intel/Anka Build Cloud/working-with-controller-and-api.md#api">}}).  
+- Find out how to use the [Controller REST API]({{< relref "intel/Anka Build Cloud/working-with-controller-and-api.md#rest-api">}}).  
 - Learn how to work with [USB devices]({{< relref "intel/Anka Virtualization/working-with-usb-devices.md">}})
 
 

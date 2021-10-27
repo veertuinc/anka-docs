@@ -16,7 +16,7 @@ If you are using GitLab, Veertu provides and maintains the [Anka GitLab Runner](
 1. In the VM:
     - Install `git`
     - Make sure remote login is enabled (`System Preferences > Sharing`).
-2. On the host, enable [port forwarding]({{< relref "intel/Anka Virtualization/command-reference.md#example---add-port-forwarding" >}}) for your VM Template using the Anka CLI. _We recommend not specifying `--host-port`._
+2. On the host, enable [port forwarding]({{< relref "intel/Anka Virtualization/command-reference.md#modify-vmnameoruuid-add-port-forwarding" >}}) for your VM Template using the Anka CLI. _We recommend not specifying `--host-port`._
 3. `sudo anka suspend {VM Template name}`
 4. `sudo anka registry push {VM Template name} {Tag name}`
 

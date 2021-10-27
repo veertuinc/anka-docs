@@ -17,7 +17,7 @@ The TeamCity plugin requires a VM with Java, SSH Remote Login, port-forwarding, 
     - Within Jenkins, visit **/systemInfo** (`System Properties`) and look for `java.version`.
     - Use the value to determine the proper OpenJDK version you need to download and install in your VM Template. For example if the `java.version` is set to `1.8.0_242`, you can download and install the [AdoptOpenJDK jdk8u242-b08.pkg](https://github.com/AdoptOpenJDK/openjdk8-binaries/releases).
 2. In the VM, make sure remote login is enabled (`System Preferences > Sharing`).
-3. On the host, enable [port forwarding]({{< relref "intel/Anka Virtualization/command-reference.md#example---add-port-forwarding" >}}) for your VM Template using the Anka CLI. _We recommend not specifying --host-port._
+3. On the host, enable [port forwarding]({{< relref "intel/Anka Virtualization/command-reference.md#modify-vmnameoruuid-add-port-forwarding" >}}) for your VM Template using the Anka CLI. _We recommend not specifying --host-port._
 4. Download TeamCity into the VM under your user's home directory:
     ```shell
     cd /Users/anka

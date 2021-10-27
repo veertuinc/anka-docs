@@ -66,7 +66,7 @@ Similar to `docker exec`, [`anka run`]({{< relref "intel/Anka Virtualization/com
 
 > **Catalina and lower:** When running [`anka run`]({{< relref "intel/Anka Virtualization/command-reference.md#run" >}}) with no options/flags, it will mount the current directory from the host into the VM and execute commands in this mounted location. This can be disabled using the [`-n`]({{< relref "intel/Anka Virtualization/command-reference.md#run" >}}) option.
 
-> **Big Sur:** When running [`anka run`]({{< relref "intel/Anka Virtualization/command-reference.md#run" >}}) with no options/flags, the current directory will not be mounted in by default. This requires the [manual installation of addons]({{< relref "intel/Anka Virtualization/command-reference.md#install-addons">}}).
+> **Big Sur:** When running [`anka run`]({{< relref "intel/Anka Virtualization/command-reference.md#run" >}}) with no options/flags, the current directory will not be mounted in by default. This requires the [manual installation of addons]({{< relref "intel/Anka Virtualization/command-reference.md#start" >}})
 
 Once started, you can use `anka run` _on the host terminal_ to validate things are working properly:
 
@@ -103,7 +103,7 @@ round-trip min/avg/max/stddev = 16.992/21.940/25.797/3.416 ms
 
 ## Anka View
 
-> On Big Sur, many of the resolution/graphics features in Anka View do not work unless you [manually install addons]({{< relref "intel/Anka Virtualization/command-reference.md#install-addons">}})
+> On Big Sur, many of the resolution/graphics features in Anka View do not work unless you [manually install addons]({{< relref "intel/Anka Virtualization/command-reference.md#start">}})
 
 {{< include file="_partials/intel/Anka Virtualization/view/_index.md" >}}
 
@@ -183,7 +183,7 @@ By default, without any modifications to the VM post-create, you'll be able to a
 +-----------------------+--------------------------------------+
 ```
 
-However, this is a very limited VNC with no extensions (copy/paste, extended authorization, etc). To use Apple's VNC with all extensions enabled, you'll need to `anka view` into the VM and enable Screen Sharing under System Preferences (kickstart scripts will not work for Big Sur and above). Once enabled, you need to stop the VM with `anka stop`, then use the [modify command to set port-forwarding]({{< relref "intel/Anka Virtualization/command-reference.md#example---add-port-forwarding" >}}) of the VNC port from within the VM to a port on the host. This will allow you to VNC to the host IP and the forwarded port (usually 10000-10005).
+However, this is a very limited VNC with no extensions (copy/paste, extended authorization, etc). To use Apple's VNC with all extensions enabled, you'll need to `anka view` into the VM and enable Screen Sharing under System Preferences (kickstart scripts will not work for Big Sur and above). Once enabled, you need to stop the VM with `anka stop`, then use the [modify command to set port-forwarding]({{< relref "intel/Anka Virtualization/command-reference.md#modify-vmnameoruuid-add-port-forwarding" >}}) of the VNC port from within the VM to a port on the host. This will allow you to VNC to the host IP and the forwarded port (usually 10000-10005).
 
 > When using a Linux or Windows VNC client like RealVNC, ensure it's using TrueColor settings (32 bit), not 256 colors (indexed). This may be called "Picture Quality" in your client (set it to Medium).
 
@@ -195,7 +195,7 @@ However, this is a very limited VNC with no extensions (copy/paste, extended aut
     cat file.txt | anka run -n {vmNameOrUUID} md5
     ```
 - You can set the resolution of the Anka Viewer using `sudo anka modify 10.15.4 set display --resolution 1200x800`
-- [Port forwarding of VM ports is supported]({{< relref "intel/Anka Virtualization/command-reference.md#example---add-port-forwarding" >}})
+- [Port forwarding of VM ports is supported]({{< relref "intel/Anka Virtualization/command-reference.md#modify-vmnameoruuid-add-port-forwarding" >}})
 
 ---
 
