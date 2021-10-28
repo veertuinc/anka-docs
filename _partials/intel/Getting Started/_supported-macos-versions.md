@@ -8,5 +8,9 @@ Anka VM Templates support the following macOS versions:
 - `10.12.x` (macOS Sierra)
 
 {{< hint warning >}}
-Monterey installation seems to be much longer than previous versions. Please be patient and **DO NOT** interfere with the installation manually. If you want to confirm it's progressing you can launch the VM viewer with `anka view`.
+Monterey installation inside of the VM seems to be much longer than previous versions. Please be patient and **DO NOT** interfere with the installation manually. If you want to confirm it's progressing you can launch the VM viewer with `anka view`.
+{{< /hint >}}
+
+{{< hint warning >}}
+Monterey VMs require `ablk` as the disk driver. The `anka create` command will set this, but be sure to choose it in the `Create new VM` section of the Anka application instead of `virtio-blk`.
 {{< /hint >}}
