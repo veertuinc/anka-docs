@@ -2,7 +2,7 @@
 date: 2019-12-12T00:00:00-00:00
 title: "Build License Tiers"
 linkTitle: "Build License Tiers"
-weight: 12
+weight: 13
 description: >
   All about the Anka Build Cloud license tiers
 ---

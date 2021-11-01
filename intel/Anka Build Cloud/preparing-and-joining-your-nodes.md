@@ -1,22 +1,123 @@
 ---
 date: 2019-12-12T00:00:00-00:00
-title: "Joining your Nodes to the Controller"
-linkTitle: "Joining your Nodes to the Controller"
+title: "Preparing and Joining your Nodes to the Controller"
 weight: 4
 description: >
   How to join your Anka Build Virtualization Nodes to the Anka Build Cloud Controller
 ---
 
-## Prerequisites
+## Preparing your Nodes
 
-* [Anka Build Cloud Controller should be configured and running before your Anka Node can join]({{< relref "intel/Anka Build Cloud/_index.md" >}})
-* [Your Node should be licensed]({{< relref "intel/Licensing/_index.md" >}})
-* [Your Node should be prepared for high availability]({{< relref "intel/Anka Build Cloud/prepare-nodes.md" >}})
+Once the Anka Build Virtualization software has been installed onto a macOS machine, you'll want to turn off sleep and several other default features that would cause the machine to become unavailable.
+
+{{< hint warning >}}
+This guide has a few options that are typically not available on MDM controlled machines. You may need to ask your system administrators/local IT team to allow them.
+{{< /hint >}}
+
+{{< hint warning >}}
+Be sure to reboot the host after applying these changes.
+{{< /hint >}}
+
+### Required
+
+- **Start a UI session by logging into your node's user** to ensure Apple's services are started (it doesn't have to be an administrator).
+
+- **Enable `Automatic Login` for the current user:** Go to Preferences > Users > Enable Automatic Login for the current user. Or, [using the CLI](https://github.com/veertuinc/kcpassword).
+  {{< hint warning >}}
+  Not available if FileVault is enabled or you use an iCloud password to log into the user.
+  {{< /hint >}}
+  {{< hint info >}}
+  If using the CLI method of enabling `Automatic Login`, you must also XOR-encrypt the login password and add it to `/etc/kcpassword`.
+
+  The `/etc/kcpassword` file must be owned by `root:wheel` with a mode of `0600`.
+
+  See the GitHub repository [veertuinc/kcpassword](https://github.com/veertuinc/kcpassword) for help generating the encrypted password string.
+  {{< /hint >}}
+
+- **Uncheck `Log out after X minutes of inactivity`** under System Preferences > Security & Privacy > Advanced
+
+- **Uncheck `Require password X after sleep or screen saver begins`** under System Preferences > Security
+
+  {{< hint warning >}}
+  VNC may be required to disable this. It's possible your hardware does not have VNC enabled and you also don't have physical access. The following are the commands necessary to enable VNC from an SSH:
+```bash
+The following examples are only for OS X 10.5 and later.
+cd /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/
+sudo ./kickstart -configure -allowAccessFor -specifiedUsers
+sudo ./kickstart -configure -allowAccessFor -allUsers -privs -all
+sudo ./kickstart -activate
+```
+  {{< /hint >}}
+
+- **Disable all forms of sleep:** Go to Preferences > Energy Saver > disable any sleep options.
+
+  {{< hint info >}}
+  Alternatively, you can do this from the command-line:
+
+```shell
+# Never go into computer sleep mode
+sudo systemsetup -setcomputersleep Off
+systemsetup -setcomputersleep Off || true
+# Disable standby
+sudo pmset -a standby 0
+# Disable disk sleep
+sudo pmset -a disksleep 0
+# Hibernate mode is a problem on some mac minis; best to just disable
+sudo pmset -a hibernatemode 0
+```
+  {{< /hint >}}
+
+
+### Optional but recommended
+
+- If on macOS versions greater than or equal to Big Sur: Disable Apple's mitigations with `sudo anka config vmx_mitigations 0`. Without it, performance will be ~10% worse inside of the VM.
+
+- Disable spotlight:
+
+    If you cannot perform launchctl commands, you can execute these commands from the command-line:
+
+    ```shell
+    # Disable indexing volumes
+    sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Volumes"
+    sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Network"
+    sudo killall mds
+    sleep 60
+    # Make sure indexing is DISABLED for the main volume
+    sudo mdutil -a -i off /
+    sudo mdutil -a -i off
+    ```
+
+    MDS can be disable with `sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist`, but only if SIP is disabled on the host (not recommended)
+
+- Set the same `chunk_size` across your nodes with `anka config chunk_size 2147483648` (2GB). Any of the machines that create VM templates/tags need to also have this set.
+
+  {{< hint warning >}}
+  If the chunk_size is too small, you may hit `Too many open files` when trying to start VMs. You can try to modify the system's maxfiles (`sudo launchctl limit maxfiles 4096 unlimited`), but it may also be a good idea to increase the `chunk_size` to a larger size as well.
+  {{< /hint >}}
+
+{{< hint info >}}
+You may also want to have your nodes restart on host level failure: `systemsetup -setrestartpowerfailure on` & `systemsetup -setrestartfreeze on`
+{{< /hint >}}
+
+
+## Joining Prerequisites
+
+- [Anka Build Cloud Controller should be configured and running before your Anka Node can join.]({{< relref "intel/Anka Build Cloud/_index.md" >}})
+
+- [Your Node should be licensed.]({{< relref "intel/Licensing/_index.md" >}})
+
+- [Your Node should be prepared for high availability.]({{< relref "#preparing-your-nodes" >}})
+
 ## Joining to your Anka Build Cloud Controller
 
-> Be sure to run ankacluster as root
+{{< hint warning >}}
+Be sure to run ankacluster as root.
+{{< /hint >}}
 
-> **DO NOT use underscores in your CNAME/URLs**
+{{< hint warning >}}
+Avoid using underscores in your domainnames/urls.
+{{< /hint >}}
+
 
 ```shell
 ❯ sudo ankacluster join http://anka.controller:8090
@@ -31,13 +132,14 @@ Anka Cloud Cluster join success
 
 ```shell
 ❯ ankacluster join --help
-Joins the current Node to your Anka Cloud Cluster
-
+Joins the current machine to one or many Anka Build Cloud Controllers
 
 Usage:
   ankacluster join CONTROLLER_ADDRESS[,CONTROLLER_ADDRESS2] [flags]
 
 Flags:
+      --api-key-id string           API Key identifier
+      --api-key-string string       API Key string
   -c, --cacert string               Specify the path to your Root CA Certificate (PEM/X509)
   -M, --capacity-mode string        Set the capacity mode (resource or number) the Node will use when pulling jobs from the Anka Cloud Cluster queue. 'resource' will look at available resources (see --vcp-override and --ram-override) / 'number' will only accept if --max-vm-count isn't already met (default "number")
   -C, --cert string                 Specify the path to the Node's certificate file (PEM/X509)
@@ -66,19 +168,23 @@ Flags:
       --vm-stuck-timeout duration   The time to wait until the VM is considered unresponsive (default: 10s - Duration examples: 3500s, 20m, 5h)
   ```
 
+{{< hint info >}}
 The Anka agent is listening on a socket to provide status information at runtime.
 You can override the path of the socket by setting the `ANKA_AGENT_SOCKET` env var.
+{{< /hint >}}
 
 ## Disjoining
 
-> You don't need to disjoin nodes to upgrade the Anka Virtualization package
+{{< hint info >}}
+You don't need to disjoin nodes to upgrade the Anka Virtualization package.
+{{< /hint >}}
 
 ```shell
 ❯ sudo ankacluster disjoin
 Disjoined from the Anka Cloud Cluster
 ```
 
-## Status
+## Check Join Status
 
 You can check the status of the Anka agent using the `ankacluster status` command.
 
@@ -99,23 +205,6 @@ config:
   vm_stuck_check_delay: 30s
   vm_stuck_check_timeout: 10s
 ```
-
-For infomation check out `ankacluster status --help`
-
-```shell
-❯ sudo ankacluster status --help
-Returns the status of the Anka Node Agent
-
-Usage:
-  ankacluster status [flags]
-
-Flags:
-  -h, --help               help for status
-  -m, --machine-readable   Output the response in json format
-```
-
-The Anka agent is listening on a socket to provide the information at runtime.
-In case the agent is configured to listen on a custom socket, you can use the `ANKA_AGENT_SOCKET` env var to override it.
 
 ## Answers to Frequently Asked Questions
 
@@ -139,4 +228,4 @@ In case the agent is configured to listen on a custom socket, you can use the `A
     Joining cluster failed
     ```
 - The Controller will be checking disk space on every pull/preparation of a VM. If not enough disk space is available, it will automatically delete VM Templates/tags from the Node based on **which has the oldest last used timestamp** until there is enough space for the VM Template/Tag. This cannot be disabled at the moment. This can be modified to some extent by using --reserve-space flag (see explanation above)
-- The registry External URL is used by the Nodes to pull down templates and tags. Be sure to set this URL properly in your Build Cloud Configuration and ensure firewalls allow communication.
+- The registry `External URL` (seen in the controller UI/config) is used by the Nodes to pull down templates and tags. Be sure to set this URL properly in your Build Cloud Configuration and ensure firewalls allow communication.

@@ -1,8 +1,8 @@
 ---
 date: 2019-07-26
-title: "Achieving High Availability with Kubernetes"
-linkTitle: "Achieving High Availability with Kubernetes"
-weight: 5
+title: "With Kubernetes"
+linkTitle: "With Kubernetes"
+weight: 1
 description: >
   How to setup your Anka Build Cloud for High Availability using Kubernetes
 ---
@@ -29,7 +29,7 @@ We must mention that the differences between how our customers have deployed Kub
 
 > We recommend communicating with your DevOps/Kubernetes team to handle anything missing.
 
-Once it's up and running, you can [join your nodes to the Controller load balancer IP/hostname.]({{< relref "intel/Anka Build Cloud/Joining Nodes with Controller" >}})
+Once it's up and running, you can [join your nodes to the Controller load balancer IP/hostname.]({{< relref "intel/Anka Build Cloud/preparing-and-joining-your-nodes.md" >}})
 
 > You will also need to expose the Registry load balancer if you want to connect your laptop to push new VM Templates or Tags.
 

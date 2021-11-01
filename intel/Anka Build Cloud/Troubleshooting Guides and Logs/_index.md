@@ -1,7 +1,7 @@
 ---
 title: "Troubleshooting Guides and Logs"
 linkTitle: "Troubleshooting Guides and Logs"
-weight: -1
+weight: 11
 hideSubPagesInLeftMenu: false
 ---
 
