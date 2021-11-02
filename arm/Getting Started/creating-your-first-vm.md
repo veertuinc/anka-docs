@@ -27,6 +27,7 @@ Creating a VM in Anka 3.0 differs from the Intel version. Anka 3.0 requires that
 {{< /hint >}}
 
 {{< include file="_partials/arm/Getting Started/_supported-macos-versions.md" >}}
+
 ### Using the Anka UI
 
 1. Click on **Create new VM**.
