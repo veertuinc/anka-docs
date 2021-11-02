@@ -18,6 +18,10 @@ In the beta release of Anka 3.0, you will not be able to use installer .app file
 
 ## 2. Create your first VM Template
 
+{{< hint warning >}}
+Avoid the use of `sudo` commands as there are issues with non-sudo users launching VMs with sudo in the initial beta.
+{{< /hint >}}
+
 {{< hint info >}}
 Creating a VM in Anka 3.0 differs from the Intel version. Anka 3.0 requires that you manually set up macOS inside of the VM. See step #3 below.
 {{< /hint >}}
