@@ -4,15 +4,17 @@ linkTitle: "Logs"
 weight: 1
 ---
 
+{{< hint info >}}
+You might be interested in changing the verbosity of the following logs. If so, you can set the `ANKA_LOG_LEVEL` ENV to an integer greater than 0 and restart the controller. See [our Configuration Reference]({{< relref "intel/Anka Build Cloud/configuration-reference.md#logging" >}}) for more details.
+{{< /hint >}}
 
-> You might be interested in changing the verbosity of the following logs. If so, you can set the `ANKA_LOG_LEVEL` ENV to an integer greater than 0 and restart the controller. See [our Configuration Reference]({{< relref "intel/Anka Build Cloud/configuration-reference.md#logging" >}}) for more details.
+## Linux / Docker Package
 
-# Linux / Docker Package
+Anka controller and registry services can run with linux, using docker containers. logs are available via the controller dashboard , docker logs and via directories in correspondence with anka services. Generally, log files are created for each vm upon vm start.
 
-Anka controller and registry services can run with linux, using docker containers. logs are available via the controller dashboard , docker logs and via directories in correspondence with anka services. Generally, log files are created for each vm upon vm start .   
-Anka controller is responsible for cleaning unused vms logs. 
+Anka controller is responsible for cleaning unused vms logs.
 
-### Anka Controller 
+### Anka Controller
 
 1. By Docker logs command : `docker logs --follow <Name of the container running the controller> ` 
  
@@ -30,15 +32,18 @@ Location : the directory you spcified in the docker-compose.yml, for mounting th
 
 ----
 
-# Mac Package
+## Mac Package
 
-> All logs older than 7 days are deleted every day (hard coded; no logrotate configuration)
+{{< hint warning >}}
+All logs larger than 1024MB older than 7 days are deleted every day (hard coded; no logrotate configuration)
+{{< /hint >}}
 
 Anka logs are available via the controller dashboard and several directories in correspondence with 'Anka' and it's microservices (controller, registry and agent). Generally, log files are created for each vm upon vm start.  
-Anka controller is responsible for cleaning unused vms logs. 
-* anka Agent 
+Anka controller is responsible for cleaning unused vms logs.
 
-### Anka Controller 
+* anka Agent
+
+### Anka Controller
 
 Logs location : `/Library/Logs/Veertu/AnkaController`
 1. Show logs by command: `sudo anka-controller logs` - Press Ctrl+C to exit.
@@ -72,4 +77,3 @@ Logs location : `/var/log/veertu`
 3. You can see the agents and registry logs via the UI in the controller dashboard it will be under the name of your host. 
 
 ![agent logs]({{< siteurl >}}images/anka-build/logs/dashboardlogs.png)
-
