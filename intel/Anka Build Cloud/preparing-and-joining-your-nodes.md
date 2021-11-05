@@ -89,7 +89,7 @@ sudo pmset -a hibernatemode 0
 
     MDS can be disable with `sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist`, but only if SIP is disabled on the host (not recommended)
 
-- Set the same `chunk_size` across your nodes with `anka config chunk_size 2147483648` (2GB). Any of the machines that create VM templates/tags need to also have this set.
+- Set the same `chunk_size` across your nodes with `anka config chunk_size 2147483648` (2GB; multiple of `1048576`). Any of the machines that create VM templates/tags need to also have this set.
 
   {{< hint warning >}}
   If the chunk_size is too small, you may hit `Too many open files` when trying to start VMs. You can try to modify the system's maxfiles (`sudo launchctl limit maxfiles 4096 unlimited`), but it may also be a good idea to increase the `chunk_size` to a larger size as well.
