@@ -29,6 +29,10 @@ description: >
 
 > Upgrading Addons from the previous version of anka is necessary.
 
+{{< hint warning >}}
+Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
+{{< /hint >}}
+
 - Bug Fix: Apple's automatic software update/download is enabled for newly created VMs. This was causing a problem where the new macOS version installer .app was being downloaded each time a VM was started.
 - Bug Fix: VMs randomly crashing with `failed to get pid: Socket is not connected`
 - Bug Fix: `anka config default_passwd` returning 245 exit code
