@@ -428,6 +428,7 @@ ram_override   | int    | VRAM scheduling limit, when using capacity mode `resou
 disk_size      | int    | Node's disk size in bytes
 free_disk_space | int   | Node's free disk space in bytes
 anka_disk_usage | int   | Disk space used by Anka in bytes
+templates      | array of objects | List of templates that the node has, each template has `name`, `tag` and `uuid`
 
 
 ### List Nodes
@@ -523,7 +524,15 @@ curl "http://anka.controller/api/v1/node" -H "Content-Type: application/json" | 
       "ram_override": 0,
       "disk_size": 1000240963584,
       "free_disk_space": 387449434112,
-      "anka_disk_usage": 37276504000
+      "anka_disk_usage": 37276504000,
+      "templates" : [
+         {
+            "name" : "11.2.3-openjdk-1.8.0_242-jenkins",
+            "tag" : "base",
+            "uuid" : "c0847bc9-5d2d-4dbc-ba6a-240f7ff08032"
+         }
+      ],
+
     }
   ]
 }
@@ -559,7 +568,8 @@ curl "http://anka.controller/api/v1/node?id=f8707005-4630-4c9c-8403-c9c5964097f6
          "node_name" : "MacPro-02.local",
          "node_id" : "f8707005-4630-4c9c-8403-c9c5964097f6",
          "ram_override" : 0,
-         "vcpu_count" : 2
+         "vcpu_count" : 2,
+         "templates" : []
       }
    ]
 }
@@ -631,6 +641,31 @@ curl -X DELETE "http://anka.controller/api/v1/node" -H "Content-Type: applicatio
    "message":""
 }
 ```
+
+### Delete Template from Node\[s\]
+
+**Description:** Deletes a template from all or specific nodes 
+**Path:** /api/v1/registry/vm/remove
+**Method:** DELETE  
+**Required Query Parameters:**  
+
+ Parameter | Type   | Description 
+ ---       |   ---  |          ---
+ id        | string | The Template's id.
+
+**Optional Body Parameters:**
+
+ Parameter | Type   | Description
+ ---       |   ---  |          ---
+ node_ids        | string array | A list of nodes to delete the template from
+
+ **Returns:** 
+ - *Status:* Operation Result (OK|FAIL)  
+ - *message:* Error message in case of an error 
+ - *body:* 
+   Number of requests sent (int): "requests_sent"
+   Node IDs that the request was sent to (string array): "node_ids"
+
 
 ### Force Node Agent Update
 
