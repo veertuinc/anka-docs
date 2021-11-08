@@ -6,26 +6,35 @@ weight: 9
 description: How to upgrade the Anka Virtualization package
 ---
 
-> Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Build Cloud Controller & Registry]({{< relref "intel/Anka Build Cloud/upgrading.md" >}})
-
-> We do not follow strict [semantic versioning](https://semver.org/); minor and major version increases can have significant changes
-
-> Upgrading Anka Virtualization software while VMs are running **is typically safe.**
-
-> Upgrading the VM macOS version from within (using `softwareupdate`) typically works. However, starting in Monterey you will need to switch the `hard_drive` controller to `ablk` before attempting the upgrade: `anka modify {TemplateName} set hard-drive --controller ablk`
-
 ### Upgrade Procedure
 
 1. [Download and install the latest version]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})
 
-> **NOTE:** If your existing version is noted in the [Pre-Upgrade Considerations]({{< relref "intel/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}), or, if you're going between major/minor versions of Anka:
->
->   1. Upgrade the guest addons inside existing VM templates with `anka start -u`
->   2. Push the newly upgraded VM templates to registry with `anka registry push {vmNameOrUUID} --tag <newTag>`
->
-> We cannot guarantee that suspended VMs will start properly between major and minor versions of Anka, though, we do try and ensure the compatibility.
+{{< hint info >}}
+Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Build Cloud Controller & Registry]({{< relref "intel/Anka Build Cloud/upgrading.md" >}})
+{{< /hint >}}
 
-### Pre-Upgrade Considerations
+{{< hint warning >}}
+We do not follow strict [semantic versioning](https://semver.org/); minor and major version increases can have significant changes
+{{< /hint >}}
+
+{{< hint info >}}
+Upgrading Anka Virtualization software while VMs are running **is typically safe.** Please see the Pre-upgrade Considerations below to be sure.
+{{< /hint >}}
+
+{{< hint info >}}
+Upgrading the VM macOS version from within (using `softwareupdate`) typically works. However, starting in Monterey you will need to switch the `hard_drive` controller to `ablk` before attempting the upgrade: `anka modify {TemplateName} set hard-drive --controller ablk`
+{{< /hint >}}
+
+{{< hint warning >}}
+**NOTE:** If your existing version is noted in the [Pre-Upgrade Considerations]({{< relref "intel/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}), or, if you're going between major/minor versions of Anka:
+
+   1. Upgrade the guest addons inside existing VM templates with `anka start -u`
+   2. Push the newly upgraded VM templates to registry with `anka registry push {vmNameOrUUID} --tag <newTag>`
+
+We cannot guarantee that suspended VMs will start properly between major and minor versions of Anka, though, we do try and ensure the compatibility.
+{{< /hint >}}
+### Pre-upgrade Considerations
 
 Existing Version | Target Version | Recommendation
 --- | --- | ---
