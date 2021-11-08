@@ -7,23 +7,19 @@ description: >
   Detailed Release Notes
 ---
 
-> Not all plugins are maintained by Veertu Inc developers. You might not see them listed here.
-
+{{< hint warning >}}
+Not all plugins are maintained by Veertu Inc developers. You might not see them listed here.
+{{< /hint >}}
 ## Current Versions
 
-### Anka Build Cloud Controller & Registry 1.19.0 (1.19.0-7c1c1424) - Oct 4th, 2021
-- Bug Fix: Registry files (tag files and some .ank) were rarely zeroing out due to bad read/write logic
-- Improvement: Controller logs now show with node name instances start on
-- (Standalone Registry: 1.19.0-76bca3a)
+### Anka Build Cloud Controller & Registry 1.20.0 (1.20xxxx) - Nov 8th, 2021
 
-> Known issues we're working on fixes for:
-> Please note that there is a temporary workaround required for a bug that started in versions after 1.18.0 of the Controller/Registry agent which runs on your nodes. All versions of the agent, when noticing that the version of itself does not match the version of the controller, will perform a self-upgrade and restart. The restart seems to be problematic on some setups and leaves a zombie anka_agent process and and Offline status in the controller UI. To work around the bug when upgrading your controller/registry, you'll need to change the existing steps to include:
-> - Disjoining all of the nodes first
-> - Do the controller/registry upgrade
-> - Run `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on each node to download the new version
-> - And finally join each node back
-> 
-> We will be fixing the bug in our next release. Thanks for your understanding and we are sorry for the inconvenience this causes.
+- Bug Fix: Moving networks/IPs now updates the Node IP in the Controller UI/database.
+- New Feature: [Delete VM Templates from Nodes through the Controller API.]({{< relref "Whats New/build-cloud-1.20.0/index.md#delete-vm-templates-on-node-from-controller-api" >}})
+- New Feature: [Ability to see what VM Templates are on a node from the Controller API.]({{< relref "Whats New/build-cloud-1.20.0/index.md#view-availablepulled-vm-templates-on-a-node-from-controller-api" >}})
+- Improvement: The `ankacluster` and Anka Agent now support M1/ARM.
+- Improvement: Various security patches & upgrades for golang.
+- (Standalone Registry: 1.20xxxxxxxx)
 
 ### Anka Virtualization CLI 2.5.3 (2.5.3.135) - Sep 23rd, 2021
 
@@ -77,6 +73,21 @@ Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
 ---
 
 ## Previous Versions
+
+
+### Anka Build Cloud Controller & Registry 1.19.0 (1.19.0-7c1c1424) - Oct 4th, 2021
+- Bug Fix: Registry files (tag files and some .ank) were rarely zeroing out due to bad read/write logic
+- Improvement: Controller logs now show with node name instances start on
+- (Standalone Registry: 1.19.0-76bca3a)
+
+> Known issues we're working on fixes for:
+> Please note that there is a temporary workaround required for a bug that started in versions after 1.18.0 of the Controller/Registry agent which runs on your nodes. All versions of the agent, when noticing that the version of itself does not match the version of the controller, will perform a self-upgrade and restart. The restart seems to be problematic on some setups and leaves a zombie anka_agent process and and Offline status in the controller UI. To work around the bug when upgrading your controller/registry, you'll need to change the existing steps to include:
+> - Disjoining all of the nodes first
+> - Do the controller/registry upgrade
+> - Run `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on each node to download the new version
+> - And finally join each node back
+> 
+> We will be fixing the bug in our next release. Thanks for your understanding and we are sorry for the inconvenience this causes.
 
 ### Anka Build Cloud Controller & Registry 1.18.0 (1.18.0-b3bb21bf) - Aug 23rd, 2021
 - Bug Fix: Reserved tasks do not get released back to queue
