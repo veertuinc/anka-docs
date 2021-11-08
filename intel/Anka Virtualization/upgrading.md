@@ -31,4 +31,4 @@ Existing Version | Target Version | Recommendation
 --- | --- | ---
 1.4.3 | 2.x.x | Requires upgrade of all existing VM templates with `anka start --update` and push to the registry
 2.x | 2.1.2 | Only requires upgrade of existing Catalina VM templates with `anka start --update` and push to the registry
-x.x | 2.x | macOS 10.14.X does not contain the necessary Apple APIs to work with 2.5.X of Anka. You will need to upgrade the host OS version before trying to install 2.5.X of Anka.
+2.x | 2.5.x | <ul><li>macOS 10.14.X does not contain the necessary Apple APIs to work with 2.5.X of Anka. You will need to upgrade the host OS version before trying to install 2.5.X of Anka.</li><li>Avoid upgrading the anka package to 2.5.X on nodes with VMs running.</li><li>Suspended VMs in 2.4.X are not compatible and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.</li></ul>

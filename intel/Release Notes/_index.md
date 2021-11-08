@@ -27,7 +27,13 @@ description: >
 
 ### Anka Virtualization CLI 2.5.3 (2.5.3.135) - Sep 23rd, 2021
 
-> Upgrading Addons from the previous version of anka is necessary.
+{{< hint warning >}}
+Suspended VMs in 2.4.X are not compatible and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.
+{{< /hint >}}
+
+{{< hint warning >}}
+Upgrading Addons from the previous version of anka is recommended.
+{{< /hint >}}
 
 {{< hint warning >}}
 Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
@@ -41,7 +47,6 @@ Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
 
 > Known issues we're working on fixes for:
 > - Creating a VM Template with the name of 11.6 seems to throw not found errors when trying to push, clone, etc.
-> - Suspending VMs with Docker running may cause it to not be able to start.
 
 ### Packer Plugin 2.1.0 - Aug 5th, 2021
 - Improvement: Ensure that we generate the release properly so that `packer init` works [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/75)
