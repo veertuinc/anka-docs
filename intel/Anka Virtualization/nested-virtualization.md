@@ -18,6 +18,12 @@ Starting in Anka 2.5.0, Nested Virtualization has received a large refactor and 
 ### Supported Technologies
 
 #### Docker
+
+{{< hint warning >}}
+Please avoid suspending VMs while Docker or other nested virtualization apps are started. You will need to start the apps post-vm start.
+{{< /hint >}}
+
+
 #### Virtualbox
 #### Android Emulators
   > [We highly recommend PG is enabled when using Android Emulators]({{< relref "intel/Anka Virtualization/enabling-graphics-acceleration-with-apple-metal.md" >}})
