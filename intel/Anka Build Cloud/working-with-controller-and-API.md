@@ -642,10 +642,10 @@ curl -X DELETE "http://anka.controller/api/v1/node" -H "Content-Type: applicatio
 }
 ```
 
-### Delete Template from Nodes or node
+### Delete Template from Node\[s\]
 
-**Description:** Deletes a template from all or selected nodes 
-**Path:** /api/v1/registry/vm/remove  
+**Description:** Deletes a template from all or specific nodes 
+**Path:** /api/v1/registry/vm/remove
 **Method:** DELETE  
 **Required Query Parameters:**  
 
@@ -654,8 +654,8 @@ curl -X DELETE "http://anka.controller/api/v1/node" -H "Content-Type: applicatio
  id        | string | The Template's id.
 
 **Optional Body Parameters:**
- 
- Parameter | Type   | Description 
+
+ Parameter | Type   | Description
  ---       |   ---  |          ---
  node_ids        | string array | A list of nodes to delete the template from
 
