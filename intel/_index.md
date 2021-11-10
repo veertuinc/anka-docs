@@ -1,7 +1,7 @@
 ---
 title: >
   Anka 2.5.3 (intel) -
-  Build Cloud 1.19.0
+  Build Cloud 1.20.0
 cascade:
   - type: "docs"
 ---
