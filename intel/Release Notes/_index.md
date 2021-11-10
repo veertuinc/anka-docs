@@ -12,14 +12,14 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 {{< /hint >}}
 ## Current Versions
 
-### Anka Build Cloud Controller & Registry 1.20.0 (1.20xxxx) - Nov 8th, 2021
+### Anka Build Cloud Controller & Registry 1.20.0 (1.20.0-035872f5) - Nov 8th, 2021
 
 - Bug Fix: Moving networks/IPs now updates the Node IP in the Controller UI/database.
 - New Feature: [Delete VM Templates from Nodes through the Controller API.]({{< relref "Whats New/build-cloud-1.20.0/index.md#delete-vm-templates-on-node-from-controller-api" >}})
 - New Feature: [Ability to see what VM Templates are on a node from the Controller API.]({{< relref "Whats New/build-cloud-1.20.0/index.md#view-availablepulled-vm-templates-on-a-node-from-controller-api" >}})
 - Improvement: The `ankacluster` and Anka Agent now support M1/ARM.
+- Improvement: Upgraded built-in etcd to 3.5.1.
 - Improvement: Various security patches & upgrades for golang.
-- (Standalone Registry: 1.20xxxxxxxx)
 
 ### Anka Virtualization CLI 2.5.3 (2.5.3.135) - Sep 23rd, 2021
 
