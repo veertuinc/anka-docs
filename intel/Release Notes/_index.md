@@ -20,6 +20,7 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 - Improvement: The `ankacluster` and Anka Agent now support M1/ARM.
 - Improvement: Upgraded etcd to 3.5.1.
 - Improvement: Various security patches & upgrades for golang.
+- _Minimum Registry version required - 1.19.0_
 
 ### Anka Virtualization CLI 2.5.3 (2.5.3.135) - Sep 23rd, 2021
 
