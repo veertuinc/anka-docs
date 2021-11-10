@@ -26,6 +26,8 @@ description: How to upgrade the Anka Build Cloud
 | Existing Version | Target Version | Recommendation |
 | --- | --- | --- |
 | 1.18.0 | 1.19.0 | See [Release Notes for 1.19.0]({{< relref "intel/Release Notes/_index.md#anka-build-cloud-controller--registry-1190-1190-7c1c1424---oct-4th-2021" >}})
+| x.xx.x | 1.20.0 | _Minimum Registry version required for Controller - 1.19.0_
+
 
 ### Upgrade Procedure
 
