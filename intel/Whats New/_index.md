@@ -8,8 +8,9 @@ description: >
 ---
 
 {{< hint warning >}}
-## This page has been deprecated. Please view [the new What's New page for newer releases.]({{< relref "Whats New" >}})
+### This page has been deprecated. Please view [the new What's New page for newer releases.]({{< relref "Whats New" >}})
 {{< /hint >}}
+
 ## What's New in Anka Build Cloud Controller & Registry Version 1.18.0
 
 ### Ability to use certs and username/password for etcd connections
