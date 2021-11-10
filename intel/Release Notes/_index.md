@@ -18,7 +18,7 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 - New Feature: [Delete VM Templates from Nodes through the Controller API.]({{< relref "Whats New/build-cloud-1.20.0/index.md#delete-vm-templates-on-node-from-controller-api" >}})
 - New Feature: [Ability to see what VM Templates are on a node from the Controller API.]({{< relref "Whats New/build-cloud-1.20.0/index.md#view-availablepulled-vm-templates-on-a-node-from-controller-api" >}})
 - Improvement: The `ankacluster` and Anka Agent now support M1/ARM.
-- Improvement: Upgraded built-in etcd to 3.5.1.
+- Improvement: Upgraded etcd to 3.5.1.
 - Improvement: Various security patches & upgrades for golang.
 
 ### Anka Virtualization CLI 2.5.3 (2.5.3.135) - Sep 23rd, 2021
