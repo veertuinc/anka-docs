@@ -21,6 +21,7 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 - Improvement: Upgraded etcd to 3.5.1.
 - Improvement: Various security patches & upgrades for golang.
 - _Minimum Registry version required for Controller - 1.19.0_
+- (Standalone Registry: 1.20.0-c83f487d)
 
 > Known issues we're working on fixes for:
 > Please note that there is a temporary workaround required for a bug that started in versions after 1.18.0 of the Controller/Registry agent which runs on your nodes. All versions of the agent, when noticing that the version of itself does not match the version of the controller, will perform a self-upgrade and restart. The restart seems to be problematic on some setups and leaves a zombie anka_agent process and and Offline status in the controller UI. To work around the bug when upgrading your controller/registry, you'll need to change the existing steps to include:
