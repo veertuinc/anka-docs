@@ -25,9 +25,8 @@ description: How to upgrade the Anka Build Cloud
 
 | Existing Version | Target Version | Recommendation |
 | --- | --- | --- |
-| 1.18.0 | 1.19.0 | See [Release Notes for 1.19.0]({{< relref "intel/Release Notes/_index.md#anka-build-cloud-controller--registry-1190-1190-7c1c1424---oct-4th-2021" >}})
+| 1.18.0 | > 1.18.0 | Please note that there is a temporary workaround required for a bug that started in versions after 1.18.0 of the Controller/Registry agent which runs on your nodes. All versions of the agent, when noticing that the version of itself does not match the version of the controller, will perform a self-upgrade and restart. The restart seems to be problematic on some setups and leaves a zombie anka_agent process and and Offline status in the controller UI. To work around the bug when upgrading your controller/registry, you'll need to change the existing steps to include: <ul><li>Disjoining all of the nodes first</li><li>Do the controller/registry upgrade</li><li>Run `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on each node to download the new version</li><li>And finally join each node back</li></ul>We will be fixing the bug soon. Thanks for your understanding and we are sorry for the inconvenience this causes.
 | x.xx.x | 1.20.0 | _Minimum Registry version required for Controller - 1.19.0_
-
 
 ### Upgrade Procedure
 
