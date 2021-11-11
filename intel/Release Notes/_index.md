@@ -22,6 +22,15 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 - Improvement: Various security patches & upgrades for golang.
 - _Minimum Registry version required for Controller - 1.19.0_
 
+> Known issues we're working on fixes for:
+> Please note that there is a temporary workaround required for a bug that started in versions after 1.18.0 of the Controller/Registry agent which runs on your nodes. All versions of the agent, when noticing that the version of itself does not match the version of the controller, will perform a self-upgrade and restart. The restart seems to be problematic on some setups and leaves a zombie anka_agent process and and Offline status in the controller UI. To work around the bug when upgrading your controller/registry, you'll need to change the existing steps to include:
+> - Disjoining all of the nodes first
+> - Do the controller/registry upgrade
+> - Run `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on each node to download the new version
+> - And finally join each node back
+> 
+> We will be fixing the bug soon. Thanks for your understanding and we are sorry for the inconvenience this causes.
+
 ### Anka Virtualization CLI 2.5.3 (2.5.3.135) - Sep 23rd, 2021
 
 {{< hint warning >}}
@@ -88,7 +97,7 @@ Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
 > - Run `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on each node to download the new version
 > - And finally join each node back
 > 
-> We will be fixing the bug in our next release. Thanks for your understanding and we are sorry for the inconvenience this causes.
+> We will be fixing the bug soon. Thanks for your understanding and we are sorry for the inconvenience this causes.
 
 ### Anka Build Cloud Controller & Registry 1.18.0 (1.18.0-b3bb21bf) - Aug 23rd, 2021
 - Bug Fix: Reserved tasks do not get released back to queue
