@@ -32,7 +32,7 @@ Creating a VM in Anka 3.0 differs from the Intel version. Anka 3.0 requires that
 
 1. Click on **Create new VM**.
 2. Click on Options and set any non-default values you want.
-![installer with pkg]({{< siteurl >}}images/getting-started/creating-your-first-vm/create-vm-window-with-options.png)
+![installer with pkg]({{< siteurl >}}images/arm/getting-started/creating-your-first-vm/ui.png)
 3. Be patient while it's creating.
 
 Once the VM template is created, you will see it on the sidebar.
