@@ -18,8 +18,6 @@ description: >
 
 {{< include file="_partials/intel/Getting Started/_obtain-macos-installer.md" >}}
 
-> As an alternative to the macOS installer, [you can also use an iso]({{< relref "intel/Anka Virtualization/creating-a-vm-template-with-an-iso.md" >}})
-
 ## 2. Create your VM
 
 > The Anka VM is pre-configured with a default administrative username `anka` and password `admin`. You can override this with ENVs: `ANKA_DEFAULT_USER` and `ANKA_DEFAULT_PASSWD`
