@@ -7,6 +7,10 @@ description: >
   Using Apple's Metal/GPUs inside of your Anka VMs
 ---
 
+{{< hint warning >}}
+The host and guest macOS versions should be in-sync to avoid incompatibilities between the Apple metal APIs. We also recommend the latest Big Sur or higher versions.
+{{< /hint >}}
+
 Apple has included paravirtualized graphics support in Big Sur which allows us to support graphics acceleration/GPUs inside of Anka VMs.
 
 To enable this feature, you'll need to:
