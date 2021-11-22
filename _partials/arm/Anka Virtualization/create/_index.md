@@ -15,5 +15,5 @@ options:
 ```
 
 {{< hint warning >}}
-`--app` is not like the 2.X Anka intel version. It requires a restore image from apple, not a .app installer. For now, we will automatically download the latest Monterey restore image from apple on `anka create`.
+`--app` is not like the 2.X Anka intel version. It requires a restore image (ipsw) from apple, not a .app installer. For now, we will automatically download the latest Monterey restore image from apple on `anka create --app latest`.
 {{< /hint >}}
