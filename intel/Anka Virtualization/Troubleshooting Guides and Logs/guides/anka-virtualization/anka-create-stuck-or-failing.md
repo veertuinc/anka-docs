@@ -1,6 +1,6 @@
 ---
-title: "anka create is stuck or failing"
-linkTitle: "anka create is stuck or failing"
+title: "VM creation is stuck or failing"
+linkTitle: "VM creation is stuck or failing"
 weight: 1
 ---
 
