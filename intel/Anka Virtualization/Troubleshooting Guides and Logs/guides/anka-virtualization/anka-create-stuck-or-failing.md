@@ -12,7 +12,9 @@ weight: 1
 ## Common reasons and solutions
 
 1. McAfee or other anti-virus is blocking networking initialization. McAfee will need to be disabled, or anka processes whitelisted.
-2. The macOS installation has failed. You can open the `anka view {name}` to ensure that it is actually stuck or failed. If so, try running `anka --debug create...` from your terminal to see if it works a second time. If it keeps failing, report the issue to Veertu support with the output from the `anka --debug create` command.
+2. The macOS installation has failed for some reason. You can open the `anka view {name}` to ensure that it is actually stuck or failed.
+    - If so, try running `anka --debug create...` from your terminal to see if it works a second time. If it keeps failing, report the issue to Veertu support with the output from the `anka --debug create` command.
+    - It's also possible that you haven't given enough resources to the VM being created. We recommend a minimum of 2 vcpus and 4GBs of memory for stability.
 
 ## Still experiencing problems?
 
