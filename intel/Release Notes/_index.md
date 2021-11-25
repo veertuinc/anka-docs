@@ -12,7 +12,35 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 {{< /hint >}}
 ## Current Versions
 
-### Anka Build Cloud Controller & Registry 1.20.0 (1.20.0-035872f5) - Nov 8th, 2021
+### Anka Virtualization CLI 2.5.4 (2.5.4.136) - Nov 24th, 2021
+
+{{< hint warning >}}
+#### Please note for this release
+
+- Upgrading Addons from the previous minor version of anka is recommended but not required.
+
+- Suspended VMs created in previous minor versions of anka are not compatible and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.
+
+- Avoid upgrading to this version on nodes with running VMs.
+{{< /hint >}}
+
+- **Bug Fix:** `anka list` was not sorted by name.
+- **Bug Fix:** Race condition throws "not found" when `anka clone` and `anka delete` happen at the same time.
+- **Bug Fix:** VMs created with the name "11.6" throw a failure.
+- **Bug Fix:** Anka `registry list` command fails with `key values mismatch` when using self signed certs.
+- **Bug Fix:** Machine readable `stop_date` is in a bad format for parsing.
+- **Bug Fix:** Machine readable status differ between `list` and `show` commands.
+- **Bug Fix:** `anka create` suddenly throwing `hdiutil: attach failed - Resource busy` error.
+- **Bug Fix:** `anka license show -k {license}` doesn't display proper host based license information.
+- **Bug Fix:** Unable to use `change_res` binary on Big Sur, Monterey, and PG enabled VM templates.
+- **Bug Fix:** On machine boot, `anka_agent` is running and executing `anka list` which triggers creation of *_lib directories. This was causing network mounts (which happen after the agent runs) to try using the same location, failing to because they already exist, and instead mounting with a different name. This caused `anka list` to be empty after a reboot. We removed the creation on `anka list` which will give enough time for network mounts to claim the path.
+- **Bug Fix:** The anka uninstaller script was removing a locally installed controller package.
+- **Improvement:** Monterey VM creation will automatically set `ablk` as the disk controller (`virtio-blk` not supported currently).
+- **Improvement:** Support for 32 core machines.
+- **Improvement:** We now check the registry status/availability before creating a local tag. This should prevent situations where a local tag was created prematurely and then blocked subsequent commands (requiring either a manual deletion of the local tag, or a force push).
+- **New Feature:** [You can now find the last used date/time of a VM/Template using the `access_date` key/value.]({{< relref "Whats New/anka-2.5.4/index.md#ability-to-find-the-last-time-a-template-was-used" >}})
+
+### Anka Build Cloud Controller & Registry 1.20.0 (1.20.0-035872f5) - Nov 10th, 2021
 
 - Bug Fix: Moving networks/IPs now updates the Node IP in the Controller UI/database.
 - New Feature: [Delete VM Templates from Nodes through the Controller API.]({{< relref "Whats New/build-cloud-1.20.0/index.md#delete-vm-templates-on-node-from-controller-api" >}})
@@ -31,29 +59,6 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 > - And finally join each node back
 > 
 > We will be fixing the bug soon. Thanks for your understanding and we are sorry for the inconvenience this causes.
-
-### Anka Virtualization CLI 2.5.3 (2.5.3.135) - Sep 23rd, 2021
-
-{{< hint warning >}}
-Suspended VMs in 2.4.X are not compatible and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.
-{{< /hint >}}
-
-{{< hint warning >}}
-Upgrading Addons from the previous version of anka is recommended.
-{{< /hint >}}
-
-{{< hint warning >}}
-Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
-{{< /hint >}}
-
-- Bug Fix: Apple's automatic software update/download is enabled for newly created VMs. This was causing a problem where the new macOS version installer .app was being downloaded each time a VM was started.
-- Bug Fix: VMs randomly crashing with `failed to get pid: Socket is not connected`
-- Bug Fix: `anka config default_passwd` returning 245 exit code
-- Bug Fix: VM suspension logic was producing stopping VMs
-- Bug Fix: Date strings in `anka list` have overflow in minutes and seconds fields
-
-> Known issues we're working on fixes for:
-> - Creating a VM Template with the name of 11.6 seems to throw not found errors when trying to push, clone, etc.
 
 ### Packer Plugin 2.1.0 - Aug 5th, 2021
 - Improvement: Ensure that we generate the release properly so that `packer init` works [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/75)
@@ -85,6 +90,28 @@ Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
 
 ## Previous Versions
 
+### Anka Virtualization CLI 2.5.3 (2.5.3.135) - Sep 23rd, 2021
+
+{{< hint warning >}}
+Suspended VMs in 2.4.X are not compatible and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.
+{{< /hint >}}
+
+{{< hint warning >}}
+Upgrading Addons from the previous version of anka is recommended.
+{{< /hint >}}
+
+{{< hint warning >}}
+Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
+{{< /hint >}}
+
+- Bug Fix: Apple's automatic software update/download is enabled for newly created VMs. This was causing a problem where the new macOS version installer .app was being downloaded each time a VM was started.
+- Bug Fix: VMs randomly crashing with `failed to get pid: Socket is not connected`
+- Bug Fix: `anka config default_passwd` returning 245 exit code
+- Bug Fix: VM suspension logic was producing stopping VMs
+- Bug Fix: Date strings in `anka list` have overflow in minutes and seconds fields
+
+> Known issues we're working on fixes for:
+> - Creating a VM Template with the name of 11.6 seems to throw not found errors when trying to push, clone, etc.
 
 ### Anka Build Cloud Controller & Registry 1.19.0 (1.19.0-7c1c1424) - Oct 4th, 2021
 - Bug Fix: Registry files (tag files and some .ank) were rarely zeroing out due to bad read/write logic
