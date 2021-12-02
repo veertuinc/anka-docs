@@ -8,19 +8,35 @@ description: How to upgrade the Anka Build Cloud
 
 ### Before you begin
 
-- We follow [semantic versioning](https://semver.org/); minor and major version increases can have significant changes and should be carefully considered.
+{{< hint info >}}
+We follow [semantic versioning](https://semver.org/); minor and major version increases can have significant changes and should be carefully considered.
+{{< /hint >}}
 
-- Before upgrading, check if your current version is noted in the [Pre-Upgrade Considerations]({{< relref "intel/Anka Build Cloud/upgrading.md#pre-upgrade-considerations" >}}) and adjust your upgrade plan accordingly.
+{{< hint info >}}
+Before upgrading, check if your current version is noted in the [Pre-Upgrade Considerations]({{< relref "intel/Anka Build Cloud/upgrading.md#pre-upgrade-considerations" >}}) and adjust your upgrade plan accordingly.
+{{< /hint >}}
 
-- The Controller and Anka Nodes communicate through an agent running separate from from the Anka Virtualization/CLI tool, but on the same machine. When you upgrade the Controller, the node agent notices that the agent and controller versions differ and will create a task for each Node. This task will trigger the agent to perform a self-update and restart. While most situations this is seamless, we recommend checking the agent version post-upgrade on each Node with `ankacluster --version` to ensure it was upgraded properly. Nodes must be joined to the controller to receive the task to upgrade.
-  - If necessary, you can [force the proper agent version task creation through the Controller API.]({{< relref "intel/Anka Build Cloud/working-with-controller-and-API.md#force-node-agent-update" >}}). Alternatively you can also disjoin the Nodes first, do the upgrade of the Controller, and then manually execute `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on each node individually.
+{{< hint info >}}
+The Controller and Anka Nodes communicate through an agent running separate from from the Anka Virtualization/CLI tool, but on the same machine. When you upgrade the Controller, the node agent notices that the agent and controller versions differ and will create a task for each Node. This task will trigger the agent to perform a self-update and restart. While most situations this is seamless, we recommend checking the agent version post-upgrade on each Node with `ankacluster --version` to ensure it was upgraded properly. Nodes must be joined to the controller to receive the task to upgrade.
 
-- It is generally safe to upgrade the controller while VMs are running and nodes are joined. However, if you can, we do recommend temporarily pausing CI/CD jobs or assigning to agents and letting the currently running jobs drain before moving forward.
+If necessary, you can [force the proper agent version task creation through the Controller API.]({{< relref "intel/Anka Build Cloud/working-with-controller-and-API.md#force-node-agent-update" >}}). Alternatively you can also disjoin the Nodes first, do the upgrade of the Controller, and then manually execute `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on each node individually.
+{{< /hint >}}
 
+{{< hint info >}}
+It is generally safe to upgrade the controller while VMs are running and nodes are joined. However, if you can, we do recommend temporarily pausing CI/CD jobs or assigning to agents and letting the currently running jobs drain before moving forward.
+{{< /hint >}}
+
+{{< hint info >}}
 - We recommend [snapshotting your etcd database](https://etcd.io/docs/v3.5/op-guide/recovery/#snapshotting-the-keyspace) regularly, but especially before an upgrade.
+{{< /hint >}}
 
+{{< hint info >}}
 - The following steps also apply to downgrading, though, you need to forcefully downgrade the cluster agent on each of your nodes.
+{{< /hint >}}
 
+{{< hint warning >}}
+If you are upgrading the host/node macOS version, please disjoin and join the node to the controller using the `ankacluster` command.
+{{< /hint >}}
 ### Pre-upgrade Considerations
 
 | Existing Version | Target Version | Recommendation |

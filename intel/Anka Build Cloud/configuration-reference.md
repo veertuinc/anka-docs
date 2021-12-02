@@ -121,7 +121,7 @@ export ANKA_ANKA_REGISTRY="http://anka.registry:8089"
 | --- | :---: | --- | :---: | :---: |
 | Version | bool | Prints controller version and exits | - | ANKA_VERSION | 
 | External Registry address | string | Anka Registry external URL (http[s]://hostname:[port]). This is passed to the Nodes, so they can download (and start) VMs | (required) | ANKA_ANKA_REGISTRY |
-| Configuration file | string | Path to a configuration file in INI format. You can use the file with/without the command line parameters and env variables | - | ANKA_CONFIG |
+| Configuration file | string | (DEPRECATED) Path to a configuration file in INI format. You can use the file with/without the command line parameters and env variables | - | ANKA_CONFIG |
 | Listen address | string | Listen on this address (:80 is equivalent to 0.0.0.0:80). Use the format `[address]:port` | :80 | ANKA_LISTEN_ADDR |
 | Local Registry Address | string | Anka Registry local address in format `http[s]://hostname:[port]`. This parameter is for situations where the Controller and Registry are on the same network. For example `http://locahost:8089` | - | ANKA_LOCAL_ANKA_REGISTRY |
 | Number of concurrent workers | int | The number of concurrent workers processing node tasks | 2 | ANKA_NUM_WORKERS |
@@ -236,7 +236,7 @@ Enable queue auth| | Enables queue authentication/authorization | false | ANKA_E
 Clean process interval| duration | The interval to clean the queues (delete any tasks older than 24 hours), 0 to disable | 1h | ANKA_CLEAN_QUEUES_INTERVAL
 allow cors | bool | If true adds Acces-Control-Allow-Origin to all routes | default | ANKA_ALLOW_CORS
 Scheduler interval| duration | Interval for checking scheduled tasks | 30m | ANKA_SCHEDULER_INTERVAL
-allowUnknownFlags| | Don't terminate the app if ini file contains unknown flags. | default | ANKA_ALLOWUNKNOWNFLAGS
+allowUnknownFlags| | (DEPRECATED) Don't terminate the app if ini file contains unknown flags. | default | ANKA_ALLOWUNKNOWNFLAGS
 Dump flags | bool | Dumps values for all flags defined in the app into stdout in ini-compatible syntax and terminates the app. | false | ANKA_DUMPFLAGS 
 
 {{< /tab >}}
@@ -324,7 +324,7 @@ Depending on the package you're using (native or docker), you can include flags 
 | --- | :---: | --- | :---: | :---: |
 | Version | bool | Prints controller version and exits | - | `--version` | 
 | External Registry address | string | Anka Registry external URL (http[s]://hostname:[port]). This is passed to the Nodes, so they can download (and start) VMs | **(required)** | `--anka-registry` |
-| Configuration file | string | Path to a configuration file in INI format. You can use the file with/without the command line parameters and env variables | - | `--config` |
+| Configuration file | string | (DEPRECATED) Path to a configuration file in INI format. You can use the file with/without the command line parameters and env variables | - | `--config` |
 | Listen address | string | Listen on this address (:80 is equivalent to 0.0.0.0:80). Use the format `[address]:port` | :80 | `--listen_addr` |
 | Local Registry Address | string | Anka Registry local address in format `http[s]://hostname:[port]`. This parameter is for situations where the Controller and Registry are on the same network. For example `http://locahost:8089`. This is NOT used for Nodes. If not specified, External address is used. | - | `--local-anka-registry` |
 | Number of concurrent workers | int | The number of concurrent workers processing node tasks | 2 | `--num-workers` |
