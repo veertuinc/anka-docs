@@ -28,6 +28,7 @@ description: >
 {{< include file="_partials/arm/Anka Virtualization/modify/add/disk/_index.md" >}}
 #### modify {vmNameOrUUID} add port
 {{< include file="_partials/arm/Anka Virtualization/modify/add/port/_index.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/modify/add/port/_example.md" >}}
 #### modify {vmNameOrUUID} add label
 {{< include file="_partials/arm/Anka Virtualization/modify/add/label/_index.md" >}}
 ### modify {vmNameOrUUID} delete

@@ -91,15 +91,11 @@ The `anka view` command currently will only function if you at some point starte
 
 ## SSH
 
-{{< hint warning >}}
-Port forwarding to enable guest <-> port mapping is currently not available.
-{{< /hint >}}
+{{< include file="_partials/arm/Anka Virtualization/modify/add/port/_example.md" >}}
 
 ## VNC
 
-{{< hint warning >}}
-Port forwarding to enable guest <-> port mapping is currently not available.
-{{< /hint >}}
+Once you've enabled Apple's Remote Login inside of the VM, simply add a forwarded port for guest:5900 to the host. You can then VNC from the host into the VM using this port.
 
 ## Answers to Frequently Asked Questions
 
