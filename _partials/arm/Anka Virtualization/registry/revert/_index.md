@@ -5,5 +5,5 @@ usage: revert [options] vmid
    Revert or delete a template
 
 options:
-  -t,--tag <val>     TEXT
+  -t,--tag <val>           TEXT
 ```

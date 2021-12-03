@@ -1,6 +1,6 @@
 ```shell
-> anka modify 12.0-beta name --help
+> anka modify 12.0.1-jenkins name --help
 usage: name name
 
-   Set new template name for the VM
+   Set new name for the VM
 ```

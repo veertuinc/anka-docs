@@ -1,6 +1,6 @@
 ```shell
-> anka modify 12.0.1-jenkins disk --help
-usage: disk [options]
+> anka modify 12.0.1-jenkins add disk --help
+usage: hard-drive,disk [options]
 
    Modify hard drive settings
 

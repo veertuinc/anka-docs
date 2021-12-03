@@ -1,6 +1,9 @@
 ```shell
 > anka license show --help
-usage: show <command>
+usage: show [options]
 
-   Show license information    
+   Show license information
+
+options:
+  -k,--key <val>           Get key information
 ```

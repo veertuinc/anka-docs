@@ -5,5 +5,5 @@ usage: list-repos [options]
    List registries you have configured
 
 options:
-  -d,--default       Show only the default registry
+  -d,--default             Show only the default registry
 ```
