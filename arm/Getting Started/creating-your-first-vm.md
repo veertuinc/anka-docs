@@ -53,6 +53,10 @@ Suspending VMs is currently not available.
 
 ## 3. Start the VM and finish the macOS install
 
+{{< hint info >}}
+Be sure to install the addons package. This will be mounted as a disk into the VM (`-u`). Once they're installed, your VM is ready to use!
+{{< /hint >}}
+
 ### With the UI
 
 {{< hint warning >}}

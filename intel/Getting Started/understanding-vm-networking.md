@@ -48,11 +48,21 @@ Anka CLI version 2.2 and greater supports Static IP on VMs running on Catalina h
 
 Anka will dynamically assign MAC addresses to your VM. In Catalina and higher, you can assign custom MAC Addresses with the `anka modify set network-card --mac` option.
 
-> Be aware that if you clone your VM Template with a specific MAC, both VMs cannot run at the same time
+{{< hint info >}}
+Be aware that if you clone your VM Template with a specific MAC, both VMs cannot run at the same time
+{{< /hint >}}
 
-> Dynamic MAC Addresses are not guaranteed to be unique, though, reuse/collision is rare
+{{< hint info >}}
+Dynamic MAC Addresses are not guaranteed to be unique, though, reuse/collision is highly unlikely.
+{{< /hint >}}
 
-> **In Mojave or older macOS versions:** Even if a custom MAC is set, Apple's VMNET doesn't recognize it on the network outside of the VM. We do a translation from the custom MAC to the one VMNET assigns. This causes the external to VM network to see the VMNET MAC, but inside of the VM you'll see the custom MAC.
+{{< hint warning >}}
+**In Mojave or older macOS versions:** Even if a custom MAC is set, Apple's VMNET doesn't recognize it on the network outside of the VM. We do a translation from the custom MAC to the one VMNET assigns. This causes the external to VM network to see the VMNET MAC, but inside of the VM you'll see the custom MAC.
+{{< /hint >}}
+
+{{< hint info >}}
+If a MAC address isn't specified in the VM config, it treated as dynamic and Anka handles such cases for suspended VMs.
+{{< /hint >}}
 
 ---
 

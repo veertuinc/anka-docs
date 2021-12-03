@@ -8,7 +8,7 @@ description: >
 ---
 
 {{< hint warning >}}
-The host and guest macOS versions should be in-sync to avoid incompatibilities between the Apple metal APIs. We also recommend the latest Big Sur or higher versions.
+The host macOS should always be either newer or the same version as VMs running PG to avoid incompatibilities between the Apple metal APIs. We also recommend the latest Big Sur or higher versions.
 {{< /hint >}}
 
 Apple has included paravirtualized graphics support in Big Sur which allows us to support graphics acceleration/GPUs inside of Anka VMs.

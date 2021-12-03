@@ -77,7 +77,6 @@ To inherit the host's environment, use the `anka run -E` (existing VM variables 
 An advanced usage example of `anka run` inside of a bash script can be found in our [Getting Started Repo's Tag Creation Script.](https://github.com/veertuinc/getting-started/blob/master/create-vm-template-tags.bash)
 {{< /hint >}}
 
-
 ## Anka View
 
 {{< hint warning >}}
@@ -92,11 +91,9 @@ The `anka view` command currently will only function if you at some point starte
 
 ## SSH
 
-
 {{< hint warning >}}
 Port forwarding to enable guest <-> port mapping is currently not available.
 {{< /hint >}}
-
 
 ## VNC
 

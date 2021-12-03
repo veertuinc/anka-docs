@@ -10,9 +10,11 @@ You might be interested in changing the verbosity of the following logs. If so, 
 
 ## Linux / Docker Package
 
-Anka controller and registry services can run with linux, using docker containers. logs are available via the controller dashboard , docker logs and via directories in correspondence with anka services. Generally, log files are created for each vm upon vm start.
+Anka controller and registry services can run with linux, using docker containers. Logs are available via the controller dashboard, docker logs, and via a central-logs directory stored in the registry. Generally, log files are created for each vm upon vm start.
 
-Anka controller is responsible for cleaning unused vms logs.
+{{< hint info >}}
+The Anka controller is responsible for cleaning unused logs.
+{{< /hint >}}
 
 ### Anka Controller
 
@@ -68,12 +70,25 @@ Logs location : `/var/log/veertu`
  `anka_agent.HOSTNAME.USER.LOG.LOGTYPE.TIMESTAMP`
 2. There are 4 type of LINK files, they hold the latest active vm logs , the robosety of the logs are from highest(INFO) to the lowest(ERROR), you can check this files using 'tail' command:
 
- * `anka_agent.INFO` - contains all of the below.
+ * `anka_agent.INFO` - contains all of the below except for CMD log.
  * `anka_agent.WARNING` - contains WARNNIGS & ERRORS.
  * `anka_agent.ERROR` - contains just ERRORS.
- * `anka_agent.FATAL` - Only FATAL ERRORS (both controller and agent).
+ * `anka_agent.FATAL` - only FATAL ERRORS.
+ * `anka_agent.CMD` - (new in 1.20.0) contains the various anka commands the agent is executing on the host as well as the returned data.
 
 4. `vlaunchd.log`: Holds communication logs between registry **<--->** agent **--->** controller.
 3. You can see the agents and registry logs via the UI in the controller dashboard it will be under the name of your host. 
 
 ![agent logs]({{< siteurl >}}images/anka-build/logs/dashboardlogs.png)
+
+---
+
+### Centralized Logs
+
+If `ANKA_ENABLE_CENTRAL_LOGGING` is set to true in your controller and registry config, logs for all Build Cloud services will be stored in the registry's data directory under `{registryStorageLocation}/files/central-logs/`.
+
+You will find historical and current anka_agent logs from each of your nodes, the controller logs, and if applicable the registry logs.
+
+- On macOS: The default is `/Library/Application\ Support/Veertu/Anka/registry/files/central-logs/`
+
+- On docker: You set the storage location in your docker-compose.yml, but it will still be under `.../files/central-logs/`
