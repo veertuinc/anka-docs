@@ -15,13 +15,31 @@ description: >
 ## Config
 {{< include file="_partials/arm/Anka Virtualization/config/_index.md" >}}
 {{< include file="_partials/arm/Anka Virtualization/config/_example.md" >}}
-
 ## Show
 {{< include file="_partials/arm/Anka Virtualization/show/_index.md" >}}
 {{< include file="_partials/arm/Anka Virtualization/show/_example.md" >}}
-
 ## Modify
 {{< include file="_partials/arm/Anka Virtualization/modify/_index.md" >}}
+### modify {vmNameOrUUID} add
+{{< include file="_partials/arm/Anka Virtualization/modify/add/_index.md" >}}
+#### modify {vmNameOrUUID} add network
+{{< include file="_partials/arm/Anka Virtualization/modify/add/network/_index.md" >}}
+#### modify {vmNameOrUUID} add disk
+{{< include file="_partials/arm/Anka Virtualization/modify/add/disk/_index.md" >}}
+#### modify {vmNameOrUUID} add port
+{{< include file="_partials/arm/Anka Virtualization/modify/add/port/_index.md" >}}
+#### modify {vmNameOrUUID} add label
+{{< include file="_partials/arm/Anka Virtualization/modify/add/label/_index.md" >}}
+### modify {vmNameOrUUID} delete
+{{< include file="_partials/arm/Anka Virtualization/modify/delete/_index.md" >}}
+#### modify {vmNameOrUUID} delete network
+{{< include file="_partials/arm/Anka Virtualization/modify/delete/network/_index.md" >}}
+#### modify {vmNameOrUUID} delete disk
+{{< include file="_partials/arm/Anka Virtualization/modify/delete/disk/_index.md" >}}
+#### modify {vmNameOrUUID} delete port
+{{< include file="_partials/arm/Anka Virtualization/modify/delete/port/_index.md" >}}
+#### modify {vmNameOrUUID} delete label
+{{< include file="_partials/arm/Anka Virtualization/modify/delete/label/_index.md" >}}
 ### modify {vmNameOrUUID} name
 {{< include file="_partials/arm/Anka Virtualization/modify/name/_index.md" >}}
 ### modify {vmNameOrUUID} cpu
@@ -30,6 +48,7 @@ description: >
 {{< include file="_partials/arm/Anka Virtualization/modify/ram/_index.md" >}}
 ### modify {vmNameOrUUID} network
 {{< include file="_partials/arm/Anka Virtualization/modify/network/_index.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/modify/network/_example.md" >}}
 ### modify {vmNameOrUUID} disk
 {{< include file="_partials/arm/Anka Virtualization/modify/disk/_index.md" >}}
 ### modify {vmNameOrUUID} display
@@ -38,8 +57,8 @@ description: >
 {{< include file="_partials/arm/Anka Virtualization/view/_index.md" >}}
 ## Run
 {{< include file="_partials/arm/Anka Virtualization/run/_index.md" >}}
-{{< include file="_partials/arm/Anka Virtualization/run/_example.md" >}}
 {{< include file="_partials/arm/Anka Virtualization/run/_extra.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/run/_example.md" >}}
 ## Create
 {{< include file="_partials/arm/Anka Virtualization/create/_index.md" >}}
 {{< include file="_partials/arm/Anka Virtualization/create/_extra.md" >}}
@@ -54,12 +73,6 @@ description: >
 {{< include file="_partials/arm/Anka Virtualization/push/_index.md" >}}
 ## Pull
 {{< include file="_partials/arm/Anka Virtualization/pull/_index.md" >}}
-## Suspend
-{{< include file="_partials/arm/Anka Virtualization/suspend/_index.md" >}}
-## Mount
-{{< include file="_partials/arm/Anka Virtualization/mount/_index.md" >}}
-## Unmount
-{{< include file="_partials/arm/Anka Virtualization/unmount/_index.md" >}}
 ## Reboot
 {{< include file="_partials/arm/Anka Virtualization/reboot/_index.md" >}}
 ## Delete
@@ -76,6 +89,8 @@ description: >
 {{< include file="_partials/arm/Anka Virtualization/registry/delete/_index.md" >}}
 ### registry list
 {{< include file="_partials/arm/Anka Virtualization/registry/list/_index.md" >}}
+### registry show
+{{< include file="_partials/arm/Anka Virtualization/registry/show/_index.md" >}}
 ### registry revert
 {{< include file="_partials/arm/Anka Virtualization/registry/revert/_index.md" >}}
 ## Cp
@@ -85,7 +100,6 @@ description: >
 {{< include file="_partials/arm/Anka Virtualization/license/_index.md" >}}
 ### license show
 {{< include file="_partials/arm/Anka Virtualization/license/show/_index.md" >}}
-
 ### license activate
 {{< include file="_partials/arm/Anka Virtualization/license/activate/_index.md" >}}
 ### license delete
