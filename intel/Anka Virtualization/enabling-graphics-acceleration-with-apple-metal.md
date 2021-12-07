@@ -15,6 +15,6 @@ Apple has included paravirtualized graphics support in Big Sur which allows us t
 
 To enable this feature, you'll need to:
 
-1. Ensure your host is Big Sur
-2. Ensure your VM is using Big Sur
+1. Ensure your host is Big Sur (or higher)
+2. Ensure your VM is using Big Sur (or higher)
 3. Set the display for the VM with `anka modify {vmName} set display -c pg`
