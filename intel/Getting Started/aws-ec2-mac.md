@@ -16,7 +16,7 @@ With Anka installed on your AWS EC2 Mac instance, you can run ephemeral macOS VM
 {{< hint info >}}
 We highly recommend using our community AMIs as they contain a specific version of macOS and Anka installed and ready to license/use.<br /><br />
 
-{{< imgwithlink src="/images/getting-started/aws-ec2-mac/aws-choose-ami.png" >}}
+{{< imgwithlink src="images/getting-started/aws-ec2-mac/aws-choose-ami.png" >}}
 <br />
 
 You can see how we generate these AMIs in our open source repo: https://github.com/veertuinc/aws-ec2-mac-amis
@@ -30,7 +30,7 @@ To get up and running with AWS EC2 Mac instances, you'll need to:
 
 2. Have an EC2 Mac instance which you can access through SSH and VNC.
 
-If you decided not to use our community AMIs, you'll need to [install Anka](({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})) just as you would with non-AWS hardware.
+If you decided not to use our community AMIs, you'll need to [install Anka]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}}) just as you would with non-AWS hardware.
 
 ---
 
