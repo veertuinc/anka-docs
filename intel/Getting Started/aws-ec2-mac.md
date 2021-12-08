@@ -13,24 +13,33 @@ With Anka installed on your AWS EC2 Mac instance, you can run ephemeral macOS VM
 
 ## Usage
 
-{{< hint info >}}
-We highly recommend using our community AMIs as they contain a specific version of macOS and Anka installed and ready to license/use.<br /><br />
-
-{{< imgwithlink src="images/getting-started/aws-ec2-mac/aws-choose-ami.png" >}}
-<br />
-
-You can see how we generate these AMIs in our open source repo: https://github.com/veertuinc/aws-ec2-mac-amis
-{{< /hint >}}
-
----
-
 To get up and running with AWS EC2 Mac instances, you'll need to:
 
 1. Have an [Anka License](https://veertu.com/anka-build-trial/).
 
 2. Have an EC2 Mac instance which you can access through SSH and VNC.
 
+### Community AMI
+
+We highly recommend using our community AMIs as they contain a specific version of macOS and Anka installed and ready to license/use.
+
+{{< imgwithlink src="images/getting-started/aws-ec2-mac/aws-choose-ami.png" >}}<br />
+
+Our AMI attempts to do the majority of preparation for you, however, there are several steps you need to perform once the instance is started:
+
+1. Set password with `sudo /usr/bin/dscl . -passwd /Users/ec2-user {NEWPASSWORDHERE}`.
+
+2. You now need to VNC in once (requirement for Anka to start the hypervisor): `open vnc://ec2-user:{GENERATEDPASSWORD}@{INSTANCEPUBLICIP}`.
+
+3. Once in VNC, Go to Preferences > Security > under General > uncheck require password after screensave or sleep begins option.
+
+{{< hint info >}}
+You can see how we generate these AMIs in our open source repo: https://github.com/veertuinc/aws-ec2-mac-amis
+{{< /hint >}}
+
+{{< hint info >}}
 If you decided not to use our community AMIs, you'll need to [install Anka]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}}) just as you would with non-AWS hardware.
+{{< /hint >}}
 
 ---
 
