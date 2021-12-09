@@ -149,6 +149,7 @@ export ANKA_ANKA_REGISTRY="http://anka.registry:8089"
 | Log to stderr | bool | log to standard error instead of files | false | ANKA_LOGTOSTDERR |
 | Log directory | string | Write log files in this directory | | ANKA_LOG_DIR |
 | Also log to stderr| bool | Log to standard error as well as files | true | ANKA_ALSOLOGTOSTDERR |
+| Centralized log rotation max days | int | Defines the maximum calendar days a log file can include entries for before it rotates. | 1 (days) | ANKA_LOG_FILE_MAX_DAYS |
 
 ### TLS
 
@@ -354,6 +355,7 @@ Depending on the package you're using (native or docker), you can include flags 
 | Log to stderr | bool | log to standard error instead of files | false | `--logtostderr` |
 | Log directory | string | Write log files in this directory | | `--log_dir` |
 | Also log to stderr| bool | Log to standard error as well as files | true | `--alsologtostderr` |
+| Centralized log rotation max days | int | Defines the maximum calendar days a log file can include entries for before it rotates. | 1 (days) | `--log_file_max_days` |
 
 ### TLS
 

@@ -9,6 +9,6 @@ Options:
   -d, --description TEXT  Set the description of the tag
   -v, --remote-vm TEXT    The name of a registry template you want to push the local template (and tag) onto
   -l, --local             Assign a tag to your local template and avoid pushing to the Registry
-  -f, --force             Forcefully push, regardless of a tag already existing
+  -f, --force             Ignore whether there is a local tag created already
   --help                  Display usage information
 ```

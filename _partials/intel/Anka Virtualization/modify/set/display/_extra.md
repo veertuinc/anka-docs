@@ -1,6 +1,5 @@
 ---
 ---
-
 {{< hint info >}}
 The PG video controller is only available on VM macOS versions Big Sur or newer.
 {{< /hint >}}

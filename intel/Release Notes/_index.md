@@ -12,7 +12,91 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 {{< /hint >}}
 ## Current Versions
 
-### Anka Build Cloud Controller & Registry 1.20.0 (1.20.0-035872f5) - Nov 8th, 2021
+### Anka Virtualization CLI 2.5.4 (2.5.4.136) - Dec 10th, 2021
+
+{{< hint warning >}}
+
+##### Please note for this release
+
+- Upgrading Addons from the previous minor version of anka is recommended but not required.
+
+- Suspended VMs created in previous minor versions of anka are not compatible and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.
+
+- Avoid upgrading to this version on nodes with running VMs.
+{{< /hint >}}
+
+- **Bug Fix:** `anka list` was not sorted by name.
+- **Bug Fix:** Race condition throws "not found" when `anka clone` and `anka delete` happen at the same time.
+- **Bug Fix:** VMs created with the name "11.6" throw a failure.
+- **Bug Fix:** Anka `registry list` command fails with `key values mismatch` when using self signed certs.
+- **Bug Fix:** Machine readable `stop_date` is in a bad format for parsing.
+- **Bug Fix:** Machine readable status differ between `list` and `show` commands.
+- **Bug Fix:** `anka create` suddenly throwing `hdiutil: attach failed - Resource busy` error.
+- **Bug Fix:** `anka license show -k {license}` doesn't display proper host based license information.
+- **Bug Fix:** Unable to use `change_res` binary on Big Sur, Monterey, and PG enabled VM templates.
+- **Bug Fix:** On machine boot, `anka_agent` is running and executing `anka list` which triggers creation of *_lib directories. This was causing network mounts (which happen after the agent runs) to try using the same location, failing to because they already exist, and instead mounting with a different name. This caused `anka list` to be empty after a reboot. We removed the creation on `anka list` which will give enough time for network mounts to claim the path.
+- **Bug Fix:** The anka uninstaller script was removing a locally installed controller package.
+- **Improvement:** Monterey VM creation will automatically set `ablk` as the disk controller (`virtio-blk` not supported currently).
+- **Improvement:** Support for 32 core machines.
+- **Improvement:** We now check the registry status/availability before creating a local tag. This should prevent situations where a local tag was created prematurely and then blocked subsequent commands (requiring either a manual deletion of the local tag, or a force push).
+- **New Feature:** [You can now find the last used date/time of a VM/Template using the `access_date` key/value.]({{< relref "Whats New/anka-2.5.4/index.md#ability-to-find-the-last-time-a-template-was-used" >}})
+- This release includes support for 12.1 beta.
+
+### Anka Build Cloud Controller & Registry 1.21.0 (1.21.0-bcc26b24) - Dec 10th, 2021
+
+- **Bug Fix:** After a macOS upgrade, the `/var/log/veertu` directory was being removed by Apple and not being recreated. We are not creating this if it doesn't exist so that logs are not missing when they're needed.
+- **Bug Fix:** Fixed the automated agent upgrade processes that was causing the agent to get stuck on the host, post-controller upgrade.
+- **Bug Fix:** Defragmentation of ETCD was happening more often than configured.
+- **Improvement:** Centralized logs are now rotated, by default, each day. This will prevent logs from growing too large should rotation not be triggered.
+- **Improvement:** Redesigned docker package.
+- _Minimum Registry version required for Controller - 1.19.0_
+- (Standalone Registry: 1.21.0-ced10c21)
+
+{{< hint warning >}}
+##### Known issues
+
+Please note that there is a temporary workaround required for a bug that started in versions after 1.18.0 of the Controller/Registry agent which runs on your nodes. All versions of the agent, when noticing that the version of itself does not match the version of the controller, will perform a self-upgrade and restart. The restart seems to be problematic on some setups and leaves a zombie anka_agent process and and Offline status in the controller UI. To work around the bug when upgrading your controller/registry, you'll need to change the existing steps to include:
+- Disjoining all of the nodes first
+- Do the controller/registry upgrade
+- Run `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` on each node to download the new version
+- And finally join each node back
+
+<br />
+
+**1.21.0 fixes this issue, so it will not be necessary for future releases.** Thanks for your understanding and we are sorry for the inconvenience this causes.
+{{< /hint >}}
+
+### Packer Plugin 2.1.0 - Aug 5th, 2021
+- Improvement: Ensure that we generate the release properly so that `packer init` works [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/75)
+- Improvement: Print friendlier message when tagging locally [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/79)
+- New Feature: Add the `display_controller` option to set pg [GH Issue](https://github.com/veertuinc/packer-plugin-veertu-anka/issues/72)
+- Bug Fix: Ensure file uploading is fixed [GH Issue](https://github.com/veertuinc/packer-plugin-veertu-anka/issues/77)
+- Bug Fix: Changing hw.UUID to hw.uuid as that's what hypervisor looks for
+
+### Jenkins Plugin 2.6.0 - June 29th, 2021
+- Improvement: New UI design, field names, and descriptions
+- Bug Fix: Jenkins agent templates are deleted when the Anka Build Cloud URL changes
+
+> Breaking change: Versions < 2.260 of Jenkins are not supported
+### Anka Prometheus Exporter (2.2.3) - July 13th, 2021
+- Bug Fix: Added certs to scratch tag being generated to allow signed certs on the controller to be validated properly
+
+### Anka GitLab Runner 1.4.0 - May 4th, 2021
+- New Feature: We're now populating the External ID and Name startVM API call so that External ID shows the full URL to the job and Name is the runner's name. [GH Issue](https://github.com/veertuinc/gitlab-runner/issues/10)
+
+### Anka VM GitHub Action v1.3.2 - July 2nd, 2021
+- Security patches
+
+### TeamCity Plugin version 1.7.1 - July 7, 2020
+- Bug Fix: Long-running threads were being created
+- Bug Fix: UI Slowness the more Instances/Agents you created
+- Bug Fix: HTTPS without certificate authentication enabled doesn't work
+
+---
+
+## Previous Versions
+
+### Anka Build Cloud Controller & Registry 1.20.0 (1.20.0-035872f5) - Nov 10th, 2021
 
 - Bug Fix: Moving networks/IPs now updates the Node IP in the Controller UI/database.
 - New Feature: [Delete VM Templates from Nodes through the Controller API.]({{< relref "Whats New/build-cloud-1.20.0/index.md#delete-vm-templates-on-node-from-controller-api" >}})
@@ -54,37 +138,6 @@ Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
 
 > Known issues we're working on fixes for:
 > - Creating a VM Template with the name of 11.6 seems to throw not found errors when trying to push, clone, etc.
-
-### Packer Plugin 2.1.0 - Aug 5th, 2021
-- Improvement: Ensure that we generate the release properly so that `packer init` works [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/75)
-- Improvement: Print friendlier message when tagging locally [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/79)
-- New Feature: Add the `display_controller` option to set pg [GH Issue](https://github.com/veertuinc/packer-plugin-veertu-anka/issues/72)
-- Bug Fix: Ensure file uploading is fixed [GH Issue](https://github.com/veertuinc/packer-plugin-veertu-anka/issues/77)
-- Bug Fix: Changing hw.UUID to hw.uuid as that's what hypervisor looks for
-
-### Jenkins Plugin 2.6.0 - June 29th, 2021
-- Improvement: New UI design, field names, and descriptions
-- Bug Fix: Jenkins agent templates are deleted when the Anka Build Cloud URL changes
-
-> Breaking change: Versions < 2.260 of Jenkins are not supported
-### Anka Prometheus Exporter (2.2.3) - July 13th, 2021
-- Bug Fix: Added certs to scratch tag being generated to allow signed certs on the controller to be validated properly
-
-### Anka GitLab Runner 1.4.0 - May 4th, 2021
-- New Feature: We're now populating the External ID and Name startVM API call so that External ID shows the full URL to the job and Name is the runner's name. [GH Issue](https://github.com/veertuinc/gitlab-runner/issues/10)
-
-### Anka VM GitHub Action v1.3.2 - July 2nd, 2021
-- Security patches
-
-### TeamCity Plugin version 1.7.1 - July 7, 2020
-- Bug Fix: Long-running threads were being created
-- Bug Fix: UI Slowness the more Instances/Agents you created
-- Bug Fix: HTTPS without certificate authentication enabled doesn't work
-
----
-
-## Previous Versions
-
 
 ### Anka Build Cloud Controller & Registry 1.19.0 (1.19.0-7c1c1424) - Oct 4th, 2021
 - Bug Fix: Registry files (tag files and some .ank) were rarely zeroing out due to bad read/write logic

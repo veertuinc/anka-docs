@@ -43,4 +43,6 @@ sudo anka --machine-readable list | jq
 }
 ```
 
-> Timestamp format: https://www.ietf.org/rfc/rfc3339.txt
+{{< hint info >}}
+Timestamp format: https://www.ietf.org/rfc/rfc3339.txt
+{{< /hint >}}

@@ -13,47 +13,27 @@ Welcome! This tutorial guides you through setting up your Anka Build Cloud on Li
 1. A machine running Linux to install the Anka Controller & Registry.
 2. A Mac to install Anka CLI as a Node.
 
-> While it's possible to run Docker on mac, it's not recommended. An Anka Controller & Registry package exists.
+{{< hint info >}}
+While it's possible to run Docker on mac, it's not recommended. An Anka Controller & Registry package exists for native macOS if absolutely necessary.
+{{< /hint >}}
 
 ## Necessary Software
-1. {{< ext-link href="https://docs.docker.com/install/" text="Docker" >}} 
+
+1. {{< ext-link href="https://docs.docker.com/install/" text="Docker" >}}
+
 2. {{< ext-link href="https://docs.docker.com/compose/install/" text="Docker-Compose" >}} -- Be sure to follow the {{< ext-link href="https://docs.docker.com/install/linux/linux-postinstall/" text="Post Installation setup" >}} in order to run docker-compose without using sudo.  
 
 {{< include file="_partials/intel/Getting Started/_what-we-are-doing.md" >}}
 
 ## Step 1: Get familiar with Anka Virtualization
 
-### Install the Anka Virtualization package
-
-#### Download and install with your terminal
-
-{{< include file="_partials/intel/Anka Virtualization/_download-and-install-with-terminal.md" >}}
-
-#### Verify the installation
-
-{{< include file="_partials/intel/Anka Virtualization/_verify-installation.md" >}}
-
-For Anka CLI commands and options, see the [Command Reference]({{< relref "intel/Anka Virtualization/command-reference.md" >}}).
-
-## Obtain the macOS installer
-
-{{< include file="_partials/intel/Getting Started/_obtain-macos-installer.md" >}}
-
-## Create the VM Template
-
-### Using the Anka UI
-
-### Using the Anka CLI
-
-{{< include file="_partials/intel/Anka Virtualization/create/_example.md" >}}
-
-> You can find detailed instructions for [`anka create`]({{< relref "intel/Anka Virtualization/command-reference.md#create" >}}) [here.]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
-
-> You can continue on to Step 2 while you wait for this to finish.
+[Please go over our Getting Started guide before proceeding.]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
 
 ## Step 2: Install the Anka Build Cloud Controller & Registry
 
-> Perform the following steps on the machine intended to run the Controller & Registry.
+{{< hint warning >}}
+Perform the following steps on the machine intended to run the Controller & Registry and not the node running the Anka Virtualization software.
+{{< /hint >}}
 
 ### Download and extract the Controller & Registry
 
@@ -71,102 +51,43 @@ You can also manually download the file called "Cloud Controller & Registry (Run
 #### Configuration
 
 We'll need to do two things:
-1. Set the  **external registry address** -- This address is passed to the Nodes so they can pull VM Templates from the Registry.  
-2. Mount a volume for the Registry data -- The directory containing VM disk images and configuration files.
 
-First, edit the `docker-compose.yml`.
-1. Under `anka-controller > environment`, find the variable **ANKA_REGISTRY_ADDR**.  
-2. Next to it, replace ***\*\*\*EDIT_ME\*\*\**** with the URL of your Registry: 
-    
-    {{< highlight shell "hl_lines=22" >}}
+1. Set the  **external registry address** -- This address is passed to the anka nodes so they can pull VM Templates from the Registry.
 
-      . . .
+2. Mount a volume for the Registry data -- The directory containing VM Template/Tag layers/files and configuration metadata.
 
-      anka-controller:
-        build:
-          context: .
-          dockerfile: anka-controller.docker
-        ports:
-          - "80:80"
-        # To change the port, change the above line: - "CUSTOM_PORT:80"
-        ######   EDIT HERE FOR TLS  ########
-        # volumes:
-          # Path to ssl certificates directory 
-          # - ****EDIT_ME****:/mnt/cert
-        depends_on:
-          - etcd
-          #  - beanstalk
-          - anka-registry
-        restart: always
-        environment:
+First, edit the `controller/controller.env`:
 
-          # Address of anka registry. this address will be passed to your build nodes
-          ANKA_REGISTRY_ADDR: ****EDIT_ME****               
-          
-          # Local Anka registry address
-          # This address is used by the Controller. 
+1. Find the variable **ANKA_REGISTRY_ADDR** and set it to the proper URL. It should look like:
 
-      . . .
-
-    {{</ highlight >}}
-
-    It should look like:
     ```shell
-    ANKA_REGISTRY_ADDR: http://<ip>:8089
-    ``` 
+    ANKA_REGISTRY_ADDR: http://<ip/fqdn>:8089
+    ```
 
-3. Under `anka-registry > volumes`, find the line that says ***# - \*\*\*\*EDIT_ME\*\*\*\*:/mnt/vol***.
-4. First, uncomment this line by removing the \# sign from the head of the line. Then replace \*\*\*\*EDIT_ME\*\*\*\* with the path on your machine where you want the Registry files to be saved: 
+Next, edit the `docker-compose.yml` (in the package root, not under the `registry` directory):
 
-    {{< highlight shell "hl_lines=15" >}}
-
-      . . .
-
-      anka-registry:
-      build:
-          context: .
-          dockerfile: anka-registry.docker
-      ports:
-          - "8089:8089"
-      # To change the port change the above line: - "CUSTOM_PORT:8089"
-      restart: always
-      volumes:
-          ######   EDIT HERE  ########
-          # Path to registry data folder.
-          # VM data files and logs will be saved in this folder
-          # - ****EDIT_ME****:/mnt/vol
-
-          # Path to ssl certificates directory 
-          # - ****EDIT_ME****:/mnt/cert
-
-      . . .
-
-    {{< /highlight >}}
-
-    It should look like:
+1. Under `anka-registry > volumes`, find the line that says ***# - \*\*\*\*EDIT_ME\*\*\*\*:/mnt/vol***. Change this to include the host directory you wish to mount into the container and which will be used to store the data. It should look like:
 
     ```shell
     - /var/registry:/mnt/vol
-    ``` 
+    ```
 
-
-> If you're running these containers on mac, you need to also change volume source from `/var/etcd-data` and `/var/registry` to a writable location on your mac.
+{{< hint info >}}
+If you're running these containers on mac (which you should avoid), you need to also change volume source from `/var/etcd-data` and `/var/registry` to a writable location on your mac.
+{{< /hint >}}
 
 #### Start the containers
 
-> Ensure you're in the same directory as the `docker-compose.yml`.
+In the root package directory, execute:
 
 ```shell
 docker-compose up -d
 ```
 
-This command builds your containers and runs the services defined as a daemon.
-
-> To stop the docker containers, run: `docker-compose down`
-
 ### Verify the containers are running
+
 ```shell
-docker ps
+docker ps -a
 
 CONTAINER ID        IMAGE                 COMMAND                  CREATED              STATUS              PORTS                    NAMES
 aa1de7c150e7        test_anka-controller   "/bin/bash -c 'anka-…"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp       test_anka-controller_1
@@ -177,9 +98,10 @@ aa1de7c150e7        test_anka-controller   "/bin/bash -c 'anka-…"   About a mi
 {{< include file="_partials/intel/Getting Started/_controller-listening-on-80-and-orientation.md" >}}
 
 #### Configuration and scripts
-Make configurations by editing `docker-compose.yml`. Most of the stuff you can configure is listed there but commented out.
 
-Check out the variables under the `environment` section of each service. [A full reference is available.]({{< relref "intel/Anka Build Cloud/configuration-reference.md" >}})
+Any non-default configuration changes are done by editing the .env files, or directly in `docker-compose.yml`.
+
+[A full configuration reference is available.]({{< relref "intel/Anka Build Cloud/configuration-reference.md" >}})
 
 #### Logging
 
@@ -197,15 +119,22 @@ To see the Registry's logs:
 docker logs --tail 100 -f test_anka-registry_1
 ```
 
-[By default, no log-rotation is performed. As a result, log-files stored by the default json-file logging driver logging driver can cause a significant amount of disk space to be used for containers that generate much output, which can lead to disk space exhaustion.](https://docs.docker.com/config/containers/logging/configure/)
+[By default, docker does not do log-rotation. As a result, log-files stored by the default json-file logging driver logging driver can cause a significant amount of disk space to be used for containers that generate much output, which can lead to disk space exhaustion.](https://docs.docker.com/config/containers/logging/configure/)
 
-> The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([reference]({{< relref "intel/Anka Build Cloud/configuration-reference.md#logging" >}}))
+
+{{< hint info >}}
+##### Troubleshooting tip
+
+The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([reference]({{< relref "intel/Anka Build Cloud/configuration-reference.md#logging" >}}))
+{{< /hint >}}
 
 ## Step 3: Link the Anka CLI Node to the Controller
 
 Great! Now that we have our Anka Controller & Registry up and running, let's add Nodes!
 
-> Perform the following steps on the Node where you created your first VM Template.
+{{< hint info >}}
+Perform the following steps on the host machine/node where you created your first VM.
+{{< /hint >}}
 
 ### Add the Registry
 
@@ -217,24 +146,28 @@ Great! Now that we have our Anka Controller & Registry up and running, let's add
 
 ### Join to the Controller & Registry
 
+In order for the host/node to perform controller tasks (pull, start, delete, etc), it must be joined to the Anka Build Cloud. You can do this by executing:
+
 {{< include file="_partials/intel/Getting Started/_join-to-cluster.md" >}}
 
 ## Step 4: Start a VM instance using the Controller UI
 
 {{< include file="_partials/intel/Getting Started/_start-vm-instance-using-controller-ui.md" >}}
 
-## Orientation
+## Helpful notes about the containers
 
-### Anka Controller Docker container
+### Anka Controller
+
 - Default Ports: 80
-- Binaries and scripts: `/usr/bin/anka-controller`
+- Binaries and scripts: `/bin/anka-controller`
 - Configuration files: Configuration is done through docker-compose file or through environment variables.
-- Logs will be written to: `/var/log/anka-controller`. It's also possible to get the logs through `docker logs` command.   
+- Logs will be written to: `/var/log/anka-controller`. It's also possible to get the logs through `docker logs` command.
 - Data Storage: No data is saved on the container.
 
-### Anka Registry Docker container
+### Anka Registry
+
 - Default Ports: 8089
-- Binaries and scripts: `/usr/bin/anka-registry`
+- Binaries and scripts: `/bin/anka-registry`
 - Configuration files: Configuration is done through docker-compose file or through environment variables.
 - Logs will be written to: `/var/log/anka-registry`. It's also possible to get the logs through `docker logs` command.  
 - Registry data will be written to: `/mnt/vol`
