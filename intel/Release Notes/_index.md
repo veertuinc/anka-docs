@@ -16,13 +16,16 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 {{< hint warning >}}
 
-##### Please note for this release
+##### Important considerations for this release
 
 - Upgrading Addons from the previous minor version of anka is recommended but not required.
 
 - Suspended VMs created in previous minor versions of anka are not compatible and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.
 
 - Avoid upgrading to this version on nodes with running VMs.
+
+<br />
+For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
 - **Bug Fix:** `anka list` was not sorted by name.
