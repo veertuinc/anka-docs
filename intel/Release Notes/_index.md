@@ -51,7 +51,7 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 - **Bug Fix:** Fixed the automated agent upgrade processes that was causing the agent to get stuck on the host, post-controller upgrade.
 - **Bug Fix:** Defragmentation of ETCD was happening more often than configured.
 - **Improvement:** Centralized logs are now rotated, by default, each day. This will prevent logs from growing too large should rotation not be triggered.
-- **Improvement:** Redesigned docker package.
+- **Improvement:** Redesigned docker package. This includes changes to the tag we generate in dockerhub (it no longer supports certain flags/options in the Entrypoint). Most customers are already using ENVs, so they should be fine.
 - _Minimum Registry version required for Controller - 1.19.0_
 - (Standalone Registry: 1.21.0-ced10c21)
 
