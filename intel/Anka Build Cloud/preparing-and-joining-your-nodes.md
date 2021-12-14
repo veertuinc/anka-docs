@@ -70,7 +70,7 @@ sudo pmset -a hibernatemode 0
 
 ### Optional but recommended
 
-- If on macOS versions greater than or equal to Big Sur: Disable Apple's mitigations with `sudo anka config vmx_mitigations 0`. Without it, performance will be ~10% worse inside of the VM.
+- If on macOS version Big Sur: Disable Apple's mitigations with `sudo anka config vmx_mitigations 0`. Without it, performance will be ~10% worse inside of the VM. (This does not work on Monterey versions of macOS)
 
 - Disable spotlight:
 
