@@ -67,7 +67,7 @@ sudo pmset -a hibernatemode 0
 ```
   {{< /hint >}}
 
-- **Run `anka create test && anka delete --yes test` at least once for the user you plan on running VMs as.**
+- **Run `sudo anka create test && sudo anka delete --yes test` at least once for the user you plan on running VMs as.**
 
 ### Optional but recommended
 
