@@ -29,9 +29,9 @@ Our AMI attempts to do the majority of preparation for you, however, there are s
 
 1. Set password with `sudo /usr/bin/dscl . -passwd /Users/ec2-user {NEWPASSWORDHERE}`.
 
-2. You now need to VNC in once (requirement for Anka to start the hypervisor): `open vnc://ec2-user:{GENERATEDPASSWORD}@{INSTANCEPUBLICIP}`.
+2. You now need to VNC in and log into the ec2-user (requirement for Anka to start the hypervisor): `open vnc://ec2-user:{GENERATEDPASSWORD}@{INSTANCEPUBLICIP}`.
 
-3. Once in VNC, Go to Preferences > Security > under General > uncheck require password after screensave or sleep begins option.
+Our AMIs are owned primarily by owner 930457884660, however, some older AMIs were created under 458569289506.
 
 {{< hint info >}}
 You can see how we generate these AMIs in our open source repo: https://github.com/veertuinc/aws-ec2-mac-amis
