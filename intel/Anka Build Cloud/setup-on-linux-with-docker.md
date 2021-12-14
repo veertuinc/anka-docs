@@ -58,10 +58,10 @@ We'll need to do two things:
 
 First, edit the `controller/controller.env`:
 
-1. Find the variable **ANKA_REGISTRY_ADDR** and set it to the proper URL. It should look like:
+1. Find the variable **ANKA_ANKA_REGISTRY** and set it to the proper URL (remove the comment). It should look like:
 
     ```shell
-    ANKA_REGISTRY_ADDR: http://<ip/fqdn>:8089
+    ANKA_ANKA_REGISTRY: http://<ip/fqdn>:8089
     ```
 
 Next, edit the `docker-compose.yml` (in the package root, not under the `registry` directory):
