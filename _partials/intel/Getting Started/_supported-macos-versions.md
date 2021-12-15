@@ -12,5 +12,5 @@ Monterey installation inside of the VM seems to be much longer than previous ver
 {{< /hint >}}
 
 {{< hint warning >}}
-Monterey VMs require `ablk` as the disk driver. The `anka create` command will set this, but be sure to choose it in the `Create new VM` section of the Anka application instead of `virtio-blk`.
+Monterey VMs require `ablk` as the disk driver.
 {{< /hint >}}
