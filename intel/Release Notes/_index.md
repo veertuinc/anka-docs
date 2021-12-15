@@ -45,6 +45,15 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 - **New Feature:** [You can now find the last used date/time of a VM/Template using the `access_date` key/value.]({{< relref "Whats New/anka-2.5.4/index.md#ability-to-find-the-last-time-a-template-was-used" >}})
 - This release includes support for 12.1 beta.
 
+### Anka Build Cloud Controller & Registry 1.21.1 (1.21.1-5aebaf69) - Dec 15th, 2021
+
+{{< hint info >}}
+This is a small patch release for 1.21.0.
+{{< /hint >}}
+
+- **Bug Fix:** Within the docker package's controller/controller.env, the inline comment for `ANKA_ANKA_REGISTRY` would break URLs if the comment was not removed.
+- (Standalone Registry: 1.21.1-77c8e66e)
+
 ### Anka Build Cloud Controller & Registry 1.21.0 (1.21.0-bcc26b24) - Dec 10th, 2021
 
 - **Bug Fix:** After a macOS upgrade, the `/var/log/veertu` directory was being removed by Apple and not being recreated. We are not creating this if it doesn't exist so that logs are not missing when they're needed.
