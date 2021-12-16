@@ -950,7 +950,7 @@ curl -X POST "http://anka.controller/api/v1/registry/vm/distribute" \
 
  Parameter | Type   | Description 
  ---       |   ---  |          ---
- id        | string | Return the Distribution with that ID. 
+ id        | string | Return the Distribution request with that ID (`request_id`). 
 
 
  **Returns:** 
