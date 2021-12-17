@@ -363,3 +363,19 @@ curl -X DELETE  "http://anka.registry.net:8089/registry/revert?id=a3cc47f0-3a73-
 
 
 ```
+
+### Set Template Arch 
+
+**Description:** Set the template's arch manually. 
+**Path:** /registry/vm/arch  
+**Method:** PUT  
+**Required Query Parameters**  
+
+ Parameter | Type   | Description 
+ ---       |   ---  |          ---
+ id        | string | The Template id. 
+ arch      | string | The architecture ("arm64" or "amd64")
+
+ **Returns:** 
+ - *Status:* Operation Result (OK|FAIL) 
+ - *message:* Error message in case of an error
