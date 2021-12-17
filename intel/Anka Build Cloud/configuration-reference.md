@@ -35,7 +35,7 @@ Our default docker package will use .env files to store the configuration ENVs. 
        - anka-registry
     restart: always
     environment:
-      ANKA_REGISTRY_ADDR: "http://anka.registry:8089"
+      ANKA_ANKA_REGISTRY: "http://anka.registry:8089"
       ANKA_USE_HTTPS: "false"
       ANKA_SKIP_TLS_VERIFICATION: "false"
       ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
