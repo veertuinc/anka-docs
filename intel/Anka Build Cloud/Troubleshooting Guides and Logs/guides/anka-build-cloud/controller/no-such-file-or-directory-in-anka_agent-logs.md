@@ -16,9 +16,8 @@ I1214 22:57:12.725765     615 start_vm.go:36] started handling startVMRequest
 
 ## Solution
 
-Run `sudo anka create test && sudo anka delete --yes test` at least once on the machine and try again.
+Run `sudo anka create test && sudo anka delete --yes test` at least once on the machine and try again. Or, just create the directories `sudo mkdir -p "$(anka config img_lib_dir)" && sudo mkdir -p "$(anka config state_lib_dir)" && sudo mkdir -p "$(anka config vm_lib_dir)"`.
 
 ## Still experiencing problems?
 
 Talk to us! we are available via [slack](https://slack.veertu.com/) or [email](mailto:support@veertu.com)
-
