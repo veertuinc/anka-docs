@@ -26,7 +26,7 @@ Our default docker package will use .env files to store the configuration ENVs. 
     build:
        context: controller
     ports:
-       - "8090:80"
+       - "80:80"
        #- "8100:8100"
     volumes:
        - /Users/myUserName:/mnt/cert
@@ -82,7 +82,7 @@ Our default docker package will use .env files to store the configuration ENVs. 
 #!/bin/bash
 
 export ANKA_STANDALONE="true"
-export ANKA_LISTEN_ADDR=":8090"
+export ANKA_LISTEN_ADDR=":80"
 export ANKA_DATA_DIR="/Library/Application Support/Veertu/Anka/anka-controller"
 export ANKA_ENABLE_CENTRAL_LOGGING="true"
 export ANKA_LOG_DIR="/Library/Logs/Veertu/AnkaController"

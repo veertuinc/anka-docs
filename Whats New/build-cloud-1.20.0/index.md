@@ -45,7 +45,7 @@ VM pulled successfully with uuid: ea663a61-0e5c-4419-8194-697104fb693a
 ❯ sudo anka list | grep ea663a61-0e5c-4419-8194-697104fb693a
 | 12.0.1 (vanilla+port-forward-22+brew-git) | ea663a61-0e5c-4419-8194-697104fb693a | Oct 25 18:21:58 2021 | stopped   |
 
-❯ curl -s -X DELETE "http://anka.controller:8090/api/v1/registry/vm/remove?id=ea663a61-0e5c-4419-8194-697104fb693a" | jq
+❯ curl -s -X DELETE "http://anka.controller/api/v1/registry/vm/remove?id=ea663a61-0e5c-4419-8194-697104fb693a" | jq
 {
   "status": "OK",
   "message": "",

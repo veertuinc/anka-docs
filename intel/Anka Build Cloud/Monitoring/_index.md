@@ -37,7 +37,7 @@ Prometheus does not collect metrics from the Anka Build Cloud by default. You'll
 100 6614k  100 6614k    0     0  7440k      0 --:--:-- --:--:-- --:--:-- 7440k
 Archive:  anka-prometheus-exporter_v2.1.0_darwin_amd64.zip
   inflating: anka-prometheus-exporter
-]] Running /tmp/anka-prometheus-exporter --controller-address http://anka.controller:8090 and backgrounding the process
+]] Running /tmp/anka-prometheus-exporter --controller-address http://anka.controller and backgrounding the process
 ================================================================
 PID: 2323
 Endpoint URL: anka.prometheus:2112
@@ -45,7 +45,7 @@ Endpoint URL: anka.prometheus:2112
 {"level":"info","msg":"Serving metrics at /metrics and :2112","time":"2021-03-22T15:19:17-04:00"}
 ```
 
-This will run the exporter in the background **(it will not be available after you reboot your machine and you'll have to re-run the script)**. The exporter is setup, by default, to connect to `http://anka.controller:8090` and your controller may not be running at this URL and port. Feel free to modify the script!
+This will run the exporter in the background **(it will not be available after you reboot your machine and you'll have to re-run the script)**. The exporter is setup, by default, to connect to `http://anka.controller` and your controller may not be running at this URL and port. Feel free to modify the script!
 
 Next, you'll want to confirm that the metrics are now available in Prometheus.
 
