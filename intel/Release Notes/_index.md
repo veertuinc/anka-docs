@@ -36,6 +36,16 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 
 ---
 
+### Anka Build Cloud Controller & Registry 1.21.2 (1.21.2-b067b13a3) - Dec 27th, 2021
+
+{{< hint info >}}
+This is a small patch release for 1.21.0.
+{{< /hint >}}
+
+- **Bug Fix:** ARM Agent was not being automatically installed correctly on upgrade (404 package download).
+- **Bug Fix:** The etcd container could not start with certain docker-compose versions due to quotes in etcd.env.
+- (Standalone Registry: 1.21.2-26316dfe)
+
 ### Anka Build Cloud Controller & Registry 1.21.1 (1.21.1-5aebaf69) - Dec 15th, 2021
 
 {{< hint info >}}
@@ -44,8 +54,6 @@ This is a small patch release for 1.21.0.
 
 - **Bug Fix:** Within the docker package's controller/controller.env, the inline comment for `ANKA_ANKA_REGISTRY` would break URLs if the comment was not removed.
 - (Standalone Registry: 1.21.1-77c8e66e)
-
----
 
 ### Anka Build Cloud Controller & Registry 1.21.0 (1.21.0-bcc26b24) - Dec 10th, 2021
 
