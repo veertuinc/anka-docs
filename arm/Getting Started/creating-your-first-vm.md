@@ -91,6 +91,55 @@ are you sure you want to delete vm 77f33f4a-75c3-47aa-b3f6-b99e7cdac001 test [y/
 
 ---
 
+## VM Derivatives and Disk Optimization
+
+Anka VMs have an image structure which allows for sharing and disk optimization. When you create VM derivatives from a source VM, **this sharing only happens _after_ a specific "commit" action** using `anka push --local`:
+
+{{< hint warning >}}
+Important note in 3.X: In Anka 2.X, the sharing of images did not require a local commit/tag.
+{{< /hint >}}
+
+{{< include file="_partials/arm/Anka Virtualization/push/_index.md" >}}
+
+```bash
+❯ anka list
++--------+--------------------------------------+----------------------+---------+
+| name   | uuid                                 | creation_date        | status  |
++--------+--------------------------------------+----------------------+---------+
+| 12.0.1 | 002b73b6-dc99-4d6b-8f68-6067a3a66d73 | Nov 19 08:02:33 2021 | stopped |
++--------+--------------------------------------+----------------------+---------+
+
+❯ anka push --local --tag vanilla 12.0.1
+
+❯ anka list
++------------------+--------------------------------------+----------------------+---------+
+| name             | uuid                                 | creation_date        | status  |
++------------------+--------------------------------------+----------------------+---------+
+| 12.0.1 (vanilla) | 002b73b6-dc99-4d6b-8f68-6067a3a66d73 | Nov 19 08:02:33 2021 | stopped |
++------------------+--------------------------------------+----------------------+---------+
+```
+
+The above example shows the tag "vanilla" does not exist locally until we execute the `anka push --local`. Once tagged, we can then clone from it, or even create other tags on top.
+
+Each cloned VM will share the underlying data of the original source VM we clone from. For example, if `VM1` has `1.ank` **image** on disk, and you clone from it to create `VM2`, the `VM2` will re-use `1.ank` and not double the disk usage with its own files.
+
+{{< hint info >}}
+Cloned VMs will not use any significant disk space until you start them. Once started, an empty image is added on top of existing and any changes macOS or you make are added to it.
+{{< /hint >}}
+
+{{< hint warning >}}
+Existing blocks/data in previous images **are not** removed and will continue to take up the disk space. This is why we recommend you create a fresh/vanilla macOS VM to clone and create VM derivatives from.
+{{< /hint >}}
+
+{{< hint info >}}
+To switch between tags locally, you can use the `anka pull --local --tag {targetTagname} {VMName}` command:
+
+{{< include file="_partials/arm/Anka Virtualization/pull/_index.md" >}}
+
+{{< /hint >}}
+
+---
+
 ## What's next?
 
 - [Acessing your VM]({{< relref "arm/Getting Started/accessing-your-vm.md" >}})
