@@ -93,6 +93,32 @@ are you sure you want to delete vm 77f33f4a-75c3-47aa-b3f6-b99e7cdac001 test [y/
 
 ## VM Derivatives and Disk Optimization
 
+You can easily create VM derivatives from a source VM using `anka clone`:
+
+{{< include file="_partials/arm/Anka Virtualization/clone/_index.md" >}}
+
+```bash
+❯ anka list
++--------+--------------------------------------+----------------------+---------+
+| name   | uuid                                 | creation_date        | status  |
++--------+--------------------------------------+----------------------+---------+
+| 12.0.1 | e65a072f-0d4f-450b-964d-2be8d0d32c13 | Nov 19 08:02:33 2021 | stopped |
++--------+--------------------------------------+----------------------+---------+
+
+
+❯ anka clone 12.0.1 12.0.1-xcode13
+6070ee59-6c16-4c93-ba7a-122b66b1472a
+
+❯ anka list
++----------------+--------------------------------------+----------------------+---------+
+| name           | uuid                                 | creation_date        | status  |
++----------------+--------------------------------------+----------------------+---------+
+| 12.0.1         | e65a072f-0d4f-450b-964d-2be8d0d32c13 | Nov 19 08:02:33 2021 | stopped |
++----------------+--------------------------------------+----------------------+---------+
+| 12.0.1-xcode13 | 6070ee59-6c16-4c93-ba7a-122b66b1472a | Nov 19 08:02:33 2021 | stopped |
++----------------+--------------------------------------+----------------------+---------+
+```
+
 Anka VMs have an image structure which allows for sharing and disk optimization. When you create VM derivatives from a source VM, **this sharing only happens _after_ a specific "commit" action** using `anka push --local`:
 
 {{< hint warning >}}
