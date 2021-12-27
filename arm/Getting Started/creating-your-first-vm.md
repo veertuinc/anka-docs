@@ -96,7 +96,7 @@ are you sure you want to delete vm 77f33f4a-75c3-47aa-b3f6-b99e7cdac001 test [y/
 Anka VMs have an image structure which allows for sharing and disk optimization. When you create VM derivatives from a source VM, **this sharing only happens _after_ a specific "commit" action** using `anka push --local`:
 
 {{< hint warning >}}
-Important note in 3.X: In Anka 2.X, the sharing of images did not require a local commit/tag.
+Important note about the Anka 2.X/Intel version: The sharing of images did not require a local commit/tag like Anka 3.X does.
 {{< /hint >}}
 
 {{< include file="_partials/arm/Anka Virtualization/push/_index.md" >}}
