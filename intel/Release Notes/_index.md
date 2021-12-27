@@ -30,6 +30,12 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 
 ---
 
+### Jenkins Plugin 2.6.1 - Dec 23rd, 2021
+
+- **Bug Fix:** When running on Jenkins 2.319, "null" was being passed when tag was set to latest (empty)
+
+---
+
 ### Anka Build Cloud Controller & Registry 1.21.1 (1.21.1-5aebaf69) - Dec 15th, 2021
 
 {{< hint info >}}
@@ -73,12 +79,6 @@ Please note that there is a temporary workaround required for a bug that started
 - New Feature: Add the `display_controller` option to set pg [GH Issue](https://github.com/veertuinc/packer-plugin-veertu-anka/issues/72)
 - Bug Fix: Ensure file uploading is fixed [GH Issue](https://github.com/veertuinc/packer-plugin-veertu-anka/issues/77)
 - Bug Fix: Changing hw.UUID to hw.uuid as that's what hypervisor looks for
-
----
-
-### Jenkins Plugin 2.6.1 - Dec 23rd, 2021
-
-- **Bug Fix:** When running on Jenkins 2.319, "null" was being passed when tag was set to latest (empty)
 
 ---
 
