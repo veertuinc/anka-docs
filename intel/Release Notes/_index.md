@@ -102,7 +102,7 @@ Please note that there is a temporary workaround required for a bug that started
 Targeting the latest tag in Jenkins versions >= 2.319 will throw null errors when trying to start and terminate VMs.
 {{< /hint >}}
 
-### Anka Virtualization CLI 2.5.4 (2.5.4.136) - Dec 10th, 2021
+### Anka Virtualization CLI 2.5.4 (2.5.4.137) - Dec 10th, 2021
 
 {{< hint warning >}}
 
