@@ -53,10 +53,6 @@ Suspending VMs is currently not available.
 
 ## 3. Start the VM and finish the macOS install
 
-{{< hint info >}}
-Be sure to install the addons package. This will be mounted as a disk into the VM (`-u`). Once they're installed, your VM is ready to use!
-{{< /hint >}}
-
 ### With the UI
 
 {{< hint warning >}}
@@ -70,6 +66,7 @@ You’ll need to start the VM with `anka start -uv` to launch the viewer;
 
 {{< include file="_partials/arm/Anka Virtualization/start/_index.md" >}}
 
+Once inside, finish the macOS installation **and be sure to install the addons package through the disk we mount with `-u`**.
 
 ---
 ## Listing available VMs in the CLI
