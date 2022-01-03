@@ -61,12 +61,15 @@ The first beta release does not support mounting addons by starting from the UI.
 
 ### With the CLI
 
-You’ll need to start the VM with `anka start -uv` to launch the viewer;
+1. You’ll need to start the VM with `anka start -uv` to launch the viewer.
+
+{{< hint warning >}}
 `anka view` does not currently work post-start unless you started it with -v.
+{{< /hint >}}
 
 {{< include file="_partials/arm/Anka Virtualization/start/_index.md" >}}
 
-Once inside, finish the macOS installation **and be sure to install the addons package through the disk we mount with `-u`**.
+2. Once inside, finish the macOS installation **and be sure to install the addons package through the disk we mount with `-u`**.
 
 ---
 ## Listing available VMs in the CLI
