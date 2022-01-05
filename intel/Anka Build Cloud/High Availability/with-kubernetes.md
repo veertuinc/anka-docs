@@ -36,3 +36,4 @@ Once it's up and running, you can [join your nodes to the Controller load balanc
 ## Answers to Frequently Asked Questions
 
 - When using an AWS NLB, there is an immutable idle connection timeout value of 350s. This can cause registry push/pull actions to timeout. You'll need to create an ingress ALB that accepts longer connections.
+- If the registry pod has resource limits which are hit, it can be rescheduled on another host while it's performing actions. We recommend avoiding this as much as possible.
