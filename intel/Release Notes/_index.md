@@ -45,6 +45,42 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 - **New Feature:** [You can now find the last used date/time of a VM/Template using the `access_date` key/value.]({{< relref "Whats New/anka-2.5.4/index.md#ability-to-find-the-last-time-a-template-was-used" >}})
 - This release includes support for 12.1 beta.
 
+### Anka Build Cloud Controller & Registry 1.22.0 (1.22.0-5dc750f1) - Jan 10th, 2022
+
+- **Bug Fix:** Available Node and Template information will now show properly for failed instances.
+- **New Feature:** [VM Templates, Instances, and Nodes will all show the architecture (intel or arm) they support.]({{< relref "Whats New/build-cloud-1.22.0/index.md" >}})
+- (Standalone Registry: 1.22.0-5e54d0d6)
+
+### Packer Plugin 2.1.0 - Aug 5th, 2021
+- Improvement: Ensure that we generate the release properly so that `packer init` works [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/75)
+- Improvement: Print friendlier message when tagging locally [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/79)
+- New Feature: Add the `display_controller` option to set pg [GH Issue](https://github.com/veertuinc/packer-plugin-veertu-anka/issues/72)
+- Bug Fix: Ensure file uploading is fixed [GH Issue](https://github.com/veertuinc/packer-plugin-veertu-anka/issues/77)
+- Bug Fix: Changing hw.UUID to hw.uuid as that's what hypervisor looks for
+
+### Jenkins Plugin 2.6.0 - June 29th, 2021
+- Improvement: New UI design, field names, and descriptions
+- Bug Fix: Jenkins agent templates are deleted when the Anka Build Cloud URL changes
+
+> Breaking change: Versions < 2.260 of Jenkins are not supported
+### Anka Prometheus Exporter (2.2.3) - July 13th, 2021
+- Bug Fix: Added certs to scratch tag being generated to allow signed certs on the controller to be validated properly
+
+### Anka GitLab Runner 1.4.0 - May 4th, 2021
+- New Feature: We're now populating the External ID and Name startVM API call so that External ID shows the full URL to the job and Name is the runner's name. [GH Issue](https://github.com/veertuinc/gitlab-runner/issues/10)
+
+### Anka VM GitHub Action v1.3.2 - July 2nd, 2021
+- Security patches
+
+### TeamCity Plugin version 1.7.1 - July 7, 2020
+- Bug Fix: Long-running threads were being created
+- Bug Fix: UI Slowness the more Instances/Agents you created
+- Bug Fix: HTTPS without certificate authentication enabled doesn't work
+
+---
+
+## Previous Versions
+
 ### Anka Build Cloud Controller & Registry 1.21.1 (1.21.1-5aebaf69) - Dec 15th, 2021
 
 {{< hint info >}}
@@ -77,36 +113,6 @@ Please note that there is a temporary workaround required for a bug that started
 
 **1.21.0 fixes this issue, so it will not be necessary for future releases.** Thanks for your understanding and we are sorry for the inconvenience this causes.
 {{< /hint >}}
-
-### Packer Plugin 2.1.0 - Aug 5th, 2021
-- Improvement: Ensure that we generate the release properly so that `packer init` works [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/75)
-- Improvement: Print friendlier message when tagging locally [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/79)
-- New Feature: Add the `display_controller` option to set pg [GH Issue](https://github.com/veertuinc/packer-plugin-veertu-anka/issues/72)
-- Bug Fix: Ensure file uploading is fixed [GH Issue](https://github.com/veertuinc/packer-plugin-veertu-anka/issues/77)
-- Bug Fix: Changing hw.UUID to hw.uuid as that's what hypervisor looks for
-
-### Jenkins Plugin 2.6.0 - June 29th, 2021
-- Improvement: New UI design, field names, and descriptions
-- Bug Fix: Jenkins agent templates are deleted when the Anka Build Cloud URL changes
-
-> Breaking change: Versions < 2.260 of Jenkins are not supported
-### Anka Prometheus Exporter (2.2.3) - July 13th, 2021
-- Bug Fix: Added certs to scratch tag being generated to allow signed certs on the controller to be validated properly
-
-### Anka GitLab Runner 1.4.0 - May 4th, 2021
-- New Feature: We're now populating the External ID and Name startVM API call so that External ID shows the full URL to the job and Name is the runner's name. [GH Issue](https://github.com/veertuinc/gitlab-runner/issues/10)
-
-### Anka VM GitHub Action v1.3.2 - July 2nd, 2021
-- Security patches
-
-### TeamCity Plugin version 1.7.1 - July 7, 2020
-- Bug Fix: Long-running threads were being created
-- Bug Fix: UI Slowness the more Instances/Agents you created
-- Bug Fix: HTTPS without certificate authentication enabled doesn't work
-
----
-
-## Previous Versions
 
 ### Anka Build Cloud Controller & Registry 1.20.0 (1.20.0-035872f5) - Nov 10th, 2021
 
