@@ -201,4 +201,4 @@ However, this is a very limited VNC with no extensions (copy/paste, extended aut
 
 ## What's next?
 
-- [Modifying your VM Template]({{< relref "intel/Getting Started/modifying-your-vm-template.md" >}})
+- [Modifying your VM Template]({{< relref "intel/Getting Started/modifying-your-vm.md" >}})

@@ -73,7 +73,7 @@ sudo pmset -a hibernatemode 0
 
 - If on macOS version Big Sur: Disable Apple's mitigations with `sudo anka config vmx_mitigations 0`. Without it, performance will be ~10% worse inside of the VM. (This does not work on Monterey versions of macOS)
 
-- Disable spotlight:
+- Disable spotlight on the host and also inside of the VM:
 
     If you cannot perform launchctl commands, you can execute these commands from the command-line:
 
@@ -86,6 +86,7 @@ sudo pmset -a hibernatemode 0
     # Make sure indexing is DISABLED for the main volume
     sudo mdutil -a -i off /
     sudo mdutil -a -i off
+    sudo rm -rf /.Spotlight-V100/*
     ```
 
     MDS can be disable with `sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist`, but only if SIP is disabled on the host (not recommended)

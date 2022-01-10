@@ -109,4 +109,4 @@ Once you've enabled Apple's Remote Login inside of the VM, simply add a forwarde
 
 ## What's next?
 
-- [Modifying your VM Template]({{< relref "arm/Getting Started/modifying-your-vm-template.md" >}})
+- [Modifying your VM Template]({{< relref "arm/Getting Started/modifying-your-vm.md" >}})

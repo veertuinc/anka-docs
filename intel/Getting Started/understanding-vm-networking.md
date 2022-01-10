@@ -13,7 +13,7 @@ description: >
 2. [You've got an active license]({{< relref "intel/Licensing/_index.md" >}})
 3. [You've created your first VM Template]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
 4. [You understand how to start and access your VM]({{< relref "intel/Getting Started/starting-and-accessing-your-vm.md" >}})
-5. [You grasp how to modify VM settings, like network-card]({{< relref "intel/Getting Started/modifying-your-vm-template.md" >}})
+5. [You grasp how to modify VM settings, like network-card]({{< relref "intel/Getting Started/modifying-your-vm.md" >}})
 
 ---
 

@@ -11,7 +11,7 @@ description: >
 
 1. [You've installed the Anka Virtualization package]({{< relref "arm/Getting Started/installing-the-anka-virtualization-package.md" >}})
 2. [You've created your first VM Template]({{< relref "arm/Getting Started/creating-your-first-vm.md" >}})
-3. [You grasp how to modify VM settings (like `network`)]({{< relref "arm/Getting Started/modifying-your-vm-template.md" >}})
+3. [You grasp how to modify VM settings (like `network`)]({{< relref "arm/Getting Started/modifying-your-vm.md" >}})
 
 ---
 
