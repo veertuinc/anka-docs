@@ -99,7 +99,7 @@ Use the REST APIs to integrate Anka Build cloud with your CI system (If there is
 ### Status
 
 ```bash
-❯ curl -s http://anka.controller:8090/api/v1/status         
+❯ curl -s http://anka.controller/api/v1/status         
 {"status":"OK","message":"","body":{"status":"Running","version":"1.13.0-24e848a5","registry_address":"http://anka.registry:8089","registry_status":"Running","license":"enterprise plus"}}
 ```
 ## VM Instance
@@ -1067,7 +1067,7 @@ export TEST=true
 bash -c "echo $TEST"' | base64 -i -
 IyEvYmluL2Jhc2gKZWNobyAkKGhvc3RuYW1lKQplY2hvCmVudgpleHBvcnQgVEVTVD10cnVlCmJhc2ggLWMgImVjaG8gJFRFU1QiCg==
 
-❯ curl -X POST "http://anka.controller:8090/api/v1/image" -H "Content-Type: application/json" -d '{"id": "6f1776ad-3b6d-40b3-4bf9-21fe986bc26d", "target_vm_id": "e2729233-fbca-4e71-82de-511028191e33", "tag": "test123", "script": "IyEvYmluL2Jhc2gKZWNobyAkKGhvc3RuYW1lKQplY2hvCmVudgpleHBvcnQgVEVTVD10cnVlCmJhc2ggLWMgImVjaG8gJFRFU1QiCg==" }' | jq
+❯ curl -X POST "http://anka.controller/api/v1/image" -H "Content-Type: application/json" -d '{"id": "6f1776ad-3b6d-40b3-4bf9-21fe986bc26d", "target_vm_id": "e2729233-fbca-4e71-82de-511028191e33", "tag": "test123", "script": "IyEvYmluL2Jhc2gKZWNobyAkKGhvc3RuYW1lKQplY2hvCmVudgpleHBvcnQgVEVTVD10cnVlCmJhc2ggLWMgImVjaG8gJFRFU1QiCg==" }' | jq
 {
    "status": "OK",
    "body": {
@@ -1105,7 +1105,7 @@ IyEvYmluL2Jhc2gKZWNobyAkKGhvc3RuYW1lKQplY2hvCmVudgpleHBvcnQgVEVTVD10cnVlCmJhc2gg
 ```shell
 # List all requests
 
-❯ curl -s "http://anka.controller:8090/api/v1/image" | jq '.body[1]'
+❯ curl -s "http://anka.controller/api/v1/image" | jq '.body[1]'
 
 {
   "id": "ad84c5aa-2b1d-4ff5-72ef-9b519646b212",

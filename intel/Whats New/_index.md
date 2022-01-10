@@ -280,7 +280,7 @@ config:
   optimization_threshold: 5
   num_workers: 2
   controller_addresses:
-  - http://anka.controller:8090
+  - http://anka.controller
   version: 1.13.0-24e848a5
   capacity_mode: number
   heartbeat: 5s
@@ -307,7 +307,7 @@ config:
     },
     "num_workers": 2,
     "controller_addresses": [
-      "http://anka.controller:8090"
+      "http://anka.controller"
     ],
     "version": "1.13.0-24e848a5",
     "capacity_mode": "number",
@@ -507,7 +507,7 @@ node-1-10180.local
 
 Rarely we see certain dependencies installed inside of VMs causing the entire VM to become unresponsive. Unresponsive or "stuck" VMs can run indefinitely and therefore cause CI/CD jobs to run until they hit timeouts. This is a bad experience for users, so we've added a feature which constantly checks whether or not the command-line inside of VM is responding to a simple command. If it cannot, the Anka Agent on your Node will fail the VM, causing the CI/CD job to receive a failure and then send a Termination request to the Controller. 
 
-You can enable this feature when you join your Node to the Anka Cloud with: `sudo ankacluster join --enable-vm-monitor http://anka.controller:8090`.
+You can enable this feature when you join your Node to the Anka Cloud with: `sudo ankacluster join --enable-vm-monitor http://anka.controller`.
 
 You can see the flags and options with:
 
@@ -573,7 +573,7 @@ Changes to the way we communicate with the Controller API now allows for the sla
 Create an instance with metadata:
 
 ```bash
-❯ curl -X POST "http://anka.controller:8090/api/v1/vm" -H "Content-Type: application/json" \
+❯ curl -X POST "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" \
 -d '{"vmid": "c0847bc9-5d2d-4dbc-ba6a-240f7ff08032", "count": 1, "metadata": { "test": true }}'
 
 {"status":"OK","message":"","body":["a681f959-b4db-4f3b-7a88-0384ad146bf4"]}
@@ -611,7 +611,7 @@ Then show it as a column in the dashboard:
 Create your instance and set the CPU and RAM:
 
 ```bash
-❯ curl -X POST "http://anka.controller:8090/api/v1/vm" -H "Content-Type: application/json" \
+❯ curl -X POST "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" \
 -d '{"vmid": "3a65b45e-c08d-44e9-84e2-ba45d646af4a", "count": 1, "vcpu": 4, "vram": 8192 }'
 
 {"status":"OK","message":"","body":["ac653ec9-5c7e-4b99-5749-ec0d242ca958"]}

@@ -26,7 +26,7 @@ Our default docker package will use .env files to store the configuration ENVs. 
     build:
        context: controller
     ports:
-       - "8090:80"
+       - "80:80"
        #- "8100:8100"
     volumes:
        - /Users/myUserName:/mnt/cert
@@ -35,7 +35,7 @@ Our default docker package will use .env files to store the configuration ENVs. 
        - anka-registry
     restart: always
     environment:
-      ANKA_REGISTRY_ADDR: "http://anka.registry:8089"
+      ANKA_ANKA_REGISTRY: "http://anka.registry:8089"
       ANKA_USE_HTTPS: "false"
       ANKA_SKIP_TLS_VERIFICATION: "false"
       ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
@@ -82,7 +82,7 @@ Our default docker package will use .env files to store the configuration ENVs. 
 #!/bin/bash
 
 export ANKA_STANDALONE="true"
-export ANKA_LISTEN_ADDR=":8090"
+export ANKA_LISTEN_ADDR=":80"
 export ANKA_DATA_DIR="/Library/Application Support/Veertu/Anka/anka-controller"
 export ANKA_ENABLE_CENTRAL_LOGGING="true"
 export ANKA_LOG_DIR="/Library/Logs/Veertu/AnkaController"

@@ -122,7 +122,7 @@ Avoid using underscores in your domainnames/urls.
 
 
 ```shell
-❯ sudo ankacluster join http://anka.controller:8090
+❯ sudo ankacluster join http://anka.controller
 Testing connection to the controller...: Ok
 Testing connection to the registry...: Ok
 Success!
@@ -130,7 +130,7 @@ Anka Cloud Cluster join success
 ```
 
 > You can join a Node to multiple controllers by comma separating them:
-> `sudo ankacluster join http://anka.controller1:8090,http://anka.controller2:8090`
+> `sudo ankacluster join http://anka.controller1,http://anka.controller2`
 
 ```shell
 ❯ ankacluster join --help
@@ -212,7 +212,7 @@ config:
 
 - Errors like the following are typically the cause of an older version of the agent on your node. You'll want to visit http://downloads.veertu.com, download the agent version matching your controller's version, and then try your ankacluster join command again:
     ```bash
-    > sudo ankacluster join http://anka.controller:8090 --reserve-space 20GB
+    > sudo ankacluster join http://anka.controller --reserve-space 20GB
     Testing connection to controller...: Ok
     Testing connection to the registry...: Ok
     Ok
