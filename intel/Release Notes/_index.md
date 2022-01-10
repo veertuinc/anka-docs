@@ -48,15 +48,10 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 
 ---
 
-### Packer Plugin 2.1.0 - Aug 5th, 2021
+### Packer Plugin 2.2.0 - Oct 8th, 2021
 
-- Improvement: Ensure that we generate the release properly so that `packer init` works [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/75)
-- Improvement: Print friendlier message when tagging locally [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/79)
-- New Feature: Add the `display_controller` option to set pg [GH Issue](https://github.com/veertuinc/packer-plugin-veertu-anka/issues/72)
-- Bug Fix: Ensure file uploading is fixed [GH Issue](https://github.com/veertuinc/packer-plugin-veertu-anka/issues/77)
-- Bug Fix: Changing hw.UUID to hw.uuid as that's what hypervisor looks for
-
-> Breaking change: Versions < 2.260 of Jenkins are not supported
+- Improvement: Force push to registry is now supported [PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/91)
+- Test and doc improvements
 
 ---
 
@@ -87,6 +82,14 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 ---
 
 ## Previous Versions
+
+### Packer Plugin 2.1.0 - Aug 5th, 2021
+
+- Improvement: Ensure that we generate the release properly so that `packer init` works [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/75)
+- Improvement: Print friendlier message when tagging locally [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/79)
+- New Feature: Add the `display_controller` option to set pg [GH Issue](https://github.com/veertuinc/packer-plugin-veertu-anka/issues/72)
+- Bug Fix: Ensure file uploading is fixed [GH Issue](https://github.com/veertuinc/packer-plugin-veertu-anka/issues/77)
+- Bug Fix: Changing hw.UUID to hw.uuid as that's what hypervisor looks for
 
 ### Anka Build Cloud Controller & Registry 1.21.2 (1.21.2-39f47eee) - Dec 28th, 2021
 
