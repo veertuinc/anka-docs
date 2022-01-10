@@ -12,15 +12,7 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 {{< /hint >}}
 ## Current Versions
 
-### Anka Build Cloud Controller & Registry 1.22.0 (1.22.0-5dc750f1) - Jan 10th, 2022
-
-- **Bug Fix:** Available Node and Template information will now show properly for failed instances.
-- **New Feature:** [VM Templates, Instances, and Nodes will all show the architecture (intel or arm) they support.]({{< relref "Whats New/build-cloud-1.22.0/index.md" >}})
-- (Standalone Registry: 1.22.0-5e54d0d6)
-
----
-
-### Anka Virtualization CLI 2.5.4 (2.5.4.138) - Dec 27th, 2021
+### Anka Virtualization CLI 2.5.4 (2.5.4.139) - Jan 10th, 2022
 
 {{< hint warning >}}
 
@@ -34,7 +26,15 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
-- **Bug Fix:** Automatic creation of anka image storage directories was not happening for config defaults and caused the agent to be unable to create VMs.
+- **Bug Fix:** High CPU usage from `configd` and `usbd` impacted VM performance.
+
+---
+
+### Anka Build Cloud Controller & Registry 1.22.0 (1.22.0-5dc750f1) - Jan 10th, 2022
+
+- **Bug Fix:** Available Node and Template information will now show properly for failed instances.
+- **New Feature:** [VM Templates, Instances, and Nodes will all show the architecture (intel or arm) they support.]({{< relref "Whats New/build-cloud-1.22.0/index.md" >}})
+- (Standalone Registry: 1.22.0-5e54d0d6)
 
 ---
 
@@ -82,6 +82,22 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 ---
 
 ## Previous Versions
+
+### Anka Virtualization CLI 2.5.4 (2.5.4.138) - Dec 27th, 2021
+
+{{< hint warning >}}
+
+##### Important considerations for this release
+
+- Upgrading Addons from the previous minor version of anka is recommended but not required.
+
+- Suspended VMs created in previous _minor versions_ of anka are not compatible and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.
+
+<br />
+For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}).
+{{< /hint >}}
+
+- **Bug Fix:** Automatic creation of anka image storage directories was not happening for config defaults and caused the agent to be unable to create VMs.
 
 ### Packer Plugin 2.1.0 - Aug 5th, 2021
 
