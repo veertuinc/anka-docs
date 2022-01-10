@@ -1,5 +1,5 @@
 ```bash
-❯ anka run myAwesomeProject bash -c "set -exo pipefail; \
+❯ anka run 12.1.0 bash -c "set -exo pipefail; \
 echo \"Disable indexing\" && \
 sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array \"/Volumes\" && \
 sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array \"/Network\" && \
@@ -34,7 +34,7 @@ Disable indexing
 Then, ensure there is no heavy usage from mds:
 
 ```bash
-❯ anka run myAwesomeProject bash -c "ps aux | grep mds"
+❯ anka run 12.1.0 bash -c "ps aux | grep mds"
 anka              1091   0.0  0.0 34123248    984   ??  S     5:39AM   0:00.00 bash -c ps aux | grep mds
 root               865   0.0  1.3 34024748 110880   ??  Ss    5:38AM   0:18.58 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mds_stores
 root               863   0.0  0.4 33740376  34864   ??  Ss    5:38AM   0:12.59 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Support/mds
