@@ -99,6 +99,39 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 
 - **Bug Fix:** Automatic creation of anka image storage directories was not happening for config defaults and caused the agent to be unable to create VMs.
 
+### Anka Virtualization CLI 2.5.4 (2.5.4.136) - Dec 10th, 2021
+
+{{< hint warning >}}
+
+##### Important considerations for this release
+
+- Upgrading Addons from the previous minor version of anka is recommended but not required.
+
+- Suspended VMs created in previous minor versions of anka are not compatible and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.
+
+- Avoid upgrading to this version on nodes with running VMs.
+
+<br />
+For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}).
+{{< /hint >}}
+
+- **Bug Fix:** `anka list` was not sorted by name.
+- **Bug Fix:** Race condition throws "not found" when `anka clone` and `anka delete` happen at the same time.
+- **Bug Fix:** VMs created with the name "11.6" throw a failure.
+- **Bug Fix:** Anka `registry list` command fails with `key values mismatch` when using self signed certs.
+- **Bug Fix:** Machine readable `stop_date` is in a bad format for parsing.
+- **Bug Fix:** Machine readable status differ between `list` and `show` commands.
+- **Bug Fix:** `anka create` suddenly throwing `hdiutil: attach failed - Resource busy` error.
+- **Bug Fix:** `anka license show -k {license}` doesn't display proper host based license information.
+- **Bug Fix:** Unable to use `change_res` binary on Big Sur, Monterey, and PG enabled VM templates.
+- **Bug Fix:** On machine boot, `anka_agent` is running and executing `anka list` which triggers creation of *_lib directories. This was causing network mounts (which happen after the agent runs) to try using the same location, failing to because they already exist, and instead mounting with a different name. This caused `anka list` to be empty after a reboot. We removed the creation on `anka list` which will give enough time for network mounts to claim the path.
+- **Bug Fix:** The anka uninstaller script was removing a locally installed controller package.
+- **Improvement:** Monterey VM creation will automatically set `ablk` as the disk controller (`virtio-blk` not supported currently).
+- **Improvement:** Support for 32 core machines.
+- **Improvement:** We now check the registry status/availability before creating a local tag. This should prevent situations where a local tag was created prematurely and then blocked subsequent commands (requiring either a manual deletion of the local tag, or a force push).
+- **New Feature:** [You can now find the last used date/time of a VM/Template using the `access_date` key/value.]({{< relref "Whats New/anka-2.5.4/index.md#ability-to-find-the-last-time-a-template-was-used" >}})
+- This release includes support for 12.1 beta.
+
 ### Packer Plugin 2.1.0 - Aug 5th, 2021
 
 - Improvement: Ensure that we generate the release properly so that `packer init` works [GH PR](https://github.com/veertuinc/packer-plugin-veertu-anka/pull/75)
