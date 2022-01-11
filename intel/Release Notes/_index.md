@@ -26,7 +26,7 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
-- **Bug Fix:** High CPU usage from `configd` and `usbd` impacted VM performance.
+- **Bug Fix:** High CPU usage from `configd` and `usbd` impacted VM performance in previous 2.5.4 version.
 
 ---
 
