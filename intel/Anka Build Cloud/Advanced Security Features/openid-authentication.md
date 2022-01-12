@@ -9,7 +9,7 @@ description: >
 
 > This guide and feature require an Anka Enterprise Plus license.
 
-> If you're using root token auth for your Controller UI, without certificate authentication, Nodes will no longer be able to connect to port 80 (or whatever port you've set) when running `ankacluster join`. You'll need to setup an interface for them to communicate. [See our documentation on this.]({{< relref "intel/Anka Build Cloud/Advanced Security Features/root-token-authentication.md#joining-nodes" >}})
+> If you're using root token auth for your Controller UI, without certificate authentication, Nodes will no longer be able to connect to port 80 (or whatever port you've set) when running `ankacluster join`. You'll need to setup an interface for them to communicate. [See our documentation on this.]({{< relref "intel/Anka Build Cloud/Advanced Security Features/token-authentication.md#joining-nodes" >}})
 
 > You must have at least one node with a Enterprise or higher license joined to the Controller for these features to work.
 
