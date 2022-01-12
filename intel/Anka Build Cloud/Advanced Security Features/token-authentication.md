@@ -111,7 +111,7 @@ Finally, you can test the API using:
 
 1. Follow the same instruction from the above root token section, but also include `ANKA_ENABLE_API_KEYS` set to `true`.
 
-2. Use the API to generate a user key for [the controller]({{< relref "docs/Anka Build Cloud/working-with-the-controller-and-API.md#user-key-management" >}}) and also [the registry]({{< relref "docs/Anka Build Cloud/working-with-the-registry-API.md#user-key-management" >}}).
+2. Use the API to generate a user key for [the controller]({{< relref "intel/Anka Build Cloud/working-with-controller-and-API.md#user-key-management" >}}) and also [the registry]({{< relref "intel/Anka Build Cloud/working-with-registry-and-API.md#user-key-management" >}}).
 
 3. You can now use the key and ID to communicate with the Controller or Registry.
 
@@ -133,7 +133,7 @@ Anka Cloud Cluster join success
 
 ### Controller and Registry communication with your UAK
 
-Should the Registry be protected by authentication and User API Keys, the Controller requires its own key for registry API calls. Once generated, you need to specify the `ANKA_API_KEY_ID` and `ANKA_API_KEY_STRING` (or file) ENVs described in the [Configuration Reference]({{< relref "docs/Anka Build Cloud/configuration-reference.md#authentication-and-authorization" >}}).
+Should the Registry be protected by authentication and User API Keys, the Controller requires its own key for registry API calls. Once generated, you need to specify the `ANKA_API_KEY_ID` and `ANKA_API_KEY_STRING` (or file) ENVs described in the [Configuration Reference]({{< relref "intel/Anka Build Cloud/configuration-reference.md#authentication-and-authorization" >}}).
 
 ---
 
@@ -183,4 +183,4 @@ This object, encoded in JSON and base64 is what the user supplies in the HTTP Au
 
 ## Managing User/Group Permissions (Authorization)
 
-{{< include file="shared/content/en/docs/Anka Build Cloud/Advanced Security Features/partials/_managing-permissions.md" >}}
+{{< include file="_partials/Anka Build Cloud/_managing-permissions.md" >}}
