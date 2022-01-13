@@ -77,8 +77,17 @@ services:
       context: etcd
     volumes:
       - /var/etcd-data:/etcd-data
-    env_file:
-      - etcd/etcd.env
+    environment:
+      ETCD_DATA_DIR: "/etcd-data"
+      ETCD_LISTEN_CLIENT_URLS: "http://0.0.0.0:2379"
+      ETCD_ADVERTISE_CLIENT_URLS: "http://0.0.0.0:2379"
+      ETCD_LISTEN_PEER_URLS: "http://0.0.0.0:2380"
+      ETCD_INITIAL_ADVERTISE_PEER_URLS: "http://0.0.0.0:2380"
+      ETCD_INITIAL_CLUSTER: "my-etcd=http://0.0.0.0:2380"
+      ETCD_INITIAL_CLUSTER_TOKEN: "my-etcd-token"
+      ETCD_INITIAL_CLUSTER_STATE: "new"
+      ETCD_AUTO_COMPACTION_RETENTION: "1"
+      ETCD_NAME: "my-etcd"
     restart: always
 ```
 
