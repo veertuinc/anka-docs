@@ -26,15 +26,14 @@ services:
   anka-controller:
     container_name: anka-controller
     build:
-       context: controller
+      context: controller
     ports:
-       - "80:80"
-       #- "8100:8100"
+      - "80:80"
     volumes:
-       - /Users/myUserName:/mnt/cert
+      - /Users/myUserName:/mnt/cert
     depends_on:
-       - etcd
-       - anka-registry
+      - etcd
+      - anka-registry
     restart: always
     environment:
       ANKA_ANKA_REGISTRY: "http://anka.registry:8089"
@@ -57,9 +56,9 @@ services:
   anka-registry:
     container_name: anka-registry
     build:
-        context: registry
+      context: registry
     ports:
-        - "8089:8089"
+      - "8089:8089"
     restart: always
     volumes:
       - "/Library/Application Support/Veertu/Anka/registry:/mnt/vol"
