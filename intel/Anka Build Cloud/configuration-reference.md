@@ -21,6 +21,8 @@ Our default docker package will use .env files to store the configuration ENVs. 
 #### docker-compose.yml (docker)
 
 ```yml
+version: '2'
+services:
   anka-controller:
     container_name: anka-controller
     build:
@@ -61,8 +63,7 @@ Our default docker package will use .env files to store the configuration ENVs. 
     restart: always
     volumes:
       - "/Library/Application Support/Veertu/Anka/registry:/mnt/vol"
-      # SSL + Cert Auth | - /Users/myUser/mycerts:/mnt/cert
-    # SSL + Cert Auth | environment:
+      # SSL + Cert Auth | environment:
       #ANKA_USE_HTTPS: "true"
       #ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
       #ANKA_SERVER_KEY: "/mnt/cert/anka-controller-key.pem"
@@ -72,6 +73,14 @@ Our default docker package will use .env files to store the configuration ENVs. 
       #ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
       #ANKA_CLIENT_CERT="/mnt/cert/anka-controller-crt.pem"
       #ANKA_CLIENT_CERT_KEY="/mnt/cert/anka-controller-key.pem"
+  etcd:
+    build:
+      context: etcd
+    volumes:
+      - /var/etcd-data:/etcd-data
+    env_file:
+      - etcd/etcd.env
+    restart: always
 ```
 
 #### /usr/local/bin/anka-controllerd (native)
