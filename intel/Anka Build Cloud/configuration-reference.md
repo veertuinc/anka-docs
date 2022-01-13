@@ -29,30 +29,24 @@ services:
       context: controller
     ports:
       - "80:80"
-    volumes:
-      - /Users/myUserName:/mnt/cert
+    # volumes:
+    #   - /Users/myUserName:/mnt/cert
     depends_on:
       - etcd
       - anka-registry
     restart: always
     environment:
       ANKA_ANKA_REGISTRY: "http://anka.registry:8089"
-      ANKA_USE_HTTPS: "false"
-      ANKA_SKIP_TLS_VERIFICATION: "false"
-      ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
-      ANKA_SERVER_KEY: "/mnt/cert/anka-controller-key.pem"
-      ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
-      ANKA_ENABLE_AUTH: "false"
       # SSL + Cert Auth
-      #ANKA_USE_HTTPS: "true"
-      #ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
-      #ANKA_SERVER_KEY: "/mnt/cert/anka-controller-key.pem"
-      #ANKA_SKIP_TLS_VERIFICATION: "true"
-      #ANKA_ENABLE_AUTH: "true"
-      #ANKA_ROOT_TOKEN: "1111111111"
-      #ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
-      #ANKA_CLIENT_CERT="/mnt/cert/anka-controller-crt.pem"
-      #ANKA_CLIENT_CERT_KEY="/mnt/cert/anka-controller-key.pem"
+      # ANKA_USE_HTTPS: "true"
+      # ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
+      # ANKA_SERVER_KEY: "/mnt/cert/anka-controller-key.pem"
+      # ANKA_SKIP_TLS_VERIFICATION: "true"
+      # ANKA_ENABLE_AUTH: "true"
+      # ANKA_ROOT_TOKEN: "1111111111"
+      # ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
+      # ANKA_CLIENT_CERT="/mnt/cert/anka-controller-crt.pem"
+      # ANKA_CLIENT_CERT_KEY="/mnt/cert/anka-controller-key.pem"
   anka-registry:
     container_name: anka-registry
     build:
@@ -62,16 +56,17 @@ services:
     restart: always
     volumes:
       - "/Library/Application Support/Veertu/Anka/registry:/mnt/vol"
-      # SSL + Cert Auth | environment:
-      #ANKA_USE_HTTPS: "true"
-      #ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
-      #ANKA_SERVER_KEY: "/mnt/cert/anka-controller-key.pem"
-      #ANKA_SKIP_TLS_VERIFICATION: "true"
-      #ANKA_ENABLE_REGISTRY_AUTHORIZATION: "true"
-      #ANKA_ENABLE_AUTH: "true"
-      #ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
-      #ANKA_CLIENT_CERT="/mnt/cert/anka-controller-crt.pem"
-      #ANKA_CLIENT_CERT_KEY="/mnt/cert/anka-controller-key.pem"
+    # environment:  
+      # SSL + Cert Auth
+      # ANKA_USE_HTTPS: "true"
+      # ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
+      # ANKA_SERVER_KEY: "/mnt/cert/anka-controller-key.pem"
+      # ANKA_SKIP_TLS_VERIFICATION: "true"
+      # ANKA_ENABLE_REGISTRY_AUTHORIZATION: "true"
+      # ANKA_ENABLE_AUTH: "true"
+      # ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
+      # ANKA_CLIENT_CERT="/mnt/cert/anka-controller-crt.pem"
+      # ANKA_CLIENT_CERT_KEY="/mnt/cert/anka-controller-key.pem"
   etcd:
     build:
       context: etcd
