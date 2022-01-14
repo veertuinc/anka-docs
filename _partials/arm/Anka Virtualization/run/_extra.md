@@ -1,8 +1,5 @@
-> `anka run` will source user "rc" files in a specific order:
->
-> The source sequence is:
->
-> 1. /etc/profile
-> 2. .bash_profile
-> 3. .bash_login
-> 4. .profile
+---
+---
+{{< hint info >}}
+Note: `anka run` will start a shell and source the default locations for macOS.
+{{< /hint >}}
