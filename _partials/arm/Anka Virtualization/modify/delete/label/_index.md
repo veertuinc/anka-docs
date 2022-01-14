@@ -1,5 +1,5 @@
 ```shell
-> anka modify 12.0.1-jenkins delete label --help
+> anka modify 12.1.0-arm delete label --help
 usage: label [options] [label...]
 
    Remove labels

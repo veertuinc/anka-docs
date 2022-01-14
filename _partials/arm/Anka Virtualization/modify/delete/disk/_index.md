@@ -1,5 +1,5 @@
 ```shell
-> anka modify 12.0.1-jenkins delete disk --help
+> anka modify 12.1.0-arm delete disk --help
 usage: hard-drive,disk index
 
    Remove disk

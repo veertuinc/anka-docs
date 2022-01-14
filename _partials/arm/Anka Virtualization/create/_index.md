@@ -5,8 +5,8 @@ usage: create [options] name
    Creates a VM Template
 
 options:
-  -m,--ram-size <val>      Set the VM RAM size (??|??K|??M|??G|??T)
-  -c,--cpu-count <val>     Set the number of vCPU cores for the VM
-  -d,--disk-size <val>     Set the VM disk size (??|??K|??M|??G|??T)
-  -a,--app <val>           Path to the macOS restore image
+  -m,--ram-size <val>      Specify the VM RAM size (supported suffixes: T|G|M|K)
+  -c,--cpu-count <val>     Specify the number of vCPU cores for the VM (3 or more is recommended)
+  -d,--disk-size <val>     Specify the VM disk size (supported suffixes: T|G|M|K)
+  -a,--app <val>           Path or URL (or 'latest' to dowload the latest version) to the macOS restore image
 ```

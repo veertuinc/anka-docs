@@ -18,41 +18,63 @@ description: >
 ## Show
 {{< include file="_partials/arm/Anka Virtualization/show/_index.md" >}}
 {{< include file="_partials/arm/Anka Virtualization/show/_example.md" >}}
+### show {name/uuid} name
+{{< include file="_partials/arm/Anka Virtualization/show/name/_index.md" >}}
+### show {name/uuid} uuid
+{{< include file="_partials/arm/Anka Virtualization/show/uuid/_index.md" >}}
+### show {name/uuid} description
+{{< include file="_partials/arm/Anka Virtualization/show/description/_index.md" >}}
+### show {name/uuid} tag
+{{< include file="_partials/arm/Anka Virtualization/show/tag/_index.md" >}}
+### show {name/uuid} cpu
+{{< include file="_partials/arm/Anka Virtualization/show/cpu/_index.md" >}}
+### show {name/uuid} ram
+{{< include file="_partials/arm/Anka Virtualization/show/ram/_index.md" >}}
+### show {name/uuid} display
+{{< include file="_partials/arm/Anka Virtualization/show/display/_index.md" >}}
+### show {name/uuid} disk
+{{< include file="_partials/arm/Anka Virtualization/show/disk/_index.md" >}}
+### show {name/uuid} network
+{{< include file="_partials/arm/Anka Virtualization/show/network/_index.md" >}}
+### show {name/uuid} port
+{{< include file="_partials/arm/Anka Virtualization/show/port/_index.md" >}}
+### show {name/uuid} label
+{{< include file="_partials/arm/Anka Virtualization/show/label/_index.md" >}}
 ## Modify
 {{< include file="_partials/arm/Anka Virtualization/modify/_index.md" >}}
-### modify {vmNameOrUUID} add
+### modify {name/uuid} add
 {{< include file="_partials/arm/Anka Virtualization/modify/add/_index.md" >}}
-#### modify {vmNameOrUUID} add network
+#### modify {name/uuid} add network
 {{< include file="_partials/arm/Anka Virtualization/modify/add/network/_index.md" >}}
-#### modify {vmNameOrUUID} add disk
+#### modify {name/uuid} add disk
 {{< include file="_partials/arm/Anka Virtualization/modify/add/disk/_index.md" >}}
-#### modify {vmNameOrUUID} add port
+#### modify {name/uuid} add port
 {{< include file="_partials/arm/Anka Virtualization/modify/add/port/_index.md" >}}
 {{< include file="_partials/arm/Anka Virtualization/modify/add/port/_example.md" >}}
-#### modify {vmNameOrUUID} add label
+#### modify {name/uuid} add label
 {{< include file="_partials/arm/Anka Virtualization/modify/add/label/_index.md" >}}
-### modify {vmNameOrUUID} delete
+### modify {name/uuid} delete
 {{< include file="_partials/arm/Anka Virtualization/modify/delete/_index.md" >}}
-#### modify {vmNameOrUUID} delete network
+#### modify {name/uuid} delete network
 {{< include file="_partials/arm/Anka Virtualization/modify/delete/network/_index.md" >}}
-#### modify {vmNameOrUUID} delete disk
+#### modify {name/uuid} delete disk
 {{< include file="_partials/arm/Anka Virtualization/modify/delete/disk/_index.md" >}}
-#### modify {vmNameOrUUID} delete port
+#### modify {name/uuid} delete port
 {{< include file="_partials/arm/Anka Virtualization/modify/delete/port/_index.md" >}}
-#### modify {vmNameOrUUID} delete label
+#### modify {name/uuid} delete label
 {{< include file="_partials/arm/Anka Virtualization/modify/delete/label/_index.md" >}}
-### modify {vmNameOrUUID} name
+### modify {name/uuid} name
 {{< include file="_partials/arm/Anka Virtualization/modify/name/_index.md" >}}
-### modify {vmNameOrUUID} cpu
+### modify {name/uuid} cpu
 {{< include file="_partials/arm/Anka Virtualization/modify/cpu/_index.md" >}}
-### modify {vmNameOrUUID} ram
+### modify {name/uuid} ram
 {{< include file="_partials/arm/Anka Virtualization/modify/ram/_index.md" >}}
-### modify {vmNameOrUUID} network
+### modify {name/uuid} network
 {{< include file="_partials/arm/Anka Virtualization/modify/network/_index.md" >}}
 {{< include file="_partials/arm/Anka Virtualization/modify/network/_example.md" >}}
-### modify {vmNameOrUUID} disk
+### modify {name/uuid} disk
 {{< include file="_partials/arm/Anka Virtualization/modify/disk/_index.md" >}}
-### modify {vmNameOrUUID} display
+### modify {name/uuid} display
 {{< include file="_partials/arm/Anka Virtualization/modify/display/_index.md" >}}
 ## View
 {{< include file="_partials/arm/Anka Virtualization/view/_index.md" >}}
@@ -92,6 +114,28 @@ description: >
 {{< include file="_partials/arm/Anka Virtualization/registry/list/_index.md" >}}
 ### registry show
 {{< include file="_partials/arm/Anka Virtualization/registry/show/_index.md" >}}
+#### registry show {name/uuid} name
+{{< include file="_partials/arm/Anka Virtualization/registry/show/name/_index.md" >}}
+#### registry show {name/uuid} uuid
+{{< include file="_partials/arm/Anka Virtualization/registry/show/uuid/_index.md" >}}
+#### registry show {name/uuid} description
+{{< include file="_partials/arm/Anka Virtualization/registry/show/description/_index.md" >}}
+#### registry show {name/uuid} tag
+{{< include file="_partials/arm/Anka Virtualization/registry/show/tag/_index.md" >}}
+#### registry show {name/uuid} cpu
+{{< include file="_partials/arm/Anka Virtualization/registry/show/cpu/_index.md" >}}
+#### registry show {name/uuid} ram
+{{< include file="_partials/arm/Anka Virtualization/registry/show/ram/_index.md" >}}
+#### registry show {name/uuid} display
+{{< include file="_partials/arm/Anka Virtualization/registry/show/display/_index.md" >}}
+#### registry show {name/uuid} disk
+{{< include file="_partials/arm/Anka Virtualization/registry/show/disk/_index.md" >}}
+#### registry show {name/uuid} network
+{{< include file="_partials/arm/Anka Virtualization/registry/show/network/_index.md" >}}
+#### registry show {name/uuid} port
+{{< include file="_partials/arm/Anka Virtualization/registry/show/port/_index.md" >}}
+#### registry show {name/uuid} label
+{{< include file="_partials/arm/Anka Virtualization/registry/show/label/_index.md" >}}
 ### registry revert
 {{< include file="_partials/arm/Anka Virtualization/registry/revert/_index.md" >}}
 ## Cp

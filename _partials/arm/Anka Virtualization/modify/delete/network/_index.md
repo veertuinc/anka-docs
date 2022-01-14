@@ -1,4 +1,4 @@
 ```shell
-> anka modify 12.0.1-jenkins delete network --help
+> anka modify 12.1.0-arm delete network --help
 
 ```

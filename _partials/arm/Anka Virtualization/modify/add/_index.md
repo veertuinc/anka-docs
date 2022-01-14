@@ -1,5 +1,5 @@
 ```shell
-> anka modify 12.0.1-jenkins add --help
+> anka modify 12.1.0-arm add --help
 usage: add <command>
 
    Add new items to a VM configuration

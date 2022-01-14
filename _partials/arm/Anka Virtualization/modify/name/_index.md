@@ -1,5 +1,5 @@
 ```shell
-> anka modify 12.0.1-jenkins name --help
+> anka modify 12.1.0-arm name --help
 usage: name name
 
    Set new name for the VM

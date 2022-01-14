@@ -1,5 +1,5 @@
 ```shell
-> anka modify 12.0.1-jenkins delete port --help
+> anka modify 12.1.0-arm delete port --help
 usage: port-forwarding,port [options] [rule...]
 
    Remove port forwarding rule

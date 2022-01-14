@@ -1,5 +1,5 @@
 ```shell
-> anka modify 12.0.1-jenkins network --help
+> anka modify 12.1.0-arm network --help
 usage: network [options]
 
    Modify network card settings
