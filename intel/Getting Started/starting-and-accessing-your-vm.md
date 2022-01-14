@@ -109,7 +109,8 @@ round-trip min/avg/max/stddev = 16.992/21.940/25.797/3.416 ms
 
 {{< imgwithlink src="images/getting-started/starting-and-accessing-your-vm/anka-start-view-viewer-window.png" >}}
 
-> You can set the resolution of the VM under the `Apple Menu > View`. Or, you can use the Live Resolution and Enter Fullscreen.
+### Changing the resolution of the VM
+You can change the resolution from the host using the `View > Set Resolution`. Or, if you want to change it from within the VM, you can use `/Library/Application\ Support/Veertu/Anka/addons/change_res 1920x1080`. **Both of these features require that you [enable PG]({{< relref "intel/Anka Virtualization/enabling-graphics-acceleration-with-apple-metal.md">}}) for the VM.**
 
 ## SSH
 
