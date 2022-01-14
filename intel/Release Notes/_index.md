@@ -896,7 +896,6 @@ Other: Version number change to 1.5.4 to make it match with the mac package
 ### GitLab CI Plugin
 - Note: No Changes
 
-See upgrade notes at [here](https://ankadoc.bitbucket.io/#Upgrade Instructions and Notes)
 
 ### Version 2.0.1
 - Anka Version 2.0.1 - Supports multiple license types for different products. Anka Build Basic, Anka Build Enterprise, Anka Build Enterprise Plus, Anka Flow, Anka Secure
