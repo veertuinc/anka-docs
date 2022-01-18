@@ -119,7 +119,7 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 - **Bug Fix:** Race condition throws "not found" when `anka clone` and `anka delete` happen at the same time.
 - **Bug Fix:** VMs created with the name "11.6" throw a failure.
 - **Bug Fix:** Anka `registry list` command fails with `key values mismatch` when using self signed certs.
-- **Bug Fix:** Machine readable `stop_date` is in a bad format for parsing.
+- **Bug Fix:** Machine readable `stop_date` is in a bad format for parsing (causing `day out of range`)
 - **Bug Fix:** Machine readable status differ between `list` and `show` commands.
 - **Bug Fix:** `anka create` suddenly throwing `hdiutil: attach failed - Resource busy` error.
 - **Bug Fix:** `anka license show -k {license}` doesn't display proper host based license information.
