@@ -46,6 +46,11 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 
 - **Bug Fix:** When running on Jenkins 2.319, "null" was being passed when tag was set to latest (empty)
 
+
+{{< hint warning >}}
+For either 2.7.0 or 2.6.1, please check over your Anka Build Plugin configuration and agent/label templates and ensure things are correct. **Even if correct, please issue a Save of the configuration post-upgrade.**
+{{< /hint >}}
+
 ---
 
 ### Packer Plugin 2.2.0 - Oct 8th, 2021
