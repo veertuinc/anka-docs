@@ -8,7 +8,11 @@ description: >
 
 Welcome! This tutorial guides you through setting up your Anka Build Cloud on Linux using Docker and Docker-Compose.
 
-## Necessary Hardware 
+{{< hint warning >}}
+**This guide is for first time users and shouldn't be used for upgrading. Please use [the upgrading guide]({{< relref "intel/Anka Build Cloud/upgrading.md" >}}) instead.**
+{{< /hint >}}
+
+## Necessary Hardware
 
 1. A machine running Linux to install the Anka Controller & Registry.
 2. A Mac to install Anka CLI as a Node.

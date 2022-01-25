@@ -21,6 +21,7 @@ weight: 1
 1. Increase the space quota from the default 2GB: [https://etcd.io/docs/current/op-guide/maintenance/#space-quota]
 2. Rejoin your nodes with a higher `--heartbeat` value (> 20s)
 3. Upgrade the host's disk to an SSD or faster disk
+4. Set `ANKA_NUM_WORKERS` to more than the default 2 in the Controller configuration.
 
 > State changes can also be caused by network issues between the Node and the controller. Check the node's `/var/log/veertu/anka_agent.ERROR` log to confirm you're not seeing timeouts or connection errors.
 

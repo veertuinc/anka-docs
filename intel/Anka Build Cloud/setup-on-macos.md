@@ -8,6 +8,10 @@ description: >
 
 Welcome! This tutorial will guide you through setting up your Anka Build Cloud.
 
+{{< hint warning >}}
+**This guide is for first time users and shouldn't be used for upgrading. Please use [the upgrading guide]({{< relref "intel/Anka Build Cloud/upgrading.md" >}}) instead.**
+{{< /hint >}}
+
 ## Necessary Hardware
 
 1. A Mac to install the Anka Controller & Registry.

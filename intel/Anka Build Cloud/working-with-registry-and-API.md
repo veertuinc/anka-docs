@@ -366,16 +366,83 @@ curl -X DELETE  "http://anka.registry.net:8089/registry/revert?id=a3cc47f0-3a73-
 
 ### Set Template Arch 
 
-**Description:** Set the template's arch manually. 
+**Description:** Set the template's arch manually.  
 **Path:** /registry/vm/arch  
-**Method:** PUT  
-**Required Query Parameters**  
+**Method:** PUT
 
- Parameter | Type   | Description 
- ---       |   ---  |          ---
- id        | string | The Template id. 
- arch      | string | The architecture ("arm64" or "amd64")
+**Required Data Parameters**  
 
- **Returns:** 
+ Parameter | Type   | Description | Default
+ ---       |   ---  |          --- | ---
+ id        | string | The Template id. | -
+ arch      | string | The architecture ("arm64" or "amd64") | -
+
+ **Returns:**
  - *Status:* Operation Result (OK|FAIL) 
  - *message:* Error message in case of an error
+
+**CURL Example**
+
+ ```bash
+
+❯ curl -s http://10.8.1.10:8089/registry/vm\?id\=0e1660cb-632f-4748-8a0d-ce82ae6bcd25 | jq
+{
+  "status": "OK",
+  "body": {
+    "id": "0e1660cb-632f-4748-8a0d-ce82ae6bcd25",
+    "name": "12.1.0",
+    "versions": [
+      {
+        "number": 0,
+        "tag": "vanilla+addons",
+        "config_file": "0e1660cb-632f-4748-8a0d-ce82ae6bcd25.yaml",
+        "nvram": "nvram",
+        "images": [
+          "7180b240cfc8434299212b8fc06c3f04.ank"
+        ],
+        "state_files": [],
+        "description": "",
+        "state_file": "",
+        "size": 19425398784,
+        "arch": ""
+      }
+    ],
+    "size": 19425398784,
+    "arch": "amd64"
+  },
+  "message": ""
+}
+
+❯ curl -X PUT http://10.8.1.10:8089/registry/vm/arch -d '{"id": "0e1660cb-632f-4748-8a0d-ce82ae6bcd25", "arch": "arm64"}'
+{"status":"OK","body":null,"message":""}
+
+
+❯ curl -s http://10.8.1.10:8089/registry/vm\?id\=0e1660cb-632f-4748-8a0d-ce82ae6bcd25 | jq
+{
+  "status": "OK",
+  "body": {
+    "id": "0e1660cb-632f-4748-8a0d-ce82ae6bcd25",
+    "name": "12.1.0",
+    "versions": [
+      {
+        "number": 0,
+        "tag": "vanilla+addons",
+        "config_file": "0e1660cb-632f-4748-8a0d-ce82ae6bcd25.yaml",
+        "nvram": "nvram",
+        "images": [
+          "7180b240cfc8434299212b8fc06c3f04.ank"
+        ],
+        "state_files": [],
+        "description": "",
+        "state_file": "",
+        "size": 19425398784,
+        "arch": ""
+      }
+    ],
+    "size": 19425398784,
+    "arch": "arm64"
+  },
+  "message": ""
+}
+
+ ```

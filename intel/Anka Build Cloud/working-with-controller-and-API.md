@@ -137,13 +137,13 @@ mac_address       | string | represents the assigned MAC address
 **Description:** Start VM instances  
 **Path:**   /api/v1/vm  
 **Method:** POST  
-**Required Body Parameters:**   
+**Required Data Parameters:**   
 
  Parameter | Type   | Description 
  ---       |   ---  |          ---
  vmid      | string | The template (vm image) to use for the instance. 
 
-**Optional Body Parameters:**   
+**Optional Data Parameters:**   
 
 Parameter | Type   | Description       | Default
 ---       | ---    |   ---             | --- 
@@ -195,7 +195,7 @@ mac_address      |  string    | Specify MAC address for the VM (Capital letters 
  ---       |   ---  |          ---
  id      | string | Return the VM with that ID. If the vm does not exists the server will return the status `FAIL` 
 
-**Optional Body Parameters:**
+**Optional Data Parameters:**
 
  Parameter     | Type   | Description              | Default
  ---           | ---    |   ---                    | ---
@@ -224,7 +224,7 @@ mac_address      |  string    | Specify MAC address for the VM (Capital letters 
 **Description:** Terminate a running VM instance  
 **Path:** /api/v1/vm  
 **Method:** DELETE  
-**Required Body Parameters:**  
+**Required Data Parameters:**  
 
  Parameter | Type   | Description 
  ---       |   ---  |          ---
@@ -586,13 +586,13 @@ curl "http://anka.controller/api/v1/node?id=f8707005-4630-4c9c-8403-c9c5964097f6
 **Description:** Update Node configuration parameters.  
 **Path:** /api/v1/node/config  
 **Method:** POST  
-**Required Body Parameters:**  
+**Required Data Parameters:**  
 
  Parameter | Type   | Description 
  ---       |   ---  |          ---
  node_id   | string | The specified Node's id.
 
- **Optional Body Parameters:**   
+ **Optional Data Parameters:**   
 
  Parameter     | Type   | Description              | Default
  ---           | ---    |   ---                    | ---
@@ -628,7 +628,7 @@ curl -X POST "http://anka.controller/api/v1/node/config" -H "Content-Type: appli
 **Description:** Remove Nodes that do not exist anymore or have crashed  
 **Path:** /api/v1/node  
 **Method:** DELETE  
-**Required Body Parameters:**  
+**Required Data Parameters:**  
 
  Parameter | Type   | Description 
  ---       |   ---  |          ---
@@ -653,7 +653,7 @@ curl -X DELETE "http://anka.controller/api/v1/node" -H "Content-Type: applicatio
 **Description:** Forces the current agent package to download and install across all nodes attached to the controller  
 **Path:** /api/v1/node/update  
 **Method:** PUT  
-**Required Body Parameters:** N/A
+**Required Data Parameters:** N/A
 
  **Returns:** 
  - *Status:* Operation Result (OK|FAIL)  
@@ -887,7 +887,7 @@ curl -X DELETE  "http://anka.controller/api/v1/registry/revert?id=a3cc47f0-3a73-
  ---       |   ---  |          ---
  id        | string | The Template's id.
 
-**Optional Body Parameters:**
+**Optional Data Parameters:**
 
  Parameter | Type   | Description
  ---       |   ---  |          ---
@@ -908,13 +908,13 @@ curl -X DELETE  "http://anka.controller/api/v1/registry/revert?id=a3cc47f0-3a73-
 **Description:** Distribute a specific VM template to all or some build nodes.  
 **Path:**  /api/v1/registry/vm/distribute  
 **Method:** POST  
-**Required Body Parameters:**   
+**Required Data Parameters:**   
 
  Parameter | Type   | Description 
  ---       |   ---  |          ---
  template_id | string | Id of the Template to distribute
 
-**Optional Body Parameters:**   
+**Optional Data Parameters:**   
 
  Parameter | Type   | Description       | Default
  ---       | ---    |   ---             | ---
@@ -1020,7 +1020,7 @@ curl  "http://anka.controller/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e0
 
 **Path:** /api/v1/image  
 **Method:** POST  
-**Required Body Parameters:**  
+**Required Data Parameters:**  
 
  Parameter | Type   | Description 
  ---       |   ---  |          ---
@@ -1028,7 +1028,7 @@ curl  "http://anka.controller/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e0
  new_template_name  | string  | Create a new VM Template with a specific name. _Required if target_vm_id not supplied_ | -
 
  
- **Optional Body Parameters:**   
+ **Optional Data Parameters:**   
 
  Parameter          | Type    | Description              | Default
  ---                | ---     |   ---                    | ---
@@ -1180,13 +1180,13 @@ curl "http://anka.controller/api/v1/image?id=cc55f7dd-5280-4120-461c-9b0ef9b4013
 **Description:** Create a new node Group. Group is a "container" object used for grouping nodes.  
 **Path:** /api/v1/group  
 **Method:** POST  
-**Required Body Parameters:**   
+**Required Data Parameters:**   
 
  Parameter | Type   | Description 
  ---       |   ---  |          ---
  name      | string | Name of the new Group
 
-**Optional Body Parameters:**   
+**Optional Data Parameters:**   
 
  Parameter | Type   | Description       | Default
  ---       | ---    |   ---             | ---
@@ -1258,7 +1258,7 @@ curl "http://anka.controller/api/v1/group" | jq
  ---       |   ---  |          ---
  id        | string | The id of the Group to update
 
-**Optional Body Parameters:**   
+**Optional Data Parameters:**   
 
  Parameter | Type   | Description       | Default
  ---       | ---    |   ---             | ---
@@ -1310,7 +1310,7 @@ curl -X DELETE "http://anka.controller/api/v1/group?id=89a66167-62b1-42bb-5a0b-f
 **Path:** /api/v1/node/group  
 **Method:** POST  
 
-**Required Body Parameters:**   
+**Required Data Parameters:**   
 
  Parameter | Type         | Description       | Default
  ---       | ---          |   ---             | ---
@@ -1338,7 +1338,7 @@ curl -X POST "http://anka.controller/api/v1/node/group" \
 **Path:** /api/v1/node/group  
 **Method:** DELETE  
 
-**Required Body Parameters:**   
+**Required Data Parameters:**   
 
  Parameter | Type         | Description       | Default
  ---       | ---          |   ---             | ---
