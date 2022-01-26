@@ -17,7 +17,7 @@ The Anka Buildkite plugin works differently than our other plugins. It will not 
 
 ## Install and Configure the Anka Buildkite Plugin
 
-1. You'll need to [install the buldkite agent onto your Nodes](https://buildkite.com/docs/agent/v3/osx).
+1. You'll need to [install the Buildkite agent onto your Nodes](https://buildkite.com/docs/agent/v3/osx).
   {{< hint info >}}
   You have the ability to set the `spawn` count inside of your `buildkite-agent.cfg`. This will allow two VMs to run at once on a single Node.
   {{< /hint >}}
