@@ -20,7 +20,15 @@ Be sure to reboot the host after applying these changes.
 
 ### Required
 
-- **Start a UI session by logging into your node's user** to ensure Apple's services are started (it doesn't have to be an administrator).
+1. **Start a UI session by logging into your node's user** to ensure Apple's services are started (it doesn't have to be an administrator).
+
+2. **Ensure you uncheck `Log out after X minutes of inactivity`** under System Preferences > Security & Privacy > Advanced (disabled by default, but good to check)
+
+3. Disable screensaver and sleep: `sudo systemsetup -setsleep Never && sudo defaults write com.apple.screensaver idleTime 0`
+
+### Optional but recommended
+
+- Run `anka create test && anka delete --yes test` at least once for both system users to trigger garbage collection and clean up any temporary files.
 
 - **Enable `Automatic Login` for the current user:** Go to Preferences > Users > Enable Automatic Login for the current user. Or, [using the CLI](https://github.com/veertuinc/kcpassword).
   {{< hint warning >}}
@@ -33,43 +41,6 @@ Be sure to reboot the host after applying these changes.
 
   See the GitHub repository [veertuinc/kcpassword](https://github.com/veertuinc/kcpassword) for help generating the encrypted password string.
   {{< /hint >}}
-
-- **Uncheck `Log out after X minutes of inactivity`** under System Preferences > Security & Privacy > Advanced
-
-- **Uncheck `Require password X after sleep or screen saver begins`** under System Preferences > Security
-
-  {{< hint warning >}}
-  VNC may be required to disable this. It's possible your hardware does not have VNC enabled and you also don't have physical access. The following are the commands necessary to enable VNC from an SSH:
-```bash
-The following examples are only for OS X 10.5 and later.
-cd /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/
-sudo ./kickstart -configure -allowAccessFor -specifiedUsers
-sudo ./kickstart -configure -allowAccessFor -allUsers -privs -all
-sudo ./kickstart -activate
-```
-  {{< /hint >}}
-
-- **Disable all forms of sleep:** Go to Preferences > Energy Saver > disable any sleep options.
-
-  {{< hint info >}}
-  Alternatively, you can do this from the command-line:
-
-```shell
-# Never go into computer sleep mode
-sudo systemsetup -setcomputersleep Off
-systemsetup -setcomputersleep Off || true
-# Disable standby
-sudo pmset -a standby 0
-# Disable disk sleep
-sudo pmset -a disksleep 0
-# Hibernate mode is a problem on some mac minis; best to just disable
-sudo pmset -a hibernatemode 0
-```
-  {{< /hint >}}
-
-- **Run `sudo anka create test && sudo anka delete --yes test` at least once for the user you plan on running VMs as.**
-
-### Optional but recommended
 
 - If on macOS version Big Sur: Disable Apple's mitigations with `sudo anka config vmx_mitigations 0`. Without it, performance will be ~10% worse inside of the VM. (This does not work on Monterey versions of macOS)
 
