@@ -96,7 +96,7 @@ extraArgs | String | -  | String to be appended to JNLP command | -
 javaArgs | String | -  | String to append to JNLP java args | -
 jnlpJenkinsOverrideUrl | String | -  | Override the Jenkins server url set in the Jenkins configuration | -
 jnlpTunnel | String | -  | JNLP tunnel to use for node launcher | -
-keepAliveOnError | boolean | `false` | Keep the VM instance alive after a failed build | -
+keepAliveOnError | boolean | `false` | Keep the VM instance alive after a failed build (**FREESTYLE ONLY; will not work with Jenkinsfile/pipeline jobs**) | -
 timeout | int | `1200` | Timeout for starting the instance (in seconds) | -
 environments | List of tuples | -  | List of environment variables to add for the build: `[[name: 'FOO', value: 'BAR'], [name: 'OR', value: 'IS']]` | -
 nameTemplate | string | -  | Label to use in VM instance names (There are several variables available for interpolation: $Template_name, $Template_id, or $ts) | -
