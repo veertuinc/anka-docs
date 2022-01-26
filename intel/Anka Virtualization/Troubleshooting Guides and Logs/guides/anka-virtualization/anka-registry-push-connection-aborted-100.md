@@ -1,6 +1,6 @@
 ---
-title: "Anka Registry Push shows connection aborted"
-linkTitle: "Anka Registry Push shows connection aborted"
+title: "anka registry push \"-anka: connection aborted\" after 100%"
+linkTitle: "anka registry push \"-anka: connection aborted\" after 100%"
 weight: 3
 ---
 
