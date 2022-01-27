@@ -41,6 +41,14 @@ You can see how we generate these AMIs in our open source repo: https://github.c
 If you decided not to use our community AMIs, you'll need to [install Anka]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}}) just as you would with non-AWS hardware.
 {{< /hint >}}
 
+### Licensing
+
+When you first license Anka, keep track of the fulfillment ID as you'll need this to release the cores and use the license on a fresh machine.
+
+{{< hint info >}}
+Stopping and starting the instance does not impact the Anka licenses validity, even if you start the instance on a different dedicated machine.
+{{< /hint >}}
+
 ---
 
 ### Example Scripts
