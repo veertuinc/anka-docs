@@ -1,3 +1,5 @@
+---
+---
 
 When requesting multiple VMs through the API, a priority can be assigned. The lower the priority integer, the higher the urgency:
 
@@ -15,3 +17,7 @@ curl -X POST "http://anka.controller/api/v1/vm" -H "Content-Type: application/js
   ]
 }
 ```
+
+{{< hint info >}}
+By default, nodes with the targeted Template ("vmid") on them receive a higher priority compared with those that do not have the Template yet. This can make it seem as if some nodes are used more than others. We recommend distributing the Template to every node if this is a problem.
+{{< /hint >}}
