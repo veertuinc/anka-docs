@@ -221,3 +221,7 @@ timeoutMinutes | int | 120 | Stops waiting for the result of the Tag -> Registry
 - You should run it once and check how much time the operation takes. The push can be a few gigabytes and might take some time on slower networks.
 - Only one Tag can push at a time. You can execute multiple creations for the same Template, but those requests end up executing serially. 
 - If your build/preparation is fast and resulting templates/tags small, you can consider running creation a few times a day or even based on commits. If your creation is slow, consider running one per day (you can schedule it for a time that Jenkins is not busy).
+
+## Answers to Frequently Asked Questions
+
+- SSH is only needed to install the jenkins "remoting" agent inside of the VM. If you're losing the agent mid-job, it is not SSH related.
