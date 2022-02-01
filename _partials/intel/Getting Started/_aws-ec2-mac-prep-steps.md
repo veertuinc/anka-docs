@@ -6,7 +6,7 @@
   **IMPORTANT:** Amazon confirmed that Terminating from the AWS console/API does not properly send SIGTERMs to services and wait for them to stop. This prevents our cloud-connect script from automatically disjoining with `ankacluster disjoin` before AWS pulls the plug. Therefore, we recommend executing the `sudo launchctl unload -w /Library/LaunchDaemons/com.veertu.aws-ec2-mac-amis.cloud-connect.plist` command before termination of the instance.
   {{< /hint >}}
 
-    ##### Environment variables you pass in as `user-data`
+    #### User Data ENVs
 
     {{< hint info >}}
   For user-data, don't use `;`, `&&` or any other type of separator between envs.
@@ -40,6 +40,12 @@
 
     - Optional
     - You can also update invalid/expired licenses with this.
+
+    ##### ANKA_USE_PUBLIC_IP
+
+    This will determine whether the instance/node is joined using the public ipv4. Otherwise, it will default to the local/private ipv4.
+    
+    - Optional
 
     {{< imgwithlink src="images/getting-started/aws-ec2-mac/user-data.png" >}}
 
