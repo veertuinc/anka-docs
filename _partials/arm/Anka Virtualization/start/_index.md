@@ -4,6 +4,9 @@ usage: start [options] vmid
 
    Start or resume a VM
 
+arguments:
+  vmid                     VM to start
+
 options:
   -f,--force               Start VM with minimum checks
   -q,--quiet               Minimize output

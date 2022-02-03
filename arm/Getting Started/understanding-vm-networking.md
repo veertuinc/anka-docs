@@ -20,7 +20,7 @@ We use Apple's VMNET interface with "`Using DHCP`" for networking.
 By default Anka VMs use a shared networking configuration with the host. It’s a kind of NAT + DHCP. 
 
 ```shell
-❯ anka --machine-readable describe 12.0-beta | jq '.body.network_cards'
+❯ anka --machine-readable describe 12.2 | jq '.body.network_cards'
 [
   {
     "mode": "shared",
@@ -32,11 +32,11 @@ By default Anka VMs use a shared networking configuration with the host. It’s 
 Every time you start/resume a VM it will be assigned an IP:
 
 ```shell
-❯ anka show 12.0-beta
+❯ anka show 12.2
 +---------+--------------------------------------+
 | uuid    | 26c18e20-f67a-4387-a7b7-236a277bb424 |
 +---------+--------------------------------------+
-| name    | 12.0-beta (v2)                       |
+| name    | 12.2 (v2)                       |
 +---------+--------------------------------------+
 | created | Oct 18 13:57:57 2021                 |
 +---------+--------------------------------------+
@@ -55,7 +55,7 @@ Every time you start/resume a VM it will be assigned an IP:
 | status  | running since Oct 25 15:48:36 2021   |
 +---------+--------------------------------------+
 
-❯ anka show 12.0-beta network
+❯ anka show 12.2 network
 +------------+-------------------+
 | mode       | shared            |
 +------------+-------------------+

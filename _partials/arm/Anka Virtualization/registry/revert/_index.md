@@ -2,8 +2,13 @@
 > anka registry revert --help
 usage: revert [options] vmid
 
-   Revert or delete a template
+   Delete a template or tag
+
+arguments:
+  vmid                     Template identifier or name
 
 options:
-  -t,--tag <val>           TEXT
+  -t,--tag <val>           Delete particular template tag or latest by default
+  --all                    Delete entire template from registry
+  --yes                    Do not expect user confirmation of the operation
 ```

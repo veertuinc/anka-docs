@@ -8,22 +8,30 @@ description: >
 
 ## Prerequisites
 
-1. [You've installed the Anka Virtualization package]({{< relref "arm/Getting Started/installing-the-anka-virtualization-package.md" >}})
-2. The machine you wish to use is M1 and not Intel
-3. The machine you wish to use has Monterey installed
+1. [You've installed the Anka Virtualization package.]({{< relref "arm/Getting Started/installing-the-anka-virtualization-package.md" >}})
+2. The machine you wish to use for running Anka VMs is M1 **and not Intel.**
+3. The machine you wish to use has Monterey (>= 12.0) installed.
 
-## 1. Obtain the macOS installer
-
-In the beta release of Anka 3.0, you will not be able to use installer .app files like you're used to with the Intel (2.X) versions of Anka. Anka 3.0 will download the latest Monterey version for you automatically.
-
-## 2. Create your first VM Template
+## 1. Obtain the Apple macOS IPSW Restore file
 
 {{< hint warning >}}
-Avoid the use of `sudo` commands as there are issues with non-sudo users launching VMs with sudo in the initial beta.
+**Apple's .app installer files are currently not supported.**
 {{< /hint >}}
 
-{{< hint info >}}
-Creating a VM in Anka 3.0 differs from the Intel version. Anka 3.0 requires that you manually set up macOS inside of the VM. See step #3 below.
+{{< hint warning >}}
+Anka 3.0 VMs only work with macOS versions >= 12.0.
+{{< /hint >}}
+
+There are multiple ways to obtain IPSW files. Apple provides these through their `updates.cdn-apple.com` site. You can usually find the official links to the version you want with your preferred search engine.
+
+## 2. Create your first VM
+
+{{< hint warning >}}
+It's important to understand that the `anka` CLI, VM creation, modification, etc, is all done from your current user. You cannot move VMs between users easily without the [Anka Build Cloud Registry]({{< relref "arm/Anka Build Cloud/_index.md" >}}).
+{{< /hint >}}
+
+{{< hint warning >}}
+Creating a VM in Anka 3 differs from the Intel version: Anka 3 requires that you manually set up macOS inside of the VM. See [step #3]({{< relref "#3-start-the-vm-and-finish-the-macos-install" >}}) below.
 {{< /hint >}}
 
 {{< include file="_partials/arm/Getting Started/_supported-macos-versions.md" >}}
@@ -31,11 +39,14 @@ Creating a VM in Anka 3.0 differs from the Intel version. Anka 3.0 requires that
 ### Using the Anka UI
 
 1. Click on **Create new VM**.
-2. Click on Options and set any non-default values you want.
+2. **LEAVE INSTALLER BLANK** and click on Options to set any non-default values you want.
+  {{< hint info >}}
+  Leaving the installer blank will automatically target the latest macOS version, pulling the ipsw file from the official Apple CDN (`updates.cdn-apple.com`). You can use your own ipsw file with the Anka CLI instead.
+  {{< /hint >}}
 ![installer with pkg]({{< siteurl >}}images/arm/getting-started/creating-your-first-vm/ui.png)
 3. Be patient while it's creating.
 
-Once the VM template is created, you will see it on the sidebar.
+Once the VM is created, you will see it on the sidebar. Hooray! 
 
 {{< hint warning >}}
 Suspending VMs is currently not available.
@@ -56,22 +67,23 @@ Suspending VMs is currently not available.
 ### With the UI
 
 {{< hint warning >}}
-The first beta release does not support mounting addons by starting from the UI. Please use the CLI for now.
+The first beta release does not support mounting addons from the UI. Please use the CLI for now.
 {{< /hint >}}
 
 ### With the CLI
 
 1. You’ll need to start the VM with `anka start -uv` to launch the viewer.
 
-{{< hint warning >}}
-`anka view` does not currently work post-start unless you started it with -v.
-{{< /hint >}}
+  {{< hint warning >}}
+  `anka view` does not currently work post-start unless you started it with -v.
+  {{< /hint >}}
 
 {{< include file="_partials/arm/Anka Virtualization/start/_index.md" >}}
 
-2. Once inside, finish the macOS installation **and be sure to install the addons package through the disk we mount with `-u`**.
+2. Once inside the Anka Viewer/VM, finish the macOS installation **and be sure to install the addons package through the disk we mounted with `-u`**.
 
 ---
+
 ## Listing available VMs in the CLI
 
 {{< include file="_partials/arm/Anka Virtualization/list/_example.md" >}}
@@ -91,9 +103,9 @@ are you sure you want to delete vm 77f33f4a-75c3-47aa-b3f6-b99e7cdac001 test [y/
 
 ---
 
-## VM Derivatives and Disk Optimization
+## VM Clones
 
-You can easily create VM derivatives from a source VM using `anka clone`:
+You can easily create VM clones from a source VM and _its current state_ using `anka clone`:
 
 {{< include file="_partials/arm/Anka Virtualization/clone/_index.md" >}}
 
@@ -119,11 +131,9 @@ You can easily create VM derivatives from a source VM using `anka clone`:
 +----------------+--------------------------------------+----------------------+---------+
 ```
 
-Anka VMs have an image structure which allows for sharing and disk optimization. When you create VM derivatives from a source VM, **this sharing only happens _after_ a specific "commit" action** using `anka push --local`:
+### Disk Optimization
 
-{{< hint warning >}}
-Important note about the Anka 2.X/Intel version: The sharing of images did not require a local commit/tag like Anka 3.X does.
-{{< /hint >}}
+Customers coming from Anka 2 will know that when you clone a VM, it will share the underlying VM image files between the two. This will of course not allow changes on the clone to impact the source. However, this is not the case for Anka 3. As of right now, sharing of the underlying VM image files between a clone and its source requires first creating a tag for the source before you clone. You can do this with `anka push --local`, or just a regular `anka push` if you've got a running [Anka Build Cloud Registry]({{< relref "arm/Anka Build Cloud/_index.md" >}}).
 
 {{< include file="_partials/arm/Anka Virtualization/push/_index.md" >}}
 
@@ -145,16 +155,10 @@ Important note about the Anka 2.X/Intel version: The sharing of images did not r
 +------------------+--------------------------------------+----------------------+---------+
 ```
 
-The above example shows the tag "vanilla" does not exist locally until we execute the `anka push --local`. Once tagged, we can then clone from it, or even create other tags on top.
-
-Each cloned VM will share the underlying data of the original source VM we clone from. For example, if `VM1` has `1.ank` **image** on disk, and you clone from it to create `VM2`, the `VM2` will re-use `1.ank` and not double the disk usage with its own files.
+_The above example shows the tag "vanilla" does not exist locally until we execute the `anka push --local`._
 
 {{< hint info >}}
-Cloned VMs will not use any significant disk space until you start them. Once started, an empty image is added on top of existing and any changes macOS or you make are added to it.
-{{< /hint >}}
-
-{{< hint warning >}}
-Existing blocks/data in previous images **are not** removed and will continue to take up the disk space. This is why we recommend you create a fresh/vanilla macOS VM to clone and create VM derivatives from.
+Cloned VMs will use a trivial amount of disk space until you start them. Once started, an empty image is created and connected on top of existing images and any changes to or in macOS are then added to it.
 {{< /hint >}}
 
 {{< hint info >}}
@@ -163,6 +167,32 @@ To switch between tags locally, you can use the `anka pull --local --tag {target
 {{< include file="_partials/arm/Anka Virtualization/pull/_index.md" >}}
 
 {{< /hint >}}
+
+### VM Templates
+
+Once a VM has been tagged, it becomes a "VM Template". The VM template+tag's state cannot be permanently modified unless you create a new tag, post-changes. This is very reminiscent of how `git commit` works. You can execute comands and modify the state of the VM after tagging it, but it will not save the changes to the existing template+tag. This is important to consider when using the [Anka Build Cloud Registry]({{< relref "arm/Anka Build Cloud/_index.md" >}}) since it will only push the state of the VM when the tag was created, not after.
+
+In summary, when cloning a tagged VM you have two options:
+
+1. Clone from the current VM state, regardless of the state when it was tagged (`anka clone {source} {clone}`).
+2. Clone the state of a VM template/tag by targetting the tag by name (`anka clone --tag {tagName} {source} {clone}`), regardless of what has been done to it since tagging.
+
+{{< hint info >}}
+The clone is not automatically tagged.
+{{< /hint >}}
+
+
+```bash
+❯ anka list | grep test
+| test (v1)                                 | ff06aa5b-0825-4f86-b5d0-c1cdb39fcedf | Jan 25 13:15:10 2022 | stopped |
+
+❯ anka clone --tag v1 test test3                  
+8a4e0033-29b4-4c29-8a0c-51fa53093d1c
+
+❯ anka list | grep test         
+| test3                                     | 8a4e0033-29b4-4c29-8a0c-51fa53093d1c | Feb 3 12:01:34 2022  | stopped |
+| test (v1)                                 | ff06aa5b-0825-4f86-b5d0-c1cdb39fcedf | Jan 25 13:15:10 2022 | stopped |
+```
 
 ---
 

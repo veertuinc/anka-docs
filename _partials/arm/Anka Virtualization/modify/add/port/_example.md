@@ -1,7 +1,7 @@
 ```shell
-❯ anka modify 12.1.0-arm add port --guest-port 22 ssh
+❯ anka modify 12.2.0-arm add port --guest-port 22 ssh
 
-❯ anka show 12.1.0-arm network           
+❯ anka show 12.2.0-arm network           
 +------------+------------+
 | mode       | shared     |
 +------------+------------+
@@ -15,9 +15,9 @@ port_forwarding_rules:
 | ssh  | tcp      | 22         |
 +------+----------+------------+
 
-❯ anka start 12.1.0-arm
+❯ anka start 12.2.0-arm
 
-❯ anka show 12.1.0-arm network
+❯ anka show 12.2.0-arm network
 +------------+-------------------+
 | mode       | shared            |
 +------------+-------------------+

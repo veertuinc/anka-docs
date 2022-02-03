@@ -2,11 +2,12 @@
 > anka license --help
 usage: license <command>
 
-   Control Licensing
+   Manage licenses
 
 commands:
   show                     Show license information
   activate                 Activate license key
-  delete                   Remove the current license
-  accept-eula              Accept EULA (requires root privileges)
+  validate                 Validate the current license
+  remove                   Remove the current license
+  accept-eula              Accept EULA
 ```

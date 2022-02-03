@@ -1,4 +1,4 @@
 ```shell
-> anka registry show 12.1.0-arm description --help
+> anka registry show 12.2.0-arm description --help
 
 ```

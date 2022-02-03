@@ -1,8 +1,11 @@
 ```shell
-> anka modify 12.1.0-arm cpu --help
+> anka modify 12.2.0-arm cpu --help
 usage: cpu [options] [vcpu]
 
    Set number of vcpu cores and frequency
+
+arguments:
+  vcpu                     Number of vcpu cores
 
 options:
   -c,--cores <val>         Number of vcpu cores

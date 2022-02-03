@@ -1,6 +1,9 @@
 ```shell
-> anka show 12.1.0-arm label --help
-usage: label [label]
+> anka show 12.2.0-arm label --help
+usage: label [name]
 
-   Assigned VM labels
+   Show assigned VM labels
+
+arguments:
+  name                     Show particular label value
 ```

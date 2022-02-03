@@ -1,9 +1,4 @@
 ```shell
-> sudo anka license validate --help
-Usage: anka license validate [OPTIONS]
+> anka license validate --help
 
-  Validate the current license
-
-Options:
-  --help  Display usage information
 ```

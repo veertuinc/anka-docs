@@ -1,9 +1,9 @@
 When running Big Sur, addons are not installed by default. These addons require manual installation steps.
 
-In order to install addons, you need to start the Anka VM with the `-o` option:
+In order to install addons, you need to start the Anka VM with the `-uv` options:
 
 ```bash
-❯ anka start -o addons 10.15.7
+❯ anka start -uv 10.15.7
 +-----------------------+--------------------------------------+
 | uuid                  | c0847bc9-5d2d-4dbc-ba6a-240f7ff08032 |
 +-----------------------+--------------------------------------+
@@ -19,4 +19,4 @@ drwxr-xr-x@  4 anka  staff   136B Nov  6 12:51 Anka Guest Addons 2.2.3(118.67556
 drwxr-xr-x  22 root  admin   704B Sep 25 11:48 ..
 ```
 
-You can now go into the VM and manually install addons using the installer package inside of the `Anka Guest Addons 2.2.3(118.6755654)` mounted disk.
+You can now go into the VM and manually install addons using the installer package inside of the `Anka Guest Addons` mounted disk.
