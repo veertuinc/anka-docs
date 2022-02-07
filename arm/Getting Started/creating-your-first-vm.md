@@ -12,19 +12,7 @@ description: >
 2. The machine you wish to use for running Anka VMs is M1 **and not Intel.**
 3. The machine you wish to use has Monterey (>= 12.0) installed.
 
-## 1. Obtain the Apple macOS IPSW Restore file
-
-{{< hint warning >}}
-**Apple's .app installer files are currently not supported.**
-{{< /hint >}}
-
-{{< hint warning >}}
-Anka 3.0 VMs only work with macOS versions >= 12.0.
-{{< /hint >}}
-
-There are multiple ways to obtain IPSW files. Apple provides these through their `updates.cdn-apple.com` site. You can usually find the official links to the version you want with your preferred search engine.
-
-## 2. Create your first VM
+## 1. Create your first VM
 
 {{< hint warning >}}
 It's important to understand that the `anka` CLI, VM creation, modification, etc, is all done from your current user. You cannot move VMs between users easily without the [Anka Build Cloud Registry]({{< relref "arm/Anka Build Cloud/_index.md" >}}).
@@ -35,6 +23,14 @@ Creating a VM in Anka 3 differs from the Intel version: Anka 3 requires that you
 {{< /hint >}}
 
 {{< include file="_partials/arm/Getting Started/_supported-macos-versions.md" >}}
+
+{{< hint warning >}}
+**Apple's .app installer files are currently not supported.**
+{{< /hint >}}
+
+{{< hint warning >}}
+Anka 3.0 VMs only work with macOS versions >= 12.0.
+{{< /hint >}}
 
 ### Using the Anka UI
 
@@ -61,6 +57,13 @@ Suspending VMs is currently not available.
 {{< include file="_partials/arm/Anka Virtualization/create/_index.md" >}}
 
 {{< include file="_partials/arm/Anka Virtualization/create/_example.md" >}}
+
+
+### IPSW vs .app installers
+
+While we recommend you use `anka create -a latest` to automatically download the latest macOS version to install into the VM, you can bring your own IPSW file which is very similar to how Anka 2 works with .app installers (which are not supported in Anka 3).
+
+There are multiple ways to obtain IPSW files. Apple provides these through their `updates.cdn-apple.com` site. You can usually find the official links to the version you want with your preferred search engine.
 
 ## 3. Start the VM and finish the macOS install
 
