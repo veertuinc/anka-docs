@@ -39,6 +39,7 @@ It is also best to run this as close to when an issue happens as several command
 - Check `df -h` and other host or VM resource usage (CPU/RAM) and be sure that the host resources are not exhausted.
 - Ensure that the user running Anka VMs is logged in and that Sleep and passworded Screensaver are disable. The hypervisor will not work without an active/logged in user.
 - Check `[~]/Library/Logs/Anka/` logs for any indication of why the failure happened.
+- Ensure that all components in your Anka environment can communicate. This includes connectivity between CI/CD tooling we do not support.
 
 ### Logs
 
@@ -92,6 +93,9 @@ Anka and Apple will also report crashes in `/Library/Logs/DiagnosticReports` as 
 
 ### Troubleshooting checklist
 
+- Check `df -h` + CPU/RAM and be sure that the host resources are not exhausted.
+- Look over the controller, registry, and even agent logs on the Anka Nodes and ensure that there are no configuration errors or clear indications of what is wrong.
+- Ensure that all components in your Anka environment can communicate. This includes connectivity between CI/CD tooling we do not support.
 
 ### Logs
 
