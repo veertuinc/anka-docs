@@ -1,4 +1,4 @@
 ```shell
-> anka registry show 12.2.0-arm port --help
+> anka registry show 12.2.0 port --help
 
 ```

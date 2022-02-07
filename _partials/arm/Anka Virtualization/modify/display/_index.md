@@ -1,5 +1,5 @@
 ```shell
-> anka modify 12.2.0-arm display --help
+> anka modify 12.2.0 display --help
 usage: display [options]
 
    Configure displays

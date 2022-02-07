@@ -1,5 +1,5 @@
 ```shell
-> anka modify 12.2.0-arm delete disk --help
+> anka modify 12.2.0 delete disk --help
 usage: hard-drive,disk index
 
    Remove disk

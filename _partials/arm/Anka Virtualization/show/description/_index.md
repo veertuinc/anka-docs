@@ -1,4 +1,4 @@
 ```shell
-> anka show 12.2.0-arm description --help
+> anka show 12.2.0 description --help
 
 ```

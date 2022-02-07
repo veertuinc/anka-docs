@@ -1,5 +1,5 @@
 ```shell
-> anka modify 12.2.0-arm delete --help
+> anka modify 12.2.0 delete --help
 usage: delete <command>
 
    Remove items from a VM configuration

@@ -9,6 +9,6 @@ arguments:
 
 options:
   -t,--tag <val>           Delete particular template tag or latest by default
-  --all                    Delete entire template from registry
+  -a,--all                 Delete entire template from registry
   --yes                    Do not expect user confirmation of the operation
 ```

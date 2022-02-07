@@ -1,6 +1,6 @@
 ```shell
 > anka registry remove --help
-usage: remove [options] [name]
+usage: remove [options] [name...]
 
    Remove a registry from the configuration
 

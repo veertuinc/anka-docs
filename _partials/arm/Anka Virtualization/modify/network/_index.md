@@ -1,5 +1,5 @@
 ```shell
-> anka modify 12.2.0-arm network --help
+> anka modify 12.2.0 network --help
 usage: network [options]
 
    Modify network card settings

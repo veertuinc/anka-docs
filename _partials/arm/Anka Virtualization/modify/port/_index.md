@@ -1,5 +1,5 @@
 ```shell
-> anka modify 12.2.0-arm port --help
+> anka modify 12.2.0 port --help
 usage: port [options] name
 
    Add port forwarding rule
