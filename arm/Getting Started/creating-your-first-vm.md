@@ -37,7 +37,7 @@ Anka 3.0 VMs only work with macOS versions >= 12.0.
 1. Click on **Create new VM**.
 2. **LEAVE INSTALLER BLANK** and click on Options to set any non-default values you want.
   {{< hint info >}}
-  Leaving the installer blank will automatically target the latest macOS version, pulling the ipsw file from the official Apple CDN (`updates.cdn-apple.com`). You can use your own ipsw file with the Anka CLI instead.
+  Leaving the installer blank will automatically target the latest macOS version, pulling the IPSW file from the official Apple CDN (`updates.cdn-apple.com`). You can use your own IPSW file with the Anka CLI instead.
   {{< /hint >}}
 ![installer with pkg]({{< siteurl >}}images/arm/getting-started/creating-your-first-vm/ui.png)
 3. Be patient while it's creating.
