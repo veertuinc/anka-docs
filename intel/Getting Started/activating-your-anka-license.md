@@ -3,7 +3,7 @@ title: "Activating your License"
 linkTitle: "Activating your License"
 weight: 7
 description: >
-  Activating your Anka Build, Flow, or Secure license
+  Activating your Anka Build or Flow license
 ---
 
 More detailed license information can be found on our [Licensing documentation page]({{< relref "intel/Licensing/_index.md" >}})

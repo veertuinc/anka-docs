@@ -12,7 +12,6 @@ Anka licenses are available for the following products:
 + **[Anka Build Enterprise]({{< relref "intel/Anka Build Cloud/build-license-tiers.md" >}})** - Basic + additional features for grouping, priority provisioning, etc.
 + **[Anka Build Enterprise Plus]({{< relref "intel/Anka Build Cloud/build-license-tiers.md" >}})** - Enterprise + additional features to support SSO, VM encryption, event logging.
 + **[Anka Flow]({{< relref "intel/anka-flow.md" >}})** - Install and configure Anka on developer mac workstations. Supported only on macbook models and iMac.
-+ **[Anka Secure]({{< relref "intel/anka-secure.md" >}})** - Install and configure Anka on mac workstations to create secure, sandbox macOS working environments for privileged data access, etc.
 
 ## Trial License
 
@@ -55,9 +54,8 @@ Control VM runtime (Networking, Access to host) and functional properties with p
 
 ### Pricing
 
-+ **Anka Build** - Cost is core based. For example, if you are setting up a cloud consisting of 2 6-core mac minis, then total core count will be 12 cores. For very large core count, there are other licensing models.
++ **Anka Build** - Cost is performance core based. For example, if you are setting up a cloud consisting of 2, 8-core ARM mac minis, then total performance core count will be 8 cores. For very large core count, there are other licensing models.
 + **Anka Flow** - Cost is per machine. For example, if you are installing Anka Flow on 10 developer machines, then quantity will be 10.
-+ **Anka Secure** - Cost is per machine. For example, if you are installing Anka Flow on 10 mac workstations, then quantity will be 10.
 
 Contact [support@veertu.com](mailto:support@veertu.com) to get a pricing estimate.  
 
