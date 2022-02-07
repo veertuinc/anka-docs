@@ -21,9 +21,7 @@ chmod +x generate-anka-node-diagnostics.bash && \
 It is also best to run this as close to when an issue happens as several commands grab a window in time.
 {{< /hint >}}
 
-{{< hint error >}}
-**We kindly request that customers go through the troubleshooting checklists depending on the product impacted before reaching out to support.**
-{{< /hint >}}
+**Once you have collected the logs, go through the below mentioned troubleshooting steps and then contact support.**
 
 ---
 
