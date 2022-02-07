@@ -67,6 +67,10 @@ There are multiple ways to obtain IPSW files. Apple provides these through their
 
 ## 3. Start the VM and finish the macOS install
 
+{{< hint warning >}}
+**For our addons to install and enable autologin properly, you need to create the VM user as username: `anka` and password: `admin`. If you decide to use your own username and password, you will need to manually enable autologin for the user.**
+{{< /hint >}}
+
 ### With the UI
 
 {{< hint warning >}}
