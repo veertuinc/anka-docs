@@ -18,7 +18,6 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 {{< hint info >}}
 Known issues:
 
-  - `anka license show --key` is not functional.
   - `anka view` does not currently work post-start unless you started the VM with `-v`.
 {{< /hint >}}
 
