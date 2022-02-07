@@ -11,7 +11,7 @@ You configured Anka Build Cloud alongside the Teamcity plugin. You are now tryin
 
 1. Cloud Profile configuration mistakes; Missing `Server URL:`
 2. SSH port forwarding not set correctly on VM 
-3. The Anka Cloud can't run VMs (see [VM is stuck at scheduling]({{< relref "intel/Troubleshooting + Guides/anka-build-cloud/controller/vm-stuck-scheduling.md">}}))
+3. The Anka Cloud can't run VMs (see [VM is stuck at scheduling]({{< relref "intel/Troubleshooting + Guides/cloud controller/vm-stuck-scheduling.md">}}))
 
 
 If the controller has started the VM, you can take a look at the logs inside of the VM and look for the failure logs:

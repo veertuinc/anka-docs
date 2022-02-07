@@ -65,4 +65,4 @@ Anytime you execute a build for the project, it will request a new VM from the A
 
 ## Common Issues
 
-1. [Build stuck in queue and no Agents spawning]({{< relref "intel/Troubleshooting + Guides/teamcity-plugin/build-stuck-in-queued.md">}})
+1. [Build stuck in queue and no Agents spawning]({{< relref "intel/Troubleshooting + Guides/teamcity plugin/build-stuck-in-queued.md">}})

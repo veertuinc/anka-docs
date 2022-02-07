@@ -22,12 +22,12 @@ You configured Anka Build Cloud alongside the Jenkins plugin. You are now trying
 3. JNLP port is not accessible from VM
 4. Outdated Jenkins environment
 5. VM has different version of Java from the Master
-6. The Anka Cloud can't run VMs (see [VM is stuck at scheduling]({{< relref "intel/Troubleshooting + Guides/anka-build-cloud/controller/vm-stuck-scheduling.md">}}))
+6. The Anka Cloud can't run VMs (see [VM is stuck at scheduling]({{< relref "intel/Troubleshooting + Guides/cloud controller/vm-stuck-scheduling.md">}}))
 
 ## Where to start
 
 1. First, inside of Jenkins the agent spinning up has a log. Please find the agent and open this log. It will show whether Jenkins can reach/ssh into the VM and any failures.
-2. Next, try starting a VM/instance from the Controller UI. Once started, try to SSH into the VM using the host IP and the forwarded host port (you can find this using `anka show {vmName} network`). If it starts and you can connect to it, the problem is probably around Jenkins configuration or compatibility with Jenkins. If your VM does **not** start try to [troubleshoot it]({{< relref "intel/Troubleshooting + Guides/anka-build-cloud/controller/vm-stuck-scheduling.md">}}) 
+2. Next, try starting a VM/instance from the Controller UI. Once started, try to SSH into the VM using the host IP and the forwarded host port (you can find this using `anka show {vmName} network`). If it starts and you can connect to it, the problem is probably around Jenkins configuration or compatibility with Jenkins. If your VM does **not** start try to [troubleshoot it]({{< relref "intel/Troubleshooting + Guides/cloud controller/vm-stuck-scheduling.md">}}) 
 
 ## Configuration mistakes
 
