@@ -2,7 +2,7 @@
 date: 2018-03-06
 title: "Release Notes"
 linkTitle: "Release Notes"
-weight: 8
+weight: 7
 ---
 
 {{< hint warning >}}
