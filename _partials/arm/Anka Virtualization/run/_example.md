@@ -4,7 +4,7 @@
 | status  | stopped Oct 19 07:34:43 2021         |
 
 ❯ anka run 12.2.0-arm hostname
-12-0-beta.local
+12-2-0-arm.local
 
 ❯ anka show 12.2.0-arm | grep status
 | status  | running since Oct 19 07:34:59 2021   |

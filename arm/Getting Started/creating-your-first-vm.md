@@ -70,7 +70,7 @@ There are multiple ways to obtain IPSW files. Apple provides these through their
 ### With the UI
 
 {{< hint warning >}}
-The first beta release does not support mounting addons from the UI. Please use the CLI for now.
+We do not currently support mounting addons from the UI. Please use the CLI for now.
 {{< /hint >}}
 
 ### With the CLI

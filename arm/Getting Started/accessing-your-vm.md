@@ -32,8 +32,8 @@ If the VM is in a _stopped_ state, [`anka run`]({{< relref "arm/Anka Virtualizat
 You can use `anka run` _on the host terminal_ to validate things are working properly:
 
 ```shell
-❯ anka run 12.2 bash -c "hostname && ls -l && ping -c 5 google.com"
-12-0-beta.local
+❯ anka run 12.2.0-arm bash -c "hostname && ls -l && ping -c 5 google.com"
+12-2-0-arm.local
 total 0
 drwx------+  3 anka  staff    96 Oct 14 09:35 Desktop
 drwx------+  3 anka  staff    96 Oct 14 09:35 Documents
@@ -62,11 +62,11 @@ The [`anka run`]({{< relref "arm/Anka Virtualization/command-reference.md#run" >
 You have to source the files or use `zsh/bash -lc/-ic` before executing other commands. Here are some examples:
 
 ```shell
-❯ anka run 12.2 bash -c "echo 'export TEST_ZSHRC=yes' >> ~/.zshrc"
-❯ anka run 12.2 bash -c "echo 'export TEST_ZPROFILE=yes' >> ~/.zprofile"
-❯ anka run 12.2 bash -c "echo 'export TEST_PROFILE=yes' >> ~/.profile"
-❯ anka run 12.2 bash -c "echo 'export TEST_BASH_PROFILE=yes' >> ~/.bash_profile"
-❯ anka run 12.2 env
+❯ anka run 12.2.0-arm bash -c "echo 'export TEST_ZSHRC=yes' >> ~/.zshrc"
+❯ anka run 12.2.0-arm bash -c "echo 'export TEST_ZPROFILE=yes' >> ~/.zprofile"
+❯ anka run 12.2.0-arm bash -c "echo 'export TEST_PROFILE=yes' >> ~/.profile"
+❯ anka run 12.2.0-arm bash -c "echo 'export TEST_BASH_PROFILE=yes' >> ~/.bash_profile"
+❯ anka run 12.2.0-arm env
 TEST_ZPROFILE=yes
 ❯ anka run test bash -c "env | grep TEST_"
 TEST_ZPROFILE=yes
@@ -121,7 +121,7 @@ Once you've enabled Apple's Remote Login inside of the VM, simply add a forwarde
   ```shell
   ❯ anka run VNMANE whoami > /dev/null
 
-  ❯ cat file-on-host.txt | anka run 12.2 md5
+  ❯ cat file-on-host.txt | anka run 12.2.0-arm md5
   ff1a596f13d348b63218078c6598ab5e
   ```
 
