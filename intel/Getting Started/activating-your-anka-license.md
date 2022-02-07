@@ -15,4 +15,4 @@ More detailed license information can be found on our [Licensing documentation p
 ## What's next?
 
 - [Anka CLI Command Reference]({{< relref "intel/Anka Virtualization/command-reference.md" >}})
-- [Troubleshooting Guides and Logs]({{< relref "intel/Anka Virtualization/Troubleshooting Guides and Logs/_index.md" >}})
+- [Troubleshooting + Guides]({{< relref "intel/Troubleshooting + Guides/_index.md" >}})

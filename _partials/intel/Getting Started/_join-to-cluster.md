@@ -1,7 +1,7 @@
 ---
 ---
 {{< hint info >}}
-If you have any issues with this step, please see [our troubleshooting guide]({{< relref "intel/Anka Build Cloud/Troubleshooting Guides and Logs/guides/anka-build-cloud/controller/unable-to-join.md" >}}).
+If you have any issues with this step, please see [our troubleshooting guide]({{< relref "intel/Troubleshooting + Guides/anka-build-cloud/controller/unable-to-join.md" >}}).
 {{< /hint >}}
 
 ```shell

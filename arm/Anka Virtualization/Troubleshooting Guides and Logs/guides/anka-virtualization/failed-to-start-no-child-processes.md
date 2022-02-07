@@ -27,7 +27,7 @@ Thu Feb  3 15:32:22 start: a25d8ea6-73a9-4921-be75-c25f930d2934: hypervisor fail
 anka: 12.2.0-arm: failed to start: No child processes
 ```
 
-## Common reasons
+## Common Causes
 
 1. 2.5 was installed previously.
 2. You are logged into the machine with 1 user, then SSHing in as another.

@@ -2,7 +2,7 @@
 date: 2018-03-06
 title: "Release Notes"
 linkTitle: "Release Notes"
-weight: 8
+weight: 9
 description: >
   Detailed Release Notes
 ---
@@ -10,6 +10,11 @@ description: >
 {{< hint warning >}}
 Not all plugins are maintained by Veertu Inc developers. You might not see them listed here.
 {{< /hint >}}
+
+{{< hint info >}}
+Anka Build components support heterogeneous build nodes; You can connect both both Intel and M1 nodes to a single Controller/Registry.
+{{< /hint >}}
+
 ## Current Versions
 
 ### Anka Virtualization CLI 2.5.4 (2.5.4.139) - Jan 10th, 2022
