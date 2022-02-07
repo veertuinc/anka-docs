@@ -71,6 +71,7 @@ description: >
 {{< include file="_partials/arm/Anka Virtualization/modify/ram/_index.md" >}}
 ### modify {name/uuid} network
 {{< include file="_partials/arm/Anka Virtualization/modify/network/_index.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/modify/network/_extra.md" >}}
 {{< include file="_partials/arm/Anka Virtualization/modify/network/_example.md" >}}
 ### modify {name/uuid} port
 {{< include file="_partials/arm/Anka Virtualization/modify/port/_index.md" >}}
