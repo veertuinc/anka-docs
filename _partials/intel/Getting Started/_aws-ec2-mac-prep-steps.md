@@ -66,9 +66,9 @@ By default all of our AMIs have a cloud-connect agent which on boot will join yo
 
 Our AMIs attempt to do the majority of preparation for you, however, there are several steps you need to perform once the instance is started:
 
-1. Set password with `sudo /usr/bin/dscl . -passwd /Users/ec2-user {NEWPASSWORDHERE}`.
+1. Set password with `sudo /usr/bin/dscl . -passwd /Users/ec2-user zbun0ok= {NEWPASSWORDHERE}` (AMI password: `zbun0ok=`).
 
-2. You now need to VNC in and log into the ec2-user (requirement for Anka to start the hypervisor): `open vnc://ec2-user:{GENERATEDPASSWORD}@{INSTANCEPUBLICIP}`.
+2. You now need to VNC in and log into the ec2-user (requirement for Anka to start the hypervisor): `open vnc://ec2-user:{NEWPASSWORDHERE}@{INSTANCEPUBLICIP}`.
 
 {{< hint info >}}
 You can see how we generate these AMIs in our open source repo: https://github.com/veertuinc/aws-ec2-mac-amis
