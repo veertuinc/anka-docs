@@ -71,11 +71,16 @@ description: >
 {{< include file="_partials/arm/Anka Virtualization/modify/ram/_index.md" >}}
 ### modify {name/uuid} network
 {{< include file="_partials/arm/Anka Virtualization/modify/network/_index.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/modify/network/_extra.md" >}}
 {{< include file="_partials/arm/Anka Virtualization/modify/network/_example.md" >}}
+### modify {name/uuid} port
+{{< include file="_partials/arm/Anka Virtualization/modify/port/_index.md" >}}
 ### modify {name/uuid} disk
 {{< include file="_partials/arm/Anka Virtualization/modify/disk/_index.md" >}}
 ### modify {name/uuid} display
 {{< include file="_partials/arm/Anka Virtualization/modify/display/_index.md" >}}
+### modify {name/uuid} label
+{{< include file="_partials/arm/Anka Virtualization/modify/label/_index.md" >}}
 ## View
 {{< include file="_partials/arm/Anka Virtualization/view/_index.md" >}}
 ## Run
@@ -108,8 +113,8 @@ description: >
 {{< include file="_partials/arm/Anka Virtualization/registry/add/_index.md" >}}
 ### registry set
 {{< include file="_partials/arm/Anka Virtualization/registry/set/_index.md" >}}
-### registry delete
-{{< include file="_partials/arm/Anka Virtualization/registry/delete/_index.md" >}}
+### registry remove
+{{< include file="_partials/arm/Anka Virtualization/registry/remove/_index.md" >}}
 ### registry list
 {{< include file="_partials/arm/Anka Virtualization/registry/list/_index.md" >}}
 ### registry show
@@ -147,7 +152,9 @@ description: >
 {{< include file="_partials/arm/Anka Virtualization/license/show/_index.md" >}}
 ### license activate
 {{< include file="_partials/arm/Anka Virtualization/license/activate/_index.md" >}}
-### license delete
-{{< include file="_partials/arm/Anka Virtualization/license/delete/_index.md" >}}
+### license validate
+{{< include file="_partials/arm/Anka Virtualization/license/validate/_index.md" >}}
+### license remove
+{{< include file="_partials/arm/Anka Virtualization/license/remove/_index.md" >}}
 ### license accept-eula
 {{< include file="_partials/arm/Anka Virtualization/license/accept-eula/_index.md" >}}

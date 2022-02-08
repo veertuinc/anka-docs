@@ -2,7 +2,7 @@
 title: "Anka Develop"
 linkTitle: "Anka Develop"
 sidebar_menu_sub_sections_exposed: true
-weight: 5
+weight: 7
 description: >
   A limited but free version of our Anka Virtualization software available for developers using laptops
 ---

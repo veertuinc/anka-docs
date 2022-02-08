@@ -1,5 +1,5 @@
 ---
-title: "Anka M1 3.0-beta5 (arm)"
+title: "Anka M1 3.0.0 (arm)"
 breadcrumb: false
 cascade:
   - type: "docs"

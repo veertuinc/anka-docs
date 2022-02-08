@@ -11,14 +11,14 @@ description: >
 1. [You've installed the Anka Virtualization package]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})
 2. [You've created and prepared your first VM Template]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
 
-{{< hint info >}}
-When running Anka commands on your machine, ensure that you have an active login session and have enabled automatic login for the current user: `System Preferences > Users > Enable automatic login` for the host. You might have to VNC in to the host machine if you're connected over SSH.
+{{< hint warning >}}
+**The Apple hypervisor and also Anka commands require an active and logged in user. You might have to VNC in to the host machine if you're connected over SSH. This also means you need to disable any sort of sleep or even the passworded screensaver on macOS.**
 {{< /hint >}}
 
-## Anka Run (exec)
+## Anka `run`
 
 {{< hint warning >}}
-Requires that addons are installed inside of the VM.
+Requires addons are installed inside of the VM. You can check if they are installed with the `anka show {vmName}` command.
 {{< /hint >}}
 
 Similar to `docker exec`, [`anka run`]({{< relref "arm/Anka Virtualization/command-reference.md#run" >}}) allows execution of commands inside of a VM.
@@ -32,8 +32,8 @@ If the VM is in a _stopped_ state, [`anka run`]({{< relref "arm/Anka Virtualizat
 You can use `anka run` _on the host terminal_ to validate things are working properly:
 
 ```shell
-❯ anka run 12.0-beta bash -c "hostname && ls -l && ping -c 5 google.com"
-12-0-beta.local
+❯ anka run 12.2.0-arm bash -c "hostname && ls -l && ping -c 5 google.com"
+12-2-0-arm.local
 total 0
 drwx------+  3 anka  staff    96 Oct 14 09:35 Desktop
 drwx------+  3 anka  staff    96 Oct 14 09:35 Documents
@@ -55,18 +55,34 @@ PING google.com (142.251.35.174): 56 data bytes
 round-trip min/avg/max/stddev = 10.163/10.267/10.316/0.055 ms
 ```
 
+#### Shell Configuration Files / Environment
 
-{{< hint info >}}
-The [`anka run`]({{< relref "arm/Anka Virtualization/command-reference.md#run" >}}) command doesn't source `.profile`, `.bash_profile`, or `.zshrc` by default. You have to source the file before executing other commands.
+The [`anka run`]({{< relref "arm/Anka Virtualization/command-reference.md#run" >}}) command doesn't source `.profile`, `.bash_profile`, or `.zshrc` by default. It will however source `.zprofile`.
+
+You have to source the files or use `zsh/bash -lc/-ic` before executing other commands. Here are some examples:
 
 ```shell
-❯ anka run 12.0-beta bash -c "env | grep INSIDE"
-
-❯ anka run 12.0-beta bash -c "source ~/.zshrc; env | grep INSIDE"
-INSIDE_ZSHRC=true
+❯ anka run 12.2.0-arm bash -c "echo 'export TEST_ZSHRC=yes' >> ~/.zshrc"
+❯ anka run 12.2.0-arm bash -c "echo 'export TEST_ZPROFILE=yes' >> ~/.zprofile"
+❯ anka run 12.2.0-arm bash -c "echo 'export TEST_PROFILE=yes' >> ~/.profile"
+❯ anka run 12.2.0-arm bash -c "echo 'export TEST_BASH_PROFILE=yes' >> ~/.bash_profile"
+❯ anka run 12.2.0-arm env
+TEST_ZPROFILE=yes
+❯ anka run test bash -c "env | grep TEST_"
+TEST_ZPROFILE=yes
+❯ anka run test bash -ic "env | grep TEST_"
+TEST_ZPROFILE=yes
+❯ anka run test bash -lc "env | grep TEST_"
+TEST_ZPROFILE=yes
+TEST_BASH_PROFILE=yes
+❯ anka run test zsh -c "env | grep TEST_"
+TEST_ZPROFILE=yes
+❯ anka run test zsh -ic "env | grep TEST_"
+TEST_ZPROFILE=yes
+TEST_ZSH=yes
+❯ anka run test zsh -lc "env | grep TEST_"
+TEST_ZPROFILE=yes
 ```
-{{< /hint >}}
-
 
 {{< hint info >}}
 To inherit the host's environment, use the `anka run -E` (existing VM variables will not be overridden by host's variables) or `-e MYENV` options. You can also pass them inside of a file like `anka run --env-file environment.txt`, where environment.txt is a text file in the form `VARIABLE=VALUE`, one variable per line.
@@ -74,13 +90,13 @@ To inherit the host's environment, use the `anka run -E` (existing VM variables 
 
 
 {{< hint info >}}
-An advanced usage example of `anka run` inside of a bash script can be found in our [Getting Started Repo's Tag Creation Script.](https://github.com/veertuinc/getting-started/blob/master/create-vm-template-tags.bash)
+Some advanced usage examples of `anka run` inside of a bash script can be found in our [Getting Started repo's VM Tag creation script.](https://github.com/veertuinc/getting-started/blob/master/create-vm-template-tags.bash)
 {{< /hint >}}
 
 ## Anka View
 
 {{< hint warning >}}
-The anka viewer requires an active UI session on the host.
+The anka viewer requires an active UI session on the host (VNC is fine).
 {{< /hint >}}
 
 {{< hint warning >}}
@@ -95,7 +111,9 @@ The `anka view` command currently will only function if you at some point starte
 
 ## VNC
 
-Once you've enabled Apple's Remote Login inside of the VM, simply add a forwarded port for guest:5900 to the host. You can then VNC from the host into the VM using this port.
+Once you've enabled Apple's Remote Login inside of the VM, simply add a forwarded port: `anka modify 12.2.0-jenkins add port --guest-port 5900 vnc`.
+
+---
 
 ## Answers to Frequently Asked Questions
 
@@ -103,10 +121,10 @@ Once you've enabled Apple's Remote Login inside of the VM, simply add a forwarde
   ```shell
   ❯ anka run VNMANE whoami > /dev/null
 
-  ❯ cat file-on-host.txt | anka run 12.0-beta md5
+  ❯ cat file-on-host.txt | anka run 12.2.0-arm md5
   ff1a596f13d348b63218078c6598ab5e
   ```
 
 ## What's next?
 
-- [Modifying your VM Template]({{< relref "arm/Getting Started/modifying-your-vm.md" >}})
+- [Modifying your VM]({{< relref "arm/Getting Started/modifying-your-vm.md" >}})

@@ -3,4 +3,7 @@
 usage: set name
 
    Set default registry
+
+arguments:
+  name                     Set default regitry
 ```

@@ -1,9 +1,12 @@
 ```shell
 > anka registry list-repos --help
-usage: list-repos [options]
+usage: list-repos [options] [name]
 
-   List registries you have configured
+   List registries configured
+
+arguments:
+  name                     Show URL of the registry specified
 
 options:
-  -d,--default             Show only the default registry
+  -d,--default             Show the default registry name
 ```

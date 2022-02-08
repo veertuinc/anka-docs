@@ -23,11 +23,13 @@ The rest of this Getting Started guide focuses heavily on the Anka Virtualizatio
 
 ## Common Examples
 
-### Changing your VM's network configuration with `network-card`
+### Changing your VM's network configuration
 
 Depending on your network topology, there are instances where you might need to use a bridge mode and assign your VM a unique IP address instead of the default shared IP of the host:
 
 {{< include file="_partials/arm/Anka Virtualization/modify/network/_index.md" >}}
+
+{{< include file="_partials/arm/Anka Virtualization/modify/network/_extra.md" >}}
 
 {{< include file="_partials/arm/Anka Virtualization/modify/network/_example.md" >}}
 

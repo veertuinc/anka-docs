@@ -1,9 +1,9 @@
 ```shell
-> anka registry show 12.1.0-arm tag --help
+> anka registry show 12.2.0 tag --help
 usage: tag [options]
 
-   Show VM tags
+   Show template tags
 
 options:
-  --current                Show the latest VM tag
+  --latest                 Show the latest tag name
 ```

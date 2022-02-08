@@ -212,6 +212,11 @@ Ensure that GitLab shows **just now** under the **Last contact** column.
 
 When executing `docker run`, any arguments included are used as options for `anka-gitlab-runner register --non-interactive`:
 
+{{< hint info >}}
+You can set both runner options/flags and also options/flags for the run command by passing them in as an ENV: `docker run --env "RUNNER_OPTIONS=--debug --log-level debug" --env "RUN_OPTIONS=--working-directory /home/runner/jobs" . . .`
+{{< /hint >}}
+
+
 ```bash
 ❯ docker run -ti --rm veertu/anka-gitlab-runner-amd64 --help
 Updating certificates in /etc/ssl/certs...

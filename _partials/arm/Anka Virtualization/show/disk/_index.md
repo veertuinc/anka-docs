@@ -1,4 +1,4 @@
 ```shell
-> anka show 12.1.0-arm disk --help
+> anka show 12.2.0 disk --help
 
 ```

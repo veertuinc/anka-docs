@@ -1,8 +1,11 @@
 ```shell
-> anka modify 12.1.0-arm delete port --help
+> anka modify 12.2.0 delete port --help
 usage: port-forwarding,port [options] [rule...]
 
    Remove port forwarding rule
+
+arguments:
+  rule                     Name of the port forwarding rule
 
 options:
   -a,--all                 Remove all the port fowarding rules
