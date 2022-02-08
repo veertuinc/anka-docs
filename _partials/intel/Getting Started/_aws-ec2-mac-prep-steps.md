@@ -68,6 +68,10 @@ Our AMIs attempt to do the majority of preparation for you, however, there are s
 
 1. Set password with `sudo /usr/bin/dscl . -passwd /Users/ec2-user zbun0ok= {NEWPASSWORDHERE}` (AMI password: `zbun0ok=`).
 
+  {{< hint warning >}}
+  **It is unsafe to continue to use the default password we set.**
+  {{< /hint >}}
+
 2. You now need to VNC in and log into the ec2-user (requirement for Anka to start the hypervisor): `open vnc://ec2-user:{NEWPASSWORDHERE}@{INSTANCEPUBLICIP}`.
 
 {{< hint info >}}
