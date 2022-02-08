@@ -8,7 +8,7 @@ description: >
 
 ## What is the Anka Build Cloud?
 
-Docker and DockerHub revolutionized the way developers could build and test their software. However, Docker does not at the time of writing this support macOS. This is why we've created the Anka Build Cloud. The Anka Build Cloud is a suite of software which allows you to manage and store [Anka VM Templates and Tags]({{< relref "intel/Getting Started/creating-your-first-vm.md#anka-build-license--cloud-understanding-vm-templates-tags-and-disk-usage" >}}) in a central repository, orchestrate on-demand (or persistent) macOS VMs for your CI/CD (or developers), and visualize usage or logs. It consists of:
+Docker and DockerHub revolutionized the way developers could build and test their software. However, Docker does not at the time of writing this support macOS. This is why we've created the Anka Build Cloud. The Anka Build Cloud is a suite of software which allows you to manage and store [Anka VM Templates and Tags]({{< relref "intel/Getting Started/creating-your-first-vm.md#anka-build-license--cloud-understanding-vm-templates-tags-and-disk-usage" >}}) in a central repository, orchestrate on-demand (or persistent) macOS VMs for your CI/CD (or developers), and visualize usage or logs.
 
 ### Anka Controller
 

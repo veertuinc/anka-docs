@@ -8,8 +8,8 @@ description: >
 
 ## Prerequisites
 
-1. [You've installed the Anka Virtualization package]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})
-2. [You've created and prepared your first VM Template]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
+1. [You've installed the Anka Virtualization package]({{< relref "arm/Getting Started/installing-the-anka-virtualization-package.md" >}})
+2. [You've created and prepared your first VM Template]({{< relref "arm/Getting Started/creating-your-first-vm.md" >}})
 
 {{< hint warning >}}
 **The Apple hypervisor and also Anka commands require an active and logged in user. You might have to VNC in to the host machine if you're connected over SSH. This also means you need to disable any sort of sleep or even the passworded screensaver on macOS.**

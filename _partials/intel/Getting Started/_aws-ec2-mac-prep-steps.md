@@ -25,7 +25,7 @@
   Full URL for the Anka Build Cloud Controller.
 
   - **REQUIRED**
-  - Must be in the following structure: `http[s]://[IP/DOMAIN]:[PORT]`
+  - Must be in the following structure: `http[s]://[IP/DOMAIN]:[PORT]`.
 
   ##### ANKA_JOIN_ARGS
 
@@ -38,16 +38,16 @@
   Allows you to set the registry IP address and domain in the `/etc/hosts` file.
 
   - Optional
-  - Use 1: if your corporate registry doesn't have a public domain name, but does have a public IP
-  - Use 2: if you want the EC2 mac mini to pull from a second registry that's hosted on EC2 instead of a local corporate one (AWS -> AWS is much faster)
+  - Use 1: if your corporate registry doesn't have a public domain name, but does have a public IP.
+  - Use 2: if you want the EC2 mac mini to pull from a second registry that's hosted on EC2 instead of a local corporate one (AWS -> AWS is much faster).
 
   ##### ANKA_LICENSE
 
   If not already licensed, the cloud-connect service will license Anka using this ENV's value.
 
   - Optional
-  - Only used with Community AMI
-  - Only available in >= 2.5.4 AMIs
+  - Only used with Community AMI.
+  - Only available in >= 2.5.4 AMIs.
   - You can also update invalid/expired licenses with this.
 
   ##### ANKA_USE_PUBLIC_IP
@@ -75,7 +75,7 @@ Our AMIs attempt to do the majority of preparation for you, however, there are s
 2. You now need to VNC in and log into the ec2-user (requirement for Anka to start the hypervisor): `open vnc://ec2-user:{NEWPASSWORDHERE}@{INSTANCEPUBLICIP}`.
 
 {{< hint info >}}
-You can see how we generate these AMIs in our open source repo: https://github.com/veertuinc/aws-ec2-mac-amis
+You can see how we generate these AMIs in our open source repo: https://github.com/veertuinc/aws-ec2-mac-amis.
 {{< /hint >}}
 
 #### Logs

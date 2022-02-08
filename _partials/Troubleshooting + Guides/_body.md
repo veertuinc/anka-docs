@@ -33,6 +33,7 @@ It is also best to run this as close to when an issue happens as several command
 - Ensure that the user running Anka VMs is logged in and that Sleep and passworded Screensaver are disable. The hypervisor will not work without an active/logged in user.
 - Check `[~]/Library/Logs/Anka/` logs for any indication of why the failure happened.
 - Ensure that all components in your Anka environment can communicate. This includes connectivity between CI/CD tooling we do not support.
+- Disable anti-virus and firewalls on the host.
 
 ### Logs
 
