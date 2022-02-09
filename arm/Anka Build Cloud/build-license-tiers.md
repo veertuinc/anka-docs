@@ -31,8 +31,6 @@ HA for Controller configuration setup | Yes (Additional controller/registry inst
 [Basic controller authentication (Certificate & Root Superuser Token)]({{< relref "arm/Anka Build Cloud/Advanced Security Features/_index.md" >}}) |    | Yes | Yes
 [Multi-user & group authorization with admin panel + OpenID/SSO support]({{< relref "arm/Anka Build Cloud/Advanced Security Features/openid-authentication.md" >}}) |    |    | Yes
 Controller API activity logging |    |    | Yes
-VM full disk encryption for Build VMs |    |    | Yes
-Control VM runtime (Networking, Access to host) and functional properties with policies |    |    | Yes
 
 ## Enterprise License Features
 
@@ -61,11 +59,3 @@ Authentication support includes Root token authentication access to the Controll
 ### [Multi-user & group authorization with admin panel + OpenID/SSO support]({{< relref "arm/Anka Build Cloud/Advanced Security Features/openid-authentication.md" >}})
 
 Multi-user access authentication and authorization based access to Controller portal dashboard and REST API operations is provided through OpenID/SSO based integration.
-
-### VM encryption of Build VMs at REST
-
-Encrypt the build VM template at the time of VM creation and store it in the Anka Registry in an encrypted state. When this VM is used to build on the Anka Build nodes, it will be decrypted.
-
-### VM Control through Policy
-
-Manage the Build VMs access to local and remote resources through policies. This includes the ability to control VM access to host shared folders, USB, disk access, networking, and external networking.

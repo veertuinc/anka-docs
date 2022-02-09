@@ -41,8 +41,6 @@ HA for Controller configuration setup | Yes (Additional controller/registry inst
 [Basic controller authentication (Certificate & Root Superuser Token)]({{< relref "intel/Anka Build Cloud/Advanced Security Features/_index.md" >}}) |    | Yes | Yes
 [Multi-user & group authorization with admin panel + OpenID/SSO support]({{< relref "intel/Anka Build Cloud/Advanced Security Features/openid-authentication.md" >}}) |    |    | Yes
 [Controller API event logging]({{< relref "intel/Anka Build Cloud/working-with-controller-and-API.md#event-logging-and-automated-pushing" >}}) |    |    | Yes
-VM full disk encryption for Build VMs |    |    | Yes
-Control VM runtime (Networking, Access to host) and functional properties with policies |    |    | Yes
 
 ---
 
