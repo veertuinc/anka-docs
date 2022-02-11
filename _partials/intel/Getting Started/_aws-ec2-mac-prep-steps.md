@@ -66,13 +66,13 @@ By default all of our AMIs have a cloud-connect agent which on boot will join yo
 
 Our AMIs attempt to do the majority of preparation for you, however, there are several steps you need to perform once the instance is started:
 
-1. Set password with `sudo /usr/bin/dscl . -passwd /Users/ec2-user zbun0ok= {NEWPASSWORDHERE}` (AMI password: `zbun0ok=`).
-
-  {{< hint warning >}}
-  **It is unsafe to continue to use the default password we set.**
-  {{< /hint >}}
+1. Set password with `sudo /usr/bin/dscl . -passwd /Users/ec2-user zbun0ok= {NEWPASSWORDHERE}` (AMI password: `zbun0ok=`). **It is unsafe to continue to use the default password we set.**
 
 2. You now need to VNC in and log into the ec2-user (requirement for Anka to start the hypervisor): `open vnc://ec2-user:{NEWPASSWORDHERE}@{INSTANCEPUBLICIP}`.
+
+{{< hint warning >}}
+**Amazon EBS volumes can be very slow even when you max them out.** Because of this, `anka create` and other processes can take very long times or outright fail (Apple's installer is sensitive to disk IO). We recommend that you "pre-warm" the EBS volume by running `dd if=/dev/random of=testfile bs=1g count=$(($(df -h | grep "/$" | awk '{print $4}' | grep -oE "[0-9]+")-2))` on the host right after it starts.
+{{< /hint >}}
 
 {{< hint info >}}
 You can see how we generate these AMIs in our open source repo: https://github.com/veertuinc/aws-ec2-mac-amis.

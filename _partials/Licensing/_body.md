@@ -10,7 +10,7 @@ Anka licenses are available for the following products:
 + **[Anka Develop]({{< relref "intel/anka-develop.md" >}})** - Very limited features allowing a developer to run a single VM at a time. Supported only on laptops (Macbook, Macbook Pro, and Macbook Air).
 + **[Anka Build Basic]({{< relref "intel/Anka Build Cloud/build-license-tiers.md" >}})** - All Basic features to configure and run macOS CI Cloud infrastructure.
 + **[Anka Build Enterprise]({{< relref "intel/Anka Build Cloud/build-license-tiers.md" >}})** - Basic + additional features for grouping, priority provisioning, etc.
-+ **[Anka Build Enterprise Plus]({{< relref "intel/Anka Build Cloud/build-license-tiers.md" >}})** - Enterprise + additional features to support SSO, VM encryption, event logging.
++ **[Anka Build Enterprise Plus]({{< relref "intel/Anka Build Cloud/build-license-tiers.md" >}})** - Enterprise + additional features to support SSO and event logging.
 + **[Anka Flow]({{< relref "intel/anka-flow.md" >}})** - Install and configure Anka on developer mac workstations. Supported only on macbook models and iMac.
 
 ## Trial License

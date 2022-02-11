@@ -50,6 +50,10 @@ You can find a full list of products available on the AWS marketplace by visitin
 Marketplace AMIs are charged on an hourly basis and don't need an Anka License.
 {{< /hint >}}
 
+{{< hint info >}}
+You can create custom AMIs from the Marketplace AMI and the license for Anka will continue to work and attach to your existing marketplace subscription.
+{{< /hint >}}
+
 ### Usage
 
 To get up and running with our AWS EC2 Mac instances using our Marketplace AMI, you'll need to navigate to one of the Marketplace AMI Product URLs listed above and go through the process of subscribing. [Take a look at the official AMI Subscription documentation to understand how to subscribe.](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-ami-subscriptions.html)
