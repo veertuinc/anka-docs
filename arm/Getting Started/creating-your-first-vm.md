@@ -140,7 +140,7 @@ You can easily create VM clones from a source VM and _its current state_ using `
 
 ### Disk Optimization
 
-Customers coming from Anka 2 will know that when you clone a VM, it will share the underlying VM image files between the two. However, this is not the case for Anka 3. As of right now, sharing of the underlying VM image files between a clone and its source requires first creating a tag for the source before you clone. You can do this with `anka push --local`, or just a regular `anka push` if you've got a running [Anka Build Cloud Registry]({{< relref "arm/Anka Build Cloud/_index.md" >}}).
+Customers coming from Anka 2 will know that when you clone an _untagged_ VM, it will share the underlying VM image files between the two. However, this is not the case for Anka 3. As of right now, sharing of the underlying VM image files between a clone and its source requires first creating a tag for the source _before_ you clone. You can do this with `anka push --local`, or just a regular `anka push` if you've got a running [Anka Build Cloud Registry]({{< relref "arm/Anka Build Cloud/_index.md" >}}).
 
 {{< hint info >}}
 Don't worry, clones will not have access to change the original source VM.
