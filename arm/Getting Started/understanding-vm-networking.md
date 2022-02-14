@@ -15,9 +15,11 @@ description: >
 
 ---
 
+## Basics
+
 We use Apple's VMNET interface with "`Using DHCP`" for networking. 
 
-By default Anka VMs use a shared networking configuration with the host. It’s a kind of NAT + DHCP. 
+By default Anka VMs use a shared networking configuration with the host. It’s a kind of NAT + DHCP.
 
 ```shell
 ❯ anka --machine-readable describe 12.2 | jq '.body.network_cards'
