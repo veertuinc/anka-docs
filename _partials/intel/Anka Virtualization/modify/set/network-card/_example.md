@@ -12,7 +12,7 @@ network_cards
 +------------+--------+--------+-----------+
 . . .
 
-❯ anka modify 11.0.1 set network-card 0 -t bridge
+❯ anka modify 11.0.1 set network-card --type bridge --bridge en7
 
 ❯ anka describe 11.0.1
 . . .
