@@ -25,5 +25,4 @@ Known issues:
   - `anka view` does not currently work post-start unless you started the VM with `-v`.
 {{< /hint >}}
 
-
 ---
