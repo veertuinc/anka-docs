@@ -2,6 +2,7 @@
 title: "Creating an Anka VM Template from an ISO"
 linkTitle: "Creating an Anka VM Template from an ISO"
 toc_hide: true
+exclude_search: true
 ---
 
 Use `create_macos_install_image.sh` included in the Anka package to first create an `.iso` from your Yosemite and ElCapitan `.app` installer.
