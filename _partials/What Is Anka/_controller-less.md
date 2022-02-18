@@ -1,4 +1,4 @@
-### Controller-less Build Cloud (Registry Only)
+## Controller-less Build Cloud (Registry Only)
 
 This setup requires:
 
