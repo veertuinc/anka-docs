@@ -1,5 +1,3 @@
-> WiFi interfaces are not supported yet
-
 ```shell
 ❯ anka describe 11.0.1
 . . .
