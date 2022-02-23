@@ -317,7 +317,7 @@ curl "http://anka.registry.net:8089/registry/vm/info?id=2fa0f10e-e91e-4665-8d42-
  ---       |   ---  |          ---
  id        | string | The Template id. 
 
-**Optional Query Parameters**  
+**Optional Data Parameters**  
 
  Parameter | Type   | Description     | Default
  ---       |   ---  |          --- | ---
@@ -352,15 +352,8 @@ curl -X DELETE  "http://anka.registry.net:8089/registry/revert?id=a3cc47f0-3a73-
 
 # Revert to a specific Tag
 
-
-curl -X DELETE  "http://anka.registry.net:8089/registry/revert?id=a3cc47f0-3a73-11e9-b515-c4b301c47c6b&tag=p120190904183122" 
-
-{
-   "status" : "OK",
-   "body" : null,
-   "message" : ""
-}
-
+❯ curl -X DELETE  "http://anka.registry:8089/registry/revert?id=aff190a4-9871-4fb7-b909-73742f0fbdbe" -d '{"tag": "vanilla+port-forward-22+brew-git"}'
+{"status":"OK","body":null,"message":""}
 
 ```
 
