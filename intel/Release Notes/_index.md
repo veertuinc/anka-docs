@@ -43,6 +43,16 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 
 ---
 
+### Anka GitLab Runner 1.5.0 - March 2nd, 2022
+
+- Upgraded to 14.8.0 core code
+- Ensure no high severity vulnerabilities
+- **New Feature:** Support variable replacement inside ANKA_TEMPLATE_UUID and ANKA_TAG_NAME variables | [Issue](https://github.com/veertuinc/gitlab-runner/issues/13)
+- **Improvement:** Better console output messages, including VM name and UUID
+- **Improvement:** Retrying SSH connection attempts [Issue](https://github.com/veertuinc/gitlab-runner/issues/14)
+
+---
+
 ### Jenkins Plugin 2.7.0 - Jan 10th, 2022
 
 - Security patches
@@ -71,12 +81,6 @@ For either 2.7.0 or 2.6.1, please check over your Anka Build Plugin configuratio
 
 ---
 
-### Anka GitLab Runner 1.4.0 - May 4th, 2021
-
-- New Feature: We're now populating the External ID and Name startVM API call so that External ID shows the full URL to the job and Name is the runner's name. [GH Issue](https://github.com/veertuinc/gitlab-runner/issues/10)
-
----
-
 ### Anka VM GitHub Action v1.3.2 - July 2nd, 2021
 
 - Security patches
@@ -92,6 +96,12 @@ For either 2.7.0 or 2.6.1, please check over your Anka Build Plugin configuratio
 ---
 
 ## Previous Versions
+
+### Anka GitLab Runner 1.4.0 - May 4th, 2021
+
+- New Feature: We're now populating the External ID and Name startVM API call so that External ID shows the full URL to the job and Name is the runner's name. [GH Issue](https://github.com/veertuinc/gitlab-runner/issues/10)
+
+---
 
 ### Anka Virtualization CLI 2.5.4 (2.5.4.138) - Dec 27th, 2021
 
