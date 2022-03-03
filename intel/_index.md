@@ -5,5 +5,3 @@ title: >
 cascade:
   - type: "docs"
 ---
-
-{{< include file="What Is Anka/_index.md" >}}
