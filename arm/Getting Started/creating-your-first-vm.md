@@ -181,7 +181,7 @@ To switch between tags locally, you can use the `anka pull --local --tag {target
 
 ### VM Templates
 
-Once a VM has been tagged, it becomes a "VM Template". The VM template+tag's state cannot be permanently modified unless you create a new tag, post-changes. This is very reminiscent of how `git commit` works. You can execute comands and modify the state of the VM after tagging it, but it will not save the changes to the existing template+tag. This is important to consider when using the [Anka Build Cloud Registry]({{< archRelRef "Anka Build Cloud/_index.md" >}}) since it will only push the state of the VM when the tag was created, not after.
+Once a VM has been tagged, it becomes a "VM Template". The VM template+tag's state cannot be permanently modified unless you create a new tag, post-changes. This is very reminiscent of how `git commit` works. You can execute commands and modify the state of the VM after tagging it, but it will not save the changes to the existing template+tag. This is important to consider when using the [Anka Build Cloud Registry]({{< archRelRef "Anka Build Cloud/_index.md" >}}) since it will only push the state of the VM when the tag was created, not after.
 
 In summary, when cloning a tagged VM you have two options:
 

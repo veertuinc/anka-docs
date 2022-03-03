@@ -28,7 +28,7 @@ The Jenkins Anka Plugin requires a VM with Java, SSH Remote Login, and port forw
 > You can run any version of JAVA you want **as long as the version inside of the VM matches your Jenkins server**
 
 2. In the VM, make sure remote login is enabled (`System Preferences > Sharing`).
-3. On the host, enable SSH [port forwarding]({{< archRelRef "Anka Virtualization/command-reference.md#modify-vmnameoruuid-add-port-forwarding" >}}) for your VM Template using the Anka CLI: `sudo anka modify <VM Template name> add port-forwarding --guest-port 22 ssh`. _We recommend not specifying --host-port._
+3. On the host, enable SSH [port forwarding]({{< archRelRef "Anka Virtualization/command-reference.md#modify" >}}) for your VM Template using the Anka CLI: `sudo anka modify <VM Template name> add port-forwarding --guest-port 22 ssh`. _We recommend not specifying --host-port._
 4. `sudo anka suspend <VM Template name>`
 5. `sudo anka registry push <VM Template name> <Tag name>`
 
