@@ -142,9 +142,10 @@ Great! Now that we have our Anka Controller & Registry up and running, let's add
 
 {{< include file="_partials/intel/Getting Started/_start-vm-instance-using-controller-ui.md" >}}
 
-## Orientation
+## Step 5: Orientate to your new environment
 
 ### Anka Controller and Registry package
+
 - Default Ports: Anka Controller: 80 / Anka Registry: 8089  
 - Binaries and scripts: Anka Controller has only one combined binary. It can run Anka Controller, Anka Registry and ETCD Server.  
     Installed at: `/Library/Application Support/Veertu/Anka/bin/anka-controller`  
@@ -154,22 +155,27 @@ Great! Now that we have our Anka Controller & Registry up and running, let's add
 - Configuration files: Configuration for this package is done by altering the start script at `/usr/local/bin/anka-controllerd`.
 - Logs: `/Library/Logs/Veertu/AnkaController`
 - Data:
-    ETCD data will be saved at: `/Library/Application Support/Veertu/Anka/anka-controller`  
-    Registry data will be saved at: `/Library/Application Support/Veertu/Anka/registry`
+    ETCD data will be saved in: `/Library/Application Support/Veertu/Anka/anka-controller`  
+    Registry data will be saved in: `/Library/Application Support/Veertu/Anka/registry`
 
 ### Standalone Anka Registry
+
 - Default Ports: 80
 - Binaries and scripts:
     Anka Registry for Mac binary is installed at: `/Library/Application Support/Veertu/Anka/bin/ankaregd`  
     Launchd daemon: `/Library/LaunchDaemons/com.veertu.anka.registry.plist`
-- Configuration files: Configuration for this package is done by altering the Launcd daemon xml file at `/Library/LaunchDaemons/com.veertu.anka.registry.plist`.
-- Data: Will be saved at: `/Library/Application Support/Veertu/Anka/registry`
+- Configuration files: Configuration for this package is done by altering the Launchd daemon xml file at `/Library/LaunchDaemons/com.veertu.anka.registry.plist`. Be sure to unload it first.
+- Data will be saved in: `/Library/Application Support/Veertu/Anka/registry`
+
+---
 
 ## What next?
 
+- [Prepare and join your machines to the Build Cloud]({{< relref "arm/Anka Build Cloud/preparing-and-joining-your-nodes.md" >}}).  
 - Browse the [Anka CLI Command Reference]({{< relref "arm/Anka Virtualization/command-reference.md" >}}).  
 - Connect the cloud to your [CI software]({{< relref "arm/CI Plugins and Integrations/_index.md" >}}).  
 - Find out how to use the [Controller REST API]({{< relref "arm/Anka Build Cloud/working-with-controller-and-api.md#rest-api">}}).  
+
 
 
 

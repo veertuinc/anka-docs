@@ -116,6 +116,6 @@ Under the **Admin** page, we want to add a **New Group**. **The Group Name will 
 
 Once user, group, and roles are created and assigned to each other, you can then add the exact role name from your keycloak (or other authorization server software) to the controller's permission management panel. This gives any users associated to the group in that cloud permission group the specific permissions to the API and even controller UI.
 
-{{< include file="_partials/intel/Anka Build Cloud/_managing-permissions.md" >}}
+{{< include file="_partials/Anka Build Cloud/_managing-permissions.md" >}}
 
 Once you've added all of the proper permissions, you can now go back to the main Controller page and log out of the superuser. You can now choose **Login with Keycloak**, which will redirect you to your Keycloak to have you log in with the user you created earlier in this guide. You will then be taken to the Controller UI and be logged in as that user.

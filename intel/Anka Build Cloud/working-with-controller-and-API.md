@@ -76,19 +76,19 @@ Starting from Controller release version 1.0.12, logs will be available for down
 
 ### Node Groups
 
-{{< include file="_partials/intel/Anka Build Cloud/_node_groups.md" >}}
+{{< include file="_partials/Anka Build Cloud/_node_groups.md" >}}
 
 ### Priority Scheduling
 
-{{< include file="_partials/intel/Anka Build Cloud/_priority-scheduling.md" >}}
+{{< include file="_partials/Anka Build Cloud/_priority-scheduling.md" >}}
 
 ### USB Device Control (Controller API)
 
-{{< include file="_partials/intel/Anka Build Cloud/_usb-device-control-api.md" >}}
+{{< include file="_partials/Anka Build Cloud/_usb-device-control-api.md" >}}
 
 ### Event logging and automated pushing
 
-{{< include file="_partials/intel/Anka Build Cloud/_event-logging-endpoint-pushing.md" >}}
+{{< include file="_partials/Anka Build Cloud/_event-logging-endpoint-pushing.md" >}}
 
 ---
 

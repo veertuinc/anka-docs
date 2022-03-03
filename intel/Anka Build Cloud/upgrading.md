@@ -27,11 +27,11 @@ It is generally safe to upgrade the controller while VMs are running and nodes a
 {{< /hint >}}
 
 {{< hint info >}}
-- We recommend [snapshotting your etcd database](https://etcd.io/docs/v3.5/op-guide/recovery/#snapshotting-the-keyspace) regularly, but especially before an upgrade.
+We recommend [snapshotting your etcd database]({{< relref "intel/Anka Build Cloud/setup-on-linux-with-docker.md#etcd-snapshotting" >}}) regularly, but especially before an upgrade.
 {{< /hint >}}
 
 {{< hint info >}}
-- The following steps also apply to downgrading, though, you need to forcefully downgrade the cluster agent on each of your nodes.
+The following steps also apply to downgrading, though, you need to forcefully downgrade the cluster agent on each of your nodes.
 {{< /hint >}}
 
 {{< hint warning >}}

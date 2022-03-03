@@ -158,26 +158,41 @@ In order for the host/node to perform controller tasks (pull, start, delete, etc
 
 {{< include file="_partials/intel/Getting Started/_start-vm-instance-using-controller-ui.md" >}}
 
-## Helpful notes about the containers
+## Step 5: Orientate to your new environment
 
-### Anka Controller
+### Anka Controller Container
 
 - Default Ports: 80
-- Binaries and scripts: `/bin/anka-controller`
-- Configuration files: Configuration is done through docker-compose file or through environment variables.
-- Logs will be written to: `/var/log/anka-controller`. It's also possible to get the logs through `docker logs` command.
-- Data Storage: No data is saved on the container.
+- Binary in the container: `/bin/anka-controller`
+- Configuration files: Configuration is done through docker-compose file, the `controller/controller.env`, or through environment variables.
+- Logs will be written to: STDOUT/ERR. It's possible to get the logs through `docker logs` command.  
+- Data Storage: No data is saved on disk.
 
-### Anka Registry
+### Anka Registry Container
 
 - Default Ports: 8089
-- Binaries and scripts: `/bin/anka-registry`
-- Configuration files: Configuration is done through docker-compose file or through environment variables.
-- Logs will be written to: `/var/log/anka-registry`. It's also possible to get the logs through `docker logs` command.  
-- Registry data will be written to: `/mnt/vol`
+- Binary in the container: `/bin/anka-registry`
+- Configuration files: Configuration is done through docker-compose file, the `registry/registry.env`, or through environment variables.
+- Logs will be written to: STDOUT/ERR. It's possible to get the logs through `docker logs` command.  
+- Data will be written to: No default; You must set it in docker-compose.yml.
+
+### ETCD Container
+
+- Default Ports: N/A
+- Binary in the container: `/usr/bin/etcd`
+- Configuration files: Configuration is done through docker-compose file, the `etcd/etcd.env`, or through environment variables.
+- Logs will be written to: STDOUT/ERR. It's possible to get the logs through `docker logs` command.  
+- Data will be written to: `/var/etcd-data`
+
+---
+
+{{< include file="_partials/Anka Build Cloud/etcd-snapshotting.md" >}}
+
+---
 
 ## What next?
 
+- [Prepare and join your machines to the Build Cloud]({{< relref "intel/Anka Build Cloud/preparing-and-joining-your-nodes.md" >}}).  
 - Browse the [Anka CLI Command Reference]({{< relref "intel/Anka Virtualization/command-reference.md" >}}).  
 - Connect the cloud to your [CI software]({{< relref "intel/CI Plugins and Integrations/_index.md" >}}).  
 - Find out how to use the [Controller REST API]({{< relref "intel/Anka Build Cloud/working-with-controller-and-api.md#rest-api">}}).  

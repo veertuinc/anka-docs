@@ -339,4 +339,4 @@ When creating certificates, you'll want to specify CSR values using openssl's `-
 
 Within the Controller, we use **`O=`** as the **permission group name** and **`CN=`** as the **username**. The **Group Name** will be `MyOrgName`, like we used in the `-subj` above.
 
-{{< include file="_partials/intel/Anka Build Cloud/_managing-permissions.md" >}}
+{{< include file="_partials/Anka Build Cloud/_managing-permissions.md" >}}
