@@ -9,7 +9,7 @@ description: >
 
 > This guide and feature require an Anka Enterprise Plus license.
 
-> If you're using root token auth for your Controller UI, without certificate authentication, Nodes will no longer be able to connect to port 80 (or whatever port you've set) when running `ankacluster join`. You'll need to setup an interface for them to communicate. [See our documentation on this.]({{< relref "intel/Anka Build Cloud/Advanced Security Features/root-token-authentication.md#joining-nodes" >}})
+> If you're using root token auth for your Controller UI, without certificate authentication, Nodes will no longer be able to connect to port 80 (or whatever port you've set) when running `ankacluster join`. You'll need to setup an interface for them to communicate. [See our documentation on this.]({{< archRelRef "Anka Build Cloud/Advanced Security Features/root-token-authentication.md#joining-nodes" >}})
 
 > You must have at least one node with a Enterprise or higher license joined to the Controller for these features to work.
 
@@ -49,7 +49,7 @@ At this point, you'll have Keycloak ready to use with your Anka Build Cloud Cont
 
 In order to enable OpenID, you'll need to modify your `docker-compose.yml` (if you're using our docker package) or the `/usr/local/bin/anka-controllerd` (if you're using the native Mac package).
 
-> You can find a list of configuration options in the [Configuration Reference]({{< relref "intel/Anka Build Cloud/configuration-reference.md" >}}) by searching for `ANKA_OIDC`
+> You can find a list of configuration options in the [Configuration Reference]({{< archRelRef "Anka Build Cloud/configuration-reference.md" >}}) by searching for `ANKA_OIDC`
 
 Here is what your `docker-compose.yml` should look like for use with Keycloak:
 

@@ -16,7 +16,7 @@ There are several different ways you can enable Certificate authentication:
 2. With the docker package: You'll edit the `docker-compose.yml`, enabling TLS/HTTPS and then certificate authentication (with ENVs).
 3. With either the controller or registry standalone: You'll edit the proper config files, enabling TLS/HTTPS (required) and then certification authentication (with either ENVs or options/flags).
 
-> If you're using the Enterprise Plus license, [you will need to setup authorization for your certificate]({{< relref "arm/Anka Build Cloud/Advanced Security Features/certificate-authentication.md#managing-usergroup-permissions-authorization" >}})
+> If you're using the Enterprise Plus license, [you will need to setup authorization for your certificate]({{< archRelRef "Anka Build Cloud/Advanced Security Features/certificate-authentication.md#managing-usergroup-permissions-authorization" >}})
 
 ## Requirements
 
@@ -66,7 +66,7 @@ openssl x509 -req -days 365 -sha256 -in anka-controller-csr.pem -CA anka-ca-crt.
 
 Ensure that the certificate has **Signature Algorithm: sha256WithRSAEncryption** using `openssl x509 -text -noout -in ~/anka-controller-crt.pem | grep Signature` (https://support.apple.com/en-us/HT210176)
 
-> Beginning in Controller version 1.12.0, [you can control the allowed TLS Cipher Suites and minimum/maximum TLS versions]({{< relref "arm/Anka Build Cloud/configuration-reference.md#tls" >}})
+> Beginning in Controller version 1.12.0, [you can control the allowed TLS Cipher Suites and minimum/maximum TLS versions]({{< archRelRef "Anka Build Cloud/configuration-reference.md#tls" >}})
 
 ### Native macOS Controller & Registry package
 
@@ -320,7 +320,7 @@ If everthing is configured correctly, you should see something like this (I used
 
 ## 6. Final Notes
 
-- You may notice that the Controller UI doesn't load or acts strangely. You will need to enable [Root Token Authentication]({{< relref "arm/Anka Build Cloud/Advanced Security Features/root-token-authentication.md" >}}) to access the controller UI.
+- You may notice that the Controller UI doesn't load or acts strangely. You will need to enable [Root Token Authentication]({{< archRelRef "Anka Build Cloud/Advanced Security Features/root-token-authentication.md" >}}) to access the controller UI.
 - If you get an invalid cert error from the Controller UI, make sure that you add the root CA you generated to your system keychain.
 
 ---

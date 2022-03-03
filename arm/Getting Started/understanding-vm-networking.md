@@ -9,9 +9,9 @@ description: >
 
 ## Prerequisites
 
-1. [You've installed the Anka Virtualization package]({{< relref "arm/Getting Started/installing-the-anka-virtualization-package.md" >}})
-2. [You've created your first VM Template]({{< relref "arm/Getting Started/creating-your-first-vm.md" >}})
-3. [You grasp how to modify VM settings (like `network`)]({{< relref "arm/Getting Started/modifying-your-vm.md" >}})
+1. [You've installed the Anka Virtualization package]({{< archRelRef "Getting Started/installing-the-anka-virtualization-package.md" >}})
+2. [You've created your first VM Template]({{< archRelRef "Getting Started/creating-your-first-vm.md" >}})
+3. [You grasp how to modify VM settings (like `network`)]({{< archRelRef "Getting Started/modifying-your-vm.md" >}})
 
 ---
 
@@ -100,4 +100,4 @@ Dynamic MAC Addresses are not guaranteed to be unique, though, reuse/collision i
 
 ## What's next?
 
-- [Anka Command-Line Reference]({{< relref "arm/Anka Virtualization/command-reference.md" >}})
+- [Anka Command-Line Reference]({{< archRelRef "Anka Virtualization/command-reference.md" >}})

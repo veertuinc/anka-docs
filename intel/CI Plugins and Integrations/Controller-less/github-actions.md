@@ -1,5 +1,15 @@
 ---
+date: 2019-07-03T22:24:47-05:00
+title: "Using GitHub Actions and Anka Build"
+linkTitle: "GitHub Actions"
+weight: 1
+description: >
+  Instructions on how to use GitHub Actions with Anka Build
 ---
+
+{{< hint warning >}}
+Anka 3/M1 Note: The github runner does not have an ARM version available but you can run the x64 without issue through Apple's rosetta.
+{{< /hint >}}
 
 The [Anka VM GitHub Action](https://github.com/marketplace/actions/anka-vm-github-action) provides a quick way to integrate Anka with GitHub Actions. The plugin helps your [self-hosted GitHub runners](https://help.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners) prepare Anka VM instances for building, testing, and more. Keep in mind that it works differently than our other plugins or integrations for Anka Build Cloud. It will not start VM instances using your Anka Build Cloud Controller and instead connect directly to an unused Node to prepare the VM and execute commands.
 

@@ -8,14 +8,14 @@ description: >
 
 ## Prerequisites
 
-1. [You've installed the Anka Virtualization package.]({{< relref "arm/Getting Started/installing-the-anka-virtualization-package.md" >}})
+1. [You've installed the Anka Virtualization package.]({{< archRelRef "Getting Started/installing-the-anka-virtualization-package.md" >}})
 2. The machine you wish to use for running Anka VMs is M1 **and not Intel.**
 3. The machine you wish to use has Monterey (>= 12.0) installed.
 
 ## 1. Create your first VM
 
 {{< hint warning >}}
-It's important to understand that the `anka` CLI, VM creation, modification, etc, is all done from your current user. You cannot move VMs between users easily without the [Anka Build Cloud Registry]({{< relref "arm/Anka Build Cloud/_index.md" >}}).
+It's important to understand that the `anka` CLI, VM creation, modification, etc, is all done from your current user. You cannot move VMs between users easily without the [Anka Build Cloud Registry]({{< archRelRef "Anka Build Cloud/_index.md" >}}).
 {{< /hint >}}
 
 {{< hint warning >}}
@@ -140,7 +140,7 @@ You can easily create VM clones from a source VM and _its current state_ using `
 
 ### Disk Optimization
 
-Customers coming from Anka 2 will know that when you clone an _untagged_ VM, it will share the underlying VM image files between the two. However, this is not the case for Anka 3. As of right now, sharing of the underlying VM image files between a clone and its source requires first creating a tag for the source _before_ you clone. You can do this with `anka push --local`, or just a regular `anka push` if you've got a running [Anka Build Cloud Registry]({{< relref "arm/Anka Build Cloud/_index.md" >}}).
+Customers coming from Anka 2 will know that when you clone an _untagged_ VM, it will share the underlying VM image files between the two. However, this is not the case for Anka 3. As of right now, sharing of the underlying VM image files between a clone and its source requires first creating a tag for the source _before_ you clone. You can do this with `anka push --local`, or just a regular `anka push` if you've got a running [Anka Build Cloud Registry]({{< archRelRef "Anka Build Cloud/_index.md" >}}).
 
 {{< hint info >}}
 Don't worry, clones will not have access to change the original source VM.
@@ -181,7 +181,7 @@ To switch between tags locally, you can use the `anka pull --local --tag {target
 
 ### VM Templates
 
-Once a VM has been tagged, it becomes a "VM Template". The VM template+tag's state cannot be permanently modified unless you create a new tag, post-changes. This is very reminiscent of how `git commit` works. You can execute comands and modify the state of the VM after tagging it, but it will not save the changes to the existing template+tag. This is important to consider when using the [Anka Build Cloud Registry]({{< relref "arm/Anka Build Cloud/_index.md" >}}) since it will only push the state of the VM when the tag was created, not after.
+Once a VM has been tagged, it becomes a "VM Template". The VM template+tag's state cannot be permanently modified unless you create a new tag, post-changes. This is very reminiscent of how `git commit` works. You can execute comands and modify the state of the VM after tagging it, but it will not save the changes to the existing template+tag. This is important to consider when using the [Anka Build Cloud Registry]({{< archRelRef "Anka Build Cloud/_index.md" >}}) since it will only push the state of the VM when the tag was created, not after.
 
 In summary, when cloning a tagged VM you have two options:
 
@@ -209,4 +209,4 @@ The clone is not automatically tagged.
 
 ## What's next?
 
-- [Acessing your VM]({{< relref "arm/Getting Started/accessing-your-vm.md" >}})
+- [Acessing your VM]({{< archRelRef "Getting Started/accessing-your-vm.md" >}})

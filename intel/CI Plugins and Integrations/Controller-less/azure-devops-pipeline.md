@@ -1,4 +1,10 @@
 ---
+date: 2019-07-03T22:24:47-05:00
+title: "Using Azure DevOps Pipelines and Anka Build"
+linkTitle: "Azure DevOps Pipelines"
+weight: 1
+description: >
+  Instructions on how to use Azure Devops Pipelines with Anka Build
 ---
 
 Microsoft's [Azure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/) provide a useful CI/CD solution within Azure DevOps.

@@ -10,7 +10,7 @@ VM instances are showing as failed in the Controller "Instances" page.
 
 ## Solutions
 
-Please see our [guide for troubleshooting failed VMs]({{< relref "intel/Troubleshooting + Guides/anka virtualization/failed-vms.md" >}}).
+Please see our [guide for troubleshooting failed VMs]({{< archRelRef "Troubleshooting + Guides/anka virtualization/failed-vms.md" >}}).
 
 ## Still experiencing problems?
 

@@ -1,4 +1,10 @@
 ---
+date: 2019-07-03T22:24:47-05:00
+title: "Using Buildkite and Anka Build"
+linkTitle: "Buildkite"
+weight: 2
+description: >
+  Instructions on how to use Buildkite with Anka Build
 ---
 
 The [anka-buildkite-plugin](https://github.com/chef/anka-buildkite-plugin) provides a quick way to integrate Anka with Buidkite. The plugin helps Buildkite jobs dynamically provision Anka VM instances for building, testing, and more.

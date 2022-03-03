@@ -28,7 +28,7 @@ Anka Build components support heterogeneous build nodes; You can connect both bo
 - Suspended VMs created in previous _minor versions_ of anka are not compatible and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.
 
 <br />
-For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}).
+For more details, take a look at our [pre-upgrade considerations]({{< archRelRef "Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
 - **Bug Fix:** High CPU usage from `configd` and `usbd` impacted VM performance only on previous 2.5.4 version.
@@ -114,7 +114,7 @@ For either 2.7.0 or 2.6.1, please check over your Anka Build Plugin configuratio
 - Suspended VMs created in previous _minor versions_ of anka are not compatible and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.
 
 <br />
-For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}).
+For more details, take a look at our [pre-upgrade considerations]({{< archRelRef "Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
 - **Bug Fix:** Automatic creation of anka image storage directories was not happening for config defaults and caused the agent to be unable to create VMs.
@@ -132,7 +132,7 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 - Avoid upgrading to this version on nodes with running VMs.
 
 <br />
-For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}).
+For more details, take a look at our [pre-upgrade considerations]({{< archRelRef "Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
 - **Bug Fix:** `anka list` was not sorted by name.
@@ -273,7 +273,7 @@ Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
 ### Anka Build Cloud Controller & Registry 1.18.0 (1.18.0-b3bb21bf) - Aug 23rd, 2021
 - Bug Fix: Reserved tasks do not get released back to queue
 - Bug Fix: Prevent controller crashing due to ETCD related panics and when active ETCD endpoint cannot be reached
-- New Feature: Ability to use certs and username/password for controller -> etcd connections | [Documentation]({{< relref "intel/Whats New/_index.md#ability-to-use-certs-and-usernamepassword-for-etcd-connections" >}})
+- New Feature: Ability to use certs and username/password for controller -> etcd connections | [Documentation]({{< archRelRef "Whats New/_index.md#ability-to-use-certs-and-usernamepassword-for-etcd-connections" >}})
 - Improvement: Upgrading etcd binaries to 3.4.16
 - (Standalone Registry: 1.18.0-04fd94e)
 
@@ -315,14 +315,14 @@ Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
 - Bug Fix: Inability to run more than one VM on AWS EC2 Mac
 - Bug Fix: Startup scripts through the controller API fail due to slow network/DHCP setup
 - Bug Fix: Anka run doesn't source all available bash/profile source files for the user, only the first. It will now source all files in the following order: `/etc/profile`, `.bash_profile`, `.bash_login`, `.profile`.
-- Improvement: Expanded Nested Virtualization to support Android Emulators and Virtualbox + refactored Docker support for modern macOS versions. **Nested Virtualization is only possible on Big Sur hosts and Big Sur or Catalina VM versions.** | [Documentation]({{< relref "intel/Anka Virtualization/nested-virtualization.md" >}})
-- Improvement: `anka show` now supports several new commands: `anka show {VMNAME} network`, `anka show {VMNAME} disk`, and `anka show {VMNAME} tags` | [Documentation]({{< relref "intel/Whats New/_index.md#additional-anka-show-commands" >}})
-- Improvement: `anka show` is now possible for specific local tags | [Documentation]({{< relref "intel/Whats New/_index.md#additional-anka-show-commands" >}})
+- Improvement: Expanded Nested Virtualization to support Android Emulators and Virtualbox + refactored Docker support for modern macOS versions. **Nested Virtualization is only possible on Big Sur hosts and Big Sur or Catalina VM versions.** | [Documentation]({{< archRelRef "Anka Virtualization/nested-virtualization.md" >}})
+- Improvement: `anka show` now supports several new commands: `anka show {VMNAME} network`, `anka show {VMNAME} disk`, and `anka show {VMNAME} tags` | [Documentation]({{< archRelRef "Whats New/_index.md#additional-anka-show-commands" >}})
+- Improvement: `anka show` is now possible for specific local tags | [Documentation]({{< archRelRef "Whats New/_index.md#additional-anka-show-commands" >}})
 - Improvement: `anka delete {template}:{tag}` has been replaced with `anka delete {template} --tag {tag}` | [Documentation]({{ relref "intel/Whats New/_index.md#previous-tag-deletion-method-has-been-replaced" }})
 - Improvement: You can now suspend VMs that have PG display enabled
-- Improvement: `anka create` can now be done in multiple stages so MDM can target the VM to apply profiles on creation | [Documentation]({{< relref "intel/Whats New/_index.md#multi-stage-anka-create-for-mdm-profile-application" >}})
+- Improvement: `anka create` can now be done in multiple stages so MDM can target the VM to apply profiles on creation | [Documentation]({{< archRelRef "Whats New/_index.md#multi-stage-anka-create-for-mdm-profile-application" >}})
 - New Feature: `anka stop` now detects if VM is unresponsive and issues forceful stop
-- New Feature: Ability to control VM display frame rate with `anka modify {VMNAME} set display --fps 30` (defaults to 30) | [Documentation]({{< relref "intel/Whats New/_index.md#ability-to-control-vm-display-frame-rate" >}})
+- New Feature: Ability to control VM display frame rate with `anka modify {VMNAME} set display --fps 30` (defaults to 30) | [Documentation]({{< archRelRef "Whats New/_index.md#ability-to-control-vm-display-frame-rate" >}})
 - New Feature: Monterey Beta VM support
 - Fuse will no longer be installed within newly created VMs
 
@@ -398,7 +398,7 @@ Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
 
 ### Anka Build Cloud Controller & Registry 1.15.0 (1.15.0-c69e2600) - Apr 6th, 2021
 - Bug Fix: Client-side load-balancing with three etcd and/or controller containers throws `etcdserver: mvcc: required revision is a future revision` and causes a random loss of VMs
-- New Feature: `script_result` object is now returned from [Save Image Template API]({{< relref "intel/Anka Build Cloud/working-with-controller-and-API.md#list-save-template-image-requests" >}})
+- New Feature: `script_result` object is now returned from [Save Image Template API]({{< archRelRef "Anka Build Cloud/working-with-controller-and-API.md#list-save-template-image-requests" >}})
 - Bug Fix: The start vm queue code sometimes check tasks from the controller queue. It doesn't take the tasks but it can create load on the db
 - (Standalone Registry: 1.15.0-a88b7bc)
 
@@ -418,8 +418,8 @@ Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
 
 > Upgrading Addons from the previous version **is** necessary
 
-- New Feature: (improved security) [VM network isolation when using shared type network-card]({{< relref "intel/Whats New/_index.md#vm-networking-is-now-isolated-for-improved-security" >}}). This also means that any access to the host also blocked (192.168.64.1).
-- New Feature: [Pushing and pulling from the registry is now chunked]({{< relref "intel/Whats New/_index.md#registry-pushing-and-pulling-of-vm-templatestags-are-now-chunked-for-better-performance" >}}).
+- New Feature: (improved security) [VM network isolation when using shared type network-card]({{< archRelRef "Whats New/_index.md#vm-networking-is-now-isolated-for-improved-security" >}}). This also means that any access to the host also blocked (192.168.64.1).
+- New Feature: [Pushing and pulling from the registry is now chunked]({{< archRelRef "Whats New/_index.md#registry-pushing-and-pulling-of-vm-templatestags-are-now-chunked-for-better-performance" >}}).
 - Improvement: Suspended VMs that fail to start for a temporary issue will not become corrupted anymore. This allows a second start to happen without having to re-pull the suspended VM again from the registry.
 - Improvement: Anka clone now preserves the source VM creation date.
 - Bug Fix: Anka run suddenly throws `-anka: communication timeout`
@@ -443,8 +443,8 @@ Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
 - Out of beta!
 
 ### Anka Build Cloud Controller & Registry 1.14.0 (1.14.0-17620328) - Feb 18th, 2021
-- New Feature: [A button will now show in the Controller UI allowing you to delete an Offline node (instead of having to issue an API call)]({{< relref "intel/Whats New/_index.md#delete-button-will-show-for-offline-nodes" >}})
-- New Feature: [You can now set a specific range of MAC addresses that are assigned to VM instances]({{< relref "intel/Whats New/_index.md#customize-the-range-of-mac-addresses-the-controller-uses-for-creating-vms" >}})
+- New Feature: [A button will now show in the Controller UI allowing you to delete an Offline node (instead of having to issue an API call)]({{< archRelRef "Whats New/_index.md#delete-button-will-show-for-offline-nodes" >}})
+- New Feature: [You can now set a specific range of MAC addresses that are assigned to VM instances]({{< archRelRef "Whats New/_index.md#customize-the-range-of-mac-addresses-the-controller-uses-for-creating-vms" >}})
 - Improvement: The registry now supports ANKA_ environment variables, similar to the controller
 - (Standalone Registry: 1.14.0-1e39461)
 
@@ -456,7 +456,7 @@ Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
 > Upgrading Addons from the previous version is **not** necessary
 
 ### Jenkins Plugin 2.4.0 - Feb 18th, 2021
-- New Feature: [You can now set the Launch timeout values to handle network/resource conditions that delay VMs initializing their networking]({{< relref "intel/Whats New/_index.md#set-various-vm-launch-timeout-values" >}})
+- New Feature: [You can now set the Launch timeout values to handle network/resource conditions that delay VMs initializing their networking]({{< archRelRef "Whats New/_index.md#set-various-vm-launch-timeout-values" >}})
 
 ### Anka Prometheus Exporter (2.1.2) - Mar 25th, 2021
 - Bug Fix: Gaps in metrics due to improperly placed reset logic
@@ -492,7 +492,7 @@ Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
 - New Feature: Disable appending timestamp to Cache Builder/tags
 ### Anka Build Cloud Controller & Registry 1.13.0 (1.13.0-24e848a5) - Dec 28th, 2020
 - Bug Fix: The controller was terminating VMs after a few minutes of the node or the controller being down
-- New Feature: [`ankacluster status` now shows more details about the Node (includes `--machine-readable` flag for JSON output)]({{< relref "intel/Whats New/_index.md#ankacluster-status-now-shows-more-details-about-the-node" >}})
+- New Feature: [`ankacluster status` now shows more details about the Node (includes `--machine-readable` flag for JSON output)]({{< archRelRef "Whats New/_index.md#ankacluster-status-now-shows-more-details-about-the-node" >}})
 - (Standalone Registry: 1.13.0-9fae2f3)
 ### Packer Plugin 1.6.1 - Dec 28th, 2020
 - Bug Fix: Creation wasn't setting cpu/ram/disk_size values [PR](https://github.com/veertuinc/packer-builder-veertu-anka/pull/50)
@@ -515,7 +515,7 @@ Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
 > Known issue: PG and Nested Virtualization are not compatible.
 ### Anka Virtualization CLI 2.3.1 (2.3.1.124) - Dec 3rd, 2020
 
-- New Feature: [You can now `anka delete {vmName}:{tagName}` in order to remove the tag LABEL from your VM. However, this does not remove the STATE of the tag from the VM, allowing you to create a new tag without losing the previous tag's config, installed dependencies, etc.]({{< relref "intel/Getting Started/creating-your-first-vm.md#re-pushing-an-existing-registry-tag" >}})
+- New Feature: [You can now `anka delete {vmName}:{tagName}` in order to remove the tag LABEL from your VM. However, this does not remove the STATE of the tag from the VM, allowing you to create a new tag without losing the previous tag's config, installed dependencies, etc.]({{< archRelRef "Getting Started/creating-your-first-vm.md#re-pushing-an-existing-registry-tag" >}})
 - Bug Fix: Hostmachines running 10.13.6 were locking up when executing `anka run` and `anka cp` on them
 - Bug Fix: Incorrect DHCP handling logic caused random IP to be assigned to VM
 - Bug Fix: `anka modify set custom-variable sys.csr-active-config 0` doesn't work as expected
@@ -666,7 +666,7 @@ Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
 - Bug Fix: When cache building, "Checking save image status" would immediately return success and the Job would complete even though the cache tag was still being pushed.
 
 ### Anka Build Cloud Controller & Registry 1.10.1 - August 20, 2020
-- New Feature: [Unresponsive VM monitoring with `ankacluster join --enable-vm-monitor`]({{< relref "intel/Whats New/_index.md#unresponsive-vm-monitor" >}})
+- New Feature: [Unresponsive VM monitoring with `ankacluster join --enable-vm-monitor`]({{< archRelRef "Whats New/_index.md#unresponsive-vm-monitor" >}})
 
 ### Anka Build Cloud Controller & Registry 1.10.0 - August 5, 2020
 - Bug Fix: Central Logging was preventing nodes from joining
@@ -683,7 +683,7 @@ Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
 ### Anka Build Cloud Controller & Registry 1.8.0 - June 16, 2020
 - New Feature: Controller REST API now supports modifying the vCPU and RAM for VMs in a stopped state
 - New Feature: Controller REST API Start VM Instance object allows for custom key/value metadata
-- New Feature: [Controller Instances page now allows users to add custom columns (from metadata key/value)]({{< relref "intel/Whats New/_index.md" >}})
+- New Feature: [Controller Instances page now allows users to add custom columns (from metadata key/value)]({{< archRelRef "Whats New/_index.md" >}})
 - New Feature: Updated license terms
 - Bug Fix: Agent process stays alive despite disjoin
 - Bug Fix: Instance sorting in controller UI was not kept on update

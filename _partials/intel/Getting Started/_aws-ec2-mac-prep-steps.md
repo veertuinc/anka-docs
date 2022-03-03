@@ -4,7 +4,7 @@
 4. (Optional) Automatically join to the Anka Build Cloud Controller using User Data:
 
   {{< hint warning >}}
-  This step requires that you first [set up the Anka Build Cloud]({{< relref "intel/Anka Build Cloud/setup-on-linux-with-docker.md" >}}). 
+  This step requires that you first [set up the Anka Build Cloud]({{< relref "intel/Anka Build Cloud/setup-on-linux-with-docker.md" >}}).
   {{< /hint >}}
 
   {{< hint warning >}}

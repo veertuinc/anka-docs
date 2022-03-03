@@ -6,7 +6,7 @@ description: >
   Activating your Anka Build or Flow license
 ---
 
-More detailed license information can be found on our [Licensing documentation page]({{< relref "intel/Licensing/_index.md" >}})
+More detailed license information can be found on our [Licensing documentation page]({{< archRelRef "Licensing/_index.md" >}})
 
 {{< include file="_partials/intel/Licensing/activating.md" >}}
 
@@ -14,5 +14,5 @@ More detailed license information can be found on our [Licensing documentation p
 
 ## What's next?
 
-- [Anka CLI Command Reference]({{< relref "intel/Anka Virtualization/command-reference.md" >}})
-- [Troubleshooting + Guides]({{< relref "intel/Troubleshooting + Guides/_index.md" >}})
+- [Anka CLI Command Reference]({{< archRelRef "Anka Virtualization/command-reference.md" >}})
+- [Troubleshooting + Guides]({{< archRelRef "Troubleshooting + Guides/_index.md" >}})

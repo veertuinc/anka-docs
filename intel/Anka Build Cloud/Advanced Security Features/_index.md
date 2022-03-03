@@ -16,7 +16,7 @@ There are three different authentication methods available:
 **Method** | **Details**
 --- | ---
 [Root Token Authentication]({{< relref "./root-token-authentication.md" >}}) | Superuser access to Anka Controller dashboard.
-[Certificate Authentication]({{< relref "./certificate-authentication.md" >}}) | Certificate based access to the Controller and Registry. API requests, Node joining, and [`anka registry`]({{< relref "intel/Anka Virtualization/command-reference.md#registry" >}}) commands all require a valid certificate.
+[Certificate Authentication]({{< relref "./certificate-authentication.md" >}}) | Certificate based access to the Controller and Registry. API requests, Node joining, and [`anka registry`]({{< archRelRef "Anka Virtualization/command-reference.md#registry" >}}) commands all require a valid certificate.
 [OpenId (SSO) Authentication]({{< relref "./openid-authentication.md" >}}) | Similar to Certificate authentication, but using your existing OpenID certified user directory.
 
-> Authentication can be enabled in your [Controller configuration]({{< relref "intel/Anka Build Cloud/configuration-reference.md#authentication-and-authorization" >}}).
+> Authentication can be enabled in your [Controller configuration]({{< archRelRef "Anka Build Cloud/configuration-reference.md#authentication-and-authorization" >}}).

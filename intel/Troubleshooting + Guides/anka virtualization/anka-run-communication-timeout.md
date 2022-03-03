@@ -10,7 +10,7 @@ Anka Run throws `-anka: communication timeout`
 
 ## Common Causes
 
-1. [No active/logged in (to UI) user, Autologin disabled, and a few other prep steps aren't performed]({{< relref "intel/Anka Build Cloud/preparing-and-joining-your-nodes.md" >}})
+1. [No active/logged in (to UI) user, Autologin disabled, and a few other prep steps aren't performed]({{< archRelRef "Anka Build Cloud/preparing-and-joining-your-nodes.md" >}})
 
 ## Solution
 

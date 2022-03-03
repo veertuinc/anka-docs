@@ -8,10 +8,10 @@ description: How to upgrade the Anka Virtualization package
 
 ### Upgrade Procedure
 
-1. [Download and install the latest version]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})
+1. [Download and install the latest version]({{< archRelRef "Getting Started/installing-the-anka-virtualization-package.md" >}})
 
 {{< hint info >}}
-Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Build Cloud Controller & Registry]({{< relref "intel/Anka Build Cloud/upgrading.md" >}})
+Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Build Cloud Controller & Registry]({{< archRelRef "Anka Build Cloud/upgrading.md" >}})
 {{< /hint >}}
 
 {{< hint warning >}}
@@ -37,7 +37,7 @@ Existing Version | Target Version | Recommendation
 
 ### Upgrading VM Addons
 
-If your existing version is noted in the [Pre-Upgrade Considerations]({{< relref "intel/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}) as requiring an addons upgrade, or, if you're going between major/minor versions of Anka:
+If your existing version is noted in the [Pre-Upgrade Considerations]({{< archRelRef "Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}) as requiring an addons upgrade, or, if you're going between major/minor versions of Anka:
 
    1. Upgrade the guest addons inside existing VM templates with `anka start -u`
    2. Push the newly upgraded VM templates to registry with `anka registry push {vmNameOrUUID} --tag <newTag>`

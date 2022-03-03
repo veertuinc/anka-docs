@@ -1,8 +1,13 @@
 ---
+date: 2019-07-03T22:24:47-05:00
+title: "Using GitLab and Anka Build Cloud"
+linkTitle: "GitLab"
+weight: 3
+description: >
+  Instructions on how to use GitLab with Anka Build Cloud
 ---
 
 If you are using GitLab, Veertu provides and maintains the [Anka GitLab Runner](https://github.com/veertuinc/gitlab-runner). The runner connects GitLab to the Anka Cloud Controller to perform VM Instance creation and command execution through SSH into the VM Instance.
- 
 ## VM Template & Tag Requirements
 
 > The below list are the absolute necessities needed to execute commands in a VM through your CI and the GitLab Runner. You may have to include other dependencies depending on your needs.
@@ -10,7 +15,7 @@ If you are using GitLab, Veertu provides and maintains the [Anka GitLab Runner](
 1. In the VM:
     - Install `git`
     - Make sure remote login is enabled (`System Preferences > Sharing`).
-2. On the host, enable [port forwarding]({{< relref "intel/Anka Virtualization/command-reference.md#modify-vmnameoruuid-add-port-forwarding" >}}) of the VM's 22 port using the Anka CLI. _We recommend not specifying `--host-port`._
+2. On the host, enable [port forwarding]({{< archRelRef "Anka Virtualization/command-reference.md#modify-vmnameoruuid-add-port-forwarding" >}}) of the VM's 22 port using the Anka CLI. _We recommend not specifying `--host-port`._
 3. `sudo anka suspend {VM Template name}`
 4. `sudo anka registry push {VM Template name} {Tag name}`
 
@@ -231,7 +236,7 @@ OPTIONS:
 
 > We run `update-ca-certificates` each time you start the container. You can add a volume to mount in your certificates if needed.
 
-You use the same non-interactive arguments that we mentioned in [the Registration section]({{< relref "intel/CI Plugins and Integrations/GitLab/_index.md#registration" >}}) when executing the binary (but without `--non-interactive`):
+You use the same non-interactive arguments that we mentioned in [the Registration section]({{< relref "#registration" >}}) when executing the binary (but without `--non-interactive`):
 
 ```shell
 ❯ docker run -ti --rm veertu/anka-gitlab-runner-amd64 --url "http://anka.gitlab:8084/" --registration-token nHKqG3sYV4B5roRK1ZhW --ssh-user anka --ssh-password admin --name "localhost shared runner" --anka-controller-address "https://anka.controller:8080/" --anka-template-uuid d09f2a1a-e621-463d-8dfd-8ce9ba9f4160 --anka-tag base:port-forward-22:brew-git:gitlab --executor anka --anka-root-ca-path /Users/nathanpierce/anka-ca-crt.pem --anka-cert-path /Users/nathanpierce/anka-gitlab-crt.pem --anka-key-path /Users/nathanpierce/anka-gitlab-key.pem --clone-url "http://anka.gitlab:8084" --tag-list "localhost-shared,localhost,iOS"

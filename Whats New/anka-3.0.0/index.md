@@ -14,4 +14,3 @@ Anka Build components support heterogeneous Build nodes. You can connect both bo
 {{< /hint >}}
 
 You can get started by reading [our documentation for Anka 3.0.0]({{< relref "arm/Getting Started/_index.md" >}}).
-

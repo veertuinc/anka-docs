@@ -8,13 +8,13 @@ description: >
 
 ## Prerequisites
 
-1. [You've installed the Anka Virtualization package]({{< relref "arm/Getting Started/installing-the-anka-virtualization-package.md" >}})
-2. [You've created your first VM]({{< relref "arm/Getting Started/creating-your-first-vm.md" >}})
+1. [You've installed the Anka Virtualization package]({{< archRelRef "Getting Started/installing-the-anka-virtualization-package.md" >}})
+2. [You've created your first VM]({{< archRelRef "Getting Started/creating-your-first-vm.md" >}})
 
 ---
 
 {{< hint warning >}}
-The rest of this Getting Started guide focuses heavily on the Anka Virtualization CLI (Command-Line Interface). These will be performed from within your [macOS Terminal](https://support.apple.com/guide/terminal/welcome/mac). For all available CLI commands, flags, and options, see the [Command Reference]({{< relref "arm/Anka Virtualization/command-reference.md" >}}).
+The rest of this Getting Started guide focuses heavily on the Anka Virtualization CLI (Command-Line Interface). These will be performed from within your [macOS Terminal](https://support.apple.com/guide/terminal/welcome/mac). For all available CLI commands, flags, and options, see the [Command Reference]({{< archRelRef "Anka Virtualization/command-reference.md" >}}).
 {{< /hint >}}
 
 {{< include file="_partials/arm/Anka Virtualization/modify/_index.md" >}}
@@ -37,4 +37,4 @@ Depending on your network topology, there are instances where you might need to 
 
 ## What's next?
 
-- [Understanding VM Networking]({{< relref "arm/Getting Started/understanding-vm-networking.md" >}})
+- [Understanding VM Networking]({{< archRelRef "Getting Started/understanding-vm-networking.md" >}})

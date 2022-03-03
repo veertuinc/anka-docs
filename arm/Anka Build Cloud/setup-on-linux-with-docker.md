@@ -9,7 +9,7 @@ description: >
 Welcome! This tutorial guides you through setting up your Anka Build Cloud on Linux using Docker and Docker-Compose.
 
 {{< hint warning >}}
-**This guide is for first time users and shouldn't be used for upgrading. Please use [the upgrading guide]({{< relref "arm/Anka Build Cloud/upgrading.md" >}}) instead.**
+**This guide is for first time users and shouldn't be used for upgrading. Please use [the upgrading guide]({{< archRelRef "Anka Build Cloud/upgrading.md" >}}) instead.**
 {{< /hint >}}
 
 ## Necessary Hardware
@@ -31,7 +31,7 @@ While it's possible to run Docker on mac, it's not recommended. An Anka Controll
 
 ## Step 1: Get familiar with Anka Virtualization
 
-[Please go over our Getting Started guide before proceeding.]({{< relref "arm/Getting Started/creating-your-first-vm.md" >}})
+[Please go over our Getting Started guide before proceeding.]({{< archRelRef "Getting Started/creating-your-first-vm.md" >}})
 
 ## Step 2: Install the Anka Build Cloud Controller & Registry
 
@@ -105,7 +105,7 @@ aa1de7c150e7        test_anka-controller   "/bin/bash -c 'anka-…"   About a mi
 
 Any non-default configuration changes are done by editing the .env files, or directly in `docker-compose.yml`.
 
-[A full configuration reference is available.]({{< relref "arm/Anka Build Cloud/configuration-reference.md" >}})
+[A full configuration reference is available.]({{< archRelRef "Anka Build Cloud/configuration-reference.md" >}})
 
 #### Logging
 
@@ -129,7 +129,7 @@ docker logs --tail 100 -f test_anka-registry_1
 {{< hint info >}}
 ##### Troubleshooting tip
 
-The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([reference]({{< relref "arm/Anka Build Cloud/configuration-reference.md#logging" >}}))
+The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([reference]({{< archRelRef "Anka Build Cloud/configuration-reference.md#logging" >}}))
 {{< /hint >}}
 
 ## Step 3: Link the Anka CLI Node to the Controller
@@ -192,7 +192,8 @@ In order for the host/node to perform controller tasks (pull, start, delete, etc
 
 ## What next?
 
-- [Prepare and join your machines to the Build Cloud]({{< relref "arm/Anka Build Cloud/preparing-and-joining-your-nodes.md" >}}).  
-- Browse the [Anka CLI Command Reference]({{< relref "arm/Anka Virtualization/command-reference.md" >}}).  
-- Connect the cloud to your [CI software]({{< relref "arm/CI Plugins and Integrations/_index.md" >}}).  
-- Find out how to use the [Controller REST API]({{< relref "arm/Anka Build Cloud/working-with-controller-and-api.md#rest-api">}}).  
+- [Prepare and join your machines to the Build Cloud]({{< archRelRef "Anka Build Cloud/preparing-and-joining-your-nodes.md" >}}).  
+- Browse the [Anka CLI Command Reference]({{< archRelRef "Anka Virtualization/command-reference.md" >}}).  
+- Connect the cloud to your [CI software]({{< archRelRef "CI Plugins and Integrations/_index.md" >}}).  
+- Find out how to use the [Controller REST API]({{< archRelRef "Anka Build Cloud/working-with-controller-and-API.md#rest-api">}}).  
+- Learn how to work with [USB devices]({{< archRelRef "Anka Virtualization/working-with-usb-devices.md">}})

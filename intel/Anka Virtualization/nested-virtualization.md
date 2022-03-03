@@ -26,7 +26,7 @@ Please avoid suspending VMs while Docker or other nested virtualization apps are
 
 #### Virtualbox
 #### Android Emulators
-  > [We highly recommend PG is enabled when using Android Emulators]({{< relref "intel/Anka Virtualization/enabling-graphics-acceleration-with-apple-metal.md" >}})
+  > [We highly recommend PG is enabled when using Android Emulators]({{< archRelRef "Anka Virtualization/enabling-graphics-acceleration-with-apple-metal.md" >}})
 
 There are however some steps that you need to perform to get Android emulators to run properly:
 1. Uninstall previous Anka versions using sudo /Library/Application\ Support/Veertu/Anka/tools/uninstall.sh

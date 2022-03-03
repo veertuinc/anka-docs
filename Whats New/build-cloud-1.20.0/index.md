@@ -35,7 +35,7 @@ curl "http://anka.controller/api/v1/node" -H "Content-Type: application/json" | 
 
 ### Delete VM Templates on Node from Controller API
 
-#### [API DOCUMENTATION]({{< relref "intel/Anka Build Cloud/working-with-controller-and-api.md#delete-template-from-nodes" >}})
+#### [API DOCUMENTATION]({{< relref "intel/Anka Build Cloud/working-with-controller-and-API.md#delete-template-from-nodes" >}})
 
 ```shell
 ❯ sudo anka registry pull ea663a61-0e5c-4419-8194-697104fb693a

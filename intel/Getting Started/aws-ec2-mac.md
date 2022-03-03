@@ -40,7 +40,7 @@ In order to get started using our Marketplace AMIs you have two options:
 1. Basic : [Product Page](https://aws.amazon.com/marketplace/pp/prodview-tzmid5kfn2knw)
 2. Enterprise : [Product Page](https://aws.amazon.com/marketplace/pp/prodview-rp7kfyl56arbe)
 
-Other than the hourly price, there is [a list of features that differ between the two.]({{< relref "intel/licensing.md#anka-build-cloud" >}})
+Other than the hourly price, there is [a list of features that differ between the two.]({{< archRelRef "licensing.md#anka-build-cloud" >}})
 
 {{< hint info >}}
 You can find a full list of products available on the AWS marketplace by visiting https://veertu.com/aws-marketplace. Or, once subscribed, you can find and launch instances from the marketplace AMIs on the [Manage Subscriptions page](https://console.aws.amazon.com/marketplace/home/subscriptions?#/subscriptions).
@@ -64,7 +64,7 @@ Once subscribed, you can start launching AMIs.
 
 #### Licensing
 
-The Marketplace AMI does not require a license. You are charged hourly for the usage through [the AWS marketplace](https://docs.aws.amazon.com/marketplace/latest/userguide/pricing.html). Anka marketplace AMIs are available with Anka Basic and Anka Enterprise Tier features. For more details on Basic and Enterprise Tier, [check out our documention.]({{< relref "intel/licensing.md#anka-build-cloud" >}})
+The Marketplace AMI does not require a license. You are charged hourly for the usage through [the AWS marketplace](https://docs.aws.amazon.com/marketplace/latest/userguide/pricing.html). Anka marketplace AMIs are available with Anka Basic and Anka Enterprise Tier features. For more details on Basic and Enterprise Tier, [check out our documention.]({{< archRelRef "licensing.md#anka-build-cloud" >}})
 
 ### Anka Build Cloud automated setup scripts
 
