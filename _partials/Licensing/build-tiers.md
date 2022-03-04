@@ -14,10 +14,10 @@ Central Registry | Yes(Single instance Anka Registry included) | Yes | Yes
 [GitLab Runner with custom executor](https://github.com/veertuinc/gitlab-runner) | Yes | Yes | Yes
 [BuildKite Plugin](https://github.com/veertuinc/anka-buildkite-plugin) | Yes | Yes | Yes
 HA for Controller configuration setup | Yes (Additional controller/registry instances needed) | Yes | Yes
-[USB Device control through the CLI (Anka 2 Only)]({{< relref "intel/working-with-usb-devices.md" >}}) |  Yes  | Yes | Yes
-[USB Device control through Controller API (Anka 2 Only)]({{< relref "#usb-device-control-controller-api" >}}) |    | Yes | Yes
-[Priority scheduling of VMs through controller]({{< relref "#priority-scheduling" >}}) |    | Yes | Yes
-[Clustering (Grouping) of Nodes]({{< relref "#node-groups" >}}) |    | Yes | Yes 
+[USB Device control through the CLI]({{< relref "intel/working-with-usb-devices.md" >}}) |  Yes  | Yes | Yes
+[USB Device control through Controller API]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#usb-device-control-controller-api" >}}) |    | Yes | Yes
+[Priority scheduling of VMs through controller]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#priority-scheduling" >}}) |    | Yes | Yes
+[Clustering (Grouping) of Nodes]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#node-groups" >}}) |    | Yes | Yes 
 [Basic controller authentication (Certificate & Root Superuser Token)]({{< relref "Anka Build Cloud/Advanced Security Features/_index.md" >}}) |    | Yes | Yes
 [Multi-user & group authorization with admin panel + OpenID/SSO support]({{< relref "Anka Build Cloud/Advanced Security Features/openid-authentication.md" >}}) |    |    | Yes
-Controller API activity logging |    |    | Yes
+[Controller API event logging]({{< relref "Anka Build Cloud/working-with-controller-and-API.md#event-logging-and-automated-pushing" >}}) |    |    | Yes
