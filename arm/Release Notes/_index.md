@@ -20,8 +20,15 @@ Anka Build components support heterogeneous build nodes; You can connect both bo
 
 {{< hint info >}}
 Known issues:
-
-  - `anka view` does not currently work post-start unless you started the VM with `-v`.
+  - AWS EC2 Mac instances do not support DHCP and therefore bridged networking mode.
+  - Screenshotting with `anka view`.
+  - Nested Virtualization (docker inside of VM).
+  - anka view does not currently work post-start unless you started the VM with `-v`.
+  - Anka's default VNC (normal Apple VNC works with port forwarding).
+  - iCloud / App Store login.
+  - Software update of the OS via System Preferences.
+  - USB devices other than keyboard / pointing device – no physical device capture or camera support.
+  - Dynamically reconfiguring of the display resolution.
 {{< /hint >}}
 
 ---
