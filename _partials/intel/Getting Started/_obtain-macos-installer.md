@@ -34,3 +34,4 @@ Other options are:
     - You can also use the App Store to download the installer.
 2. Have your local IT department provide a network volume or download links.
 3. Use our [Getting Started script](https://github.com/veertuinc/getting-started#create-vm-templatebash), but run it with `./create-vm-template.bash --no-anka-create`
+4. [MIST - macOS Installer Super Tool](https://github.com/ninxsoft/Mist)
