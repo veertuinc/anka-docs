@@ -94,7 +94,7 @@ Anka and Apple will also report crashes in `/Library/Logs/DiagnosticReports` as 
 ### Logs
 
 {{< hint info >}}
-You might be interested in changing the verbosity of the following logs. If so, you can set the `ANKA_LOG_LEVEL` ENV to an integer greater than 0 and restart the controller. See [our Configuration Reference]({{< relref "intel/Anka Build Cloud/configuration-reference.md#logging" >}}) for more details.
+You might be interested in changing the verbosity of the following logs. If so, you can set the `ANKA_LOG_LEVEL` ENV to an integer greater than 0 and restart the controller. See [our Configuration Reference]({{< relref "Anka Build Cloud/configuration-reference.md#logging" >}}) for more details.
 {{< /hint >}}
 
 #### Linux / Docker Package

@@ -1,10 +1,7 @@
 ---
 date: 2018-03-06
 title: "Release Notes"
-linkTitle: "Release Notes"
-weight: 9
-description: >
-  Detailed Release Notes
+weight: 100
 ---
 
 {{< hint warning >}}
@@ -28,7 +25,7 @@ Anka Build components support heterogeneous build nodes; You can connect both bo
 - Suspended VMs created in previous _minor versions_ of anka are not compatible and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.
 
 <br />
-For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}).
+For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
 - **Bug Fix:** High CPU usage from `configd` and `usbd` impacted VM performance only on previous 2.5.4 version.
@@ -114,7 +111,7 @@ For either 2.7.0 or 2.6.1, please check over your Anka Build Plugin configuratio
 - Suspended VMs created in previous _minor versions_ of anka are not compatible and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.
 
 <br />
-For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}).
+For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
 - **Bug Fix:** Automatic creation of anka image storage directories was not happening for config defaults and caused the agent to be unable to create VMs.
@@ -132,7 +129,7 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 - Avoid upgrading to this version on nodes with running VMs.
 
 <br />
-For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/Anka Virtualization/upgrading.md#pre-upgrade-considerations" >}}).
+For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
 - **Bug Fix:** `anka list` was not sorted by name.
@@ -315,7 +312,7 @@ Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
 - Bug Fix: Inability to run more than one VM on AWS EC2 Mac
 - Bug Fix: Startup scripts through the controller API fail due to slow network/DHCP setup
 - Bug Fix: Anka run doesn't source all available bash/profile source files for the user, only the first. It will now source all files in the following order: `/etc/profile`, `.bash_profile`, `.bash_login`, `.profile`.
-- Improvement: Expanded Nested Virtualization to support Android Emulators and Virtualbox + refactored Docker support for modern macOS versions. **Nested Virtualization is only possible on Big Sur hosts and Big Sur or Catalina VM versions.** | [Documentation]({{< relref "intel/Anka Virtualization/nested-virtualization.md" >}})
+- Improvement: Expanded Nested Virtualization to support Android Emulators and Virtualbox + refactored Docker support for modern macOS versions. **Nested Virtualization is only possible on Big Sur hosts and Big Sur or Catalina VM versions.** | [Documentation]({{< relref "intel/nested-virtualization.md" >}})
 - Improvement: `anka show` now supports several new commands: `anka show {VMNAME} network`, `anka show {VMNAME} disk`, and `anka show {VMNAME} tags` | [Documentation]({{< relref "intel/Whats New/_index.md#additional-anka-show-commands" >}})
 - Improvement: `anka show` is now possible for specific local tags | [Documentation]({{< relref "intel/Whats New/_index.md#additional-anka-show-commands" >}})
 - Improvement: `anka delete {template}:{tag}` has been replaced with `anka delete {template} --tag {tag}` | [Documentation]({{ relref "intel/Whats New/_index.md#previous-tag-deletion-method-has-been-replaced" }})
@@ -398,7 +395,7 @@ Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
 
 ### Anka Build Cloud Controller & Registry 1.15.0 (1.15.0-c69e2600) - Apr 6th, 2021
 - Bug Fix: Client-side load-balancing with three etcd and/or controller containers throws `etcdserver: mvcc: required revision is a future revision` and causes a random loss of VMs
-- New Feature: `script_result` object is now returned from [Save Image Template API]({{< relref "intel/Anka Build Cloud/working-with-controller-and-API.md#list-save-template-image-requests" >}})
+- New Feature: `script_result` object is now returned from [Save Image Template API]({{< relref "Anka Build Cloud/working-with-controller-and-API.md#list-save-template-image-requests" >}})
 - Bug Fix: The start vm queue code sometimes check tasks from the controller queue. It doesn't take the tasks but it can create load on the db
 - (Standalone Registry: 1.15.0-a88b7bc)
 

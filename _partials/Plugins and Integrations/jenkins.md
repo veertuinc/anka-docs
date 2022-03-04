@@ -9,7 +9,7 @@ The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud w
 - Supports automated VM Tag creation after your jobs run. This "Anka VM Template/Tag Creation" feature helps optimize subsequent builds as the dependencies are already on the VM.
 - Supports both **JNLP** and **SSH** based connections to Anka VMs.
   
-> In order to follow these instructions, you will need to [install the Anka CLI]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}}) and an understanding of how to [start the VM]({{< relref "intel/Anka Virtualization/command-reference.md#start" >}}) and [launch the viewer]({{< relref "intel/Anka Virtualization/command-reference.md#view" >}}).
+> In order to follow these instructions, you will need to [install the Anka CLI]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}}) and an understanding of how to [start the VM]({{< relref "intel/command-line-reference.md#start" >}}) and [launch the viewer]({{< relref "intel/command-line-reference.md#view" >}}).
 
 ## VM Template & Tag Requirements
 
@@ -22,7 +22,7 @@ The Jenkins Anka Plugin requires a VM with Java, SSH Remote Login, and port forw
 > You can run any version of JAVA you want **as long as the version inside of the VM matches your Jenkins server**
 
 2. In the VM, make sure remote login is enabled (`System Preferences > Sharing`).
-3. On the host, enable SSH [port forwarding]({{< relref "intel/Anka Virtualization/command-reference.md#modify-vmnameoruuid-add-port-forwarding" >}}) for your VM Template using the Anka CLI: `sudo anka modify <VM Template name> add port-forwarding --guest-port 22 ssh`. _We recommend not specifying --host-port._
+3. On the host, enable SSH [port forwarding]({{< relref "intel/command-line-reference.md#modify-vmnameoruuid-add-port-forwarding" >}}) for your VM Template using the Anka CLI: `sudo anka modify <VM Template name> add port-forwarding --guest-port 22 ssh`. _We recommend not specifying --host-port._
 4. `sudo anka suspend <VM Template name>`
 5. `sudo anka registry push <VM Template name> <Tag name>`
 

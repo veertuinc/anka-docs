@@ -20,7 +20,7 @@ For example:
 /Library/Application\ Support/Veertu/Anka/tools/create_macos_install_image.sh /Applications/Install\ macOS\ Sierra.app
 ```
 
-To create a VM from `.iso`, you will use [`anka create`]({{< relref "intel/Anka Virtualization/command-reference.md#create" >}}) command as you typically would. It will create an empty VM.
+To create a VM from `.iso`, you will use [`anka create`]({{< relref "intel/command-line-reference.md#create" >}}) command as you typically would. It will create an empty VM.
 Note - > While creating VM with anka create, make sure to specify enough --disk-size parameter. Currently, it's not possible to change the disk size for an existing VM.
 
 ```shell

@@ -1,8 +1,7 @@
 ---
 date: 2018-03-06
 title: "Release Notes"
-linkTitle: "Release Notes"
-weight: 7
+weight: 100
 ---
 
 {{< hint warning >}}

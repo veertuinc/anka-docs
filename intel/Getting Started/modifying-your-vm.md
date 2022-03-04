@@ -6,12 +6,12 @@ description: >
   Modify your VM using the Anka Virtualization CLI
 ---
 
-**The rest of this Getting Started guide focuses heavily on the Anka Virtualization CLI (Command-Line Interface). These will be performed from within your [macOS Terminal](https://support.apple.com/guide/terminal/welcome/mac). For all available CLI commands, flags, and options, see the [Command Reference]({{< relref "intel/Anka Virtualization/command-reference.md" >}}).**
+**The rest of this Getting Started guide focuses heavily on the Anka Virtualization CLI (Command-Line Interface). These will be performed from within your [macOS Terminal](https://support.apple.com/guide/terminal/welcome/mac). For all available CLI commands, flags, and options, see the [Command Reference]({{< relref "intel/command-line-reference.md" >}}).**
 
 ## Prerequisites
 
 1. [You've installed the Anka Virtualization package]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})
-2. [You've got an active license]({{< relref "intel/Licensing/_index.md" >}})
+2. [You've got an active license]({{< relref "Licensing/_index.md" >}})
 3. [You've created your first VM]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
 
 ---
@@ -62,7 +62,7 @@ At times you might need to modify the hardware serial or UUID to run proper buil
 ## Running commands inside of the VM
 
 {{< hint info >}}
-We have a useful example bash script which shows how to automate the execution of commands to create the various VM Templates/Tags necessary for your project. You can find the script [here](https://github.com/veertuinc/getting-started/blob/master/create-vm-template-tags.bash). (requires a [registry]({{< relref "intel/Anka Build Cloud/_index.md" >}}))
+We have a useful example bash script which shows how to automate the execution of commands to create the various VM Templates/Tags necessary for your project. You can find the script [here](https://github.com/veertuinc/getting-started/blob/master/create-vm-template-tags.bash). (requires a [registry]({{< relref "Anka Build Cloud/_index.md" >}}))
 {{< /hint >}}
 
 Installing dependencies, making OS or application level configuration changes, and even kicking off your build or test requires execution of commands inside of the VM. In the [previous section on accessing your VM]({{< relref "intel/Getting Started/starting-and-accessing-your-vm.md" >}}), we explained how you can [use Anka Run]({{< relref "intel/Getting Started/starting-and-accessing-your-vm.md" >}}) to execute commands from the host's terminal. Below are some examples, giving you an idea how to prepare the VM Template/Tag for your projects.

@@ -100,4 +100,4 @@ Dynamic MAC Addresses are not guaranteed to be unique, though, reuse/collision i
 
 ## What's next?
 
-- [Anka Command-Line Reference]({{< relref "arm/Anka Virtualization/command-reference.md" >}})
+- [Anka Command-Line Reference]({{< relref "arm/command-line-reference.md" >}})

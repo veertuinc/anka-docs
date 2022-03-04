@@ -21,12 +21,12 @@ description: >
 Requires addons are installed inside of the VM. You can check if they are installed with the `anka show {vmName}` command.
 {{< /hint >}}
 
-Similar to `docker exec`, [`anka run`]({{< relref "arm/Anka Virtualization/command-reference.md#run" >}}) allows execution of commands inside of a VM.
+Similar to `docker exec`, [`anka run`]({{< relref "arm/command-line-reference.md#run" >}}) allows execution of commands inside of a VM.
 
 {{< include file="_partials/arm/Anka Virtualization/run/_index.md" >}}
 
 {{< hint info >}}
-If the VM is in a _stopped_ state, [`anka run`]({{< relref "arm/Anka Virtualization/command-reference.md#run" >}}) will automatically start it.
+If the VM is in a _stopped_ state, [`anka run`]({{< relref "arm/command-line-reference.md#run" >}}) will automatically start it.
 {{< /hint >}}
 
 You can use `anka run` _on the host terminal_ to validate things are working properly:
@@ -57,7 +57,7 @@ round-trip min/avg/max/stddev = 10.163/10.267/10.316/0.055 ms
 
 #### Shell Configuration Files / Environment
 
-The [`anka run`]({{< relref "arm/Anka Virtualization/command-reference.md#run" >}}) command doesn't source `.profile`, `.bash_profile`, or `.zshrc` by default. It will however source `.zprofile`.
+The [`anka run`]({{< relref "arm/command-line-reference.md#run" >}}) command doesn't source `.profile`, `.bash_profile`, or `.zshrc` by default. It will however source `.zprofile`.
 
 You have to source the files or use `zsh/bash -lc/-ic` before executing other commands. Here are some examples:
 
@@ -117,7 +117,7 @@ Once you've enabled Apple's Remote Login inside of the VM, simply add a forwarde
 
 ## Answers to Frequently Asked Questions
 
-- [`anka run`]({{< relref "arm/Anka Virtualization/command-reference.md#run" >}}) doesn't support TTY mode, but you could easily use POSIX streams as with regular bash tool:
+- [`anka run`]({{< relref "arm/command-line-reference.md#run" >}}) doesn't support TTY mode, but you could easily use POSIX streams as with regular bash tool:
   ```shell
   ❯ anka run VNMANE whoami > /dev/null
 

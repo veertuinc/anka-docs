@@ -1,9 +1,8 @@
 ---
-title: >
-  Anka 2.5.4 (intel) -
-  Build Cloud 1.22.0
+title: "Anka 2.5.4 (intel)"
+weight: 3
 cascade:
   - type: "docs"
 ---
 
-{{< include file="What Is Anka/_index.md" >}}
+{{< include file="_partials/intel/Anka Virtualization/_index.md" >}}

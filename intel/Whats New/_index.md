@@ -1,8 +1,8 @@
 ---
 date: 2020-01-27
 title: "What's New (deprecated)"
-linkTitle: "What's New (deprecated)"
-weight: 10
+linkTitle: "What's New"
+weight: 98
 description: >
   Description of new Anka software features
 ---
@@ -204,7 +204,7 @@ anka modify VmName set network-card 0 --type bridged --direct-mac
 
 You can now specify the range of MAC addresses that the controller uses with the `ANKA_MANAGE_MAC_ADDRESSES` config.
 
-Once configured, [you can use the API to list or delete/regenerate the MAC list from a new range]({{< relref "intel/Anka Build Cloud/working-with-controller-and-api.md#mac-addresses-management" >}}).
+Once configured, [you can use the API to list or delete/regenerate the MAC list from a new range]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#mac-addresses-management" >}}).
 
 > Requires that you enable `ANKA_MANAGE_MAC_ADDRESSES`
 ## What's new in Anka Virtualization 2.3.3
@@ -325,7 +325,7 @@ config:
 
 On pushing to the registry, a tag is created. It will also be assigned a specific commit ID (not visible to users). Even if you modify the tag locally, such as adding port-forwarding, changes will not be pushed to the registry until you push with a different tag name.
 
-Now, you can simply untag the VM locally and then push it with the same name (after [deleting the VM template]({{< relref "intel/Anka Build Cloud/working-with-controller-and-api.md#delete-template" >}}) or [reverting the tag]({{< relref "intel/Anka Build Cloud/working-with-controller-and-api.md#revert-template-tag" >}})):
+Now, you can simply untag the VM locally and then push it with the same name (after [deleting the VM template]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#delete-template" >}}) or [reverting the tag]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#revert-template-tag" >}})):
 
 > Locally, this does not remove the current STATE of the tag from the VM. Your installed dependencies inside of the VM will remain as long as you don't pull or switch to a different tag.
 
@@ -446,7 +446,7 @@ export ANKA_CIPHER_SUITES="tls_ecdhe_ecdsa_with_chacha20_poly1305_sha256"
 export ANKA_MAX_TLS_VERSION="tls_1.0"
 ```
 
-A full list of options is available in the [configuration reference]({{< relref "intel/Anka Build Cloud/configuration-reference.md#tls" >}}).
+A full list of options is available in the [configuration reference]({{< relref "Anka Build Cloud/configuration-reference.md#tls" >}}).
 
 ## What's new in Anka Virtualization 2.3.0
 

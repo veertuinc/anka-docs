@@ -10,7 +10,7 @@ description: >
 ## Prerequisites
 
 1. [You've installed the Anka Virtualization package]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})
-2. [You've got an active license]({{< relref "intel/Licensing/_index.md" >}})
+2. [You've got an active license]({{< relref "Licensing/_index.md" >}})
 3. [You've created your first VM Template]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
 
 > When running Anka commands on your machine, ensure that you have an active login session (you might have to VNC in if you're connected over SSH) and also have enabled automatic login for the current user: `System Preferences > Users > Enable automatic login`
@@ -58,15 +58,15 @@ To start the VM in headless mode: `sudo anka start {vmNameOrUUID}`
 
 ## Anka Run (exec)
 
-Similar to `docker exec`, [`anka run`]({{< relref "intel/Anka Virtualization/command-reference.md#run" >}}) allows execution of commands inside of a VM.
+Similar to `docker exec`, [`anka run`]({{< relref "intel/command-line-reference.md#run" >}}) allows execution of commands inside of a VM.
 
 {{< include file="_partials/intel/Anka Virtualization/run/_index.md" >}}
 
-> If the VM is in a _suspended_ or _stopped_ state, [`anka run`]({{< relref "intel/Anka Virtualization/command-reference.md#run" >}}) will start it.
+> If the VM is in a _suspended_ or _stopped_ state, [`anka run`]({{< relref "intel/command-line-reference.md#run" >}}) will start it.
 
-> **Catalina and lower:** When running [`anka run`]({{< relref "intel/Anka Virtualization/command-reference.md#run" >}}) with no options/flags, it will mount the current directory from the host into the VM and execute commands in this mounted location. This can be disabled using the [`-n`]({{< relref "intel/Anka Virtualization/command-reference.md#run" >}}) option.
+> **Catalina and lower:** When running [`anka run`]({{< relref "intel/command-line-reference.md#run" >}}) with no options/flags, it will mount the current directory from the host into the VM and execute commands in this mounted location. This can be disabled using the [`-n`]({{< relref "intel/command-line-reference.md#run" >}}) option.
 
-> **Big Sur:** When running [`anka run`]({{< relref "intel/Anka Virtualization/command-reference.md#run" >}}) with no options/flags, the current directory will not be mounted in by default. This requires the [manual installation of addons]({{< relref "intel/Anka Virtualization/command-reference.md#start" >}})
+> **Big Sur:** When running [`anka run`]({{< relref "intel/command-line-reference.md#run" >}}) with no options/flags, the current directory will not be mounted in by default. This requires the [manual installation of addons]({{< relref "intel/command-line-reference.md#start" >}})
 
 Once started, you can use `anka run` _on the host terminal_ to validate things are working properly:
 
@@ -95,7 +95,7 @@ PING google.com (172.217.10.110): 56 data bytes
 round-trip min/avg/max/stddev = 16.992/21.940/25.797/3.416 ms
 ```
 
-> The [`anka run`]({{< relref "intel/Anka Virtualization/command-reference.md#run" >}}) command doesn't source .profile or .bash_profile. You have to source the file before executing other commands
+> The [`anka run`]({{< relref "intel/command-line-reference.md#run" >}}) command doesn't source .profile or .bash_profile. You have to source the file before executing other commands
 
 > To inherit the host's environment, use `anka run --env` command. However, existing VM variables will not be overridden by host's variables. You can also pass them inside of a file like `anka run --env-file environment.txt`, where environment.txt is a text file in the form `VARIABLE=VALUE`, one variable per line.
 
@@ -103,7 +103,7 @@ round-trip min/avg/max/stddev = 16.992/21.940/25.797/3.416 ms
 
 ## Anka View
 
-> On Big Sur, many of the resolution/graphics features in Anka View do not work unless you [manually install addons]({{< relref "intel/Anka Virtualization/command-reference.md#start">}})
+> On Big Sur, many of the resolution/graphics features in Anka View do not work unless you [manually install addons]({{< relref "intel/command-line-reference.md#start">}})
 
 {{< include file="_partials/intel/Anka Virtualization/view/_index.md" >}}
 
@@ -111,7 +111,7 @@ round-trip min/avg/max/stddev = 16.992/21.940/25.797/3.416 ms
 
 {{< hint info >}}
 ### Changing the resolution of the VM
-You can change the resolution from the host using the `View > Set Resolution`. Or, if you want to change it from within the VM, you can use `/Library/Application\ Support/Veertu/Anka/addons/change_res 1920x1080`. **Both of these features require that you [enable PG]({{< relref "intel/Anka Virtualization/enabling-graphics-acceleration-with-apple-metal.md">}}) for the VM.**
+You can change the resolution from the host using the `View > Set Resolution`. Or, if you want to change it from within the VM, you can use `/Library/Application\ Support/Veertu/Anka/addons/change_res 1920x1080`. **Both of these features require that you [enable PG]({{< relref "intel/enabling-graphics-acceleration-with-apple-metal.md">}}) for the VM.**
 {{< /hint >}}
 
 ## SSH
@@ -186,19 +186,19 @@ By default, without any modifications to the VM post-create, you'll be able to a
 +-----------------------+--------------------------------------+
 ```
 
-However, this is a very limited VNC with no extensions (copy/paste, extended authorization, etc). To use Apple's VNC with all extensions enabled, you'll need to `anka view` into the VM and enable Screen Sharing under System Preferences (kickstart scripts will not work for Big Sur and above). Once enabled, you need to stop the VM with `anka stop`, then use the [modify command to set port-forwarding]({{< relref "intel/Anka Virtualization/command-reference.md#modify-vmnameoruuid-add-port-forwarding" >}}) of the VNC port from within the VM to a port on the host. This will allow you to VNC to the host IP and the forwarded port (usually 10000-10005).
+However, this is a very limited VNC with no extensions (copy/paste, extended authorization, etc). To use Apple's VNC with all extensions enabled, you'll need to `anka view` into the VM and enable Screen Sharing under System Preferences (kickstart scripts will not work for Big Sur and above). Once enabled, you need to stop the VM with `anka stop`, then use the [modify command to set port-forwarding]({{< relref "intel/command-line-reference.md#modify-vmnameoruuid-add-port-forwarding" >}}) of the VNC port from within the VM to a port on the host. This will allow you to VNC to the host IP and the forwarded port (usually 10000-10005).
 
 > When using a Linux or Windows VNC client like RealVNC, ensure it's using TrueColor settings (32 bit), not 256 colors (indexed). This may be called "Picture Quality" in your client (set it to Medium).
 
 ## Answers to Frequently Asked Questions
 
-- [`anka run`]({{< relref "intel/Anka Virtualization/command-reference.md#run" >}}) doesn't support TTY mode, but you could easily use POSIX streams as with regular bash tool:
+- [`anka run`]({{< relref "intel/command-line-reference.md#run" >}}) doesn't support TTY mode, but you could easily use POSIX streams as with regular bash tool:
     ```shell
     anka run -n VNMANE whoami > /dev/null
     cat file.txt | anka run -n {vmNameOrUUID} md5
     ```
 - You can set the resolution of the Anka Viewer using `sudo anka modify 10.15.4 set display --resolution 1200x800`
-- [Port forwarding of VM ports is supported]({{< relref "intel/Anka Virtualization/command-reference.md#modify-vmnameoruuid-add-port-forwarding" >}})
+- [Port forwarding of VM ports is supported]({{< relref "intel/command-line-reference.md#modify-vmnameoruuid-add-port-forwarding" >}})
 
 ---
 

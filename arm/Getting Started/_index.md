@@ -1,8 +1,7 @@
 ---
 title: "Getting Started"
 linkTitle: "Getting Started"
-weight: 2
-sidebar_menu_sub_sections_exposed: true
+weight: 1
 description: >
   Getting started using Anka
 ---

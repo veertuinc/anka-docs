@@ -7,11 +7,11 @@
 
 Anka licenses are available for the following products:
 
-+ **[Anka Develop]({{< relref "intel/anka-develop.md" >}})** - Very limited features allowing a developer to run a single VM at a time. Supported only on laptops (Macbook, Macbook Pro, and Macbook Air).
-+ **[Anka Build Basic]({{< relref "intel/Anka Build Cloud/build-license-tiers.md" >}})** - All Basic features to configure and run macOS CI Cloud infrastructure.
-+ **[Anka Build Enterprise]({{< relref "intel/Anka Build Cloud/build-license-tiers.md" >}})** - Basic + additional features for grouping, priority provisioning, etc.
-+ **[Anka Build Enterprise Plus]({{< relref "intel/Anka Build Cloud/build-license-tiers.md" >}})** - Enterprise + additional features to support SSO and event logging.
-+ **[Anka Flow]({{< relref "intel/anka-flow.md" >}})** - Install and configure Anka on developer mac workstations. Supported only on macbook models and iMac.
++ **[Anka Develop]({{< relref "anka-develop.md" >}})** - Very limited features allowing a developer to run a single VM at a time. Supported only on laptops (Macbook, Macbook Pro, and Macbook Air).
++ **[Anka Build Basic]({{< relref "Anka Build Cloud/build-license-tiers.md" >}})** - All Basic features to configure and run macOS CI Cloud infrastructure.
++ **[Anka Build Enterprise]({{< relref "Anka Build Cloud/build-license-tiers.md" >}})** - Basic + additional features for grouping, priority provisioning, etc.
++ **[Anka Build Enterprise Plus]({{< relref "Anka Build Cloud/build-license-tiers.md" >}})** - Enterprise + additional features to support SSO and event logging.
++ **[Anka Flow]({{< relref "anka-flow.md" >}})** - Install and configure Anka on developer mac workstations. Supported only on macbook models and iMac.
 
 ## Trial License
 
@@ -34,13 +34,13 @@ Central Registry | Yes(Single instance Anka Registry included) | Yes | Yes
 [GitLab Runner with custom executor](https://github.com/veertuinc/gitlab-runner) | Yes | Yes | Yes
 [BuildKite Plugin](https://github.com/veertuinc/anka-buildkite-plugin) | Yes | Yes | Yes
 HA for Controller configuration setup | Yes (Additional controller/registry instances needed) | Yes | Yes
-[USB Device control through the CLI]({{< relref "intel/Anka Virtualization/working-with-usb-devices.md" >}}) |  Yes  | Yes | Yes
-[USB Device control through Controller API]({{< relref "intel/Anka Build Cloud/working-with-controller-and-api.md#usb-device-control-controller-api" >}}) |    | Yes | Yes
-[Priority scheduling of VMs through controller]({{< relref "intel/Anka Build Cloud/working-with-controller-and-api.md#priority-scheduling" >}}) |    | Yes | Yes
-[Clustering (Grouping) of Nodes]({{< relref "intel/Anka Build Cloud/working-with-controller-and-api.md#node-groups" >}}) |    | Yes | Yes 
-[Basic controller authentication (Certificate & Root Superuser Token)]({{< relref "intel/Anka Build Cloud/Advanced Security Features/_index.md" >}}) |    | Yes | Yes
-[Multi-user & group authorization with admin panel + OpenID/SSO support]({{< relref "intel/Anka Build Cloud/Advanced Security Features/openid-authentication.md" >}}) |    |    | Yes
-[Controller API event logging]({{< relref "intel/Anka Build Cloud/working-with-controller-and-API.md#event-logging-and-automated-pushing" >}}) |    |    | Yes
+[USB Device control through the CLI]({{< relref "intel/working-with-usb-devices.md" >}}) |  Yes  | Yes | Yes
+[USB Device control through Controller API]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#usb-device-control-controller-api" >}}) |    | Yes | Yes
+[Priority scheduling of VMs through controller]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#priority-scheduling" >}}) |    | Yes | Yes
+[Clustering (Grouping) of Nodes]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#node-groups" >}}) |    | Yes | Yes 
+[Basic controller authentication (Certificate & Root Superuser Token)]({{< relref "Anka Build Cloud/Advanced Security Features/_index.md" >}}) |    | Yes | Yes
+[Multi-user & group authorization with admin panel + OpenID/SSO support]({{< relref "Anka Build Cloud/Advanced Security Features/openid-authentication.md" >}}) |    |    | Yes
+[Controller API event logging]({{< relref "Anka Build Cloud/working-with-controller-and-API.md#event-logging-and-automated-pushing" >}}) |    |    | Yes
 
 ---
 
