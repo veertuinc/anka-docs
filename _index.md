@@ -5,6 +5,8 @@ cascade:
   - type: "docs"
 ---
 
+# What is Anka?
+
 {{< include file="_partials/What Is Anka/_short-what-is.md" >}}
 
 {{< include file="_partials/What Is Anka/_bullet-info.md" >}}
