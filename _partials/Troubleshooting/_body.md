@@ -129,10 +129,7 @@ Location : the directory you spcified in the docker-compose.yml, for mounting th
 All logs larger than 1024MB older than 7 days are deleted every day (hard coded; no logrotate configuration)
 {{< /hint >}}
 
-Anka logs are available via the controller dashboard and several directories in correspondence with 'Anka' and it's microservices (controller, registry and agent). Generally, log files are created for each vm upon vm start.  
-Anka controller is responsible for cleaning unused vms logs.
-
-* anka Agent
+Anka logs are available via the Controller UI under Logs as well as several directories on the macOS machine hosting it.
 
 ##### Anka Controller
 
@@ -151,6 +148,9 @@ Logs location : `/Library/Logs/Veertu/AnkaController`
 
 3. The controller is an API, so all the communication made from Anka-agent or CI platforms(Jenkins) stored in the controller logs. If a vm fails to start it suggests first to check this logs.
 
+{{< hint info >}}
+The controller relies on an internal ETCD database. Logs for ETCD will be included in the controller logs, but by default they are set to be non-verbose.
+{{< /hint >}}
 
 ##### Anka Registry and Agent (available on your Anka Nodes)
 
