@@ -31,6 +31,10 @@ There are three options available for you to use Anka with AWS EC2 Mac instances
 Note: You must request a dedicated mac1 host in order to run EC2 Mac instances. There is a known delay requesting, stopping, and starting EC2 Mac instances as the dedicated host must clean itself each time an instance stops on it.
 {{< /hint >}}
 
+{{< hint warning >}}
+There is a known issue in the current `2.5.4.139-macos-12.1` AMI where you need to disable `chunk_size`: `sudo anka config chunk_size 0 && anka config chunk_size 0`
+{{< /hint >}}
+
 ---
 
 ## Marketplace AMI
