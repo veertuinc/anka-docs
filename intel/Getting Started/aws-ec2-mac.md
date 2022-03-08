@@ -60,10 +60,6 @@ To get up and running with our AWS EC2 Mac instances using our Marketplace AMI, 
 
 Once subscribed, you can start launching AMIs.
 
-{{< hint warning >}}
-There is a known issue in the current 2.5.4.139-macos-12.1 AMI where you need to disable `chunk_size`: `sudo anka config chunk_size 0 && anka config chunk_size 0`
-{{< /hint >}}
-
 {{< include file="_partials/intel/Getting Started/_aws-ec2-mac-prep-steps.md" >}}
 
 #### Licensing
