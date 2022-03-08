@@ -264,6 +264,9 @@ When you stop or exit the container, it will automatically unregister it from yo
 
 ---
 
+{{< include file="_partials/Troubleshooting/flows/gitlab.md" >}}
+
+---
 ## Answers to Common Questions
 
 - Long running jobs will fail due to the default SSHD configuration within macOS. You can set `ClientAliveInterval` and `ClientAliveMaxCount` in the `/etc/ssh/sshd_config` file of the VM to address this.

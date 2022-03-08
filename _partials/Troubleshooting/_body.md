@@ -182,5 +182,3 @@ You will find historical and current anka_agent logs from each of your nodes, th
 - On docker: You set the storage location in your docker-compose.yml, but it will still be under `.../files/central-logs/`
 
 ---
-
-## Troubleshooting Guides
