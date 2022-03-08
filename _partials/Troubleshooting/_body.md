@@ -27,8 +27,9 @@ It is also best to run this as close to when an issue happens as several command
 
 ## Anka Virtualization
 
-### Troubleshooting checklist
+### Troubleshooting Checklist
 
+- Ensure that you've run `sudo anka license accept-eula` on the host.
 - Check `df -h` and other host or VM resource usage (CPU/RAM) and be sure that the host resources are not exhausted.
 - Ensure that the user running Anka VMs is logged in and that Sleep and passworded Screensaver are disable. The hypervisor will not work without an active/logged in user.
 - Check `[~]/Library/Logs/Anka/` logs for any indication of why the failure happened.
