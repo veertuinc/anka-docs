@@ -49,8 +49,8 @@
   - Only used with Community AMI.
   - Only available in >= 2.5.4 AMIs.
   - You can also update invalid/expired licenses with this (requires a reboot).
-  - Starting in AMIs based on 12.2.1 macOS, the Fulfillment ID output from `anka license activate`, which is used for releasing cores, is logged to your Cloud Controller > Logs section in the "AWS Cloud Connect Service".
-  
+  - Starting in AMIs with a macOS version greater than 12.2.1: The Fulfillment ID output from `anka license activate`, which is used for releasing cores, is logged to your Cloud Controller > Logs section in the "AWS Cloud Connect Service".
+
   ##### ANKA_USE_PUBLIC_IP
 
   This will determine whether the instance/node is joined using the public ipv4. Otherwise, it will default to the local/private ipv4.
