@@ -14,13 +14,14 @@ You can also use Anka Flow in combination with Anka Build and enable your develo
 
 ### Install
 
-Install Anka package on the mac developer machine. 
+Install Anka package on the mac developer machine.
 
-> Anka Flow is only supported on MacBook models and iMac.  
+> Anka Flow is only supported on MacBook and iMac hardware.  
 
 1. Follow the [official installation guide]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})
 
-2. Activate with your Anka Flow license key.  
-  ```bash
-  anka license activate <key>
-  ```
+2. Activate with your Anka Flow license key.
+
+    ```bash
+    anka license activate <key>
+    ```

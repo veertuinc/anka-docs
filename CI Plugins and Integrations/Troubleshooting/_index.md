@@ -20,11 +20,12 @@ These checklists are to give you an idea of what logs and where to look for indi
 
 #### Gitlab Runner
 
+Our gitlab runner is based on the core and official gitlab runner release, so the [official troubleshooting guide](https://docs.gitlab.com/runner/faq/) is also good to review.
+
 1. Find the job's console log inside of your Gitlab instance and gather the VM and node information from it.
 1. If you have access to the gitlab-runner logs, collect those for the time period of the failure. Logs in the runner are labelled with `job=#`, matching the job ID.
 1. Collect the logs in the Anka Build Cloud Controller from the time period of the failure (`Controller > Logs > Service: Controller`)
-
-Our gitlab runner is based on the core and official gitlab runner release, so the [official troubleshooting guide](https://docs.gitlab.com/runner/faq/) is also good to review.
+1. [Perform the Anka Virtualization checklist and check the logs at the time of the error on the Anka Node that ran the VM.]({{< relref "intel/Troubleshooting/_index.md#anka-virtualization" >}})
 
 #### Jenkins
 
@@ -32,13 +33,25 @@ Our gitlab runner is based on the core and official gitlab runner release, so th
 1. Gain a understanding of what specifically is failing from the Console Output in the Jenkins job.
 1. Collect the logs for the Anka Build Cloud Controller from the time period of the failure (`Controller > Logs > Service: Controller`).
 1. Find the Jenkins System Log and look at the time of the failure for any errors related to the Anka plugin or Jenkins in general.
-1. Collect the logs in the Anka Build Node from the time period of the failure (`Controller > Logs > Service: {Specific Node Name}`).
+1. [Perform the Anka Virtualization checklist and check the logs at the time of the error on the Anka Node that ran the VM.]({{< relref "intel/Troubleshooting/_index.md#anka-virtualization" >}})
 
 #### Buildkite
 
+1. Gain an understanding of what specifically is failing from the specific build log at buildkite.com.
+1. Ensure the buildkite agent is configured correctly, registered and showing up properly on your buildkite organization agents page, and has an active status.
+1. [Perform the Anka Virtualization checklist and check the logs at the time of the error on the Anka Node that ran the VM.]({{< relref "intel/Troubleshooting/_index.md#anka-virtualization" >}})
+
 #### Github Actions
 
+1. Gain an understanding of what specifically is failing from the actions run.
+1. Follow [official troubleshooting guide from Github.](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting#troubleshooting-your-workflows)
+1. [Perform the Anka Virtualization checklist and check the logs at the time of the error on the Anka Node that ran the VM.]({{< relref "intel/Troubleshooting/_index.md#anka-virtualization" >}})
+
 #### Azure Devops Pipelines
+
+1. Gain an understanding of what specifically is failing.
+1. Follow [official troubleshooting guide from Microsoft.](https://docs.microsoft.com/en-us/azure/devops/pipelines/troubleshooting/troubleshooting?view=azure-devops)
+1. [Perform the Anka Virtualization checklist and check the logs at the time of the error on the Anka Node that ran the VM.]({{< relref "intel/Troubleshooting/_index.md#anka-virtualization" >}})
 
 ---
 
