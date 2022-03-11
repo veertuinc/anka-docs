@@ -10,13 +10,13 @@ EOL and Deprecation list:
 - Anka GitLab Runner versions < 1.0 EOL
 {{< /hint >}}
 
-**Once you have collected the logs, go through the below mentioned troubleshooting steps and then contact support.**
+**Please perform the checklist steps below before reaching out to customer support.**
 
 ---
 
 ### Troubleshooting Checklists
 
-These checklists are to give you an idea of what logs and where to look for indications of exactly what's wrong should a problem arise.
+These checklists give you an idea where to look and what logs to check for indications of exactly what's wrong when you see failures.
 
 #### Gitlab Runner
 
@@ -29,7 +29,7 @@ Our gitlab runner is based on the core and official gitlab runner release, so th
 
 #### Jenkins
 
-1. When you first kick off a job in Jenkins, you can find the "node" or "computer" Jenkins ties the VM our plugin spins up to at the top of the Console Output. If you go to the node page, you'll be able to access the logs for Jenkins connecting to the Anka VM. This is useful to check first, but the log is only available until the VM is terminated and Jenkins deletes the node.
+1. When you first kick off a job in Jenkins, you can find the "node" or "computer" Jenkins ties the VM our plugin spins up to at the top of the Console Output. If you go to the node's page, you'll be able to access the "Logs" which show you Jenkins connecting to the Anka VM and any potential failures there. This is useful to check first, but the log is only available until the VM is terminated and Jenkins deletes the node.
 1. Gain a understanding of what specifically is failing from the Console Output in the Jenkins job.
 1. Collect the logs for the Anka Build Cloud Controller from the time period of the failure (`Controller > Logs > Service: Controller`).
 1. Find the Jenkins System Log and look at the time of the failure for any errors related to the Anka plugin or Jenkins in general.
@@ -43,13 +43,13 @@ Our gitlab runner is based on the core and official gitlab runner release, so th
 
 #### Github Actions
 
-1. Gain an understanding of what specifically is failing from the actions run.
+1. Gain an understanding of what specifically is failing from the actions run log.
 1. Follow [official troubleshooting guide from Github.](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting#troubleshooting-your-workflows)
 1. [Perform the Anka Virtualization checklist and check the logs at the time of the error on the Anka Node that ran the VM.]({{< relref "intel/Troubleshooting/_index.md#anka-virtualization" >}})
 
 #### Azure Devops Pipelines
 
-1. Gain an understanding of what specifically is failing.
+1. Gain an understanding of what specifically is failing from the pipeline logs.
 1. Follow [official troubleshooting guide from Microsoft.](https://docs.microsoft.com/en-us/azure/devops/pipelines/troubleshooting/troubleshooting?view=azure-devops)
 1. [Perform the Anka Virtualization checklist and check the logs at the time of the error on the Anka Node that ran the VM.]({{< relref "intel/Troubleshooting/_index.md#anka-virtualization" >}})
 
