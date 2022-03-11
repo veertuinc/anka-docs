@@ -20,13 +20,25 @@ description: >
 
 ## 2. Create your VM
 
-> The Anka VM is pre-configured with a default administrative username `anka` and password `admin`. You can override this with ENVs: `ANKA_DEFAULT_USER` and `ANKA_DEFAULT_PASSWD`
+{{< hint info >}}
+SIP is DISABLED by default inside of Anka 2 VMs post-creation.
+{{< /hint >}}
 
-> **Anka Develop license (default):** While you can create as many VMs as you wish, the free Anka Develop license only allows you to run one VM at a time and will only function on laptops (Macbook, Macbook Pro, and Macbook Air).
+{{< hint info >}}
+The Anka VM is pre-configured with a default administrative username `anka` and password `admin`. You can override this with ENVs: `ANKA_DEFAULT_USER` and `ANKA_DEFAULT_PASSWD`
+{{< /hint >}}
 
-> **Anka Build license:** 
-> 1. When determining how many vcpus and ram your VM needs, you can divide the number of VMs you plan on running simultaneously within a host by the total **virtual cores (vcpus)** it has. So, if I have 12vCPUs on my 6core Mac Mini, and I want to allow 2 running VMs at once and not cripple the host machine, I will set the VM Template/Tag to have 6vcpus (12 / 2). However, with RAM, you'll need to allow ~2GB of memory for the Anka Software and host ((totalRAM / 2)-1).
-> 2. Pushing and pulling your VM from the registry can be optimized by setting `anka config chunk_size 2147483648` on the node you create your templates on. It must be set before you create the VM. [More about the chunking feature]({{< relref "intel/Whats New/_index.md#registry-pushing-and-pulling-of-vm-templatestags-are-now-chunked-for-better-performance" >}})
+{{< hint info >}}
+**Anka Develop license (default):** While you can create as many VMs as you wish, the free Anka Develop license only allows you to run one VM at a time and will only function on laptops (Macbook, Macbook Pro, and Macbook Air).
+{{< /hint >}}
+
+{{< hint info >}}
+**Anka Build license:**
+
+1. When determining how many vcpus and ram your VM needs, you can divide the number of VMs you plan on running simultaneously within a host by the total **virtual cores (vcpus)** it has. So, if I have 12vCPUs on my 6core Mac Mini, and I want to allow 2 running VMs at once and not cripple the host machine, I will set the VM Template/Tag to have 6vcpus (12 / 2). However, with RAM, you'll need to allow ~2GB of memory for the Anka Software and host ((totalRAM / 2)-1).
+
+2. Pushing and pulling your VM from the registry can be optimized by setting `anka config chunk_size 2147483648` on the node you create your templates on. It must be set before you create the VM. [More about the chunking feature]({{< relref "intel/Whats New/_index.md#registry-pushing-and-pulling-of-vm-templatestags-are-now-chunked-for-better-performance" >}})
+{{< /hint >}}
 
 {{< hint warning >}}
 Suspending VMs can sometimes produce a frozen VM when you try to start it. This is code which is outside of Anka itself, so it's hard to try and work around. If it's frozen on start, you can instead run `ANKA_CREATE_SUSPEND=0 anka create . . .` from the CLI to produce a stopped VM and then suspend it manually.

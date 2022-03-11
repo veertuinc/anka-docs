@@ -14,6 +14,10 @@ description: >
 
 ## 1. Create your first VM
 
+{{< hint info >}}
+SIP is ENABLED by default inside of Anka 3 VMs post-creation. It can be disabled after creation by launching in recovery mode.
+{{< /hint >}}
+
 {{< hint warning >}}
 It's important to understand that the `anka` CLI, VM creation, modification, etc, is all done from your current user. You cannot move VMs between users easily without the [Anka Build Cloud Registry]({{< relref "Anka Build Cloud/_index.md" >}}).
 {{< /hint >}}
