@@ -3,10 +3,8 @@
 
 {{< hint error >}}
 EOL and Deprecation list:
-- Anka Virtualization + CLI < 2.0 are EOL and no longer supported.
-- Anka Build Cloud Controller and Registry versions < 1.8
-- Jenkins Plugin versions < 2.0
-- Anka GitLab Runner versions < 1.0
+- Anka Virtualization + CLI < 2.0 EOL
+- Anka Build Cloud Controller and Registry versions < 1.8 EOL
 {{< /hint >}}
 
 {{< hint info >}}
@@ -182,5 +180,3 @@ You will find historical and current anka_agent logs from each of your nodes, th
 - On docker: You set the storage location in your docker-compose.yml, but it will still be under `.../files/central-logs/`
 
 ---
-
-## Troubleshooting Guides
