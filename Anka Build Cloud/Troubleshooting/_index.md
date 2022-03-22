@@ -5,6 +5,6 @@ hideSubPagesInLeftMenu: true
 showBaseDirName: true
 ---
 
-{{< include file="_partials/Troubleshooting/anka-virtualization.md" >}}
+{{< include file="_partials/Troubleshooting/anka-build-cloud.md" >}}
 
 ## Troubleshooting Guides

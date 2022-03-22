@@ -26,9 +26,9 @@ Be sure to reboot the host after applying these changes.
 
 3. Disable screensaver and sleep: `sudo systemsetup -setsleep Never && sudo defaults write com.apple.screensaver idleTime 0`
 
-### Optional but recommended
+4. Run `anka create test && anka delete --yes test` at least once for both root and non-root users to create the necessary folders and garbage collect temporary files.
 
-- Run `anka create test && anka delete --yes test` at least once for both system users to trigger garbage collection and clean up any temporary files.
+### Optional but recommended
 
 - **Enable `Automatic Login` for the current user:** Go to Preferences > Users > Enable Automatic Login for the current user. Or, [using the CLI](https://github.com/veertuinc/kcpassword).
   {{< hint warning >}}
@@ -150,7 +150,7 @@ You can override the path of the socket by setting the `ANKA_AGENT_SOCKET` env v
 
 It is also possible to join without needing `sudo`. However, as of right now, this has a problems you need to consider:
 
-1. When you upgrade the Anka Build Controller software, there is an automatic agent update triggered for each one of your Anka Nodes. This agent communicates with the Controller to pick up tasks from the queue. Since Apple's `installer` command requires root, this process will not work when running the agent as a non-sudo user. The solution is to disjoin nodes before upgrading your Build Cloud and then issue `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt / ` on the nodes after it's running.
+1. When you upgrade the Anka Build Controller software, there is an automatic agent update triggered for each one of your Anka Nodes. This agent communicates with the Controller to pick up tasks from the queue. Since Apple's `installer` command requires root, this process will not work when running the agent as a non-sudo user. The solution is to disjoin nodes before upgrading your Build Cloud and then issue `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt / ` (`AnkaAgentArm.pkg` if using Anka 3.0) on the nodes after it's running.
 
 To join with a non-sudo user, you simply run `ankacluster join http://anka.controller --force-no-sudo`.
 

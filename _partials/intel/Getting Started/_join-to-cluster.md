@@ -1,7 +1,7 @@
 ---
 ---
 {{< hint info >}}
-If you have any issues with this step, please see [our troubleshooting guide]({{< relref "intel/Troubleshooting/cloud controller/unable-to-join.md" >}}).
+If you have any issues with this step, please see [our troubleshooting guide]({{< relref "intel/Troubleshooting/unable-to-join.md" >}}).
 {{< /hint >}}
 
 ```shell

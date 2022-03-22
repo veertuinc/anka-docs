@@ -21,6 +21,8 @@ The rest of this Getting Started guide focuses heavily on the Anka Virtualizatio
 
 {{< include file="_partials/arm/Anka Virtualization/modify/set/_index.md" >}}
 
+{{< include file="_partials/arm/Anka Virtualization/modify/disk/_extra.md" >}}
+
 ## Common Examples
 
 ### Changing your VM's network configuration

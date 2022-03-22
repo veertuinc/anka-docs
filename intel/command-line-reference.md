@@ -6,6 +6,8 @@ description: >
   Anka CLI Reference 
 ---
 
+{{< include file="_partials/sudo-non-sudo-anka-cli.md" >}}
+
 {{< include file="_partials/intel/Anka Virtualization/_index.md" >}}
 ## Attach
 {{< include file="_partials/intel/Anka Virtualization/attach/_index.md" >}}
@@ -103,6 +105,7 @@ description: >
 {{< include file="_partials/intel/Anka Virtualization/modify/show/custom-variables/_index.md" >}}
 ## Mount
 {{< include file="_partials/intel/Anka Virtualization/mount/_index.md" >}}
+{{< include file="_partials/intel/Anka Virtualization/mount/_extra.md" >}}
 ## Reboot
 {{< include file="_partials/intel/Anka Virtualization/reboot/_index.md" >}}
 ## Registry

@@ -22,17 +22,22 @@ You configured Anka Build Cloud alongside the Jenkins plugin. You are now trying
 3. JNLP port is not accessible from VM
 4. Outdated Jenkins environment
 5. VM has different version of Java from the Master
-6. The Anka Cloud can't run VMs (see [VM is stuck at scheduling]({{< relref "intel/Troubleshooting/cloud controller/vm-stuck-scheduling.md">}}))
+6. The Anka Cloud can't run VMs (see [VM is stuck at scheduling]({{< relref "Anka Build Cloud/Troubleshooting/controller/vm-stuck-scheduling.md">}}))
 
 ## Where to start
 
 1. First, inside of Jenkins the agent spinning up has a log. Please find the agent and open this log. It will show whether Jenkins can reach/ssh into the VM and any failures.
-2. Next, try starting a VM/instance from the Controller UI. Once started, try to SSH into the VM using the host IP and the forwarded host port (you can find this using `anka show {vmName} network`). If it starts and you can connect to it, the problem is probably around Jenkins configuration or compatibility with Jenkins. If your VM does **not** start try to [troubleshoot it]({{< relref "intel/Troubleshooting/cloud controller/vm-stuck-scheduling.md">}}) 
+2. Next, try starting a VM/instance from the Controller UI. Once started, try to SSH into the VM using the host IP and the forwarded host port (you can find this using `anka show {vmName} network`). If it starts and you can connect to it, the problem is probably around Jenkins configuration or compatibility with Jenkins. If your VM does **not** start try to [troubleshoot it]({{< relref "Anka Build Cloud/Troubleshooting/controller/vm-stuck-scheduling.md">}}) 
 
 ## Configuration mistakes
 
 Since there are many configuration options in Jenkins Anka Build plugin, we can sometimes miss one or make a mistake. Also, the feedback given to the user is mainly using logs.  
+
 Let's go over the most important configuration parameters, and check that everything is configured correctly.  
+
+### Advanced Setting Defaults
+
+The Anka Jenkins Plugin configuration has various Advanced setting which determine how long it will wait and how many retries to perform when establishing a connection to your starting VMs/Jenkins agents. Depending on system load, the VM start time and networking startup can be delayed enough to prevent the connection from being established in the configured times. You may want to tweak these settings.
 
 ### Anka Build Controller URL
 Go to *Manage Jenkins* -> *Configure System*, and scroll all the way down to the clouds section.  

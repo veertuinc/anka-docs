@@ -6,6 +6,8 @@ description: >
   Anka CLI Reference 
 ---
 
+{{< include file="_partials/sudo-non-sudo-anka-cli.md" >}}
+
 {{< include file="_partials/arm/Anka Virtualization/_index.md" >}}
 
 ## List
@@ -76,6 +78,7 @@ description: >
 {{< include file="_partials/arm/Anka Virtualization/modify/port/_index.md" >}}
 ### modify {name/uuid} disk
 {{< include file="_partials/arm/Anka Virtualization/modify/disk/_index.md" >}}
+{{< include file="_partials/arm/Anka Virtualization/modify/disk/_extra.md" >}}
 ### modify {name/uuid} display
 {{< include file="_partials/arm/Anka Virtualization/modify/display/_index.md" >}}
 ### modify {name/uuid} label
