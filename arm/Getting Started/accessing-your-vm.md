@@ -93,7 +93,9 @@ To inherit the host's environment, use the `anka run -E` (existing VM variables 
 Some advanced usage examples of `anka run` inside of a bash script can be found in our [Getting Started repo's VM Tag creation script.](https://github.com/veertuinc/getting-started/blob/master/create-vm-template-tags.bash)
 {{< /hint >}}
 
-## Anka View
+## Anka Viewer
+
+### With the CLI
 
 {{< hint warning >}}
 The anka viewer requires an active UI session on the host (VNC is fine).
@@ -104,6 +106,10 @@ The `anka view` command currently will only function if you at some point starte
 {{< /hint >}}
 
 {{< include file="_partials/arm/Anka Virtualization/view/_index.md" >}}
+
+### With the App
+
+Instead of launching the viewer with the CLI, you can open the Anka.app under /Applications and then double click on the VM in the list. This will launch the viewer window.
 
 ## SSH
 
@@ -118,12 +124,16 @@ Once you've enabled Apple's Remote Login inside of the VM, simply add a forwarde
 ## Answers to Frequently Asked Questions
 
 - [`anka run`]({{< relref "arm/command-line-reference.md#run" >}}) doesn't support TTY mode, but you could easily use POSIX streams as with regular bash tool:
+
   ```shell
   ❯ anka run VNMANE whoami > /dev/null
 
   ❯ cat file-on-host.txt | anka run 12.2.0-arm md5
   ff1a596f13d348b63218078c6598ab5e
   ```
+
+- You can launch access macOS' Recovery Mode through the Anka.app menu.
+  ![recovery-mode]({{< siteurl >}}images/arm/getting-started/accessing-your-vm/anka-app-recovery-mode.png)
 
 ## What's next?
 
