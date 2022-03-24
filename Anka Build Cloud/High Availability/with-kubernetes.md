@@ -19,7 +19,7 @@ The YAML we generate includes:
 - A shared volume for both Registry containers so they see the same VM Templates and Tags
 - Load Balancers for each service
 
-<p>Here is a visual diagram for this:
+Here is a visual diagram for this:
 
 {{< rawhtml >}}<center>{{< /rawhtml >}}
 ![installer with pkg]({{< siteurl >}}images/kubernetes-anka-build-cloud-ha-diagram.png)
