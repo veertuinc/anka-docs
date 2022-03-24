@@ -9,7 +9,7 @@ description: >
 
 As the popularity and maturity of Kubernetes grows, we've also received an increase of questions from customers on using it to deploy the Build Cloud Controller & Registry. We'll describe what High Availability looks like for the Anka Build Cloud Controller & Registry software.
 
-There are many ways to deploy your Anka Build Cloud into Kubernetes. Our [Getting Started GitHub Repository](https://github.com/veertuinc/getting-started/tree/master#anka-build-cloud--kubernetes-anka_build_cloudkubernetes) has a few scripts available to help you run the Anka Build Cloud on your macOS device using [minikube](https://kubernetes.io/docs/setup/learning-environment/minikube/). These scripts will generate the necessary YAML you can use to deploy it into your minikube. You may, of course, choose to use Deployments instead of our Statefulsets and even split your controller and registry into separate pods.
+There are many ways to deploy your Anka Build Cloud into Kubernetes. Our [Getting Started GitHub Repository](https://github.com/veertuinc/getting-started/tree/master#anka-build-cloud--kubernetes-anka_build_cloudkubernetes) has a few scripts available to help you run the Anka Build Cloud on your macOS device using [minikube](https://kubernetes.io/docs/setup/learning-environment/minikube/). These scripts will generate the necessary YAML you can use to deploy it into your minikube (We cannot guarantee they will work properly outside of minikube and recommend against production use). You may, of course, choose to use Deployments instead of our Statefulsets and even split your controller and registry into separate pods.
 
 The YAML we generate includes:
 
