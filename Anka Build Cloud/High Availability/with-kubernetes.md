@@ -29,7 +29,7 @@ We must mention that the differences between how our customers have deployed Kub
 
 > We recommend communicating with your DevOps/Kubernetes team to handle anything missing.
 
-Once it's up and running, you can [join your nodes to the Controller load balancer IP/hostname.]({{< relref "Anka Build Cloud/preparing-and-joining-your-nodes.md" >}})
+Once it's up and running, you can [join your nodes to the Controller load balancer IP/hostname.]({{< relref "Anka Build Cloud/Getting Started/preparing-and-joining-your-nodes.md" >}})
 
 > You will also need to expose the Registry load balancer if you want to connect your laptop to push new VM Templates or Tags.
 

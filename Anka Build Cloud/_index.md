@@ -1,8 +1,6 @@
 ---
 title: "Anka Build Cloud 1.22.0 (intel & arm)"
 weight: 4
-description: >
-  Using the Anka Build Cloud to orchestrate Anka macOS VMs and VM Template/Tag storage
 ---
 
 ## What is the Anka Build Cloud?

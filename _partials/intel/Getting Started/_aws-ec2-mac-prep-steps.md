@@ -4,7 +4,7 @@
 4. (Optional) Automatically join to the Anka Build Cloud Controller using User Data:
 
   {{< hint warning >}}
-  This step requires that you first [set up the Anka Build Cloud]({{< relref "Anka Build Cloud/setup-on-linux-with-docker.md" >}}). 
+  This step requires that you first [set up the Anka Build Cloud]({{< relref "Anka Build Cloud/Getting Started/setup-controller-and-registry.md#linux-docker" >}}). 
   {{< /hint >}}
 
   {{< hint warning >}}
@@ -62,7 +62,7 @@
 #### Manual Preparation
 
 {{< hint warning >}}
-By default all of our AMIs have a cloud-connect agent which on boot will join your AWS instance to the Anka Build Cloud controller automatically with [user data ENVs you set]({{< relref "#user-data-envs" >}}). This is issuing `ankacluster join` under the hood. Once joind, the agent which runs and communicates with the Anka Build Controller does its best to determine the proper IP to use for the node. On AWS the interfaces are loaded at different times and orders and often you'll end up with an IP assigned to the node which cannot be used for communication. To solve this, you'll want to set `ANKA_JOIN_ARGS` with `--host {IP HERE}` in the user data for the AWS instance. You can find all available flags/options for the join command [here]({{< relref "Anka Build Cloud/preparing-and-joining-your-nodes.md#joining-to-your-anka-build-cloud controller" >}}).
+By default all of our AMIs have a cloud-connect agent which on boot will join your AWS instance to the Anka Build Cloud controller automatically with [user data ENVs you set]({{< relref "#user-data-envs" >}}). This is issuing `ankacluster join` under the hood. Once joind, the agent which runs and communicates with the Anka Build Controller does its best to determine the proper IP to use for the node. On AWS the interfaces are loaded at different times and orders and often you'll end up with an IP assigned to the node which cannot be used for communication. To solve this, you'll want to set `ANKA_JOIN_ARGS` with `--host {IP HERE}` in the user data for the AWS instance. You can find all available flags/options for the join command [here]({{< relref "Anka Build Cloud/Getting Started/preparing-and-joining-your-nodes.md#joining-to-your-anka-build-cloud controller" >}}).
 {{< /hint >}}
 
 Our AMIs attempt to do the majority of preparation for you, however, there are several steps you need to perform once the instance is started:

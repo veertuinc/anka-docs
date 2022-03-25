@@ -1,13 +1,13 @@
 ---
 ---
 
-## ETCD Snapshotting
+### ETCD Snapshotting
 
 It's always a good idea to take frequent snapshots of the etcd data. This helps if you have to recover from data loss or a crash of your Build Cloud host. In this guide, we'll not only show you how to take a snapshot, but also how to restore it to a different etcd.
 
 The official ETCD snapshotting docs can be found at https://etcd.io/docs/v3.5/op-guide/recovery/#snapshotting-the-keyspace.
 
-### Taking a snapshot
+#### Taking a snapshot
 
 ```bash
 docker exec -it anka-etcd /bin/bash -c "ETCDCTL_API=3 etcdctl snapshot save snapshot.db" && docker cp anka-etcd:/snapshot ./
@@ -25,7 +25,7 @@ Output should be something like:
 Snapshot saved at snapshot.db
 ```
 
-### Recovering from snapshot
+#### Recovering from snapshot
 
 Let's say that you've created a brand new server and unpacked the docker package's tar.gz.
 
