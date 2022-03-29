@@ -22,8 +22,6 @@ Anka Build components support heterogeneous build nodes; You can connect both bo
 
 - Upgrading Addons from the previous minor version of anka is recommended but not required.
 
-- Suspended VMs created in previous _minor versions_ of anka are not compatible and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.
-
 <br />
 For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
