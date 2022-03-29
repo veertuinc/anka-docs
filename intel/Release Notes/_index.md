@@ -14,7 +14,7 @@ Anka Build components support heterogeneous build nodes; You can connect both bo
 
 ## Current Versions
 
-### Anka Virtualization CLI 2.5.4 (2.5.4.139) - Jan 10th, 2022
+### Anka Virtualization CLI 2.5.5 (2.5.5.XXXXXX) - April XXXXXth, 2022
 
 {{< hint warning >}}
 
@@ -28,7 +28,19 @@ Anka Build components support heterogeneous build nodes; You can connect both bo
 For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
-- **Bug Fix:** High CPU usage from `configd` and `usbd` impacted VM performance only on previous 2.5.4 version.
+- **Bug Fix:** `anka cp` and `anka run` hang when executing + `ankactl: communication error: Operation timed out` errors after resuming VMs.
+- **Bug Fix:** When two pulls are happening on the same machine for the same template and tag, it can sometimes cause a failure with `anka: no such version`.
+- **Bug Fix:** Rarely `anka registry pull` would become stuck.
+- **Bug Fix:** When the machine's disk was full, `anka registry pull` would report 100%/successfully pulled.
+- **Bug Fix:** Rarely a suspended VM will start up and be frozen.
+- **Bug Fix:** The Anka uninstaller was deleting the controller package installed on the same machine.
+- **Bug Fix:** `anka registry pull` speed limitations fixed/removed.
+- **Bug Fix:** `anka registry pull` can fail with `could not create disk image, status 74.` and then subsequent pulls immediately show 100%. This results in a broken VM.
+- **Bug Fix:** Network/IP detection can very rarely choose the wrong IP on 11.6.4 VMs.
+- **New Feature:** Network isolation support for bridged networking VMs.
+- **Improvement:** Monterey VM performance.
+- **New Feature:** [`anka show` now displays cpu usage from inside of the VM]({{< relref "Whats New/anka-2.5.5/index.md" >}})
+- **New Feature:** [Ability to separate runtime image from static image storage directories]({{< relref "Whats New/anka-2.5.5/index.md" >}})
 
 ---
 
@@ -93,6 +105,24 @@ For either 2.7.0 or 2.6.1, please check over your Anka Build Plugin configuratio
 ---
 
 ## Previous Versions
+
+### Anka Virtualization CLI 2.5.4 (2.5.4.139) - Jan 10th, 2022
+
+{{< hint warning >}}
+
+##### Important considerations for this release
+
+- Upgrading Addons from the previous minor version of anka is recommended but not required.
+
+- Suspended VMs created in previous _minor versions_ of anka are not compatible and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.
+
+<br />
+For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
+{{< /hint >}}
+
+- **Bug Fix:** High CPU usage from `configd` and `usbd` impacted VM performance only on previous 2.5.4 version.
+
+---
 
 ### Anka GitLab Runner 1.4.0 - May 4th, 2021
 
