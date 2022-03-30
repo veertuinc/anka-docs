@@ -1,7 +1,11 @@
 ---
-title: "Anka Build Cloud 1.22.0 (intel & arm)"
+title: "Anka Build Cloud 1.23.0 (intel & arm)"
 weight: 4
 ---
+
+{{< hint info >}}
+Anka Build components support heterogeneous build nodes; You can connect both Anka 2 (intel) and Anka 3 (arm) nodes to your Build Cloud Controller/Registry.
+{{< /hint >}}
 
 ## What is the Anka Build Cloud?
 
@@ -26,5 +30,5 @@ These Nodes have our [Virtualization software]({{< relref "intel/_index.md" >}})
 ---
 
 {{< hint info >}}
-Several of our [CI/CD Plugins and Integrations]({{< relref "CI Plugins and Integrations/_index.md" >}}) require the Controller REST API.
+Several of our [CI/CD Plugins and Integrations]({{< relref "Plugins and Integrations/_index.md" >}}) require the Controller REST API.
 {{< /hint >}}

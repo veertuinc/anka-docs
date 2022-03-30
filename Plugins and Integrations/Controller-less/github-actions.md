@@ -26,3 +26,9 @@ The [Anka VM GitHub Action](https://github.com/marketplace/actions/anka-vm-githu
 ## Pipeline Step Definition
 
 An example workflow .yml can be found in the [Anka VM GitHub Action README](https://github.com/marketplace/actions/anka-vm-github-action).
+
+---
+
+## Release Notes
+
+Release notes for the Anka Github Action can be found [on Github](https://github.com/veertuinc/anka-vm-github-action/releases).

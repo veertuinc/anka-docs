@@ -304,5 +304,5 @@ Great! Now that we have our Anka Controller & Registry up and running, let's add
 ## What next?
 
 - [Prepare and join your machines to the Build Cloud]({{< relref "Anka Build Cloud/Getting Started/preparing-and-joining-your-nodes.md" >}}).  
-- Connect the cloud to your [CI software]({{< relref "CI Plugins and Integrations/_index.md" >}}).  
+- Connect the cloud to your [CI software]({{< relref "Plugins and Integrations/_index.md" >}}).  
 - Find out how to use the [Controller REST API]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#rest-api">}}).  

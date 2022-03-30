@@ -635,7 +635,7 @@ sh-3.2# anka show mgmtManaged-10.15.4-stopped-1592271338138326000
 ```
 
 
-## What's New in Anka Virtualization CLI Version 2.2.3
+## What's New in Version 2.2.3
 ### Anka 2.2.3 - May 03, 2020
 
 **When using Anka Viewer, provided a way to get out of full screen, after in full screen mode (using the green full screen button on the window's top bar)**
