@@ -116,9 +116,15 @@ For either 2.7.0 or 2.6.1, please check over your Anka Build Plugin configuratio
 
 <br />
 For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
+
+##### Known issues
+
+- MacOS versions 12.2 and above have an issue with 2.5.4 addons which will cause `anka cp` and `anka run` to fail. You will need to upgrade to 2.5.5 as soon as possible.
 {{< /hint >}}
 
 - **Bug Fix:** High CPU usage from `configd` and `usbd` impacted VM performance only on previous 2.5.4 version.
+
+
 
 ---
 
