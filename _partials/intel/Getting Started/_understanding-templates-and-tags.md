@@ -43,6 +43,17 @@ Here is a diagram of a common and recommended pattern for creating Templates/Tag
 
 > Note the "stopped" state of the first two cloned Templates. Unless you plan on using the vanilla 11.1.0 or xcode Templates, the suspended state is a waste of space. However, you do typically want to suspend the Templates/Tags that your CI/CD and developers will use.
 
+{{< hint info >}}
+You can configure and prepare Xcode without a GUI using the following commands:
+
+```bash
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+sudo xcodebuild -license accept
+sudo xcodebuild -runFirstLaunch
+sudo DevToolsSecurity -enable
+```
+{{< /hint >}}
+
 You can also create multiple tags on top of a single Template. This is done by simply starting the VM, stopping/suspending once changes are made, and then pushing to the registry with a new Tag. However, this causes problems when trying to quickly switch between tags for different projects, as the Anka Build Cloud only allows a single Tag on a machine at once. This means that switching would require cause a download to happen, and depending on the size of the other tag, could slow down your CI/CD considerably. This is where cloned Templates shine. Multiple Templates for multiple projects can exist at once on a host, all sharing underlying layers and cutting down on disk space usage and time to start VMs for your CI/CD jobs.
 
 If you're interested in _Infrastructure as Code_ to automate the creation of your Templates and Tags, you have several options:

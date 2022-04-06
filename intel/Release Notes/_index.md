@@ -37,8 +37,8 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 - **Bug Fix:** Network/IP detection can very rarely choose the wrong IP on 11.6.4 VMs.
 - **New Feature:** Network isolation support for bridged networking VMs.
 - **Improvement:** Monterey VM performance.
-- **New Feature:** [`anka show` now displays cpu usage from inside of the VM]({{< relref "Whats New/anka-2.5.5/index.md" >}})
-- **New Feature:** [Ability to separate runtime image from static image storage directories]({{< relref "Whats New/anka-2.5.5/index.md" >}})
+- **New Feature:** [`anka show` now displays cpu usage from inside of the VM]({{< relref "Whats New/anka-2.5.5/index.md#anka-show-now-displays-cpu-usage-from-inside-of-the-vm" >}})
+- **New Feature:** [Ability to separate runtime image from static image storage directories]({{< relref "Whats New/anka-2.5.5/index.md#ability-to-separate-runtime-image-from-static-image-storage-directories" >}})
 
 ---
 
