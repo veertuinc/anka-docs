@@ -829,6 +829,10 @@ curl -X DELETE "http://anka.controller/api/v1/registry/vm?id=00510971-5c37-4a60-
 
 ### Revert Template Tag
 
+{{< hint warning >}}
+Reverting is a potentially dangerous operation. It will revert all tags which came AFTER the one you're targeting. We recommend a multi-template-single-tag approach instead to avoid this.
+{{< /hint >}}
+
 **Description:** Revert a Template to a certain Tag or version number. Delete the latest version if none is specified.  
 **Path:** /api/v1/registry/revert  
 **Method:** DELETE  
