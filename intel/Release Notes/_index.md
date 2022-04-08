@@ -26,7 +26,7 @@ Anka Build components support heterogeneous build nodes; You can connect both bo
 For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
-- **Bug Fix:** `anka cp` and `anka run` hang when executing + `ankactl: communication error: Operation timed out` errors after resuming VMs. (addons)
+- **Bug Fix:** `anka cp` and `anka run` hang when executing + `ankactl: communication error: Operation timed out` errors after resuming VMs. (addons upgrade required)
 - **Bug Fix:** When two pulls are happening on the same machine for the same template and tag, it can sometimes cause a failure with `anka: no such version`.
 - **Bug Fix:** Rarely `anka registry pull` would become stuck.
 - **Bug Fix:** When the machine's disk was full, `anka registry pull` would report 100%/successfully pulled.
