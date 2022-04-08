@@ -30,7 +30,6 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 - **Bug Fix:** When two pulls are happening on the same machine for the same template and tag, it can sometimes cause a failure with `anka: no such version`.
 - **Bug Fix:** Rarely `anka registry pull` would become stuck.
 - **Bug Fix:** When the machine's disk was full, `anka registry pull` would report 100%/successfully pulled.
-- **Bug Fix:** Rarely a suspended VM will start up and be frozen.
 - **Bug Fix:** The Anka uninstaller was deleting the controller package installed on the same machine.
 - **Bug Fix:** `anka registry pull` speed limitations fixed/removed.
 - **Bug Fix:** `anka registry pull` can fail with `could not create disk image, status 74.` and then subsequent pulls immediately show 100%. This results in a broken VM.
