@@ -14,7 +14,7 @@ Anka Build components support heterogeneous build nodes; You can connect both bo
 
 ## Current Versions
 
-### Anka Virtualization CLI 2.5.5 (2.5.5.142) - April 6th, 2022
+### Anka Virtualization CLI 2.5.5 (2.5.5.142) - April 11th, 2022
 
 {{< hint warning >}}
 
