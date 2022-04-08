@@ -35,7 +35,7 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 - **Bug Fix:** `anka registry pull` can fail with `could not create disk image, status 74.` and then subsequent pulls immediately show 100%. This results in a broken VM.
 - **Bug Fix:** Network/IP detection can very rarely choose the wrong IP on 11.6.4 VMs.
 - **Bug Fix:** `block_nocache` was not working properly.
-- **New Feature:** Network isolation support for bridged networking VMs.
+- **Improvement:** Network isolation now support bridged networking VMs (`anka modify VMNAME set network-card --no-local`).
 - **Improvement:** Monterey VM performance.
 - **New Feature:** [`anka show` now displays cpu usage from inside of the VM]({{< relref "Whats New/anka-2.5.5/index.md#anka-show-now-displays-cpu-usage-from-inside-of-the-vm" >}})
 - **New Feature:** [Ability to separate runtime image from static image storage directories]({{< relref "Whats New/anka-2.5.5/index.md#ability-to-separate-runtime-image-from-static-image-storage-directories" >}})
