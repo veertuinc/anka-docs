@@ -37,10 +37,12 @@ Once it's up and running, you can [join your nodes to the Controller load balanc
 
 - From our experience, the default nginx ingress controller doesn't handle large file transfers (pushing your VM template to the registry for example). You will need to tweak the configuration of nginx to allow for large file transfer and so that the default timeouts are not met for long running transfers. Example:
     ```
-    nginx.ingress.kubernetes.io/client-max-body-size: "0"
-    nginx.ingress.kubernetes.io/proxy-body-size: "0"
-    nginx.ingress.kubernetes.io/proxy-max-temp-file-size: "0"
-    nginx.ingress.kubernetes.io/proxy-buffering: "off"
+    metadata:
+      annotations:
+        nginx.ingress.kubernetes.io/client-max-body-size: "0"
+        nginx.ingress.kubernetes.io/proxy-body-size: "0"
+        nginx.ingress.kubernetes.io/proxy-max-temp-file-size: "0"
+        nginx.ingress.kubernetes.io/proxy-buffering: "off"
     ```
 - When using an AWS NLB, there is an immutable idle connection timeout value of 350s. This can cause registry push/pull actions to timeout. You'll need to create an ingress ALB that accepts longer connections.
 - If the registry pod has resource limits which are hit, it can be rescheduled on another host while it's performing actions. We recommend avoiding this as much as possible.
