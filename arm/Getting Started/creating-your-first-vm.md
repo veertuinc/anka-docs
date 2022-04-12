@@ -26,6 +26,10 @@ It's important to understand that the `anka` CLI, VM creation, modification, etc
 Creating a VM in Anka 3 differs from the Intel version: Anka 3 requires that you manually set up macOS inside of the VM. See [step #3]({{< relref "#3-start-the-vm-and-finish-the-macos-install" >}}) below.
 {{< /hint >}}
 
+{{< hint info >}}
+Rosetta can be installed and used inside of the VM.
+{{< /hint >}}
+
 {{< include file="_partials/arm/Getting Started/_supported-macos-versions.md" >}}
 
 {{< hint warning >}}
