@@ -107,7 +107,7 @@ Error return from kevent change: No such file or directory
 2022-03-29 11:18:05: vm: suspended with status 0, cpu load 82%
 ```
 
-### Ability to separate runtime image from static image storage directories (**experimental**)
+<!-- ### Ability to separate runtime image from static image storage directories (**experimental**)
 
 By default, runtime and static images for VMs are stored in `img_lib_dir`. If the disk performance is lacking for this location, you can change `anka config tag_lib_dir` (and `state_lib_dir`) to target the slower disk and move `img_lib_dir` to a faster disk. Runtime images for VMs (which are modified when a VM is running) are then stored in `img_lib_dir`.
 
@@ -117,4 +117,4 @@ Delete all VM templates before making this change and then re-pull them post-cha
 
 {{< hint warning >}}
 Note that VM creation will happen into `img_lib_dir` and might either fill up your disk or use a lot of IO (which can be expensive). We recommend VM creation on a slower machine and then pulling the new VM to the machine where you've configured `tag_lib_dir`.
-{{< /hint >}}
+{{< /hint >}} -->

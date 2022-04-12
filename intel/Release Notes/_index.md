@@ -38,7 +38,6 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 - **Improvement:** Network isolation now support bridged networking VMs (`anka modify VMNAME set network-card --no-local`).
 - **Improvement:** Monterey VM performance.
 - **New Feature:** [`anka show` now displays cpu usage from inside of the VM]({{< relref "Whats New/anka-2.5.5/index.md#anka-show-now-displays-cpu-usage-from-inside-of-the-vm" >}})
-- **New Feature (experimental):** [Ability to separate runtime image from static image storage directories]({{< relref "Whats New/anka-2.5.5/index.md#ability-to-separate-runtime-image-from-static-image-storage-directories-experimental" >}})
 
 ---
 
