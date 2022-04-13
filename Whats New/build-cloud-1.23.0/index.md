@@ -39,7 +39,7 @@ Instead of each worker trying to take tasks by itself, there is one process tryi
 After looking at the rate of processing, we understand that most tasks are completed very quickly, but the action of reserving a task takes a lot of time.
 By using the batch processing approach we increase the throughput of the requests but save a lot of time reserving the tasks.
 
-#### New Stats
+#### New stats
 
 We added a new stat (under the `/api/v1/stats` endpoint) `tasks_per_second` that shows how many tasks are processed every second. It's possible to use that to calculate a more suitable heartbeat for the nodes.
 For example, if a cloud has 20 nodes and has a heartbeat of 5 seconds we would expect tasks per second to be around 1.6 on an idle system.
