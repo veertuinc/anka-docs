@@ -50,3 +50,4 @@ Outside of the config environment variables, there are a few others you might fi
 | ANKA_ADDONS_ATTACH              | 0 means do not attach addonsd to the hypervisor (graceful shutdown, timesync won't work)) |
 | ANKA_BLOCK_NOCACHE              | 1 turns on the F_NOCACHE flag (default) |
 | ANKA_BLOCK_NODIRECT             | 0 turns off the F_NODIRECT flag |
+| ANKA_TIME_SYNC                  | 0 turns off the built in time sync for Apple's hypervisor |

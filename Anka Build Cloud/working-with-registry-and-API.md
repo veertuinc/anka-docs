@@ -308,6 +308,10 @@ curl "http://anka.registry.net:8089/registry/vm/info?id=2fa0f10e-e91e-4665-8d42-
 
 ### Revert 
 
+{{< hint warning >}}
+Reverting is a potentially dangerous operation. It will revert all tags which came AFTER the one you're targeting. We recommend a multi-template-single-tag approach instead to avoid this.
+{{< /hint >}}
+
 **Description:** Revert a VM to a certain Tag or version number. Delete the latest version if none is specified.  
 **Path:** /registry/revert  
 **Method:** DELETE  
