@@ -2,7 +2,6 @@
 date: 2022-04-01T01:00:00-00:00
 title: "Anka Build Cloud Controller & Registry Version 1.23.0"
 ---
-
 ### Request a VM with a specific VLAN
 
 Starting in this version [you can now set `vlan_tag` to the targeted VLAN ID in your Controller API calls]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#start-vm-instances" >}}).
@@ -24,7 +23,7 @@ curl http://anka.controller/api/v1/vlan
 
 In former versions controllers would reserve tasks one by one.
 To increase performance and lower network usage we added batch processing for tasks.
-It's controlled by the config argument `batch-task-count` (defaults to 2).
+It's controlled by the config ENV: `ANKA_BATCH_TASK_COUNT` (defaults to 2).
 The controller would take up that number of tasks and perform them in parallel.
 There is a maximum of 40 due to etcd hard limit for the number of keys in a transaction.
 

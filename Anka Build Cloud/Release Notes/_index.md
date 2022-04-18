@@ -6,14 +6,14 @@ weight: 100
 
 ## Current Version
 
-### 1.23.0 (1.23.0-XXXXXXXX) - XXXXXXth, 2022
+### 1.23.0 (1.23.0-3523c787) - Apr 19th, 2022
 
 - **Bug Fix:** VM Capacity reverts after rebooting the node.
 - **Bug Fix:** Retrying a registry push too fast will cause a failure.
 - **Bug Fix:** Controller UI was reporting inaccurate sizes for disk usage.
-- **Improvement:** Older CMD logs are now rotated and cleaned up once the aggregate size of logs reaches 1GB.
+- **Improvement:** Older CMD logs are now rotated and cleaned up once the aggregate size of logs reaches 700MB (unless otherwise specified).
 - **Improvement:** Anka 3 (arm) Nodes are forced to a capacity of 2 (Apple's limitation) to prevent confusion.
-- (Standalone Registry: 1.23.0-XXXXX)
+- (Standalone Registry: 1.23.0-f21df6a2)
 
 ---
 

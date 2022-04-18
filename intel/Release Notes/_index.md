@@ -6,6 +6,23 @@ weight: 100
 
 ## Current Versions
 
+
+### Anka Virtualization CLI 2.5.5 (2.5.5.143) - April 19th, 2022
+
+{{< hint warning >}}
+
+##### Important considerations for this release
+
+- This is a patch for the existing 2.5.5.142 release.
+- Upgrading Addons from the previous minor version of anka is recommended but not required.
+
+<br />
+For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
+{{< /hint >}}
+
+- **Bug Fix:** Continued: `anka run` hangs when executing a command (addons upgrade required).
+- **Improvement:** `anka registry --machine-readable check-download-size` now returns a boolean instead of "yes" or "no".
+
 ### Anka Virtualization CLI 2.5.5 (2.5.5.142) - April 11th, 2022
 
 {{< hint warning >}}
@@ -18,7 +35,7 @@ weight: 100
 For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
-- **Bug Fix:** `anka cp` and `anka run` hang when executing + `ankactl: communication error: Operation timed out` errors after resuming VMs. (addons upgrade required)
+- **Bug Fix:** `anka cp` and `anka run` hang when executing + `ankactl: communication error: Operation timed out` errors after resuming VMs (addons upgrade required).
 - **Bug Fix:** When two pulls are happening on the same machine for the same template and tag, it can sometimes cause a failure with `anka: no such version`.
 - **Bug Fix:** Rarely `anka registry pull` would become stuck.
 - **Bug Fix:** When the machine's disk was full, `anka registry pull` would report 100%/successfully pulled.
