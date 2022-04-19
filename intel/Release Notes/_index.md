@@ -19,7 +19,7 @@ weight: 100
 For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
-- **Bug Fix:** Continued: `anka run` hangs when executing a command (addons upgrade required).
+- **Bug Fix:** Continued: `anka run` hangs when executing a command.
 - **Improvement:** `anka registry --machine-readable check-download-size` now returns a boolean instead of "yes" or "no".
 
 ### Anka Virtualization CLI 2.5.5 (2.5.5.142) - April 11th, 2022
