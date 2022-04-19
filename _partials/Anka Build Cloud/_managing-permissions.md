@@ -1,8 +1,15 @@
-> **This feature requires Enterprise Plus**
+---
+---
+
+{{< hint warning >}}
+**This feature requires Enterprise Plus**
+{{< /hint >}}
 
 Permission groups are configurable from your Controller's `https://<controller address>/admin/ui` page.
 
-> The permission groups here differ from the groups you assign to nodes within the Controller UI
+{{< hint info >}}
+The permission groups here differ from the groups you assign to nodes within the Controller UI.
+{{< /hint >}}
 
 The **Available Permissions** list will display all of the permissions we can assign to the group (see below for the full list). These permissions will allow plugins/users (like Jenkins) to communicate with the Controller & Registry:
 
