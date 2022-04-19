@@ -446,7 +446,7 @@ export ANKA_CIPHER_SUITES="tls_ecdhe_ecdsa_with_chacha20_poly1305_sha256"
 export ANKA_MAX_TLS_VERSION="tls_1.0"
 ```
 
-A full list of options is available in the [configuration reference]({{< relref "Anka Build Cloud/configuration-reference.md#tls" >}}).
+A full list of options is available in the [configuration reference]({{< relref "Anka Build Cloud/configuration-reference.md#https--tls" >}}).
 
 ## What's new in Anka Virtualization 2.3.0
 
