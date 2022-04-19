@@ -12,29 +12,38 @@ If you use CI tools like Jenkins, Teamcity. GitLab CI, BuidKite, integrate them 
 
 You can work with controller through the web portal interface, REST APIs or the CI plugins.
 
-## Controller Portal
+---
+
+### Controller Portal
+
 Access it by going to your controller IP - `http://<controllerIP>:port`.
 
 You can view the status of your Anka Build macOS cloud from this UI and also perform basic management operations.  
-### Dashboard View
-This view displays the total active build nodes, running VM instances, instance run capacity utilization, registry storage consumption, average cpu and ram utilization across the entire cloud. 
+
+#### Dashboard View
+
+This view displays the total active build nodes, running VM instances, instance run capacity utilization, registry storage consumption, average cpu and ram utilization across the entire cloud.
 
 ![image1]({{< siteurl >}}images/using-controller/image1.png)
 
-### Nodes View
+#### Nodes View
+
 Click on nodes to go to node list view.
 
 You can view all active build nodes, instances running on them, their cpu and ram utilization. From this view, you can modify the concurrent VM capacity for each node.
 
 ![image2]({{< siteurl >}}images/using-controller/image2.png)
 
-#### Explanation of Node States
+##### Explanation of Node States
+
 - **Offline:** Node has not checked in recently
 - **Inactive:** (Invalid License): License has likely expired; log in to the node and run `anka license show`
 - **Active:** Node is healthy
 - **Updating:** Node is downloading and installing the proper agent pkg (if the controller has been upgraded)
 - **Unhealthy:** VMs running on Node are in an errored or failed
-### Templates View
+
+#### Templates View
+
 Click on templates to look at all VMs stored in the registry.
 
 ![image3]({{< siteurl >}}images/using-controller/image3.png)
@@ -53,40 +62,43 @@ Distribution to nodes is complete.
 
 ![image6]({{< siteurl >}}images/using-controller/image6.png)
 
-### Instances View
+#### Instances View
+
 Click on Instances to get a list of all running instances on the cloud.
 
 ![image7]({{< siteurl >}}images/using-controller/image7.png)
 
-### Manually starting instances
+#### Manually starting instances
+
 Click on create instance to manually start instances using a specific VM template/tag on the cloud.
 
 ![image8]({{< siteurl >}}images/using-controller/image8.png)
 
-### Accessing Error logs
+#### Accessing Error logs
+
 Starting from Controller release version 1.0.12, logs will be available for download from the Controller Management portal for error scenarios during VM provisioning.
 
 ![image9]({{< siteurl >}}images/using-controller/image9.png)
 
-![image10]({{< siteurl >}}images/using-controller/image10.png) 
+![image10]({{< siteurl >}}images/using-controller/image10.png)
 
 ---
 
-## Enterprise License Features
+### Enterprise License Features
 
-### Node Groups
+#### Node Groups
 
 {{< include file="_partials/Anka Build Cloud/_node_groups.md" >}}
 
-### Priority Scheduling
+#### Priority Scheduling
 
 {{< include file="_partials/Anka Build Cloud/_priority-scheduling.md" >}}
 
-### USB Device Control (Controller API)
+#### USB Device Control (Controller API)
 
 {{< include file="_partials/Anka Build Cloud/_usb-device-control-api.md" >}}
 
-### Event logging and automated pushing
+#### Event logging and automated pushing
 
 {{< include file="_partials/Anka Build Cloud/_event-logging-endpoint-pushing.md" >}}
 
@@ -96,28 +108,31 @@ Starting from Controller release version 1.0.12, logs will be available for down
 
 Use the REST APIs to integrate Anka Build cloud with your CI system (If there is no plugin/integration available).
 
-### Status
+#### Status
 
 ```bash
 ❯ curl -s http://anka.controller/api/v1/status         
 {"status":"OK","message":"","body":{"status":"Running","version":"1.13.0-24e848a5","registry_address":"http://anka.registry:8089","registry_status":"Running","license":"enterprise plus"}}
 ```
-## VM Instance
+
+---
+
+### VM Instance
 
 **Object Model:**
 
-Property       | Type   | Description 
+Property       | Type   | Description
  ---           | ---    | ---
 instance_id    | string | identifier for the instance
 instance_state | string | the instance's state options are "Scheduling", "Pulling", "Started", "Stopping", "Stopped", "Terminating", "Terminated", "Error", "Pushing" (Scheduling -> Pulling, Started, Stopped, Pushing, or Error -> Terminating -> Terminated)
 message        | string | Error message in case of an error
 anka_registry  | string | the URL of the registry where the template is saved
 vmid           | string | the Id of the template that the VM is created from
-tag            | string | the template's tag 
+tag            | string | the template's tag
 version        | int    | the template's version
-vminfo         | object | an object representing the VM itself 
+vminfo         | object | an object representing the VM itself
 node_id        | string | the Id of the node where the VM is running
-inflight_reqid | string | the Id of the pending start VM request 
+inflight_reqid | string | the Id of the pending start VM request
 ts             | datetime | time of the instance last update
 cr_time        | datetime | creation time of the instance
 progress       | float  | the pull progress, in case the VM is in state "Pulling"
@@ -129,7 +144,7 @@ mac_address       | string | represents the assigned MAC address
 
 > All fields but the following are omitted if empty: `vmid`, `group_id`, and `usb_device`
 
-### Start VM instances 
+#### Start VM instances
 
 > Note
 > Group_id, priority and USB_device is only available if you are running Enterprise and higher tier of Anka Build.
@@ -137,16 +152,16 @@ mac_address       | string | represents the assigned MAC address
 **Description:** Start VM instances  
 **Path:**   /api/v1/vm  
 **Method:** POST  
-**Required Data Parameters:**   
+**Required Data Parameters:**
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
- vmid      | string | The template (vm image) to use for the instance. 
+ vmid      | string | The template (vm image) to use for the instance.
 
-**Optional Data Parameters:**   
+**Optional Data Parameters:**
 
 Parameter | Type   | Description       | Default
----       | ---    |   ---             | --- 
+---       | ---    |   ---             | ---
 tag       | string | Specify a specific tag to use | Latest tag.
 version   | int    | Specify a version number instead of a tag. | -
 name      | string | A name for the instance. | -
@@ -154,7 +169,7 @@ external_id | string | An arbitrary string to be saved with the instance | -
 count     | int    | Number of instances to start. | 1
 node_id   | string | Start the instance on this specific node | -
 startup_script | string | Script to be executed after the instance is started, encoded as a base64 string. | -
-startup_script_condition | int | Options are 0 or 1. If 0 is passed the script will run after the VM's network is up, if 1 is passed the script will run as soon as the VM boots. | wait for network 
+startup_script_condition | int | Options are 0 or 1. If 0 is passed the script will run after the VM's network is up, if 1 is passed the script will run as soon as the VM boots. | wait for network
 name_template | string | Name template for the vm name (on the Node), available vars are $template_name $template_id and $ts (timestamp) | -
 group_id  | string | Run the VM on a node from this group. | -
 priority  | int    | Priority of this instance in range 1-10000 (lower is more urgent). | 1000
@@ -162,14 +177,17 @@ usb_device | string | Name of the USB device to attach to the VM | -
 vcpu      |  int    | Override the number of CPU cores for the VM Template **(only works when the template VM is stopped)**.
 vram      |  int    | Override the VM's RAM size in MB (1GB = 1024MB) **(only works when the template VM is stopped)**.
 metadata  | object  | Sets the instance metadata, a key-value object. Keys are strings. Values are strings, ints or booleans | -
-mac_address      |  string    | Specify MAC address for the VM (Capital letters and ':' as separators) **(only works when the template VM is stopped and when --manage-mac-addresses flag is set in the controller config)**.
+mac_address      |  string    | Specify MAC address for the VM (Capital letters and ':' as separators) **(only works when the VM Template is stopped and when --manage-mac-addresses flag is set in the controller config)**.
+vlan_tag | string | Specify the VLAN ID to target when starting the VM. This will run `anka modify {clonedVMName} set network-card --vlan {ID}` on the host running the VM **and only works when the VM Template is stopped**.
 
 **Returns:**  
+
 - *status:* Operation Result (OK|FAIL)  
 - *body:* Array of instance UUIDs  
-- *message:* Error message in case of an error 
+- *message:* Error message in case of an error
 
-#### Example
+##### Example
+
 ```shell
  curl -X POST "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" \
   -d '{"vmid": "6b135004-0c89-43bb-b892-74796b8d266c", "count": 2}'
@@ -184,16 +202,16 @@ mac_address      |  string    | Specify MAC address for the VM (Capital letters 
 }
 ```
 
-### Update Instance
+#### Update Instance
 
 **Description:** Update VM Instance
 **Path:**  /api/v1/vm
 **Method:** PUT
 **Required Query Parameters**  
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
- id      | string | Return the VM with that ID. If the vm does not exists the server will return the status `FAIL` 
+ id      | string | Return the VM with that ID. If the vm does not exists the server will return the status `FAIL`
 
 **Optional Data Parameters:**
 
@@ -204,10 +222,12 @@ mac_address      |  string    | Specify MAC address for the VM (Capital letters 
  metadata      | object | Updates the instance metadata, a key-value object. Keys are strings. Values are strings, ints or booleans | -
 
  **Returns:**  
-- *status:* Operation Result (OK|FAIL)  
-- *message:* Error message in case of an error 
 
-#### Example
+- *status:* Operation Result (OK|FAIL)  
+- *message:* Error message in case of an error
+
+##### Example
+
 ```shell
  curl -X PUT "http://anka.controller/api/v1/vm?id=c0f36a87-41d9-44a8-66e1-6c5afae15b80" -H "Content-Type: application/json" \
   -d '{"name": "My VM name"}'
@@ -218,24 +238,24 @@ mac_address      |  string    | Specify MAC address for the VM (Capital letters 
 }
 ```
 
-
-### Terminate VM instance
+#### Terminate VM instance
 
 **Description:** Terminate a running VM instance  
 **Path:** /api/v1/vm  
 **Method:** DELETE  
 **Required Data Parameters:**  
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
  id      | string | The id of the instance to terminate.
 
- **Returns:** 
- - *Status:* Operation Result (OK|FAIL)  
- - *message:* Error message in case of an error 
+ **Returns:**
 
+- *Status:* Operation Result (OK|FAIL)  
+- *message:* Error message in case of an error
 
-#### Example
+##### Example
+
 ```shell
 curl -X DELETE "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" \
 -d '{"id": "c983c3bf-a0c0-43dc-54dc-2fd9f7d62fce"}' | jq
@@ -245,24 +265,25 @@ curl -X DELETE "http://anka.controller/api/v1/vm" -H "Content-Type: application/
 }
 ```
 
-### List VM Instances
+#### List VM Instances
 
 **Description:** List all VM instances  
 **Path:** /api/v1/vm  
 **Method:** GET  
 **Optional Query Parameters**  
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
- id      | string | Return the VM with that ID. If the vm does not exists the server will return the status `FAIL` 
+ id      | string | Return the VM with that ID. If the vm does not exists the server will return the status `FAIL`
 
+ **Returns:**
 
- **Returns:** 
- - *Status:* Operation Result (OK|FAIL)  
- - *Body*:  Array of Instances 
- - *message:* Error message in case of an error 
+- *Status:* Operation Result (OK|FAIL)  
+- *Body*:  Array of Instances
+- *message:* Error message in case of an error
 
-#### Example
+##### Example
+
 ```shell
 # List all VMs
 
@@ -400,18 +421,19 @@ curl "http://anka.controller/api/v1/vm?id=04b7ca7a-945c-4bdc-5123-68b2e4c8ad13" 
 }
 ```
 
+---
 
-## Node 
+### Node
 
 **Object Model:**
 
-Property       | Type   | Description 
+Property       | Type   | Description
  ---           | ---    | ---
 node_id        | string | The node's id
 node_name      | string | The node's name
-cpu_count      | int    | Quantity of CPU cores 
+cpu_count      | int    | Quantity of CPU cores
 ram            | int    | Amount of RAM in GB
-vm_count       | int    | Number of VMs currently running 
+vm_count       | int    | Number of VMs currently running
 vcpu_count     | int    | Number of running virtual CPUs
 vram           | int    | Amount of virtual RAM used
 cpu_util       | float  | CPU utilization (0-1)
@@ -420,9 +442,9 @@ ip_address     | string | The IP address or host name of the node
 state          | string | State of the node values can be "Offline", "Inactive (Invalid License)", "Active", "Updating", "Unhealthy"
 capacity       | int    | Number of VMs the node can run
 groups         | list   | List of groups that the nodes belongs to
-anka_version   | object | An object representing the Anka information. running version, product name, license. 
+anka_version   | object | An object representing the Anka information. running version, product name, license.
 usb_devices    | list   | List of USB devices connected to the node
-capacity_mode  | string | Node's capacity mode, options are `number` (number of running VMs) or `resource` (VCPUs and VRAM) 
+capacity_mode  | string | Node's capacity mode, options are `number` (number of running VMs) or `resource` (VCPUs and VRAM)
 vcpu_override  | int    | VCPU scheduling limit, when using capacity mode `resource`  
 ram_override   | int    | VRAM scheduling limit, when using capacity mode `resource`
 disk_size      | int    | Node's disk size in bytes
@@ -430,24 +452,25 @@ free_disk_space | int   | Node's free disk space in bytes
 anka_disk_usage | int   | Disk space used by Anka in bytes
 templates      | array of objects | List of templates that the node has, each template has `name`, `tag` and `uuid`
 
-
-### List Nodes
+#### List Nodes
 
 **Description:** List all build nodes joined to the controller  
 **Path:** /api/v1/node  
 **Method:** GET  
 **Optional Query Parameters**  
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
- id      | string | Return the Node with that ID. If the node does not exists the server will return the status `FAIL` 
+ id      | string | Return the Node with that ID. If the node does not exists the server will return the status `FAIL`
 
- **Returns:** 
- - *Status:* Operation Result (OK|FAIL)  
- - *Body*:  Array of Nodes 
- - *message:* Error message in case of an error 
+ **Returns:**
 
-#### Examples
+- *Status:* Operation Result (OK|FAIL)  
+- *Body*:  Array of Nodes
+- *message:* Error message in case of an error
+
+##### Examples
+
 ```shell
 # List Nodes
 curl "http://anka.controller/api/v1/node" -H "Content-Type: application/json" | jq
@@ -581,36 +604,37 @@ curl "http://anka.controller/api/v1/node?id=f8707005-4630-4c9c-8403-c9c5964097f6
 }
 ```
 
-### Update Node
+#### Update Node
 
 **Description:** Update Node configuration parameters.  
 **Path:** /api/v1/node/config  
 **Method:** POST  
 **Required Data Parameters:**  
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
  node_id   | string | The specified Node's id.
 
- **Optional Data Parameters:**   
+ **Optional Data Parameters:**
 
  Parameter     | Type   | Description              | Default
  ---           | ---    |   ---                    | ---
  max_vm_count  | int    | Set Node capacity        | -
  name          | string | Set the Node's name      | -
  host          | string | Set the Node's host name | -
- capacity_mode | string | Set the Node's capacity mode, options are `number` (number of running VMs) or `resource` (VCPUs and VRAM) | Default behavior is `number` 
+ capacity_mode | string | Set the Node's capacity mode, options are `number` (number of running VMs) or `resource` (VCPUs and VRAM) | Default behavior is `number`
  vcpu_override | int    | When using capacity mode `resource` set the VCPU scheduling limit | -
  ram_override  | int    | When using capacity mode `resource` set the VRAM scheduling limit | -
  disable_central_logging | bool | If true, disables central logging (logs will not be sent to the log server) | -
 
+ **Returns:**
 
- **Returns:** 
- - *Status:* Operation Result (OK|FAIL)  
- - *Body*:  Array of Nodes 
- - *message:* Error message in case of an error 
+- *Status:* Operation Result (OK|FAIL)  
+- *Body*:  Array of Nodes
+- *message:* Error message in case of an error
 
-#### Example
+##### Example
+
 ```shell
 curl -X POST "http://anka.controller/api/v1/node/config" -H "Content-Type: application/json" \
  -d '{"node_id": "f8707005-4630-4c9c-8403-c9c5964097f6", "name": "MacPro1", "max_vm_count": 6}' | jq
@@ -620,25 +644,27 @@ curl -X POST "http://anka.controller/api/v1/node/config" -H "Content-Type: appli
 }
 ```
 
-### Delete Node
+#### Delete Node
 
 > Note
-> To remove a Node from the cluster, execute `ankacluster disjoin` on the Node. 
+> To remove a Node from the cluster, execute `ankacluster disjoin` on the Node.
 
 **Description:** Remove Nodes that do not exist anymore or have crashed  
 **Path:** /api/v1/node  
 **Method:** DELETE  
 **Required Data Parameters:**  
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
  node_id   | string | The specified Node's id.
 
- **Returns:** 
- - *Status:* Operation Result (OK|FAIL)  
- - *message:* Error message in case of an error 
+ **Returns:**
 
-#### Example
+- *Status:* Operation Result (OK|FAIL)  
+- *message:* Error message in case of an error
+
+##### Example
+
 ```shell
 curl -X DELETE "http://anka.controller/api/v1/node" -H "Content-Type: application/json" \
  -d '{"node_id": "f8707005-4630-4c9c-8403-c9c5964097f6"}' | jq
@@ -648,23 +674,25 @@ curl -X DELETE "http://anka.controller/api/v1/node" -H "Content-Type: applicatio
 }
 ```
 
-### Force Node Agent Update
+#### Force Node Agent Update
 
 **Description:** Forces the current agent package to download and install across all nodes attached to the controller  
 **Path:** /api/v1/node/update  
 **Method:** PUT  
 **Required Data Parameters:** N/A
 
- **Returns:** 
- - *Status:* Operation Result (OK|FAIL)  
- - *message:* Error message in case of an error 
+ **Returns:**
 
+- *Status:* Operation Result (OK|FAIL)  
+- *message:* Error message in case of an error
 
-## Template
+---
+
+### Template
 
 **Template Object Model:**
 
-Property       | Type   | Description 
+Property       | Type   | Description
  ---           | ---    | ---
 id             | string | The ID of the template
 name           | string | Template's name
@@ -674,56 +702,58 @@ size           | int    | Total size of all Template's files on the registry in 
 
 *Each template has multiple Tags/Versions*
 
-Property       | Type   | Description 
+Property       | Type   | Description
 ---            |   ---  | ---
 tag            | string | Tag name of the version
 number         | int    | Serial number of the version (between versions)
 description    | string | Tag's description
 images         | list   | A list of image file names that this tag contains
 state_files    | list   | A list of state file names (suspend state) that this tag contains
-state_file     | string | Name of the state file (in case there multiple state files) 
+state_file     | string | Name of the state file (in case there multiple state files)
 size           | int    | Total size of all tag's files on registry in bytes.
 nvram          | string | Name of the nvram file
 config_file    | string | Name of the tag's config file
 
-
- 
-### List Templates  
+#### List Templates  
 
 **Description:** List all templates stored in the Registry.  
 **Path:** /api/v1/registry/vm  
 **Method:** GET  
 **Optional Query Parameters**  
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
- id        | string | Return a specific Template. Passing this parameter will show more information about the Template's tags 
+ id        | string | Return a specific Template. Passing this parameter will show more information about the Template's tags
 
+ **Returns:**
 
- **Returns:** 
- - *Status:* Operation Result (OK|FAIL)  
- - *Body*:  Array of Templates or Template (if id supplied)
- - *message:* Error message in case of an error 
+- *Status:* Operation Result (OK|FAIL)  
+- *Body*:  Array of Templates or Template (if id supplied)
+- *message:* Error message in case of an error
 
 **Template List format**
- - *name:* Template's name
- - *id:* Template's id
+
+- *name:* Template's name
+- *id:* Template's id
 
 **Template format**
- - *name:* Template's name
- - *id:* Template's id
- - *versions:* Array of Version objects. 
+
+- *name:* Template's name
+- *id:* Template's id
+- *versions:* Array of Version objects.
 
 **Version format**
- - *tag:* The version's tag
- - *number:* Serial number of the version
- - *description:* The version's description
- - *images:* List of image file names
- - *state_files:* List of state file names (suspend images)
- - *config_file:* Name of the version's VM config file
- - *nvram:* Name of the VM nvram file
 
-#### Example  
+- *tag:* The version's tag
+- *number:* Serial number of the version
+- *description:* The version's description
+- *images:* List of image file names
+- *state_files:* List of state file names (suspend images)
+- *config_file:* Name of the version's VM config file
+- *nvram:* Name of the VM nvram file
+
+##### Example  
+
 ```shell
 # List example
 curl "http://anka.controller/api/v1/registry/vm" | jq
@@ -803,22 +833,24 @@ curl "http://anka.controller/api/v1/registry/vm?id=00510971-5c37-4a60-a9c6-ea185
 }
 ```
 
-### Delete Template
+#### Delete Template
 
 **Description:** Delete a specific VM template and all associated tags from the registry  
 **Path:** /api/v1/registry/vm  
 **Method:** DELETE  
 **Required Query Parameters:**  
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
  id        | string | The Template's id.
 
- **Returns:** 
- - *Status:* Operation Result (OK|FAIL)  
- - *message:* Error message in case of an error 
+ **Returns:**
 
-#### Example
+- *Status:* Operation Result (OK|FAIL)  
+- *message:* Error message in case of an error
+
+##### Example
+
 ```shell
 curl -X DELETE "http://anka.controller/api/v1/registry/vm?id=00510971-5c37-4a60-a9c6-ea185397d9b4" | jq
 {
@@ -827,7 +859,7 @@ curl -X DELETE "http://anka.controller/api/v1/registry/vm?id=00510971-5c37-4a60-
 }
 ```
 
-### Revert Template Tag
+#### Revert Template Tag
 
 {{< hint warning >}}
 Reverting is a potentially dangerous operation. It will revert all tags which came AFTER the one you're targeting. We recommend a multi-template-single-tag approach instead to avoid this.
@@ -838,22 +870,24 @@ Reverting is a potentially dangerous operation. It will revert all tags which ca
 **Method:** DELETE  
 **Required Query Parameters**  
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
- id        | string | The Template id. 
+ id        | string | The Template id.
 
 **Optional Query Parameters**  
 
  Parameter | Type   | Description     | Default
  ---       |   ---  |          ---    |   ---
- tag       | string | The Tag to revert to. Newer versions will also be deleted | Latest 
+ tag       | string | The Tag to revert to. Newer versions will also be deleted | Latest
  version   | int    | The number of the version to revert to, 0 indexed | Latest
 
- **Returns:** 
- - *Status:* Operation Result (OK|FAIL)  
- - *message:* Error message in case of an error 
+ **Returns:**
 
-#### Example
+- *Status:* Operation Result (OK|FAIL)  
+- *message:* Error message in case of an error
+
+##### Example
+
 ```shell
 # Delete latest version
 curl -X DELETE  "http://anka.controller/api/v1/registry/revert?id=00510971-5c37-4a60-a9c6-ea185397d9b4" | jq
@@ -880,14 +914,14 @@ curl -X DELETE  "http://anka.controller/api/v1/registry/revert?id=a3cc47f0-3a73-
 }
 ```
 
-### Delete Template from Node\[s\]
+#### Delete Template from Node\[s\]
 
 **Description:** Deletes a VM Template from all (or specific) nodes  
 **Path:** /api/v1/registry/vm/remove  
 **Method:** DELETE  
 **Required Query Parameters:**  
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
  id        | string | The Template's id.
 
@@ -897,14 +931,15 @@ curl -X DELETE  "http://anka.controller/api/v1/registry/revert?id=a3cc47f0-3a73-
  ---       |   ---  |          ---
  node_ids        | string array | A list of nodes to delete the template from
 
- **Returns:** 
- - *Status:* Operation Result (OK|FAIL)  
- - *message:* Error message in case of an error 
- - *body:* 
+ **Returns:**
+
+- *Status:* Operation Result (OK|FAIL)  
+- *message:* Error message in case of an error
+- *body:*
    Number of requests sent (int): "requests_sent"
    Node IDs that the request was sent to (string array): "node_ids"
 
-### Distribute Template
+#### Distribute Template
 
 > Note
 > Group_id is only available if you are running Enterprise tier of Anka Build.  
@@ -912,27 +947,29 @@ curl -X DELETE  "http://anka.controller/api/v1/registry/revert?id=a3cc47f0-3a73-
 **Description:** Distribute a specific VM template to all or some build nodes.  
 **Path:**  /api/v1/registry/vm/distribute  
 **Method:** POST  
-**Required Data Parameters:**   
+**Required Data Parameters:**
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
  template_id | string | Id of the Template to distribute
 
-**Optional Data Parameters:**   
+**Optional Data Parameters:**
 
  Parameter | Type   | Description       | Default
  ---       | ---    |   ---             | ---
  tag       | string | Specify a Tag to distribute | Latest Tag
- version   | int    | Specify a version number to distribute | Latest 
+ version   | int    | Specify a version number to distribute | Latest
  node_ids  | string array | Choose specific Nodes to distribute the Template to | All
  group_id  | string | Distribute the Template to the specified group (enterprise) | -
 
 **Returns:**  
+
 - *status:* Operation Result (OK|FAIL)  
 - *body:* Request id of the distribution request
-- *message:* Error message in case of an error 
+- *message:* Error message in case of an error
 
-#### Example
+##### Example
+
 ```shell
 curl -X POST "http://anka.controller/api/v1/registry/vm/distribute" \
 -d '{"template_id": "eaef3af8-cb54-4c3e-baf9-839053472f15"}' | jq
@@ -945,33 +982,34 @@ curl -X POST "http://anka.controller/api/v1/registry/vm/distribute" \
 }
 ```
 
-### Get distribution status 
+#### Get distribution status
 
 **Description:** Get the status of a requested distribution  
 **Path:** /api/v1/registry/vm/distribute  
 **Method:** GET  
 **Optional Query Parameters**  
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
- id        | string | Return the Distribution request with that ID (`request_id`). 
+ id        | string | Return the Distribution request with that ID (`request_id`).
 
+ **Returns:**
 
- **Returns:** 
- - *Status:* Operation Result (OK|FAIL)  
- - *Body*:  List of request status or single request status
- - *message:* Error message in case of an error 
+- *Status:* Operation Result (OK|FAIL)  
+- *Body*:  List of request status or single request status
+- *message:* Error message in case of an error
 
 **Request Status format**
-+ *distribute_status* - Map of nodes
+- *distribute_status* - Map of nodes
   - *status:* A boolean, true if the download is finished on the Node
   - *progress:* A number representing the download progress
-+ *request* - An object that represents the request
+- *request* - An object that represents the request
   - *request_id:* The request's id
   - *template_id:* The Template being distributed
   - *time_requested:* The time of the request
 
-#### Example
+##### Example
+
 ```shell
 # List all distribution requests
 curl  "http://anka.controller/api/v1/registry/vm/distribute" | jq
@@ -1016,7 +1054,7 @@ curl  "http://anka.controller/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e0
 }
 ```
 
-### Save Template Image
+#### Save Template Image
 
 **Description:** Create a "Save Image" request. Save a running VM instance to the Registry as a new Tag or Template.
 
@@ -1026,32 +1064,33 @@ curl  "http://anka.controller/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e0
 **Method:** POST  
 **Required Data Parameters:**  
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
  id        | string | The ID of a running Controller Instance you want to save to the registry
- new_template_name  | string  | Create a new VM Template with a specific name. _Required if target_vm_id not supplied_ | -
+ new_template_name  | string  | Create a new VM Template with a specific name. *Required if target_vm_id not supplied* | -
 
- 
- **Optional Data Parameters:**   
+ **Optional Data Parameters:**
 
  Parameter          | Type    | Description              | Default
  ---                | ---     |   ---                    | ---
  target_vm_id       | string  | The template id to save the tag to | -
  tag                | string  | The tag name to set | -
  description        | string  | The description to use for the new tag | -
- suspend            | bool    | If true, suspends the vm before pushing | true 
+ suspend            | bool    | If true, suspends the vm before pushing | true
  script             | string  | Script to be executed before the instance is stopped/suspended, encoded as a base64 string. | -
  revert_before_push | bool    | If `target_vm_id` is not empty, revert the latest tag of the template or tag specified in `revert_tag` | false
  revert_tag         | string  | Revert this specific tag. In case the tag does not exist, revert operation does not take place. | -
  do_suspend_sanity_test | bool | If suspend is true, perform a suspend sanity test before pushing the VM to the registry | false
  cancel_on_script_failure | bool | Don't save the image if the script does not have `return_code: 0` in `GET /api/v1/image: script_result` (see below) | false
 
- **Returns:** 
- - *Status:* Operation Result (OK|FAIL)  
- - *Body:* The created request id 
- - *message:* Error message in case of an error 
+ **Returns:**
 
-#### Example
+- *Status:* Operation Result (OK|FAIL)  
+- *Body:* The created request id
+- *message:* Error message in case of an error
+
+##### Example
+
 ```shell
 curl -X POST "http://anka.controller/api/v1/image" -H "Content-Type: application/json" \
 -d '{"id": "cfc3cafd-d326-459d-7b3b-3c41b1a3efb7", "target_vm_id": "cb1473f2-1f0a-413c-a376-236bfd7d718f", "tag": "my-new-vm-1901", "revert_before_push": true, "revert_tag": "latest-vm-1801"}' | jq
@@ -1082,30 +1121,33 @@ IyEvYmluL2Jhc2gKZWNobyAkKGhvc3RuYW1lKQplY2hvCmVudgpleHBvcnQgVEVTVD10cnVlCmJhc2gg
 
 ```
 
-### List Save Template Image Requests
+#### List Save Template Image Requests
 
 **Description:** Get a list of Save Image requests, or specify an id and get a single Save Image request.  
 **Path:** /api/v1/image  
 **Method:** GET  
 **Optional Query Parameters**  
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
- id      | string | Return only the Save Image request with that ID. 
+ id      | string | Return only the Save Image request with that ID.
 
- **Returns:** 
- - *Status:* Operation Result (OK|FAIL)  
- - *Body:* Array of Save Image requests, or Single Save Image request
- - *message:* Error message in case of an error 
+ **Returns:**
+
+- *Status:* Operation Result (OK|FAIL)  
+- *Body:* Array of Save Image requests, or Single Save Image request
+- *message:* Error message in case of an error
 
 **Save Image request format**
+
 - *id* - The request’s id
 - *status* - The request's current status. Options are pending/done/error
 - *script_result* - Details about what was executed in `script`. Example: `{ "stdout": "", "stderr": "", "errors": [], "return_code": 0 }`
 - *request* - An object that represents the request
 - *error* - Error message if status is error
 
-#### Example
+##### Example
+
 ```shell
 # List all requests
 
@@ -1178,19 +1220,22 @@ curl "http://anka.controller/api/v1/image?id=cc55f7dd-5280-4120-461c-9b0ef9b4013
 
 ```
 
-## Group
-### Create Group
+---
+
+### Group
+
+#### Create Group
 
 **Description:** Create a new node Group. Group is a "container" object used for grouping nodes.  
 **Path:** /api/v1/group  
 **Method:** POST  
-**Required Data Parameters:**   
+**Required Data Parameters:**
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
  name      | string | Name of the new Group
 
-**Optional Data Parameters:**   
+**Optional Data Parameters:**
 
  Parameter | Type   | Description       | Default
  ---       | ---    |   ---             | ---
@@ -1198,11 +1243,13 @@ curl "http://anka.controller/api/v1/image?id=cc55f7dd-5280-4120-461c-9b0ef9b4013
  fallback_group_id | string | Set a fallback Group | -
 
 **Returns:**  
+
 - *status:* Operation Result (OK|FAIL)  
 - *body:* The new Group object
-- *message:* Error message in case of an error 
+- *message:* Error message in case of an error
 
-#### Example
+##### Example
+
 ```shell
  curl -X POST "http://anka.controller/api/v1/group" -d '{"name": "GreateNodes", "description": "best of my macs"}' | jq
 {
@@ -1217,24 +1264,27 @@ curl "http://anka.controller/api/v1/image?id=cc55f7dd-5280-4120-461c-9b0ef9b4013
 }
 ```
 
-### List Groups
+#### List Groups
 
 **Description:** List all groups  
 **Path:** /api/v1/group  
-**Method:** GET   
+**Method:** GET
 
-**Returns:** 
+**Returns:**
+
 - *Status:* Operation Result (OK|FAIL)  
-- *Body*: Array of Group 
-- *message:* Error message in case of an error 
+- *Body*: Array of Group
+- *message:* Error message in case of an error
 
 **Group format**
+
 - *id* - The group's id
 - *name* - The group's name
 - *description* - The group's description
 - *fallback_group_id* - Id of a the fallback group (group that requests go to if the current group is in full capacity)
 
-#### Example
+##### Example
+
 ```shell
 curl "http://anka.controller/api/v1/group" | jq
 {
@@ -1251,18 +1301,18 @@ curl "http://anka.controller/api/v1/group" | jq
 }
 ```
 
-### Update Group
+#### Update Group
 
 **Description:** Sets one or more parameters of an existing Group object.  
 **Path:** /api/v1/group  
 **Method:** PUT  
 **Required Query Parameters:**
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
  id        | string | The id of the Group to update
 
-**Optional Data Parameters:**   
+**Optional Data Parameters:**
 
  Parameter | Type   | Description       | Default
  ---       | ---    |   ---             | ---
@@ -1271,10 +1321,12 @@ curl "http://anka.controller/api/v1/group" | jq
  fallback_group_id | string | Set a fallback Group | -
 
 **Returns:**  
-- *status:* Operation Result (OK|FAIL)  
-- *message:* Error message in case of an error 
 
-#### Example
+- *status:* Operation Result (OK|FAIL)  
+- *message:* Error message in case of an error
+
+##### Example
+
 ```shell
 curl -X PUT "http://anka.controller/api/v1/group?id=89a66167-62b1-42bb-5a0b-ff667906b8f5" \
 -d '{"name": "Creme-de-la-nodes", "description": "A selected group of my favorite computers"}' | jq
@@ -1284,22 +1336,24 @@ curl -X PUT "http://anka.controller/api/v1/group?id=89a66167-62b1-42bb-5a0b-ff66
 }
 ```
 
-### Delete Group
+#### Delete Group
 
 **Description:** Delete a Group.  
 **Path:** /api/v1/group  
 **Method:** DELETE  
 **Required Query Parameters:**
 
- Parameter | Type   | Description 
+ Parameter | Type   | Description
  ---       |   ---  |          ---
  id        | string | The id of the Group to delete
 
 **Returns:**  
-- *status:* Operation Result (OK|FAIL)  
-- *message:* Error message in case of an error 
 
-#### Example
+- *status:* Operation Result (OK|FAIL)  
+- *message:* Error message in case of an error
+
+##### Example
+
 ```shell
 curl -X DELETE "http://anka.controller/api/v1/group?id=89a66167-62b1-42bb-5a0b-ff667906b8f5" | jq
 {
@@ -1308,13 +1362,13 @@ curl -X DELETE "http://anka.controller/api/v1/group?id=89a66167-62b1-42bb-5a0b-f
 }
 ```
 
-### Add Nodes to Group
+#### Add Nodes to Group
 
 **Description:** Add one or more Nodes to one or more Groups.  
 **Path:** /api/v1/node/group  
 **Method:** POST  
 
-**Required Data Parameters:**   
+**Required Data Parameters:**
 
  Parameter | Type         | Description       | Default
  ---       | ---          |   ---             | ---
@@ -1322,10 +1376,12 @@ curl -X DELETE "http://anka.controller/api/v1/group?id=89a66167-62b1-42bb-5a0b-f
  node_ids  | string array | List of nodes to add to the specified groups. | []
 
 **Returns:**  
-- *status:* Operation Result (OK|FAIL)  
-- *message:* Error message in case of an error 
 
-#### Example
+- *status:* Operation Result (OK|FAIL)  
+- *message:* Error message in case of an error
+
+##### Example
+
 ```shell
 curl -X POST "http://anka.controller/api/v1/node/group" \
 -d '{"group_ids": ["e41d4b47-4c10-4264-5519-2d52af568bdd"], "node_ids": ["64230242-321c-442a-bd96-d87edd0943a3"]}' | jq
@@ -1335,14 +1391,13 @@ curl -X POST "http://anka.controller/api/v1/node/group" \
 }
 ```
 
-### Remove nodes from a group
-
+#### Remove nodes from a group
 
 **Description:** Remove one or more Nodes from one or more Groups.  
 **Path:** /api/v1/node/group  
 **Method:** DELETE  
 
-**Required Data Parameters:**   
+**Required Data Parameters:**
 
  Parameter | Type         | Description       | Default
  ---       | ---          |   ---             | ---
@@ -1350,10 +1405,12 @@ curl -X POST "http://anka.controller/api/v1/node/group" \
  node_ids  | string array | List of nodes to remove from the specified group ids. | []
 
 **Returns:**  
-- *status:* Operation Result (OK|FAIL)  
-- *message:* Error message in case of an error 
 
-#### Example
+- *status:* Operation Result (OK|FAIL)  
+- *message:* Error message in case of an error
+
+##### Example
+
 ```shell
 curl -X DELETE "http://anka.controller/api/v1/node/group" \
 -d '{"group_ids": ["e41d4b47-4c10-4264-5519-2d52af568bdd"], "node_ids": ["64230242-321c-442a-bd96-d87edd0943a3"]}' | jq
@@ -1362,24 +1419,31 @@ curl -X DELETE "http://anka.controller/api/v1/node/group" \
    "message": ""
 }
 ```
-## USB
-### List Devices
+
+---
+
+### USB
+
+#### List Devices
 
 **Description:** Get a list of all USB devices attached to the cloud  
 **Path:** /api/v1/usb  
 **Method:** GET  
 
-**Returns:** 
+**Returns:**
+
 - *Status:* Operation Result (OK|FAIL)  
-- *Body*: Map of USB devices 
-- *message:* Error message in case of an error 
+- *Body*: Map of USB devices
+- *message:* Error message in case of an error
 
 **USB map entry format**
 Each key is the device group name
+
 - *available:* Number of available devices of this key
 - *busy:* Number of busy devices of this key
 
-#### Example
+##### Example
+
 ```shell
 curl "http://anka.controller/api/v1/usb" | jq
 {
@@ -1398,9 +1462,11 @@ curl "http://anka.controller/api/v1/usb" | jq
 }
 ```
 
-## MAC Addresses Management
+---
 
-### List Addresses
+### MAC Addresses Management
+
+#### List Addresses
 
 **Description:** Lists or counts mac address  
 **Path:** /api/v1/macaddr  
@@ -1418,26 +1484,55 @@ curl "http://anka.controller/api/v1/usb" | jq
 | last | string | (pagination) Return the amount of items specified in `limit`, but start from a specific MAC address (ex: `limit=500&last=00:00:00:00:FF:FF`) |
 
 **Returns:**
+
 - *status:* Operation Result (OK|FAIL)
 - *message:* Error message in case of an error
 
-### Force population of internal MAC list
+#### Force population of internal MAC list
 
 **Description:** Triggers the internal MAC address population (useful if DELETE was submitted with API call)  
 **Path:** /api/v1/macaddr  
 **Method:** PUT  
 
 **Returns:**
+
 - *status:* Operation Result (OK|FAIL)
 - *message:* Error message in case of an error
 
-### Force purge of internal MAC list
+#### Force purge of internal MAC list
 
 **Description:** Deletes all internal MAC addresses (run this before PUT to re-generate your initial range)  
 **Path:** /api/v1/macaddr  
 **Method:** DELETE  
 
 **Returns:**
+
 - *status:* Operation Result (OK|FAIL)
 - *message:* Error message in case of an error
 
+---
+
+### VLAN
+
+#### Get all VLANs IDs
+
+**Description:** Gets the available VLAN ids in all hosts  
+**Path:** /api/v1/vlan  
+**Method:** GET  
+**Query parameters:** None  
+**Returns:**
+
+- **status:** operation result
+- **message:** Error message in case of error
+- **body:** vlan ids as List of string
+
+##### Example
+
+```bash
+curl http://anka.controller/api/v1/vlan
+{
+  "status": "OK",
+  "message": "",
+  "body": ["12", "55"]
+}
+```

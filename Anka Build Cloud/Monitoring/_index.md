@@ -3,16 +3,22 @@ title: "Monitoring"
 linkTitle: "Monitoring"
 weight: 9
 description: >
-  The various ways in which you can monitor your Anka Build Cloud
+  Recommended approaches to monitoring your Anka Build Cloud.
 ---
 
-In order to monitor your Anka Build Cloud, you'll need a few things: 
+In order to monitor your Anka Build Cloud, you'll need a few things:
 
-1. A way to collect metrics (time series database, etc)
+1. A way to collect metrics (time series database, etc).
 
-2. A way to graph and setup alerts
+2. A way to graph and setup alerts.
+
+---
 
 ## Prometheus + Grafana
+
+{{< hint info >}}
+Release Notes can be found [on the official Github repo](https://github.com/veertuinc/anka-prometheus-exporter/releases).
+{{< /hint >}}
 
 [Prometheus](https://github.com/prometheus/prometheus#prometheus) is a powerful monitoring and alerting toolkit. You can use it to store Anka Controller, Registry, and VM metrics to build out or integrating into existing graphing tools like [Grafana](https://github.com/grafana/grafana#get-started).
 

@@ -66,7 +66,7 @@ openssl x509 -req -days 365 -sha256 -in anka-controller-csr.pem -CA anka-ca-crt.
 
 Ensure that the certificate has **Signature Algorithm: sha256WithRSAEncryption** using `openssl x509 -text -noout -in ~/anka-controller-crt.pem | grep Signature` (https://support.apple.com/en-us/HT210176)
 
-> Beginning in Controller version 1.12.0, [you can control the allowed TLS Cipher Suites and minimum/maximum TLS versions]({{< relref "Anka Build Cloud/configuration-reference.md#tls" >}})
+> Beginning in Controller version 1.12.0, [you can control the allowed TLS Cipher Suites and minimum/maximum TLS versions]({{< relref "Anka Build Cloud/configuration-reference.md#https--tls" >}})
 
 ### Native macOS Controller & Registry package
 

@@ -34,7 +34,7 @@ The Jenkins Anka Plugin requires a VM with Java, SSH Remote Login, and port forw
 
 ## Install and Configure the Anka Plugin in Jenkins
 
-> These steps are based on Jenkins 2.289.1 and the Anka Jenkins Plugin v2.6.0. Your version/UI may differ slightly.
+> These steps are based on Jenkins 2.289.1 and the Anka v2.6.0. Your version/UI may differ slightly.
 
 1. Navigate to `Manage Jenkins > Manage Plugins` and click on the **Available** tab. Search in **Filter** for "Anka", then install it. _You won't see any results if it's already installed._
 
@@ -225,3 +225,138 @@ timeoutMinutes | int | 120 | Stops waiting for the result of the Tag -> Registry
 ## Answers to Frequently Asked Questions
 
 - SSH is only needed to install the jenkins "remoting" agent inside of the VM. If you're losing the agent mid-job, it is not SSH related.
+
+---
+
+## Release Notes
+
+### 2.7.0 - Jan 10th, 2022
+
+- Security patches
+
+---
+
+### 2.6.1 - Dec 23rd, 2021
+
+- **Bug Fix:** When running on Jenkins 2.319, "null" was being passed when tag was set to latest (empty)
+
+
+{{< hint warning >}}
+For either 2.7.0 or 2.6.1, please check over your Anka Build Plugin configuration and agent/label templates and ensure things are correct. **Even if correct, please issue a Save of the configuration post-upgrade.**
+{{< /hint >}}
+
+---
+
+### 2.6.0 - June 29th, 2021
+- Improvement: New UI design, field names, and descriptions
+- Bug Fix: Jenkins agent templates are deleted when the Anka Build Cloud URL changes
+
+---
+
+### 2.5.0 - Mar 30th, 2021
+- Support for Jenkins versions `2.277.1` and above (new UI changes)
+
+> Breaking change: Versions < 2.260 of Jenkins are not supported
+
+---
+
+### 2.4.0 - Feb 18th, 2021
+- New Feature: [You can now set the Launch timeout values to handle network/resource conditions that delay VMs initializing their networking]({{< relref "intel/Whats New/_index.md#set-various-vm-launch-timeout-values" >}})
+
+---
+
+### 2.3.0 - Dec 1st, 2020
+- New Feature: Disable appending timestamp to Cache Builder/tags
+
+---
+
+### 2.2.1 - Nov 11, 2020
+- Bug Fix: Dynamic Anka Node pipeline step causes job to hang
+
+---
+
+### 2.2.0 - August 31, 2020
+- Bug Fix: vmPollTime definitions in Configuration as Code aren't working due to typo
+
+    > **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
+
+---
+
+### 2.1.2 - July 8, 2020
+
+> **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
+
+- Bug Fix: createDynamicAnkaNode remoteFS and launchMethod are being ignored
+- Bug Fix: HTTPS without certificate authentication enabled doesn't work
+
+---
+
+### 2.1.0 - June 22, 2020
+
+> **If updating from 1.X.X: This version (2.X) requires that you back up your Static Slave Templates (config.xml) and add them again.**
+
+- Various stability / performance improvements
+- New Feature: Node/slave name and jenkins url is passed to the controller to display within the instances page
+- New Feature: A warning will display when users upgrade within the plugin center
+- New Feature: Ability to set an instance cap per Static Slave Template or per Anka Cloud
+- Bug Fix: VMs were being left in started stage after job completed/aborted in Jenkins
+- Bug Fix: When cache building, "Checking save image status" would immediately return success and the Job would complete even though the cache tag was still being pushed.
+
+---
+
+### 1.23.0 - Mar 23, 2020
+- Bug Fix: Controller IP is inaccessible from the Jenkins and Jenkins page is stuck on “loading” forever
+- Issues in amazon-ecs-plugin version 1.26 cause problems with Jenkins-Anka Plugin. In order to fix this, downgrade to amazon-ecs-plugin version 1.22 or disable amazon-ecs-plugin. Check https://github.com/jenkinsci/amazon-ecs-plugin/issues/158 for more details.
+
+---
+
+### 1.22.4 - Mar 08, 2020
+- Bug Fix: leaves zombie VMs after Jenkins upgrade to 2.204
+- Bug Fix: Jenkins leaves zombie VMs when restarting
+- Bug Fix: Jenkins leaves zombie VMs when job has error on JNLP node
+- Bug Fix: Jenkins Job changing Jenkins Master node labels
+- Bug Fix: Jenkins JNLP Job starts more instances than it should
+- Bug Fix: Jenkins config hangs of controller IP is inaccessible
+
+***Note*** Currently issues in amazon-ecs-plugin version 1.26 cause problems with Jenkins-Anka Plugin. In order to fix this, downgrade to amazon-ecs-plugin version 1.22 or disable amazon-ecs-plugin. Check https://github.com/jenkinsci/amazon-ecs-plugin/issues/158 for more details.
+
+---
+
+### 1.22.3 - Jan 27, 2020
+- Bug Fix: Jenkins takes nodes offline before restart
+- Bug Fix: Jenkins logs Anka related messages when other agents (non anka) disconnects
+- Bug Fix: Jenkins leaves zombie VMs when restarting
+
+---
+
+### 1.22.2 - Dec 08, 2019#
+- Bug Fix: Jenkins gets an exception while trying to start a new slave with OR operator
+
+---
+
+### 1.22.1 - Nov 15, 2019
+- Bug Fix: ankaGetSaveImageResult does not work for jobs in folders
+- Bug Fix: Saving new cloud configuration would crash jenkins if controller does not support save image
+
+---
+
+### 1.22.0 - Nov 05, 2019
+- New Feature: Adjust Jenkins Anka build plugin to "Configuration as code" plugin
+- New Feature: Implement dynamic slaves in jenkins anka build plugin
+- Bug Fix: Cant access jenkins configuration page if controller is offline
+
+---
+
+### 1.21.0 - Oct 18, 2019
+- New Feature: Add a "post build step" to check "save image request" status
+- Bug Fix: cache builder - JNLP, Suspend setting doesn't work
+
+---
+
+### 1.19.1
+- New Feature: handle reference to non-existent tag in registry from gracefully
+- Bug Fix: Support ssh slaves 1.30.0 in jenkins Plugin
+- Bug Fix: Jenkins pipeline job doesn't terminate slaves after finishing
+- Bug Fix: Plugin not taking slave name field for JNLP
+
+---

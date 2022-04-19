@@ -237,7 +237,7 @@ OPTIONS:
 
 > We run `update-ca-certificates` each time you start the container. You can add a volume to mount in your certificates if needed.
 
-You use the same non-interactive arguments that we mentioned in [the Registration section]({{< relref "CI Plugins and Integrations/Controller + Registry/gitlab.md#registration" >}}) when executing the binary (but without `--non-interactive`):
+You use the same non-interactive arguments that we mentioned in [the Registration section]({{< relref "Plugins and Integrations/Controller + Registry/gitlab.md#registration" >}}) when executing the binary (but without `--non-interactive`):
 
 ```shell
 ❯ docker run -ti --rm veertu/anka-gitlab-runner-amd64 --url "http://anka.gitlab:8084/" --registration-token nHKqG3sYV4B5roRK1ZhW --ssh-user anka --ssh-password admin --name "localhost shared runner" --anka-controller-address "https://anka.controller:8080/" --anka-template-uuid d09f2a1a-e621-463d-8dfd-8ce9ba9f4160 --anka-tag base:port-forward-22:brew-git:gitlab --executor anka --anka-root-ca-path /Users/nathanpierce/anka-ca-crt.pem --anka-cert-path /Users/nathanpierce/anka-gitlab-crt.pem --anka-key-path /Users/nathanpierce/anka-gitlab-key.pem --clone-url "http://anka.gitlab:8084" --tag-list "localhost-shared,localhost,iOS"
@@ -313,3 +313,9 @@ When you stop or exit the container, it will automatically unregister it from yo
 - The `anka-gitlab-runner` is independent and doesn't conflict with the regular `gitlab-runner` if they're running on the same machine. 
 - We use slightly modified versions of the original `gitlab-runner` tests (they didn't pass when we forked 12.10.0).
 - If your controller goes down, the runner will retry the HTTP/API calls for several minutes until finally throwing an error.
+
+---
+
+## Release Notes
+
+Release notes for the Anka Gitlab Runner can be found [on Github](https://github.com/veertuinc/gitlab-runner/releases).

@@ -1,4 +1,4 @@
-USB device control is possible using the Anka Virtualization CLI with a non-Enterprise license. However, this doesn't allow you to control devices using the Controller API. With an Enterprise or higher license, you can attach one or more devices to your Anka VMs by making an API call:
+USB device control is possible using the with a non-Enterprise license. However, this doesn't allow you to control devices using the Controller API. With an Enterprise or higher license, you can attach one or more devices to your Anka VMs by making an API call:
 
 ```bash
 # Claim a device using the location ID

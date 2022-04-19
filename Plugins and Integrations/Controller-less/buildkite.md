@@ -30,3 +30,9 @@ Buildkite provides [manual or YAML options](https://buildkite.com/docs/pipelines
 ---
 
 We'd like to recognize Tom Duffield (tom@chef.io) for developing the plugin for Anka. The official repo can be found [HERE](https://github.com/chef/anka-buildkite-plugin).
+
+---
+
+## Release Notes
+
+Release notes for the Anka Buildkite Plugin can be found [on Github](https://github.com/veertuinc/anka-buildkite-plugin).

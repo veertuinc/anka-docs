@@ -14,7 +14,7 @@ description: >
 ---
 
 {{< hint warning >}}
-The rest of this Getting Started guide focuses heavily on the Anka Virtualization CLI (Command-Line Interface). These will be performed from within your [macOS Terminal](https://support.apple.com/guide/terminal/welcome/mac). For all available CLI commands, flags, and options, see the [Command Reference]({{< relref "arm/command-line-reference.md" >}}).
+The rest of this Getting Started guide focuses heavily on the (Command-Line Interface). These will be performed from within your [macOS Terminal](https://support.apple.com/guide/terminal/welcome/mac). For all available CLI commands, flags, and options, see the [Command Reference]({{< relref "arm/command-line-reference.md" >}}).
 {{< /hint >}}
 
 {{< include file="_partials/arm/Anka Virtualization/modify/_index.md" >}}
