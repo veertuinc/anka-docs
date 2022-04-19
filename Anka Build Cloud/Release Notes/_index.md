@@ -13,7 +13,7 @@ weight: 100
 - **Bug Fix:** Controller UI was reporting inaccurate sizes for disk usage.
 - **Improvement:** Older CMD logs are now rotated and cleaned up once the aggregate size of logs reaches 700MB (unless otherwise specified).
 - **Improvement:** Anka 3 (arm) Nodes are forced to a capacity of 2 (Apple's limitation) to prevent confusion.
-- **New Feature:** [Request a VM with a specific VLAN & View available VLANs attached to a specific Host/Anka Node]({{< relref "Whats New/build-cloud-1.23.0/index.md" >}})
+- **New Feature:** [Request a VM with a specific VLAN & View available VLANs attached to a specific Host/Anka Node]({{< relref "Whats New/build-cloud-1.23.0/index.md" >}}) (REST API ONLY)
 - (Standalone Registry: 1.23.0-f21df6a2)
 
 ---
