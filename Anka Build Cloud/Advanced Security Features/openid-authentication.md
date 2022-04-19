@@ -7,11 +7,17 @@ description: >
   How to set up OpenID based authentication for your Anka Build Cloud Controller & Registry
 ---
 
-> This guide and feature require an Anka Enterprise Plus license.
+{{< hint warning >}}
+This guide and feature require an Anka Enterprise Plus license.
+{{< /hint >}}
 
-> If you're using root token auth for your Controller UI, without certificate authentication, Nodes will no longer be able to connect to port 80 (or whatever port you've set) when running `ankacluster join`. You'll need to setup an interface for them to communicate. [See our documentation on this.]({{< relref "Anka Build Cloud/Advanced Security Features/token-authentication.md#joining-nodes" >}})
+{{< hint warning >}}
+If you're using root token auth for your Controller UI, without certificate authentication, Nodes will no longer be able to connect to port 80 (or whatever port you've set) when running `ankacluster join`. You'll need to setup an interface for them to communicate. Or, use a [User Access Key]({{< relref "Anka Build Cloud/Advanced Security Features/token-authentication.md#joining-nodes-with-your-uak" >}}).
+{{< /hint >}}
 
-> You must have at least one node with a Enterprise or higher license joined to the Controller for these features to work.
+{{< hint warning >}}
+You must have at least one node with a Enterprise or higher license joined to the Controller for these features to work.
+{{< /hint >}}
 
 Many organizations and developers are already familiar with OpenID Connect (OIDC). OIDC is a layer that sits on top of OAuth 2.0 and performs the authorization necessary to access protected resources, such as the Anka Build Cloud Controller.
 

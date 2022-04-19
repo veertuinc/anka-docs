@@ -92,7 +92,7 @@ anka-registry:
 
 If everything is configured correctly, you can visit your Controller Dashboard and a login box should appear.
 
-![root token login]({{< siteurl >}}/images/anka-build-cloud/advanced-security-features/controller-root-token-login.png)
+![root token login]({{< siteurl >}}images/anka-build-cloud/advanced-security-features/controller-root-token-login.png)
 
 Enter the token you specified and ensure that it logs you in.
 
