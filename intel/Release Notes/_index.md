@@ -6,7 +6,6 @@ weight: 100
 
 ## Current Versions
 
-
 ### Anka Virtualization CLI 2.5.5 (2.5.5.143) - April 19th, 2022
 
 {{< hint warning >}}
