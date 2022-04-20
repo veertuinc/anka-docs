@@ -33,7 +33,7 @@ Existing Version | Target Version | Recommendation
 1.4.3 | 2.x.x | Requires upgrade of all existing VM templates with `anka start --update` and push to the registry
 2.x | 2.1.2 | Only requires upgrade of existing Catalina VM templates with `anka start --update` and push to the registry
 < 2.4 | >= 2.4 | Full feature support requires upgrading addons.
-2.x | 2.5.x | <ul><li>macOS 10.14.X does not contain the necessary Apple APIs to work with 2.5.X of Anka. You will need to upgrade the host OS version before trying to install 2.5.X of Anka.</li><li>Avoid upgrading the anka package to 2.5.X on nodes with VMs running.</li></ul>
+2.x | 2.5.x | <ul><li>macOS 10.14.x does not contain the necessary Apple APIs for Nested Virtualization to work on 2.5.x of Anka. If you use Nested Virtualization, you will need to upgrade the host OS version before trying to install 2.5.x of Anka.</li><li>Avoid upgrading the anka package to 2.5.X on nodes with VMs running.</li></ul>
 < 2.5.x | 2.5.x | Suspended VMs < 2.5.x are not compatible with 2.5.x and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.
 
 ### Upgrading VM Addons
