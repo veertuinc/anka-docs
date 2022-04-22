@@ -99,7 +99,7 @@ jnlpTunnel | String | -  | JNLP tunnel to use for node launcher | -
 keepAliveOnError | boolean | `false` | Keep the VM instance alive after a failed build (**FREESTYLE ONLY; will not work with Jenkinsfile/pipeline jobs**) | -
 timeout | int | `1200` | Timeout for starting the instance (in seconds) | -
 environments | List of tuples | -  | List of environment variables to add for the build: `[[name: 'FOO', value: 'BAR'], [name: 'OR', value: 'IS']]` | -
-nameTemplate | string | -  | Label to use in VM instance names (There are several variables available for interpolation: $Template_name, $Template_id, or $ts) | -
+nameTemplate | string | -  | Label to use in VM instance names (There are several variables available for interpolation: $instance_id, $node_id, $template_name, $cloud_name, $label, $template_id, $tag, $ts) | -
 priority | int | 1000  | Override the default priority (lower is more urgent). **Available only in Enterprise and Enterprise Plus Tiers** | -
 saveImage | boolean | `false` | Save the VM as a Tag before terminating it | -
 suspend | boolean | `false` | When saving the Tag, suspend the VM before the push | -
@@ -182,7 +182,7 @@ Pipelines can have multiple agents running in one build (also in parallel). Ther
     ```
 2. Enable **Wait For Build Finish**
 
-### Configuring Templat/Tag Creation with Dynamic Labelling
+### Configuring Template/Tag Creation with Dynamic Labelling
 
 Please review our [Nested Cache Builder Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/nested-cache-builder-example/Jenkinsfile).
 
