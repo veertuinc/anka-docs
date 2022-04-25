@@ -7,6 +7,40 @@ description: >
   How to install the Anka Virtualization software on your macOS
 ---
 
+## MacOS Host Version Support
+
+{{< rawhtml >}}
+<table>
+<tbody style="text-align:center">
+  <tr>
+    <td></td>
+    <td><b>Anka 2.4.x</b></td>
+    <td><b>Anka 2.5.x</b></td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>macOS 10.14</b></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>macOS 10.15</b></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>macOS 11.x</b></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>macOS 12.x</b></td>
+    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+</tbody>
+</table>
+{{< /rawhtml >}}
+
 ## UI download and install
 
 {{< include file="_partials/intel/Anka Virtualization/_download-and-install.md" >}}
