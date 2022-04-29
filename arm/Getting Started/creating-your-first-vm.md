@@ -50,7 +50,7 @@ Anka 3.0 VMs only work with macOS versions >= 12.0.
 ![installer with pkg]({{< siteurl >}}images/arm/getting-started/creating-your-first-vm/ui.png)
 3. Be patient while it's creating.
 
-Once the VM is created, you will see it on the sidebar. Hooray! 
+Once the VM is created, you will see it on the sidebar -- Hooray!
 
 {{< hint warning >}}
 Suspending VMs is currently not available.
@@ -66,6 +66,7 @@ Suspending VMs is currently not available.
 
 {{< include file="_partials/arm/Anka Virtualization/create/_example.md" >}}
 
+{{< include file="_partials/arm/Anka Virtualization/create/_extra.md" >}}
 
 ### IPSW vs .app installers
 
