@@ -68,6 +68,10 @@ At this point you can either setup [Static Labels]({{< relref "#creating-static-
 
 9. There are several other configs under **Advanced** that may interest you. These include the **Node Group**, **Priority**, and timeouts for Jenkins to communication with the starting Anka VM/agent.
 
+#### Log Investigation
+
+Investigation of problems which arise in Jenkins + Anka can be a bit tough to get started with. 
+
 ### Using Dynamic Labelling
 
 > Dynamic Labelling requires two plugins: **GitHub Authentication plugin** and **Pipeline**.
@@ -137,13 +141,74 @@ pipeline {
 - The function call starts an instance with the Template UUID 'e1173284-39df-458c-b161-a54123409280' and returns a unique label, preventing any other external step or pipeline from using it. Any unspecified parameters have their default values, as indicated in the parameter list above.
 - The sh step waits until the instance is up and the node is connected to Jenkins before it runs.
 
-##### Other examples:
+##### Examples
+
 - [Simple Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/simple-example/Jenkinsfile)
 - [Scripted Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/scripted-example/Jenkinsfile)
 - [Scripted (no def) Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/scripted-no-def-example/Jenkinsfile)
 - [Nested Cache Builder Example](https://github.com/veertuinc/jenkins-dynamic-label-example/blob/nested-cache-builder-example/Jenkinsfile)
 
---- 
+#### Log Investigation
+
+Investigation of problems which arise in Jenkins + Anka can be a bit tough to get started with.
+
+Let's take this Jenkinsfile as an example:
+
+```javascript
+pipeline {
+  agent {
+   label createDynamicAnkaNode(
+      masterVmId: 'c0847bc9-5d2d-4dbc-ba6a-240f7ff08032',
+      tag: 'v1',
+      nameTemplate: 'simple-example'
+    )
+  }
+   stages {
+     stage("hello") {
+       steps {
+         sh "echo hello"
+       }
+     }
+  }
+}
+```
+
+Once the job kicks off in Jenkins, you'll see the following Console Log:
+
+```log
+[Pipeline] Start of Pipeline
+[Pipeline] createDynamicAnkaNode
+[Pipeline] node
+Still waiting to schedule task
+‘simple-example_wi00u’ is offline
+Running on simple-example_wi00u in /Users/anka/workspace/testing-dynamic-labelling_Simple
+```
+
+The `simple-example_wi00u` is the name of our Jenkins agent (formerly called "slave") that will be attached to the resulting Anka VM. At this point the Anka Build plugin in Jenkins, through `createDynamicAnkaNode`, will make a VM request through the Controller API. While the Console Log for the Jenkins Job is not going to provide us with much else, the **Jenkins System Logs** will:
+
+{{< hint warning >}}
+There is currently no way to obtain information about the starting VM from the logs BEFORE it has started and been connected to. This means if the VM fails to start on a node, while it will be retried on another node, you cannot easily see that it's delayed in starting because of the failure. It's best to monitor the controller for failures and troubleshoot them independently of Jenkins.
+{{< /hint >}}
+
+```log
+May 02, 2022 4:48:12 PM INFO com.veertu.plugin.anka.AnkaMgmtCloud InternalLog
+Node simple-example_wi00u instance 71a8cb4b-875b-49de-59cf-83b1b65304e1, connected
+```
+
+The important part of the Jenkins System Log is the `instance 71a8cb4b-875b-49de-59cf-83b1b65304e1`. With this ID, we can see things in the Controller logs like the node that tried to start it, etc.
+
+```bash
+Veertu:~ root# grep 71a8cb4b-875b-49de-59cf-83b1b65304e1 /Library/Logs/Veertu/AnkaController/anka-controller.INFO
+. . .
+I0502 12:47:38.546497   56377 controller.go:329] StartVm: reqID 4d6fd6b2-ba34-4c6b-6d02-80b2ce391be6, instance 71a8cb4b-875b-49de-59cf-83b1b65304e1
+. . .
+I0502 12:48:03.628071   56377 controller.go:627] Processing StartVMResponse: request: 4d6fd6b2-ba34-4c6b-6d02-80b2ce391be6, instance: 71a8cb4b-875b-49de-59cf-83b1b65304e1, node id: 3c101836-9540-4733-9482-604d0c5fbe30, status: 0, timestamp: 1651510083
+. . .
+```
+
+The `node id: 3c101836-9540-4733-9482-604d0c5fbe30` above is what we can use to determine which Node this failed on and where we need to go for further log investigation.
+
+---
 
 ## Using Anka VM Template/Tag Creation (Optional)
 
@@ -216,6 +281,7 @@ timeoutMinutes | int | 120 | Stops waiting for the result of the Tag -> Registry
 > Remember, `ankaGetSaveImageResult` returns true immediately if nothing pushes to the Registry in a failed build.
 
 ## Notes on using the Template/Tag Creation
+
 - How often should I run this? : The answer depends on the VM size after you prepare it and also the density of your builds.
 - **The template/tag creation should have a job or pipeline of its own.** Creation after every "regular" build might not make sense as the time that it takes to download code or artifacts is usually the same or shorter than the time it takes to push the Tag to the Registry.
 - You should run it once and check how much time the operation takes. The push can be a few gigabytes and might take some time on slower networks.
