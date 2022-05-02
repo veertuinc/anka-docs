@@ -68,10 +68,6 @@ At this point you can either setup [Static Labels]({{< relref "#creating-static-
 
 9. There are several other configs under **Advanced** that may interest you. These include the **Node Group**, **Priority**, and timeouts for Jenkins to communication with the starting Anka VM/agent.
 
-#### Log Investigation
-
-Investigation of problems which arise in Jenkins + Anka can be a bit tough to get started with. 
-
 ### Using Dynamic Labelling
 
 > Dynamic Labelling requires two plugins: **GitHub Authentication plugin** and **Pipeline**.
