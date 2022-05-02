@@ -1640,8 +1640,8 @@ openssl rsa -in $FILE_OUTPUT_DIR/$NAME-key.pem -outform PEM -pubout -out $FILE_O
 | Parameter | Type | Description | Default |
 | --- | --- | --- | --- |
 | id | string | The id/name of the key (required) | - |
+| groups | string | Comma separated list of group names for the key (required) | - |
 | ttl | int | The TTL (time to live) seconds for the key (optional) | - |
-| groups | string | Comma separated list of group names for the key (optional) | - |
 
 > You cannot change the publicKey.
 
