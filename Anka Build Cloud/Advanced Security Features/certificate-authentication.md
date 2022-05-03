@@ -320,6 +320,11 @@ If everthing is configured correctly, you should see something like this (I used
 
 ## 6. Final Notes
 
+- If you enabled AUTH for the registry, you'll need to ensure that you set the `ANKA_CLIENT_CERT` and `ANKA_CLIENT_CERT_KEY` in your controller config or else it won't be able to communicate with the registry.
+  ```
+  ANKA_CLIENT_CERT	(string)	(Certificate Authentication) The Controller will use this when making http requests, mainly to the Registry	
+  ANKA_CLIENT_CERT_KEY	(string)	(Certificate Authentication) The Controller will use this when making http requests, mainly to the Registry
+  ```
 - You may notice that the Controller UI doesn't load or acts strangely. You will need to enable [Root Token Authentication]({{< relref "Anka Build Cloud/Advanced Security Features/token-authentication.md" >}}) to access the controller UI.
 - If you get an invalid cert error from the Controller UI, make sure that you add the root CA you generated to your system keychain.
 
