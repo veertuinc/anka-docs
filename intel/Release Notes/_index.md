@@ -105,6 +105,34 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 
 ---
 
+### 2.5.3 (2.5.3.135) - Sep 23rd, 2021
+
+{{< hint warning >}}
+Suspended VMs in 2.4.X are not compatible and will need to be force stopped (anka stop --force), started, and then re-suspended post-upgrade.
+{{< /hint >}}
+
+{{< hint info >}}
+Upgrading Addons from the previous version of anka is recommended.
+{{< /hint >}}
+
+{{< hint warning >}}
+Avoid upgrading the anka package to 2.5.X on nodes with VMs running.
+{{< /hint >}}
+
+- **Bug Fix:** Apple’s automatic software update/download is enabled for newly created VMs. This was causing a problem where the new macOS version installer .app was being downloaded each time a VM was started.
+- **Bug Fix:** VMs randomly crashing with failed to get pid: Socket is not connected
+- **Bug Fix:** anka config default_passwd returning 245 exit code
+- **Bug Fix:** VM suspension logic was producing stopping VMs
+- **Bug Fix:** Date strings in anka list have overflow in minutes and seconds fields
+
+{{< hint warning >}}
+Known issues we’re working on fixes for:
+
+Creating a VM Template with the name of 11.6 seems to throw not found errors when trying to push, clone, etc.
+{{< /hint >}}
+
+---
+
 ### 2.5.2 (2.5.2.133) - Sep 13th, 2021
 
 > Upgrading Addons from the previous version of anka is not necessary. We do however recommend upgrading addons if you're on a previous minor or major version of the CLI.
