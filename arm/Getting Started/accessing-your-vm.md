@@ -95,6 +95,10 @@ Some advanced usage examples of `anka run` inside of a bash script can be found 
 
 ## Anka Viewer
 
+### Known Issues
+
+- Chrome, Edge, and any other GPU accelerated browser will not function due to limitations in Apple's hypervisor. You would need to launch the browsers without GPU acceleration. For example, with Chrome: `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-gpu`.
+
 ### With the CLI
 
 {{< hint warning >}}
@@ -102,7 +106,7 @@ The anka viewer requires an active UI session on the host (VNC is fine).
 {{< /hint >}}
 
 {{< hint warning >}}
-The `anka view` command currently will only function if you at some point started the VM with `anka start -uv`.
+The `anka view` command currently will only function if you started the VM with `anka start -uv`.
 {{< /hint >}}
 
 {{< include file="_partials/arm/Anka Virtualization/view/_index.md" >}}
@@ -110,6 +114,7 @@ The `anka view` command currently will only function if you at some point starte
 ### With the App
 
 Instead of launching the viewer with the CLI, you can open the Anka.app under /Applications and then double click on the VM in the list. This will launch the viewer window.
+
 
 ## SSH
 
