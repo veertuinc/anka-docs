@@ -16,6 +16,20 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 Addons upgrading is not required for features in this release. However, it's always recommended.
 {{< /hint >}}
 
+{{< hint warning >}}
+
+Known issues:
+
+- Nested virtualization is not functional inside of VMs yet.
+- `anka view` does not function post-vm-start unless you started the VM with -v.
+- In Anka 2 we enabled a minimal VNC by default, however it is not available in Anka 3.
+- iCloud logins will fail inside of the VM.
+- Software Update for the OS version fails.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
 - **Bug Fix:** Curling a forwarded port which does not have the inner VM service/port running will no longer crash the VM.
 - **Bug Fix:** `anka --machine-readable show` now shows proper #G value under `ram` key's value, instead of bytes.
 - **Bug Fix:** EULA acceptance from GUI was not sticking.
