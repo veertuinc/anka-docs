@@ -72,7 +72,7 @@ Suspending VMs is currently not available.
 
 While we recommend you use `anka create -a latest` to automatically download the latest macOS version to install into the VM, you can bring your own IPSW file which is very similar to how Anka 2 works with .app installers (which are not supported in Anka 3).
 
-There are multiple ways to obtain IPSW files. Apple provides these through their `updates.cdn-apple.com` site. You can usually find the official links to the version you want with your preferred search engine.
+There are multiple ways to obtain IPSW files. Apple provides these through their `updates.cdn-apple.com` site. You can usually find the official links to the version you want with your preferred search engine. Alternatively, you can use [ipsw.me](https://ipsw.me) to identify and retrieve your desired IPSW file.
 
 ## 3. Start the VM and finish the macOS install
 
