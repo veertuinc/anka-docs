@@ -24,7 +24,6 @@ Known issues:
 - `anka view` does not function post-vm-start unless you started the VM with -v.
 - In Anka 2 we enabled a minimal VNC by default, however it is not available in Anka 3.
 - iCloud logins will fail inside of the VM.
-- Software Update for the OS version fails.
 - Changing the display resolution dynamically fails.
 - Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
 

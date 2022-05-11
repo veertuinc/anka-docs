@@ -101,7 +101,6 @@ export ANKA_DATA_DIR="/Library/Application Support/Veertu/Anka/anka-controller"
 export ANKA_ENABLE_CENTRAL_LOGGING="true"
 export ANKA_LOG_DIR="/Library/Logs/Veertu/AnkaController"
 
-export ANKA_RUN_REGISTRY="true"
 export ANKA_REGISTRY_BASE_PATH="/Library/Application Support/Veertu/Anka/registry"
 export ANKA_REGISTRY_LISTEN_ADDRESS="anka.registry:8089"
 export ANKA_ANKA_REGISTRY="http://anka.registry:8089"
