@@ -6,6 +6,10 @@ usage: registry [options] <command>
 
 options:
   -r,--remote <val>        Sets an alternate registry
+  --insecure               Skip TLS verification
+  --cert <val>             Path to a client certificate (if user authentication is configured)
+  --key <val>              Path to prvate key if the client certificate doesn't contain one
+  --cacert <val>           Use custom CA certificates location (default is /etc/ssl/certs)
 
 commands:
   list-repos               List registries configured

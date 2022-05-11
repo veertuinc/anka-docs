@@ -1,4 +1,4 @@
 ```shell
-> anka registry show 12.2.0 cpu --help
+> anka registry show 12.3.1 cpu --help
 
 ```

@@ -9,5 +9,5 @@ arguments:
   url                      Registry URL
 
 options:
-  -f,--force               Do not perform a connectivity checks
+  -f,--force               Do not perform a connectivity checks for the url
 ```
