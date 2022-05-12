@@ -17,6 +17,7 @@ weight: 100
 - **Bug Fix:** Pushing to the registry would cause the Templates list in the Controller UI to fail to load for the duration of the push.
 - **Improvement:** More detailed logs for situations when the reserve space threshold is triggered.
 - **Improvement:** Various security patches.
+- **Notice:** SHA-1 certificate support has been removed.
 - (Standalone Registry: 1.24.0-XXXXX)
 
 ---
