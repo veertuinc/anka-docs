@@ -40,7 +40,7 @@ Known issues:
 - **Bug Fix:** Anka GUI App no longer default to using 2vCPUs if more are available.
 - **Bug Fix:** Deleting a tag will now delete the associated .ank files properly.
 - **Improvement:** Trying to use .app installers will now throw a clear error that they are not supported.
-- **Improvement:** Support for Apple Studio hardware.
+- **Improvement:** Support for Mac Studio hardware.
 - **Improvement:** Custom `vm_lib_dir` will not be automatically created so that it doesn't prevent network volumes from mounting to that location with the proper name on reboot of the host.
 - **Improvement:** We now show the internal screen sharing connection string if there is a corresponding port forwarding rule.
 - **Improvement:** Expired licenses or licenses that do not support the command you're running will now throw a clear error.
