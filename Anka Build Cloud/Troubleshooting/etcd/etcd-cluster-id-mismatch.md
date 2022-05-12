@@ -14,10 +14,12 @@ Starting your etcd cluster throws an error like:
 ## Common Causes
 
 1. Kubernetes PVC/PV contain older configuration or cluster information and you're trying to start with `initialClusterState: new`.
+2. A pod in the cluster failed and the rescheduled one tries to add itself as a member with `ETCD_INITIAL_CLUSTER_STATE` set to `new`. This will not work.
 
 ## Solution
 
 1. This is a common problem with Bitnami's Helm Chart. Be sure you follow the proper instructions when adding new replicas or upgrading to a newer version of the Helm chart as `helm install` and `helm upgrade` behave differently. Otherwise, you need to wipe your PVC/PV to successfully start a new etcd cluster. [MORE INFO](https://docs.bitnami.com/kubernetes/faq/troubleshooting/troubleshooting-helm-chart-issues/#persistence-volumes-pvs-retained-from-previous-releases)
+2. Right after deployment of the cluster with `ETCD_INITIAL_CLUSTER_STATE: "new"`, change it to `ETCD_INITIAL_CLUSTER_STATE: "existing"` and run `helm upgrade`.
 
 ## Still experiencing problems?
 
