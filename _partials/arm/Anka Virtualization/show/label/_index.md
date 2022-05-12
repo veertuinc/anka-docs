@@ -1,5 +1,5 @@
 ```shell
-> anka show 12.2.0 label --help
+> anka show 12.3.1 label --help
 usage: label [name]
 
    Show assigned VM labels
