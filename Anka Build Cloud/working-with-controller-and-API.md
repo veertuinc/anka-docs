@@ -145,7 +145,21 @@ arch  | string | represents the VM's architecture (amd64 or arm64)
 vlan  | string | represnets the VM's VLAN_ID
 startup_script | object | [holds information about startup script execution (only if marked monitored)]({{< relref "#startup-script" >}})
 
-> All fields but the following are omitted if empty: `vmid`, `group_id`, `instance_state`, `anka_registry`, `ts`, `cr_time`, `progress`, `vlan` and `usb_device`
+{{< hint info >}}
+All fields but the following are omitted if empty: `vmid`, `group_id`, `instance_state`, `anka_registry`, `ts`, `cr_time`, `progress`, `vlan` and `usb_device`.
+{{< /hint >}}
+
+##### Startup Script
+
+**Object Model:**
+
+Property       | Type   | Description
+ ---           | ---    | ---
+return_code    | int                | Exit code of the startup script (-1 if timed out)
+errors         | array of strings   | Errors if occurred (if none, this field will be omitted)
+did_timeout    | bool               | Specifies if the script timed out
+stdout         | string             | Stdout of script
+stderr         | string             | Stderr of script
 
 #### Start VM instances
 
@@ -210,9 +224,9 @@ vlan_tag | string | Specify the VLAN ID to target when starting the VM. This wil
 
 #### Update Instance
 
-**Description:** Update VM Instance
-**Path:**  /api/v1/vm
-**Method:** PUT
+**Description:** Update VM Instance   
+**Path:**  /api/v1/vm  
+**Method:** PUT   
 **Required Query Parameters**  
 
  Parameter | Type   | Description
@@ -1682,15 +1696,3 @@ openssl rsa -in $FILE_OUTPUT_DIR/$NAME-key.pem -outform PEM -pubout -out $FILE_O
 ❯ curl -X DELETE -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.controller:8090/api/v1/apikey -d '{ "id": "developer3" }'
 {"status":"OK","message":""}
 ```
-
-### Startup Script
-
-**Object Model:**
-
-Property       | Type   | Description
- ---           | ---    | ---
-return_code    | int                | Exit code of the startup script (-1 if timed out)
-errors         | array of strings   | Errors if occurred (if none, this field will be omitted)
-did_timeout    | bool               | Specifies if the script timed out
-stdout         | string             | Stdout of script
-stderr         | string             | Stderr of script

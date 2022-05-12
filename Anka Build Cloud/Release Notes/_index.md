@@ -6,6 +6,23 @@ weight: 100
 
 ## Current Version
 
+### 1.24.0 () - XXX, 2022
+
+- **New Feature:** [Start VM Instance API `startup_script` monitoring]({{< relref "Whats New/build-cloud-1.23.0/index.md##start-vm-instance-api-startup_script-monitoring" >}})
+- **Bug Fix:** Hanging pulling process is not being terminated by agent.
+- **Bug Fix:** If a previous upgrade has been refused (for appropriate reasons, like requested version and current version are identical), further upgrade requests will fail silently until agent is rebooted.
+- **Bug Fix:** Termination tasks duplicates would end up being queued and use more resources than necessary.
+- **Bug Fix:** `remote error: tls: bad certificate` when the registry has a self-signed certificate.
+- **Bug Fix:** `api/v1/node` `ram` key/value returned the wrong GB value.
+- **Bug Fix:** Pushing to the registry would cause the Templates list in the Controller UI to fail to load for the duration of the push.
+- **Improvement:** More detailed logs for situations when the reserve space threshold is triggered.
+- **Improvement:** Various security patches.
+- (Standalone Registry: 1.24.0-XXXXX)
+
+---
+
+## Previous Versions
+
 ### 1.23.0 (1.23.0-3523c787) - Apr 19th, 2022
 
 - **Bug Fix:** VM Capacity reverts after rebooting the node.
@@ -16,9 +33,6 @@ weight: 100
 - **New Feature:** [Request a VM with a specific VLAN & View available VLANs attached to a specific Host/Anka Node]({{< relref "Whats New/build-cloud-1.23.0/index.md" >}}) (REST API ONLY)
 - (Standalone Registry: 1.23.0-f21df6a2)
 
----
-
-## Previous Versions
 
 ### 1.22.0 (1.22.0-5dc750f1) - Jan 10th, 2022
 
