@@ -6,7 +6,7 @@ weight: 100
 
 ## Current Version
 
-### 1.24.0 () - XXX, 2022
+### 1.24.0 (1.24.0-28ac9d95) - May 17th, 2022
 
 - **New Feature:** [Start VM Instance API `startup_script` monitoring]({{< relref "Whats New/build-cloud-1.23.0/index.md##start-vm-instance-api-startup_script-monitoring" >}})
 - **Bug Fix:** Hanging pulling process is not being terminated by agent.
@@ -18,7 +18,7 @@ weight: 100
 - **Improvement:** More detailed logs for situations when the reserve space threshold is triggered.
 - **Improvement:** Various security patches.
 - **WARNING:** SHA-1 certificate support has been removed for TLS/HTTPS and Cert Auth. You will need to regenerate your certs.
-- (Standalone Registry: 1.24.0-XXXXX)
+- (Standalone Registry: 1.24.0-261d9df2)
 
 ---
 
