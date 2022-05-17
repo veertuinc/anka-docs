@@ -141,8 +141,25 @@ name           | string | name of the instance. non unique
 external_id    | string | a string saved with the instance, can be used to save the vm id on an external system. non unique
 metadata       | object | key-value object. keys are strings. values are strings, integers or booleans
 mac_address       | string | represents the assigned MAC address
+arch  | string | represents the VM's architecture (amd64 or arm64)
+vlan  | string | represnets the VM's VLAN_ID
+startup_script | object | [holds information about startup script execution (only if marked monitored)]({{< relref "#startup-script" >}})
 
-> All fields but the following are omitted if empty: `vmid`, `group_id`, and `usb_device`
+{{< hint info >}}
+All fields but the following are omitted if empty: `vmid`, `group_id`, `instance_state`, `anka_registry`, `ts`, `cr_time`, `progress`, `vlan` and `usb_device`.
+{{< /hint >}}
+
+##### Startup Script
+
+**Object Model:**
+
+Property       | Type   | Description
+ ---           | ---    | ---
+return_code    | int                | Exit code of the startup script (-1 if timed out)
+errors         | array of strings   | Errors if occurred (if none, this field will be omitted)
+did_timeout    | bool               | Specifies if the script timed out
+stdout         | string             | Stdout of script
+stderr         | string             | Stderr of script
 
 #### Start VM instances
 
@@ -170,6 +187,9 @@ count     | int    | Number of instances to start. | 1
 node_id   | string | Start the instance on this specific node | -
 startup_script | string | Script to be executed after the instance is started, encoded as a base64 string. | -
 startup_script_condition | int | Options are 0 or 1. If 0 is passed the script will run after the VM's network is up, if 1 is passed the script will run as soon as the VM boots. | wait for network
+script_monitoring | bool | Enable script monitoring. This will put the instance to Error state if exit code is not 0. Enables script_fail_handler and script_timeout parameters. | false
+script_timeout | int | Seconds. Will terminate startup script execution and treat it as failed. **(only works when script_monitoring is true)** | 90
+script_fail_handler | int | How to handle VM on node when startup script fails. Options are 0, 1 and 2. If 0 is passed, VM will be stopped, if 1 is passed VM will be kept alive, if 2 is passed VM will be deleted **(only works when script_monitoring is true)** | 0
 name_template | string | Name template for the vm name (on the Node), available vars are $template_name $template_id and $ts (timestamp) | -
 group_id  | string | Run the VM on a node from this group. | -
 priority  | int    | Priority of this instance in range 1-10000 (lower is more urgent). | 1000
@@ -204,9 +224,9 @@ vlan_tag | string | Specify the VLAN ID to target when starting the VM. This wil
 
 #### Update Instance
 
-**Description:** Update VM Instance
-**Path:**  /api/v1/vm
-**Method:** PUT
+**Description:** Update VM Instance   
+**Path:**  /api/v1/vm  
+**Method:** PUT   
 **Required Query Parameters**  
 
  Parameter | Type   | Description
