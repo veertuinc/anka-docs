@@ -11,7 +11,7 @@ weight: 1
 
 ## Solution
 
-The send buffer is likely exceeding. Normally it shouldn't be a critical error -- packet loss is being handled by the TCP stack of guest. But if the error rate is very high, it definitely could be a symptom of network problems happening in guests. If the occurrence of these errors is more than just a few log entries (10s every millisecond for example), you need to increase the value of `sysctl net.local.dgram.recvspace`
+The send buffer is likely exceeding. Normally it shouldn't be a critical error -- packet loss is being handled by the TCP stack of guest. But if the error rate is very high, it definitely could be a symptom of network problems happening in guests. If the occurrence of these errors is more than just a few log entries (10s every millisecond for example), you need to increase the value of `sysctl net.local.dgram.recvspace`.
 
 ```bash
 sudo echo -n '
