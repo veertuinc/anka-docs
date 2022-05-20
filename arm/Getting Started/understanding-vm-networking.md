@@ -88,7 +88,7 @@ Be aware that if you clone your VM Template with a specific MAC, both VMs cannot
 {{< /hint >}}
 
 {{< hint warning >}}
-Dynamic MAC Addresses are not guaranteed to be unique, though, reuse/collision is rare
+When using bridged networking mode for your VM, dynamic MAC Addresses are not guaranteed to be unique, though, reuse/collision is extremely unlikely. We do our best to prevent this with our randomization logic.
 {{< /hint >}}
 
 ---
