@@ -52,8 +52,8 @@ Anka will dynamically assign MAC addresses to your VM. In Catalina and higher, y
 Be aware that if you clone your VM Template with a specific MAC, both VMs cannot run at the same time
 {{< /hint >}}
 
-{{< hint info >}}
-Dynamic MAC Addresses are not guaranteed to be unique, though, reuse/collision is highly unlikely.
+{{< hint warning >}}
+When using bridged networking mode for your VM, dynamic MAC Addresses are not guaranteed to be unique, though, reuse/collision is extremely unlikely. We do our best to prevent this with our randomization logic.
 {{< /hint >}}
 
 {{< hint warning >}}
