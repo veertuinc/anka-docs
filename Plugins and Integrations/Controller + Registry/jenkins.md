@@ -55,8 +55,16 @@ At this point you can either setup [Static Labels]({{< relref "#creating-static-
 3. (Optional) Set **Node/Agent Description** 
 
 4. Select the **SSH** or **JNLP** method for connection between Jenkins and your Anka VMs.
+
     - SSH: You'll need to add the proper user credentials to Jenkins. If you're using the default user on the VM, use the user: `anka` and pass: `admin`.
     - JNLP: This method downloads an agent.jar and the slave-agent.jnlp file from the **Jenkins URL** you've set in your System Configuration into the VM. If the Jenkins URL doesn't resolve inside of the VM (like if it's set to http://localhost), you won't be able to use JNLP. _If you're seeing any problems post-creation of the agent inside of Jenkins, check the running VMs `/tmp/log.txt` for errors._
+
+{{< hint info >}}
+###### **Launch Methods Explained**
+  - SSH: Requires that your VM has a forwarded guest port of 22 to the host. Jenkins will SSH into the (ssh-slaves plugin) VM once it's running and execute `java` to establish the communication.
+  - JNLP: This will start the VM using a "startup_script" that downloads the agent.jar from jenkins using the primary Jenkins URL you've set and then communicate with Jenkins over the inbound agent port Jenkins provides (editable under `Configure Global Security > TCP port for inbound agents`). This does not need SSH.
+
+{{< /hint >}}
 
 5. (Optional) Set **Maximum Allowed Nodes/Agents** if you need to limit the amount of agents that any jobs are allowed to start.
 
@@ -283,10 +291,6 @@ timeoutMinutes | int | 120 | Stops waiting for the result of the Tag -> Registry
 - You should run it once and check how much time the operation takes. The push can be a few gigabytes and might take some time on slower networks.
 - Only one Tag can push at a time. You can execute multiple creations for the same Template, but those requests end up executing serially. 
 - If your build/preparation is fast and resulting templates/tags small, you can consider running creation a few times a day or even based on commits. If your creation is slow, consider running one per day (you can schedule it for a time that Jenkins is not busy).
-
-## Answers to Frequently Asked Questions
-
-- SSH is only needed to install the jenkins "remoting" agent inside of the VM. If you're losing the agent mid-job, it is not SSH related.
 
 ---
 
