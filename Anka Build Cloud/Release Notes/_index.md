@@ -10,7 +10,7 @@ weight: 100
 
 - **Bug Fix:** Instances would sometimes have a blank tag.
 - **Bug Fix:** The agent will now communicate using `--cacert` instead of `--root-cert` (which was removed in Anka 3.x).
-- **Improvement:** The registry will now use a memory cache to speed up queries for templates/tags.
+- **Improvement:** The registry will now use a memory cache to speed up requests for templates/tags. Any API calls to `/registry/v2/vm` or `/registry/vm` benefit from this (the controller api also queries these endpoints when making requests for template or tag information).
 - (Standalone Registry: 1.24.1-d252eb93)
 
 ---
