@@ -61,7 +61,7 @@ At this point you can either setup [Static Labels]({{< relref "#creating-static-
 
 {{< hint info >}}
 ###### **Launch Methods Explained**
-  - SSH: Requires that your VM has a forwarded guest port of 22 to the host. Jenkins will SSH into the (ssh-slaves plugin) VM once it's running and execute `java` to establish the communication.
+  - SSH: Requires that your VM has a forwarded guest port of 22 to the host. Jenkins will SSH into the (ssh-slaves plugin) VM once it's running and execute `java` [remoting.jar](https://github.com/jenkinsci/remoting/) to establish the communication.
   - JNLP: This will start the VM using a "startup_script" that downloads the agent.jar from jenkins using the primary Jenkins URL you've set and then communicate with Jenkins over the inbound agent port Jenkins provides (editable under `Configure Global Security > TCP port for inbound agents`). This does not need SSH.
 
 {{< /hint >}}
