@@ -19,7 +19,7 @@ weight: 100
 
 ### 1.24.0 (1.24.0-28ac9d95) - May 17th, 2022
 
-- **New Feature:** [Start VM Instance API `startup_script` monitoring]({{< relref "Whats New/build-cloud-1.24.0/index.md##start-vm-instance-api-startup_script-monitoring" >}})
+- **New Feature:** [Start VM Instance API `startup_script` monitoring]({{< relref "Whats New/build-cloud-1.24.0/index.md#start-vm-instance-api-startup_script-monitoring" >}})
 - **Bug Fix:** Hanging pulling process is not being terminated by agent.
 - **Bug Fix:** If a previous upgrade has been refused (for appropriate reasons, like requested version and current version are identical), further upgrade requests will fail silently until agent is rebooted.
 - **Bug Fix:** Termination tasks duplicates would end up being queued and use more resources than necessary.
