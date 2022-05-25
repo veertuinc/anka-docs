@@ -9,7 +9,7 @@ weight: 100
 ### 1.24.1 (1.24.1-41a53e49) - May 25th, 2022
 
 - **Bug Fix:** Instances would sometimes have a blank tag.
-- **Bug Fix:** The agent will now communicate using `--cacert` instead of --root-cert` (which was removed in Anka 3.x).
+- **Bug Fix:** The agent will now communicate using `--cacert` instead of `--root-cert` (which was removed in Anka 3.x).
 - **Improvement:** The registry will now use a memory cache to speed up queries for templates/tags.
 - (Standalone Registry: 1.24.1-d252eb93)
 
