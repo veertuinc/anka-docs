@@ -1,5 +1,5 @@
 ---
-title: "Anka Build Cloud 1.24.0 (intel & arm)"
+title: "Anka Build Cloud 1.24.1 (intel & arm)"
 weight: 4
 ---
 

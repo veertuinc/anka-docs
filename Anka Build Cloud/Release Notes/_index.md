@@ -6,9 +6,20 @@ weight: 100
 
 ## Current Version
 
+### 1.24.1 (1.24.1-41a53e49) - May 25th, 2022
+
+- **Bug Fix:** Instances would sometimes have a blank tag.
+- **Bug Fix:** The agent will now communicate using `--cacert` instead of --root-cert` (which was removed in Anka 3.x).
+- **Improvement:** The registry will now use a memory cache to speed up queries for templates/tags.
+- (Standalone Registry: 1.24.1-d252eb93)
+
+---
+
+## Previous Versions
+
 ### 1.24.0 (1.24.0-28ac9d95) - May 17th, 2022
 
-- **New Feature:** [Start VM Instance API `startup_script` monitoring]({{< relref "Whats New/build-cloud-1.24.0/index.md##start-vm-instance-api-startup_script-monitoring" >}})
+- **New Feature:** [Start VM Instance API `startup_script` monitoring]({{< relref "Whats New/build-cloud-1.24.0/index.md#start-vm-instance-api-startup_script-monitoring" >}})
 - **Bug Fix:** Hanging pulling process is not being terminated by agent.
 - **Bug Fix:** If a previous upgrade has been refused (for appropriate reasons, like requested version and current version are identical), further upgrade requests will fail silently until agent is rebooted.
 - **Bug Fix:** Termination tasks duplicates would end up being queued and use more resources than necessary.
@@ -19,10 +30,6 @@ weight: 100
 - **Improvement:** Various security patches.
 - **WARNING:** SHA-1 certificate support has been removed for TLS/HTTPS and Cert Auth. You will need to regenerate your certs.
 - (Standalone Registry: 1.24.0-261d9df2)
-
----
-
-## Previous Versions
 
 ### 1.23.0 (1.23.0-3523c787) - Apr 19th, 2022
 
