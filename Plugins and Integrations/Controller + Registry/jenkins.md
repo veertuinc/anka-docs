@@ -57,7 +57,10 @@ At this point you can either setup [Static Labels]({{< relref "#creating-static-
 4. Select the **SSH** or **JNLP** method for connection between Jenkins and your Anka VMs.
 
     - SSH: You'll need to add the proper user credentials to Jenkins. If you're using the default user on the VM, use the user: `anka` and pass: `admin`.
-    - JNLP: This method downloads an agent.jar and the slave-agent.jnlp file from the **Jenkins URL** you've set in your System Configuration into the VM. If the Jenkins URL doesn't resolve inside of the VM (like if it's set to http://localhost), you won't be able to use JNLP. _If you're seeing any problems post-creation of the agent inside of Jenkins, check the running VMs `/tmp/log.txt` for errors._
+    - JNLP: This method downloads an agent.jar and the slave-agent.jnlp file from the **Jenkins URL** you've set in your System Configuration into the VM. 
+        - If the Jenkins URL doesn't resolve inside of the VM (like if it's set to http://localhost), you won't be able to use JNLP. 
+        - _If you're seeing any problems post-creation of the agent inside of Jenkins, check the running VMs `/tmp/log.txt` for errors._
+        - The agent.jar will be [downloaded on the VM using `curl`](https://github.com/jenkinsci/anka-build-plugin/blob/2c20ba0c22e0c4d164bf8175128064754a301908/src/main/java/com/veertu/plugin/anka/JnlpCommandBuilder.java#L14) and if the VM does not have your root CA available to validate the Jenkins HTTPS, you will need the VM to trust it with `sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ca-crt.pem`.
 
 {{< hint info >}}
 ###### **Launch Methods Explained**
