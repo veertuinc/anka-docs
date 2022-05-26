@@ -17,18 +17,45 @@ The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud w
   
 > In order to follow these instructions, you will need to [install the Anka CLI]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}}) and an understanding of how to [start the VM]({{< relref "intel/command-line-reference.md#start" >}}) and [launch the viewer]({{< relref "intel/command-line-reference.md#view" >}}).
 
-## VM Template & Tag Requirements
+## Anka VM Template & Tag Preparation
 
-The Jenkins Anka Plugin requires a VM with Java, SSH Remote Login, and port forwarding:
+In order for Jenkins remoting to communicate with your Anka VMs and turn them into agents, you'll need to prepare the VMs. The primary dependency to install inside of the VM is JDK/JAVA. However, there are other tweaks which depend on the Launch Method you'll choose when configuring our Jenkins plugin.
 
-1. In the VM, install the proper OpenJDK version.
-    - Within Jenkins, visit **/systemInfo** (`System Properties`) and look for `java.version`.
-    - Use the value to determine the proper OpenJDK version you need to download and install in your VM Template. For example if the `java.version` is set to `1.8.0_242`, you can download and install the [AdoptOpenJDK jdk8u242-b08.pkg](https://github.com/AdoptOpenJDK/openjdk8-binaries/releases).
+{{< hint info >}}
+###### **Launch Methods Explained**
 
-> You can run any version of JAVA you want **as long as the version inside of the VM matches your Jenkins server**
+  - `SSH`: Jenkins will SSH into the (ssh-slaves plugin) VM once it's running and execute `java` [remoting.jar](https://github.com/jenkinsci/remoting/) to establish the communication. It requires that your VM has port forwarding set up for port 22.
 
-2. In the VM, make sure remote login is enabled (`System Preferences > Sharing`).
-3. On the host, enable SSH [port forwarding]({{< relref "intel/command-line-reference.md#modify-vmnameoruuid-add-port-forwarding" >}}) for your VM Template using the Anka CLI: `sudo anka modify <VM Template name> add port-forwarding --guest-port 22 ssh`. _We recommend not specifying --host-port._
+  - `JNLP`: This will start the VM and use `anka run` on the host to execute a ["startup_script"]({{< relref "Anka Build Cloud/working-with-controller-and-API.md#start-vm-instances" >}}) that downloads the Jenkins remoting agent.jar using the Jenkins URL you configured and then establishes the communication with the inbound agent port Jenkins provides (editable under `Configure Global Security > TCP port for inbound agents`). This does not need SSH.
+{{< /hint >}}
+
+{{< hint warning >}}
+The JDK/JAVA version inside of the VM **must match the version inside of Jenkins**.
+{{< /hint >}}
+
+### Dependency Installation & Configuration
+
+1. **In the VM**, install the proper JDK/JAVA version:
+    1. Within Jenkins, visit **/systemInfo** (`System Properties`) and look for `java.version`.
+    2. Use the value to determine the proper JDK/JAVA version you need to download and install in your VM Template. For example if the `java.version` is set to `1.8.0_242`, you can download and install the [AdoptOpenJDK jdk8u242-b08.pkg](https://github.com/AdoptOpenJDK/openjdk8-binaries/releases) ([Zulu](https://www.azul.com/downloads/?package=jdk#download-openjdk) is also an option).
+
+#### SSH Launch Method
+
+  2. In the VM, make sure remote login is enabled (`System Preferences > Sharing`).
+  3. On the host, enable SSH [port forwarding]({{< relref "intel/command-line-reference.md#modify-vmnameoruuid-add-port-forwarding" >}}) for your VM Template using the Anka CLI: `sudo anka modify <VM Template name> add port-forwarding --guest-port 22 ssh`. _We recommend not specifying --host-port._
+
+#### JNLP Launch Method
+
+Starting around Big Sur, Apple has introduced security requirements which can cause problems with `anka run` execution inside of the VM to start the JNLP process. We need to manually add `ankarund` inside of the VM's Security settings.
+
+  2. Start your VM and run the following command **on the host's terminal**: `anka run vmtemplate osascript -e 'tell application "System Events" to keystroke "Hello World"'`. This will trigger the security warning dialog on the desktop. 
+  
+      ![security prompt]({{< siteurl >}}images/ci-plugins-and-integrations/jenkins/ankanetd-system-events-warning.png)
+
+  3. Once approved, go into `System Preferences > Security & Privacy > Privacy > Accessiblity` and make sure `ankarund` is allowed just as the image below shows.
+
+      ![security prefs]({{< siteurl >}}images/ci-plugins-and-integrations/jenkins/ankanetd-security-and-privacy.png)
+
 4. `sudo anka suspend <VM Template name>`
 5. `sudo anka registry push <VM Template name> <Tag name>`
 
@@ -61,13 +88,6 @@ At this point you can either setup [Static Labels]({{< relref "#creating-static-
         - If the Jenkins URL doesn't resolve inside of the VM (like if it's set to http://localhost), you won't be able to use JNLP. 
         - _If you're seeing any problems post-creation of the agent inside of Jenkins, check the running VMs `/tmp/log.txt` for errors._
         - The agent.jar will be [downloaded on the VM using `curl`](https://github.com/jenkinsci/anka-build-plugin/blob/2c20ba0c22e0c4d164bf8175128064754a301908/src/main/java/com/veertu/plugin/anka/JnlpCommandBuilder.java#L14) and if the VM does not have your root CA available to validate the Jenkins HTTPS, you will need the VM to trust it with `sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ca-crt.pem`.
-
-{{< hint info >}}
-###### **Launch Methods Explained**
-  - SSH: Requires that your VM has a forwarded guest port of 22 to the host. Jenkins will SSH into the (ssh-slaves plugin) VM once it's running and execute `java` [remoting.jar](https://github.com/jenkinsci/remoting/) to establish the communication.
-  - JNLP: This will start the VM using a "startup_script" that downloads the agent.jar from jenkins using the primary Jenkins URL you've set and then communicate with Jenkins over the inbound agent port Jenkins provides (editable under `Configure Global Security > TCP port for inbound agents`). This does not need SSH.
-
-{{< /hint >}}
 
 5. (Optional) Set **Maximum Allowed Nodes/Agents** if you need to limit the amount of agents that any jobs are allowed to start.
 
