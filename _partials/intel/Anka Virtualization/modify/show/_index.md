@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 12.0.1 show --help
+> sudo anka modify 12.3.1 show --help
 Usage: anka modify show [OPTIONS] COMMAND [ARGS]...
 
 Options:
