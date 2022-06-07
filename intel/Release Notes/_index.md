@@ -6,6 +6,30 @@ weight: 100
 
 ## Current Versions
 
+### Anka Virtualization CLI 2.5.6 (2.5.6XXXXX) - XXXXXXXth, 2022
+
+{{< hint warning >}}
+
+##### Important considerations for this release
+
+- Upgrading Addons from the previous patch version of anka is recommended but not fully required.
+
+<br />
+For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
+{{< /hint >}}
+
+- **Bug Fix:** Infrequent `float division by zero` errors when pulling VM templates.
+- **Bug Fix:** Sourcing of $HOME and other envs in VM profile files (.bash_profile, .profile, etc) were not being interpolated properly for `anka run` commands (requires addons upgrade).
+- **Bug Fix:** Duplicate vnc_port field in output from `anka --machine-readable show`.
+- **Improvement:** General performance increases.
+- Announcement: Easily scan your VMs for security vulnerabilities with [Anka Scan](https://veertu.com/security-vulnerability-scanning-with-anka-scan/).
+
+<!-- - **New Feature (experimental):** [Ability to separate runtime image from static image storage directories]({{< relref "Whats New/anka-2.5.5/index.md#ability-to-separate-runtime-image-from-static-image-storage-directories-experimental" >}}) -->
+
+---
+
+## Previous Versions
+
 ### Anka Virtualization CLI 2.5.5 (2.5.5.143) - April 19th, 2022
 
 {{< hint warning >}}
@@ -47,10 +71,6 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 - **Improvement:** Monterey VM performance.
 - **New Feature:** [`anka show` now displays cpu usage from inside of the VM]({{< relref "Whats New/anka-2.5.5/index.md#anka-show-now-displays-cpu-usage-from-inside-of-the-vm" >}})
 <!-- - **New Feature (experimental):** [Ability to separate runtime image from static image storage directories]({{< relref "Whats New/anka-2.5.5/index.md#ability-to-separate-runtime-image-from-static-image-storage-directories-experimental" >}}) -->
-
----
-
-## Previous Versions
 
 ### 2.5.4 (2.5.4.138) - Dec 27th, 2021
 
