@@ -82,9 +82,9 @@ Here is what your `docker-compose.yml` should look like for use with Keycloak:
       ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
       ANKA_ENABLE_AUTH: "true"
       ANKA_ROOT_TOKEN: "1111111111"
-      ANKA_OIDC_DISPLAY_NAME="Keycloak"
-      ANKA_OIDC_PROVIDER_URL="http://host.docker.internal:8080/auth/realms/myrealm"
-      ANKA_OIDC_CLIENT_ID="anka"
+      ANKA_OIDC_DISPLAY_NAME: "Keycloak"
+      ANKA_OIDC_PROVIDER_URL: "http://host.docker.internal:8080/auth/realms/myrealm"
+      ANKA_OIDC_CLIENT_ID: "anka"
 
   anka-registry:
     container_name: anka-registry
