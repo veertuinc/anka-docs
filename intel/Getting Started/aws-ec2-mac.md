@@ -105,6 +105,8 @@ To get up and running with our AWS EC2 Mac instances using our BYOL Community AM
 
 {{< include file="_partials/intel/Getting Started/_aws-ec2-mac-prep-steps.md" >}}
 
+
+
 #### Licensing
 
 When you first license Anka, keep track of the fulfillment ID as you'll need this to release the cores and use the license on a fresh machine.
@@ -148,5 +150,9 @@ Both scripts can be run locally from your local macOS laptop with an existing AW
 ## Build your own AMI
 
 Building your own AMI is easy! You can review our [AMI scripts](https://github.com/veertuinc/aws-ec2-mac-amis) to see how we do it.
+
+Some important notes about creating your own AMI:
+
+- Be sure that the minimum EBS volume specs are gp3, 6000IOPS, and 256 throughput. Anka VM creation is sensitive on slow disks and will likely fail.
 
 ---
