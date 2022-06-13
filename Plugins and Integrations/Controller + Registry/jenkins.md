@@ -323,6 +323,8 @@ timeoutMinutes | int | 120 | Stops waiting for the result of the Tag -> Registry
 
 - Support for Controller communication over the configured Jenkins Proxy.
 
+---
+
 ### 2.7.0 - Jan 10th, 2022
 
 - Security patches
