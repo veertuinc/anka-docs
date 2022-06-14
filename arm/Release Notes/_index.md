@@ -10,6 +10,29 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.0.2 (3.0.XXXXX) - XXXXXth 2022
+
+{{< hint info >}}
+Addons upgrading is not required for features in this release. However, it's always recommended.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+Known issues:
+
+- Nested virtualization is not functional inside of VMs yet.
+- `anka view` does not function post-vm-start unless you started the VM with -v.
+- In Anka 2 we enabled a minimal VNC by default, however it is not available in Anka 3.
+- iCloud logins will fail inside of the VM.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **Improvement:** Support for creating Ventura (13.0) VMs.
+
+## Previous Versions
+
 ### 3.0.1 (3.0.1.144) - May 12th 2022
 
 {{< hint info >}}
@@ -46,7 +69,7 @@ Known issues:
 - **Improvement:** Expired licenses or licenses that do not support the command you're running will now throw a clear error.
 - **New Feature:** Bridge network isolation is now available.
 
-## Previous Versions
+---
 
 ### 3.0.0 (3.0.0.140) - Feb 1st 2020
 
