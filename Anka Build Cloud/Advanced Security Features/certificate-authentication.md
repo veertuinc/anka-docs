@@ -31,13 +31,13 @@ There are several different ways you can enable Certificate authentication:
 
 ## 1. Create a self-signed Root CA certificate
 
-If you don’t have a, you can create it with openssl and add it to your keychain:
+If you don’t have a Root CA yet, you can create it with openssl and add it to your keychain:
 
 ```shell
 cd ~
-openssl req -new -nodes -x509 -days 365 -keyout anka-ca-key.pem -out anka-ca-crt.pem -subj "/O=$ORGANIZATION/OU=$ORG_UNIT/CN=$CA_CN"
+openssl req -new -nodes -x509 -days 365 -keyout anka-ca-key.pem -out anka-ca-crt.pem -subj "/O=$ORGANIZATION_OR_GROUP_NAME/OU=$ORG_UNIT/CN=$COMMON_NAME_OR_USERNAME"
 # Add the Root CA to the System keychain so the Root CA is trusted and you can avoid warnings when you go to access the Controller UI; if you have a better method to do this without using the system keychain, feel free to use it
-sudo security add-trusted-cert -d -k /Library/Keychains/System.keychain anka-ca-crt.pem
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain anka-ca-crt.pem
 ```
 
 ## 2. Configuring TLS for Controller & Registry
@@ -72,96 +72,79 @@ Ensure that the certificate has **Signature Algorithm: sha256WithRSAEncryption**
 
 Edit `/usr/local/bin/anka-controllerd` in the following manner:
 
-1. Change `LISTEN_ADDRESS=":80"` to `LISTEN_ADDRESS=":443"`
+1. Change the listen address to `443`: `export ANKA_LISTEN_ADDR=":443"`
 
-> SSL will work on any port you want
+{{< hint info >}}
+SSL will actually work on any port you want.
+{{< /hint >}}
 
-2. Append the following parameters on the end of the **$CONTROLLER_BIN** line:
-
-    ```shell
-    --use-https \
-    --server-cert $CERT_FOLDER/anka-controller-crt.pem \
-    --server-key $CERT_FOLDER/anka-controller-key.pem
-    ```
-
-3. Ensure https is in the registry URL:
+2. Add the following ENVs to enable HTTPS:
 
     ```shell
-    --anka-registry "https://$REGISTRY_ADDRESS:8089" \
+    # SSL + Cert Auth
+    export ANKA_USE_HTTPS="true"
+    export ANKA_SKIP_TLS_VERIFICATION="true" # Not needed if they are signed certs
+    export ANKA_SERVER_CERT="/Users/MyUser/anka-controller-crt.pem"
+    export ANKA_SERVER_KEY="/Users/MyUser/anka-controller-key.pem"
     ```
 
-> The Controller & Registry runs as root. This is why you need to specify the absolute path to the location where you generated the certs.
+3. Ensure `https` is in the registry URL:
+
+    ```shell
+    export ANKA_ANKA_REGISTRY="https://anka.registry:8089"
+    ```
+
+{{< hint warning >}}
+The Controller & Registry runs as root. This is why you need to specify the absolute path to the location where you generated or are storing your certs.
+{{< /hint >}}
 
 ### Linux/Docker Controller & Registry
 
 Within the `docker-compose.yml`:
 
-1. Change the **anka-controller** ports from `80:80` to `443:80`. You can keep the **anka-registry** ports the same.
-2. Under the **anka-controller**, modify or set **ANKA_REGISTRY_ADDR** to use `https://`.
-3. Uncomment the highlighted lines shown below and modify `****EDIT_ME****` to the location you created your certificates in for both **anka-controller** and **anka-registry**:
+1. Change the **anka-controller** ports from `80:80` to `443:80`. You can keep the **anka-registry** ports the same (default: 8089).
+2. Under the **anka-controller**, modify or set **ANKA_ANKA_REGISTRY** to use `https://`.
+3. Ensure there is a `volumes` item that points the local cert location inside of the container at `/mnt/cert`.
 
-{{< highlight dockerfile "hl_lines=11 13" >}}
+Now let’s configure the Controller & Registry containers/services to use those certificates:
 
-. . .
-
+```bash
+version: '2'
+services:
   anka-controller:
+    container_name: anka-controller
     build:
-       context: .
-       dockerfile: anka-controller.docker
+      context: controller
     ports:
-       - "80:80"
-    # To change the port, change the above line: - "CUSTOM_PORT:80"
-    ######   EDIT HERE FOR TLS  ########
-    # volumes:
-      # Path to ssl certificates directory 
-      # - ****EDIT_ME****:/mnt/cert
-      
-. . .
-
-{{</ highlight >}}
-
-Now let’s configure the Controller & Registry containers/services to use those certificates. Search for the environment variables **USE_HTTPS**, **SERVER_CERT** and **SERVER_KEY** in `docker-compose.yml`, uncomment the lines, and then modify the `****EDIT_ME****` with the name of your certificate for both **anka-controller** and **anka-registry**:
-
-{{< highlight dockerfile "hl_lines=28 31 33" >}}
-
-. . .
-
- anka-controller:
-    build:
-       context: .
-       dockerfile: anka-controller.docker
-    ports:
-       - "443:80"
-    # To change the port, change the above line: - "CUSTOM_PORT:80"
-    ######   EDIT HERE FOR TLS  ########
-    volumes:
-      # Path to ssl certificates directory 
-      - /home/ubuntu:/mnt/cert
+      - "443:80"
     depends_on:
-       - etcd
-      #  - beanstalk
-       - anka-registry
+      - etcd
+      - anka-registry
     restart: always
+    volumes:
+      - "/opt/secure/certs:/mnt/certs"
     environment:
-      # Address of anka registry. this address will be passed to your build Nodes
-      ANKA_REGISTRY_ADDR: https://<REGISTRY_ADDRESS>:8089
-
-. . .
-
-      ######   EDIT HERE FOR TLS ########
-
-      # Use https, if enabled Controller will use tls for http communication
-      # USE_HTTPS:              --use-https   
-
-      # Server certificate pem
-      # SERVER_CERT:            --server-cert /mnt/cert/****EDIT_ME**** 
-      # Server private key pem
-      # SERVER_KEY:             --server-key /mnt/cert/****EDIT_ME****
-. . .
-
-{{</ highlight >}}
-
-> **Make sure to perform the same changes for the anka-registry container.**
+      ANKA_ANKA_REGISTRY: "https://anka.registry:8089"
+      ANKA_USE_HTTPS: "true"
+      ANKA_SKIP_TLS_VERIFICATION: "true" # Not needed if they are signed certs
+      ANKA_SERVER_CERT: "/mnt/certs/anka-controller-crt.pem"
+      ANKA_SERVER_KEY: "/mnt/certs/anka-controller-key.pem"
+  anka-registry:
+    container_name: anka-registry
+    build:
+      context: registry
+    ports:
+      - "8089:8089"
+    restart: always
+    volumes:
+      - "/opt/anka-storage:/mnt/vol"
+      - "/opt/secure/certs:/mnt/certs"
+    environment:
+      ANKA_USE_HTTPS: "true"
+      ANKA_SKIP_TLS_VERIFICATION: "true" # Not needed if they are signed certs
+      ANKA_SERVER_CERT: "/mnt/certs/anka-controller-crt.pem"
+      ANKA_SERVER_KEY: "/mnt/certs/anka-controller-key.pem"
+```
 
 ### Test the Configuration
 
@@ -169,9 +152,19 @@ Start or restart your Controller and test the new TLS configuration using `https
 
 If that doesn’t work, try to repeat the above steps and validate that the file names and paths are correct. If you are still having trouble, debug the system as explained in the Debugging Controller section.
 
+## Managing User/Group Permissions (Authorization) (Enterprise Plus Only)
+
+When creating certificates, you'll want to specify CSR values using openssl's `-subj` option. For example, if we're going to generate a certificate so our Jenkins instance can access the Controller & Registry, you'll want to use something like this:
+
+```shell
+-subj "/O=MyOrgName/OU=$ORG_UNIT/CN=Jenkins"
+```
+
+{{< include file="_partials/Anka Build Cloud/_managing-permissions.md" >}}
+
 ## 3. Creating self-signed Node Certificates
 
-The Controller's authentication module uses the Root CA (anka-ca-crt.pem) to authenticate the Node certificates. When the Node sends the requests to the Controller, it will present its certificates. Those certificates will then be validated against the configured CA.
+The Controller's authentication module uses the Root CA (anka-ca-crt.pem) to authenticate any incoming requests. When the Node sends the requests to the Controller, it will present its certificates. Those certificates must have been generated from the Root CA and also, if using Enterprise Plus, have the necessary permissions.
 
 You can use the following openssl commands to create Node certificates using the Root CA:
 
@@ -183,70 +176,71 @@ openssl x509 -req -days 365 -sha256 -in node-$NODE_NAME-csr.pem -CA anka-ca-crt.
 
 ## 4. Configuring the Controller & Registry with the CA Root certificate and enable authentication
 
-> The CA_CERT is the authority that is used to validate the node certificates you'll pass in later.
+{{< hint warning >}}
+The `ANKA_CA_CERT` is the authority that is used to validate the node certificates.
+{{< /hint >}}
+
+In addition to the node certificates, the controller itself makes API calls to the Registry (you've enabled registry auth, right?) to get templates, etc, and will need a client cert to communicate with it.
 
 ### Native macOS Controller & Registry package
 
-Edit the `/usr/local/bin/anka-controllerd` and add the following onto the end of the **$CONTROLLER_BIN** line:
+Edit the `/usr/local/bin/anka-controllerd` and ensure the following ENVs exist:
 
 ```shell
---enable-auth \
---ca-cert $CERT_FOLDER/anka-ca-crt.pem \
---skip-tls-verification
+export ANKA_ENABLE_AUTH="true"
+export ANKA_CA_CERT="/Users/MyUser/anka-ca-crt.pem"
+export ANKA_CLIENT_CERT="/Users/MyUser/anka-controller-crt.pem"
+export ANKA_CLIENT_CERT_KEY="/Users/MyUser/anka-controller-key.pem"
 ```
 
 ### Linux/Docker Controller & Registry package
 
-Within the `docker-compose.yml`, search for the environment variables **ENABLE_AUTH** and **CA_CERT**. Edit both **anka-controller** and **anka-registry** so they look like the configuration below (assuming that a certificate folder is already mounted at /mnt/cert).
+Within the `docker-compose.yml`, add the following ENVs:
 
-{{< highlight dockerfile "hl_lines=26 27" >}}
+```bash
+version: '2'
+services:
+  anka-controller:
+    container_name: anka-controller
+    . . .
+    environment:
+      . . .
+      ANKA_ENABLE_AUTH: "true"
+      ANKA_CA_CERT: "/mnt/certs/anka-ca-crt.pem"
+      ANKA_CLIENT_CERT: "/mnt/certs/anka-controller-crt.pem"
+      ANKA_CLIENT_CERT_KEY: "/mnt/certs/anka-controller-key.pem"
+  anka-registry:
+    container_name: anka-registry
+    . . .
+    environment:
+      . . .
+      ANKA_ENABLE_AUTH: "true"
+      ANKA_CA_CERT: "/mnt/certs/anka-ca-crt.pem"
+```
 
-. . .
+{{< hint warning >}}
+**Until you have an Enterprise licensed Node joined to the Controller, it won't enable authentication for the Controller.**
+{{< /hint >}}
 
-anka-controller:
-   build:
-      context: .
-      dockerfile: anka-controller.docker
-   ports:
-      - "443:80"
-   # To change the port, change the above line: - "CUSTOM_PORT:80"
-   volumes:
-     # Path to ssl certificates directory
-     - /home/ubuntu:/mnt/cert
-   depends_on:
-      - etcd
-     #  - beanstalk
-   restart: always
-   environment:  
-
-. . .
-
-     USE_HTTPS:              --use-https  
-     # Server certificate pem
-     SERVER_CERT:            --server-cert /mnt/cert/anka-controller-crt.pem
-     # Server private key pem
-     SERVER_KEY:             --server-key /mnt/cert/anka-controller-key.pem
-     ENABLE_AUTH:            --enable-auth 
-     CA_CERT:                --ca-cert /mnt/cert/anka-ca-crt.pem
-
-
-. . .
-
-{{</ highlight >}}
-
-> **Make sure to perform the same changes for the anka-registry container.**
-
-> **Until you have a Node joined to the Controller, it won't see your Enterprise license and won't enable authentication.**
-
-> If you're connecting the Anka CLI with the HTTPS Registy, you can use the Node certificates: `anka registry --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem --cacert /Users/$USER_WHERE_CERTS_ARE/anka-ca-crt.pem add $REGISTRY_NAME https://$REGISTRY_ADDRESS:8089`
+{{< hint warning >}}
+If you're connecting the Anka CLI with the HTTPS Registry URL, you can use the Node certificates: `anka registry --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem --cacert /Users/$USER_WHERE_CERTS_ARE/anka-ca-crt.pem add $REGISTRY_NAME https://$REGISTRY_ADDRESS:8089`
+{{< /hint >}}
 
 ## 5. Joining your Node to the Controller with the Node certificate
 
-> Certificates are cached, so if you update/renew them, you need to either: 1. disjoin and re-join them to the controller, issue `sudo pkill -9 anka_agent` on each node to restart the agent, or issue a `<controller>/v1/node/update` PUT to the controller API to forcefully update all nodes.
+{{< hint info >}}
+Certificates are cached, so if you update/renew them, you need to either: 
+1. disjoin and re-join them to the controller, issue `sudo pkill -9 anka_agent` on each node to restart the agent
+2. or, issue a `<controller>/v1/node/update` PUT to the controller API to forcefully update all nodes.
+{{< /hint >}}
 
-> If you're using a signed certificate for the controller dashboard, but self-signed certificates for your nodes and CI tools, you'll need to specify the `--cacert` for `ankacluster join` and `anka registry add` commands and point it to the signed CA certificate. You'll usually see `SSLError: ("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",)` if the wrong CA is being used.
+{{< hint info >}}
+If you're using a signed certificate for the controller dashboard, but self-signed certificates for your nodes and CI tools, you'll need to specify the `--cacert` for `ankacluster join` and `anka registry add` commands and point it to the signed CA certificate. You'll usually see `SSLError: ("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",)` if the wrong CA is being used.
+{{< /hint >}}
 
-> If you previously joined your Nodes to the Controller, you'll want to `sudo ankacluster disjoin` on each before proceeding (if it hangs, use `ps aux | grep anka_agent | awk '{print $2}' | xargs kill -9` and try disjoin again).
+{{< hint warning >}}
+If you previously joined your Nodes to the Controller, you'll want to `sudo ankacluster disjoin` on each before proceeding (if it hangs, use `ps aux | grep anka_agent | awk '{print $2}' | xargs kill -9` and try disjoin again).
+{{< /hint >}}
 
 Copy both the Node certificates (node-$NODE_NAME-crt.pem, node-$NODE_NAME-key.pem) and the anka-ca-crt.pem to the Node.
 
@@ -327,21 +321,3 @@ If everthing is configured correctly, you should see something like this (I used
   ```
 - You may notice that the Controller UI doesn't load or acts strangely. You will need to enable [Root Token Authentication]({{< relref "Anka Build Cloud/Advanced Security Features/token-authentication.md" >}}) to access the controller UI.
 - If you get an invalid cert error from the Controller UI, make sure that you add the root CA you generated to your system keychain.
-
----
-
-## Managing User/Group Permissions (Authorization)
-
-When creating certificates, you'll want to specify CSR values using openssl's `-subj` option. For example, if we're going to generate a certificate so our Jenkins instance can access the Controller & Registry, you'll want to use something like this:
-
-```shell
--subj "/O=MyOrgName/OU=$ORG_UNIT/CN=Jenkins"
-```
-
-> Required values are `O=` and `CN=`
-
-> Spaces are supported in `O=` and Anka Build Cloud Controller version >= 1.10
-
-Within the Controller, we use **`O=`** as the **permission group name** and **`CN=`** as the **username**. The **Group Name** will be `MyOrgName`, like we used in the `-subj` above.
-
-{{< include file="_partials/Anka Build Cloud/_managing-permissions.md" >}}

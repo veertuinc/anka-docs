@@ -1,11 +1,27 @@
 ---
 ---
 
+Permission groups are configurable from your Controller's `https://<controller address>/admin/ui` page.
+
 {{< hint warning >}}
-**This feature requires Enterprise Plus**
+**This feature requires Enterprise Plus.** The regular enterprise license automatically adds all permissions to each certificate that is used and gives no control over them.
 {{< /hint >}}
 
-Permission groups are configurable from your Controller's `https://<controller address>/admin/ui` page.
+{{< hint warning >}}
+Within the Controller's Permission administration panel, we use **`O=`** as the **Group Name** and **`CN=`** as the **Username**.
+{{< /hint >}}
+
+{{< hint warning >}}
+**Both `O=` and `CN=` are required.**
+{{< /hint >}}
+
+{{< hint warning >}}
+Spaces are supported in `O=` and Anka Build Cloud Controller version >= 1.10.
+{{< /hint >}}
+
+{{< hint warning >}}
+This requires that you've enabled [Root Token Authentication]({{< relref "Anka Build Cloud/Advanced Security Features/token-authentication.md" >}}), giving you super user access to the controller UI and permissions.
+{{< /hint >}}
 
 {{< hint info >}}
 The permission groups here differ from the groups you assign to nodes within the Controller UI.
@@ -13,7 +29,7 @@ The permission groups here differ from the groups you assign to nodes within the
 
 The **Available Permissions** list will display all of the permissions we can assign to the group (see below for the full list). These permissions will allow plugins/users (like Jenkins) to communicate with the Controller & Registry:
 
-#### Controller
+#### Minimum Recommended Permissions
 
 - `get_groups`
 - `get_registry_disk_info`
@@ -26,9 +42,8 @@ The **Available Permissions** list will display all of the permissions we can as
 - `update_vm`
 - `view_logs`
 
-
-
 ### Controller Permissions
+
 | Permission | Description |
 | --- | --- |
 | **Instances** |  |
@@ -65,6 +80,7 @@ The **Available Permissions** list will display all of the permissions we can as
 | `delete_permission_groups` | gives the user permission to delete permission groups |
 
 ### Registry Permissions
+
 | Permission | Description |
 | --- | --- |
 | **Information about Registry** | |
