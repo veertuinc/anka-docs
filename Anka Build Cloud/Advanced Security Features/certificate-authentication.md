@@ -213,7 +213,9 @@ Cluster join success
 The `--skip-tls-verification` is only necessary if using a self-signed cert. Please avoid using `--skip-tls-verification` AND the `--cacert`.
 {{< /hint >}}
 
-### Accessing the Controller UI
+---
+
+## Accessing the Controller UI
 
 Once Cert Auth as been enabled, loading your Controller UI will show `Controller Not Connected`. This is because the Controller is fully protected. In order to access the UI, you can set up your browser to use client certificates to access the page. Alternatively, you can enable root token auth with `ANKA_ROOT_TOKEN` which must be set to a minimum of 10 characters. You can read more about it [here]({{< relref "Anka Build Cloud/Advanced Security Features/token-authentication.md#protecting-your-cloud-with-rta-root-token-auth" >}}).
 
