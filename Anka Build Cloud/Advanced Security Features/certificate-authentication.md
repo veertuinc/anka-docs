@@ -201,9 +201,8 @@ If you're using a signed certificate for the controller dashboard, but self-sign
 Then, use the `ankacluster` command to connect it to the Controller with:
 
 ```shell
-sudo ankacluster join https://$CONTROLLER_ADDRESS \
-  --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --cert-key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem \
-  --cacert /Users/$USER_WHERE_CERTS_ARE/anka-ca-crt.pem
+sudo ankacluster join https://$CONTROLLER_ADDRESS --skip-tls-verification \
+  --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --cert-key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem
 Testing connection to Controller...: OK
 Testing connection to registry….: OK
 Ok
@@ -211,7 +210,7 @@ Cluster join success
 ```
 
 {{< hint info >}}
-The `--cacert` is only necessary if using a self-signed cert. Please avoid using `--skip-tls-verification` AND the `--cacert`.
+The `--skip-tls-verification` is only necessary if using a self-signed cert. Please avoid using `--skip-tls-verification` AND the `--cacert`.
 {{< /hint >}}
 
 ---
