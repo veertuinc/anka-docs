@@ -62,7 +62,6 @@ services:
       # ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
       # ANKA_SERVER_KEY: "/mnt/cert/anka-controller-key.pem"
       # ANKA_SKIP_TLS_VERIFICATION: "true"
-      # ANKA_ENABLE_REGISTRY_AUTHORIZATION: "true"
       # ANKA_ENABLE_AUTH: "true"
       # ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
       # ANKA_CLIENT_CERT="/mnt/cert/anka-controller-crt.pem"
@@ -102,23 +101,26 @@ export ANKA_ENABLE_CENTRAL_LOGGING="true"
 export ANKA_LOG_DIR="/Library/Logs/Veertu/AnkaController"
 
 export ANKA_RUN_REGISTRY="true"
+export ANKA_ALLOW_EMPTY_REGISTRY="true"
 export ANKA_REGISTRY_BASE_PATH="/Library/Application Support/Veertu/Anka/registry"
 export ANKA_REGISTRY_LISTEN_ADDRESS="anka.registry:8089"
-export ANKA_ANKA_REGISTRY="http://anka.registry:8089"
 
 # SSL + Cert Auth
-#export ANKA_ANKA_REGISTRY="https://anka.registry:8089"
-#export ANKA_USE_HTTPS="true"
-#export ANKA_SKIP_TLS_VERIFICATION="true"
-#export ANKA_SERVER_CERT="/Users/MyUser/anka-controller-crt.pem"
-#export ANKA_SERVER_KEY="/Users/MyUser/anka-controller-key.pem"
+# export ANKA_USE_HTTPS="true"
+# export ANKA_SKIP_TLS_VERIFICATION="true"
+# export ANKA_SERVER_CERT="/Users/nathanpierce/anka-build-cloud-certs/anka-controller-crt.pem"
+# export ANKA_SERVER_KEY="/Users/nathanpierce/anka-build-cloud-certs/anka-controller-key.pem"
 
-#export ANKA_ENABLE_AUTH="true"
-#export ANKA_ENABLE_REGISTRY_AUTHORIZATION="true"
-#export ANKA_CA_CERT="/Users/MyUser/anka-ca-crt.pem"
-#export ANKA_CLIENT_CERT="/Users/MyUser/anka-controller-crt.pem"
-#export ANKA_CLIENT_CERT_KEY="/Users/MyUser/anka-controller-key.pem"
-#export ANKA_ROOT_TOKEN="1111111111"
+# export ANKA_ENABLE_AUTH="true"
+# export ANKA_CA_CERT="/Users/nathanpierce/anka-build-cloud-certs/anka-ca-crt.pem"
+# export ANKA_CLIENT_CERT="/Users/nathanpierce/anka-build-cloud-certs/anka-controller-crt.pem"
+# export ANKA_CLIENT_CERT_KEY="/Users/nathanpierce/anka-build-cloud-certs/anka-controller-key.pem"
+# export ANKA_ROOT_TOKEN="1111111111"
+
+
+${ANKA_USE_HTTPS:-false} && SCHEME="https://" || SCHEME="http://"
+
+export ANKA_ANKA_REGISTRY="${SCHEME}anka.registry:8089"
 
 /Library/Application\ Support/Veertu/Anka/bin/anka-controller
 ```
