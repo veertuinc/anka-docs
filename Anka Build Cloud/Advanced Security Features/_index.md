@@ -14,7 +14,3 @@ Advanced security features are currently only available for our Enterprise Tier 
 {{< hint info >}}
 You must have at least one node with a Enterprise or higher license joined to the Controller for these features to work.
 {{< /hint >}}
-
-{{< hint info >}}
-Authentication can be enabled in your [Controller configuration]({{< relref "Anka Build Cloud/configuration-reference.md#authentication-and-authorization" >}}).
-{{< /hint >}}
