@@ -4,7 +4,7 @@ title: "Advanced Security Features"
 linkTitle: "Advanced Security Features"
 weight: 8
 description: >
-  Methods to setup authorization within your Controller & Registry.
+  Methods to protect your Anka Build Cloud Controller & Registry.
 ---
 
 {{< hint info >}}
