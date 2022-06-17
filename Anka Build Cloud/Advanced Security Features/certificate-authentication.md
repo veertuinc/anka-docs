@@ -4,7 +4,7 @@ title: "Certificate Authentication"
 linkTitle: "Certificate Authentication"
 weight: 2
 description: >
-  How to set up certificate based authentication.
+  How to protect your Controller UI, API, and Registry API with Certificates.
 ---
 
 {{< hint warning >}}

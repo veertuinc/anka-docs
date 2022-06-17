@@ -3,7 +3,8 @@ date: 2019-12-12T00:00:00-00:00
 title: "HTTPS/TLS"
 weight: 1
 description: >
-  How to set up HTTPS/TLS for your Anka Build Cloud.
+  How to protect your Controller UI, API, and and Registry API with HTTPS/TLS.
+
 ---
 
 ## Requirements

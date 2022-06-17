@@ -4,9 +4,7 @@ title: "Configuring Token Authentication"
 linkTitle: "Token Authentication"
 weight: 1
 description: >
-  - Protect your Controller UI and API with a Root Token.
-  
-  - Create User API Keys and assign specific permissions to them for protecting the API.
+  How to protect your Controller UI, API, and Registry API with a Root Token and/or User API keys.
 ---
 
 {{< hint warning >}} **This guide requires an Anka Enterprise or Enterprise Plus license.** {{< /hint >}}
