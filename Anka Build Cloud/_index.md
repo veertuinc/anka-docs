@@ -1,5 +1,5 @@
 ---
-title: "Anka Build Cloud 1.24.1 (intel & apple processors)"
+title: "Anka Build Cloud 1.25.0"
 weight: 4
 ---
 

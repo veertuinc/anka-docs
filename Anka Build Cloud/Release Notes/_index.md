@@ -6,6 +6,16 @@ weight: 100
 
 ## Current Version
 
+### 1.25.0 (1.25.0-b2a027a4) - Jun 23rd, 2022
+
+- **Bug Fix:** Agent panics when anka CLI start VM returns an error.
+- **Bug Fix:** Disjoining does not clear the node task queue and can cause heavy usage over time for the Controller.
+- (Standalone Registry: 1.25.0-c6de18fa)
+
+---
+
+## Previous Versions
+
 ### 1.24.1 (1.24.1-41a53e49) - May 25th, 2022
 
 - **Bug Fix:** Instances would sometimes have a blank tag.
@@ -14,8 +24,6 @@ weight: 100
 - (Standalone Registry: 1.24.1-d252eb93)
 
 ---
-
-## Previous Versions
 
 ### 1.24.0 (1.24.0-28ac9d95) - May 17th, 2022
 
