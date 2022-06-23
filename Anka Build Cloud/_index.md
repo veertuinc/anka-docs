@@ -1,10 +1,10 @@
 ---
-title: "Anka Build Cloud 1.24.1 (intel & arm)"
+title: "Anka Build Cloud 1.24.1 (intel & apple processors)"
 weight: 4
 ---
 
 {{< hint info >}}
-Anka Build components support heterogeneous build nodes; You can connect both Anka 2 (intel) and Anka 3 (arm) nodes to your Build Cloud Controller/Registry.
+Anka Build components support heterogeneous build nodes; You can connect both Anka 2 (intel processors) and Anka 3 (apple processors) nodes to your Build Cloud Controller/Registry.
 {{< /hint >}}
 
 ## What is the Anka Build Cloud?

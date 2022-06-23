@@ -8,8 +8,8 @@ description: >
 
 ## Prerequisites
 
-1. [You've installed the Anka Virtualization package]({{< relref "arm/Getting Started/installing-the-anka-virtualization-package.md" >}})
-2. [You've created and prepared your first VM Template]({{< relref "arm/Getting Started/creating-your-first-vm.md" >}})
+1. [You've installed the Anka Virtualization package]({{< relref "apple/Getting Started/installing-the-anka-virtualization-package.md" >}})
+2. [You've created and prepared your first VM Template]({{< relref "apple/Getting Started/creating-your-first-vm.md" >}})
 
 {{< hint warning >}}
 **The Apple hypervisor and also Anka commands require an active and logged in user. You might have to VNC in to the host machine if you're connected over SSH. This also means you need to disable any sort of sleep or even the passworded screensaver on macOS.**
@@ -21,12 +21,12 @@ description: >
 Requires addons are installed inside of the VM. You can check if they are installed with the `anka show {vmName}` command.
 {{< /hint >}}
 
-Similar to `docker exec`, [`anka run`]({{< relref "arm/command-line-reference.md#run" >}}) allows execution of commands inside of a VM.
+Similar to `docker exec`, [`anka run`]({{< relref "apple/command-line-reference.md#run" >}}) allows execution of commands inside of a VM.
 
-{{< include file="_partials/arm/Anka Virtualization/run/_index.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/run/_index.md" >}}
 
 {{< hint info >}}
-If the VM is in a _stopped_ state, [`anka run`]({{< relref "arm/command-line-reference.md#run" >}}) will automatically start it.
+If the VM is in a _stopped_ state, [`anka run`]({{< relref "apple/command-line-reference.md#run" >}}) will automatically start it.
 {{< /hint >}}
 
 You can use `anka run` _on the host terminal_ to validate things are working properly:
@@ -57,7 +57,7 @@ round-trip min/avg/max/stddev = 10.163/10.267/10.316/0.055 ms
 
 #### Shell Configuration Files / Environment
 
-The [`anka run`]({{< relref "arm/command-line-reference.md#run" >}}) command doesn't source `.profile`, `.bash_profile`, or `.zshrc` by default. It will however source `.zprofile`.
+The [`anka run`]({{< relref "apple/command-line-reference.md#run" >}}) command doesn't source `.profile`, `.bash_profile`, or `.zshrc` by default. It will however source `.zprofile`.
 
 You have to source the files or use `zsh/bash -lc/-ic` before executing other commands. Here are some examples:
 
@@ -109,7 +109,7 @@ The anka viewer requires an active UI session on the host (VNC is fine).
 The `anka view` command currently will only function if you started the VM with `anka start -uv`.
 {{< /hint >}}
 
-{{< include file="_partials/arm/Anka Virtualization/view/_index.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/view/_index.md" >}}
 
 ### With the App
 
@@ -118,7 +118,7 @@ Instead of launching the viewer with the CLI, you can open the Anka.app under /A
 
 ## SSH
 
-{{< include file="_partials/arm/Anka Virtualization/modify/add/port/_example.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/modify/add/port/_example.md" >}}
 
 ## VNC
 
@@ -128,7 +128,7 @@ Once you've enabled Apple's Remote Login inside of the VM, simply add a forwarde
 
 ## Answers to Frequently Asked Questions
 
-- [`anka run`]({{< relref "arm/command-line-reference.md#run" >}}) doesn't support TTY mode, but you could easily use POSIX streams as with regular bash tool:
+- [`anka run`]({{< relref "apple/command-line-reference.md#run" >}}) doesn't support TTY mode, but you could easily use POSIX streams as with regular bash tool:
 
   ```shell
   ❯ anka run VNMANE whoami > /dev/null
@@ -138,8 +138,8 @@ Once you've enabled Apple's Remote Login inside of the VM, simply add a forwarde
   ```
 
 - You can launch access macOS' Recovery Mode through the Anka.app menu.
-  ![recovery-mode]({{< siteurl >}}images/arm/getting-started/accessing-your-vm/anka-app-recovery-mode.png)
+  ![recovery-mode]({{< siteurl >}}images/apple/getting-started/accessing-your-vm/anka-app-recovery-mode.png)
 
 ## What's next?
 
-- [Modifying your VM]({{< relref "arm/Getting Started/modifying-your-vm.md" >}})
+- [Modifying your VM]({{< relref "apple/Getting Started/modifying-your-vm.md" >}})
