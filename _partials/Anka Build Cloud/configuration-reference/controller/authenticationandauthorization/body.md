@@ -16,7 +16,8 @@
 | ANKA_CLIENT_KEYPASS | (string) | (Certificate Authentication) Password for certificate and keystore (optional) |  |
 | ANKA_CLIENT_KEYSTORE | (string) | (Certificate Authentication) A client keystore file in pkcs12 format; The Controller will use this when making http requests (mainly to the Registry). |  |
 | ANKA_ENABLE_API_KEYS | (boolean) | Enable API Key Authentication. | false |
-| ANKA_ENABLE_AUTH | (boolean) | Enable Authentication (Root Token, Certificate, SSO/OpenID or API Keys). | false |
+| ANKA_ENABLE_AUTH | (boolean) | Enable Authentication (Root Token, Certificate, SSO/OpenID or API Keys) (Not to be confused with Authorization). | false |
+| ANKA_ENABLE_CONTROLLER_AUTHORIZATION | (boolean) | Enable Authorization (Users, groups, permission control for specific certificates) in the Controller. | false |
 | ANKA_ETCD_CA_CERT | (string) | (ETCD Certificate Authentication) The Etcd client will use this when connecting to the cluster. |  |
 | ANKA_ETCD_CERT | (string) | (ETCD Certificate Authentication) The ETCD client will use this when connecting to the cluster. |  |
 | ANKA_ETCD_CERT_KEY | (string) | (ETCD Certificate Authentication) The ETCD client will use this when connecting to the cluster. |  |

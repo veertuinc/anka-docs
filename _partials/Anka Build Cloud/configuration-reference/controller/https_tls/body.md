@@ -10,5 +10,5 @@
 | ANKA_MIN_TLS_VERSION | (string) | The min tls version to use with HTTPS/TLS. Supported Options: tls_1.0, tls_1.1, tls_1.2, tls_1.3 |  |
 | ANKA_SERVER_CERT | (string) | The path to a HTTPS/TLS certificate file in PEM format. |  |
 | ANKA_SERVER_KEY | (string) | The path to a HTTPS/TLS certificate private key file in PEM format. |  |
-| ANKA_SKIP_TLS_VERIFICATION | (boolean) | Disable the verification of the HTTPS/TLS certificates (for self-signed certs). | false |
+| ANKA_SKIP_TLS_VERIFICATION | (boolean) | Disable the verification of the HTTPS/TLS certificates when making outbound requests to services (for self-signed certs). | false |
 | ANKA_USE_HTTPS | (boolean) | Enable HTTPS/TLS protocol for the controller UI and API (requires server-cert & server-key). | false |
