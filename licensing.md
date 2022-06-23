@@ -8,7 +8,7 @@ description: >
 ---
 
 {{< hint info >}}
-With the Anka M1 version, licensing of cores will be determined based on the performance core count.
+With the Anka 3 (apple processor) version, licensing of cores will be determined based on the performance core count.
 {{< /hint >}}
 
 ---

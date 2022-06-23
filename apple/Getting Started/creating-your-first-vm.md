@@ -9,7 +9,7 @@ description: >
 ## Prerequisites
 
 1. [You've installed the Anka Virtualization package.]({{< relref "apple/Getting Started/installing-the-anka-virtualization-package.md" >}})
-2. The machine you wish to use for running Anka VMs is M1 **and not Intel.**
+2. The machine you wish to use for running Anka VMs is using Apple processors **and not Intel.**
 3. The machine you wish to use has Monterey (>= 12.0) installed.
 
 ## 1. Create your first VM
