@@ -8,7 +8,7 @@ description: >
 ---
 
 {{< hint info >}}
-With the Anka M1 version, licensing of cores will be determined based on the performance core count.
+With the Anka 3 (apple processor) version, licensing of cores will be determined based on the performance core count.
 {{< /hint >}}
 
 ---
@@ -48,7 +48,7 @@ Trial licenses for Anka products is valid for 30 days from the date of trial reg
 
 ### Pricing
 
-+ **Anka Build** - Cost is performance core based. For example, if you are setting up a cloud consisting of 2, 8-core ARM mac minis, then total performance core count will be 8 cores. For very large core count, there are other licensing models.
++ **Anka Build** - Cost is performance core based. For example, if you are setting up a cloud consisting of 2, 8-core Apple processor mac minis, then total performance core count will be 8 cores. For very large core count, there are other licensing models.
 + **Anka Flow** - Cost is per machine. For example, if you are installing Anka Flow on 10 developer machines, then quantity will be 10.
 
 Contact [support@veertu.com](mailto:support@veertu.com) to get a pricing estimate.  

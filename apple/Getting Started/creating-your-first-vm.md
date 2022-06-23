@@ -8,8 +8,8 @@ description: >
 
 ## Prerequisites
 
-1. [You've installed the Anka Virtualization package.]({{< relref "arm/Getting Started/installing-the-anka-virtualization-package.md" >}})
-2. The machine you wish to use for running Anka VMs is M1 **and not Intel.**
+1. [You've installed the Anka Virtualization package.]({{< relref "apple/Getting Started/installing-the-anka-virtualization-package.md" >}})
+2. The machine you wish to use for running Anka VMs is using Apple processors **and not Intel.**
 3. The machine you wish to use has Monterey (>= 12.0) installed.
 
 ## 1. Create your first VM
@@ -30,7 +30,7 @@ Creating a VM in Anka 3 differs from the Intel version: Anka 3 requires that you
 Rosetta can be installed and used inside of the VM.
 {{< /hint >}}
 
-{{< include file="_partials/arm/Getting Started/_supported-macos-versions.md" >}}
+{{< include file="_partials/apple/Getting Started/_supported-macos-versions.md" >}}
 
 {{< hint warning >}}
 **Apple's .app installer files are currently not supported.**
@@ -47,7 +47,7 @@ Anka 3.0 VMs only work with macOS versions >= 12.0.
   {{< hint info >}}
   Leaving the installer blank will automatically target the latest macOS version, pulling the IPSW file from the official Apple CDN (`updates.cdn-apple.com`). You can use your own IPSW file with the Anka CLI instead.
   {{< /hint >}}
-![installer with pkg]({{< siteurl >}}images/arm/getting-started/creating-your-first-vm/ui.png)
+![installer with pkg]({{< siteurl >}}images/apple/getting-started/creating-your-first-vm/ui.png)
 3. Be patient while it's creating.
 
 Once the VM is created, you will see it on the sidebar -- Hooray!
@@ -62,11 +62,11 @@ Suspending VMs is currently not available.
 
 ### Using the Anka CLI
 
-{{< include file="_partials/arm/Anka Virtualization/create/_index.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/create/_index.md" >}}
 
-{{< include file="_partials/arm/Anka Virtualization/create/_example.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/create/_example.md" >}}
 
-{{< include file="_partials/arm/Anka Virtualization/create/_extra.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/create/_extra.md" >}}
 
 ### IPSW vs .app installers
 
@@ -94,7 +94,7 @@ We do not currently support mounting addons from the UI. Please use the CLI for 
   `anka view` does not currently work post-start unless you started it with -v.
   {{< /hint >}}
 
-{{< include file="_partials/arm/Anka Virtualization/start/_index.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/start/_index.md" >}}
 
 2. Once inside the Anka Viewer/VM, finish the macOS installation **and be sure to install the addons package through the disk we mounted with `-u`**.
 
@@ -102,7 +102,7 @@ We do not currently support mounting addons from the UI. Please use the CLI for 
 
 ## Listing available VMs in the CLI
 
-{{< include file="_partials/arm/Anka Virtualization/list/_example.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/list/_example.md" >}}
 
 ## Deleting a VM
 
@@ -123,7 +123,7 @@ are you sure you want to delete vm 77f33f4a-75c3-47aa-b3f6-b99e7cdac001 test [y/
 
 You can easily create VM clones from a source VM and _its current state_ using `anka clone`:
 
-{{< include file="_partials/arm/Anka Virtualization/clone/_index.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/clone/_index.md" >}}
 
 ```bash
 ❯ anka list
@@ -155,7 +155,7 @@ Customers coming from Anka 2 will know that when you clone an _untagged_ VM, it 
 Don't worry, clones will not have access to change the original source VM.
 {{< /hint >}}
 
-{{< include file="_partials/arm/Anka Virtualization/push/_index.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/push/_index.md" >}}
 
 ```bash
 ❯ anka list
@@ -184,7 +184,7 @@ Cloned VMs will use a trivial amount of disk space until you start them. Once st
 {{< hint info >}}
 To switch between tags locally, you can use the `anka pull --local --tag {targetTagname} {VMName}` command:
 
-{{< include file="_partials/arm/Anka Virtualization/pull/_index.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/pull/_index.md" >}}
 
 {{< /hint >}}
 
@@ -218,4 +218,4 @@ The clone is not automatically tagged.
 
 ## What's next?
 
-- [Acessing your VM]({{< relref "arm/Getting Started/accessing-your-vm.md" >}})
+- [Acessing your VM]({{< relref "apple/Getting Started/accessing-your-vm.md" >}})

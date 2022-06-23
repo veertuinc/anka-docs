@@ -7,13 +7,13 @@ description: >
   How to modify the Global Anka Virtualization configuration
 ---
 
-{{< include file="_partials/arm/Anka Virtualization/config/_index.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/config/_index.md" >}}
 
 ## Viewing the configuration
 
 View all default configuration settings for Anka installation on the host with `anka config` command:
 
-{{< include file="_partials/arm/Anka Virtualization/config/_example.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/config/_example.md" >}}
 
 > You can see a value for a specific configuration parameter with `anka config $PARAM_NAME`.
 

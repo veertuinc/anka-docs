@@ -9,9 +9,9 @@ description: >
 
 ## Prerequisites
 
-1. [You've installed the Anka Virtualization package]({{< relref "arm/Getting Started/installing-the-anka-virtualization-package.md" >}})
-2. [You've created your first VM Template]({{< relref "arm/Getting Started/creating-your-first-vm.md" >}})
-3. [You grasp how to modify VM settings (like `network`)]({{< relref "arm/Getting Started/modifying-your-vm.md" >}})
+1. [You've installed the Anka Virtualization package]({{< relref "apple/Getting Started/installing-the-anka-virtualization-package.md" >}})
+2. [You've created your first VM Template]({{< relref "apple/Getting Started/creating-your-first-vm.md" >}})
+3. [You grasp how to modify VM settings (like `network`)]({{< relref "apple/Getting Started/modifying-your-vm.md" >}})
 
 ---
 
@@ -100,4 +100,4 @@ When using bridged networking mode for your VM, dynamic MAC Addresses are not gu
 
 ## What's next?
 
-- [Anka Command-Line Reference]({{< relref "arm/command-line-reference.md" >}})
+- [Anka Command-Line Reference]({{< relref "apple/command-line-reference.md" >}})
