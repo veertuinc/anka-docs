@@ -1,4 +1,4 @@
 ```shell
-> anka registry show 12.3.1 network --help
+> anka registry show 12.4 network --help
 
 ```

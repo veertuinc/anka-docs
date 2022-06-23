@@ -1,4 +1,4 @@
 ```shell
-> anka show 12.3.1 disk --help
+> anka show 12.4 disk --help
 
 ```
