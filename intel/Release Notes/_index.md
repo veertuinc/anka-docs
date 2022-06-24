@@ -21,11 +21,10 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 - **Bug Fix:** `anka registry pull` would under certain conditions throw `ZeroDivisionError: float division by zero`.
 - **Bug Fix:** `anka run` was not sourcing the shell profile files and interpolating variables.
 - **Bug Fix:** Duplicate vnc_port field in the `anka --machine-readable show` output.
+- **Bug Fix:** Inability to use .app installers with `anka create` when they're stored in /tmp.
 - **Improvement:** Support for Ventura (13.0).
-- **Improvement:** Network isolation now support bridged networking VMs (`anka modify VMNAME set network-card --no-local`).
-- **New Feature:** [`anka show` now displays cpu usage from inside of the VM]({{< relref "Whats New/anka-2.5.5/index.md#anka-show-now-displays-cpu-usage-from-inside-of-the-vm" >}})
+- **Improvement:** Port forwarding rewrite allowing for more network/communication stability.
 <!-- - **New Feature (experimental):** [Ability to separate runtime image from static image storage directories]({{< relref "Whats New/anka-2.5.5/index.md#ability-to-separate-runtime-image-from-static-image-storage-directories-experimental" >}}) -->
-
 
 ---
 
