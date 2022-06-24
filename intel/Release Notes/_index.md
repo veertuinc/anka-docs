@@ -6,6 +6,31 @@ weight: 100
 
 ## Current Versions
 
+### Anka Virtualization CLI 2.5.6 (2.5.5XXXXX) - XXXXXth, 2022
+
+{{< hint warning >}}
+
+##### Important considerations for this release
+
+- Upgrading Addons from the previous minor version of anka is recommended but not required.
+
+<br />
+For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
+{{< /hint >}}
+
+- **Bug Fix:** `anka registry pull` would under certain conditions throw `ZeroDivisionError: float division by zero`.
+- **Bug Fix:** `anka run` was not sourcing the shell profile files and interpolating variables.
+- **Bug Fix:** Duplicate vnc_port field in the `anka --machine-readable show` output.
+- **Improvement:** Support for Ventura (13.0).
+- **Improvement:** Network isolation now support bridged networking VMs (`anka modify VMNAME set network-card --no-local`).
+- **New Feature:** [`anka show` now displays cpu usage from inside of the VM]({{< relref "Whats New/anka-2.5.5/index.md#anka-show-now-displays-cpu-usage-from-inside-of-the-vm" >}})
+<!-- - **New Feature (experimental):** [Ability to separate runtime image from static image storage directories]({{< relref "Whats New/anka-2.5.5/index.md#ability-to-separate-runtime-image-from-static-image-storage-directories-experimental" >}}) -->
+
+
+---
+
+## Previous Versions
+
 ### Anka Virtualization CLI 2.5.5 (2.5.5.143) - April 19th, 2022
 
 {{< hint warning >}}
@@ -49,8 +74,6 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 <!-- - **New Feature (experimental):** [Ability to separate runtime image from static image storage directories]({{< relref "Whats New/anka-2.5.5/index.md#ability-to-separate-runtime-image-from-static-image-storage-directories-experimental" >}}) -->
 
 ---
-
-## Previous Versions
 
 ### 2.5.4 (2.5.4.138) - Dec 27th, 2021
 
