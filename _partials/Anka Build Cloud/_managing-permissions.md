@@ -4,23 +4,18 @@
 Permission groups are configurable from your Controller's `https://<controller address>/admin/ui` page.
 
 {{< hint warning >}}
-**This feature requires Enterprise Plus.** The regular enterprise license automatically adds all permissions to each certificate that is used and gives no control over them.
-{{< /hint >}}
-
-{{< hint warning >}}
-Within the Controller's Permission administration panel, we use **`O=`** as the **Group Name** and **`CN=`** as the **Username**.
-{{< /hint >}}
-
-{{< hint warning >}}
-**Both `O=` and `CN=` are required.**
-{{< /hint >}}
-
-{{< hint warning >}}
-Spaces are supported in `O=` and Anka Build Cloud Controller version >= 1.10.
+**This feature requires Enterprise Plus.** The regular enterprise license automatically adds all permissions to each certificate or token that is used and gives no control over them.
 {{< /hint >}}
 
 {{< hint warning >}}
 This requires that you've enabled [Root Token Authentication]({{< relref "Anka Build Cloud/Advanced Security Features/token-authentication.md" >}}), giving you super user access to the controller UI and permissions.
+{{< /hint >}}
+
+{{< hint warning >}}
+**Certificate Authentication users:**
+- **Both `O=` and `CN=` are required.**
+- Within the Controller's Permission administration panel, we use **`O=`** as the **Group Name** and **`CN=`** as the **Username**.
+- Spaces are supported in `O=` and Anka Build Cloud Controller version >= 1.10.
 {{< /hint >}}
 
 {{< hint info >}}
