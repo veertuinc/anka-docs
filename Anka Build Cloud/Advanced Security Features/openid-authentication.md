@@ -116,7 +116,11 @@ Once logged in, you will see **Admin** on the left navigation
 
 ![Admin Navigation]({{< siteurl >}}images/openid/admin.png)
 
-Under the **Admin** page, we want to add a **New Group**. **The Group Name will be the name of the group you created within Keycloak.** 
+Under the **Admin** page, we want to add a **New Group**. **The Group Name will be the name of the group you created within Keycloak.**
+
+{{< hint info >}}
+Not using Keycloak? No problem! For example in [CyberArk's Idaptive](https://www.cyberark.com/resources/videos/idaptive-product-overview), you need to create an `OpenID Connect` Web App, assign your user under Permissions, and then `setClaim('groups', 'sso-user-group');` under Tokens > Custom Logic. Once set up, you configure the controller to use `ANKA_OIDC_PROVIDER_URL="{OpenID Connect Issuer URL}"` and `export ANKA_OIDC_CLIENT_ID="{OpenID Connect Client ID}"`. At this point, you'd add `sso-user-group` under the Controller's `/admin/ui` permissions management panel (using the root token/user) and assign the proper permissions users of the web app can use. We recommend contacting your local IT team to help determining exactly what you'll need to configure this with your company's preferred tools.
+{{< /hint >}}
 
 ## Managing User/Group Permissions (Authorization)
 
