@@ -74,6 +74,8 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 
 ---
 
+## Previous Versions
+
 ### 2.5.4 (2.5.4.138) - Dec 27th, 2021
 
 {{< hint warning >}}
