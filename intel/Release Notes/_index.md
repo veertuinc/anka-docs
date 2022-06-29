@@ -6,7 +6,7 @@ weight: 100
 
 ## Current Versions
 
-### Anka Virtualization CLI 2.5.6 (2.5.5XXXXX) - XXXXXth, 2022
+### Anka Virtualization CLI 2.5.6 (2.5.6.147) - June 29th, 2022
 
 {{< hint warning >}}
 
@@ -19,7 +19,7 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 {{< /hint >}}
 
 - **Bug Fix:** `anka registry pull` would under certain conditions throw `ZeroDivisionError: float division by zero`.
-- **Bug Fix:** `anka run` was not sourcing the shell profile files and interpolating variables. (required addons upgrade)
+- **Bug Fix:** `anka run` was not sourcing the shell profile files and interpolating variables. (requires addons upgrade)
 - **Bug Fix:** Duplicate vnc_port field in the `anka --machine-readable show` output.
 - **Bug Fix:** Inability to use .app installers with `anka create` when they're stored in /tmp.
 - **Improvement:** Support for Ventura (13.0).
