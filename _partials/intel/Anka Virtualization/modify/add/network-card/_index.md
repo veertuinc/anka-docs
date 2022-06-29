@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 12.0.1 add network-card --help
+> sudo anka modify 12.3.1 add network-card --help
 Usage: anka modify add network-card [OPTIONS]
 
 Options:

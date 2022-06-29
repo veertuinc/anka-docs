@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 12.0.1 delete custom-variable --help
+> sudo anka modify 12.3.1 delete custom-variable --help
 Usage: anka modify delete custom-variable [OPTIONS] KEY
 
 Options:

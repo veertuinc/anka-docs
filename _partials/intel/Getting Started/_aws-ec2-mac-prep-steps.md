@@ -57,6 +57,12 @@
   
   - Optional
 
+  ##### ANKA_CONTROLLER_API_CERT / _KEY / _CA | ANKA_REGISTRY_API_CERT / _KEY / _CA
+
+  The script which handles joining to your controller has a few calls to the controller as well as the registry APIs. If you're protecting your APIs with TLS and Certificate Authentication, you can set the certs to use with these ENVs.
+
+  - Optional
+
   {{< imgwithlink src="images/getting-started/aws-ec2-mac/user-data.png" >}}
 
 #### Manual Preparation

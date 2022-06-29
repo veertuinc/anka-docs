@@ -30,10 +30,6 @@ It is generally safe to upgrade the controller while VMs are running and nodes a
 We recommend [snapshotting your etcd database]({{< relref "Anka Build Cloud/Getting Started/setup-controller-and-registry.md#etcd-snapshotting" >}}) regularly, but especially before an upgrade.
 {{< /hint >}}
 
-{{< hint info >}}
-The following steps also apply to downgrading, though, you need to forcefully downgrade the cluster agent on each of your nodes.
-{{< /hint >}}
-
 {{< hint warning >}}
 If you are upgrading the host/node macOS version, please disjoin and join the node to the controller using the `ankacluster` command.
 {{< /hint >}}
@@ -48,6 +44,10 @@ If you are upgrading the host/node macOS version, please disjoin and join the no
 | < 1.24.0 | 1.24.0 | SHA1 certificates are no longer supported for TLS/HTTPS & Certificate Authentication. 
 
 ### Upgrade Procedure
+
+{{< hint warning >}}
+**The following steps also apply to downgrading, though, you need to forcefully downgrade the cluster agent on each of your nodes.**
+{{< /hint >}}
 
 #### Docker
 
