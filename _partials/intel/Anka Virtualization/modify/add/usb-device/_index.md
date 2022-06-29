@@ -1,5 +1,5 @@
 ```shell
-> sudo anka modify 12.0.1 add usb-device --help
+> sudo anka modify 12.3.1 add usb-device --help
 Usage: anka modify add usb-device [OPTIONS] [DEVICE]...
 
 Options:

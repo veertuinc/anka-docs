@@ -12,7 +12,7 @@ weight: 100
 
 ##### Important considerations for this release
 
-- Upgrading Addons from the previous minor version of anka is recommended but not required.
+- Upgrading Addons from the previous patch version of anka is recommended but not fully required.
 
 <br />
 For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
@@ -72,8 +72,11 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 - **New Feature:** [`anka show` now displays cpu usage from inside of the VM]({{< relref "Whats New/anka-2.5.5/index.md#anka-show-now-displays-cpu-usage-from-inside-of-the-vm" >}})
 <!-- - **New Feature (experimental):** [Ability to separate runtime image from static image storage directories]({{< relref "Whats New/anka-2.5.5/index.md#ability-to-separate-runtime-image-from-static-image-storage-directories-experimental" >}}) -->
 
+<<<<<<< HEAD
 ---
 
+=======
+>>>>>>> release/v1.24.1/2.5.6/3.0.1
 ### 2.5.4 (2.5.4.138) - Dec 27th, 2021
 
 {{< hint warning >}}

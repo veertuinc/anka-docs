@@ -98,6 +98,8 @@ We do not currently support mounting addons from the UI. Please use the CLI for 
 
 2. Once inside the Anka Viewer/VM, finish the macOS installation **and be sure to install the addons package through the disk we mounted with `-u`**.
 
+3. Reboot the VM.
+
 ---
 
 ## Listing available VMs in the CLI
