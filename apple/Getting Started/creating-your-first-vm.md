@@ -88,15 +88,17 @@ We do not currently support mounting addons from the UI. Please use the CLI for 
 
 ### With the CLI
 
+{{< include file="_partials/apple/Anka Virtualization/start/_index.md" >}}
+
 1. You’ll need to start the VM with `anka start -uv` to launch the viewer.
 
   {{< hint warning >}}
   `anka view` does not currently work post-start unless you started it with -v.
   {{< /hint >}}
 
-{{< include file="_partials/apple/Anka Virtualization/start/_index.md" >}}
-
 2. Once inside the Anka Viewer/VM, finish the macOS installation **and be sure to install the addons package through the disk we mounted with `-u`**.
+
+![mounted addons]({{< siteurl >}}images/apple/getting-started/creating-your-first-vm/addonspkg.png)
 
 3. Reboot the VM.
 
