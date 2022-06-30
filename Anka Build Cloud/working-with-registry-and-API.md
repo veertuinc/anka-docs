@@ -466,7 +466,7 @@ curl -X DELETE  "http://anka.registry.net:8089/registry/revert?id=a3cc47f0-3a73-
 - `body`: JSON returned from API
 
 ```bash
-❯ curl -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.registry:8089/api/v1/apikey | jq
+❯ curl -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.registry:8089/v1/apikey | jq
 {
   "status": "OK",
   "message": "",
@@ -514,7 +514,7 @@ curl -X DELETE  "http://anka.registry.net:8089/registry/revert?id=a3cc47f0-3a73-
 | --- | --- | --- | --- |
 | id | string | Set the id/name of the key (required) | - |
 | ttl | int | Set the TTL (time to live) seconds of the key (required) | - |
-| groups | string | Comma separated list of group names for the key (optional) | - |
+| groups | string | Comma separated list of group names for the key (required) | - |
 | publicKey | string | If supplied, it is expected to be in PKIX ASN.1 DER form (optional) | - |
 
 > If no publicKey is passed in, we will generate and store it on the server.
@@ -525,7 +525,7 @@ curl -X DELETE  "http://anka.registry.net:8089/registry/revert?id=a3cc47f0-3a73-
 - `body`: JSON returned from API
 
 ```bash
-❯ curl -X POST -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.registry:8089/api/v1/apikey -d '{ "id": "developer3", "ttl": 86400 }'
+❯ curl -X POST -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.registry:8089/v1/apikey -d '{ "id": "nathan", "ttl": 86400, "groups": ["g1"] }'
 {"status":"OK","message":"","body":"MIIEowIBAAKCAQEAxU4GRMjtyFnEw69v/HxCfaw1zj28r2u1TpsnmGgp/q56o/DLSjemVLfYu+wIUKtu3zByIgFv/fbOAKKXEgUUeFl7wObgHeKNT4XOZG2L7yASxUHgFBokkimYCtQgEWy6bj9im+9k5OEA/kBN47NwHoZrnX6Av19WrpdAPaNO10yvaJ3R1jitshZqq6qtwmtKGErAvTPsloDcBOb2ojMghQHOJIVLKyIWwJ/yOsZme88vwO2DZ4wFYb8urnIj9e9P+Rf9WUH4RJ4RBIjoWnvFXEeSu2MeBawNPP1xT+RDNS/By8FUGbs9XutRU2f6trXW0MhjDIKQqXu8xL/rkVMo4QIDAQABAoIBAC2WF3CxE+9kfkfQMwmdFCfBMDVUolHNivh8dKuL9Zf4bDGQowekz/Nm/tZ8dHdfBKDgqp4cwulkqrgO2OS6873SvvsU3NdKzud+vO8LOHepa2zUCZfbanOy1IQ7+qTMAE8Uqg3pQ+B19CrKZL . . .
 ```
 
@@ -552,7 +552,7 @@ curl -X DELETE  "http://anka.registry.net:8089/registry/revert?id=a3cc47f0-3a73-
 - `message`: Error message in case of an error
 
 ```bash
-❯ curl -X PUT -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.registry:8089/api/v1/apikey -d '{ "id": "developer3", "groups": ["test1","test3"] }'
+❯ curl -X PUT -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.registry:8089/v1/apikey -d '{ "id": "nathan", "groups": ["test1","test3"] }'
 {"status":"OK","message":""}
 ```
 
@@ -575,6 +575,6 @@ curl -X DELETE  "http://anka.registry.net:8089/registry/revert?id=a3cc47f0-3a73-
 - `message`: Error message in case of an error
 
 ```bash
-❯ curl -X DELETE -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.registry:8089/api/v1/apikey -d '{ "id": "developer3" }'
+❯ curl -X DELETE -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.registry:8089/v1/apikey -d '{ "id": "nathan" }'
 {"status":"OK","message":""}
 ```
