@@ -1627,7 +1627,7 @@ curl http://anka.controller/api/v1/vlan
 | --- | --- | --- | --- |
 | id | string | Set the id/name of the key (required) | - |
 | ttl | int | Set the TTL (time to live) seconds of the key (required) | - |
-| groups | string | Comma separated list of group names for the key (optional) | - |
+| groups | string | Comma separated list of group names for the key (required) | - |
 | publicKey | string | If supplied, it is expected to be in PKIX ASN.1 DER form (optional) | - |
 
 {{< hint info >}}
@@ -1644,8 +1644,8 @@ openssl rsa -in $FILE_OUTPUT_DIR/$NAME-key.pem -outform PEM -pubout -out $FILE_O
 - `body`: JSON returned from API
 
 ```bash
-❯ curl -X POST -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.controller:8090/api/v1/apikey -d '{ "id": "developer3", "ttl": 86400 }'
-{"status":"OK","message":"","body":"MIIEowIBAAKCAQEAxU4GRMjtyFnEw69v/HxCfaw1zj28r2u1TpsnmGgp/q56o/DLSjemVLfYu+wIUKtu3zByIgFv/fbOAKKXEgUUeFl7wObgHeKNT4XOZG2L7yASxUHgFBokkimYCtQgEWy6bj9im+9k5OEA/kBN47NwHoZrnX6Av19WrpdAPaNO10yvaJ3R1jitshZqq6qtwmtKGErAvTPsloDcBOb2ojMghQHOJIVLKyIWwJ/yOsZme88vwO2DZ4wFYb8urnIj9e9P+Rf9WUH4RJ4RBIjoWnvFXEeSu2MeBawNPP1xT+RDNS/By8FUGbs9XutRU2f6trXW0MhjDIKQqXu8xL/rkVMo4QIDAQABAoIBAC2WF3CxE+9kfkfQMwmdFCfBMDVUolHNivh8dKuL9Zf4bDGQowekz/Nm/tZ8dHdfBKDgqp4cwulkqrgO2OS6873SvvsU3NdKzud+vO8LOHepa2zUCZfbanOy1IQ7+qTMAE8Uqg3pQ+B19CrKZL . . .
+❯ curl --insecure -X POST -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" https://anka.controller:8090/api/v1/apikey -d '{ "id": "nathan", "ttl": 86400, "groups": ["g1"] }'
+{"status":"OK","message":"","body":"MIIEpAIBAAKCAQEA4vc30zDeKRCvyh4SjE1hMHH+gtts44fzAJCdUA9wxM/Hg6YvkqZTMDRC3ywGTpU3X4inObxWSSvqha/4xbsLzInlizatgTYJDJU7Tp8uozZOFYH2s/uQ7zVdFoYIJprGoILb/yKwbXNZMg9wSGhmR/rOnRjdcyqYLJP8/mO19JCtt+wcC0u5OSFEM7hrWORgFzeUvK/Y21obYgu+UvendPH20fGE1pm55gnIrjVxqdE8gZ7IbNRX/YqW257Pa4EfYizM+wrT0eJn+gHLrOAGG6YK+0RQRmuk/bwrXsbB1ZK0dxCzGP0TaAOb1MwK/g+RrqVhJlcOzpcTqyNEecEjdQIDAQABAoIBACWZgPUKrnMtIYIhUz9M/mHRMLGq+jIDbp1UV8tQk4T3Sv0jRdRMm5FrxvxDxdO04pSABfwJmF3M2bBGA7d2. . .
 ```
 #### Update Key
 
