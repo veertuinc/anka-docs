@@ -1647,6 +1647,7 @@ openssl rsa -in $FILE_OUTPUT_DIR/$NAME-key.pem -outform PEM -pubout -out $FILE_O
 ❯ curl --insecure -X POST -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" https://anka.controller:8090/api/v1/apikey -d '{ "id": "nathan", "ttl": 86400, "groups": ["g1"] }'
 {"status":"OK","message":"","body":"MIIEpAIBAAKCAQEA4vc30zDeKRCvyh4SjE1hMHH+gtts44fzAJCdUA9wxM/Hg6YvkqZTMDRC3ywGTpU3X4inObxWSSvqha/4xbsLzInlizatgTYJDJU7Tp8uozZOFYH2s/uQ7zVdFoYIJprGoILb/yKwbXNZMg9wSGhmR/rOnRjdcyqYLJP8/mO19JCtt+wcC0u5OSFEM7hrWORgFzeUvK/Y21obYgu+UvendPH20fGE1pm55gnIrjVxqdE8gZ7IbNRX/YqW257Pa4EfYizM+wrT0eJn+gHLrOAGG6YK+0RQRmuk/bwrXsbB1ZK0dxCzGP0TaAOb1MwK/g+RrqVhJlcOzpcTqyNEecEjdQIDAQABAoIBACWZgPUKrnMtIYIhUz9M/mHRMLGq+jIDbp1UV8tQk4T3Sv0jRdRMm5FrxvxDxdO04pSABfwJmF3M2bBGA7d2. . .
 ```
+
 #### Update Key
 
 - **Description:** Update an existing key
