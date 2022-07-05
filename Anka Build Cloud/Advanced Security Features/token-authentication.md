@@ -141,6 +141,8 @@ Should the Registry be protected by authentication and User API Keys, the Contro
 
 ## Token Authentication Protocol (TAP)
 
+This communication protocol is for user authentication using asymmetric encryption. You'll need to use this if you plan on making curl calls using an Authorization: bearer header.
+
 {{< hint info >}}
 The following API is only useful if you'd like to build your own client to request and renew session tokens from UAKs.
 {{< /hint >}}
