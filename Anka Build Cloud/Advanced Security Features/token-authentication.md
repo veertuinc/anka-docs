@@ -102,7 +102,7 @@ Finally, you can test the API using:
 ```
 
 {{< hint warning >}}
-Enabling RTA will block any access to the UI and API for Anka Nodes joined to the primary interface/port for the controller. Instead, you can [expose a queue only interface]({{< relref "Anka Build Cloud/configuration-reference.md#separate-queue-interface" >}} instead which can be used to join your nodes.
+Enabling RTA will block any access to the UI and API for Anka Nodes joined to the primary interface/port for the controller. Instead, you can [expose a queue only interface]({{< relref "Anka Build Cloud/configuration-reference.md#separate-queue-interface" >}}) instead which can be used to join your nodes.
 {{< /hint >}})
 
 ---
