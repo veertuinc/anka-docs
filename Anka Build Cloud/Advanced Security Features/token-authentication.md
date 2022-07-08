@@ -139,6 +139,18 @@ Should the Registry be protected by authentication and User API Keys, the Contro
 
 ---
 
+## Managing User/Group Permissions (Authorization)
+
+{{< hint warning >}}
+**UAK users:**
+- You can set groups for each api key or use the API Key ID as the "username" and create individual permissions for them.
+- Note for Enterprise Plus customers using OpenID and UAK: Typically, Authorization is enabled with the `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` and other similar ENVs. However, when using your Ent+ license with OpenID and UAK, you will **always** need to add permissions for the groups claim you set in your OpenID configuration. Otherwise, you'll see a blank Controller UI and API requests will fail.
+{{< /hint >}}
+
+{{< include file="_partials/Anka Build Cloud/_managing-permissions.md" >}}
+
+---
+
 ## Token Authentication Protocol (TAP)
 
 This communication protocol is for user authentication using asymmetric encryption. You'll need to use this if you plan on making curl calls using an Authorization: bearer header.
@@ -182,13 +194,3 @@ Upon a successful authentication with the TAP protocol, a session is created and
 ```
 
 This object, encoded in JSON and base64 is what the user supplies in the HTTP Authorization header, with the Bearer prefix, for future requests.
-
----
-
-## Managing User/Group Permissions (Authorization)
-
-{{< hint info >}}
-Your `--api-key-id` is the `username`.
-{{< /hint >}}
-
-{{< include file="_partials/Anka Build Cloud/_managing-permissions.md" >}}

@@ -221,19 +221,21 @@ Once Cert Auth as been enabled, loading your Controller UI will show `Controller
 
 ---
 
-## Enabling Authorization (User/Group Permissions) (Enterprise Plus Only)
+## Managing User/Group Permissions (Authorization)
 
-By default, `ANKA_ENABLE_AUTH` will not use authorization/permissions and allow any certs or users to connect to all API endpoints and pages in the UI. In order to enable Authorization, you will need to include specific ENVs in your config:
-
-- `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` works for both combined and standalone (docker) packages.
-- `ANKA_ENABLE_REGISTRY_AUTHORIZATION` is for the combined (controller + registry in one binary) package only.
-- `ANKA_ENABLE_AUTHORIZATION` is only for the standalone registry package.
+{{< hint warning >}}
+**Certificate Authentication users:**
 
 When creating certificates, you'll want to specify CSR values using openssl's `-subj` option. For example, if we're going to generate a certificate so our Jenkins instance can access the Controller & Registry, you'll want to use something like this:
 
 ```shell
 -subj "/O=MyOrgName/OU=$ORG_UNIT/CN=Jenkins"
 ```
+
+- **Both `O=` and `CN=` are required.**
+- Within the Controller's Permission administration panel, we use **`O=`** as the **Group Name** and **`CN=`** as the **Username**.
+- Spaces are supported in `O=` and Anka Build Cloud Controller version >= 1.10.
+{{< /hint >}}
 
 {{< include file="_partials/Anka Build Cloud/_managing-permissions.md" >}}
 

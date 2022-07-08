@@ -1,21 +1,20 @@
 ---
 ---
 
-Permission groups are configurable from your Controller's `https://<controller address>/admin/ui` page.
+By default, `ANKA_ENABLE_AUTH` will not use authorization/permissions and allow any certs or users to connect to all API endpoints and pages in the UI. In order to enable Authorization, you will need to include specific ENVs in your config:
+
+- `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` works for both combined and standalone (docker) packages.
+- `ANKA_ENABLE_REGISTRY_AUTHORIZATION` is for the combined (controller + registry in one binary) package only.
+- `ANKA_ENABLE_AUTHORIZATION` is only for the standalone registry package.
+
+Permission groups are configurable from your Controller's `https://<controller address>/admin/ui` page. You can target and add permissions for either the group name or the username (which is different between the various Advanced Security Features we offer).
 
 {{< hint warning >}}
 **This feature requires Enterprise Plus.** The regular enterprise license automatically adds all permissions to each certificate or token that is used and gives no control over them.
 {{< /hint >}}
 
 {{< hint warning >}}
-This requires that you've enabled [Root Token Authentication]({{< relref "Anka Build Cloud/Advanced Security Features/token-authentication.md" >}}), giving you super user access to the controller UI and permissions.
-{{< /hint >}}
-
-{{< hint warning >}}
-**Certificate Authentication users:**
-- **Both `O=` and `CN=` are required.**
-- Within the Controller's Permission administration panel, we use **`O=`** as the **Group Name** and **`CN=`** as the **Username**.
-- Spaces are supported in `O=` and Anka Build Cloud Controller version >= 1.10.
+This also requires that you've enabled [Root Token Authentication]({{< relref "Anka Build Cloud/Advanced Security Features/token-authentication.md" >}}), giving you super user access to the controller UI and permissions.
 {{< /hint >}}
 
 {{< hint info >}}
