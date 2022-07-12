@@ -9,6 +9,10 @@ description: >
 
 {{< hint warning >}} **This guide requires an Anka Enterprise or Enterprise Plus license.** {{< /hint >}}
 
+{{< hint warning >}}
+This feature will break communication from the Anka Nodes to the registry when executing `anka registry` or `anka push/pull` commands. You will need to use a proxy service on the host and direct the anka config to connect to it instead. This does not apply to the `ankacluster`/agent installed on the nodes though. Please reach out to Veertu support and we can provide you with this proxy for download.
+{{< /hint >}}
+
 Starting in 1.19.0 of the Anka Build Cloud, there are two options for securing the communication with the Build Cloud Controller & Registry:
 
 1. Setting the Root Token, protecting the Controller API and UI.
@@ -139,32 +143,17 @@ Should the Registry be protected by authentication and User API Keys, the Contro
 
 ---
 
-## Managing User/Group Permissions (Authorization)
-
-{{< hint warning >}}
-**UAK users:**
-- You can set groups for each api key or use the API Key ID as the "username" and create individual permissions for them.
-- Note for Enterprise Plus customers using OpenID and UAK: Typically, Authorization is enabled with the `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` and other similar ENVs. However, when using your Ent+ license with OpenID and UAK, you will **always** need to add permissions for the groups claim you set in your OpenID configuration. Otherwise, you'll see a blank Controller UI and API requests will fail.
-{{< /hint >}}
-
-{{< include file="_partials/Anka Build Cloud/_managing-permissions.md" >}}
-
----
-
 ## Token Authentication Protocol (TAP)
 
-This communication protocol is for user authentication using asymmetric encryption. You'll need to use this if you plan on making curl calls using an Authorization: bearer header.
-
-{{< hint info >}}
-The following API is only useful if you'd like to build your own client to request and renew session tokens from UAKs.
-{{< /hint >}}
+This communication protocol is for user authentication using asymmetric encryption. You'll use this if you plan on making calls using an Authorization: bearer header to the API.
 
 {{< hint warning >}}
-- Highly recommended to integrate with HTTPS
-- Base64 uses safe url encoding
-- Key length is 2048, Hashing algorithm SHA256, OAEP padding
-- Private key format is PEM PKCS#1
-- Public key format is PKIX, ASN.1 DER
+Please note:
+- We highly recommended to integrate with HTTPS.
+- Base64 uses safe url encoding.
+- Key length is 2048, Hashing algorithm SHA256, OAEP padding.
+- Private key format is PEM PKCS#1.
+- Public key format is PKIX, ASN.1 DER.
 {{< /hint >}}
 
 This communication protocol is for user authentication using asymmetric encryption. The API is separate from the usual /api/v1/.
@@ -172,12 +161,21 @@ This communication protocol is for user authentication using asymmetric encrypti
 #### Authentication flow
 
 1. A public key is stored on the server along with some unique identifier.
-2. A client sends the first phase of the authentication: `POST /tap/v1/hand -d '{"id": "<USER-ID>" }'`
-3. The server generates a random string, encrypts it with the client’s public key, encodes it in base64 and passes it back to the client in the response body
-4. The client decodes and decrypts the response and sends the following the second phase of the authentication: `POST /tap/v1/shake -d '{"id": "<USER-ID>", "secret": "<SECRET-STRING>" }'`
-5. The server successfully authenticates the client and returns the following object (base64 encoded) in the response body:
-`{ "id": <USER-IDENTIFIER>, "data": <GENERIC-OBJECT> }`
-6. The "data" field is a generic object, and can be customized for specific needs
+
+  {{< hint info >}}
+  This is the `publicKey` specified when using the [create key API]({{< relref "Anka Build Cloud/working-with-controller-and-API.md#create-key" >}}). If you don't specify this, the priv and pub keys are on the controller server. You can obtain these from the server to use, but we recommend generating and using your own keys.
+  {{< /hint >}}
+
+2. Your client sends the first phase of the authentication: `POST /tap/v1/hand -d '{"id": "<API-KEY-USER-ID>" }'` (doesn't request auth)
+3. The server generates a random string, encrypts it with the client’s public key, encodes it in base64 and passes it back to the client in the response body.
+4. Your client then decodes and decrypts the response using the priv and sends the following the second phase of the authentication with `SECRET-STRING` being what was decrypted: `POST /tap/v1/shake -d '{"id": "<API-KEY-USER-ID>", "secret": "<SECRET-STRING>" }'`
+
+  {{< hint warning >}}
+  By default, the secret is valid for 3 minutes. Also, you can only call /tap/v1/shake once for a secret after which it will become invalid.
+  {{< /hint >}}
+
+5. The server then successfully authenticates the client and returns the following object (base64 encoded) in the response body:
+`{ "id": <API-KEY-USER-ID>, "data": <GENERIC-OBJECT> }`. The `data` field is a generic object, and can be customized for specific needs.
 
 #### Putting it all together
 
@@ -193,4 +191,48 @@ Upon a successful authentication with the TAP protocol, a session is created and
 }
 ```
 
-This object, encoded in JSON and base64 is what the user supplies in the HTTP Authorization header, with the Bearer prefix, for future requests.
+This object, encoded in JSON and base64 is what the user supplies in the HTTP Authorization header, with the Bearer prefix, for future requests to the API.
+
+```bash
+❯ brew install openssl
+❯ export PATH="/usr/local/opt/openssl@3/bin:$PATH"
+
+❯ ls nathan-*pem
+nathan-key.pem nathan-pub.pem
+
+❯ echo -n $(curl -s http://anka.controller:8090/tap/v1/hand -d '{"id": "nathan"}') | base64 -d > to_decrypt
+
+❯ openssl pkeyutl -decrypt -inkey nathan-key.pem -in to_decrypt -out decrypted -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256
+
+❯ cat decrypted
+59A8Zb8XxtsBNpJ-1KYFKOzQfv8
+
+❯ curl -s http://anka.controller:8090/tap/v1/shake -d "{\"id\": \"nathan\", \"secret\": \"$(cat decrypted)\" }"
+{"id":"nathan","data":{"userName":"nathan","token":"XtACTPdOC_vF03s75EWSGunMGCDiU2aBIe97Pai0ruRDjhNpPZqg2w","sessionId":"34c06a2b-141a-434a-5313-a06788f20957"}}
+
+❯ echo '{"id":"nathan","data":{"userName":"nathan","token":"6Z8JVhdo8MNUUHmFVy0bgjoSuiVJAsNYsqTdpqklqYv7j7xlJo6c2w","sessionId":"6dc7bd5e-a4b4-4c99-4b2e-c299fc101dc0"}}' | jq -r '.data' | base64
+ewogICJ1c2VyTmFtZSI6ICJuYXRoYW4iLAogICJ0b2tlbiI6ICI2WjhKVmhkbzhNTlVVSG1GVnkwYmdqb1N1aVZKQXNOWXNxVGRwcWtscVl2N2o3eGxKbzZjMnciLAogICJzZXNzaW9uSWQiOiAiNmRjN2JkNWUtYTRiNC00Yzk5LTRiMmUtYzI5OWZjMTAxZGMwIgp9Cg==
+
+❯ curl -s http://anka.controller:8090/api/v1/status
+{"status":"FAIL","message":"Authentication Required"}
+
+❯ curl -sH "Authorization: Bearer ewogICJ1c2VyTmFtZSI6ICJuYXRoYW4iLAogICJ0b2tlbiI6ICI2WjhKVmhkbzhNTlVVSG1GVnkwYmdqb1N1aVZKQXNOWXNxVGRwcWtscVl2N2o3eGxKbzZjMnciLAogICJzZXNzaW9uSWQiOiAiNmRjN2JkNWUtYTRiNC00Yzk5LTRiMmUtYzI5OWZjMTAxZGMwIgp9Cg==" http://anka.controller:8090/api/v1/status
+{"status":"OK","message":"","body":{"status":"Running","version":"1.25.0-b2a027a4","registry_address":"http://anka.registry:8089","registry_status":"Running","license":"enterprise plus"}}
+```
+
+{{< hint warning >}}
+By default, the TTL for keys is 5 minutes. You can modify this with the `ANKA_API_KEYS_SESSION_TTL`, set in the Controller and Registry configs.
+{{< /hint >}}
+
+---
+
+## Managing User/Group Permissions (Authorization)
+
+{{< hint warning >}}
+**UAK users:**
+- You can set groups for each api key or use the API Key ID as the "username" and create individual permissions for them.
+- Note for Enterprise Plus customers using OpenID and UAK: Typically, Authorization is enabled with the `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` and other similar ENVs. However, when using your Ent+ license with OpenID and UAK, you will **always** need to add permissions for the groups claim you set in your OpenID configuration. Otherwise, you'll see a blank Controller UI and API requests will fail.
+{{< /hint >}}
+
+{{< include file="_partials/Anka Build Cloud/_managing-permissions.md" >}}
+

@@ -104,7 +104,14 @@ Here is what your `docker-compose.yml` should look like for use with Keycloak:
       ANKA_SERVER_KEY: "/mnt/cert/anka-controller-key.pem"
       ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
       ANKA_ENABLE_AUTH: "true"
+      ANKA_OIDC_DISPLAY_NAME: "Keycloak"
+      ANKA_OIDC_PROVIDER_URL: "http://host.docker.internal:8080/auth/realms/myrealm"
+      ANKA_OIDC_CLIENT_ID: "anka"
 ```
+
+{{< hint warning >}}
+**The OIDC ENVs must be set for both services.**
+{{< /hint >}}
 
 After that, just `docker-compose down -t 50 && docker-compose up -d` and try accessing the Controller at its HTTPS URL or IP. If you did everything correctly (you enabled certificate authentication and joined your node right?), you should see a Log In box with two options: `Login with Keycloak` and `Login with superuser`
 
