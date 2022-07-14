@@ -7,8 +7,8 @@ description: >
   Up and running fast, with Amazon (AWS) EC2 Macs
 ---
 
-{{< hint warning >}}
-**Our AMIs are owned primarily by account ID 930457884660. We do not recommend trusting any other Anka AMIs.**
+{{< hint info >}}
+This guide is also valid for the Anka 3/Apple processor (M1, M2, etc) EC2 instances.
 {{< /hint >}}
 
 Customers often find that purchasing and managing their own hardware can become a burden. This is why we recommend using AWS EC2 Mac instances to run the Anka Virtualization software.
