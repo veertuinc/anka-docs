@@ -8,7 +8,7 @@ description: >
 ---
 
 {{< hint info >}}
-This guide is also valid for the Anka 3/Apple processor (M1, M2, etc) EC2 instances.
+This guide is also valid for the Anka 3/mac2.metal/Apple processor (M1, M2, etc) EC2 instances.
 {{< /hint >}}
 
 Customers often find that purchasing and managing their own hardware can become a burden. This is why we recommend using AWS EC2 Mac instances to run the Anka Virtualization software.
