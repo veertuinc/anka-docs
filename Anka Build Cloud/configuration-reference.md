@@ -21,56 +21,39 @@ Our default docker package will use .env files to store the configuration ENVs. 
 #### docker-compose.yml (docker)
 
 ```yml
-version: '2'
+version: '3'
 services:
   anka-controller:
-    container_name: anka-controller
+    container_name: anka.controller
     build:
-      context: controller
+       context: controller
     ports:
-      - "80:80"
-    # volumes:
-    #   - /Users/myUserName:/mnt/cert
+       - "80:80" # You can change this to expose the controller on a different port
     depends_on:
-      - etcd
-      - anka-registry
+       - etcd
+       - anka-registry
     restart: always
     environment:
-      ANKA_ANKA_REGISTRY: "http://anka.registry:8089"
-      # SSL + Cert Auth
-      # ANKA_USE_HTTPS: "true"
-      # ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
-      # ANKA_SERVER_KEY: "/mnt/cert/anka-controller-key.pem"
-      # ANKA_SKIP_TLS_VERIFICATION: "true"
-      # ANKA_ENABLE_AUTH: "true"
-      # ANKA_ROOT_TOKEN: "1111111111"
-      # ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
-      # ANKA_CLIENT_CERT="/mnt/cert/anka-controller-crt.pem"
-      # ANKA_CLIENT_CERT_KEY="/mnt/cert/anka-controller-key.pem"
+      ANKA_ANKA_REGISTRY: "http://anka-registry:8089"
+      ANKA_ENABLE_CENTRAL_LOGGING: "true"
+
   anka-registry:
-    container_name: anka-registry
+    container_name: anka.registry
     build:
       context: registry
     ports:
       - "8089:8089"
     restart: always
     volumes:
-      - "/Library/Application Support/Veertu/Anka/registry:/mnt/vol"
-    # environment:  
-      # SSL + Cert Auth
-      # ANKA_USE_HTTPS: "true"
-      # ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
-      # ANKA_SERVER_KEY: "/mnt/cert/anka-controller-key.pem"
-      # ANKA_SKIP_TLS_VERIFICATION: "true"
-      # ANKA_ENABLE_AUTH: "true"
-      # ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
-      # ANKA_CLIENT_CERT="/mnt/cert/anka-controller-crt.pem"
-      # ANKA_CLIENT_CERT_KEY="/mnt/cert/anka-controller-key.pem"
+      - "~/anka-registry-data:/mnt/vol"
+
   etcd:
+    container_name: anka.etcd
     build:
       context: etcd
     volumes:
       - /var/etcd-data:/etcd-data
+    restart: always
     environment:
       ETCD_DATA_DIR: "/etcd-data"
       ETCD_LISTEN_CLIENT_URLS: "http://0.0.0.0:2379"
@@ -80,9 +63,8 @@ services:
       ETCD_INITIAL_CLUSTER: "my-etcd=http://0.0.0.0:2380"
       ETCD_INITIAL_CLUSTER_TOKEN: "my-etcd-token"
       ETCD_INITIAL_CLUSTER_STATE: "new"
-      ETCD_AUTO_COMPACTION_RETENTION: "1"
+      ETCD_AUTO_COMPACTION_RETENTION: "1m"
       ETCD_NAME: "my-etcd"
-    restart: always
 ```
 
 #### /usr/local/bin/anka-controllerd (native)
