@@ -37,10 +37,10 @@ Note: You must request a dedicated mac* host in order to run EC2 Mac instances. 
 
 ## Marketplace AMI
 
-In order to get started using our Marketplace AMIs you have two options:
+In order to get started using our Marketplace AMIs you have four options:
 
-1. Basic : [Product Page](https://aws.amazon.com/marketplace/pp/prodview-tzmid5kfn2knw)
-2. Enterprise : [Product Page](https://aws.amazon.com/marketplace/pp/prodview-rp7kfyl56arbe)
+1. Intel + Basic License : [Product Page](https://aws.amazon.com/marketplace/pp/prodview-tzmid5kfn2knw)
+2. Intel + Enterprise License : [Product Page](https://aws.amazon.com/marketplace/pp/prodview-rp7kfyl56arbe)
 
 Other than the hourly price, there is [a list of features that differ between the two.]({{< relref "licensing.md#anka-build-cloud" >}})
 
@@ -62,7 +62,7 @@ To get up and running with our AWS EC2 Mac instances using our Marketplace AMI, 
 
 Once subscribed, you can start launching AMIs.
 
-{{< include file="_partials/intel/Getting Started/_aws-ec2-mac-prep-steps.md" >}}
+{{< include file="_partials/_aws-ec2-mac-prep-steps.md" >}}
 
 #### Licensing
 
@@ -79,7 +79,7 @@ We have a script that will set up both a Linux instance with the [Anka Build Clo
     cd getting-started
     ```
 
-2. Execute [`./AWS/prepare-build-cloud.bash`](https://github.com/veertuinc/getting-started/blob/master/AWS/prepare-build-cloud.bash)
+2. Execute [`./AWS/prepare-build-cloud.bash`](https://github.com/veertuinc/getting-started#prepare-build-cloudbash)
     - Running this script will create everything necessary inside of AWS to run the Anka Build Cloud. This includes a security group, elastic IP, etc.
 
 The script can be run locally from your local macOS laptop with an existing AWS credential, region set, etc. These scripts have not been tested on linux.
@@ -94,7 +94,7 @@ Our BYOL Community AMIs are useful if you'd like to bring your own existing Anka
 
 To get up and running with our AWS EC2 Mac instances using our BYOL Community AMI, you'll need to:
 
-1. Have an AWS mac1 dedicated host ready.
+1. Have an AWS mac1 (intel) or mac2 (arm/apple/m1) dedicated host ready.
 
 2. Have an [Anka license](https://veertu.com/anka-build-trial/).
 
@@ -132,10 +132,10 @@ We have two scripts that will set up both a Linux instance with the [Anka Build 
     cd getting-started
     ```
 
-2. Execute [`./AWS/prepare-build-cloud.bash`](https://github.com/veertuinc/getting-started/blob/master/AWS/prepare-build-cloud.bash)
+2. Execute [`./AWS/prepare-build-cloud.bash`](https://github.com/veertuinc/getting-started#prepare-build-cloudbash)
     - Running this script will create everything necessary inside of AWS to run the Anka Build Cloud. This includes a security group, elastic IP, etc.
 
-3. Execute [`./AWS/prepare-anka-node.bash`](https://github.com/veertuinc/getting-started/blob/master/AWS/prepare-anka-node.bash)
+3. Execute [`./AWS/prepare-anka-node.bash`](https://github.com/veertuinc/getting-started#prepare-anka-nodebash)
 
     - Requires that you first run `prepare-build-cloud.bash`.
 
