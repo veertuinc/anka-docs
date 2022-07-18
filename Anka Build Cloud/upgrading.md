@@ -53,7 +53,7 @@ If you are upgrading the host/node macOS version, please disjoin and join the no
 
   1. Make a backup of your `docker-compose.yml`.
   2. [Download and extract the latest package]({{< relref "Anka Build Cloud/Getting Started/setup-controller-and-registry.md#step-2-install-the-anka-build-cloud-controller--registry" >}}).
-  3. Configure the values in the `docker-compose.yml` or copy your previous `docker-compose.yml` to the new directory.
+  3. Configure the values in the `docker-compose.yml` or copy your previous `docker-compose.yml` to the new directory and also any .env files you have under the various service directories.
   4. Run `docker-compose build` to prepare the new docker tag.
   5. Run `docker-compose down` to take down the older version.
   6. Run `docker-compose up -d` in the newer version directory.
