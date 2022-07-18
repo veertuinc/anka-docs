@@ -2,7 +2,7 @@
 date: 2019-12-12T00:00:00-00:00
 title: "Modifying the Global Configuration"
 linkTitle: "Modifying the Global Configuration"
-weight: 10
+weight: 4
 description: >
   How to modify the Global Anka Virtualization configuration
 ---
