@@ -3,6 +3,7 @@
 
 Anka VM Templates support the following macOS versions:
 
+- `13.x` (macOS Ventura)
 - `12.x` (macOS Monterey)
 - `11.6.x` (macOS Big Sur)
 - `10.15.x` (macOS Catalina)
