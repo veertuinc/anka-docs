@@ -18,14 +18,6 @@ Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Bui
 We do not follow strict [semantic versioning](https://semver.org/); minor and major version increases can have significant changes
 {{< /hint >}}
 
-{{< hint info >}}
-Upgrading Anka Virtualization software while VMs are running **is typically safe.** Please see the Pre-upgrade Considerations below to be sure.
-{{< /hint >}}
-
-{{< hint info >}}
-Upgrading the VM macOS version from within (using `softwareupdate`) typically works. However, starting in Monterey you will need to switch the `hard_drive` controller to `ablk` before attempting the upgrade: `anka modify {TemplateName} set hard-drive --controller ablk`
-{{< /hint >}}
-
 ### Pre-upgrade Considerations
 
 Existing Version | Target Version | Recommendation
