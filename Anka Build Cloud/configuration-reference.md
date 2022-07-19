@@ -85,7 +85,7 @@ export ANKA_LOG_DIR="/Library/Logs/Veertu/AnkaController"
 export ANKA_RUN_REGISTRY="true"
 export ANKA_ALLOW_EMPTY_REGISTRY="true"
 export ANKA_REGISTRY_BASE_PATH="/Library/Application Support/Veertu/Anka/registry"
-export ANKA_REGISTRY_LISTEN_ADDRESS="anka.registry:8089"
+export ANKA_REGISTRY_LISTEN_ADDRESS="0.0.0.0:8089"
 
 # SSL + Cert Auth
 # export ANKA_USE_HTTPS="true"
