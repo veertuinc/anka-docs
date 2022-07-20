@@ -46,3 +46,4 @@ Once it's up and running, you can [join your nodes to the Controller load balanc
     ```
 - When using an AWS NLB, there is an immutable idle connection timeout value of 350s. This can cause registry push/pull actions to timeout. You'll need to create an ingress ALB that accepts longer connections.
 - If the registry pod has resource limits which are hit, it can be rescheduled on another host while it's performing actions. We recommend avoiding this as much as possible.
+- Per https://github.com/kubernetes/kubernetes/issues/43916, memory request limits for the registry may cause it to frequently restart due to the linux kernel defaulting to using lots of cached memory for disk IO operations. It's best to avoid placing memory limits for the registry when running in Kubernetes.
