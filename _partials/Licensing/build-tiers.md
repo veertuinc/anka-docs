@@ -14,7 +14,7 @@ Central Registry | Yes(Single instance Anka Registry included) | Yes | Yes
 [GitLab Runner with custom executor](https://github.com/veertuinc/gitlab-runner) | Yes | Yes | Yes
 [BuildKite Plugin](https://github.com/veertuinc/anka-buildkite-plugin) | Yes | Yes | Yes
 HA for Controller configuration setup | Yes (Additional controller/registry instances needed) | Yes | Yes
-[USB Device control through the CLI]({{< relref "intel/working-with-usb-devices.md" >}}) |  Yes  | Yes | Yes
+[USB Device control through the CLI]({{< relref "intel/working-with-usb-devices.md" >}}) |    | Yes | Yes
 [USB Device control through Controller API]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#usb-device-control-controller-api" >}}) |    | Yes | Yes
 [Priority scheduling of VMs through controller]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#priority-scheduling" >}}) |    | Yes | Yes
 [Clustering (Grouping) of Nodes]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#node-groups" >}}) |    | Yes | Yes 
