@@ -6,15 +6,22 @@ weight: 100
 
 ## Current Version
 
+### 1.26.0 (1.26.0-7f63ad8a) - Jul 21st, 2022
+
+- **Bug Fix:** Anka Usage calculations were considering duplicate paths.
+- **Bug Fix:** Registry would not start if central log directory was missing (Azure only).
+- **Improvement:** Upgraded etcd to 3.5.4 to solve [data corruption issue](https://github.com/etcd-io/etcd/tree/main/CHANGELOG#production-recommendation).
+- (Standalone Registry: 1.26.0-757a6a71)
+
+---
+
+## Previous Versions
+
 ### 1.25.0 (1.25.0-b2a027a4) - Jun 23rd, 2022
 
 - **Bug Fix:** Agent panics when anka CLI start VM returns an error.
 - **Bug Fix:** Disjoining does not clear the node task queue and can cause heavy usage over time for the Controller.
 - (Standalone Registry: 1.25.0-c6de18fa)
-
----
-
-## Previous Versions
 
 ### 1.24.1 (1.24.1-41a53e49) - May 25th, 2022
 
