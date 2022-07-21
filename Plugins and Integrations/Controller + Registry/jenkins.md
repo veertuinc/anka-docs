@@ -319,7 +319,7 @@ timeoutMinutes | int | 120 | Stops waiting for the result of the Tag -> Registry
 
 ## Release Notes
 
-### 2.9.0 - Jul 21th, 2022
+### 2.9.0 - Jul 21st, 2022
 
 - **Bug Fix:** Misleading title and description for "name template" in Jenkins Plugin template config
 - **Improvement:** Unique runOnceCloud symbol to not collides with other plugins
