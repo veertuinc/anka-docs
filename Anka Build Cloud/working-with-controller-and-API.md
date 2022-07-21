@@ -127,7 +127,7 @@ instance_id    | string | identifier for the instance
 instance_state | string | the instance's state options are "Scheduling", "Pulling", "Started", "Stopping", "Stopped", "Terminating", "Terminated", "Error", "Pushing" (Scheduling -> Pulling, Started, Stopped, Pushing, or Error -> Terminating -> Terminated)
 message        | string | Error message in case of an error
 anka_registry  | string | the URL of the registry where the template is saved
-vmid           | string | the Id of the template that the VM is created from
+vmid           | string | The UUID the VM template you wish to target
 tag            | string | the template's tag
 version        | int    | the template's version
 vminfo         | object | an object representing the VM itself
@@ -173,7 +173,7 @@ stderr         | string             | Stderr of script
 
  Parameter | Type   | Description
  ---       |   ---  |          ---
- vmid      | string | The template (vm image) to use for the instance.
+ vmid      | string | The UUID for the VM you wish to use.
 
 **Optional Data Parameters:**
 
