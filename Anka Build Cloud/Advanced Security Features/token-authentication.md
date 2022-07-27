@@ -7,22 +7,24 @@ description: >
   How to protect your Controller UI, API, and Registry API with a Root Token and/or User API keys.
 ---
 
-{{< hint warning >}} **This guide requires an Anka Enterprise or Enterprise Plus license.** {{< /hint >}}
+{{< hint warning >}}
+**This guide requires an Anka Enterprise or Enterprise Plus license.**
+
+There are several license specific differences that should be noted before you begin:
+
+- **Enterprise:** By default, any tokens you generate (root or user) always have full access to the API.
+- **Enterprise Plus:** By default, _only_ the root token has full access to the API. User tokens _must be_ created with a group attached and permissions added for the group.
+{{< /hint >}}
+
+Starting in 1.19.0 of the Anka Build Cloud, there are two token based options for securing the communication with the Build Cloud Controller & Registry:
+
+1. Setting the Root Token, protecting the Controller UI + API and Registry API.
+
+2. Generate a priv/pub key which is then used to request temporary session tokens by a client. These session tokens allow access to the API to perform various tasks.
 
 {{< hint warning >}}
 This feature will break communication from the Anka Nodes to the registry when executing `anka registry` or `anka push/pull` commands. You will need to use a proxy service on the host and direct the anka config to connect to it instead. This does not apply to the `ankacluster`/agent installed on the nodes though. Please reach out to Veertu support and we can provide you with this proxy for download.
 {{< /hint >}}
-
-Starting in 1.19.0 of the Anka Build Cloud, there are two options for securing the communication with the Build Cloud Controller & Registry:
-
-1. Setting the Root Token, protecting the Controller API and UI.
-
-2. Generating a user private key which is then used to request temporary session tokens by the client. These session tokens allow access to the API to perform various tasks.
-
-However, there are several license specific differences that should be noted before you begin:
-
-- **Enterprise:** By default, any tokens you generate (root or user) always have full access to the API.
-- **Enterprise Plus:** By default, _only_ the root token has full access to the API. User tokens _must be_ created with a group attached and permissions added for the group.
 
 {{< hint info >}}
 We recommend disjoining all but one node. One node must stay joined to ensure the Build Cloud has the proper license attached. You can rejoin it later once you're configured and you've rejoined all of your other nodes.
@@ -117,11 +119,13 @@ Enabling RTA will block any access to the UI and API for Anka Nodes joined to th
 
 1. Follow the same instruction from the above root token section, but also include `ANKA_ENABLE_API_KEYS` set to `true`.
 
-2. Use the API to generate a user key for [the controller]({{< relref "Anka Build Cloud/working-with-controller-and-API.md#user-key-management" >}}) and also [the registry]({{< relref "Anka Build Cloud/working-with-registry-and-API.md#user-key-management" >}}).
+2. Use the API to generate a user key for [the controller]({{< relref "Anka Build Cloud/working-with-controller-and-API.md#user-key-management" >}}) and also [the registry]({{< relref "Anka Build Cloud/working-with-registry-and-API.md#user-key-management" >}}). **KEEP THIS SECRET.**
 
-3. You can now use the key and ID to communicate with the Controller or Registry.
+3. You can now use the key and ID to communicate with the Controller and/or Registry as well as generate TAP tokens which can be used to make API calls from your client/software.
 
 ### Joining Nodes with your UAK
+
+Once you have the API key generated from Step 2 (above), you can use it to join the Anka Node.
 
 ```bash
 ❯ sudo ankacluster join http://anka.controller:8090 --groups "gitlab-test-group-env" --reserve-space 10GB --api-key-id "nathan" --api-key-string "$ANKA_API_KEY_STRING"
@@ -135,11 +139,18 @@ Anka Cloud Cluster join success
 
 {{< hint warning >}} At the moment the `ankacluster` command does not support ENVs. {{< /hint >}}
 
-{{< hint info >}} Instead of passing the private key base64 as a string (`--api-key-string`), you can specify the path to the key file with `--api-key-file`.{{< /hint >}}
+{{< hint info >}} Instead of passing the private key as a string (`--api-key-string`), you can specify the path to the key file with `--api-key-file`.{{< /hint >}}
 
 ### Controller and Registry communication with your UAK
 
-Should the Registry be protected by authentication and User API Keys, the Controller requires its own key for registry API calls. Once generated, you need to specify the `ANKA_API_KEY_ID` and `ANKA_API_KEY_STRING` (or file) ENVs described in the [Configuration Reference]({{< relref "Anka Build Cloud/configuration-reference.md#authentication-and-authorization" >}}).
+There are several important points to know about Controller -> Registry communication when using UAKs.
+
+- The Controller UI will use the same credentials that you use when logged into the UI to make Registry calls (Templates and Logs call the Registry).
+- Internally, the Controller needs to call the Registry API for centralized logging and a few other checks.
+  - If you're using `ANKA_LOCAL_ANKA_REGISTRY` and have it set to :8085, credentials are not needed to communicate with the Registry. This is useful if the Controller and Registry are in the same Kubernetes pod or Docker network and auth is not important.
+  - If you're using `ANKA_LOCAL_ANKA_REGISTRY` and it's set to the external/public port (defaults to :8089), the Controller needs access to call the Registry but is gated by `ANKA_ENABLE_AUTH: "true"`. In order to allow the Controller communication access, you need to specify the `ANKA_API_KEY_ID` and `ANKA_API_KEY_STRING` (or `_FILE`) ENVs described in the [Configuration Reference]({{< relref "Anka Build Cloud/configuration-reference.md#authentication-and-authorization" >}}).
+
+{{< hint info >}}Permissions (see below) are still respected, regardless if you use 8085 or the public port. {{< /hint >}}
 
 ---
 
