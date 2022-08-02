@@ -6,6 +6,27 @@ weight: 100
 
 ## Current Versions
 
+### Anka Virtualization CLI 2.5.7 (2.5.7.148) - Aug 2nd, 2022
+
+{{< hint warning >}}
+
+##### Important considerations for this release
+
+- Upgrading Addons from the previous patch version of anka is recommended but not fully required.
+
+<br />
+For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
+{{< /hint >}}
+
+- **Bug Fix:** Inner VM reboots would cause black screens or panics.
+- **Bug Fix:** License errors would not display in STDERR.
+- **Improvement:** Security patches for VM networking.
+<!-- - **New Feature (experimental):** [Ability to separate runtime image from static image storage directories]({{< relref "Whats New/anka-2.5.5/index.md#ability-to-separate-runtime-image-from-static-image-storage-directories-experimental" >}}) -->
+
+---
+
+## Previous Versions
+
 ### Anka Virtualization CLI 2.5.6 (2.5.6.147) - June 29th, 2022
 
 {{< hint warning >}}
@@ -24,11 +45,6 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 - **Bug Fix:** Inability to use .app installers with `anka create` when they're stored in /tmp.
 - **Improvement:** Support for Ventura (13.0).
 - **Improvement:** Port forwarding rewrite allowing for more network/communication stability.
-<!-- - **New Feature (experimental):** [Ability to separate runtime image from static image storage directories]({{< relref "Whats New/anka-2.5.5/index.md#ability-to-separate-runtime-image-from-static-image-storage-directories-experimental" >}}) -->
-
----
-
-## Previous Versions
 
 ### Anka Virtualization CLI 2.5.5 (2.5.5.143) - April 19th, 2022
 
