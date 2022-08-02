@@ -14,7 +14,7 @@ weight: 100
 
 - Upgrading Addons from the previous patch version of anka is recommended but not fully required.
 
-<br />
+
 For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
@@ -35,7 +35,7 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 
 - Upgrading Addons from the previous patch version of anka is recommended but not fully required.
 
-<br />
+
 For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
@@ -55,7 +55,7 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 - This is a patch for the existing 2.5.5.142 release.
 - Upgrading Addons from the previous minor version of anka is recommended but not required.
 
-<br />
+
 For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
@@ -70,7 +70,7 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 
 - Upgrading Addons from the previous minor version of anka is recommended but not required.
 
-<br />
+
 For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
@@ -102,7 +102,7 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 
 - Suspended VMs created in previous _minor versions_ of anka are not compatible and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.
 
-<br />
+
 For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
@@ -122,7 +122,7 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 
 - Avoid upgrading to this version on nodes with running VMs.
 
-<br />
+
 For more details, take a look at our [pre-upgrade considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}).
 {{< /hint >}}
 
