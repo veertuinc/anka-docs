@@ -1,5 +1,5 @@
 ---
-title: "Anka 2.5.6 (intel)"
+title: "Anka 2.5.7 (intel)"
 weight: 3
 cascade:
   - type: "docs"
