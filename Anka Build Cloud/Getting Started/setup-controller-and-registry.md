@@ -174,6 +174,17 @@ In order for the host/node to perform controller tasks (pull, start, delete, etc
 
 {{< include file="_partials/Anka Build Cloud/etcd-snapshotting.md" >}}
 
+
+## Standalone Registry (Linux)
+
+Often we find that customers wish to only run the Anka Build Cloud Registry and not the Controller. This is a useful setup when you're using [a Controller-less Build Cloud]({{< relref "Plugins and Integrations/_index.md#controller-less-build-cloud-registry-only" >}}).
+
+In order to run the standalone registry you'll:
+
+1. Follow [Step #1]({{< relref "#step-2-install-the-anka-build-cloud-controller--registry" >}}) above, but:
+  - skip the sections to configure the controller. This means only set the registry volume.
+  - before you `docker-compose up -d`, comment out or remove the Controller and ETCD services from the yml.
+
 ---
 
 ## MacOS
