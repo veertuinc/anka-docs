@@ -93,10 +93,9 @@ When using bridged networking mode for your VM, dynamic MAC Addresses are not gu
 
 ---
 
-
 ## FAQs
 
-- Should your Firewall software be blocking VM networking, you need to whitelist the `ankanetd` process.
+- Should your Firewall software be blocking VM networking, you need to whitelist the `/Library/Application\ Support/Veertu/Anka/bin/headless.app` (3.0.x), `/Library/Application\ Support/Veertu/Anka/bin/ankahv.app`, and `/Applications/Anka.app`.
 
 ## What's next?
 
