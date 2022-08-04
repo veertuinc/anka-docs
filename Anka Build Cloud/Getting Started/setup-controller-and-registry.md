@@ -174,7 +174,6 @@ In order for the host/node to perform controller tasks (pull, start, delete, etc
 
 {{< include file="_partials/Anka Build Cloud/etcd-snapshotting.md" >}}
 
-
 ## Standalone Registry (Linux)
 
 Often we find that customers wish to only run the Anka Build Cloud Registry and not the Controller. This is a useful setup when you're using [a Controller-less Build Cloud]({{< relref "Plugins and Integrations/_index.md#controller-less-build-cloud-registry-only" >}}).
