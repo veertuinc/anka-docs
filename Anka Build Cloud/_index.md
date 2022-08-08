@@ -1,5 +1,5 @@
 ---
-title: "Anka Build Cloud 1.26.0"
+title: "Anka Build Cloud 1.27.0"
 weight: 4
 ---
 

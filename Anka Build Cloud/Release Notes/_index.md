@@ -6,16 +6,24 @@ weight: 100
 
 ## Current Version
 
+### 1.27.0 (1.27.0-76c64d00) - Aug 8th, 2022
+
+- **New Feature:** Start VM Instance API now supports `video_controller`, `csr_active_config`, and `hvapic`.
+- **Bug Fix:** Registry files were being corrupted when the server crashed mid-push.
+- **Bug Fix:** $instance_id does not interpolate for name_template in start vm api.
+- **Bug Fix:** Log rotation/cleaning fails when an unknown file  seen in the directory.
+- (Standalone Registry: 1.27.0-bc73bfc8)
+
+---
+
+## Previous Versions
+
 ### 1.26.0 (1.26.0-7f63ad8a) - Jul 21st, 2022
 
 - **Bug Fix:** Anka Usage calculations were considering duplicate paths.
 - **Bug Fix:** Registry would not start if central log directory was missing (Azure only).
 - **Improvement:** Upgraded etcd to 3.5.4 to solve [data corruption issue](https://github.com/etcd-io/etcd/tree/main/CHANGELOG#production-recommendation).
 - (Standalone Registry: 1.26.0-757a6a71)
-
----
-
-## Previous Versions
 
 ### 1.25.0 (1.25.0-b2a027a4) - Jun 23rd, 2022
 
