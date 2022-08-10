@@ -68,11 +68,115 @@ anka registry list
 {"status":"OK","body":{"status":"Running","version":"1.13.0-24e848a5"},"message":""}
 ```
 
-### List VMS  
+### List VMS v1 (Deprecated)
+
+**Description:** List all VMs stored in the Registry.  
+**Path:** /registry/vm  
+**Method:** GET  
+**Optional Query Parameters**  
+
+ Parameter | Type   | Description 
+ ---       |   ---  |          ---
+ id        | string | Return a specific Template. Passing this parameter will show more information about the Template's tags.
+
+
+ **Returns:** 
+ - *Status:* Operation Result (OK|FAIL)  
+ - *Body*:  List of VM objects. If id supplied, also returns list of tags ("versions").. 
+ - *message:* Error message in case of an error 
+
+**Template Object format**
+ - *{UUID}:* *{Template Name}*
+
+**CURL Example**  
+```shell
+# List example
+
+❯ curl -s http://anka.registry:8089/registry/vm | jq
+{
+  "status": "OK",
+  "body": [
+    {
+      "5d1b40b9-7e68-4807-a290-c59c66e926b4": "12.4-gitlab"
+    },
+    {
+      "b6e96ed0-6d0f-4152-a97c-944553b3c35b": "12.4-openjdk-11.0.14.1"
+    },
+    {
+      "c0847bc9-5d2d-4dbc-ba6a-240f7ff08032": "12.4-openjdk-11.0.14.1-jenkins"
+    },
+    {
+      "c12ccfa5-8757-411e-9505-128190e9854e": "12.4"
+    }
+  ],
+  "message": ""
+}
+
+# Get Single Template 
+
+❯ curl -s http://anka.registry:8089/registry/vm\?id\=c12ccfa5-8757-411e-9505-128190e9854e | jq
+{
+  "status": "OK",
+  "body": {
+    "id": "c12ccfa5-8757-411e-9505-128190e9854e",
+    "name": "12.4",
+    "versions": [
+      {
+        "number": 0,
+        "tag": "vanilla",
+        "config_file": "c12ccfa5-8757-411e-9505-128190e9854e.yaml",
+        "nvram": "nvram",
+        "images": [
+          "113eb088112f4b0c9d28197590058301.ank"
+        ],
+        "state_files": [],
+        "description": "",
+        "state_file": "",
+        "size": 19490295808,
+        "arch": ""
+      },
+      {
+        "number": 1,
+        "tag": "vanilla+port-forward-22",
+        "config_file": "c12ccfa5-8757-411e-9505-128190e9854e.yaml",
+        "nvram": "nvram",
+        "images": [
+          "113eb088112f4b0c9d28197590058301.ank"
+        ],
+        "state_files": [],
+        "description": "",
+        "state_file": "",
+        "size": 19490295808,
+        "arch": ""
+      },
+      {
+        "number": 2,
+        "tag": "vanilla+port-forward-22+brew-git",
+        "config_file": "c12ccfa5-8757-411e-9505-128190e9854e.yaml",
+        "nvram": "nvram",
+        "images": [
+          "c92b6575b4ed40bb825ad6e0903519dc.ank",
+          "113eb088112f4b0c9d28197590058301.ank"
+        ],
+        "state_files": [],
+        "description": "",
+        "state_file": "",
+        "size": 22706692096,
+        "arch": ""
+      }
+    ],
+    "size": 22706692096,
+    "arch": "amd64"
+  },
+  "message": ""
+}
+
+```
+
+### List VMS v2 
 
 > **Note**   
 > This is a new API introduced in version 1.7.0  
-> Old path /registry/vm still works for backward compatibility.
 
 **Description:** List all VMs stored in the Registry.  
 **Path:** /registry/v2/vm  
@@ -86,7 +190,7 @@ anka registry list
 
  **Returns:** 
  - *Status:* Operation Result (OK|FAIL)  
- - *Body*:  List of VM objects. If id supplied, also returns list of versions.
+ - *Body*:  List of VM objects. If id supplied, also returns list of tags ("versions")..
  - *message:* Error message in case of an error 
 
 **Template format**
@@ -130,7 +234,7 @@ curl -s "http://anka.registry:8089/registry/v2/vm?id=c12ccfa5-8757-411e-9505-128
   "body": {
     "id": "c12ccfa5-8757-411e-9505-128190e9854e",
     "name": "11.6.0",
-    "versions": [
+    ("versions").[
       {
         "number": 0,
         "tag": "vanilla",
@@ -388,7 +492,7 @@ curl -X DELETE  "http://anka.registry.net:8089/registry/revert?id=a3cc47f0-3a73-
   "body": {
     "id": "0e1660cb-632f-4748-8a0d-ce82ae6bcd25",
     "name": "12.1.0",
-    "versions": [
+    ("versions").[
       {
         "number": 0,
         "tag": "vanilla+addons",
@@ -420,7 +524,7 @@ curl -X DELETE  "http://anka.registry.net:8089/registry/revert?id=a3cc47f0-3a73-
   "body": {
     "id": "0e1660cb-632f-4748-8a0d-ce82ae6bcd25",
     "name": "12.1.0",
-    "versions": [
+    ("versions").[
       {
         "number": 0,
         "tag": "vanilla+addons",
