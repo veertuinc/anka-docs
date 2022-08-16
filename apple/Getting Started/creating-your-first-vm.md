@@ -12,7 +12,7 @@ description: >
 2. The machine you wish to use for running Anka VMs is using Apple processors **and not Intel.**
 3. The machine you wish to use has Monterey (>= 12.0) installed.
 
-## 1. Create your first VM
+## Create your first VM
 
 {{< hint info >}}
 SIP is ENABLED by default inside of Anka 3 VMs post-creation. It can be disabled after creation by launching in recovery mode.
@@ -23,7 +23,7 @@ It's important to understand that the `anka` CLI, VM creation, modification, etc
 {{< /hint >}}
 
 {{< hint warning >}}
-Creating a VM in Anka 3 differs from the Intel version: Anka 3 requires that you manually set up macOS inside of the VM. See [step #3]({{< relref "#3-start-the-vm-and-finish-the-macos-install" >}}) below.
+Creating a VM in Anka 3 differs from the Intel version: Anka 3 requires that you manually set up macOS inside of the VM. See [step #3]({{< relref "#start-the-vm-and-finish-the-macos-install" >}}) below.
 {{< /hint >}}
 
 {{< hint info >}}
@@ -74,7 +74,7 @@ While we recommend you use `anka create -a latest` to automatically download the
 
 There are multiple ways to obtain IPSW files. Apple provides these through their `updates.cdn-apple.com` site. You can usually find the official links to the version you want with your preferred search engine. Alternatively, you can use [ipsw.me](https://ipsw.me) to identify and retrieve your desired IPSW file.
 
-## 3. Start the VM and finish the macOS install
+## Start the VM and finish the macOS install
 
 {{< hint warning >}}
 **For our addons to install and enable autologin properly, you need to create the VM user as username: `anka` and password: `admin`. If you decide to use your own username and password, you will need to manually enable autologin for the user.**
