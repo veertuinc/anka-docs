@@ -163,8 +163,13 @@ stderr         | string             | Stderr of script
 
 #### Start VM instances
 
-> Note
-> Group_id, priority and USB_device is only available if you are running Enterprise and higher tier of Anka Build.
+{{< hint warning >}}
+Group_id, priority and USB_device is only available if you are running Enterprise and higher tier of Anka Build.
+{{< /hint >}}
+
+{{< hint info >}}
+If you are writing your own SDK to make API calls, be sure to set `external_id` with an identifier for you to troubleshoot with. This helps you tie a VM instance to your custom software visually when investigating issues.
+{{< /hint >}}
 
 **Description:** Start VM instances  
 **Path:**   /api/v1/vm  
