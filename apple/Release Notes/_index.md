@@ -23,7 +23,7 @@ Known issues:
 - Nested virtualization is not functional inside of VMs yet.
 - `anka view` does not function post-vm-start unless you started the VM with -v.
 - In Anka 2 we enabled a minimal VNC by default, however it is not available in Anka 3.
-- iCloud logins will fail inside of the VM.
+- iCloud/Apple logins will fail inside of the VM. You can still log into your account through Apple's website and download apps through your developer account. Or, transfer them from the host into the VM with `anka cp`.
 - Changing the display resolution dynamically fails.
 - Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
 
