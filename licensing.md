@@ -48,14 +48,17 @@ Trial licenses for Anka products is valid for 30 days from the date of trial reg
 
 ### Pricing
 
-+ **Anka Build** - Cost is performance core based. For example, if you are setting up a cloud consisting of 2, 8-core Apple processor mac minis, then total performance core count will be 8 cores. For very large core count, there are other licensing models.
-+ **Anka Flow** - Cost is per machine. For example, if you are installing Anka Flow on 10 developer machines, then quantity will be 10.
++ **Anka Build (Intel)** - Cost is core based. For example, if you are setting up a cloud consisting of 2, 8-core Intel processor mac minis, then total core count will be 8 cores. For very large core count, there are other licensing models.
+
++ **Anka Flow (Intel)** - Cost is per machine. For example, if you are installing Anka Flow on 10 developer machines, then quantity will be 10.
+
++ **Anka Build (Apple Silicon)** - Cost is performance core based. For example, 8-core Apple processor mac mini had 4 performance cores. if you are setting up a cloud consisting of 2, 8-core Apple processor mac minis, then total performance core count will be 8 cores. For very large core count, there are other licensing models. For M1 Max and M1 Ultra machines, contact us for pricing information.
 
 Contact [support@veertu.com](mailto:support@veertu.com) to get a pricing estimate.  
 
 ### Upgrading your Trial license to a Commercial license
 
-1. Stop all the running or suspended VMs. 
+1. Stop all the running or suspended VMs.
 2. Remove the old license and activate with the commercial activation key.
 
     ```shell
