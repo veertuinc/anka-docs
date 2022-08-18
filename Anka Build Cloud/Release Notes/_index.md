@@ -6,6 +6,17 @@ weight: 100
 
 ## Current Version
 
+### 1.28.0 (1.28.0-XXXXX) - XXX, 2022
+
+- **New Feature:** Nodes with an expired Anka license now show "Inactive (Invalid License)" in the Nodes UI and do not accept start VM tasks.
+- **Bug Fix:** `Setting license to` log spam when the only node on a controller is disjoined or license expires.
+- **Bug Fix:** Various security related concerns.
+- (Standalone Registry: 1.28.0-X)
+
+---
+
+## Previous Versions
+
 ### 1.27.0 (1.27.0-76c64d00) - Aug 8th, 2022
 
 - **New Feature:** Start VM Instance API now supports `video_controller`, `csr_active_config`, and `hvapic`.
@@ -13,10 +24,6 @@ weight: 100
 - **Bug Fix:** $instance_id does not interpolate for name_template in start vm api.
 - **Bug Fix:** Log rotation/cleaning fails when an unknown file  seen in the directory.
 - (Standalone Registry: 1.27.0-bc73bfc8)
-
----
-
-## Previous Versions
 
 ### 1.26.0 (1.26.0-7f63ad8a) - Jul 21st, 2022
 
