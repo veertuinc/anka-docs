@@ -25,6 +25,11 @@ Please avoid suspending VMs while Docker or other nested virtualization apps are
 
 
 #### Virtualbox
+
+{{< hint warning >}}
+You must set a single vCPU for the virtualbox VM for it to run properly.
+{{< /hint >}}
+
 #### Android Emulators
   > [We highly recommend PG is enabled when using Android Emulators]({{< relref "intel/enabling-graphics-acceleration-with-apple-metal.md" >}})
 
