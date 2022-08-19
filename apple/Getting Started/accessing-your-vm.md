@@ -55,6 +55,10 @@ PING google.com (142.251.35.174): 56 data bytes
 round-trip min/avg/max/stddev = 10.163/10.267/10.316/0.055 ms
 ```
 
+{{< hint warning >}}
+You may see the anka run command hang when using, for example, `find`. Opening the VM viewer will show a user approval dialog box saying "`ankarund` would like access to X". Apple has locked down several locations from commands and enforces user interaction to approve. This is obviously a problem for automation, but, fortunately, there is a solution. You'll need to either avoid using commands that recursively look at the file system locations, or, place the files you wish to find under a "resource" folder under `/Users/anka`. Executing find inside of the folder will not trigger the approval dialog box.
+{{< /hint >}}
+
 #### Shell Configuration Files / Environment
 
 The [`anka run`]({{< relref "apple/command-line-reference.md#run" >}}) command doesn't source `.profile`, `.bash_profile`, or `.zshrc` by default. It will however source `.zprofile`.
