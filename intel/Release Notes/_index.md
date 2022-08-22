@@ -88,10 +88,6 @@ For more details, take a look at our [pre-upgrade considerations]({{< relref "in
 - **New Feature:** [`anka show` now displays cpu usage from inside of the VM]({{< relref "Whats New/anka-2.5.5/index.md#anka-show-now-displays-cpu-usage-from-inside-of-the-vm" >}})
 <!-- - **New Feature (experimental):** [Ability to separate runtime image from static image storage directories]({{< relref "Whats New/anka-2.5.5/index.md#ability-to-separate-runtime-image-from-static-image-storage-directories-experimental" >}}) -->
 
----
-
-## Previous Versions
-
 ### 2.5.4 (2.5.4.138) - Dec 27th, 2021
 
 {{< hint warning >}}
