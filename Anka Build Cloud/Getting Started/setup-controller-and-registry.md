@@ -172,6 +172,19 @@ In order for the host/node to perform controller tasks (pull, start, delete, etc
 - Logs will be written to: STDOUT/ERR. It's possible to get the logs through `docker logs` command.  
 - Data will be written to: `/var/etcd-data`
 
+### Testing ETCD Performance
+
+Testing ETCD performance to ensure it will run properly on your chosen hardware. This can be done by running `etcdctl check perf` command inside of the docker container:
+
+```bash
+❯ docker exec -it anka.etcd bash -c "etcdctl --endpoints=http://localhost:2379 check perf"
+ 60 / 60 Boooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo! 100.00% 1m0s
+PASS: Throughput is 150 writes/s
+PASS: Slowest request took 0.002838s
+PASS: Stddev is 0.000141s
+PASS
+```
+
 {{< include file="_partials/Anka Build Cloud/etcd-snapshotting.md" >}}
 
 ## Standalone Registry (Linux)

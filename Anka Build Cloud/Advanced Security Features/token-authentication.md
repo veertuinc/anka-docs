@@ -23,7 +23,7 @@ Starting in 1.19.0 of the Anka Build Cloud, there are two token based options fo
 2. Generate a priv/pub key which is then used to request temporary session tokens by a client. These session tokens allow access to the API to perform various tasks.
 
 {{< hint warning >}}
-This feature will break communication from the Anka Nodes to the registry when executing `anka registry` or `anka push/pull` commands. You will need to use a proxy service on the host and direct the anka config to connect to it instead. This does not apply to the `ankacluster`/agent installed on the nodes though. Please reach out to Veertu support and we can provide you with this proxy for download.
+This feature will break communication from the Anka Nodes to the registry when executing `anka registry` or `anka push/pull` and when the token auth is enabled for the registry. You will need to use a custom built proxy service on the host and direct the anka registry config to connect to it instead. This does not apply to the `ankacluster`/agent installed on the nodes though. Please reach out to Veertu support and we can provide you with this proxy for download.
 {{< /hint >}}
 
 {{< hint info >}}
