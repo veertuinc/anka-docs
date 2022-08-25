@@ -6,6 +6,10 @@ description: >
   Step by step on how to create your first VM
 ---
 
+{{< hint warning >}}
+**This guide, and the commands inside it, must be run as the non-root user on the system. Anka VMs run under a specific user environment. At the moment there is no way to open the Anka Viewer window, which is required for VM preparation, if the VM exists under the root user space.**
+{{< /hint >}}
+
 ## Prerequisites
 
 1. [You've installed the Anka Virtualization package.]({{< relref "apple/Getting Started/installing-the-anka-virtualization-package.md" >}})
