@@ -196,6 +196,10 @@ Please note:
 
 6. You then take the contents of `data` in the response, base64 it, and use it in your Authorization: Bearer header for API calls.
 
+{{< hint warning >}}
+Only one TAP session can be used at once. If you generate a new one, it will forcefully expire the previous one.
+{{< /hint >}}
+
 The `data` object should look like
 
 ```javascript
