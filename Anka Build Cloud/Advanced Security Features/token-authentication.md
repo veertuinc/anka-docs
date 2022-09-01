@@ -12,18 +12,18 @@ description: >
 
 There are several license specific differences that should be noted before you begin:
 
-- **Enterprise:** By default, any tokens you generate (root or user) always have full access to the API.
-- **Enterprise Plus:** By default, _only_ the root token has full access to the API. User tokens _must be_ created with a group attached and permissions added for the group.
+- **Enterprise:** By default, any secrets generate and use (root or user) always have full access to the API.
+- **Enterprise Plus:** By default, _only_ the root token (RTA) has full access to the API. User tokens _must be_ created with a group attached and permissions added for the group.
 {{< /hint >}}
 
 Starting in 1.19.0 of the Anka Build Cloud, there are two token based options for securing the communication with the Build Cloud Controller & Registry:
 
 1. Setting the Root Token, protecting the Controller UI + API and Registry API.
 
-2. Generate a priv/pub key which is then used to request temporary session tokens by a client. These session tokens allow access to the API to perform various tasks.
+2. Generate an RSA priv/pub key which is then used to request a temporary auth session in a client. These sessions (TAP) allow access to the API to perform various tasks.
 
 {{< hint warning >}}
-This feature will break communication from the Anka Nodes to the registry when executing `anka registry` or `anka push/pull` commands. You will need to use a proxy service on the host and direct the anka config to connect to it instead. This does not apply to the `ankacluster`/agent installed on the nodes though. Please reach out to Veertu support and we can provide you with this proxy for download.
+This feature will break communication from the Anka Nodes to the registry when executing `anka registry` or `anka push/pull` and when the token auth is enabled for the registry. You will need to use a custom built proxy service on the host and direct the anka registry config to connect to it instead until we build in the ability for `anka registry` to accept the UAK id and key string or file. This does not apply to the `ankacluster`/agent installed on the nodes though. You can download the mac and linux binaries [here](https://downloads.veertu.com/anka/registry-proxy-v1.zip).
 {{< /hint >}}
 
 {{< hint info >}}
@@ -92,6 +92,10 @@ anka-registry:
 
 {{</ highlight >}}
 
+{{< hint warning >}}
+RTA is required in all of our Auth features. If you decide to not enable auth for the registry but keep it on for the controller, you cannot enable RTA for the registry.
+{{< /hint >}}
+
 ### Testing RTA
 
 If everything is configured correctly, you can visit your Controller Dashboard and a login box should appear.
@@ -121,11 +125,15 @@ Enabling RTA will block any access to the UI and API for Anka Nodes joined to th
 
 2. Use the API to generate a user key for [the controller]({{< relref "Anka Build Cloud/working-with-controller-and-API.md#user-key-management" >}}) and also [the registry]({{< relref "Anka Build Cloud/working-with-registry-and-API.md#user-key-management" >}}). **KEEP THIS SECRET.**
 
-3. You can now use the key and ID to communicate with the Controller and/or Registry as well as generate TAP tokens which can be used to make API calls from your client/software.
+3. You can now use the key and ID to communicate with the Controller and/or Registry as well as generate a TAP session/token which can be used to make API calls from your client/software.
+
+{{< hint warning >}}
+Each UAK can only have one active TAP session. Generating a new on will cause the previous and active TAP to forcefully expire. We recommend generating a UAK for each individual Anka Node and client connecting to the Controller and/or Registry.
+{{< /hint >}}
 
 ### Joining Nodes with your UAK
 
-Once you have the API key generated from Step 2 (above), you can use it to join the Anka Node.
+Once you have the UAK key generated from Step 2 (above), you can use it to join the Anka Node.
 
 ```bash
 ❯ sudo ankacluster join http://anka.controller:8090 --groups "gitlab-test-group-env" --reserve-space 10GB --api-key-id "nathan" --api-key-string "$ANKA_API_KEY_STRING"
@@ -145,7 +153,7 @@ Anka Cloud Cluster join success
 
 There are several important points to know about Controller -> Registry communication when using UAKs.
 
-- The Controller UI will use the same credentials that you use when logged into the UI to make Registry calls (Templates and Logs call the Registry).
+- The Controller UI will use the same credentials that you use when logged into the UI to make Registry calls (Templates and Logs call the Registry API).
 - Internally, the Controller needs to call the Registry API for centralized logging and a few other checks.
   - If you're using `ANKA_LOCAL_ANKA_REGISTRY` and have it set to :8085, credentials are not needed to communicate with the Registry. This is useful if the Controller and Registry are in the same Kubernetes pod or Docker network and auth is not important.
   - If you're using `ANKA_LOCAL_ANKA_REGISTRY` and it's set to the external/public port (defaults to :8089), the Controller needs access to call the Registry but is gated by `ANKA_ENABLE_AUTH: "true"`. In order to allow the Controller communication access, you need to specify the `ANKA_API_KEY_ID` and `ANKA_API_KEY_STRING` (or `_FILE`) ENVs described in the [Configuration Reference]({{< relref "Anka Build Cloud/configuration-reference.md#authentication-and-authorization" >}}).
@@ -156,7 +164,7 @@ There are several important points to know about Controller -> Registry communic
 
 ## Token Authentication Protocol (TAP)
 
-This communication protocol is for user authentication using asymmetric encryption. You'll use this if you plan on making calls using an Authorization: bearer header to the API.
+This communication protocol is for user authentication using asymmetric encryption. You'll use this if you plan on making calls using an Authorization: bearer header to the API. The API is separate from the usual /api/v1/.
 
 {{< hint warning >}}
 Please note:
@@ -167,32 +175,32 @@ Please note:
 - Public key format is PKIX, ASN.1 DER.
 {{< /hint >}}
 
-This communication protocol is for user authentication using asymmetric encryption. The API is separate from the usual /api/v1/.
-
 #### Authentication flow
 
-1. A public key is stored on the server along with some unique identifier.
+1. You've generated a UAK and it's stored on the Controller and/or Registry with some unique identifier.
 
   {{< hint info >}}
   This is the `publicKey` specified when using the [create key API]({{< relref "Anka Build Cloud/working-with-controller-and-API.md#create-key" >}}). If you don't specify this, the priv and pub keys are on the controller server. You can obtain these from the server to use, but we recommend generating and using your own keys.
   {{< /hint >}}
 
-2. Your client sends the first phase of the authentication: `POST /tap/v1/hand -d '{"id": "<API-KEY-USER-ID>" }'` (doesn't request auth)
-3. The server generates a random string, encrypts it with the client’s public key, encodes it in base64 and passes it back to the client in the response body.
-4. Your client then decodes and decrypts the response using the priv and sends the following the second phase of the authentication with `SECRET-STRING` being what was decrypted: `POST /tap/v1/shake -d '{"id": "<API-KEY-USER-ID>", "secret": "<SECRET-STRING>" }'`
+2. Your client sends the first phase of the authentication: `POST /tap/v1/hand -d '{"id": "<API-KEY-USER-ID>" }'` (doesn't need auth to communicate with).
+3. The server generates a random string, encrypts it with the client’s public key that is has stored, encodes it in base64, and passes it back to the requesting client in the response body.
+4. Your client then decodes and decrypts the response using the UAK private key it has available locally, and then sends the second phase of the authentication with the decoded string as `SECRET-STRING`: `POST /tap/v1/shake -d '{"id": "<API-KEY-USER-ID>", "secret": "<SECRET-STRING>" }'`
 
   {{< hint warning >}}
   By default, the secret is valid for 3 minutes. Also, you can only call /tap/v1/shake once for a secret after which it will become invalid.
   {{< /hint >}}
 
 5. The server then successfully authenticates the client and returns the following object (base64 encoded) in the response body:
-`{ "id": <API-KEY-USER-ID>, "data": <GENERIC-OBJECT> }`. The `data` field is a generic object, and can be customized for specific needs.
+`{ "id": <API-KEY-USER-ID>, "data": <GENERIC-OBJECT> }`
 
-#### Putting it all together
+6. You then take the contents of `data` in the response, base64 it, and use it in your Authorization: Bearer header for API calls.
 
-When an API Key is created, the public key and id are stored and later used in the TAP authentication protocol.
+{{< hint warning >}}
+Only one TAP generated session can be used at once. If you generate a new one, it will forcefully expire the previous one.
+{{< /hint >}}
 
-Upon a successful authentication with the TAP protocol, a session is created and the generic data object that is returned includes the following data:
+The `data` object should look like
 
 ```javascript
 {
@@ -202,7 +210,7 @@ Upon a successful authentication with the TAP protocol, a session is created and
 }
 ```
 
-This object, encoded in JSON and base64 is what the user supplies in the HTTP Authorization header, with the Bearer prefix, for future requests to the API.
+An example of the entire flow using BASH and CURL:
 
 ```bash
 ❯ brew install openssl

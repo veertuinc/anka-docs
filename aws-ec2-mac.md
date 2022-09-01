@@ -62,7 +62,7 @@ To get up and running with our AWS EC2 Mac instances using our Marketplace AMI, 
 
 Once subscribed, you can start launching AMIs.
 
-{{< include file="_partials/_aws-ec2-mac-prep-steps.md" >}}
+{{< include file="_partials/ec2-mac-amis/prep-steps.md" >}}
 
 #### Licensing
 
@@ -90,6 +90,10 @@ The script can be run locally from your local macOS laptop with an existing AWS 
 
 Our BYOL Community AMIs are useful if you'd like to bring your own existing Anka license. They both have all of the same configuration changes, optimizations, and Anka inside. The difference is that Anka is unlicensed.
 
+You can find a list of currently available Community AMIs below:
+
+{{< include file="_partials/ec2-mac-amis/community-ami-list.md" >}}
+
 ### Usage
 
 To get up and running with our AWS EC2 Mac instances using our BYOL Community AMI, you'll need to:
@@ -101,7 +105,7 @@ To get up and running with our AWS EC2 Mac instances using our BYOL Community AM
 3. Choose the Community AMI when starting an instance:
   {{< imgwithlink src="images/getting-started/aws-ec2-mac/aws-choose-ami.png" >}}
 
-{{< include file="_partials/intel/Getting Started/_aws-ec2-mac-prep-steps.md" >}}
+{{< include file="_partials/intel/Getting Started/ec2-mac-amis/prep-steps.md" >}}
 
 
 
