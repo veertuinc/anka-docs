@@ -164,15 +164,16 @@ In order for the host/node to perform controller tasks (pull, start, delete, etc
 - Logs will be written to: STDOUT/ERR. It's possible to get the logs through `docker logs` command.  
 - Data will be written to: No default; You must set it in docker-compose.yml.
 
-#### ETCD Container
+### ETCD Container
 
-- Default Ports: N/A
-- Binary in the container: `/usr/bin/etcd`
-- Configuration files: Configuration is done through docker-compose file, the `etcd/etcd.env`, or through environment variables.
-- Logs will be written to: STDOUT/ERR. It's possible to get the logs through `docker logs` command.  
-- Data will be written to: `/var/etcd-data`
+ETCD is a critical piece of your Anka Build Cloud. It stores tasks, Node and VM Instance information, and many other types of state for the Controller service. If it's not functional, the Controller will throw failures. We'll orient ourself to the basics and defaults of the ETCD service we include with our package and then describe how to maintain it for optimal performance and stability.
 
-### Testing ETCD Performance
+- Default Ports: 2379
+- Configuration files: Configuration is done through the docker-compose file (as ENV variables under `environment:`), or the `etcd/etcd.env` file.
+- Logs will be written to: STDOUT/ERR. It's possible to get the logs through `docker logs` command.
+- The data directory and the "DB SIZE" you see under the `endpoint status` are not the same thing. Disk usage can be significantly different, so you should monitor both independently.
+
+#### Testing ETCD Performance
 
 Testing ETCD performance to ensure it will run properly on your chosen hardware. This can be done by running `etcdctl check perf` command inside of the docker container:
 
@@ -185,7 +186,29 @@ PASS: Stddev is 0.000141s
 PASS
 ```
 
+#### Compaction and Defragmentation
+
+In versions of the Anka Build Cloud <= 1.27.0, we would have the Controller trigger a defragmentation every 3 hours. This is no longer the case and **we perform no defragmentation by default**. It actually turns out that defragmentation is not fully necessary (and dangerous since it prevents writing to etcd, even when etcd is clustered). 
+
+Any previously used etcd key/values are re-used when they're no longer needed (see https://etcd.io/docs/v3.5/op-guide/maintenance/#defragmentation):
+
+> After compacting the keyspace, the backend database may exhibit internal fragmentation. Any internal fragmentation is space that is free to use by the backend but still consumes storage space. Compacting old revisions internally fragments etcd by leaving gaps in backend database. Fragmented space is available for use by etcd but unavailable to the host filesystem. In other words, deleting application data does not reclaim the space on disk.
+
+History Compaction seems to be the most important part for keeping DB size from growing uncontrollably. You will want to not limit ETCD initially until you have a fully used production environment, else you won't know how large the DB size can grow before it stabilizes.
+
+##### History Compaction
+
+By default, we set and recommend `30m` compaction. There are dangers in having this happen too soon or too late, but they are entirely dependent on your environment size and usage. You can read more about this [on the official documentation](https://etcd.io/docs/v3.5/op-guide/maintenance/#history-compaction-v3-api-key-value-database).
+
+##### Defragmentation
+
+In versions of the Anka Build Cloud <= 1.27.0, we would have the Controller trigger a defragmentation every 3 hours. We've disabled this by default and administrators should be aware that the DB size will eventually stop increasing once the Anka environment is fully utilized at least once. Defragmentation can be executed manually, but it's not necessary and you **must ensure it does not happen while the Anka Cloud is being actively used.** [Read about ETCD defragmentation here.](https://etcd.io/docs/v3.5/op-guide/maintenance/#defragmentation)
+
 {{< include file="_partials/Anka Build Cloud/etcd-snapshotting.md" >}}
+
+---
+
+We recommend looking through the [entire ETCD operations guide](https://etcd.io/docs/v3.5/op-guide/) to gain a better understanding of everything we've spoken about here, and more!
 
 ## Standalone Registry (Linux)
 

@@ -63,7 +63,7 @@ services:
       ETCD_INITIAL_CLUSTER: "my-etcd=http://0.0.0.0:2380"
       ETCD_INITIAL_CLUSTER_TOKEN: "my-etcd-token"
       ETCD_INITIAL_CLUSTER_STATE: "new"
-      ETCD_AUTO_COMPACTION_RETENTION: "1m"
+      ETCD_AUTO_COMPACTION_RETENTION: "30m"
       ETCD_NAME: "my-etcd"
 ```
 
