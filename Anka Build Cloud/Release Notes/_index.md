@@ -13,7 +13,9 @@ This release has a significant change you should be aware of to prevent problems
 {{< /hint >}}
 
 - **New Feature:** Nodes with an expired Anka license now show "Inactive (Invalid License)" in the Nodes UI and do not accept start VM tasks.
-- **Improvement:** Disabled ETCD defragmentation by default (see the note above).
+- **New Feature:** Ability to modifying Registry vm list cache expiration.
+- **Improvement:** Disabled ETCD defragmentation by default (see the note above) and changed compaction time to 30m.
+- **Bug Fix:** Endless CPU usage increase when the license of a single node in the cluster is removed or expires.
 - **Bug Fix:** `Setting license to` log spam when the only node on a controller is disjoined or license expires.
 - **Bug Fix:** Various security related concerns.
 - (Standalone Registry: 1.28.0-X)
