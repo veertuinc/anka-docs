@@ -6,7 +6,7 @@ weight: 100
 
 ## Current Version
 
-### 1.28.0 (1.28.0-XXXXX) - XXX, 2022
+### 1.28.0 (1.28.0-347c73ea) - XXX, 2022
 
 {{< hint warning >}}
 This release has a significant change you should be aware of to prevent problems. Please read over [the ETCD Compaction and Defragmentation documentation to understand what has changed]({{< relref "Anka Build Cloud/Getting Started/setup-controller-and-registry.md#compaction-and-defragmentation" >}})
@@ -18,7 +18,7 @@ This release has a significant change you should be aware of to prevent problems
 - **Bug Fix:** Endless CPU usage increase when the license of a single node in the cluster is removed or expires.
 - **Bug Fix:** `Setting license to` log spam when the only node on a controller is disjoined or license expires.
 - **Bug Fix:** Various security related concerns.
-- (Standalone Registry: 1.28.0-X)
+- (Standalone Registry: 1.28.0-39c3ded1)
 
 ---
 

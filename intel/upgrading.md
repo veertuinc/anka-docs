@@ -24,6 +24,7 @@ Upgrading Anka Virtualization software while VMs are running **is typically safe
 
 {{< hint info >}}
 Upgrading the VM macOS version from within (using `softwareupdate`) typically works. However, starting in Monterey you will need to switch the `hard_drive` controller to `ablk` before attempting the upgrade: `anka modify {TemplateName} set hard-drive --controller ablk`
+
 {{< /hint >}}
 
 ### Pre-upgrade Considerations
@@ -35,6 +36,13 @@ Existing Version | Target Version | Recommendation
 < 2.4 | >= 2.4 | Full feature support requires upgrading addons.
 2.x | 2.5.x | <ul><li>macOS 10.14.x does not contain the necessary Apple APIs for Nested Virtualization to work on 2.5.x of Anka. If you use Nested Virtualization, you will need to upgrade the host OS version before trying to install 2.5.x of Anka.</li><li>Avoid upgrading the anka package to 2.5.X on nodes with VMs running.</li></ul>
 < 2.5.x | 2.5.x | Suspended VMs < 2.5.x are not compatible with 2.5.x and will need to be force stopped (`anka stop --force`), started, and then re-suspended post-upgrade.
+
+--- 
+
+Existing VM macOS Version | Target Version | Recommendation
+--- | --- | ---
+Big Sur | Monterey | You will need to change your VM template: `anka modify {vmName} set network-card -c virtio-net`, `anka modify {vmName} set network-card -c virtio-net`, and `anka modify VM set custom-variable hw.x2apic 1`.
+
 
 ### Upgrading VM Addons
 
