@@ -28,7 +28,7 @@ Change the disk space on an existing VM with the following commands:
 
 ```shell
 anka modify {vmNameOrUUID} set hard-drive --size 100GB
-anka run --no-volume {vmNameOrUUID} diskutil apfs resizeContainer disk1 0
+anka run --no-volume {vmNameOrUUID} sudo diskutil apfs resizeContainer disk0s2 0
 ```
 
 > It's currently impossible to downsize a VM's hard-drive. We suggest creating your initial VM with a smaller amount of available disk and then increase in subsequent Tags.

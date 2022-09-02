@@ -41,7 +41,7 @@ Existing Version | Target Version | Recommendation
 
 Existing VM macOS Version | Target Version | Recommendation
 --- | --- | ---
-Big Sur | Monterey | You will need to change your VM template: `anka modify {vmName} set network-card -c virtio-net`, `anka modify {vmName} set network-card -c virtio-net`, and `anka modify VM set custom-variable hw.x2apic 1`.
+Big Sur | Monterey | You will need to change your VM template: `anka modify {vmName} set hard-drive -c sata`, `anka modify {vmName} set network-card -c virtio-net`, and `anka modify {vmName} set custom-variable hw.x2apic 1`.
 
 
 ### Upgrading VM Addons
