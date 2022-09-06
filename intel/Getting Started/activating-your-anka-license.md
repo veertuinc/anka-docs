@@ -10,6 +10,12 @@ More detailed license information can be found on our [Licensing documentation p
 
 {{< include file="_partials/Licensing/activating.md" >}}
 
+## Ensure you've accepted the EULA
+
+```bash
+sudo anka license accept-eula
+```
+
 ---
 
 ## What's next?

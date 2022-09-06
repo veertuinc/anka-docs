@@ -59,6 +59,14 @@ description: >
 
 ---
 
+## Accept the EULA
+
+```bash
+sudo anka license accept-eula
+```
+
+---
+
 ## What's next?
 
 - [Creating your first VM]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
