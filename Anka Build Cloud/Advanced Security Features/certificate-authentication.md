@@ -118,7 +118,7 @@ The `ANKA_CA_CERT` is the authority that is used to validate the Anka Node Agent
 {{< /hint >}}
 
 {{< hint warning >}}
-If you're connecting the Anka CLI with the HTTPS Registry URL, you can use the Node certificates: `anka registry --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem add $REGISTRY_NAME https://$REGISTRY_ADDRESS:8089`
+If you're connecting the Anka CLI with the HTTPS Registry URL, you can use the Node certificates: `anka registry --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem add $REGISTRY_NAME https://$REGISTRY_ADDRESS:8089` (`--cacert` may also be needed if you're using a self-signed HTTPS cert and it's not in your keychain)
 {{< /hint >}}
 
 ## 5. Testing & Joining your Node to the Controller with the Node certificate

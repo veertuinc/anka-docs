@@ -7,7 +7,7 @@
 | --- | :---: | --- | :---: |
 | ANKA_ANKA_REGISTRY | (string) | Anka Registry address that will be used by Nodes to pull/download VM Templates and Tags. This is not used by the Controller to communicate with the Registry. (format: "http[s]://address:[port]"). |  |
 | ANKA_CLEAN_MAC_ADDRESS_INTERVAL | (duration) | Delay between cleaning mac addresses. | 1h0m0s |
-| ANKA_DEFRAG_DB_INTERVAL | (duration) | The interval for defragging ETCD (0 is disable). | 3h0m0s |
+| ANKA_DEFRAG_DB_INTERVAL | (duration) | The interval for defragging ETCD (0 is disable). | 0 |
 | ANKA_ETCD_ENDPOINTS | (string)  | 	Comma separated list of etcd addresses. These endpoints are used for the Application DB (instance, group, node information) and the Queue DB (if not defined separately with ANKA_QUEUE_ETCD_ENDPOINTS). | 127.0.0.1:2379 |
 | ANKA_FILL_MAC_ADDRESS_RANGE_INTERVAL | (duration) | Interval to execute the mac address range validation. | 3h0m0s |
 | ANKA_INSTANCE_TIME_OUT | (duration) | The time that instances stay in 'Terminated' state. | 1m0s |

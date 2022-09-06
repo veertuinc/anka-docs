@@ -303,6 +303,7 @@ curl -X DELETE "http://anka.controller/api/v1/vm" -H "Content-Type: application/
  Parameter | Type   | Description
  ---       |   ---  |          ---
  id      | string | Return the VM with that ID. If the vm does not exists the server will return the status `FAIL`
+ apiVer  | string | Use "v1" to use Registry V1 API (faster for large deployments, without size and arch data)
 
  **Returns:**
 

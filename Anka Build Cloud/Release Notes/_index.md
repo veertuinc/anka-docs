@@ -6,6 +6,24 @@ weight: 100
 
 ## Current Version
 
+### 1.28.0 (1.28.0-347c73ea) - Sep 6th, 2022
+
+{{< hint warning >}}
+This release has a significant change you should be aware of to prevent problems. Please read over [the ETCD Compaction and Defragmentation documentation to understand what has changed]({{< relref "Anka Build Cloud/Getting Started/setup-controller-and-registry.md#compaction-and-defragmentation" >}}).
+{{< /hint >}}
+
+- **New Feature:** Nodes with an expired Anka license now show "Inactive (Invalid License)" in the Nodes UI and do not accept start VM tasks.
+- **New Feature:** Ability to modifying Registry vm list cache expiration/TTL.
+- **Improvement:** Disabled ETCD defragmentation by default (see the note above) and changed compaction time to 30m.
+- **Bug Fix:** Endless CPU usage increase when the license of a single node in the cluster is removed or expires.
+- **Bug Fix:** `Setting license to` log spam when the only node on a controller is disjoined or license expires.
+- **Bug Fix:** Various security related concerns.
+- (Standalone Registry: 1.28.0-39c3ded1)
+
+---
+
+## Previous Versions
+
 ### 1.27.0 (1.27.0-76c64d00) - Aug 8th, 2022
 
 - **New Feature:** Start VM Instance API now supports `video_controller`, `csr_active_config`, and `hvapic`.
@@ -13,10 +31,6 @@ weight: 100
 - **Bug Fix:** $instance_id does not interpolate for name_template in start vm api.
 - **Bug Fix:** Log rotation/cleaning fails when an unknown file  seen in the directory.
 - (Standalone Registry: 1.27.0-bc73bfc8)
-
----
-
-## Previous Versions
 
 ### 1.26.0 (1.26.0-7f63ad8a) - Jul 21st, 2022
 
