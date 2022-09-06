@@ -188,13 +188,20 @@ PASS
 
 #### Compaction and Defragmentation
 
-In versions of the Anka Build Cloud <= 1.27.0, we would have the Controller trigger a defragmentation every 3 hours. This is no longer the case and **we perform no defragmentation by default**. It actually turns out that defragmentation is not fully necessary (and dangerous since it prevents writing to etcd, even when etcd is clustered). 
+In versions of the Anka Build Cloud <= 1.27.0, we would have the Controller trigger a defragmentation every 3 hours. This is no longer the case and **we perform no defragmentation by default**. It actually turns out that defragmentation is not fully necessary (and dangerous since it prevents writing to etcd, even when etcd is clustered).
 
 Any previously used etcd key/values are re-used when they're no longer needed (see https://etcd.io/docs/v3.5/op-guide/maintenance/#defragmentation):
 
 > After compacting the keyspace, the backend database may exhibit internal fragmentation. Any internal fragmentation is space that is free to use by the backend but still consumes storage space. Compacting old revisions internally fragments etcd by leaving gaps in backend database. Fragmented space is available for use by etcd but unavailable to the host filesystem. In other words, deleting application data does not reclaim the space on disk.
 
 History Compaction seems to be the most important part for keeping DB size from growing uncontrollably. You will want to not limit ETCD initially until you have a fully used production environment, else you won't know how large the DB size can grow before it stabilizes.
+
+We recommend graphing and monitoring the following etcd metrics:
+
+- `etcd_mvcc_db_total_size_in_bytes`: Shows the database size including free space waiting for defragmentation.
+- `etcd_mvcc_db_total_size_in_use_in_bytes`: Indicates the actual database usage after a history compaction.
+
+Again, the `etcd_mvcc_db_total_size_in_bytes` increases only when the former is close to it, meaning when both of these metrics are close to the quota, a history compaction is required to avoid triggering the [space quota](https://etcd.io/docs/v3.5/op-guide/maintenance/#space-quota). Defragmentation is only needed when the in_use remains well below the total metric for a period of time (ensure it does not happen while the Anka Cloud is being actively used).
 
 ##### History Compaction
 
