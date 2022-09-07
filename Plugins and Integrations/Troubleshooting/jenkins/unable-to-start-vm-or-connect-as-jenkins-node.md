@@ -11,11 +11,14 @@ aliases:
 
 You configured Anka Build Cloud alongside the Jenkins plugin. You are now trying to run a job but you either don't see a node connecting to a running VM (seen in the Anka Controller UI), or no VM starts at all.
 
-> **Note**  
-> When Jenkins starts a job using the Anka plugin, a lot of times you will see this message:  
-> *'Jenkins' doesn’t have label 'MyLabel'*  
-> This is just the way Jenkins says it doesn't have available nodes with this label **at the moment**.  
-> It doesn't mean that there are no nodes or clouds configured with this label.
+{{< hint warning >}}
+When Jenkins starts a job using the Anka plugin, a lot of times you will see this message:
+  
+`'Jenkins' doesn’t have label 'MyLabel'` (or something similar)
+
+This is just the way Jenkins says it doesn't have available nodes with this label **at the moment**.  
+It doesn't mean that there are no nodes or clouds configured with this label.
+{{< /hint >}}
 
 ## Common Causes
 
