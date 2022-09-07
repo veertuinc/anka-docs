@@ -1,13 +1,15 @@
 ---
-title: "Jenkins doesn't start VMs"
-linkTitle: "Jenkins doesn't start VMs"
+title: "Jenkins doesn't start VMs or connect as a Jenkins node"
+linkTitle: "Jenkins doesn't start VMs or connect as a Jenkins node"
 weight: 3
+aliases:
+  - /plugins-and-integrations/troubleshooting/jenkins/vms-not-starting/
 ---
 
 
 ## Scenario
 
-You configured Anka Build Cloud alongside the Jenkins plugin. You are now trying to run a job but it doesn't start and you are not seeing any new Nodes connected to Jenkins.  
+You configured Anka Build Cloud alongside the Jenkins plugin. You are now trying to run a job but you either don't see a node connecting to a running VM (seen in the Anka Controller UI), or no VM starts at all.
 
 > **Note**  
 > When Jenkins starts a job using the Anka plugin, a lot of times you will see this message:  
