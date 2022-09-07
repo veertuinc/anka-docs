@@ -128,7 +128,7 @@ Enabling RTA will block any access to the UI and API for Anka Nodes joined to th
 3. You can now use the key and ID to communicate with the Controller and/or Registry as well as generate a TAP session/token which can be used to make API calls from your client/software.
 
 {{< hint warning >}}
-Each UAK can only have one active TAP session. Generating a new on will cause the previous and active TAP to forcefully expire. We recommend generating a UAK for each individual Anka Node and client connecting to the Controller and/or Registry.
+Each UAK can only have one or more TAP generated sessions. This means you can generate a single UAK for a single piece of software which is deployed multiple times, and each software instance will get its own TAP generated session, independent from the others. An example of this is having a single UAK for all of your Anka Nodes to use when joining.
 {{< /hint >}}
 
 ### Joining Nodes with your UAK
@@ -195,10 +195,6 @@ Please note:
 `{ "id": <API-KEY-USER-ID>, "data": <GENERIC-OBJECT> }`
 
 6. You then take the contents of `data` in the response, base64 it, and use it in your Authorization: Bearer header for API calls.
-
-{{< hint warning >}}
-Only one TAP generated session can be used at once. If you generate a new one, it will forcefully expire the previous one.
-{{< /hint >}}
 
 The `data` object should look like
 
