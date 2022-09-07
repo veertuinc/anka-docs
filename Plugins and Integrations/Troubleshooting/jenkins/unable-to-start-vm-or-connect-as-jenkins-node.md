@@ -23,7 +23,7 @@ It doesn't mean that there are no nodes or clouds configured with this label.
 ## Common Causes
 
 1. Configuration mistakes
-2. SSH port forwarding not set correctly on VM 
+2. SSH port forwarding not set correctly on VM
 3. JNLP port is not accessible from VM
 4. Outdated Jenkins environment
 5. VM has different version of Java from the Master
@@ -45,7 +45,8 @@ Let's go over the most important configuration parameters, and check that everyt
 The Anka Jenkins Plugin configuration has various Advanced setting which determine how long it will wait and how many retries to perform when establishing a connection to your starting VMs/Jenkins agents. Depending on system load, the VM start time and networking startup can be delayed enough to prevent the connection from being established in the configured times. You may want to tweak these settings.
 
 ### Anka Build Controller URL
-Go to *Manage Jenkins* -> *Configure System*, and scroll all the way down to the clouds section.  
+
+Go to your Configure Clouds section
 If your address is wrong, or your cloud is offline, you should see a message saying *"Cloud XXX is offline"* just like in the image below (marked in a blue rectangle).
 
 ![My awesome cloud is offline]({{< siteurl >}}images/anka-build/troubleshooting/controller-address.png)
@@ -55,6 +56,7 @@ If your address is wrong, or your cloud is offline, you should see a message say
 ![Can select an image]({{< siteurl >}}images/anka-build/troubleshooting/select-image.png)
 
 ### Remote FS Root
+
 Remote FS Root is required to be a valid writable path on the VM in order for Jenkins to run the node.
 You can find it in the slave template configuration.  
 If you are unsure of what this value should be, it's best to set it to the home folder of the user that Jenkins will run as.
