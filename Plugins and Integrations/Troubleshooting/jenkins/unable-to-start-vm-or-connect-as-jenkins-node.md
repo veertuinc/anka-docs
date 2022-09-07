@@ -46,7 +46,8 @@ The Anka Jenkins Plugin configuration has various Advanced setting which determi
 
 ### Anka Build Controller URL
 
-Go to your Configure Clouds section
+Go to your Configure Clouds section and find the Anka plugin area.
+
 If your address is wrong, or your cloud is offline, you should see a message saying *"Cloud XXX is offline"* just like in the image below (marked in a blue rectangle).
 
 ![My awesome cloud is offline]({{< siteurl >}}images/anka-build/troubleshooting/controller-address.png)
