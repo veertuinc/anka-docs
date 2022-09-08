@@ -236,7 +236,7 @@ ewogICJ1c2VyTmFtZSI6ICJuYXRoYW4iLAogICJ0b2tlbiI6ICI2WjhKVmhkbzhNTlVVSG1GVnkwYmdq
 ```
 
 {{< hint warning >}}
-By default, the TTL for keys is 5 minutes. You can modify this with the `ANKA_API_KEYS_SESSION_TTL`, set in the Controller and Registry configs.
+By default, the TTL for keys is 5 minutes. You can modify this with the `ANKA_API_KEYS_SESSION_TTL`, set in the Controller and Registry configs. The TTL however will not cause long running requests, like downloads, to be interrupted.
 {{< /hint >}}
 
 ---
