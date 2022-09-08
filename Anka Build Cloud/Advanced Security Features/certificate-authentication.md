@@ -8,9 +8,13 @@ description: >
 ---
 
 {{< hint warning >}}
-**This guide requires an Anka Enterprise (or higher) license.**
+**This feature requires an Anka Enterprise (or higher) license.**
 {{< /hint >}}
 
+{{< rawhtml >}}
+<div style="display:flex;">
+<div style="max-width: 65%; margin-right: 20px;">
+{{< /rawhtml >}}
 There are several different ways you can enable Certificate authentication:
 
 1. With the combined (controller + registry) native macOS package: You'll edit the `/usr/local/bin/anka-controllerd`, enable TLS/HTTPS (required), and then enable certificate authentication.
@@ -26,6 +30,18 @@ There are several different ways you can enable Certificate authentication:
 {{< hint warning >}}
 If bringing your own certs, not password protected ("encrypted") (use `openssl rsa -in <encrypted_private.key> -out <decrypted_private.key>` to decrypt).
 {{< /hint >}}
+
+{{< rawhtml >}}
+</div>
+<div>
+{{< /rawhtml >}}
+
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/cert-auth.png" >}}
+
+{{< rawhtml >}}
+</div>
+</div>
+{{< /rawhtml >}}
 
 ---
 
