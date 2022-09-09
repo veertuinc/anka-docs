@@ -127,19 +127,6 @@ Then, you launch the Terminal application and execute `csrutil disable`. Once ex
 
 {{< include file="_partials/apple/Anka Virtualization/list/_example.md" >}}
 
-## Deleting a VM
-
-### Using the Anka UI
-
-![edit menu delete]({{< siteurl >}}images/getting-started/creating-your-first-vm/edit-menu-delete.png)
-
-### Using the Anka CLI
-
-```shell
-❯ anka delete test
-are you sure you want to delete vm 77f33f4a-75c3-47aa-b3f6-b99e7cdac001 test [y/N]:
-```
-
 ## Optimizing your VM
 
 It's recommended that you disable Spotlight and CoreDuetD inside of the VM to eliminate services that are known to need high CPU:
@@ -154,6 +141,19 @@ sudo mdutil -a -i off /
 sudo mdutil -a -i off
 sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist || true
 sudo rm -rf /.Spotlight-V100/*
+```
+
+## Deleting a VM
+
+### Using the Anka UI
+
+![edit menu delete]({{< siteurl >}}images/getting-started/creating-your-first-vm/edit-menu-delete.png)
+
+### Using the Anka CLI
+
+```shell
+❯ anka delete test
+are you sure you want to delete vm 77f33f4a-75c3-47aa-b3f6-b99e7cdac001 test [y/N]:
 ```
 
 ---

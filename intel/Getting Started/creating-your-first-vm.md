@@ -46,6 +46,21 @@ Once the VM template is created, you will see it on the sidebar.
 
 {{< include file="_partials/intel/Anka Virtualization/list/_example.md" >}}
 
+## Optimizing your VM
+
+It's recommended that you disable Spotlight and CoreDuetD inside of the VM to eliminate services that are known to need high CPU:
+```bash
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.coreduetd.osx.plist 
+sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Volumes"
+sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Network"
+sudo killall mds || true
+sleep 60
+sudo mdutil -a -i off /
+sudo mdutil -a -i off
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
+sudo rm -rf /.Spotlight-V100/*
+```
+
 ## Deleting a VM
 
 ### Using the Anka UI
@@ -64,21 +79,6 @@ are you sure you want to delete vm 77f33f4a-75c3-47aa-b3f6-b99e7cdac001 test [y/
 ## (Anka Build license + Cloud) Understanding VM Templates, Tags, and Disk Usage
 
 {{< include file="_partials/intel/Getting Started/_understanding-templates-and-tags.md" >}}
-
-## Optimizing your VM
-
-It's recommended that you disable Spotlight and CoreDuetD inside of the VM to eliminate services that are known to need high CPU:
-```bash
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.coreduetd.osx.plist 
-sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Volumes"
-sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Network"
-sudo killall mds || true
-sleep 60
-sudo mdutil -a -i off /
-sudo mdutil -a -i off
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
-sudo rm -rf /.Spotlight-V100/*
-```
 
 ## Re-pushing an existing registry tag
 
