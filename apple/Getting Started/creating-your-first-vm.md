@@ -108,6 +108,21 @@ We do not currently support mounting addons from the UI. Please use the CLI for 
 
 ---
 
+## Disable SIP in Recovery Mode (versions <= 3.0.1)
+
+With SIP enabled, there are two main issues you'll find when running VMs:
+
+1. User or command executions can hang due to a "allowed to access" dialog in the VM's UI. It requires VNC access and manual intervention to get around (no commands to disable this protection feature).
+2. Apple's `syspolicyd` will notice applications and processes running for the first time and consume a lot of CPU and RAM trying to scan them.
+
+In order to disable SIP, you need to first launch the VM in recovery mode.
+
+![recovery-mode]({{< siteurl >}}images/apple/getting-started/accessing-your-vm/anka-app-recovery-mode.png)
+
+Then, you launch the Terminal application and execute `csrutil disable`. Once executed and after confirmation that the command worked, you can stop the VM. On next boot, SIP will be disabled.
+
+---
+
 ## Listing available VMs in the CLI
 
 {{< include file="_partials/apple/Anka Virtualization/list/_example.md" >}}
