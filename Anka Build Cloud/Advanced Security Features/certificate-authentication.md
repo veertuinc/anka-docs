@@ -36,7 +36,7 @@ If bringing your own certs, not password protected ("encrypted") (use `openssl r
 <div>
 {{< /rawhtml >}}
 
-{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/cert-auth.png" >}}
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/cert-auth.drawio.png" >}}
 
 {{< rawhtml >}}
 </div>
