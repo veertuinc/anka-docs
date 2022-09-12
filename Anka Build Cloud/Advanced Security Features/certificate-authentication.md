@@ -229,6 +229,16 @@ Cluster join success
 The `--skip-tls-verification` is only necessary if using a self-signed cert. Please avoid using `--skip-tls-verification` AND the `--cacert`.
 {{< /hint >}}
 
+## 6. Configuring your Builder Node to push to the Registry
+
+Typically you want to assign a specific Anka Node as a "builder node". This node will run a licensed Anka installation and allow you to create and prepare VMs to be pushed to the Anka Build Cloud Registry as templates/tags. With Certificate Authentication enabled, you won't be able to do this unless you specify the certs on the `anka registry` command:
+
+{{< include file="_partials/intel/Anka Virtualization/registry/_index.md" >}}
+
+You can also use `anka registry add` to add it to the default configuration and not need to pass these in as options each execution:
+
+{{< include file="_partials/apple/Anka Virtualization/registry/add/_index.md" >}}
+
 ---
 
 ## Accessing the Controller UI
