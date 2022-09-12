@@ -162,32 +162,6 @@ are you sure you want to delete vm 77f33f4a-75c3-47aa-b3f6-b99e7cdac001 test [y/
 
 ## VM Clones
 
-You can easily create VM clones from a source VM and _its current state_ using `anka clone`:
-
-{{< include file="_partials/apple/Anka Virtualization/clone/_index.md" >}}
-
-```bash
-❯ anka list
-+--------+--------------------------------------+----------------------+---------+
-| name   | uuid                                 | creation_date        | status  |
-+--------+--------------------------------------+----------------------+---------+
-| 12.0.1 | e65a072f-0d4f-450b-964d-2be8d0d32c13 | Nov 19 08:02:33 2021 | stopped |
-+--------+--------------------------------------+----------------------+---------+
-
-
-❯ anka clone 12.0.1 12.0.1-xcode13
-6070ee59-6c16-4c93-ba7a-122b66b1472a
-
-❯ anka list
-+----------------+--------------------------------------+----------------------+---------+
-| name           | uuid                                 | creation_date        | status  |
-+----------------+--------------------------------------+----------------------+---------+
-| 12.0.1         | e65a072f-0d4f-450b-964d-2be8d0d32c13 | Nov 19 08:02:33 2021 | stopped |
-+----------------+--------------------------------------+----------------------+---------+
-| 12.0.1-xcode13 | 6070ee59-6c16-4c93-ba7a-122b66b1472a | Nov 19 08:02:33 2021 | stopped |
-+----------------+--------------------------------------+----------------------+---------+
-```
-
 ### Disk Optimization
 
 Customers coming from Anka 2 will know that when you clone an _untagged_ VM, it will share the underlying VM image files between the two. However, this is not the case for Anka 3. As of right now, sharing of the underlying VM image files between a clone and its source requires first creating a tag for the source _before_ you clone. You can do this with `anka push --local`, or just a regular `anka push` if you've got a running [Anka Build Cloud Registry]({{< relref "Anka Build Cloud/_index.md" >}}).
@@ -228,6 +202,32 @@ To switch between tags locally, you can use the `anka pull --local --tag {target
 {{< include file="_partials/apple/Anka Virtualization/pull/_index.md" >}}
 
 {{< /hint >}}
+
+You can easily create VM clones from a source VM and _its current state_ using `anka clone`:
+
+{{< include file="_partials/apple/Anka Virtualization/clone/_index.md" >}}
+
+```bash
+❯ anka list
++--------+--------------------------------------+----------------------+---------+
+| name   | uuid                                 | creation_date        | status  |
++--------+--------------------------------------+----------------------+---------+
+| 12.0.1 | e65a072f-0d4f-450b-964d-2be8d0d32c13 | Nov 19 08:02:33 2021 | stopped |
++--------+--------------------------------------+----------------------+---------+
+
+
+❯ anka clone 12.0.1 12.0.1-xcode13
+6070ee59-6c16-4c93-ba7a-122b66b1472a
+
+❯ anka list
++----------------+--------------------------------------+----------------------+---------+
+| name           | uuid                                 | creation_date        | status  |
++----------------+--------------------------------------+----------------------+---------+
+| 12.0.1         | e65a072f-0d4f-450b-964d-2be8d0d32c13 | Nov 19 08:02:33 2021 | stopped |
++----------------+--------------------------------------+----------------------+---------+
+| 12.0.1-xcode13 | 6070ee59-6c16-4c93-ba7a-122b66b1472a | Nov 19 08:02:33 2021 | stopped |
++----------------+--------------------------------------+----------------------+---------+
+```
 
 ### VM Templates
 
