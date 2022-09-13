@@ -618,7 +618,7 @@ curl -X DELETE  "http://anka.registry.net:8089/registry/revert?id=a3cc47f0-3a73-
 | --- | --- | --- | --- |
 | id | string | Set the id/name of the key (required) | - |
 | ttl | int | Set the TTL (time to live) seconds of the key (required) | - |
-| groups | string | Comma separated list of group names for the key (required) | - |
+| groups | string array | List of group names for the key (required) | - |
 | publicKey | string | If supplied, it is expected to be in PKIX ASN.1 DER form (optional) | - |
 
 > If no publicKey is passed in, we will generate and store it on the server.
