@@ -48,6 +48,6 @@ Known issues:
 
 ## Previous Versions
 
-### 3.0.0 (3.0.0.140) - Feb 1st 2020
+### 3.0.0 (3.0.0.140) - Feb 1st 2022
 
 - This is our first release! Features are detailed in the documentation throughout this site!
