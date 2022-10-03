@@ -6,6 +6,22 @@ weight: 100
 
 ## Current Version
 
+### 1.29.0 (1.29.0-49077f79) - Oct 3rd, 2022
+
+{{< hint warning >}}
+1.28.0 had a significant change you should be aware of to prevent problems. Please read over [the ETCD Compaction and Defragmentation documentation to understand what has changed]({{< relref "Anka Build Cloud/Getting Started/setup-controller-and-registry.md#compaction-and-defragmentation" >}}).
+{{< /hint >}}
+
+- **Bug Fix:** Mac package anka-controllerd improperly uses `ANKA_LISTEN_ADDRESS` instead of `ANKA_LISTEN_ADDR` ENV.
+- **Bug Fix:** Agent tries to install PKG even if download from controller fails.
+- **Bug Fix:** Bad string for custom hardware variable (HVAPIC) when using VM start API endpoint.
+- **New Feature:** [Management UI for UAKs]({{< relref "Whats New/build-cloud-1.29.0/index.md" >}})
+- (Standalone Registry: 1.29.0-8daa18e1)
+
+---
+
+## Previous Versions
+
 ### 1.28.0 (1.28.0-347c73ea) - Sep 6th, 2022
 
 {{< hint warning >}}
@@ -22,8 +38,6 @@ This release has a significant change you should be aware of to prevent problems
 
 ---
 
-## Previous Versions
-
 ### 1.27.0 (1.27.0-76c64d00) - Aug 8th, 2022
 
 - **New Feature:** Start VM Instance API now supports `video_controller`, `csr_active_config`, and `hvapic`.
@@ -32,6 +46,8 @@ This release has a significant change you should be aware of to prevent problems
 - **Bug Fix:** Log rotation/cleaning fails when an unknown file  seen in the directory.
 - (Standalone Registry: 1.27.0-bc73bfc8)
 
+---
+
 ### 1.26.0 (1.26.0-7f63ad8a) - Jul 21st, 2022
 
 - **Bug Fix:** Anka Usage calculations were considering duplicate paths.
@@ -39,11 +55,15 @@ This release has a significant change you should be aware of to prevent problems
 - **Improvement:** Upgraded etcd to 3.5.4 to solve [data corruption issue](https://github.com/etcd-io/etcd/tree/main/CHANGELOG#production-recommendation).
 - (Standalone Registry: 1.26.0-757a6a71)
 
+---
+
 ### 1.25.0 (1.25.0-b2a027a4) - Jun 23rd, 2022
 
 - **Bug Fix:** Agent panics when anka CLI start VM returns an error.
 - **Bug Fix:** Disjoining does not clear the node task queue and can cause heavy usage over time for the Controller.
 - (Standalone Registry: 1.25.0-c6de18fa)
+
+---
 
 ### 1.24.1 (1.24.1-41a53e49) - May 25th, 2022
 
