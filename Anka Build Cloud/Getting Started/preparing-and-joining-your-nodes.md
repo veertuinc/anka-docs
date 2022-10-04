@@ -65,7 +65,6 @@ Be sure to reboot the host after applying these changes.
 You may also want to have your nodes restart on host level failure: `systemsetup -setrestartpowerfailure on` & `systemsetup -setrestartfreeze on`
 {{< /hint >}}
 
-
 ## Joining Prerequisites
 
 - [Anka Build Cloud Controller should be configured and running before your Anka Node can join.]({{< relref "Anka Build Cloud/_index.md" >}})

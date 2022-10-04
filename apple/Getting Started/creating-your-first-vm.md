@@ -100,6 +100,10 @@ We do not currently support mounting addons from the UI. Please use the CLI for 
   `anka view` does not currently work post-start unless you started it with -v.
   {{< /hint >}}
 
+  {{< hint warning >}}
+  `sudo anka view` as a normal user is not possible yet. You'll need to ensure that VNC is enabled to access VMs running under `sudo`.
+  {{< /hint >}}
+
 2. Once inside the Anka Viewer/VM, finish the macOS installation **and be sure to install the addons package through the disk we mounted with `-u`**.
 
 ![mounted addons]({{< siteurl >}}images/apple/getting-started/creating-your-first-vm/addonspkg.png)
