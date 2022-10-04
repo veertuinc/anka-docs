@@ -49,18 +49,17 @@ Be sure to reboot the host after applying these changes.
     If you cannot perform launchctl commands, you can execute these commands from the command-line:
 
     ```shell
-    # Disable indexing volumes
     sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Volumes"
     sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Network"
-    sudo killall mds
+    sudo killall mds || true
     sleep 60
-    # Make sure indexing is DISABLED for the main volume
     sudo mdutil -a -i off /
     sudo mdutil -a -i off
+    sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
     sudo rm -rf /.Spotlight-V100/*
     ```
 
-    MDS can be disable with `sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist`, but only if SIP is disabled on the host (not recommended)
+    MDS can be disable entirely with `sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist`, but only if SIP is disabled on the host (not recommended).
 
 {{< hint info >}}
 You may also want to have your nodes restart on host level failure: `systemsetup -setrestartpowerfailure on` & `systemsetup -setrestartfreeze on`
