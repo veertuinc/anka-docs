@@ -235,6 +235,10 @@ ewogICJ1c2VyTmFtZSI6ICJuYXRoYW4iLAogICJ0b2tlbiI6ICI2WjhKVmhkbzhNTlVVSG1GVnkwYmdq
 {"status":"OK","message":"","body":{"status":"Running","version":"1.25.0-b2a027a4","registry_address":"http://anka.registry:8089","registry_status":"Running","license":"enterprise plus"}}
 ```
 
+{{< hint info >}}
+Typically you'll see `E1005 18:24:05.506576       1 tap.go:85] unknown tap error caught. responding with 500. error: token does not exist` if you forgot to add `ANKA_API_KEY_ID` and `ANKA_API_KEY_FILE` to the controller config.
+{{< /hint >}}
+
 {{< hint warning >}}
 By default, the TTL for keys is 5 minutes. You can modify this with the `ANKA_API_KEYS_SESSION_TTL`, set in the Controller and Registry configs. The TTL however will not cause long running requests, like downloads, to be interrupted.
 {{< /hint >}}
@@ -250,4 +254,3 @@ By default, the TTL for keys is 5 minutes. You can modify this with the `ANKA_AP
 {{< /hint >}}
 
 {{< include file="_partials/Anka Build Cloud/_managing-permissions.md" >}}
-
