@@ -1644,6 +1644,8 @@ If no `publicKey` is passed in, we will generate and store it on the server (con
 ```bash
 openssl genrsa -out $FILE_OUTPUT_DIR/$NAME-key.pem 4096 > /dev/null 2>&1
 openssl rsa -in $FILE_OUTPUT_DIR/$NAME-key.pem -outform PEM -pubout -out $FILE_OUTPUT_DIR/$NAME-pub.pem > /dev/null 2>&1
+# get PKIX ASN.1 DER form
+cat $FILE_OUTPUT_DIR/$NAME-pub.pem | sed '1,1d' | sed '$d' | tr -d '\n'
 ```
 {{< /hint >}}
 
