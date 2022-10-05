@@ -217,8 +217,6 @@ nathan-key.pem nathan-pub.pem
 
 ❯ echo -n $(curl -s http://anka.controller:8090/tap/v1/hand -d '{"id": "nathan"}') | base64 -d > to_decrypt
 
-❯ rm -f decrypted
-
 ❯ openssl pkeyutl -decrypt -inkey nathan-key.pem -in to_decrypt -out decrypted -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256
 
 ❯ cat decrypted
