@@ -154,7 +154,7 @@ Anka Cloud Cluster join success
 There are several important points to know about Controller -> Registry communication when using UAKs.
 
 - The Controller UI will use the same credentials that you use when logged into the UI to make Registry calls (Templates and Logs call the Registry API).
-- Internally, the Controller needs to call the Registry API for centralized logging, generating TAP sessions, etc.
+- Internally, the Controller needs to call the Registry API for centralized logging and a few other checks.
   - If you're using `ANKA_LOCAL_ANKA_REGISTRY` and have it set to :8085, credentials are not needed to communicate with the Registry. This is useful if the Controller and Registry are in the same Kubernetes pod or Docker network and auth is not important.
   - If you're using `ANKA_LOCAL_ANKA_REGISTRY` and it's set to the external/public port (defaults to :8089), the Controller needs access to call the Registry but is gated by `ANKA_ENABLE_AUTH: "true"`. In order to allow the Controller communication access, you need to specify the `ANKA_API_KEY_ID` and `ANKA_API_KEY_STRING` (or `_FILE`) ENVs described in the [Configuration Reference]({{< relref "Anka Build Cloud/configuration-reference.md#authentication-and-authorization" >}}).
 
