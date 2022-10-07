@@ -217,6 +217,8 @@ nathan-key.pem nathan-pub.pem
 
 ❯ echo -n $(curl -s http://anka.controller:8090/tap/v1/hand -d '{"id": "nathan"}') | base64 -d > to_decrypt
 
+# You have 10 seconds after obtaining the /hand token to shake. Otherwise, you will see an error thrown due to expiration.
+
 ❯ openssl pkeyutl -decrypt -inkey nathan-key.pem -in to_decrypt -out decrypted -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256
 
 ❯ cat decrypted
@@ -235,6 +237,9 @@ ewogICJ1c2VyTmFtZSI6ICJuYXRoYW4iLAogICJ0b2tlbiI6ICI2WjhKVmhkbzhNTlVVSG1GVnkwYmdq
 {"status":"OK","message":"","body":{"status":"Running","version":"1.25.0-b2a027a4","registry_address":"http://anka.registry:8089","registry_status":"Running","license":"enterprise plus"}}
 ```
 
+{{< hint warning >}}
+You have 10 seconds after obtaining the /hand token to shake. Otherwise, you will see an error thrown due to expiration.
+{{< /hint >}}
 
 {{< hint warning >}}
 By default, the TTL for keys is 5 minutes. You can modify this with the `ANKA_API_KEYS_SESSION_TTL`, set in the Controller and Registry configs. The TTL however will not cause long running requests, like downloads, to be interrupted.
