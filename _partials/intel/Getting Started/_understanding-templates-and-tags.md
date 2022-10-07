@@ -26,9 +26,12 @@ The VM Template is now ready to be used. You shouldn't directly use it to run yo
 It's important that you store this VM Template in a location that allows other hosts with Anka installed to pull it and use it. You can push the template to your Anka Build Cloud Registry using `anka registry push` and set a Tag. Or, use `anka registry push -l {vmNameOrUUID} -t {tag}` to only create the Tag locally (useful if you don't have a registry yet and want to quickly switch between Tags/dependencies locally while testing).
 
 {{< hint info >}}
+
 **Important:** Each time you clone a VM you're creating a new layer/file to store the file system changes inside of the VM. However, any data needed to run the VM from previous layers is not added to this new layer and it instead just references the existing layers/files on disk. This optimizes disk space (like if you have several clones from the same source, they all share as many underlying layers as possible).
 
+
 However, because the new layer/file for the VM stores all changes made inside of the VM post-clone, each new block written has no access to previous blocks, layers, etc. Even if it does have access because they are inside of the new layer, those blocks are not fully deleted from the layer. This causes long running VMs and also repetitive manual changes to the same VM Template to pile up and exhaust disk space on the host. Both of these problems should be considered carefully when designing your VM creation, cloning, and modification approach. We will recommend the best approach below.
+
 {{< /hint >}}
 
 Once a Template is created, and Tag assigned to it, you can now create other Templates/Tags from it. Fortunately, Anka allows you to build Templates on top of each other and share the underlying files between them, cutting down on the disk space requirements. This makes switching between dependencies/VM Templates easy and also saves on bandwidth if layers for the VM Template already exist on the host.
