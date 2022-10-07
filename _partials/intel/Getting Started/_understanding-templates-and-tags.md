@@ -27,10 +27,7 @@ It's important that you store this VM Template in a location that allows other h
 
 {{< hint info >}}
 
-**Important:** Each time you clone a VM you're creating a new layer/file to store the file system changes inside of the VM. However, any data needed to run the VM from previous layers is not added to this new layer and it instead just references the existing layers/files on disk. This optimizes disk space (like if you have several clones from the same source, they all share as many underlying layers as possible).
-
-
-However, because the new layer/file for the VM stores all changes made inside of the VM post-clone, each new block written has no access to previous blocks, layers, etc. Even if it does have access because they are inside of the new layer, those blocks are not fully deleted from the layer. This causes long running VMs and also repetitive manual changes to the same VM Template to pile up and exhaust disk space on the host. Both of these problems should be considered carefully when designing your VM creation, cloning, and modification approach. We will recommend the best approach below.
+**Important:** Each time you clone a VM you're creating a new layer/file to store the file system changes inside of the VM. However, any data needed to run the VM from previous layers is not added to this new layer and it instead just references the existing layers/files on disk. This optimizes disk space (like if you have several clones from the same source, they all share as many underlying layers as possible). However, because the new layer/file for the VM stores all changes made inside of the VM post-clone, each new block written has no access to previous blocks, layers, etc. Even if it does have access because they are inside of the new layer, those blocks are not fully deleted from the layer. This causes long running VMs and also repetitive manual changes to the same VM Template to pile up and exhaust disk space on the host. Both of these problems should be considered carefully when designing your VM creation, cloning, and modification approach. We will recommend the best approach below.
 
 {{< /hint >}}
 
