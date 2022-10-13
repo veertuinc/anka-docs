@@ -1,30 +1,28 @@
 ```shell
 
-❯ anka show 12.2.0-arm | grep status
-| status  | stopped Oct 19 07:34:43 2021         |
+❯ anka show 12.6 | grep status
+| status  | suspended                            |
 
-❯ anka run 12.2.0-arm hostname
-12-2-0-arm.local
+❯ anka run 12.6 hostname
+Ankas-Virtual-Machine.local
 
-❯ anka show 12.2.0-arm | grep status
-| status  | running since Oct 19 07:34:59 2021   |
-
-❯ anka run 12.2.0-arm bash -c "env"           
-SHELL=/bin/zsh
-TMPDIR=/var/folders/3f/1zss6fl15db6k9bhvcrw4wcr0000gn/T/
-USER=anka
-SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.xZYuuCeCwR/Listeners
-__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0
-PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-PWD=/Users/anka
-XPC_FLAGS=0x0
+❯ anka run 12.6 zsh -lc "env"
 XPC_SERVICE_NAME=com.veertu.anka.addons.ankarun
-SHLVL=1
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.uf92KIf4B0/Listeners
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+XPC_FLAGS=0x0
+LOGNAME=anka
+USER=anka
 HOME=/Users/anka
-LOGNAME=root
+SHELL=/bin/zsh
+TMPDIR=/var/folders/vh/lf52c8657b902x4p2n3splkm0000gn/T/
+__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0
+SHLVL=0
+OLDPWD=/Users/anka
+PWD=/Users/anka
 _=/usr/bin/env
 
-❯ TEST=123 anka run -e TEST 12.2.0-arm bash -c "env | grep TEST && echo \${TEST}"
+❯ TEST=123 anka run -e TEST 12.6 bash -c "env | grep TEST && echo \${TEST}"
 TEST=123
 123
 
