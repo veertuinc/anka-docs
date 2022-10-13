@@ -31,7 +31,7 @@ sudo sysctl net.local.dgram.maxdgram=16384
 {{< hint warning >}}
 Manually executed `sysctl` changes do not persist across reboots. You can setup a plist under `/Library/LaunchDaemons` to have it set on each boot.
 ```bash
-sudo echo -n '
+echo -n '
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -46,9 +46,9 @@ sudo echo -n '
         <key>RunAtLoad</key>
         <true/>
 </dict>
-</plist>' > /Library/LaunchDaemons/custom.net.local.dgram.recvspace.plist
+</plist>' | sudo tee /Library/LaunchDaemons/custom.net.local.dgram.recvspace.plist
 sudo launchctl load -w /Library/LaunchDaemons/custom.net.local.dgram.recvspace.plist
-sudo echo -n '
+echo -n '
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -63,7 +63,7 @@ sudo echo -n '
         <key>RunAtLoad</key>
         <true/>
 </dict>
-</plist>' > /Library/LaunchDaemons/custom.net.local.dgram.maxdgram.plist
+</plist>' | sudo tee /Library/LaunchDaemons/custom.net.local.dgram.maxdgram.plist
 sudo launchctl load -w /Library/LaunchDaemons/custom.net.local.dgram.maxdgram.plist
 ```
 {{< /hint >}}
