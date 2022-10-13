@@ -9,7 +9,6 @@ description: >
 {{< include file="_partials/sudo-non-sudo-anka-cli.md" >}}
 
 {{< include file="_partials/apple/Anka Virtualization/_index.md" >}}
-
 ## List
 {{< include file="_partials/apple/Anka Virtualization/list/_index.md" >}}
 {{< include file="_partials/apple/Anka Virtualization/list/_example.md" >}}

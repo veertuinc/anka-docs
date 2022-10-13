@@ -1,4 +1,4 @@
 ```shell
-> anka show 12.4 cpu --help
+> anka show 12.6 cpu --help
 
 ```

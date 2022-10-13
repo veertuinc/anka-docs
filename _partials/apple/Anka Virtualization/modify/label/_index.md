@@ -1,5 +1,5 @@
 ```shell
-> anka modify 12.4 label --help
+> anka modify 12.6 label --help
 usage: label [options] [name] [value]
 
    Assign labels to a VM in key/value form
