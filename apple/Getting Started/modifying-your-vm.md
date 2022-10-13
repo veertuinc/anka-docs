@@ -23,6 +23,27 @@ The rest of this Getting Started guide focuses heavily on the (Command-Line Inte
 
 {{< include file="_partials/apple/Anka Virtualization/modify/disk/_extra.md" >}}
 
+## Recommended VM Resources
+
+### Mac mini (M1, 2020, 8core/4performance + 4efficiency, 8 or 16GB RAM)
+
+- 1VM (recommended) - CPUs: 6cores & RAM: ( totalRAMGB - 2GB )
+- 2VMs  (not recommended) - CPUs: 4cores & RAM: ( (totalRAMGB / 2) - 2GB )
+
+### Mac Studio (M1 Max, 2022, 10core/8performance + 2efficiency, 32 or 64GB RAM)
+
+- 1VM  - CPUs: 8cores & RAM: ( totalRAMGB - 2GB )
+- 2VMs  - CPUs: 6-8cores & RAM: ( (totalRAMGB / 2) - 2GB )
+
+### Mac Studio (M1 Ultra, 2022, 20core/16performance + 4efficiency, 64 or 128GB RAM)
+
+- 1VM  - CPUs: 8cores & RAM: ( totalRAMGB - 2GB )
+- 2VMs  - CPUs: 8cores & RAM: ( (totalRAMGB / 2) - 2GB )
+
+{{< hint info >}}
+Due to Ultra using the NUMA architecture, VMs/virtualization will only ever use 8 performance cores at a time.
+{{< /hint >}}
+
 ## Common Examples
 
 ### Changing your VM's network configuration
