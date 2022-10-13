@@ -18,10 +18,10 @@ Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Bui
 We do not follow strict [semantic versioning](https://semver.org/); minor and major version increases can have significant changes
 {{< /hint >}}
 
-### Pre-upgrade Considerations
+<!-- ### Pre-upgrade Considerations -->
 
-Existing Version | Target Version | Recommendation
---- | --- | ---
+<!-- Existing Version | Target Version | Recommendation
+--- | --- | --- -->
 
 ### Upgrading VM Addons
 
