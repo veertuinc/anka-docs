@@ -24,9 +24,9 @@ In order for Jenkins remoting to communicate with your Anka VMs and turn them in
 {{< hint info >}}
 ###### **Launch Methods Explained**
 
-  - `SSH`: Jenkins will SSH into the (ssh-slaves plugin) VM once it's running and execute `java` [remoting.jar](https://github.com/jenkinsci/remoting/) to establish the communication. It requires that your VM has port forwarding set up for port 22.
+  - `SSH`: Jenkins will SSH into the (ssh-slaves plugin) VM once it's running, inject remoting.jar (using the [`ssh-slaves` plugin](https://github.com/jenkinsci/ssh-slaves-plugin)), and then execute `java` [remoting.jar](https://github.com/jenkinsci/remoting/) to establish the communication. It requires that your VM has port forwarding set up for port 22.
 
-  - `JNLP`: This will start the VM and use `anka run` on the host to execute a ["startup_script"]({{< relref "Anka Build Cloud/working-with-controller-and-API.md#start-vm-instances" >}}) that downloads the Jenkins remoting agent.jar using the Jenkins URL you configured and then establishes the communication with the inbound agent port Jenkins provides (editable under `Configure Global Security > TCP port for inbound agents`). This does not need SSH.
+  - `JNLP`: This will start the VM and use `anka run` on the host to execute a ["startup_script"]({{< relref "Anka Build Cloud/working-with-controller-and-API.md#start-vm-instances" >}}) that downloads the Jenkins remoting.jar using the Jenkins URL you configured and then establishes the communication with the inbound agent port Jenkins provides (editable under `Configure Global Security > TCP port for inbound agents`). This does not need SSH.
 {{< /hint >}}
 
 {{< hint warning >}}
