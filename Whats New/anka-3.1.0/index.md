@@ -12,7 +12,8 @@ We are very excited to announce Anka Virtualization 3.1. In this version, you're
 3. [Shorter `anka modify` and `port-forwarding` command.](#shorted-anka-modify-and-port-forwarding-command)
 4. `ANKA_LOG_LEVEL="debug"` is available as a replacement for `anka --debug`.
 5. [Support for the Anka Build Cloud's UAKs when interacting with the registry commands.](#support-for-the-anka-build-clouds-uaks-when-interacting-with-the-registry-commands)
-6. [Ability to resize the VM's disk.]()
+6. [Ability to resize the VM's disk.](#ability-to-resize-the-vms-disk)
+7. [Targeting of specific macOS versions with `anka create -a`](#targeting-of-specific-macos-versions-with-anka-create--a)
 
 ---
 
@@ -92,4 +93,20 @@ Finished APFS operation
 Filesystem       Size   Used  Avail Capacity iused      ifree %iused  Mounted on
 /dev/disk2s1s1  195Gi   14Gi  177Gi     8%  502068 1860793720    0%   /
 
+```
+
+## Targeting of specific macOS versions with `anka create -a`
+
+```bash
+❯ anka create --list
++---------+--------+
+| version | build  |
++---------+--------+
+| 12.6    | 21G115 |
++---------+--------+
+
+❯ anka create -a 12.6 12.6-arm64
+ 14% [||||||||                                                    ] 10:02 ETA
+
+❯ anka create -a latest 12.6-arm64
 ```

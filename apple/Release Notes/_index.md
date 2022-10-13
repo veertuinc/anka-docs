@@ -22,10 +22,16 @@ Addons upgrading is not required but is recommended.
 - **Improvement:** The `anka create` command will now produce `stopped` state VMs (suspending is not supported by Apple yet).
 - **Improvement:** [Shorter `anka modify` and `port-forwarding` command.]({{< relref "Whats New/anka-3.1.0/index.md#shorter-anka-modify-and-port-forwarding-command" >}})
 - **Improvement:** Better handling of VM kernel panics.
-- **Improvement:** General performance improvements.
+- **Improvement:** Improved network performance and security.
+- **Improvement:** The `anka list` command will now show the last accessed date of the VM.
+- **Improvement:** Pulling an intel VM Template from the Registry will now throw a failure.
+- **Improvement:** Anka license commands will warn about EULA needing to be accepted.
+- **New Feature:** [The `anka create --list` command will display macOS versions available to target with `anka create -a` (which downloads the appropriate .ipsw and uses it for creation).](({{< relref "Whats New/anka-3.1.0/index.md#targeting-of-specific-macos-versions-with-anka-create--a" >}})
 - **New Feature:** [You can now resize the VM's disk.](({{< relref "Whats New/anka-3.1.0/index.md#ability-to-resize-the-vms-disk" >}})
 - **New Feature:** [Support for the Anka Build Cloud's UAKs when interacting with the registry commands.](({{< relref "Whats New/anka-3.1.0/index.md#support-for-the-anka-build-clouds-uaks-when-interacting-with-the-registry-commands" >}})
 - **New Feature:** `ANKA_LOG_LEVEL="debug"` is available as a replacement for `anka --debug`.
+- **Bug Fix:** `anka push -r` was not working to specify registry url to push to.
+- **Bug Fix:** Disabled beta program enrollment for macOS.
 
 ## Previous Versions
 
