@@ -11,10 +11,6 @@ description: >
 1. [You've installed the Anka Virtualization package]({{< relref "apple/Getting Started/installing-the-anka-virtualization-package.md" >}})
 2. [You've created and prepared your first VM Template]({{< relref "apple/Getting Started/creating-your-first-vm.md" >}})
 
-{{< hint warning >}}
-**The Apple hypervisor and also Anka commands require an active and logged in user. You might have to VNC in to the host machine if you're connected over SSH. This also means you need to disable any sort of sleep or even the passworded screensaver on macOS.**
-{{< /hint >}}
-
 ## Anka `run`
 
 {{< hint warning >}}
@@ -29,10 +25,10 @@ Similar to `docker exec`, [`anka run`]({{< relref "apple/command-line-reference.
 If the VM is in a _stopped_ state, [`anka run`]({{< relref "apple/command-line-reference.md#run" >}}) will automatically start it.
 {{< /hint >}}
 
-You can use `anka run` _on the host terminal_ to validate things are working properly:
+You can use [`anka run`]({{< relref "apple/command-line-reference.md#run" >}}) _on the host terminal_ to validate networking inside of the VM:
 
 ```shell
-❯ anka run 12.2.0-arm bash -c "hostname && ls -l && ping -c 5 google.com"
+❯ anka run 12.6 bash -c "hostname && ls -l && ping -c 5 google.com"
 12-2-0-arm.local
 total 0
 drwx------+  3 anka  staff    96 Oct 14 09:35 Desktop
@@ -56,35 +52,52 @@ round-trip min/avg/max/stddev = 10.163/10.267/10.316/0.055 ms
 ```
 
 {{< hint warning >}}
-You may see the anka run command hang when using, for example, `find`. Opening the VM viewer will show a user approval dialog box saying "`ankarund` would like access to X". Apple has locked down several locations from commands and enforces user interaction to approve. This is obviously a problem for automation, but, fortunately, there is a solution. You'll need to either avoid using commands that recursively look at the file system locations, or, place the files you wish to find under a "resource" folder under `/Users/anka`. Executing find inside of the folder will not trigger the approval dialog box.
+(SIP enabled users) You may see the anka run command hang when using, for example, `find`. Opening the Anka Viewer or VNCing in will show a user approval dialog box saying "`ankarund` would like access to" a certain path on the VM. This is due to new security policies Apple is enforcing by default. This is obviously a problem for automation, but, fortunately, there is a solution. You'll need to either avoid using commands that recursively look at the file system locations, or, place the files you wish to find under a "resource" folder under `/Users/anka`. Executing find inside of the folder will not trigger the approval dialog box.
 {{< /hint >}}
 
 #### Shell Configuration Files / Environment
 
-The [`anka run`]({{< relref "apple/command-line-reference.md#run" >}}) command doesn't source `.profile`, `.bash_profile`, or `.zshrc` by default. It will however source `.zprofile`.
-
-You have to source the files or use `zsh/bash -lc/-ic` before executing other commands. Here are some examples:
+The [`anka run`]({{< relref "apple/command-line-reference.md#run" >}}) command uses the "default shell" that Apple's API provides inside of macOS and will currently only source `.zprofile`. This is a very limited version of bash and we recommended that you instead source the files or use `zsh/bash -lc or -ic`. Here are some examples:
 
 ```shell
-❯ anka run 12.2.0-arm bash -c "echo 'export TEST_ZSHRC=yes' >> ~/.zshrc"
-❯ anka run 12.2.0-arm bash -c "echo 'export TEST_ZPROFILE=yes' >> ~/.zprofile"
-❯ anka run 12.2.0-arm bash -c "echo 'export TEST_PROFILE=yes' >> ~/.profile"
-❯ anka run 12.2.0-arm bash -c "echo 'export TEST_BASH_PROFILE=yes' >> ~/.bash_profile"
-❯ anka run 12.2.0-arm env
+anka run 12.6 bash -c "echo 'export TEST_ZSHRC=yes' >> ~/.zshrc"
+anka run 12.6 bash -c "echo 'export TEST_ZPROFILE=yes' >> ~/.zprofile"
+anka run 12.6 bash -c "echo 'export TEST_PROFILE=yes' >> ~/.profile"
+anka run 12.6 bash -c "echo 'export TEST_BASH_PROFILE=yes' >> ~/.bash_profile"
+
+anka run 12.6 env
+XPC_SERVICE_NAME=com.veertu.anka.addons.ankarun
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.ozfzOJbvJB/Listeners
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+XPC_FLAGS=0x0
+LOGNAME=anka
+USER=anka
+HOME=/Users/anka
+SHELL=/bin/zsh
+TMPDIR=/var/folders/vh/lf52c8657b902x4p2n3splkm0000gn/T/
+__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0
+SHLVL=0
+OLDPWD=/Users/anka
 TEST_ZPROFILE=yes
-❯ anka run test bash -c "env | grep TEST_"
+
+anka run 12.6 bash -c "env | grep TEST_"
 TEST_ZPROFILE=yes
-❯ anka run test bash -ic "env | grep TEST_"
+
+anka run 12.6 bash -ic "env | grep TEST_"
 TEST_ZPROFILE=yes
-❯ anka run test bash -lc "env | grep TEST_"
+
+anka run 12.6 bash -lc "env | grep TEST_"
 TEST_ZPROFILE=yes
 TEST_BASH_PROFILE=yes
-❯ anka run test zsh -c "env | grep TEST_"
+
+anka run 12.6 zsh -c "env | grep TEST_"
 TEST_ZPROFILE=yes
-❯ anka run test zsh -ic "env | grep TEST_"
+
+anka run 12.6 zsh -ic "env | grep TEST_"
 TEST_ZPROFILE=yes
-TEST_ZSH=yes
-❯ anka run test zsh -lc "env | grep TEST_"
+TEST_ZSHRC=yes
+
+anka run 12.6 zsh -lc "env | grep TEST_"
 TEST_ZPROFILE=yes
 ```
 
@@ -137,7 +150,7 @@ Once you've enabled Apple's Remote Login inside of the VM, simply add a forwarde
   ```shell
   ❯ anka run VNMANE whoami > /dev/null
 
-  ❯ cat file-on-host.txt | anka run 12.2.0-arm md5
+  ❯ cat file-on-host.txt | anka run 12.6 md5
   ff1a596f13d348b63218078c6598ab5e
   ```
 

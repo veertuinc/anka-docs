@@ -13,8 +13,6 @@ description: >
 2. [You've got an active license]({{< relref "Licensing/_index.md" >}})
 3. [You've created your first VM Template]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
 
-> When running Anka commands on your machine, ensure that you have an active login session (you might have to VNC in if you're connected over SSH) and also have enabled automatic login for the current user: `System Preferences > Users > Enable automatic login`
-
 ## Anka Start
 
 ### With the UI
