@@ -57,7 +57,7 @@ round-trip min/avg/max/stddev = 10.163/10.267/10.316/0.055 ms
 
 #### Shell Configuration Files / Environment
 
-The [`anka run`]({{< relref "apple/command-line-reference.md#run" >}}) command uses the "default shell" that Apple's API provides inside of macOS and will currently only source `.zprofile`. This is a very limited version of bash and we recommended that you instead source the files or use `zsh/bash -lc or -ic`. Here are some examples:
+The [`anka run`]({{< relref "apple/command-line-reference.md#run" >}}) command uses the "default shell" that Apple's API provides inside of macOS and will currently only source `.zprofile`. This is sometimes limited and we recommended that you instead source the files you need or use `zsh/bash -lc or -ic`. Here are some examples:
 
 ```shell
 anka run 12.6 bash -c "echo 'export TEST_ZSHRC=yes' >> ~/.zshrc"
