@@ -172,7 +172,7 @@ The anka viewer requires an active UI session on the host (VNC is fine).
 
 ### With the App
 
-Instead of launching the viewer with the CLI, you can open the Anka.app under /Applications and then double click on the VM in the list. This will launch the viewer window.
+Instead of launching the viewer with the CLI, you can open the Anka.app under /Applications and then double click on the VM in the list. This will launch the viewer window. This is will NOT work when running VMs under the root user.
 
 ---
 
