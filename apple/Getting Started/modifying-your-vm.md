@@ -19,10 +19,6 @@ The rest of this Getting Started guide focuses heavily on the (Command-Line Inte
 
 {{< include file="_partials/apple/Anka Virtualization/modify/_index.md" >}}
 
-{{< include file="_partials/apple/Anka Virtualization/modify/set/_index.md" >}}
-
-{{< include file="_partials/apple/Anka Virtualization/modify/disk/_extra.md" >}}
-
 ## Recommended VM Resources
 
 ### Mac mini (M1, 2020, 8core/4performance + 4efficiency, 8 or 16GB RAM)
@@ -45,6 +41,31 @@ Due to Ultra using the NUMA architecture, VMs/virtualization will only ever use 
 {{< /hint >}}
 
 ## Common Examples
+
+### Changing VM CPU, RAM, and DISK
+
+#### CPU
+
+{{< include file="_partials/apple/Anka Virtualization/modify/cpu/_index.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/modify/cpu/_example.md" >}}
+
+#### RAM
+
+{{< include file="_partials/apple/Anka Virtualization/modify/ram/_index.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/modify/ram/_example.md" >}}
+
+#### DISK
+
+{{< include file="_partials/apple/Anka Virtualization/modify/disk/_index.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/modify/disk/_extra.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/modify/disk/_example.md" >}}
+
+
+### Port forwarding from guest to host
+
+{{< include file="_partials/apple/Anka Virtualization/modify/port/_index.md" >}}
+
+{{< include file="_partials/apple/Anka Virtualization/modify/port/_example.md" >}}
 
 ### Changing your VM's network configuration
 

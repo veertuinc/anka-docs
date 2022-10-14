@@ -15,7 +15,7 @@ options:
   -d,--delete              Delete the rule
   --set-name <val>         Rename the rule
 
-❯ anka modify 12.6 port test 5900:0.0.0.0:50000
+❯ anka modify 12.6 port test 22:0.0.0.0:50022
 
 ❯ anka show 12.6 network
 . . .
