@@ -50,7 +50,7 @@ description: >
 {{< include file="_partials/apple/Anka Virtualization/modify/add/disk/_index.md" >}}
 #### modify {name/uuid} add port
 {{< include file="_partials/apple/Anka Virtualization/modify/add/port/_index.md" >}}
-{{< include file="_partials/apple/Anka Virtualization/modify/add/port/_example.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/modify/port/_example.md" >}}
 #### modify {name/uuid} add label
 {{< include file="_partials/apple/Anka Virtualization/modify/add/label/_index.md" >}}
 ### modify {name/uuid} delete

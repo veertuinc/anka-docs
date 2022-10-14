@@ -110,11 +110,57 @@ To inherit the host's environment, use the `anka run -E` (existing VM variables 
 Some advanced usage examples of `anka run` inside of a bash script can be found in our [Getting Started repo's VM Tag creation script.](https://github.com/veertuinc/getting-started/blob/master/create-vm-template-tags.bash)
 {{< /hint >}}
 
-## Anka Viewer
+## VNC
+
+By default, we enable VNC inside of VMs created with `anka create`. You can VNC into the VM using the VM's IP and port 5900: 
+
+```bash
+❯ anka show 12.6 network
++------------+-------------------+
+| mode       | shared            |
++------------+-------------------+
+| controller | virtio-net        |
++------------+-------------------+
+| ip         | 192.168.64.6      |
++------------+-------------------+
+| mac        | ae:86:1c:97:a5:8a |
++------------+-------------------+
+
+❯ open vnc://192.168.64.6:5900
+```
+
+## SSH
+
+By default, SSH is enabled inside of the VM. You can SSH into the VM using the VM's IP and port 22:
+
+```bash
+❯ anka show 12.6 network
++------------+-------------------+
+| mode       | shared            |
++------------+-------------------+
+| controller | virtio-net        |
++------------+-------------------+
+| ip         | 192.168.64.6      |
++------------+-------------------+
+| mac        | ae:86:1c:97:a5:8a |
++------------+-------------------+
+
+❯ ssh anka@192.168.64.6 -p 22
+(anka@192.168.64.6) Password:
+Last login: Fri Oct 14 04:25:21 2022
+anka@Ankas-Virtual-Machine ~ % 
+```
+
+You can also port forward the guest port onto the host so it's accessible from the host IP:
+
+{{< include file="_partials/apple/Anka Virtualization/modify/port/_example.md" >}}
+
+## Anka `view`
 
 ### Known Issues
 
 - Chrome, Edge, and any other GPU accelerated browser will not function due to limitations in Apple's hypervisor. You would need to launch the browsers without GPU acceleration. For example, with Chrome: `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-gpu`.
+- `anka view` will not work unless you first started the VM with `anka start -v`. We enable VNC for the VM by default and recommend this approach instead.
 
 ### With the CLI
 
@@ -122,24 +168,11 @@ Some advanced usage examples of `anka run` inside of a bash script can be found 
 The anka viewer requires an active UI session on the host (VNC is fine).
 {{< /hint >}}
 
-{{< hint warning >}}
-The `anka view` command currently will only function if you started the VM with `anka start -uv`.
-{{< /hint >}}
-
 {{< include file="_partials/apple/Anka Virtualization/view/_index.md" >}}
 
 ### With the App
 
 Instead of launching the viewer with the CLI, you can open the Anka.app under /Applications and then double click on the VM in the list. This will launch the viewer window.
-
-
-## SSH
-
-{{< include file="_partials/apple/Anka Virtualization/modify/add/port/_example.md" >}}
-
-## VNC
-
-Once you've enabled Apple's Remote Login inside of the VM, simply add a forwarded port: `anka modify 12.2.0-jenkins add port --guest-port 5900 vnc`.
 
 ---
 
