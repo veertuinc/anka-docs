@@ -202,7 +202,7 @@ usb_device | string | Name of the USB device to attach to the VM | -
 vcpu      |  int    | Override the number of CPU cores for the VM Template **(only works when the template VM is stopped)**.
 vram      |  int    | Override the VM's RAM size in MB (1GB = 1024MB) **(only works when the template VM is stopped)**.
 metadata  | object  | Sets the instance metadata, a key-value object. Keys are strings. Values are strings, ints or booleans | -
-mac_address      |  string    | Specify MAC address for the VM (Capital letters and ':' as separators) **(only works when the VM Template is stopped and when --manage-mac-addresses flag is set in the controller config)**.
+mac_address      |  string    | Specify MAC address for the VM (Capital letters and ':' as separators) **(only works when the VM Template is stopped and when ANKA_MANAGE_MAC_ADDRESSES is enabled in the controller config)**.
 vlan_tag | string | Specify the VLAN ID to target when starting the VM. This will run `anka modify {clonedVMName} set network-card --vlan {ID}` on the host running the VM **and only works when the VM Template is stopped**.
 video_controller | string | Modify the VM's display controller before starting it. Valid Values: fbuf, pg **Only works when the VM Template is in stopped state and Intel architecture**
 hvapic | string | Modify the VM's hvapic value before starting it. Valid Values: forceOn, forceOff **Only works when the VM Template is in stopped state and Intel architecture**
