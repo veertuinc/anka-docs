@@ -15,17 +15,16 @@ Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Bui
 We do not follow strict [semantic versioning](https://semver.org/); minor and major version increases can have significant changes
 {{< /hint >}}
 
-<!-- ### Pre-upgrade Considerations -->
+### Pre-upgrade Considerations
 
-<!-- Existing Version | Target Version | Recommendation
---- | --- | --- -->
-
+Existing Version | Target Version | Recommendation
+--- | --- | ---
 
 ### Upgrade Procedure
 
 #### [1. Download and install the latest version]({{< relref "apple/Getting Started/installing-the-anka-virtualization-package.md" >}})
 
-#### [2. Upgrade VM addons](#upgrade-vm-addons)
+#### 2. Upgrade VM addons
 
 If your existing version is noted in the [Pre-Upgrade Considerations]({{< relref "intel/upgrading.md#pre-upgrade-considerations" >}}) as requiring an addons upgrade, or, if you're going between major/minor versions of Anka:
 
