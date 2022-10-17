@@ -1,11 +1,11 @@
 ```shell
-> anka modify 12.4 add disk --help
+> anka modify 12.6 add disk --help
 usage: hard-drive,disk [options]
 
    Modify hard drive settings
 
 options:
-  -c,--controller <val>    set controller: ablk/virtio-blk
+  -c,--controller <val>    set controller: sata/virtio-blk
   -s,--size <val>          set disk size (supported suffixes: T|G|M|K)
   -f,--file <val>          assign external image or device
   --ro                     mark the image as read-only for the VM

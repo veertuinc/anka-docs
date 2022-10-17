@@ -19,32 +19,53 @@ The rest of this Getting Started guide focuses heavily on the (Command-Line Inte
 
 {{< include file="_partials/apple/Anka Virtualization/modify/_index.md" >}}
 
-{{< include file="_partials/apple/Anka Virtualization/modify/set/_index.md" >}}
-
-{{< include file="_partials/apple/Anka Virtualization/modify/disk/_extra.md" >}}
-
 ## Recommended VM Resources
 
-### Mac mini (M1, 2020, 8core/4performance + 4efficiency, 8 or 16GB RAM)
+### Mac mini (M1, 2020, 8-core/4-performance + 4-efficiency, 8 or 16GB RAM)
 
-- 1VM (recommended) - CPUs: 6cores & RAM: ( totalRAMGB - 2GB )
-- 2VMs  (not recommended) - CPUs: 4cores & RAM: ( (totalRAMGB / 2) - 2GB )
+- 1VM (recommended) - CPUs: 6-cores & RAM: ( totalRAMGB - 2GB )
+- 2VMs  (not recommended) - CPUs: 4-cores & RAM: ( (totalRAMGB / 2) - 2GB )
 
-### Mac Studio (M1 Max, 2022, 10core/8performance + 2efficiency, 32 or 64GB RAM)
+### Mac Studio (M1 Max, 2022, 10-core/8-performance + 2-efficiency, 32 or 64GB RAM)
 
-- 1VM  - CPUs: 8cores & RAM: ( totalRAMGB - 2GB )
-- 2VMs  - CPUs: 6-8cores & RAM: ( (totalRAMGB / 2) - 2GB )
+- 1VM  - CPUs: 8-cores & RAM: ( totalRAMGB - 2GB )
+- 2VMs  - CPUs: 6,8-cores & RAM: ( (totalRAMGB / 2) - 2GB )
 
-### Mac Studio (M1 Ultra, 2022, 20core/16performance + 4efficiency, 64 or 128GB RAM)
+### Mac Studio (M1 Ultra, 2022, 20-core/16-performance + 4-efficiency, 64 or 128GB RAM)
 
-- 1VM  - CPUs: 8cores & RAM: ( totalRAMGB - 2GB )
-- 2VMs  - CPUs: 8cores & RAM: ( (totalRAMGB / 2) - 2GB )
+- 1VM  - CPUs: 8-cores & RAM: ( totalRAMGB - 2GB )
+- 2VMs  - CPUs: 8-cores & RAM: ( (totalRAMGB / 2) - 2GB )
 
 {{< hint info >}}
 Due to Ultra using the NUMA architecture, VMs/virtualization will only ever use 8 performance cores at a time.
 {{< /hint >}}
 
 ## Common Examples
+
+### VM Resources
+
+#### CPU
+
+{{< include file="_partials/apple/Anka Virtualization/modify/cpu/_index.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/modify/cpu/_example.md" >}}
+
+#### RAM
+
+{{< include file="_partials/apple/Anka Virtualization/modify/ram/_index.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/modify/ram/_example.md" >}}
+
+#### DISK
+
+{{< include file="_partials/apple/Anka Virtualization/modify/disk/_index.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/modify/disk/_extra.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/modify/disk/_example.md" >}}
+
+
+### Port forwarding from guest to host
+
+{{< include file="_partials/apple/Anka Virtualization/modify/port/_index.md" >}}
+
+{{< include file="_partials/apple/Anka Virtualization/modify/port/_example.md" >}}
 
 ### Changing your VM's network configuration
 

@@ -10,7 +10,8 @@ arguments:
 options:
   -d,--display <val>       Specify the display(s) to view
   -s,--screenshot          Take PNG screenshot
-  --click                  Send HDI events
-  --click-rec              Record HID events
+  --pbpaste                Get the VM's pasteboard
+  --pbcopy                 Send stdin to the VM's pasteboard
+  --click <val>            Send HID events
   -o,--output <val>        Specify output file for the view operations
 ```

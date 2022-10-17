@@ -13,4 +13,6 @@ options:
   --cert <val>             Path to a client certificate (if user authentication is configured)
   --key <val>              Path to a private key if the client certificate doesn't contain one
   --cacert <val>           Use custom CA certificates location (default is /etc/ssl/certs)
+  --api-key-id <val>       TAP identity
+  --api-key <val>          TAP key in PEM form
 ```

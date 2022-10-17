@@ -9,7 +9,6 @@ description: >
 {{< include file="_partials/sudo-non-sudo-anka-cli.md" >}}
 
 {{< include file="_partials/apple/Anka Virtualization/_index.md" >}}
-
 ## List
 {{< include file="_partials/apple/Anka Virtualization/list/_index.md" >}}
 {{< include file="_partials/apple/Anka Virtualization/list/_example.md" >}}
@@ -51,7 +50,6 @@ description: >
 {{< include file="_partials/apple/Anka Virtualization/modify/add/disk/_index.md" >}}
 #### modify {name/uuid} add port
 {{< include file="_partials/apple/Anka Virtualization/modify/add/port/_index.md" >}}
-{{< include file="_partials/apple/Anka Virtualization/modify/add/port/_example.md" >}}
 #### modify {name/uuid} add label
 {{< include file="_partials/apple/Anka Virtualization/modify/add/label/_index.md" >}}
 ### modify {name/uuid} delete
@@ -68,17 +66,21 @@ description: >
 {{< include file="_partials/apple/Anka Virtualization/modify/name/_index.md" >}}
 ### modify {name/uuid} cpu
 {{< include file="_partials/apple/Anka Virtualization/modify/cpu/_index.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/modify/cpu/_example.md" >}}
 ### modify {name/uuid} ram
 {{< include file="_partials/apple/Anka Virtualization/modify/ram/_index.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/modify/ram/_example.md" >}}
 ### modify {name/uuid} network
 {{< include file="_partials/apple/Anka Virtualization/modify/network/_index.md" >}}
 {{< include file="_partials/apple/Anka Virtualization/modify/network/_extra.md" >}}
 {{< include file="_partials/apple/Anka Virtualization/modify/network/_example.md" >}}
 ### modify {name/uuid} port
 {{< include file="_partials/apple/Anka Virtualization/modify/port/_index.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/modify/port/_example.md" >}}
 ### modify {name/uuid} disk
 {{< include file="_partials/apple/Anka Virtualization/modify/disk/_index.md" >}}
 {{< include file="_partials/apple/Anka Virtualization/modify/disk/_extra.md" >}}
+{{< include file="_partials/apple/Anka Virtualization/modify/disk/_example.md" >}}
 ### modify {name/uuid} display
 {{< include file="_partials/apple/Anka Virtualization/modify/display/_index.md" >}}
 ### modify {name/uuid} label

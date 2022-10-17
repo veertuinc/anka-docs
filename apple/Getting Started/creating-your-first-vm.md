@@ -10,39 +10,63 @@ description: >
 **This guide, and the commands inside it, must be run as the non-root user on the system. Anka VMs run under a specific user environment. At the moment there is no way to open the Anka Viewer window, which is required for VM preparation, if the VM exists under the root user space.**
 {{< /hint >}}
 
-## Prerequisites
-
-1. [You've installed the Anka Virtualization package.]({{< relref "apple/Getting Started/installing-the-anka-virtualization-package.md" >}})
-2. The machine you wish to use for running Anka VMs is using Apple processors **and not Intel.**
-3. The machine you wish to use has Monterey (>= 12.0) installed.
-
-## Create your first VM
-
-{{< hint info >}}
-SIP is ENABLED by default inside of Anka 3 VMs post-creation. It can be disabled after creation by launching in recovery mode.
+{{< hint warning >}}
+It's important to understand that the `anka` CLI, VM creation, modification, etc, is all done from your current user. You can use the [Anka Build Cloud Registry]({{< relref "Anka Build Cloud/_index.md" >}}) to move VMs between users and even hosts.
 {{< /hint >}}
 
 {{< hint warning >}}
-It's important to understand that the `anka` CLI, VM creation, modification, etc, is all done from your current user. You cannot move VMs between users easily without the [Anka Build Cloud Registry]({{< relref "Anka Build Cloud/_index.md" >}}).
-{{< /hint >}}
-
-{{< hint warning >}}
-Creating a VM in Anka 3 differs from the Intel version: Anka 3 requires that you manually set up macOS inside of the VM. See [step #3]({{< relref "#start-the-vm-and-finish-the-macos-install" >}}) below.
+Starting in Anka 3.1, manual installation of macOS is no longer required. Existing users can expect a similar experience as Intel VM creation.
 {{< /hint >}}
 
 {{< hint info >}}
 Rosetta can be installed and used inside of the VM.
 {{< /hint >}}
 
+## Prerequisites
+
+1. [You've installed the Anka Virtualization package.]({{< relref "apple/Getting Started/installing-the-anka-virtualization-package.md" >}})
+2. The host you wish to use for running Anka VMs is using Apple processors **and not Intel.**
+3. The host you wish to use has Monterey (>= 12.0) installed.
+
+---
+
+## Create your first VM
+
+You have two methods of creating your Anka VMs. We will describe both in this guide, but you only really need to choose one.
+
+1. [With the **anka create** command](#using-the-anka-cli) (recommended).
+2. [With the Anka.app UI](#using-the-anka-ui).
+
+---
+
+### Supported VM macOS versions
+
 {{< include file="_partials/apple/Getting Started/_supported-macos-versions.md" >}}
 
 {{< hint warning >}}
-**Apple's .app installer files are currently not supported.**
+**Apple's .app installer files are currently not supported on arm. Instead, you'll need to obtain .ipsw files.**
 {{< /hint >}}
 
-{{< hint warning >}}
-Anka 3.0 VMs only work with macOS versions >= 12.0.
-{{< /hint >}}
+
+---
+
+### Using the Anka CLI
+
+{{< include file="_partials/apple/Anka Virtualization/create/_index.md" >}}
+
+{{< include file="_partials/apple/Anka Virtualization/create/_example.md" >}}
+
+{{< include file="_partials/apple/Anka Virtualization/create/_extra.md" >}}
+
+With `anka create`, we will automatically set up macOS, disable SIP, and enable VNC for you. This is different from the UI creation tool (see below), which still requires manual macOS installation.
+
+#### IPSW vs .app installers
+
+While we recommend you use `anka create -a latest` to automatically download the latest macOS version to install into the VM, you can bring your own IPSW file which is very similar to how Anka 2 works with .app installers.
+
+There are multiple ways to obtain IPSW files. Apple provides these through their `updates.cdn-apple.com` site. You can usually find the official links to the version you want with your preferred search engine. Alternatively, you can use [ipsw.me](https://ipsw.me) to identify and retrieve your desired IPSW file.
+
+---
 
 ### Using the Anka UI
 
@@ -56,43 +80,15 @@ Anka 3.0 VMs only work with macOS versions >= 12.0.
 
 Once the VM is created, you will see it on the sidebar -- Hooray!
 
-{{< hint warning >}}
-Suspending VMs is currently not available.
-{{< /hint >}}
-
 ![ui with vm in the sidebar list]({{< siteurl >}}images/getting-started/creating-your-first-vm/ui-vm-in-sidebar.png)
 
----
+#### Start the VM and finish the macOS install
 
-### Using the Anka CLI
-
-{{< include file="_partials/apple/Anka Virtualization/create/_index.md" >}}
-
-{{< include file="_partials/apple/Anka Virtualization/create/_example.md" >}}
-
-{{< include file="_partials/apple/Anka Virtualization/create/_extra.md" >}}
-
-### IPSW vs .app installers
-
-While we recommend you use `anka create -a latest` to automatically download the latest macOS version to install into the VM, you can bring your own IPSW file which is very similar to how Anka 2 works with .app installers (which are not supported in Anka 3).
-
-There are multiple ways to obtain IPSW files. Apple provides these through their `updates.cdn-apple.com` site. You can usually find the official links to the version you want with your preferred search engine. Alternatively, you can use [ipsw.me](https://ipsw.me) to identify and retrieve your desired IPSW file.
-
-## Start the VM and finish the macOS install
+{{< include file="_partials/apple/Anka Virtualization/start/_index.md" >}}
 
 {{< hint warning >}}
 **For our addons to install and enable autologin properly, you need to create the VM user as username: `anka` and password: `admin`. If you decide to use your own username and password, you will need to manually enable autologin for the user.**
 {{< /hint >}}
-
-### With the UI
-
-{{< hint warning >}}
-We do not currently support mounting addons from the UI. Please use the CLI for now.
-{{< /hint >}}
-
-### With the CLI
-
-{{< include file="_partials/apple/Anka Virtualization/start/_index.md" >}}
 
 1. You’ll need to start the VM with `anka start -uv` to launch the viewer.
 
@@ -110,9 +106,11 @@ We do not currently support mounting addons from the UI. Please use the CLI for 
 
 3. Reboot the VM.
 
----
+#### Disable SIP in Recovery Mode (versions <= 3.0.1)
 
-## Disable SIP in Recovery Mode (versions <= 3.0.1)
+{{< hint warning >}}
+SIP is only enabled for VMs created in the Anka App's UI. These instructions are irrelevant for VMs created with `anka create`.
+{{< /hint >}}
 
 With SIP enabled, there are two main issues you'll find when running VMs:
 

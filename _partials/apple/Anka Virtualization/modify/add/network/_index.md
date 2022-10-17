@@ -1,5 +1,5 @@
 ```shell
-> anka modify 12.4 add network --help
+> anka modify 12.6 add network --help
 usage: network-card,network [options]
 
    Modify network card settings

@@ -1,5 +1,5 @@
 ```shell
-> anka modify 12.4 delete label --help
+> anka modify 12.6 delete label --help
 usage: label [options] [label...]
 
    Remove labels

@@ -17,47 +17,45 @@ description: >
 
 ## Basics
 
-We use Apple's VMNET interface with "`Using DHCP`" for networking. 
-
-By default Anka VMs use a shared networking configuration with the host. It’s a kind of NAT + DHCP.
+Primarily, we use Apple's VMNET interface set to "Using DHCP". By default Anka VMs use a `shared` networking configuration with the host. It’s a kind of NAT + DHCP.
 
 ```shell
-❯ anka --machine-readable describe 12.2 | jq '.body.network_cards'
-[
-  {
-    "mode": "shared",
-    "controller": "virtio-net"
-  }
-]
+❯ anka show 12.6 network
++------------+------------+
+| mode       | shared     |
++------------+------------+
+| controller | virtio-net |
++------------+------------+
+. . .
 ```
 
 Every time you start/resume a VM it will be assigned an IP:
 
 ```shell
-❯ anka show 12.2
+❯ anka show 12.6
 +---------+--------------------------------------+
-| uuid    | 26c18e20-f67a-4387-a7b7-236a277bb424 |
+| uuid    | 1948dd37-e8ea-43b3-972f-b91860329eab |
 +---------+--------------------------------------+
-| name    | 12.2 (v2)                       |
+| name    | 12.6                                 |
 +---------+--------------------------------------+
-| created | Oct 18 13:57:57 2021                 |
+| created | Oct 12 17:14:31 2022                 |
 +---------+--------------------------------------+
-| vcpu    | 8                                    |
+| vcpu    | 5                                    |
 +---------+--------------------------------------+
-| memory  | 12G                                  |
+| ram     | 6G                                   |
 +---------+--------------------------------------+
-| display | 1024x768                             |
+| display | 1024x768 vnc://192.168.64.6:5900     |
 +---------+--------------------------------------+
-| disk    | 128GiB (22.84GiB on disk)            |
+| disk    | 200GiB (17.20GiB on disk)            |
 +---------+--------------------------------------+
-| addons  | 3.0.0.135.8400565                    |
+| addons  | 3.1.0.148.6247878                    |
 +---------+--------------------------------------+
 | network | shared 192.168.64.6                  |
 +---------+--------------------------------------+
-| status  | running since Oct 25 15:48:36 2021   |
+| status  | running since Oct 14 10:28:54 2022   |
 +---------+--------------------------------------+
 
-❯ anka show 12.2 network
+❯ anka show 12.6 network
 +------------+-------------------+
 | mode       | shared            |
 +------------+-------------------+
@@ -65,7 +63,7 @@ Every time you start/resume a VM it will be assigned an IP:
 +------------+-------------------+
 | ip         | 192.168.64.6      |
 +------------+-------------------+
-| mac        | ce:6b:90:1b:87:da |
+| mac        | ae:86:1c:97:a5:8a |
 +------------+-------------------+
 ```
 
@@ -95,7 +93,7 @@ When using bridged networking mode for your VM, dynamic MAC Addresses are not gu
 
 ## FAQs
 
-- Should your Firewall software be blocking VM networking, you need to whitelist the `/Library/Application\ Support/Veertu/Anka/bin/headless.app` (3.0.x), `/Library/Application\ Support/Veertu/Anka/bin/ankahv.app`, and `/Applications/Anka.app`.
+- Should your Firewall software be blocking VM networking, you need to whitelist the `/Library/Application\ Support/Veertu/Anka/bin/headless.app` (3.x), `/Library/Application\ Support/Veertu/Anka/bin/ankahv.app`, and `/Applications/Anka.app`.
 
 ## What's next?
 
