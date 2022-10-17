@@ -22,10 +22,6 @@ Starting in 1.19.0 of the Anka Build Cloud, there are two token based options fo
 
 2. Generate an RSA priv/pub key which is then used to request a temporary auth session in a client. These sessions (TAP) allow access to the API to perform various tasks.
 
-{{< hint warning >}}
-This feature will break communication from the Anka Nodes to the registry when executing `anka registry` or `anka push/pull` and when the token auth is enabled for the registry. You will need to use a custom built proxy service on the host and direct the anka registry config to connect to it instead until we build in the ability for `anka registry` to accept the UAK id and key string or file. This does not apply to the `ankacluster`/agent installed on the nodes though. You can download the mac and linux binaries [here](https://downloads.veertu.com/anka/registry-proxy-v1.zip).
-{{< /hint >}}
-
 {{< hint info >}}
 We recommend disjoining all but one node. One node must stay joined to ensure the Build Cloud has the proper license attached. You can rejoin it later once you're configured and you've rejoined all of your other nodes.
 {{< /hint >}}
@@ -125,7 +121,7 @@ Enabling RTA will block any access to the UI and API for Anka Nodes joined to th
 
 2. Use the API to generate a user key for [the controller]({{< relref "Anka Build Cloud/working-with-controller-and-API.md#user-key-management" >}}) and also [the registry]({{< relref "Anka Build Cloud/working-with-registry-and-API.md#user-key-management" >}}). **KEEP THIS SECRET.**
 
-3. You can now use the key and ID to communicate with the Controller and/or Registry through the `ankacluster join` command, `anka registry`, or in your client (through a TAP session/token) to the APIs.
+3. You can now use the key and ID to communicate with the Controller and/or Registry through the `ankacluster join` command, `anka registry` (only Anka version 3.1 or higher), or in your client (through a TAP session/token) to the APIs.
 
 {{< hint warning >}}
 Each UAK can have one or more TAP generated sessions. This means you can generate a single UAK for a single piece of software which is deployed multiple times, and each software instance will get its own TAP generated session, independent from the others, but using the same key. An example of this is having a single UAK for all of your Anka Nodes to use when joining.
@@ -167,8 +163,7 @@ There are several important points to know about Controller -> Registry communic
 This communication protocol is for user authentication using asymmetric encryption. You'll use this if you plan on making calls using an Authorization: bearer header to the API. The API is separate from the usual /api/v1/.
 
 {{< hint warning >}}
-Please note:
-- We highly recommended to integrate with HTTPS.
+- We highly recommended enabling HTTPS.
 - Base64 uses safe url encoding.
 - Key length is 2048, Hashing algorithm SHA256, OAEP padding.
 - Private key format is PEM PKCS#1.
@@ -178,11 +173,6 @@ Please note:
 #### Authentication flow
 
 1. You've generated a UAK and it's stored on the Controller and/or Registry with some unique identifier.
-
-  {{< hint info >}}
-  This is the `publicKey` specified when using the [create key API]({{< relref "Anka Build Cloud/working-with-controller-and-API.md#create-key" >}}). If you don't specify this, the priv and pub keys are on the controller server. You can obtain these from the server to use, but we recommend generating and using your own keys.
-  {{< /hint >}}
-
 2. Your client sends the first phase of the authentication: `POST /tap/v1/hand -d '{"id": "<API-KEY-USER-ID>" }'` (doesn't need auth to communicate with).
 3. The server generates a random string, encrypts it with the client’s public key that is has stored, encodes it in base64, and passes it back to the requesting client in the response body.
 4. Your client then decodes and decrypts the response using the UAK private key it has available locally, and then sends the second phase of the authentication with the decoded string as `SECRET-STRING`: `POST /tap/v1/shake -d '{"id": "<API-KEY-USER-ID>", "secret": "<SECRET-STRING>" }'`
