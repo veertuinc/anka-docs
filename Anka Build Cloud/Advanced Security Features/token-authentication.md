@@ -125,7 +125,7 @@ Enabling RTA will block any access to the UI and API for Anka Nodes joined to th
 
 2. Use the API to generate a user key for [the controller]({{< relref "Anka Build Cloud/working-with-controller-and-API.md#user-key-management" >}}) and also [the registry]({{< relref "Anka Build Cloud/working-with-registry-and-API.md#user-key-management" >}}). **KEEP THIS SECRET.**
 
-3. You can now use the key and ID to communicate with the Controller and/or Registry as well as generate a TAP session/token which can be used to make API calls from your client/software.
+3. You can now use the key and ID to communicate with the Controller and/or Registry through the `ankacluster join` command, `anka registry`, or in your client (through a TAP session/token) to the APIs.
 
 {{< hint warning >}}
 Each UAK can have one or more TAP generated sessions. This means you can generate a single UAK for a single piece of software which is deployed multiple times, and each software instance will get its own TAP generated session, independent from the others, but using the same key. An example of this is having a single UAK for all of your Anka Nodes to use when joining.
@@ -154,7 +154,7 @@ Anka Cloud Cluster join success
 There are several important points to know about Controller -> Registry communication when using UAKs.
 
 - The Controller UI will use the same credentials that you use when logged into the UI to make Registry calls (Templates and Logs call the Registry API).
-- Internally, the Controller needs to call the Registry API for centralized logging and a few other checks.
+- Internally, the Controller will go through all available auth methods one by one and use the first available. If the RTA is enabled, it will use it. If you have RTA disabled (but `ANKA_ENABLE_API_KEYS` is set to `true`), you'll need to ensure the following:
   - If you're using `ANKA_LOCAL_ANKA_REGISTRY` and have it set to :8085, credentials are not needed to communicate with the Registry. This is useful if the Controller and Registry are in the same Kubernetes pod or Docker network and auth is not important.
   - If you're using `ANKA_LOCAL_ANKA_REGISTRY` and it's set to the external/public port (defaults to :8089), the Controller needs access to call the Registry but is gated by `ANKA_ENABLE_AUTH: "true"`. In order to allow the Controller communication access, you need to specify the `ANKA_API_KEY_ID` and `ANKA_API_KEY_STRING` (or `_FILE`) ENVs described in the [Configuration Reference]({{< relref "Anka Build Cloud/configuration-reference.md#authentication-and-authorization" >}}).
 
