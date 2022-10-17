@@ -163,6 +163,7 @@ There are several important points to know about Controller -> Registry communic
 This communication protocol is for user authentication using asymmetric encryption. You'll use this if you plan on making calls using an Authorization: bearer header to the API. The API is separate from the usual /api/v1/.
 
 {{< hint warning >}}
+- OpenSSL >= 3.x is required (macOS defaults to 2.x). The example below will install openssl 3 with brew and set it in the PATH ENV.
 - We highly recommended enabling HTTPS.
 - Base64 uses safe url encoding.
 - Key length is 2048, Hashing algorithm SHA256, OAEP padding.
