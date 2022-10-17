@@ -190,23 +190,23 @@ name      | string | A name for the instance. | -
 external_id | string | An arbitrary string to be saved with the instance | -
 count     | int    | Number of instances to start. | 1
 node_id   | string | Start the instance on this specific node | -
-startup_script | string | Script to be executed after the instance is started, encoded as a base64 string. You can set ENVs as well as the script (example: `REPO_URL=repourl TOKEN=123 UUID=abc-123 /Users/admin/startup.sh`). Under the hood, this is performing `anka run {vmname} sh` and passing the decoded base64 into STDIN. | -
+startup_script | string | Script to be executed after the instance is started, encoded as a base64 string. You can set ENVs as well as the script (example: `REPO_URL=repourl TOKEN=123 UUID=abc-123 /Users/admin/startup.sh`). Under the hood, this is performing `anka run {vmname} sh` and passing the decoded base64 into STDIN. You can find the `startup_script` results in the /api/v1/vm results only when `script_monitoring` is set to `true`. | -
 startup_script_condition | int | Options are 0 or 1. If 0 is passed the script will run after the VM's network is up, if 1 is passed the script will run as soon as the VM boots. | wait for network
 script_monitoring | bool | Enable script monitoring. This will put the instance to Error state if exit code is not 0. Enables script_fail_handler and script_timeout parameters. | false
 script_timeout | int | Seconds. Will terminate startup script execution and treat it as failed. **(only works when script_monitoring is true)** | 90
 script_fail_handler | int | How to handle the **VM running on your host/node** when startup script fails. Options are 0, 1 and 2. If 0 is passed, VM will be stopped, if 1 is passed VM will be kept alive, if 2 is passed VM will be deleted **(only works when script_monitoring is true)** | 0
-name_template | string | Name template for the vm name (on the Node), available vars are $template_name, $template_id, $instance_id, $node_id, $node_name and $ts (timestamp) | -
+name_template | string | String to use for the VM name. You can interpolate several variables in the string: $template_name, $template_id, $instance_id, $node_id, $node_name and $ts (timestamp). The VM name will be prepended with `mgmtManaged-{name_template}`. | -
 group_id  | string | Run the VM on a node from this group. | -
 priority  | int    | Priority of this instance in range 1-10000 (lower is more urgent). | 1000
 usb_device | string | Name of the USB device to attach to the VM | -
 vcpu      |  int    | Override the number of CPU cores for the VM Template **(only works when the template VM is stopped)**.
 vram      |  int    | Override the VM's RAM size in MB (1GB = 1024MB) **(only works when the template VM is stopped)**.
 metadata  | object  | Sets the instance metadata, a key-value object. Keys are strings. Values are strings, ints or booleans | -
-mac_address      |  string    | Specify MAC address for the VM (Capital letters and ':' as separators) **(only works when the VM Template is stopped and when --manage-mac-addresses flag is set in the controller config)**.
+mac_address      |  string    | Specify MAC address for the VM (Capital letters and ':' as separators) **(only works when the VM Template is stopped and when ANKA_MANAGE_MAC_ADDRESSES is enabled in the controller config)**.
 vlan_tag | string | Specify the VLAN ID to target when starting the VM. This will run `anka modify {clonedVMName} set network-card --vlan {ID}` on the host running the VM **and only works when the VM Template is stopped**.
 video_controller | string | Modify the VM's display controller before starting it. Valid Values: fbuf, pg **Only works when the VM Template is in stopped state and Intel architecture**
-<!-- csr_active_config | string | Modify the VM's csr-active-config value before starting it. Valid Values: forceOn, forceOff **Only works when the VM Template is in stopped state and Intel architecture** -->
 hvapic | string | Modify the VM's hvapic value before starting it. Valid Values: forceOn, forceOff **Only works when the VM Template is in stopped state and Intel architecture**
+<!-- csr_active_config | string | Modify the VM's csr-active-config value before starting it. Valid Values: forceOn, forceOff **Only works when the VM Template is in stopped state and Intel architecture** -->
 
 **Returns:**  
 

@@ -19,7 +19,7 @@ cascade:
 
 #### Choose the right documentation for your architecture
 
-[Anka 3 (Apple Processors)]({{< relref "apple" >}}) | Anka 2 (Intel Processors)]({{< relref "intel" >}})
+[Anka 3 (Apple Processors)]({{< relref "apple" >}}) | [Anka 2 (Intel Processors)]({{< relref "intel" >}})
 
 ---
 

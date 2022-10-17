@@ -9,7 +9,6 @@ description: >
 {{< include file="_partials/sudo-non-sudo-anka-cli.md" >}}
 
 {{< include file="_partials/apple/Anka Virtualization/_index.md" >}}
-
 ## List
 {{< include file="_partials/apple/Anka Virtualization/list/_index.md" >}}
 {{< include file="_partials/apple/Anka Virtualization/list/_example.md" >}}
@@ -43,17 +42,6 @@ description: >
 {{< include file="_partials/apple/Anka Virtualization/show/label/_index.md" >}}
 ## Modify
 {{< include file="_partials/apple/Anka Virtualization/modify/_index.md" >}}
-### modify {name/uuid} add
-{{< include file="_partials/apple/Anka Virtualization/modify/add/_index.md" >}}
-#### modify {name/uuid} add network
-{{< include file="_partials/apple/Anka Virtualization/modify/add/network/_index.md" >}}
-#### modify {name/uuid} add disk
-{{< include file="_partials/apple/Anka Virtualization/modify/add/disk/_index.md" >}}
-#### modify {name/uuid} add port
-{{< include file="_partials/apple/Anka Virtualization/modify/add/port/_index.md" >}}
-{{< include file="_partials/apple/Anka Virtualization/modify/add/port/_example.md" >}}
-#### modify {name/uuid} add label
-{{< include file="_partials/apple/Anka Virtualization/modify/add/label/_index.md" >}}
 ### modify {name/uuid} delete
 {{< include file="_partials/apple/Anka Virtualization/modify/delete/_index.md" >}}
 #### modify {name/uuid} delete network

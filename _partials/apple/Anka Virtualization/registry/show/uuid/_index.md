@@ -1,4 +1,4 @@
 ```shell
-> anka registry show 12.4 uuid --help
+> anka registry show 12.6 uuid --help
 
 ```
