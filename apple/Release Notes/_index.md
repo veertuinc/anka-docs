@@ -20,7 +20,7 @@ Addons upgrading is not required but is recommended.
     - SIP is now disabled by default inside of the VM.
     - VNC is now enabled by default inside of the VM.
 - **Improvement:** The `anka create` command will now produce `stopped` state VMs (suspending is not supported by Apple yet).
-- **Improvement:** [Shorter `anka modify` and `port-forwarding` command.]({{< relref "Whats New/anka-3.1.0/index.md#shorter-anka-modify-and-port-forwarding-command" >}})
+- **Improvement:** [Shortened `anka modify` and `port-forwarding` command.]({{< relref "Whats New/anka-3.1.0/index.md#shortened-anka-modify-and-port-forwarding-command" >}})
 - **Improvement:** Better handling of VM kernel panics.
 - **Improvement:** Improved network performance and security.
 - **Improvement:** The `anka list` command will now show the last accessed date of the VM.

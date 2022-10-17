@@ -9,7 +9,7 @@ We are very excited to announce Anka Virtualization 3.1. In this version, you're
     - SIP is now disabled by default inside of the VM.
     - VNC is now enabled by default inside of the VM.
 2. The `anka create` command will now produce `stopped` state VMs. (suspending is not supported by Apple yet)
-3. [Shorter `anka modify` and `port-forwarding` command.](#shorted-anka-modify-and-port-forwarding-command)
+3. [Shorter `anka modify` and `port-forwarding` command.](#shortened-anka-modify-and-port-forwarding-command)
 4. `ANKA_LOG_LEVEL="debug"` is available as a replacement for `anka --debug`.
 5. [Support for the Anka Build Cloud's UAKs when interacting with the registry commands.](#support-for-the-anka-build-clouds-uaks-when-interacting-with-the-registry-commands)
 6. [Ability to resize the VM's disk.](#ability-to-resize-the-vms-disk)
@@ -24,7 +24,7 @@ Anka 3.0.x began Anka's support for Apple Silicon / M1 / ARM virtualization. How
 Starting in Anka 3.1, we're the first to solve this problem by automating the macOS installation, setup, and disabling of SIP. We even automatically enable VNC so users can work around the limitations in Anka View (doesn't work under `sudo`). We're excited about this release and look forward to it improving your production environments running Apple Silicon VMs.
 
 
-## Shorter `anka-modify` and `port-forwarding` command
+## Shortened `anka-modify` and `port-forwarding` command
 
 {{< include file="_partials/apple/Anka Virtualization/modify/port/_example.md" >}}
 
