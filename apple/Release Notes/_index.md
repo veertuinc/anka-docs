@@ -16,6 +16,18 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 Addons upgrading is not required but is recommended.
 {{< /hint >}}
 
+{{< hint warning >}}
+
+Known issues:
+
+- Nested virtualization is not functional inside of VMs yet.
+- `anka view` and `anka start -v` are partially broken and require double clicking the VM name in the Anka.app VM listing.
+- iCloud/Apple logins will fail inside of the VM. You can still log into your account through Apple's website and download apps through your developer account. Or, transfer them from the host into the VM with `anka cp`.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
 - **Improvement:** MacOS installation through the `anka create` command is now automated.
     - SIP is now disabled by default inside of the VM.
     - VNC is now enabled by default inside of the VM.
