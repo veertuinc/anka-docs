@@ -31,6 +31,7 @@ Known issues:
 - **Improvement:** MacOS installation through the `anka create` command is now automated.
     - SIP is now disabled by default inside of the VM.
     - VNC is now enabled by default inside of the VM.
+- **Improvement:** VMs can be started in Recovery Mode from the CLI with `ANKA_START_MODE=2 anka start 12.6`.
 - **Improvement:** The `anka create` command will now produce `stopped` state VMs (suspending is not supported by Apple yet).
 - **Improvement:** [Shortened `anka modify` and `port-forwarding` command.]({{< relref "Whats New/anka-3.1.0/index.md#shortened-anka-modify-and-port-forwarding-command" >}})
 - **Improvement:** Better handling of VM kernel panics.
