@@ -86,6 +86,16 @@ Once the VM is created, you will see it on the sidebar -- Hooray!
 
 {{< include file="_partials/apple/Anka Virtualization/start/_index.md" >}}
 
+{{< hint info >}}
+You can start the VM in Recovery Mode with `ANKA_START_MODE=2`:
+
+```bash
+ANKA_START_MODE=2 anka start 12.6
+```
+
+{{< /hint >}}
+
+
 {{< hint warning >}}
 **For our addons to install and enable autologin properly, you need to create the VM user as username: `anka` and password: `admin`. If you decide to use your own username and password, you will need to manually enable autologin for the user.**
 {{< /hint >}}
