@@ -9,5 +9,5 @@ Anka VM Templates support the following macOS versions:
 | **12.x** | macOS Monterey |
 
 {{< hint warning >}}
-Hosts with macOS Monterey creating a 13.x VM require 14.x Xcode is installed (Apple requirement).
+Creating 13.x VMs requires that Xcode >= 14.0.1 is installed. This is a requirement from Apple at the moment.
 {{< /hint >}}
