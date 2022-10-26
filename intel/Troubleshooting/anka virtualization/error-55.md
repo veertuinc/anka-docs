@@ -11,7 +11,7 @@ weight: 1
 
 ## Solution
 
-This is very common when the VMs have heavy CPU usage. Normally it shouldn't be a critical error -- packet loss is being handled by the TCP stack of guest. But if the error rate is very high, it definitely could cause applications or downloads to fail inside of the VM or even communication to the VM to be severed. If the occurrence of these errors is more than just a few log entries, you can increase the value of `net.local.dgram.recvspace` and `net.local.dgram.maxdgram` with sysctl.
+This is very common when the VMs have heavy CPU usage. Normally it shouldn't be a critical error -- packet loss is being handled by the TCP stack of guest. But if the error rate is very high, it definitely could cause applications or downloads to fail inside of the VM or even communication to the VM to be severed. If the occurrence of these errors is more than just a few log entries, you can increase the value of `net.local.dgram.recvspace` and `net.local.dgram.maxdgram` with sysctl ON THE HOST.
 
 {{< hint info >}}
 You may need to keep increasing the value until the errors are no longer visible.
