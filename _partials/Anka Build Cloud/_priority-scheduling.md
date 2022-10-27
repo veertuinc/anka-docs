@@ -19,5 +19,5 @@ curl -X POST "http://anka.controller/api/v1/vm" -H "Content-Type: application/js
 ```
 
 {{< hint info >}}
-By default, nodes with the targeted Template ("vmid") on them receive a higher priority compared with those that do not have the Template yet. This can make it seem as if some nodes are used more than others. We recommend distributing the Template to every node if this is a problem.
+Nodes are constantly asking for tasks in the Controller. They will send a payload with information about what Templates/Tags exist already and the Controller will use that information + the start VM task priority and determine which task is right for the Node. If nodes that do not have the Template are getting tasks and having to pull all the time, you should consider using groups and placing these nodes in a fallback group. Then, tell your jobs to target the non-fallback group and they will prioritize the nodes that have the templates.
 {{< /hint >}}
