@@ -27,7 +27,7 @@ Rosetta can be installed and used inside of the VM.
 1. [You've installed the Anka Virtualization package.]({{< relref "apple/Getting Started/installing-the-anka-virtualization-package.md" >}})
 2. The host you wish to use for running Anka VMs is using Apple processors **and not Intel.**
 3. The host you wish to use has Monterey (>= 12.0) installed.
-4. The host you wish to use has networking (requirement of Apple Virtualization.Framework.)
+4. The host you wish to use has networking (requirement of Apple Virtualization.Framework) and access to the internet.
 
 ---
 
