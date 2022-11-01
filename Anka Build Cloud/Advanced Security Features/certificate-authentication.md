@@ -28,7 +28,7 @@ There are several different ways you can enable Certificate authentication:
 3. Certificate[s] (signed with the Root CA) for your Anka Build Nodes so they can connect/authenticate with the Anka Build Cloud Controller & Registry.
 
 {{< hint warning >}}
-If bringing your own certs, not password protected ("encrypted") (use `openssl rsa -in <encrypted_private.key> -out <decrypted_private.key>` to decrypt).
+If bringing your own certs, make sure they are not password protected ("encrypted") (use `openssl rsa -in <encrypted_private.key> -out <decrypted_private.key>` to decrypt).
 {{< /hint >}}
 
 {{< rawhtml >}}
