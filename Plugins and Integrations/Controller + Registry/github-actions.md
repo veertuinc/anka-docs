@@ -9,7 +9,7 @@ description: >
 
 ## VM Template & Tag Requirements
 
-1. Github Runner has been installed inside of the VM using https://github.com/veertuinc/getting-started/blob/master/GITHUB_ACTIONS/install.sh
+1. Github Runner has been installed inside of the VM. We recommend using [our script](https://github.com/veertuinc/getting-started/tree/master/GITHUB_ACTIONS) for this.
 
 ## Usage
 
