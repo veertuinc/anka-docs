@@ -119,7 +119,7 @@ Enabling RTA will block any access to the UI and API for Anka Nodes joined to th
 
 1. Follow the same instruction from the above root token section, but also include `ANKA_ENABLE_API_KEYS` set to `true`.
 
-2. Use the Controller's User API Keys UI panel or API to generate a user key for [the controller]({{< relref "Anka Build Cloud/working-with-controller-and-API.md#user-key-management" >}}) and also [the registry]({{< relref "Anka Build Cloud/working-with-registry-and-API.md#user-key-management" >}}). **KEEP THIS SECRET.**
+2. Use the Controller's User API Keys UI panel or API to generate a user key for [the controller]({{< relref "Anka Build Cloud/working-with-controller-and-API.md#user-key-management" >}}) and also [the registry]({{< relref "Anka Build Cloud/working-with-registry-and-API.md#user-key-management" >}}). **KEEP THESE SECRET.**
 
 ![management ui for uak]({{< siteurl >}}images/anka-build-cloud/advanced-security-features/uak-management-ui-1.png)
 
