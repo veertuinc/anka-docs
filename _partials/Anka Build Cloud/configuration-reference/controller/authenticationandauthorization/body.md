@@ -7,7 +7,7 @@
 | --- | :---: | --- | :---: |
 | ANKA_API_KEY_FILE | (string) | The API Key client file used for authentication. Takes precedence over api-key-string. |  |
 | ANKA_API_KEY_ID | (string) | The API Key client id used for authentication. |  |
-| ANKA_API_KEY_STRING | (string) | The API Key client string used for authentication. |  |
+| ANKA_API_KEY_STRING | (string) | The API Key client string used for authentication. The string will be the output from `cat myUAK.pem | sed ‘1,1d’ | sed ‘$d’ | tr -d ‘\n’` (making sure not to copy the % at the end). |  |
 | ANKA_API_KEYS_CLEANING_INTERVAL | (duration) | The interval for cleaning of expired api keys. | 4h0m0s |
 | ANKA_API_KEYS_SESSION_TTL | (duration) | The API Keys session TTL (used for automatic expiration). | 5m0s |
 | ANKA_CA_CERT | (string) | (Certificate Authentication) The CA/root cert used to authenticate incoming requests/certs. |  |
