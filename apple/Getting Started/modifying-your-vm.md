@@ -28,13 +28,13 @@ The rest of this Getting Started guide focuses heavily on the (Command-Line Inte
 
 ### Mac Studio (M1 Max, 2022, 10-core/8-performance + 2-efficiency, 32 or 64GB RAM)
 
-- 1VM  - CPUs: 8-cores & RAM: ( totalRAMGB - 2GB )
-- 2VMs  - CPUs: 6,8-cores & RAM: ( (totalRAMGB / 2) - 2GB )
+- 1VM  - CPUs: 8-cores & RAM: ( totalRAMGB - 2GB ) with a max of 60GBs
+- 2VMs  - CPUs: 6,8-cores & RAM: ( (totalRAMGB / 2) - 2GB ) with a max of 60GBs
 
 ### Mac Studio (M1 Ultra, 2022, 20-core/16-performance + 4-efficiency, 64 or 128GB RAM)
 
-- 1VM  - CPUs: 8-cores & RAM: ( totalRAMGB - 2GB )
-- 2VMs  - CPUs: 8-cores & RAM: ( (totalRAMGB / 2) - 2GB )
+- 1VM  - CPUs: 8-cores & RAM: ( totalRAMGB - 2GB ) with a max of 60GBs
+- 2VMs  - CPUs: 8-cores & RAM: ( (totalRAMGB / 2) - 2GB ) with a max of 60GBs
 
 {{< hint info >}}
 Due to Ultra using the NUMA architecture, VMs/virtualization will only ever use 8 performance cores at a time.
