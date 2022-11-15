@@ -37,6 +37,11 @@ description: >
     <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>macOS 13.x</b></td>
+    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
 </tbody>
 </table>
 {{< /rawhtml >}}
