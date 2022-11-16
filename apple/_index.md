@@ -1,5 +1,5 @@
 ---
-title: "Anka 3.1.1 (apple processors)"
+title: "Anka 3.2.0 (apple processors)"
 weight: 2
 breadcrumb: false
 cascade:
