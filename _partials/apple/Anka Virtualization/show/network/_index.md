@@ -1,4 +1,4 @@
 ```shell
-> anka show 12.6 network --help
+> anka show 13.0.1-arm64 network --help
 
 ```

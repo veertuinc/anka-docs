@@ -1,4 +1,4 @@
 ```shell
-> anka show 12.6 display --help
+> anka show 13.0.1-arm64 display --help
 
 ```

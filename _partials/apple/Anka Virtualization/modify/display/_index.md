@@ -1,5 +1,5 @@
 ```shell
-> anka modify 12.6 display --help
+> anka modify 13.0.1-arm64 display --help
 usage: display [options]
 
    Configure displays
@@ -7,7 +7,7 @@ usage: display [options]
 options:
   -n,--count <val>         Configure number of displays (2 max)
   --headless               same as --count 0
-  -p,--password            Prompt for VNC password, or get if from the ANKA_VNC_PASSWORD env
+  -p,--password            Deprecated, use 'anka config vnc_password' instead
   --vnc <val>              Configure VNC: on/off/address
   --no-vnc                 Disable VNC access to the VM
   -d,--dpi <val>           Set DPI (default is 72)
