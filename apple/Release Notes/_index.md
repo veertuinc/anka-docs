@@ -10,6 +10,35 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.2.0 (3.2.0.153) - Nov 16th 2022
+
+{{< hint info >}}
+Addons upgrading is not required but is recommended.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+Known issues:
+
+- Nested virtualization is not functional inside of VMs yet.
+- `anka view` and `anka start -v` are partially broken and require double clicking the VM name in the Anka.app VM listing. Also, the Anka viewer requires you first start the VM with `anka start -v`. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- iCloud/Apple logins will fail inside of the VM. You can still log into your account through Apple's website and download apps through your developer account. Or, transfer them from the host into the VM with `anka cp`.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **Improvement:** Network stability (jenkins agents would sometimes suddenly disconnect).
+- **Improvement:** Stability for Anka Create macOS setup process (VNC timeout, etc).
+- **Improvement:** [Anka Click](https://github.com/veertuinc/anka-click-scripts) script support: Enabling "Reduce transparency" post-`anka create` to avoid dynamical wallpapers and other background changes from breaking image clicking.
+- **Improvement:** Partially downloaded files (dot files under `img_lib_dir`) from `anka registry pull` are cleaned up after they are older than 1 day.
+- **Bug Fix:** Pull/Conversion is happened on every VM Start request.
+- **Bug Fix:** Controller Agent coming with Anka package was being installed and forcefully upgrading the version users already have.
+- **Bug Fix:** Anka run was hanging when the VM received a `sudo reboot` (supports packer's expect disconnect feature).
+- **Bug Fix:** `ANKA_DEFAULT_USER` and `ANKA_DEFAULT_PASSWD` did not allow users to change the default user and pass in the VM when using `anka create`.
+
+## Previous Versions
+
 ### 3.1.1 (3.1.1.152) - Oct 25th 2022
 
 {{< hint info >}}
@@ -30,8 +59,6 @@ Known issues:
 
 - **Bug Fix:** Pulling was converting each and delaying VM start requests.
 - **Bug Fix:** Various anka create automation script fixes.
-
-## Previous Versions
 
 ### 3.1.0 (3.1.0.151) - Oct 17th 2022
 

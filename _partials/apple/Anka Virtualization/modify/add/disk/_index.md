@@ -1,5 +1,5 @@
 ```shell
-> anka modify 12.6 add disk --help
+> anka modify 13.0.1-arm64 add disk --help
 usage: hard-drive,disk [options]
 
    Modify hard drive settings

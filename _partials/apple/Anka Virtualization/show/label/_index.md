@@ -1,5 +1,5 @@
 ```shell
-> anka show 12.6 label --help
+> anka show 13.0.1-arm64 label --help
 usage: label [name]
 
    Show assigned VM labels
