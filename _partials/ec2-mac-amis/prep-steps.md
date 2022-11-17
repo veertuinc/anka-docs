@@ -73,7 +73,11 @@ By default all of our AMIs have a cloud-connect agent which on boot will join yo
 
 Our AMIs attempt to do the majority of preparation for you, however, there are several steps you need to perform once the instance is started:
 
-1. Set password with `sudo /usr/bin/dscl . -passwd /Users/ec2-user zbun0ok= {NEWPASSWORDHERE}` (AMI password: `zbun0ok=`). **It is unsafe to continue to use the default password we set.**
+1. Set password with `sudo /usr/bin/dscl . -passwd /Users/ec2-user {PASSWORD HERE}`
+
+{{< hint warning >}}
+Some of our older AMIs (2.5.7 or older) set a default password to `zbun0ok=`. We no longer do that in AMIs by default for security reasons. **It is unsafe to continue to use the default password we set.** You can change it with `sudo /usr/bin/dscl . -passwd /Users/ec2-user zbun0ok= {NEW PASSWORD HERE}`
+{{< /hint >}}
 
 2. You now need to VNC in and log into the ec2-user (requirement for Anka to start the hypervisor): `open vnc://ec2-user:{NEWPASSWORDHERE}@{INSTANCEPUBLICIP}`.
 
