@@ -75,7 +75,7 @@ Our AMIs attempt to do the majority of preparation for you, however, there are s
 
 1. Set password with `sudo /usr/bin/dscl . -passwd /Users/ec2-user {PASSWORD HERE}`
 
-{{< hint warning >}}
+{{< hint info >}}
 Some of our older AMIs (2.5.7 or older) set a default password to `zbun0ok=`. We no longer do that in AMIs by default for security reasons. **It is unsafe to continue to use the default password we set.** You can change it with `sudo /usr/bin/dscl . -passwd /Users/ec2-user zbun0ok= {NEW PASSWORD HERE}`
 {{< /hint >}}
 
