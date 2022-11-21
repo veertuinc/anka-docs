@@ -21,6 +21,8 @@ You must have at least one node with a Enterprise or higher license joined to th
 
 Many organizations and developers are already familiar with OpenID Connect (OIDC). OIDC is a layer that sits on top of OAuth 2.0 and performs the authorization necessary to access protected resources, such as the Anka Build Cloud Controller.
 
+## Usage Instructions
+
 When using OIDC, you'll need an Authorization Provider or Server. Most of our customers use Providers like [Okta](https://www.okta.com/), [Cyberark's Idaptive](https://www.cyberark.com/products/workforce-identity/), and others. we won't get into the specifics for these tools as they often differ greatly. However we will go through several general things you need to know, regardless of provider.
 
 1. We currently only support `Implicit` flow.
