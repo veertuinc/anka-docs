@@ -27,8 +27,8 @@ When using OIDC, you'll need an Authorization Provider or Server. Most of our cu
 
 1. We currently only support `Implicit` flow.
 2. Your provider config must allow a redirect to the Anka Controller URL homepage. The URL doesn't need to be public, but must match the hostname or IP (and port) you use locally.
-3. The controller/your browser will request certain `scopes` from the provider. These `scopes` have `claims` attached. By default, the request will be for `scopes`: `openid` & `profile`.
-4. Within the `scopes`, we look for `claims`. The following `claims` are required (by default): `name` (part of `profile`) & `groups`. These are changable with `ANKA_OIDC_GROUPS_CLAIM` and `ANKA_OIDC_USERNAME_CLAIM` in your controller's config.
+3. The controller/your browser will request certain `scopes` from the provider. These `scopes` have `claims` attached. By default, we look for `openid`, `profile`, and `groups`.
+4. Within the `scopes`, we look for `claims`. The following `claims` are required (by default): `name` (part of `profile`) & `groups`. These are changeable with `ANKA_OIDC_GROUPS_CLAIM` and `ANKA_OIDC_USERNAME_CLAIM` in your controller's config. In version 1.29.0, we will also look for `scopes` using the values of those ENVs.
 5. Once the `scopes` are requested successfully, the data returned needs to be in a specific format (`id_token` & `token`). We make the request with `response_type` to ensure this.
 6. The `groups` claim is expected to be an array of strings, each correlating to a [Controller permission group](#managing-usergroup-permissions-authorization).
 
