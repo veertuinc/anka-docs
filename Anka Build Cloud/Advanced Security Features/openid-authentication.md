@@ -1,10 +1,10 @@
 ---
 date: 2019-12-12T00:00:00-00:00
-title: "Configuring OpenID (SSO) based authentication"
-linkTitle: "OpenID (SSO) Authentication"
+title: "Configuring OpenID Connect (OIDC) / SSO based authentication"
+linkTitle: "OpenID Connect (OIDC) / SSO Authentication"
 weight: 3
 description: >
-  How to set up OpenID based authentication to protect your Controller UI.
+  How to set up OIDC / SSO for the Anka Build Cloud Controller UI.
 ---
 
 {{< hint warning >}}
@@ -21,7 +21,81 @@ You must have at least one node with a Enterprise or higher license joined to th
 
 Many organizations and developers are already familiar with OpenID Connect (OIDC). OIDC is a layer that sits on top of OAuth 2.0 and performs the authorization necessary to access protected resources, such as the Anka Build Cloud Controller.
 
-When using OIDC, you'll need an Authorization Server. In this guide, we will use **Keycloak** as our Authorization Server as it's fairly easy to run and setup. It will contain the realm, client ID, user, group, and anything else we will need for logging into the Anka Build Cloud Controller.
+When using OIDC, you'll need an Authorization Provider or Server. Most of our customers use Providers like [Okta](https://www.okta.com/), [Cyberark's Idaptive](https://www.cyberark.com/products/workforce-identity/), and others. we won't get into the specifics for these tools as they often differ greatly. However we will go through several general things you need to know, regardless of provider.
+
+1. We currently only support `Implicit` flow.
+2. Your provider config must allow a redirect to the Anka Controller URL homepage. The URL doesn't need to be public, but must match the hostname or IP (and port) you use locally.
+3. The controller/your browser will request certain `scopes` from the provider. These `scopes` have `claims` attached. By default, the request will be for `scopes`: `openid` & `profile`.
+4. Within the `scopes`, we look for `claims`. The following `claims` are required (by default): `name` (part of `profile`) & `groups`. These are changable with `ANKA_OIDC_GROUPS_CLAIM` and `ANKA_OIDC_USERNAME_CLAIM` in your controller's config.
+5. Once the `scopes` are requested successfully, the data returned needs to be in a specific format (`id_token` & `token`). We make the request with `response_type` to ensure this.
+6. The `groups` claim is expected to be an array of strings, each correlating to a [Controller permission group](#managing-usergroup-permissions-authorization).
+
+Here is an example config showing what it looks like for a user with Okta:
+
+```docker
+  anka-controller:
+    container_name: anka-controller
+    build:
+       context: .
+       dockerfile: anka-controller.docker
+    ports:
+       - "8090:80"
+    volumes:
+       - /Users/myUserName:/mnt/cert
+    depends_on:
+       - etcd
+       - anka-registry
+    restart: always
+    environment:
+      ANKA_REGISTRY_ADDR: "https://anka.registry:8089"
+      ANKA_USE_HTTPS: "true"
+      ANKA_SKIP_TLS_VERIFICATION: "false"
+      ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
+      ANKA_SERVER_KEY: "/mnt/cert/anka-controller-key.pem"
+      ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
+      ANKA_ENABLE_AUTH: "true"
+      ANKA_ROOT_TOKEN: "1111111111"
+      ANKA_OIDC_DISPLAY_NAME: "Okta SSO"
+      ANKA_OIDC_PROVIDER_URL: "https://dev-193371238.okta.com/oauth2/default"
+      ANKA_OIDC_CLIENT_ID: "0oa7a07mc0kQxyfrusdd"
+
+  anka-registry:
+    container_name: anka-registry
+    build:
+        context: .
+        dockerfile: anka-registry.docker
+    ports:
+        - "8089:8089"
+    restart: always
+    volumes:
+      - "/Library/Application Support/Veertu/Anka/registry:/mnt/vol"
+      - /Users/myUser/:/mnt/cert
+    environment:
+      ANKA_USE_HTTPS: "true"
+      ANKA_SKIP_TLS_VERIFICATION: "false"
+      ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
+      ANKA_SERVER_KEY: "/mnt/cert/anka-controller-key.pem"
+      ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
+      ANKA_ENABLE_AUTH: "true"
+      ANKA_OIDC_DISPLAY_NAME: "Keycloak"
+      ANKA_OIDC_PROVIDER_URL: "http://host.docker.internal:8080/auth/realms/myrealm"
+      ANKA_OIDC_CLIENT_ID: "anka"
+```
+
+{{< hint warning >}}
+**The OIDC ENVs must be set for both services.**
+{{< /hint >}}
+
+After that, just `docker-compose down -t 50 && docker-compose up -d` and try accessing the Controller at its HTTPS URL or IP. If you did everything correctly (you enabled certificate authentication and joined your node right?), you should see a Log In box with two options: `Login with Okta SSO` and `Login with superuser`.
+
+![OpenID Login Buttons]({{< siteurl >}}images/openid/login.png)
+
+<!-- {{< hint info >}}
+Not using Keycloak? No problem! For example in [CyberArk's Idaptive](https://www.cyberark.com/resources/videos/idaptive-product-overview), you need to create an `OpenID Connect` Web App, assign your user under Permissions, and then `setClaim('groups', 'sso-user-group');` under Tokens > Custom Logic. Once set up, you configure the controller to use `ANKA_OIDC_PROVIDER_URL="{OpenID Connect Issuer URL}"` and `export ANKA_OIDC_CLIENT_ID="{OpenID Connect Client ID}"`. At this point, you'd add `sso-user-group` under the Controller's `/admin/ui` permissions management panel (using the root token/user) and assign the proper permissions users of the web app can use. We recommend contacting your local IT team to help determining exactly what you'll need to configure this with your company's preferred tools.
+{{< /hint >}} -->
+
+<!-- 
+In this guide, we will use **Keycloak** as our Authorization Server as it's fairly easy to run and setup. It will contain the realm, client ID, user, group, and anything else we will need for logging into the Anka Build Cloud Controller.
 
 > This guide will be running the Anka Build Cloud and Keycloak on the same machine. It is meant to give you an idea of how to configure and is not recommended for production.
 
@@ -123,16 +197,12 @@ Once logged in, you will see **Admin** on the left navigation
 
 ![Admin Navigation]({{< siteurl >}}images/openid/admin.png)
 
-Under the **Admin** page, we want to add a **New Group**. **The Group Name will be the name of the group you created within Keycloak.**
-
-{{< hint info >}}
-Not using Keycloak? No problem! For example in [CyberArk's Idaptive](https://www.cyberark.com/resources/videos/idaptive-product-overview), you need to create an `OpenID Connect` Web App, assign your user under Permissions, and then `setClaim('groups', 'sso-user-group');` under Tokens > Custom Logic. Once set up, you configure the controller to use `ANKA_OIDC_PROVIDER_URL="{OpenID Connect Issuer URL}"` and `export ANKA_OIDC_CLIENT_ID="{OpenID Connect Client ID}"`. At this point, you'd add `sso-user-group` under the Controller's `/admin/ui` permissions management panel (using the root token/user) and assign the proper permissions users of the web app can use. We recommend contacting your local IT team to help determining exactly what you'll need to configure this with your company's preferred tools.
-{{< /hint >}}
+Under the **Admin** page, we want to add a **New Group**. **The Group Name will be the name of the group you created within Keycloak.** -->
 
 ## Managing User/Group Permissions (Authorization)
 
-Once user, group, and roles are created and assigned to each other, you can then add the exact role name from your keycloak (or other authorization server software) to the controller's permission management panel. This gives any users associated to the group in that cloud permission group the specific permissions to the API and even controller UI.
+You can then add the exact `groups` claim name from your SSO provider (or other authorization server software) to the controller's permission management panel. This gives any users associated to the group in that cloud permission group the specific permissions to the API and even controller UI.
 
 {{< include file="_partials/Anka Build Cloud/_managing-permissions.md" >}}
 
-Once you've added all of the proper permissions, you can now go back to the main Controller page and log out of the superuser. You can now choose **Login with Keycloak**, which will redirect you to your Keycloak to have you log in with the user you created earlier in this guide. You will then be taken to the Controller UI and be logged in as that user.
+Once you've added all of the proper permissions, you can now go back to the main Controller page and log out of the superuser. You can now choose **Login with Okta SSO**, which will redirect you to your Okta to have you log in with your user. You will then be taken to the Controller UI and be logged in as that user.
