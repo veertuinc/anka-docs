@@ -207,6 +207,7 @@ vlan_tag | string | Specify the VLAN ID to target when starting the VM. This wil
 video_controller | string | Modify the VM's display controller before starting it. Valid Values: fbuf, pg **Only works when the VM Template is in stopped state and Intel architecture**
 hvapic | string | Modify the VM's hvapic value before starting it. Valid Values: forceOn, forceOff **Only works when the VM Template is in stopped state and Intel architecture**
 csr_active_config | string | Modify the VM's csr-active-config value before starting it. Valid Values: forceOn **Only works when the VM Template is in stopped state and Intel architecture**
+network_local | string | Modify the VM's network locality before starting it. Valid Values: forceOn, forceOff
 
 **Returns:**  
 
