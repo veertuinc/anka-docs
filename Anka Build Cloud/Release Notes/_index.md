@@ -17,6 +17,7 @@ weight: 100
 - **Bug Fix:** Panic on `ankacluster join` when registry URL in the controller is not configured.
 - **Bug Fix:** Anka cloud agent calculates ram incorrectly when doing resource check.
 - **Bug Fix:** Anka cloud agent was terminating pulls while Anka 3 Arm conversion was happening, post pull, and it was reaching a timeout.
+- **Improvement:** Simplified `csr_active_config` by removing `forceOff`.
 - **Improvement:** Moved `processVMUpdate` logs to log level 1 so the Controller logs are less noisy.
 - **New Feature:** [Ability to set `--local` and `--no-local` when starting VMs through API.]({{< relref "Whats New/build-cloud-1.30.0/index.md#ability-to-set---local-and---no-local" >}})
 - (Standalone Registry: 1.30.0-f0b6506a)
