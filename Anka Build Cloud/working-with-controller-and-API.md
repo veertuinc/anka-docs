@@ -206,7 +206,8 @@ mac_address      |  string    | Specify MAC address for the VM (Capital letters 
 vlan_tag | string | Specify the VLAN ID to target when starting the VM. This will run `anka modify {clonedVMName} set network-card --vlan {ID}` on the host running the VM **and only works when the VM Template is stopped**.
 video_controller | string | Modify the VM's display controller before starting it. Valid Values: fbuf, pg **Only works when the VM Template is in stopped state and Intel architecture**
 hvapic | string | Modify the VM's hvapic value before starting it. Valid Values: forceOn, forceOff **Only works when the VM Template is in stopped state and Intel architecture**
-<!-- csr_active_config | string | Modify the VM's csr-active-config value before starting it. Valid Values: forceOn, forceOff **Only works when the VM Template is in stopped state and Intel architecture** -->
+csr_active_config | string | Modify the VM's csr-active-config value before starting it. Valid Values: forceOn **Only works when the VM Template is in stopped state and Intel architecture**
+network_local | string | Modify the VM's network locality before starting it. Valid Values: forceOn, forceOff
 
 **Returns:**  
 
