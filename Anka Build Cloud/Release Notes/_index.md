@@ -6,6 +6,25 @@ weight: 100
 
 ## Current Version
 
+### 1.30.0 (1.30.0-66973267) - Dec 1st, 2022
+
+{{< hint warning >}}
+1.28.0 had a significant change you should be aware of to prevent problems. Please read over [the ETCD Compaction and Defragmentation documentation to understand what has changed]({{< relref "Anka Build Cloud/Getting Started/setup-controller-and-registry.md#compaction-and-defragmentation" >}}).
+{{< /hint >}}
+
+- **Bug Fix:** VNC urls from the Controller Instances page now show the password properly in Anka 3.
+- **Bug Fix:** Incorrect CPU displayed in dashboard and calculation of default value for --vcpu-override on arm machines.
+- **Bug Fix:** Panic on `ankacluster join` when registry URL in the controller is not configured.
+- **Bug Fix:** Anka cloud agent calculates ram incorrectly when doing resource check.
+- **Bug Fix:** Anka cloud agent was terminating pulls while Anka 3 Arm conversion was happening, post pull, and it was reaching a timeout.
+- **Improvement:** Moved `processVMUpdate` logs to log level 1 so the Controller logs are less noisy.
+- **New Feature:** [Ability to set `--local` and `--no-local` when starting VMs through API.]({{< relref "Whats New/build-cloud-1.30.0/index.md#ability-to-set---local-and---no-local" >}})
+- (Standalone Registry: 1.30.0-f0b6506a)
+
+---
+
+## Previous Versions
+
 ### 1.29.0 (1.29.0-49077f79) - Oct 3rd, 2022
 
 {{< hint warning >}}
@@ -17,10 +36,6 @@ weight: 100
 - **Bug Fix:** Bad string for custom hardware variable (HVAPIC) when using VM start API endpoint.
 - **New Feature:** [Management UI for UAKs]({{< relref "Whats New/build-cloud-1.29.0/index.md" >}})
 - (Standalone Registry: 1.29.0-8daa18e1)
-
----
-
-## Previous Versions
 
 ### 1.28.0 (1.28.0-347c73ea) - Sep 6th, 2022
 
