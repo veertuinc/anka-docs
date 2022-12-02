@@ -14,5 +14,5 @@ Monterey installation inside of the VM seems to be much longer than previous ver
 {{< /hint >}}
 
 {{< hint warning >}}
-Monterey VMs require `ablk` as the disk driver.
+Starting in Monterey, VMs require `ablk` as the disk driver.
 {{< /hint >}}
