@@ -58,7 +58,7 @@ You have two methods of creating your Anka VMs. We will describe both in this gu
 
 {{< include file="_partials/apple/Anka Virtualization/create/_extra.md" >}}
 
-With `anka create`, we will automatically set up macOS, disable SIP, and enable VNC for you. This is different from the UI creation tool (see below), which still requires manual macOS installation.
+With `anka create`, we will automatically set up macOS, create user: `anka` with password: `admin`, disable SIP, and enable VNC for you. This is different from the UI creation tool (see below), which still requires manual macOS installation.
 
 #### IPSW vs .app installers
 
