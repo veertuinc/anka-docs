@@ -67,6 +67,8 @@ Every time you start/resume a VM it will be assigned an IP:
 +------------+-------------------+
 ```
 
+{{< include file="_partials/apple/Getting Started/_understanding-vm-networking-types.md" >}}
+
 {{< hint warning >}}
 If `anka show` does not display an IP, networking has either:
 1. Not fully started (give it a few more seconds).
