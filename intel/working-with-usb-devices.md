@@ -100,7 +100,7 @@ USB:
     anka usb claim 275a5e5f1313b22305c9beaffc4d58d985ebxxxx
     device claimed successfully
 
-    curl https://127.0.0.1:8080/api/v1/usb                                                
+    curl https://127.0.0.1/api/v1/usb                                                
     {"status":"OK","message":"","body":{"275a5e5f1313b22305c9beaffc4d58d985ebxxxx":{"busy":0,"available":1}}}
 
     anka usb release 275a5e5f1313b22305c9beaffc4d58d985ebxxxx
@@ -109,14 +109,14 @@ USB:
     anka usb claim --claim-name iphones 275a5e5f1313b22305c9beaffc4d58d985ebxxxx
     device claimed successfully
 
-    curl https://127.0.0.1:8080/api/v1/usb
+    curl https://127.0.0.1/api/v1/usb
     {"status":"OK","message":"","body":{"iphones":{"busy":0,"available":1}}}
     ```
 
 3. Finally, start a VM using `/api/v1/vm` and set the usb_device to the device _name_ or _claim name_ (support for vendor_id is pending):
 
     ```shell
-    curl -X POST -H "Content-Type: application/json" https://127.0.0.1:8080/api/v1/vm \
+    curl -X POST -H "Content-Type: application/json" https://127.0.0.1/api/v1/vm \
     -d '{"vmid": "e56b4aaf-0797-42dd-9ebe-41908bf10a4d", "tag": "clean", "usb_device": "iphones"}' | jq                                
     {
       "status": "OK",
@@ -129,7 +129,7 @@ USB:
     - If [certificate based authentication]({{< relref "Anka Build Cloud/Advanced Security Features/certificate-authentication.md" >}}) is enabled, you need to include the _--cert_, _--key_, and _--cacert_:
 
         ```shell
-        curl https://127.0.0.1:8080/api/v1/usb --cert ~/node-crt.pem --key ~/node-key.pem --cacert ~/anka-ca-crt.pem
+        curl https://127.0.0.1/api/v1/usb --cert ~/node-crt.pem --key ~/node-key.pem --cacert ~/anka-ca-crt.pem
         {"status":"OK","message":"","body":{"275a5e5f1313b22305c9beaffc4d58d985ebxxxx":{"busy":0,"available":1}}}
         ```
 

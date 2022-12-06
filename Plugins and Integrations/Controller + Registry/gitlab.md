@@ -240,7 +240,7 @@ OPTIONS:
 You use the same non-interactive arguments that we mentioned in [the Registration section]({{< relref "Plugins and Integrations/Controller + Registry/gitlab.md#registration" >}}) when executing the binary (but without `--non-interactive`):
 
 ```shell
-❯ docker run -ti --rm veertu/anka-gitlab-runner-amd64 --url "http://anka.gitlab:8084/" --registration-token nHKqG3sYV4B5roRK1ZhW --ssh-user anka --ssh-password admin --name "localhost shared runner" --anka-controller-address "https://anka.controller:8080/" --anka-template-uuid d09f2a1a-e621-463d-8dfd-8ce9ba9f4160 --anka-tag base:port-forward-22:brew-git:gitlab --executor anka --anka-root-ca-path /Users/nathanpierce/anka-ca-crt.pem --anka-cert-path /Users/nathanpierce/anka-gitlab-crt.pem --anka-key-path /Users/nathanpierce/anka-gitlab-key.pem --clone-url "http://anka.gitlab:8084" --tag-list "localhost-shared,localhost,iOS"
+❯ docker run -ti --rm veertu/anka-gitlab-runner-amd64 --url "http://anka.gitlab:8084/" --registration-token nHKqG3sYV4B5roRK1ZhW --ssh-user anka --ssh-password admin --name "localhost shared runner" --anka-controller-address "https://anka.controller" --anka-template-uuid d09f2a1a-e621-463d-8dfd-8ce9ba9f4160 --anka-tag base:port-forward-22:brew-git:gitlab --executor anka --anka-root-ca-path /Users/nathanpierce/anka-ca-crt.pem --anka-cert-path /Users/nathanpierce/anka-gitlab-crt.pem --anka-key-path /Users/nathanpierce/anka-gitlab-key.pem --clone-url "http://anka.gitlab:8084" --tag-list "localhost-shared,localhost,iOS"
 Updating certificates in /etc/ssl/certs...
 0 added, 0 removed; done.
 Running hooks in /etc/ca-certificates/update.d...

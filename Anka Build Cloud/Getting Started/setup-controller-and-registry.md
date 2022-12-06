@@ -268,7 +268,7 @@ Two methods are available:
   ```
 - Use curl:
   ```shell
-  curl http://<ip>:8080/api/v1/status
+  curl http://<ip>/api/v1/status
   ```
 
 {{< include file="_partials/intel/Getting Started/_controller-listening-on-80-and-orientation.md" >}}
