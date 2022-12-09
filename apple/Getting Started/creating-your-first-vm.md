@@ -267,6 +267,29 @@ The clone is not automatically tagged.
 | test (v1)                                 | ff06aa5b-0825-4f86-b5d0-c1cdb39fcedf | Jan 25 13:15:10 2022 | stopped |
 ```
 
+#### What do we recommend?
+
+IF you're managing multiple templates for multiple teams and projects, you want to share as many underlying layers in the hierarchy of Templates as possible. To do this, we typically recommend:
+
+1. Create a VM with `13.0.1` and also name it that. The, push/locally tag it as `vanilla`.
+2. Start the `13.0.1` VM and add the dependencies that everyone would need (typically git and brew). Stop the VM and modify to add port forwarding. Push this as a new tag called `brew+git+portforwarding22`.
+3. Clone from `13.0.1` (with the `brew+git+portforwarding22` tag) and create `13.0.1-xcode14.1`. Start it and install Xcode. Stop it and push it with any tag name. I use `v1` usually.
+4. Clone from `13.0.1-xcode14.1` and create `13.0.1-xcode14.1-{projectNameHere}-v1` which you'll install all of that projects dependencies in and push with any tag name.
+
+This allows everything to share the underlying layers (since they're all cloned from `13.0.1`) that are the same and optimize disk space. You can then just pull the last VM template in the hierarchy and create a new one when needed, telling the teams to point to the new one when ready.
+
+If it helps, here is it visually:
+
+```
+13.0.1 (stopped)  | 
+                  | -> clone -> 13.0.1-xcode14.1 (stopped) |
+                  |                                        | -> clone -> 13.0.1-xcode14.1-project1-v1 (with fastlane-v1.X) (suspended)
+                  |                                        | -> clone -> 13.0.1-xcode14.1-project2-v1 (with fastlane-v2.X) (suspended)
+                  |                                        | -> clone -> 13.0.1-xcode14.1-project2-v2 (with fastlane-v2.X) (suspended)
+                  |
+                  | -> clone -> 13.0.1-xcode13.4.1 (stopped) -> clone -> 13.0.1-xcode13.4.1-project3-v1 (suspended)
+```
+
 ---
 
 ## What's next?
