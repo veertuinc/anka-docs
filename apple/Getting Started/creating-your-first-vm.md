@@ -140,7 +140,7 @@ Then, you launch the Terminal application and execute `csrutil disable`. Once ex
 It's recommended that you disable Spotlight and CoreDuetD inside of the VM to eliminate services that are known to need high CPU:
 
 ```bash
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.coreduetd.plist
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.coreduetd.osx.plist
 sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Volumes"
 sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Network"
 sudo killall mds || true
