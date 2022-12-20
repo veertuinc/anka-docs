@@ -6,6 +6,15 @@ weight: 100
 
 ## Current Version
 
+### 1.30.1 (1.30.1-299dcb37) - Dec 20th, 2022
+
+- **Bug Fix:** Anka Cluster/Controller Agent did not support 3.2.0 on intel.
+- (Standalone Registry: 1.30.1-3cca9a3a)
+
+---
+
+## Previous Versions
+
 ### 1.30.0 (1.30.0-66973267) - Dec 1st, 2022
 
 {{< hint warning >}}
@@ -21,10 +30,6 @@ weight: 100
 - **Improvement:** Moved `processVMUpdate` logs to log level 1 so the Controller logs are less noisy.
 - **New Feature:** [Ability to set `--local` and `--no-local` when starting VMs through API.]({{< relref "Whats New/build-cloud-1.30.0/index.md#ability-to-set---local-and---no-local" >}})
 - (Standalone Registry: 1.30.0-f0b6506a)
-
----
-
-## Previous Versions
 
 ### 1.29.0 (1.29.0-49077f79) - Oct 3rd, 2022
 
