@@ -1,6 +1,6 @@
 ---
 date: 2022-12-01T01:00:00-00:00
-title: "Anka Build Cloud Controller & Registry Version 1.30.0"
+title: "Anka Build Cloud Controller & Registry Version 1.30.1"
 ---
 
 ### Ability to set `--local` and `--no-local`
