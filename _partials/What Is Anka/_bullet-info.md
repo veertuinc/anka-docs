@@ -1,8 +1,7 @@
 ---
 ---
 
-* Easy to install.
-* Personalized and quick to respond support.
+* Easy to install packages.
 * Built on the native Apple hypervisor, utilizing macOS resource scheduling, power management, and flexibility.
 * Optimized VM network and disk performance using para-virtual drivers.
 * VM management through the Anka Virtualization CLI, UI app, or web based Build Cloud Controller UI.
