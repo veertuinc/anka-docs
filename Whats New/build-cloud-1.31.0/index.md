@@ -9,4 +9,4 @@ Requested scopes for OIDC are being sent by the Client (UI), and right now simpl
 
 ### Ability to call group claims from userinfo endpoint with `ANKA_OIDC_USER_INFO` ENV
 
-Sometimes IDP tokens won’t return groups claims and will only be returned as part of `userinfo` endpoint. We now allow enabling `ANKA_OIDC_USER_INFO` which will get claims from `userinfo` instead of the token.
+Sometimes IDP tokens won’t return groups claims and will only be returned as part of `userinfo` endpoint. We now allow enabling `ANKA_OIDC_USER_INFO` which will get claims from `userinfo` instead of the token. We have also added `ANKA_OIDC_CACHE_TTL` which allows control for how long we cache the returned group list from the endpoint as calls to this endpoint can have a performance impact.
