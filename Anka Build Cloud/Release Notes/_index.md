@@ -6,14 +6,26 @@ weight: 100
 
 ## Current Version
 
+### 1.31.0 (1.31.0-93a0aa2c) - Dec 28th, 2022
+
+- **Bug Fix:** Streaming logs (from Controller's Logs page) created high CPU usage on registry.
+- **Bug Fix:** With OIDC enabled, lots of unnecessary logs.
+- **Bug Fix:** Show UAK String button replaced Copy Key String which didn't work on some browsers.
+- **Improvement:** Controller Agent performance improvement for Anka Nodes with lots of templates.
+- **New Feature:** [Support calling group claims from userinfo endpoint with `ANKA_OIDC_USER_INFO` ENV.]({{< relref "Whats New/build-cloud-1.31.0/index.mdability-to-call-group-claims-from-userinfo-endpoint-with-anka_oidc_user_info-env" >}}) We have also added `ANKA_OIDC_CACHE_TTL` which allows control for how long we cache the returned group list from the endpoint as calls to this endpoint can have a performance impact.
+- **New Feature:** [Ability to set custom scopes for OIDC with `ANKA_OIDC_SCOPES` ENV.]({{< relref "Whats New/build-cloud-1.31.0/index.md#ability-to-set-custom-scopes-with-anka_oidc_scopes-env" >}})
+- (Standalone Registry: 1.31.0-5c7ab105)
+
+---
+
+## Previous Versions
+
+
 ### 1.30.1 (1.30.1-299dcb37) - Dec 20th, 2022
 
 - **Bug Fix:** Anka Cluster/Controller Agent did not support 3.2.0 on intel.
 - (Standalone Registry: 1.30.1-3cca9a3a)
 
----
-
-## Previous Versions
 
 ### 1.30.0 (1.30.0-66973267) - Dec 1st, 2022
 

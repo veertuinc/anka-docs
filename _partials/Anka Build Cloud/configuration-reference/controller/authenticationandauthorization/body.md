@@ -16,18 +16,21 @@
 | ANKA_CLIENT_KEYPASS | (string) | (Certificate Authentication) Password for certificate and keystore (optional) |  |
 | ANKA_CLIENT_KEYSTORE | (string) | (Certificate Authentication) A client keystore file in pkcs12 format; The Controller will use this when making http requests (mainly to the Registry). |  |
 | ANKA_ENABLE_API_KEYS | (boolean) | Enable API Key Authentication. | false |
-| ANKA_ENABLE_AUTH | (boolean) | Enable Authentication (Root Token, Certificate, SSO/OpenID or API Keys) (Not to be confused with Authorization). | false |
+| ANKA_ENABLE_AUTH | (boolean) | Enable Authentication (Root Token, Certificate, SSO/OpenID Connect or API Keys) (Not to be confused with Authorization). | false |
 | ANKA_ENABLE_CONTROLLER_AUTHORIZATION | (boolean) | Enable Authorization (Users, groups, permission control for specific certificates) in the Controller. | false |
 | ANKA_ETCD_CA_CERT | (string) | (ETCD Certificate Authentication) The Etcd client will use this when connecting to the cluster. |  |
 | ANKA_ETCD_CERT | (string) | (ETCD Certificate Authentication) The ETCD client will use this when connecting to the cluster. |  |
 | ANKA_ETCD_CERT_KEY | (string) | (ETCD Certificate Authentication) The ETCD client will use this when connecting to the cluster. |  |
 | ANKA_ETCD_PASSWORD | (string) | (ETCD Certificate Authentication) ETCD Password to use for login. |  |
 | ANKA_ETCD_USERNAME | (string) | (ETCD Certificate Authentication) ETCD Username to use for login. |  |
-| ANKA_OIDC_CLIENT_ID | (string) | (OpenID/SSO) Client id |  |
-| ANKA_OIDC_DISPLAY_NAME | (string) | (OpenID/SSO) Name to display on login page |  |
-| ANKA_OIDC_GROUPS_CLAIM | (string) | (OpenID/SSO) Claim key to use for groups, defaults to groups | groups |
-| ANKA_OIDC_PROVIDER_URL | (string) | (OpenID/SSO) Provider url |  |
-| ANKA_OIDC_USERNAME_CLAIM | (string) | (OpenID/SSO) Claim key to use for user name, defaults to name |  |
+| ANKA_OIDC_CACHE_TTL | (duration) | (OpenID Connect/SSO) Cache entry TTL | 1h0m0s |
+| ANKA_OIDC_CLIENT_ID | (string) | (OpenID Connect/SSO) Client id |  |
+| ANKA_OIDC_DISPLAY_NAME | (string) | (OpenID Connect/SSO) Name to display on login page |  |
+| ANKA_OIDC_GROUPS_CLAIM | (string) | (OpenID Connect/SSO) Claim key to use for groups, defaults to groups | groups |
+| ANKA_OIDC_PROVIDER_URL | (string) | (OpenID Connect/SSO) Provider URL |  |
+| ANKA_OIDC_SCOPES | (string)  | (OpenID Connect/SSO) Comma separated list of scopes, overrides default scopes used |  |
+| ANKA_OIDC_USER_INFO | (boolean) | (OpenID Connect/SSO) Get claims from user info endpoint | false |
+| ANKA_OIDC_USERNAME_CLAIM | (string) | (OpenID Connect/SSO) Claim key to use for user name, defaults to name |  |
 | ANKA_ROOT_CERT | (string) | (Certificate Authentication) Alias of ca-cert |  |
 | ANKA_ROOT_TOKEN | (string) | Sets the basic auth token that will be used for accessing the Controller UI and API (username is 'root'). |  |
 | ANKA_SKIP_ETCD_TLS_VERIFICATION | (boolean) | (ETCD Certificate Authentication) Don't verify ETCD TLS certificates (for self signed certificates). | false |
