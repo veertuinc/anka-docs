@@ -1,4 +1,4 @@
-## Build Cloud Controller + Registry
+#### Controller + Registry
 
 This setup requires:
 

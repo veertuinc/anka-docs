@@ -1,7 +1,7 @@
 ---
 ---
 
-* Easy to install packages.
+* Easy to install.
 * Built on the native Apple hypervisor, utilizing macOS resource scheduling, power management, and flexibility.
 * Optimized VM network and disk performance using para-virtual drivers.
 * VM management through the Anka Virtualization CLI, UI app, or web based Build Cloud Controller UI.
@@ -12,11 +12,11 @@
 * Can be installed on any Apple supported macOS versions.
 * Anka VMs can install and run any modern and Apple supported macOS version.
 
-DevOps workflows typically include lots of automation. Because of this, Anka has multiple options for you to either integrate with existing workflows/tools or create them from scratch:
+DevOps teams can expect flexibility, allowing them to plug into existing infrastructure and automation -- whether it's AWS or on-premises! We also provide several [CI/CD plugins or integrations]({{< relref "Plugins and Integrations/_index.md" >}}) to choose from. Whether it's on-demand/ephemeral, long-running, and single-use macOS VMs for your developer, iOS, or native app building/testing/CI/CD, Anka will be a good fit.
+
+Anka also enables a docker-like experience for teams to create and store project specific VM templates and tags, including commands to interact with the VM like start, stop, clone, suspend, modify the VM configuration like cpu or ram, and execution of VM level shell commands.
 
 * Easily create VM Templates (a.k.a "images") for different versions of macOS with the Anka CLI.
-* Execute your project's dependency installation commands and scripts inside of VMs from the host terminal with [`anka run`](https://docs.veertu.com/anka/apple/command-line-reference/#run) and also directly in the VM with [`anka cp`](https://docs.veertu.com/anka/apple/command-line-reference/#cp) + [`anka run`](https://docs.veertu.com/anka/apple/command-line-reference/#run). Any manual steps you need to perform in the GUI can be done through VNC or automated with [anka click scripts](https://github.com/veertuinc/anka-click-scripts).
-* Write scripts for automated Template creation in your preferred language, or use our [packer builder](https://github.com/veertuinc/packer-builder-veertu-anka).
 * Store your VM Templates with a specific Tag in the Anka Cloud Registry so you can distribute or pull them to different machines and ensure the same VM state for every single CI/CD job. You can clone all VMs from a single base VM and they will re-use layers, optimizing disk space on both the Registry and Anka Nodes/hosts.
-* Manage your VM Instances from the Anka Build Cloud Controller's UI and/or REST API.
-* Get up and running starting jobs quickly with [one of our maintained CI plugins or integrations]({{< relref "Plugins and Integrations/_index.md" >}}).
+
+![Anka Registry pull and show VM]({{< siteurl >}}images/what-is-anka/registry-pull-and-show.png)
