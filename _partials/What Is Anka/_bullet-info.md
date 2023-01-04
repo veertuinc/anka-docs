@@ -12,11 +12,13 @@
 * Can be installed on any Apple supported macOS versions.
 * Anka VMs can install and run any modern and Apple supported macOS version.
 
-DevOps teams can expect flexibility, allowing them to plug into existing infrastructure and automation -- whether it's AWS or on-premises! We also provide several [CI/CD plugins or integrations]({{< relref "Plugins and Integrations/_index.md" >}}) to choose from. Whether it's on-demand/ephemeral, long-running, and single-use macOS VMs for your developer, iOS, or native app building/testing/CI/CD, Anka will be a good fit.
+DevOps teams implementing Anka can expect flexibility, allowing them to plug into existing infrastructure and automation -- whether it's cloud providers like AWS or on-premises! We have many examples of use cases and also provide packages like our [Build Cloud Controller & Registry Helm Chart] for Kubernetes users.
 
-Anka also enables a docker-like experience for teams to create and store project specific VM templates and tags, including commands to interact with the VM like start, stop, clone, suspend, modify the VM configuration like cpu or ram, and execution of VM level shell commands.
+We also provide several [CI/CD plugins or integrations]({{< relref "Plugins and Integrations/_index.md" >}}) to choose from. Whether it's on-demand/ephemeral, long-running, and single-use macOS VMs for your developer, iOS, or native app building/testing/CI/CD, Anka will be a good fit for you.
 
-* Easily create VM Templates (a.k.a "images") for different versions of macOS with the Anka CLI.
-* Store your VM Templates with a specific Tag in the Anka Cloud Registry so you can distribute or pull them to different machines and ensure the same VM state for every single CI/CD job. You can clone all VMs from a single base VM and they will re-use layers, optimizing disk space on both the Registry and Anka Nodes/hosts.
+Anka also enables a docker-like experience for teams to create and store project specific VM templates (a.k.a "images") and tags, including commands to interact with the VM like start, stop, clone, suspend, modify the VM configuration (like cpu or ram), and execution of VM level shell commands.
 
-![Anka Registry pull and show VM]({{< siteurl >}}images/what-is-anka/registry-pull-and-show.png)
+* Easily create Anka VM Templates for different versions of macOS, Xcode, etc.
+* Store your VM Templates with a specific Tag in the Anka Build Cloud Registry so you can distribute or pull them to different machines and ensure the same VM state for every single CI/CD job that runs a VM. You can clone all VMs from a single base VM and they will re-use layers, optimizing disk space on both the Registry and Anka Nodes/hosts.
+
+![Anka Registry pull and show VM]({{< siteurl >}}images/what-is-anka/registry-list-pull-show.png)
