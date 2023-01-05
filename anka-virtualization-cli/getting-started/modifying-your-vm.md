@@ -8,8 +8,8 @@ description: >
 
 ## Prerequisites
 
-1. [You've installed the Anka Virtualization package]({{< relref "anka-virtualization-cli/getting-started/installing-the-anka-virtualization-package.md" >}})
-2. [You've created your first VM]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})
+1. [You've installed the Anka Virtualization package.]({{< relref "anka-virtualization-cli/getting-started/installing-the-anka-virtualization-package.md" >}})
+2. [You've created your first VM.]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})
 
 ---
 
@@ -17,24 +17,48 @@ description: >
 The rest of this Getting Started guide focuses heavily on the (Command-Line Interface). These will be performed from within your [macOS Terminal](https://support.apple.com/guide/terminal/welcome/mac). For all available CLI commands, flags, and options, see the [Command Reference]({{< relref "anka-virtualization-cli/command-line-reference.md" >}}).
 {{< /hint >}}
 
-{{< include file="_partials/anka-virtualization-cli/modify/_index.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/_index.md" >}}
 
 ## Recommended VM Resources
 
-### Mac mini (M1, 2020, 8-core/4-performance + 4-efficiency, 8 or 16GB RAM)
+Over time, this information may become out of date. The goal is to provide you with an idea of the CPU and RAM to set for VMs depending on the amount you wish to run. Note that Apple does not permit more than 2 VMs per machine (this is only a strict limitation on ARM machines currently).
 
-- 1VM (recommended) - CPUs: 6-cores & RAM: ( totalRAMGB - 2GB )
-- 2VMs  (not recommended) - CPUs: 4-cores & RAM: ( (totalRAMGB / 2) - 2GB )
+### Intel
 
-### Mac Studio (M1 Max, 2022, 10-core/8-performance + 2-efficiency, 32 or 64GB RAM)
+To calculate the cores available for VMs, you'll take the number of physical cores and then multiply it by 2. Once you have the total virtual cores, you can assign all of them (maybe - 1 or 2 CPUs to give the host breathing room) if you plan to run a single VM on the host. Otherwise, if you want to run two VMs at once, you'll divide the total virtual cores by 2 and then assign this number to the [VM Template]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md#vm-templates" >}}). RAM follows a similar pattern, giving 2GB for the host: `totalRAMGB - 2GB` and `(totalRAMGB / 2) - 2GB`.
 
-- 1VM  - CPUs: 8-cores & RAM: ( totalRAMGB - 2GB ) with a max of 60GBs
-- 2VMs  - CPUs: 6,8-cores & RAM: ( (totalRAMGB / 2) - 2GB ) with a max of 60GBs
+### ARM
 
-### Mac Studio (M1 Ultra, 2022, 20-core/16-performance + 4-efficiency, 64 or 128GB RAM)
+Things are similar with slightly different CPUs calculations due to the different CPU types:
 
-- 1VM  - CPUs: 8-cores & RAM: ( totalRAMGB - 2GB ) with a max of 60GBs
-- 2VMs  - CPUs: 8-cores & RAM: ( (totalRAMGB / 2) - 2GB ) with a max of 60GBs
+{{< rawhtml >}}
+<div style="display:flex;">
+<table>
+<tbody>
+  <tr style="text-align:center">
+    <td style="font-size: 1.3rem; background-color: #f2e6ff;"><b>Apple/ARM</b></td>
+    <td style="background-color: #f2e6ff;"><b>1VM</b></td>
+    <td style="background-color: #f2e6ff;"><b>2VMs</b></td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>Mac Mini, M1, 2020</b><br />8-core (4-performance + 4-efficiency)<br />8 or 16GB RAM</td>
+    <td><b>CPUs:</b> 6-cores<br /><b>RAM:</b> totalRAMGB - 2GB</td>
+    <td><b>CPUs:</b> 4-cores<br /><b>RAM:</b> (totalRAMGB / 2) - 2GB</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>Mac Studio, M1 Max, 2022</b><br />10-core (8-performance + 2-efficiency)<br />32 or 64GB RAM</td>
+    <td><b>CPUs:</b> 8-cores<br /><b>RAM:</b> totalRAMGB - 2GB (max of 60GB)</td>
+    <td><b>CPUs:</b> 6 or 8-cores<br /><b>RAM:</b> (totalRAMGB / 2) - 2GB (max of 60GB)</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>Mac Studio, M1 Ultra, 2022</b><br />20-core (16-performance + 4-efficiency)<br />64 or 128GB RAM</td>
+    <td><b>CPUs:</b> 8-cores<br /><b>RAM:</b> totalRAMGB - 2GB (max of 60GB)</td>
+    <td><b>CPUs:</b> 6 or 8-cores<br /><b>RAM:</b> (totalRAMGB / 2) - 2GB (max of 60GB)</td>
+  </tr>
+</tbody>
+</table>
+</div>
+{{< /rawhtml >}}
 
 {{< hint info >}}
 Due to Ultra using the NUMA architecture, VMs/virtualization will only ever use 8 performance cores at a time.
@@ -46,36 +70,53 @@ Due to Ultra using the NUMA architecture, VMs/virtualization will only ever use 
 
 #### CPU
 
-{{< include file="_partials/anka-virtualization-cli/modify/cpu/_index.md" >}}
-{{< include file="_partials/anka-virtualization-cli/modify/cpu/_example.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/cpu/_index.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/cpu/_example.md" >}}
 
 #### RAM
 
-{{< include file="_partials/anka-virtualization-cli/modify/ram/_index.md" >}}
-{{< include file="_partials/anka-virtualization-cli/modify/ram/_example.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/ram/_index.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/ram/_example.md" >}}
 
 #### DISK
 
-{{< include file="_partials/anka-virtualization-cli/modify/disk/_index.md" >}}
-{{< include file="_partials/anka-virtualization-cli/modify/disk/_extra.md" >}}
-{{< include file="_partials/anka-virtualization-cli/modify/disk/_example.md" >}}
-
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/disk/_index.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/disk/_extra.md" >}}
 
 ### Port forwarding from guest to host
 
-{{< include file="_partials/anka-virtualization-cli/modify/port/_index.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/port/_index.md" >}}
 
-{{< include file="_partials/anka-virtualization-cli/modify/port/_example.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/port/_example.md" >}}
 
 ### Changing your VM's network configuration
 
 Depending on your network topology, there are instances where you might need to use a bridge mode and assign your VM a unique IP address instead of the default shared IP of the host:
 
-{{< include file="_partials/anka-virtualization-cli/modify/network/_index.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/network/_index.md" >}}
 
-{{< include file="_partials/anka-virtualization-cli/modify/network/_extra.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/network/_extra.md" >}}
 
-{{< include file="_partials/anka-virtualization-cli/modify/network/_example.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/network/_example.md" >}}
+
+### Modify the hardware UUID and Serial with `custom-variable` (intel only)
+
+At times you might need to modify the hardware serial or UUID to run proper builds/tests that require specific hardware to function properly:
+
+```shell
+> sudo anka modify 12.3.1 set custom-variable --help
+Usage: anka modify set custom-variable [OPTIONS] KEY VALUE
+
+  Set custom nvram & smb variables (Example: . . . set custom-variable hw.serial "<SERIAL>"
+
+Options:
+  --help  Display usage information
+```
+
+```shell
+sudo anka modify {vmNameOrUUID} set custom-variable hw.uuid "GUID"
+sudo anka modify {vmNameOrUUID} set custom-variable hw.serial 'MySerial'
+```
 
 ---
 

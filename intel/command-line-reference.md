@@ -129,7 +129,7 @@ description: >
 ### registry set
 {{< include file="_partials/intel/anka-virtualization-cli/registry/set/_index.md" >}}
 ## Run
-{{< include file="_partials/intel/anka-virtualization-cli/run/_index.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/command-line-reference/run/_index.md" >}}
 {{< include file="_partials/intel/anka-virtualization-cli/run/_extra.md" >}}
 ## Show
 {{< include file="_partials/intel/anka-virtualization-cli/show/_index.md" >}}

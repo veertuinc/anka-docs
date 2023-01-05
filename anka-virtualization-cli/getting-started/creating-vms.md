@@ -219,6 +219,23 @@ sudo rm -rf /.Spotlight-V100/*
 
 {{< include file="_partials/anka-virtualization-cli/list/_example.md" >}}
 
+
+## Stop or Suspend the VM
+
+{{< hint warning >}}
+Suspending VMs is only possible on intel currently.
+{{< /hint >}}
+
+{{< hint info >}}
+This is not necessary for `anka modify` commands.
+{{< /hint >}}
+
+Once you've finalized your changes inside of the VM, be sure to use `anka stop` or `anka suspend`.
+
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/stop/_index.md" >}}
+
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/suspend/_index.md" >}}
+
 ## Deleting a VM
 
 ### Anka CLI

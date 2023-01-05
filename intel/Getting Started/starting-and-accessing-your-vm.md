@@ -58,7 +58,7 @@ To start the VM in headless mode: `sudo anka start {vmNameOrUUID}`
 
 Similar to `docker exec`, [`anka run`]({{< relref "intel/command-line-reference.md#run" >}}) allows execution of commands inside of a VM.
 
-{{< include file="_partials/intel/anka-virtualization-cli/run/_index.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/command-line-reference/run/_index.md" >}}
 
 > If the VM is in a _suspended_ or _stopped_ state, [`anka run`]({{< relref "intel/command-line-reference.md#run" >}}) will start it.
 
