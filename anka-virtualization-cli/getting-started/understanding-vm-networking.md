@@ -99,4 +99,5 @@ When using bridged networking mode for your VM, dynamic MAC Addresses are not gu
 
 ## What's next?
 
+- [Activating your Anka License]({{< relref "anka-virtualization-cli/getting-started/activating-your-anka-license.md" >}})
 - [Anka Command-Line Reference]({{< relref "anka-virtualization-cli/command-line-reference.md" >}})

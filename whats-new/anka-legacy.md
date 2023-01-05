@@ -1,14 +1,13 @@
 ---
-date: 2020-01-27
-title: "What's New (deprecated)"
-linkTitle: "What's New"
+date: 2019-01-27
+title: "Intel What's New (deprecated)"
 weight: 98
 description: >
   Description of new Anka software features
 ---
 
 {{< hint warning >}}
-### This page has been deprecated. Please view [the new What's New page for newer releases.]({{< relref "Whats New" >}})
+### This page has been deprecated. Please view [the new What's New page for newer releases.]({{< relref "whats-new" >}})
 {{< /hint >}}
 
 ## What's New in Anka Build Cloud Controller & Registry Version 1.18.0
@@ -161,7 +160,7 @@ Options:
 
 VMs can now be isolated from access to other VMs or even then host itself using `sudo anka modify 11.2.3 set network-card --no-local`.
 
-{{< include file="_partials/intel/anka-virtualization-cli/modify/set/network-card/_index.md" >}}
+{{< include file="_partials/intel/Anka Virtualization/modify/set/network-card/_index.md" >}}
 ### Registry pushing and pulling of VM Templates/Tags are now chunked for better performance
 
 Pushing and pulling templates/tags that are large can be impacted by network interrupts or limits. We've added the ability for you to set the chunk size using `anka config chunk_size {bytes}` on your nodes to solve this.
@@ -478,8 +477,8 @@ Due to security changes in Big Sur, we've had to rewrite all of our addons to be
 
 As an alternative, we now have `anka cp` which allows transferring files into the VM. The transfer speeds have shown to be much faster than SCP.
 
-{{< include file="_partials/intel/anka-virtualization-cli/cp/_index.md" >}}
-{{< include file="_partials/intel/anka-virtualization-cli/cp/_example.md" >}}
+{{< include file="_partials/intel/Anka Virtualization/cp/_index.md" >}}
+{{< include file="_partials/intel/Anka Virtualization/cp/_example.md" >}}
 
 > Be sure to update addons with `anka start -u 10.15.7` to use `anka cp` with Catalina (or older) VMs
 
@@ -754,5 +753,4 @@ Options:
 ***Note*** Also available through /Library/Application\ Support/Veertu/Anka/addons/click 100,200
 
   
-
 

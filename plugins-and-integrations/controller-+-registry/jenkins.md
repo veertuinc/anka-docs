@@ -15,7 +15,7 @@ The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud w
 - Supports automated VM Tag creation after your jobs run. This "Anka VM Template/Tag Creation" feature helps optimize subsequent builds as the dependencies are already on the VM.
 - Supports both **JNLP** and **SSH** based connections to Anka VMs.
   
-> In order to follow these instructions, you will need to [install the Anka CLI]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}}) and an understanding of how to [start the VM]({{< relref "intel/command-line-reference.md#start" >}}) and [launch the viewer]({{< relref "intel/command-line-reference.md#view" >}}).
+> In order to follow these instructions, you will need to [install the Anka CLI]({{< relref "anka-virtualization-cli/getting-started/installing-the-anka-virtualization-package.md" >}}) and an understanding of how to [start the VM]({{< relref "anka-virtualization-cli/command-line-reference.md#start" >}}) and [launch the viewer]({{< relref "anka-virtualization-cli/command-line-reference.md#view" >}}).
 
 ## Anka VM Template & Tag Preparation
 
@@ -42,7 +42,7 @@ The JDK/JAVA version inside of the VM **must match the version inside of Jenkins
 #### SSH Launch Method
 
   2. In the VM, make sure remote login is enabled (`System Preferences > Sharing`).
-  3. On the host, enable SSH [port forwarding]({{< relref "intel/command-line-reference.md#modify-vmnameoruuid-add-port-forwarding" >}}) for your VM Template using the Anka CLI: `sudo anka modify <VM Template name> add port-forwarding --guest-port 22 ssh`. _We recommend not specifying --host-port._
+  3. On the host, enable SSH [port forwarding]({{< relref "anka-virtualization-cli/command-line-reference.md#modify-vmnameoruuid-add-port-forwarding" >}}) for your VM Template using the Anka CLI: `sudo anka modify <VM Template name> add port-forwarding --guest-port 22 ssh`. _We recommend not specifying --host-port._
 
 #### JNLP Launch Method
 
@@ -363,7 +363,7 @@ For either 2.7.0 or 2.6.1, please check over your Anka Build Plugin configuratio
 ---
 
 ### 2.4.0 - Feb 18th, 2021
-- New Feature: [You can now set the Launch timeout values to handle network/resource conditions that delay VMs initializing their networking]({{< relref "intel/Whats New/_index.md#set-various-vm-launch-timeout-values" >}})
+- New Feature: [You can now set the Launch timeout values to handle network/resource conditions that delay VMs initializing their networking]({{< relref "whats-new/anka-legacy.md#set-various-vm-launch-timeout-values" >}})
 
 ---
 

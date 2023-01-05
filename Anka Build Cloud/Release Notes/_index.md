@@ -12,8 +12,8 @@ weight: 100
 - **Bug Fix:** With OIDC enabled, lots of unnecessary logs.
 - **Bug Fix:** Show UAK String button replaced Copy Key String which didn't work on some browsers.
 - **Improvement:** Controller Agent performance improvement for Anka Nodes with lots of templates.
-- **New Feature:** [Support calling group claims from userinfo endpoint with `ANKA_OIDC_USER_INFO` ENV.]({{< relref "Whats New/build-cloud-1.31.0/index.md#ability-to-call-group-claims-from-userinfo-endpoint-with-anka_oidc_user_info-env" >}}) We have also added `ANKA_OIDC_CACHE_TTL` which allows control for how long we cache the returned group list from the endpoint as calls to this endpoint can have a performance impact.
-- **New Feature:** [Ability to set custom scopes for OIDC with `ANKA_OIDC_SCOPES` ENV.]({{< relref "Whats New/build-cloud-1.31.0/index.md#ability-to-set-custom-scopes-with-anka_oidc_scopes-env" >}})
+- **New Feature:** [Support calling group claims from userinfo endpoint with `ANKA_OIDC_USER_INFO` ENV.]({{< relref "whats-new/build-cloud-1.31.0/index.md#ability-to-call-group-claims-from-userinfo-endpoint-with-anka_oidc_user_info-env" >}}) We have also added `ANKA_OIDC_CACHE_TTL` which allows control for how long we cache the returned group list from the endpoint as calls to this endpoint can have a performance impact.
+- **New Feature:** [Ability to set custom scopes for OIDC with `ANKA_OIDC_SCOPES` ENV.]({{< relref "whats-new/build-cloud-1.31.0/index.md#ability-to-set-custom-scopes-with-anka_oidc_scopes-env" >}})
 - (Standalone Registry: 1.31.0-5c7ab105)
 
 ---
@@ -40,7 +40,7 @@ weight: 100
 - **Bug Fix:** Anka cloud agent was terminating pulls while Anka 3 Arm conversion was happening, post pull, and it was reaching a timeout.
 - **Improvement:** Simplified `csr_active_config` by removing `forceOff`.
 - **Improvement:** Moved `processVMUpdate` logs to log level 1 so the Controller logs are less noisy.
-- **New Feature:** [Ability to set `--local` and `--no-local` when starting VMs through API.]({{< relref "Whats New/build-cloud-1.30.0/index.md#ability-to-set---local-and---no-local" >}})
+- **New Feature:** [Ability to set `--local` and `--no-local` when starting VMs through API.]({{< relref "whats-new/build-cloud-1.30.0/index.md#ability-to-set---local-and---no-local" >}})
 - (Standalone Registry: 1.30.0-f0b6506a)
 
 ### 1.29.0 (1.29.0-49077f79) - Oct 3rd, 2022
@@ -52,7 +52,7 @@ weight: 100
 - **Bug Fix:** Mac package anka-controllerd improperly uses `ANKA_LISTEN_ADDRESS` instead of `ANKA_LISTEN_ADDR` ENV.
 - **Bug Fix:** Agent tries to install PKG even if download from controller fails.
 - **Bug Fix:** Bad string for custom hardware variable (HVAPIC) when using VM start API endpoint.
-- **New Feature:** [Management UI for UAKs]({{< relref "Whats New/build-cloud-1.29.0/index.md" >}})
+- **New Feature:** [Management UI for UAKs]({{< relref "whats-new/build-cloud-1.29.0/index.md" >}})
 - (Standalone Registry: 1.29.0-8daa18e1)
 
 ### 1.28.0 (1.28.0-347c73ea) - Sep 6th, 2022
@@ -109,7 +109,7 @@ This release has a significant change you should be aware of to prevent problems
 
 ### 1.24.0 (1.24.0-28ac9d95) - May 17th, 2022
 
-- **New Feature:** [Start VM Instance API `startup_script` monitoring]({{< relref "Whats New/build-cloud-1.24.0/index.md#start-vm-instance-api-startup_script-monitoring" >}})
+- **New Feature:** [Start VM Instance API `startup_script` monitoring]({{< relref "whats-new/build-cloud-1.24.0/index.md#start-vm-instance-api-startup_script-monitoring" >}})
 - **Bug Fix:** Hanging pulling process is not being terminated by agent.
 - **Bug Fix:** If a previous upgrade has been refused (for appropriate reasons, like requested version and current version are identical), further upgrade requests will fail silently until agent is rebooted.
 - **Bug Fix:** Termination tasks duplicates would end up being queued and use more resources than necessary.
@@ -128,14 +128,14 @@ This release has a significant change you should be aware of to prevent problems
 - **Bug Fix:** Controller UI was reporting inaccurate sizes for disk usage.
 - **Improvement:** Older CMD logs are now rotated and cleaned up once the aggregate size of logs reaches 700MB (unless otherwise specified).
 - **Improvement:** Anka 3 (apple processor) Nodes are forced to a capacity of 2 (Apple's limitation) to prevent confusion.
-- **New Feature:** [Request a VM with a specific VLAN & View available VLANs attached to a specific Host/Anka Node]({{< relref "Whats New/build-cloud-1.23.0/index.md" >}}) (REST API ONLY)
+- **New Feature:** [Request a VM with a specific VLAN & View available VLANs attached to a specific Host/Anka Node]({{< relref "whats-new/build-cloud-1.23.0/index.md" >}}) (REST API ONLY)
 - (Standalone Registry: 1.23.0-f21df6a2)
 
 
 ### 1.22.0 (1.22.0-5dc750f1) - Jan 10th, 2022
 
 - **Bug Fix:** Available Node and Template information will now show properly for failed instances.
-- **New Feature:** [VM Templates, Instances, and Nodes will all show the architecture (intel or arm) they support.]({{< relref "Whats New/build-cloud-1.22.0/index.md" >}})
+- **New Feature:** [VM Templates, Instances, and Nodes will all show the architecture (intel or arm) they support.]({{< relref "whats-new/build-cloud-1.22.0/index.md" >}})
 - (Standalone Registry: 1.22.0-5e54d0d6)
 
 ---
@@ -192,8 +192,8 @@ Please note that there is a temporary workaround required for a bug that started
 ### 1.20.0 (1.20.0-035872f5) - Nov 10th, 2021
 
 - Bug Fix: Moving networks/IPs now updates the Node IP in the Controller UI/database.
-- New Feature: [Delete VM Templates from Nodes through the Controller API.]({{< relref "Whats New/build-cloud-1.20.0/index.md#delete-vm-templates-on-node-from-controller-api" >}})
-- New Feature: [Ability to see what VM Templates are on a node from the Controller API.]({{< relref "Whats New/build-cloud-1.20.0/index.md#view-availablepulled-vm-templates-on-a-node-from-controller-api" >}})
+- New Feature: [Delete VM Templates from Nodes through the Controller API.]({{< relref "whats-new/build-cloud-1.20.0/index.md#delete-vm-templates-on-node-from-controller-api" >}})
+- New Feature: [Ability to see what VM Templates are on a node from the Controller API.]({{< relref "whats-new/build-cloud-1.20.0/index.md#view-availablepulled-vm-templates-on-a-node-from-controller-api" >}})
 - Improvement: The `ankacluster` and Anka Agent now support M1/ARM.
 - Improvement: Upgraded etcd to 3.5.1.
 - Improvement: Various security patches & upgrades for golang.
@@ -230,7 +230,7 @@ Please note that there is a temporary workaround required for a bug that started
 ### 1.18.0 (1.18.0-b3bb21bf) - Aug 23rd, 2021
 - Bug Fix: Reserved tasks do not get released back to queue
 - Bug Fix: Prevent controller crashing due to ETCD related panics and when active ETCD endpoint cannot be reached
-- New Feature: Ability to use certs and username/password for controller -> etcd connections | [Documentation]({{< relref "intel/Whats New/_index.md#ability-to-use-certs-and-usernamepassword-for-etcd-connections" >}})
+- New Feature: Ability to use certs and username/password for controller -> etcd connections | [Documentation]({{< relref "whats-new/anka-legacy.md#ability-to-use-certs-and-usernamepassword-for-etcd-connections" >}})
 - Improvement: Upgrading etcd binaries to 3.4.16
 - (Standalone Registry: 1.18.0-04fd94e)
 
@@ -262,8 +262,8 @@ Please note that there is a temporary workaround required for a bug that started
 ---
 
 ### 1.14.0 (1.14.0-17620328) - Feb 18th, 2021
-- New Feature: [A button will now show in the Controller UI allowing you to delete an Offline node (instead of having to issue an API call)]({{< relref "intel/Whats New/_index.md#delete-button-will-show-for-offline-nodes" >}})
-- New Feature: [You can now set a specific range of MAC addresses that are assigned to VM instances]({{< relref "intel/Whats New/_index.md#customize-the-range-of-mac-addresses-the-controller-uses-for-creating-vms" >}})
+- New Feature: [A button will now show in the Controller UI allowing you to delete an Offline node (instead of having to issue an API call)]({{< relref "whats-new/anka-legacy.md#delete-button-will-show-for-offline-nodes" >}})
+- New Feature: [You can now set a specific range of MAC addresses that are assigned to VM instances]({{< relref "whats-new/anka-legacy.md#customize-the-range-of-mac-addresses-the-controller-uses-for-creating-vms" >}})
 - Improvement: The registry now supports ANKA_ environment variables, similar to the controller
 - (Standalone Registry: 1.14.0-1e39461)
 
@@ -298,7 +298,7 @@ Please note that there is a temporary workaround required for a bug that started
 ---
 
 ### 1.10.1 - August 20, 2020
-- New Feature: [Unresponsive VM monitoring with `ankacluster join --enable-vm-monitor`]({{< relref "intel/Whats New/_index.md#unresponsive-vm-monitor" >}})
+- New Feature: [Unresponsive VM monitoring with `ankacluster join --enable-vm-monitor`]({{< relref "whats-new/anka-legacy.md#unresponsive-vm-monitor" >}})
 
 ---
 
@@ -323,7 +323,7 @@ Please note that there is a temporary workaround required for a bug that started
 ### 1.8.0 - June 16, 2020
 - New Feature: Controller REST API now supports modifying the vCPU and RAM for VMs in a stopped state
 - New Feature: Controller REST API Start VM Instance object allows for custom key/value metadata
-- New Feature: [Controller Instances page now allows users to add custom columns (from metadata key/value)]({{< relref "intel/Whats New/_index.md" >}})
+- New Feature: [Controller Instances page now allows users to add custom columns (from metadata key/value)]({{< relref "whats-new/anka-legacy.md" >}})
 - New Feature: Updated license terms
 - Bug Fix: Agent process stays alive despite disjoin
 - Bug Fix: Instance sorting in controller UI was not kept on update

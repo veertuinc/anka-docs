@@ -21,7 +21,7 @@ This is a repository for your Anka [VM Templates and Tags]({{< relref "anka-virt
 
 ### Anka Virtualization Nodes
 
-These Nodes have our [Virtualization software]({{< relref "intel/_index.md" >}}) installed to run the VMs that you launch from the Controller (or through your CI/CD software). Once joined to the Controller, it will start an agent on the node to communicate and pull tasks from the controller queue.
+These Nodes have our [Virtualization software]({{< relref "anka-virtualization-cli/_index.md" >}}) installed to run the VMs that you launch from the Controller (or through your CI/CD software). Once joined to the Controller, it will start an agent on the node to communicate and pull tasks from the controller queue.
 
 ---
 

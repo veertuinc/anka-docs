@@ -130,21 +130,21 @@ Perform the following steps on the host machine/node where you created your firs
 
 #### Add the Registry
 
-{{< include file="_partials/intel/Getting Started/_add-the-registry.md" >}}
+{{< include file="_partials/anka-virtualization-cli/getting-started/_add-the-registry.md" >}}
 
 #### Push the VM to the Registry
 
-{{< include file="_partials/intel/Getting Started/_push-vm-to-registry.md" >}}
+{{< include file="_partials/anka-virtualization-cli/getting-started/_push-vm-to-registry.md" >}}
 
 #### Join to the Controller & Registry
 
 In order for the host/node to perform controller tasks (pull, start, delete, etc), it must be joined to the Anka Build Cloud. You can do this by executing:
 
-{{< include file="_partials/intel/Getting Started/_join-to-cluster.md" >}}
+{{< include file="_partials/anka-virtualization-cli/getting-started/_join-to-cluster.md" >}}
 
 ### Step 4: Start a VM instance using the Controller UI
 
-{{< include file="_partials/intel/Getting Started/_start-vm-instance-using-controller-ui.md" >}}
+{{< include file="_partials/anka-virtualization-cli/getting-started/_start-vm-instance-using-controller-ui.md" >}}
 
 ### Step 5: Orientate to your new environment
 
@@ -271,7 +271,7 @@ Two methods are available:
   curl http://<ip>/api/v1/status
   ```
 
-{{< include file="_partials/intel/Getting Started/_controller-listening-on-80-and-orientation.md" >}}
+{{< include file="_partials/anka-virtualization-cli/getting-started/_controller-listening-on-80-and-orientation.md" >}}
 
 ##### Configuration and scripts ([reference]({{< relref "Anka Build Cloud/configuration-reference.md" >}}))
 
@@ -313,19 +313,19 @@ Great! Now that we have our Anka Controller & Registry up and running, let's add
 
 #### Add the Registry
 
-{{< include file="_partials/intel/Getting Started/_add-the-registry.md" >}}
+{{< include file="_partials/anka-virtualization-cli/getting-started/_add-the-registry.md" >}}
 
 #### Push the VM to the Registry
 
-{{< include file="_partials/intel/Getting Started/_push-vm-to-registry.md" >}}
+{{< include file="_partials/anka-virtualization-cli/getting-started/_push-vm-to-registry.md" >}}
 
 #### Join to the Controller & Registry
 
-{{< include file="_partials/intel/Getting Started/_join-to-cluster.md" >}}
+{{< include file="_partials/anka-virtualization-cli/getting-started/_join-to-cluster.md" >}}
 
 ### Step 4: Start a VM instance using the Controller UI
 
-{{< include file="_partials/intel/Getting Started/_start-vm-instance-using-controller-ui.md" >}}
+{{< include file="_partials/anka-virtualization-cli/getting-started/_start-vm-instance-using-controller-ui.md" >}}
 
 ### Step 5: Orientate to your new environment
 

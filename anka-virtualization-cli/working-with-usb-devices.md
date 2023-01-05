@@ -1,7 +1,6 @@
 ---
 date: 2019-12-12T00:00:00-00:00
-title: "Working with USB Devices"
-linkTitle: "Working with USB Devices"
+title: "Working with USB Devices (intel only)"
 weight: 7
 description: >
   Using the Anka CLI and API to setup and manage USB devices.
@@ -61,7 +60,7 @@ sh-3.2# anka usb list
     +--------+------------------------------------------+------------+--------------+
     ```
 
-> Alternatively, the [`anka attach`]({{< relref "intel/command-line-reference.md#attach" >}}) command is available if the VM is already running.
+> Alternatively, the [`anka attach`]({{< relref "anka-virtualization-cli/command-line-reference.md#attach" >}}) command is available if the VM is already running.
 
 5. Confirm that the device is available within the VM:
 {{< highlight shell "hl_lines=16" >}}

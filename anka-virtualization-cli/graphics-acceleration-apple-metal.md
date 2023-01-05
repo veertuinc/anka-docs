@@ -1,8 +1,7 @@
 ---
 date: 2019-12-12T00:00:00-00:00
-title: "Enabling Graphics Acceleration with Apple Metal"
-linkTitle: "Enabling Graphics Acceleration with Apple Metal"
-weight: 6
+title: "Graphics Acceleration / Apple Metal (intel only)"
+weight: 8
 description: >
   Using Apple's Metal/GPUs inside of your Anka VMs
 ---

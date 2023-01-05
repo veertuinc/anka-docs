@@ -20,5 +20,5 @@ sudo anka license accept-eula
 
 ## What's next?
 
-- [Anka CLI Command Reference]({{< relref "intel/command-line-reference.md" >}})
+- [Anka CLI Command Reference]({{< relref "anka-virtualization-cli/command-line-reference.md" >}})
 - [Troubleshooting]({{< relref "anka-virtualization-cli/troubleshooting/_index.md" >}})
