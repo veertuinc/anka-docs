@@ -26,17 +26,17 @@ Starting in Anka 3.1, we're the first to solve this problem by automating the ma
 
 ## Shortened `anka-modify` and `port-forwarding` command
 
-{{< include file="_partials/apple/Anka Virtualization/modify/port/_example.md" >}}
+{{< include file="_partials/anka-virtualization-cli/modify/port/_example.md" >}}
 
 ## Support for the Anka Build Cloud's UAKs when interacting with the registry commands
 
 [Read more about the Anka Build Cloud Advanced Security Token Feature here.]({{< relref "Anka Build Cloud/Advanced Security Features/token-authentication.md" >}})
 
-{{< include file="_partials/apple/Anka Virtualization/registry/_index.md" >}}
+{{< include file="_partials/anka-virtualization-cli/registry/_index.md" >}}
 
 ## Ability to resize the VM's disk
 
-{{< include file="_partials/apple/Anka Virtualization/modify/disk/_example.md" >}}
+{{< include file="_partials/anka-virtualization-cli/modify/disk/_example.md" >}}
 
 ## Targeting of specific macOS versions with `anka create -a`
 

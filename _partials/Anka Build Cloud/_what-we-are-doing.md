@@ -10,7 +10,7 @@
 
 ### Step 1: Get familiar with Anka Virtualization
 
-[Please go over our Getting Started guide before proceeding.]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
+[Please go over our Getting Started guide before proceeding.]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})
 
 ### Step 2: Install the Anka Build Cloud Controller & Registry
 

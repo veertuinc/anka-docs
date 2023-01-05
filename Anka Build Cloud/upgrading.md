@@ -17,7 +17,7 @@ Before upgrading, check if your current version is noted in the [Pre-Upgrade Con
 {{< /hint >}}
 
 {{< hint info >}}
-The Controller and Anka Nodes communicate through an agent running separate from from the Anka Virtualization/CLI tool, but on the same machine. When you upgrade the Controller, the node agent notices that the agent and controller versions differ and will create a task for each Node. This task will trigger the agent to perform a self-update and restart. While most situations this is seamless, we recommend checking the agent version post-upgrade on each Node with `ankacluster --version` to ensure it was upgraded properly. Nodes must be joined to the controller to receive the task to upgrade.
+The Controller and Anka Nodes communicate through an agent running separate from from the anka-virtualization-cli/CLI tool, but on the same machine. When you upgrade the Controller, the node agent notices that the agent and controller versions differ and will create a task for each Node. This task will trigger the agent to perform a self-update and restart. While most situations this is seamless, we recommend checking the agent version post-upgrade on each Node with `ankacluster --version` to ensure it was upgraded properly. Nodes must be joined to the controller to receive the task to upgrade.
 
 If necessary, you can [force the proper agent version task creation through the Controller API.]({{< relref "Anka Build Cloud/working-with-controller-and-API.md#force-node-agent-update" >}}). Alternatively you can also disjoin the Nodes first, do the upgrade of the Controller, and then manually execute `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` (`AnkaAgentArm.pkg` if using Anka 3.0) on each node individually.
 {{< /hint >}}
@@ -27,7 +27,7 @@ It is generally safe to upgrade the controller while VMs are running and nodes a
 {{< /hint >}}
 
 {{< hint info >}}
-We recommend [snapshotting your etcd database]({{< relref "Anka Build Cloud/Getting Started/setup-controller-and-registry.md#etcd-snapshotting" >}}) regularly, but especially before an upgrade.
+We recommend [snapshotting your etcd database]({{< relref "Anka Build Cloud/getting-started/setup-controller-and-registry.md#etcd-snapshotting" >}}) regularly, but especially before an upgrade.
 {{< /hint >}}
 
 {{< hint warning >}}
@@ -52,7 +52,7 @@ If you are upgrading the host/node macOS version, please disjoin and join the no
 #### Docker
 
   1. Make a backup of your `docker-compose.yml`.
-  2. [Download and extract the latest package]({{< relref "Anka Build Cloud/Getting Started/setup-controller-and-registry.md#step-2-install-the-anka-build-cloud-controller--registry" >}}).
+  2. [Download and extract the latest package]({{< relref "Anka Build Cloud/getting-started/setup-controller-and-registry.md#step-2-install-the-anka-build-cloud-controller--registry" >}}).
   3. Configure the values in the `docker-compose.yml` or copy your previous `docker-compose.yml` to the new directory and also any .env files you have under the various service directories.
   4. Run `docker-compose build` in the new package directory to prepare the new docker tag.
   5. Run `docker-compose down` in the previous package directory to take down the older version.
@@ -69,5 +69,5 @@ Post-upgrade of the controller you will need to wait for Anka Nodes to finish up
 #### Native macOS package
 
   1. Make a backup of your `/usr/local/bin/anka-controllerd`.
-  2. Install the new .pkg (see the [MacOS Guide]({{< relref "Anka Build Cloud/Getting Started/setup-controller-and-registry.md#macos" >}})).
+  2. Install the new .pkg (see the [MacOS Guide]({{< relref "Anka Build Cloud/getting-started/setup-controller-and-registry.md#macos" >}})).
   3. Run `sudo anka-controller restart`.

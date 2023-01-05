@@ -12,15 +12,15 @@ description: >
 
 1. [You've installed the Anka Virtualization package]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})
 2. [You've got an active license]({{< relref "Licensing/_index.md" >}})
-3. [You've created your first VM]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
+3. [You've created your first VM]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})
 
 ---
 
 ## Using the `modify` command
 
-{{< include file="_partials/intel/Anka Virtualization/modify/_index.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/modify/_index.md" >}}
 
-{{< include file="_partials/intel/Anka Virtualization/modify/set/_index.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/modify/set/_index.md" >}}
 
 ### Increase your VM's disk space with `hard-drive`
 
@@ -37,16 +37,16 @@ anka run --no-volume {vmNameOrUUID} sudo diskutil apfs resizeContainer disk0s2 0
 
 Depending on your network topology, there are instances where you might need to use a bridge mode and assign your VM a unique IP address instead of the default shared IP of the host:
 
-{{< include file="_partials/intel/Anka Virtualization/modify/set/network-card/_index.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/modify/set/network-card/_index.md" >}}
 
-{{< include file="_partials/intel/Anka Virtualization/modify/set/network-card/_example.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/modify/set/network-card/_example.md" >}}
 
 
 ### Set up your VM for external access with `port-forwarding`
 
 If you wish for the VM to be accessible to other machines on your network, and are using a Shared network mode (the default), you will need to setup port forwarding:
 
-{{< include file="_partials/intel/Anka Virtualization/modify/add/port-forwarding/_example.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/modify/add/port-forwarding/_example.md" >}}
 
 The VM can then be accessed using: `ssh anka@{theHostRunningTheVMsIP} -p {host_port}`
 
@@ -56,8 +56,8 @@ The VM can then be accessed using: `ssh anka@{theHostRunningTheVMsIP} -p {host_p
 
 At times you might need to modify the hardware serial or UUID to run proper builds/tests that require specific hardware to function properly:
 
-{{< include file="_partials/intel/Anka Virtualization/modify/set/custom-variable/_index.md" >}}
-{{< include file="_partials/intel/Anka Virtualization/modify/set/custom-variable/_example.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/modify/set/custom-variable/_index.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/modify/set/custom-variable/_example.md" >}}
 
 ## Running commands inside of the VM
 
@@ -81,9 +81,9 @@ This is not necessary for `anka modify` commands.
 
 Once you've finalized your changes inside of the VM, be sure to use `anka stop` or `anka suspend`.
 
-{{< include file="_partials/intel/Anka Virtualization/stop/_index.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/stop/_index.md" >}}
 
-{{< include file="_partials/intel/Anka Virtualization/suspend/_index.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/suspend/_index.md" >}}
 
 ---
 

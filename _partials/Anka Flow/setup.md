@@ -8,7 +8,7 @@ description: >
 ---
 ## Installation and Configuration
 
-Anka when activated with the Anka Flow license enables installation of Anka package on the developer mac machines. It enables the developers to create and work inside Anka macOS VMs on their local machines. Developers can use the [`anka run`]({{< relref "apple/command-line-reference.md#run" >}}) interface to work inside Anka VMs in a container like manner.  
+Anka when activated with the Anka Flow license enables installation of Anka package on the developer mac machines. It enables the developers to create and work inside Anka macOS VMs on their local machines. Developers can use the [`anka run`]({{< relref "anka-virtualization-cli/command-line-reference.md#run" >}}) interface to work inside Anka VMs in a container like manner.  
 
 You can also use Anka Flow in combination with Anka Build and enable your developers to pull the build environments from the central registry on their local machines.
 

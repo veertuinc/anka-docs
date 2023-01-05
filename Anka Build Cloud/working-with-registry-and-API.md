@@ -18,7 +18,7 @@ Registry operations are available through Anka Client command line and through R
 
 View all of the available registry commands by running `anka registry --help`.
 
-{{< include file="_partials/intel/Anka Virtualization/registry/_index.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/registry/_index.md" >}}
 
 ### Add registry to a Node/machine running Anka
 ```shell

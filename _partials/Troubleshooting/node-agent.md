@@ -15,4 +15,4 @@ There are 5 type of symlinks in the logs location pointing to the latest active 
 - `anka_agent.CMD` - (new in 1.20.0) contains the various anka commands the agent is executing on the host as well as the returned data.
 - `vlaunchd.log`: Holds communication logs between registry **<--->** agent **--->** controller.
 
-You can also read and download the logs via the UI in the Controller dashboard. Only relevant if you've [joined your Node to the Build Cloud Controller & Registry]({{< relref "Anka Build Cloud/Getting Started/preparing-and-joining-your-nodes.md" >}}).
+You can also read and download the logs via the UI in the Controller dashboard. Only relevant if you've [joined your Node to the Build Cloud Controller & Registry]({{< relref "Anka Build Cloud/getting-started/preparing-and-joining-your-nodes.md" >}}).

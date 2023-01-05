@@ -6,7 +6,7 @@ date: 2017-01-20
 description: >
   Up and running fast, with Anka and Amazon (AWS) EC2 Macs
 aliases:
-  - /intel/getting-started/aws-ec2-mac/
+  - /intel/Getting Started/aws-ec2-mac/
 ---
 
 {{< hint info >}}

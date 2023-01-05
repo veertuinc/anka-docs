@@ -11,7 +11,7 @@ description: >
 
 1. [You've installed the Anka Virtualization package]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})
 2. [You've got an active license]({{< relref "Licensing/_index.md" >}})
-3. [You've created your first VM Template]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
+3. [You've created your first VM Template]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})
 
 ## Anka Start
 
@@ -58,7 +58,7 @@ To start the VM in headless mode: `sudo anka start {vmNameOrUUID}`
 
 Similar to `docker exec`, [`anka run`]({{< relref "intel/command-line-reference.md#run" >}}) allows execution of commands inside of a VM.
 
-{{< include file="_partials/intel/Anka Virtualization/run/_index.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/run/_index.md" >}}
 
 > If the VM is in a _suspended_ or _stopped_ state, [`anka run`]({{< relref "intel/command-line-reference.md#run" >}}) will start it.
 
@@ -103,7 +103,7 @@ round-trip min/avg/max/stddev = 16.992/21.940/25.797/3.416 ms
 
 > On Big Sur, many of the resolution/graphics features in Anka View do not work unless you [manually install addons]({{< relref "intel/command-line-reference.md#start">}})
 
-{{< include file="_partials/intel/Anka Virtualization/view/_index.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/view/_index.md" >}}
 
 {{< imgwithlink src="images/getting-started/starting-and-accessing-your-vm/anka-start-view-viewer-window.png" >}}
 

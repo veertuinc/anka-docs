@@ -15,15 +15,15 @@ cascade:
 
 {{< include file="_partials/What Is Anka/_ways-to-use.md" >}}
 
----
-
-#### Choose the right documentation for your architecture
-
-[Anka 3 (Apple Processors)]({{< relref "apple" >}}) | [Anka 2 (Intel Processors)]({{< relref "intel" >}})
+{{< include file="_partials/anka-virtualization-cli/_index.md" >}}
 
 ---
 
-## Connect with us
+{{< include file="_partials/What Is Anka/anka-build-cloud.md" >}}
+
+---
+
+## Questions? Connect with us
 
 <ul>
 <li title=Email>

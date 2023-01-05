@@ -301,7 +301,7 @@ Creating a VM Template with the name of 11.6 seems to throw not found errors whe
 ---
 ### 2.3.1 (2.3.1.124) - Dec 3rd, 2020
 
-- New Feature: [You can now `anka delete {vmName}:{tagName}` in order to remove the tag LABEL from your VM. However, this does not remove the STATE of the tag from the VM, allowing you to create a new tag without losing the previous tag's config, installed dependencies, etc.]({{< relref "intel/Getting Started/creating-your-first-vm.md#re-pushing-an-existing-registry-tag" >}})
+- New Feature: [You can now `anka delete {vmName}:{tagName}` in order to remove the tag LABEL from your VM. However, this does not remove the STATE of the tag from the VM, allowing you to create a new tag without losing the previous tag's config, installed dependencies, etc.]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md#re-pushing-an-existing-registry-tag" >}})
 - Bug Fix: Hostmachines running 10.13.6 were locking up when executing `anka run` and `anka cp` on them
 - Bug Fix: Incorrect DHCP handling logic caused random IP to be assigned to VM
 - Bug Fix: `anka modify set custom-variable sys.csr-active-config 0` doesn't work as expected

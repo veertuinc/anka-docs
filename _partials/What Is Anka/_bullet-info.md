@@ -12,9 +12,9 @@
 * Can be installed on any Apple supported macOS versions.
 * Anka VMs can install and run any modern and Apple supported macOS version.
 
-DevOps teams implementing Anka can expect flexibility, allowing them to plug into existing infrastructure and automation -- whether it's cloud providers like AWS or on-premises! We have many examples of use cases and also provide packages like our [Build Cloud Controller & Registry Helm Chart] for Kubernetes users.
+DevOps teams implementing Anka can expect flexibility, allowing them to plug into existing infrastructure and automation -- whether it's cloud providers like AWS or on-premises! We have many examples of use cases and also provide packages like our [Build Cloud Controller & Registry Helm Chart](https://github.com/veertuinc/helm-charts/tree/main/charts/anka-build-cloud) for Kubernetes users.
 
-We also provide several [CI/CD plugins or integrations]({{< relref "Plugins and Integrations/_index.md" >}}) to choose from. Whether it's on-demand/ephemeral, long-running, and single-use macOS VMs for your developer, iOS, or native app building/testing/CI/CD, Anka will be a good fit for you.
+You can find several [CI/CD plugins or integrations]({{< relref "plugins-and-integrations/_index.md" >}}) we maintain for our users that abstract the lower level work of pulling and starting VMs for jobs. Whether it's on-demand/ephemeral, long-running, and single-use macOS VMs for your developers, iOS, or native app building/testing/CI/CD, Anka will be a good fit for you.
 
 Anka also enables a docker-like experience for teams to create and store project specific VM templates (a.k.a "images") and tags, including commands to interact with the VM like start, stop, clone, suspend, modify the VM configuration (like cpu or ram), and execution of VM level shell commands.
 

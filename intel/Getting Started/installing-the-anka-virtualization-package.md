@@ -48,19 +48,19 @@ description: >
 
 ## UI download and install
 
-{{< include file="_partials/intel/Anka Virtualization/_download-and-install.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/_download-and-install.md" >}}
 
 ---
 
 ## Terminal download and install
 
-{{< include file="_partials/intel/Anka Virtualization/_download-and-install-with-terminal.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/_download-and-install-with-terminal.md" >}}
 
 ---
 
 ## Verify the installation
 
-{{< include file="_partials/intel/Anka Virtualization/_verify-installation.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/_verify-installation.md" >}}
 
 ---
 
@@ -74,4 +74,4 @@ sudo anka license accept-eula
 
 ## What's next?
 
-- [Creating your first VM]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
+- [Creating your first VM]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})

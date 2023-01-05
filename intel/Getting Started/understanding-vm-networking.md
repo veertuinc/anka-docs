@@ -11,7 +11,7 @@ description: >
 
 1. [You've installed the Anka Virtualization package]({{< relref "intel/Getting Started/installing-the-anka-virtualization-package.md" >}})
 2. [You've got an active license]({{< relref "Licensing/_index.md" >}})
-3. [You've created your first VM Template]({{< relref "intel/Getting Started/creating-your-first-vm.md" >}})
+3. [You've created your first VM Template]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})
 4. [You understand how to start and access your VM]({{< relref "intel/Getting Started/starting-and-accessing-your-vm.md" >}})
 5. [You grasp how to modify VM settings, like network-card]({{< relref "intel/Getting Started/modifying-your-vm.md" >}})
 
@@ -27,9 +27,9 @@ Anka VMs, by default, use a shared networking configuration with the host. It’
 
 ## Changing the network configuration for Anka VMs
 
-{{< include file="_partials/intel/Anka Virtualization/modify/set/network-card/_index.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/modify/set/network-card/_index.md" >}}
 
-{{< include file="_partials/intel/Anka Virtualization/modify/set/network-card/_example.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/modify/set/network-card/_example.md" >}}
 
 | Type | Description |
 | --- | --- |

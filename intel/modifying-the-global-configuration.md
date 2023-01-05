@@ -7,7 +7,7 @@ description: >
   How to modify the Global Anka Virtualization configuration
 ---
 
-{{< include file="_partials/intel/Anka Virtualization/config/_index.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/config/_index.md" >}}
 
 ## Viewing the configuration
 

@@ -22,7 +22,7 @@ description: >
 
 ### Before you begin
 
-{{< include file="_partials/intel/Anka Virtualization/create/_extra.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/command-line-reference/create/_extra.md" >}}
 
 ### Using the Anka UI
 
@@ -38,13 +38,13 @@ Once the VM template is created, you will see it on the sidebar.
 
 ### Using the Anka CLI
 
-{{< include file="_partials/intel/Anka Virtualization/create/_index.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/command-line-reference/create/_index.md" >}}
 
-{{< include file="_partials/intel/Anka Virtualization/create/_example.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/command-line-reference/create/_example.md" >}}
 
 ## Listing available VMs in the CLI
 
-{{< include file="_partials/intel/Anka Virtualization/list/_example.md" >}}
+{{< include file="_partials/intel/anka-virtualization-cli/list/_example.md" >}}
 
 ## Optimizing your VM
 
