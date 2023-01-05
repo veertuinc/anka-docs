@@ -90,6 +90,4 @@ Anka and Apple will also report crashes in `/Library/Logs/DiagnosticReports` as 
 Only relevant if you've [joined your Node to the Build Cloud Controller & Registry]({{< relref "anka-build-cloud/getting-started/preparing-and-joining-your-nodes.md" >}}).
 {{< /hint >}}
 
-{{< include file="_partials/troubleshooting/node-agent.md" >}}
-
-{{< include file="_partials/troubleshooting/centralized-logs.md" >}}
+{{< include file="_partials/troubleshooting/controller-agent.md" >}}

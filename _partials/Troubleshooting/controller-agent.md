@@ -1,7 +1,7 @@
 ---
 ---
 
-### Anka Node Agent Logs
+### Anka Build Cloud Controller Agent Logs
 
 - Logs location: `/var/log/veertu`
 - Format: `regd.HOSTNAME.USER.LOG.LOGTYPE.TIMESTAMP`
