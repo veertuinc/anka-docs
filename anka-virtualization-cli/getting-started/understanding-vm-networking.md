@@ -67,7 +67,7 @@ Every time you start/resume a VM it will be assigned an IP:
 +------------+-------------------+
 ```
 
-{{< include file="_partials/getting-started/_understanding-vm-networking-types.md" >}}
+{{< include file="_partials/anka-virtualization-cli/getting-started/_understanding-vm-networking-types.md" >}}
 
 {{< hint warning >}}
 If `anka show` does not display an IP, networking has either:

@@ -1,13 +1,17 @@
 ---
-date: 2019-01-27
-title: "Intel What's New (deprecated)"
-weight: 98
+date: 2017-01-27
+title: "Legacy Backup"
+weight: 999
 description: >
   Description of new Anka software features
 ---
 
 {{< hint warning >}}
-### This page has been deprecated. Please view [the new What's New page for newer releases.]({{< relref "whats-new" >}})
+{{< rawhtml >}}<div style="padding-left: 20px;">{{< /rawhtml >}}
+
+## This page has been deprecated. Please view [the new What's New page for newer releases.]({{< relref "whats-new" >}})
+
+{{< rawhtml >}}</div>{{< /rawhtml >}}
 {{< /hint >}}
 
 ## What's New in Anka Build Cloud Controller & Registry Version 1.18.0
@@ -160,7 +164,6 @@ Options:
 
 VMs can now be isolated from access to other VMs or even then host itself using `sudo anka modify 11.2.3 set network-card --no-local`.
 
-{{< include file="_partials/intel/Anka Virtualization/modify/set/network-card/_index.md" >}}
 ### Registry pushing and pulling of VM Templates/Tags are now chunked for better performance
 
 Pushing and pulling templates/tags that are large can be impacted by network interrupts or limits. We've added the ability for you to set the chunk size using `anka config chunk_size {bytes}` on your nodes to solve this.
@@ -203,7 +206,7 @@ anka modify VmName set network-card 0 --type bridged --direct-mac
 
 You can now specify the range of MAC addresses that the controller uses with the `ANKA_MANAGE_MAC_ADDRESSES` config.
 
-Once configured, [you can use the API to list or delete/regenerate the MAC list from a new range]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#mac-addresses-management" >}}).
+Once configured, [you can use the API to list or delete/regenerate the MAC list from a new range]({{< relref "anka-build-cloud/working-with-controller-and-api.md#mac-addresses-management" >}}).
 
 > Requires that you enable `ANKA_MANAGE_MAC_ADDRESSES`
 ## What's new in Anka Virtualization 2.3.3
@@ -324,7 +327,7 @@ config:
 
 On pushing to the registry, a tag is created. It will also be assigned a specific commit ID (not visible to users). Even if you modify the tag locally, such as adding port-forwarding, changes will not be pushed to the registry until you push with a different tag name.
 
-Now, you can simply untag the VM locally and then push it with the same name (after [deleting the VM template]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#delete-template" >}}) or [reverting the tag]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#revert-template-tag" >}})):
+Now, you can simply untag the VM locally and then push it with the same name (after [deleting the VM template]({{< relref "anka-build-cloud/working-with-controller-and-api.md#delete-template" >}}) or [reverting the tag]({{< relref "anka-build-cloud/working-with-controller-and-api.md#revert-template-tag" >}})):
 
 > Locally, this does not remove the current STATE of the tag from the VM. Your installed dependencies inside of the VM will remain as long as you don't pull or switch to a different tag.
 
@@ -445,7 +448,7 @@ export ANKA_CIPHER_SUITES="tls_ecdhe_ecdsa_with_chacha20_poly1305_sha256"
 export ANKA_MAX_TLS_VERSION="tls_1.0"
 ```
 
-A full list of options is available in the [configuration reference]({{< relref "Anka Build Cloud/configuration-reference.md#https--tls" >}}).
+A full list of options is available in the [configuration reference]({{< relref "anka-build-cloud/configuration-reference.md#https--tls" >}}).
 
 ## What's new in Anka Virtualization 2.3.0
 
@@ -476,9 +479,6 @@ Starting in Big Sur, we have recreated our driver addons as driverless addons. T
 Due to security changes in Big Sur, we've had to rewrite all of our addons to be driverless. This means that `anka mount` and `anka run (mounting)` no longer work with Big Sur VMs. However, they do still function for Catalina and below.
 
 As an alternative, we now have `anka cp` which allows transferring files into the VM. The transfer speeds have shown to be much faster than SCP.
-
-{{< include file="_partials/intel/Anka Virtualization/cp/_index.md" >}}
-{{< include file="_partials/intel/Anka Virtualization/cp/_example.md" >}}
 
 > Be sure to update addons with `anka start -u 10.15.7` to use `anka cp` with Catalina (or older) VMs
 

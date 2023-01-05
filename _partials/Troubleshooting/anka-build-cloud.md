@@ -21,7 +21,7 @@ EOL and Deprecation list:
 ### Logs
 
 {{< hint info >}}
-You might be interested in changing the verbosity of the following logs. If so, you can set the `ANKA_LOG_LEVEL` ENV to an integer greater than 0 and restart the controller. See [our Configuration Reference]({{< relref "Anka Build Cloud/configuration-reference.md#logging" >}}) for more details.
+You might be interested in changing the verbosity of the following logs. If so, you can set the `ANKA_LOG_LEVEL` ENV to an integer greater than 0 and restart the controller. See [our Configuration Reference]({{< relref "anka-build-cloud/configuration-reference.md#logging" >}}) for more details.
 {{< /hint >}}
 
 #### Linux / Docker Package
@@ -94,7 +94,7 @@ There are 4 type of symlinks in the logs location pointing to the latest active 
 - `regd.ERROR` - contains just ERRORS.
 - `regd.FATAL` - only FATAL ERRORS.
 
-You can also read and download the logs via the UI in the Controller dashboard. Only relevant if you've [joined your Node to the Build Cloud Controller & Registry]({{< relref "Anka Build Cloud/getting-started/preparing-and-joining-your-nodes.md" >}}).
+You can also read and download the logs via the UI in the Controller dashboard. Only relevant if you've [joined your Node to the Build Cloud Controller & Registry]({{< relref "anka-build-cloud/getting-started/preparing-and-joining-your-nodes.md" >}}).
 
 {{< include file="_partials/troubleshooting/node-agent.md" >}}
 

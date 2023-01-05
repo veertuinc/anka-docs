@@ -7,19 +7,19 @@ cascade:
 
 # What is Anka?
 
-{{< include file="_partials/What Is Anka/_short-what-is.md" >}}
+{{< include file="_partials/what-is-anka/_short-what-is.md" >}}
 
-{{< include file="_partials/What Is Anka/_bullet-info.md" >}}
+{{< include file="_partials/what-is-anka/_bullet-info.md" >}}
 
 ---
 
-{{< include file="_partials/What Is Anka/_ways-to-use.md" >}}
+{{< include file="_partials/what-is-anka/_ways-to-use.md" >}}
 
 {{< include file="_partials/anka-virtualization-cli/_index.md" >}}
 
 ---
 
-{{< include file="_partials/What Is Anka/anka-build-cloud.md" >}}
+{{< include file="_partials/what-is-anka/anka-build-cloud.md" >}}
 
 ---
 

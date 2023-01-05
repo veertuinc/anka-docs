@@ -8,7 +8,7 @@ description: >
 
 {{< include file="_partials/sudo-non-sudo-anka-cli.md" >}}
 
-{{< include file="_partials/anka-virtualization-cli/_index.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/_index.md" >}}
 
 ## List
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/list/_index.md" >}}

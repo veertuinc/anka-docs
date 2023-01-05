@@ -25,7 +25,7 @@ usr@veertus-Mac-mini-5 Anka % sudo anka list
 
 ## Common Causes & Solutions
 
-1. [No active/logged in (to UI) user, Autologin disabled, and a few other prep steps aren't performed.]({{< relref "Anka Build Cloud/getting-started/preparing-and-joining-your-nodes.md" >}})
+1. [No active/logged in (to UI) user, Autologin disabled, and a few other prep steps aren't performed.]({{< relref "anka-build-cloud/getting-started/preparing-and-joining-your-nodes.md" >}})
 2. Host or VM resources were exhausted. We recommend checking host vCPUs, RAM, total VMs running on the host, and then how many resources each VM can run and be sure to tweak the VM configs to prevent overuse.
 
 {{< hint warning >}}

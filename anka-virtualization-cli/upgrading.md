@@ -7,7 +7,7 @@ description: How to upgrade the Anka Virtualization package
 ---
 
 {{< hint info >}}
-Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Build Cloud Controller & Registry]({{< relref "Anka Build Cloud/upgrading.md" >}})
+Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Build Cloud Controller & Registry]({{< relref "anka-build-cloud/upgrading.md" >}})
 {{< /hint >}}
 
 {{< hint warning >}}
@@ -31,7 +31,7 @@ Monterey | Ventura | You will need to change your VM template: `anka modify {vmN
 #### [1. Download and install the latest version]({{< relref "anka-virtualization-cli/getting-started/installing-the-anka-virtualization-package.md" >}})
 
 {{< hint info >}}
-Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Build Cloud Controller & Registry]({{< relref "Anka Build Cloud/upgrading.md" >}})
+Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Build Cloud Controller & Registry]({{< relref "anka-build-cloud/upgrading.md" >}})
 {{< /hint >}}
 
 {{< hint warning >}}

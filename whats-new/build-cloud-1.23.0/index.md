@@ -4,11 +4,11 @@ title: "Anka Build Cloud Controller & Registry Version 1.23.0"
 ---
 ### Request a VM with a specific VLAN
 
-Starting in this version [you can now set `vlan_tag` to the targeted VLAN ID in your Controller API calls]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#start-vm-instances" >}}).
+Starting in this version [you can now set `vlan_tag` to the targeted VLAN ID in your Controller API calls]({{< relref "anka-build-cloud/working-with-controller-and-api.md#start-vm-instances" >}}).
 
 ### View available VLANs attached to a specific Host/Anka Node
 
-You can also [list all VLAN IDs across all nodes in your fleet]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#get-all-vlans-ids" >}}).
+You can also [list all VLAN IDs across all nodes in your fleet]({{< relref "anka-build-cloud/working-with-controller-and-api.md#get-all-vlans-ids" >}}).
 
 ```bash
 curl http://anka.controller/api/v1/vlan

@@ -7,7 +7,7 @@ description: >
 ---
 
 {{< hint warning >}}
-It's important to understand that the `anka` CLI VM creation, modification, etc, is all exclusively within your current user. The root user and non-root users will have different environments. You can use the [Anka Build Cloud Registry]({{< relref "Anka Build Cloud/_index.md" >}}) to move VMs between users (and hosts).
+It's important to understand that the `anka` CLI VM creation, modification, etc, is all exclusively within your current user. The root user and non-root users will have different environments. You can use the [Anka Build Cloud Registry]({{< relref "anka-build-cloud/_index.md" >}}) to move VMs between users (and hosts).
 {{< /hint >}}
 
 ## Prerequisites
@@ -255,7 +255,7 @@ are you sure you want to delete vm 77f33f4a-75c3-47aa-b3f6-b99e7cdac001 test [y/
 
 ### Disk Optimization
 
-Customers coming from Anka 2 will know that when you clone a VM (_untagged_ or _tagged_), it will share the underlying VM image files between the two. However, this is not the case for Anka 3. As of right now, sharing of the underlying VM image files between a clone and its source requires first creating a tag for the source _before_ you clone. You can do this with `anka push --local`, or just a regular `anka push` if you're running the [Anka Build Cloud Registry]({{< relref "Anka Build Cloud/_index.md" >}}). Don't worry, clones will not have access to change the original source VM state.
+Customers coming from Anka 2 will know that when you clone a VM (_untagged_ or _tagged_), it will share the underlying VM image files between the two. However, this is not the case for Anka 3. As of right now, sharing of the underlying VM image files between a clone and its source requires first creating a tag for the source _before_ you clone. You can do this with `anka push --local`, or just a regular `anka push` if you're running the [Anka Build Cloud Registry]({{< relref "anka-build-cloud/_index.md" >}}). Don't worry, clones will not have access to change the original source VM state.
 
 {{< include file="_partials/anka-virtualization-cli/push/_index.md" >}}
 
@@ -320,7 +320,7 @@ You can easily create VM clones from a source VM and _its current state_ using `
 
 ### VM Templates
 
-Once a VM has been tagged, it becomes a "VM Template". The VM template & tag's state cannot be permanently modified unless you create a new tag, post-changes. This is very reminiscent of how `git commit` works. You can execute commands and modify the state of the VM after tagging it, but it will not save the changes to the existing template + tag. This is important to consider when using the [Anka Build Cloud Registry]({{< relref "Anka Build Cloud/_index.md" >}}) since it will only push the state of the VM when the tag was created, not after.
+Once a VM has been tagged, it becomes a "VM Template". The VM template & tag's state cannot be permanently modified unless you create a new tag, post-changes. This is very reminiscent of how `git commit` works. You can execute commands and modify the state of the VM after tagging it, but it will not save the changes to the existing template + tag. This is important to consider when using the [Anka Build Cloud Registry]({{< relref "anka-build-cloud/_index.md" >}}) since it will only push the state of the VM when the tag was created, not after.
 
 In summary, when cloning a tagged VM you have two options:
 

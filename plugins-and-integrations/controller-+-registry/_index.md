@@ -7,4 +7,4 @@ description: >
   Anka Build Controller + Registry Plugins and Integrations for CI/CD software
 ---
 
-{{< include file="_partials/What Is Anka/_controller-and-registry.md" >}}
+{{< include file="_partials/what-is-anka/_controller-and-registry.md" >}}

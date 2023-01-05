@@ -5,9 +5,9 @@ title: "Anka Build Cloud Controller & Registry Version 1.30.1"
 
 ### Ability to set `--local` and `--no-local`
 
-In this version, you can now set `--local` and `--no-local` when starting VMs. This will stop the VM before performing the modify command, if not already stopped. You can read more in the [Working with the Controller and API guide]({{< relref "Anka Build Cloud/working-with-controller-and-api.md#start-vm-instances" >}})
+In this version, you can now set `--local` and `--no-local` when starting VMs. This will stop the VM before performing the modify command, if not already stopped. You can read more in the [Working with the Controller and API guide]({{< relref "anka-build-cloud/working-with-controller-and-api.md#start-vm-instances" >}})
 
-{{< include file="_partials/anka-virtualization-cli/modify/network/_index.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/network/_index.md" >}}
 
 ```shell
  curl -X POST "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" \
