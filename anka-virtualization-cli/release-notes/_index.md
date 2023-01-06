@@ -14,7 +14,7 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 - Users with VMs on `virtio-blk` (run `anka show VMNAME disk controller` to see controller) must switch to `sata/ablk`.
 - VMs suspended on Anka 2.x will need to be re-suspended on 3.x.
-- The Controller Agent version that comes with Anka will start at `1.30.1` (ARM will be `1.22.0`). **Older versions of the Controller do not support Anka 3.**
+- The Controller Agent version that comes with Anka will start at `1.30.1` (ARM will be `1.22.0`). **Older versions of the Controller do not support Anka 3. You will need to upgrade your controller to at least 1.30.1.**
 - Previously, `anka create` would create a suspended VM. Starting in this version, VMs are stopped.
 - GUI (Anka.app) VM creation will produce a VM without macOS set up.
 - `anka --machine-readable registry list` has a key name change from `id` to `uuid`.
