@@ -12,10 +12,14 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ### 3.2.0 (3.2.0.153) (Intel) - Nov 16th 2022
 
+- Users with VMs on `virtio-blk` (run `anka show VMNAME disk controller` to see controller) must switch to `sata/ablk`.
+- VMs suspended on Anka 2.x will need to be re-suspended on 3.x.
 - The Controller Agent version that comes with Anka will start at `1.30.1` (ARM will be `1.22.0`). **Older versions of the Controller do not support Anka 3.**
 - Previously, `anka create` would create a suspended VM. Starting in this version, VMs are stopped.
 - GUI (Anka.app) VM creation will produce a VM without macOS set up.
-- 
+- `anka --machine-readable registry list` has a key name change from `id` to `uuid`.
+- `modify set` commands will continue to work, but not show in the `anka modify --help` output.
+- Only macOS 10.15 and above are supported by Veertu. If you're using an older version, do not upgrade addons to 3.x and they should continue to function.
 
 ### 3.2.0 (3.2.0.153) (ARM) - Nov 16th 2022
 

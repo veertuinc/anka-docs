@@ -18,8 +18,7 @@ We do not follow strict [semantic versioning](https://semver.org/); minor and ma
 
 Existing Version | Target Version | Recommendation
 --- | --- | ---
-<= 2.x.x | 3.2.0 (intel) | {{< rawhtml >}}<ul><li>The Controller Agent version that comes with Anka will start at <b>1.30.1</b>. <b>Older versions of the Controller do not support Anka 3.</b></li><li></li></ul>{{< /rawhtml >}}
-
+<= 2.x.x | 3.2.0 (intel) | {{< rawhtml >}}<ul><li>Users with VMs on `virtio-blk` (run `anka show VMNAME disk controller` to see controller) must switch to `sata/ablk`.</li><li>VMs suspended on Anka 2.x will need to be re-suspended on 3.x.</li><li>The Controller Agent version that comes with Anka will start at <b>1.30.1</b>. <b>Older versions of the Controller do not support Anka 3.</b></li><li>Previously, `anka create` would create a suspended VM. Starting in this version, VMs are stopped.</li><li>GUI (Anka.app) VM creation will produce a VM without macOS set up.</li><li>`anka --machine-readable registry list` has a key name change from `id` to `uuid`</li><li>`modify set` commands will continue to work, but not show in the `anka modify --help` output.</li><li>Only macOS 10.15 and above are supported by Veertu. If you're using an older version, do not upgrade addons to 3.x and they should continue to function.</li></ul>{{< /rawhtml >}}
 
 Existing VM macOS Version | Target Version | Recommendation
 --- | --- | ---
