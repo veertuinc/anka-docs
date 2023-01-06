@@ -18,8 +18,8 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 - Previously, `anka create` would create a suspended VM. Starting in this version, VMs are stopped.
 - GUI (Anka.app) VM creation will produce a VM without macOS set up.
 - `anka --machine-readable registry list` has a key name change from `id` to `uuid`.
-- `modify set` commands will continue to work, but not show in the `anka modify --help` output.
-- Only macOS 10.15 and above are supported by Veertu. If you're using an older version, do not upgrade addons to 3.x and they should continue to function.
+- The `modify set` commands are deprecated and will not show in the `anka modify --help` output. Please migrate to using the new modify commands instead.
+- Only macOS 10.15 guest version and above are supported by Veertu. If you're using an older version, do not upgrade addons to 3.x and they will continue to function.
 
 ### 3.2.0 (3.2.0.153) (ARM) - Nov 16th 2022
 
