@@ -98,7 +98,7 @@ Anka allows you to create VMs for the following macOS versions:
 {{< /rawhtml >}}
 
 {{< hint warning >}}
-**ARM USERS:** Creating 13.x VMs on Monterey (12.x) requires that Xcode >= 14.0.1 is installed. This is a requirement from Apple at the moment. There is also a rare problem where your Xcode is not fully set up and still creates problems, regardless of being on Ventura. Be sure to run the following:
+**ARM USERS:** Creating 13.x VMs on Monterey (12.x) requires that Xcode >= 14.0.1 is installed on the host (not in the VM). This is a requirement from Apple at the moment. There is also a rare problem where your Xcode is not fully set up and still creates problems, regardless of being on Ventura. Be sure to run the following:
 
 ```bash
 sudo xcodebuild -license accept
@@ -123,7 +123,7 @@ done
 
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/create/_extra.md" >}}
 
-After executing `anka create`, Anka will automatically set up macOS, create the user `anka` with password: `admin`, disable SIP, and enable VNC for you.
+After executing `anka create`, Anka will automatically set up macOS, create the user `anka` with password: `admin`, disable SIP, and enable VNC for you. The VM will then be stopped.
 
 ---
 
@@ -137,10 +137,6 @@ After executing `anka create`, Anka will automatically set up macOS, create the 
 ![installer with pkg]({{< siteurl >}}images/apple/getting-started/creating-your-first-vm/ui.png)
 3. Be patient while it's creating.
 
-{{< hint warning >}}
-**ARM USERS:** The GUI tool will not automatically set up macOS and you'll need to open the [Anka Viewer]({{< relref "anka-virtualization-cli/command-line-reference.md#view" >}}) window to complete the setup.
-{{< /hint >}}
-
 Once the VM is created, you will see it on the sidebar -- Hooray!
 
 ![ui with vm in the sidebar list]({{< siteurl >}}images/getting-started/creating-your-first-vm/ui-vm-in-sidebar.png)
@@ -151,14 +147,17 @@ Once the VM is created, you will see it on the sidebar -- Hooray!
 This is not needed if you ran `anka create`.
 {{< /hint >}}
 
-1. You’ll need to start the VM with `anka start -uv` to launch the viewer.
+The GUI tool will not automatically set up macOS and requires you to perform several steps manually.
+
+1. Start the VM with `anka start -uv` to launch the [Anka Viewer]({{< relref "anka-virtualization-cli/command-line-reference.md#view" >}}).
 
 - `anka view` does not currently work post-start unless you started it with -v.
-- `sudo anka view` as a normal user is not possible yet. You'll need to ensure that VNC is enabled to access VMs running under `sudo`.
+- **ARM USERS:** `sudo anka view` as a normal user is not possible yet. You'll need to ensure that VNC is enabled to access VMs running under `sudo`.
 
 2. Once inside the Anka Viewer/VM, finish the macOS installation **and be sure to install the addons package through the disk we mounted with `-u`**.
 
 3. After you're finished, reboot the VM.
+
 ![mounted addons]({{< siteurl >}}images/apple/getting-started/creating-your-first-vm/addonspkg.png)
 
 {{< hint warning >}}
@@ -353,6 +352,10 @@ If you're managing multiple templates for multiple teams and projects, you want 
 4. Clone from `13.0.1-xcode14.1` and create `13.0.1-xcode14.1-{projectNameHere}-v1` which you'll install all of that projects dependencies in and push with any tag name.
 
 This allows everything to share the underlying layers that are the same (since they're all cloned from `13.0.1`) and optimize disk space. You can then just pull the last VM template in the hierarchy and create a new one when needed, telling the teams to point to the new one when ready.
+
+{{< hint warning >}}
+**ARM USERS:** Suspending will currently stop the VM. It will show as `suspended`, regardless.
+{{< /hint >}}
 
 If it helps, here is it visually:
 

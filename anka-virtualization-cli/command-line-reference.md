@@ -110,6 +110,7 @@ description: >
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/pull/_index.md" >}}
 ## Suspend
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/suspend/_index.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/suspend/_extra.md" >}}
 ## Mount
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/mount/_index.md" >}}
 ## Unmount

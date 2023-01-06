@@ -10,7 +10,14 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
-### 3.2.0 (3.2.0.153) - Nov 16th 2022
+### 3.2.0 (3.2.0.153) (Intel) - Nov 16th 2022
+
+- The Controller Agent version that comes with Anka will start at `1.30.1` (ARM will be `1.22.0`). **Older versions of the Controller do not support Anka 3.**
+- Previously, `anka create` would create a suspended VM. Starting in this version, VMs are stopped.
+- GUI (Anka.app) VM creation will produce a VM without macOS set up.
+- 
+
+### 3.2.0 (3.2.0.153) (ARM) - Nov 16th 2022
 
 {{< hint info >}}
 Addons upgrading is not required but is recommended.
@@ -39,7 +46,7 @@ Known issues:
 
 ## Previous Versions
 
-### 3.1.1 (3.1.1.152) - Oct 25th 2022
+### 3.1.1 (3.1.1.152) (ARM) - Oct 25th 2022
 
 {{< hint info >}}
 Addons upgrading is not required but is recommended.
@@ -60,7 +67,7 @@ Known issues:
 - **Bug Fix:** Pulling was converting each and delaying VM start requests.
 - **Bug Fix:** Various anka create automation script fixes.
 
-### 3.1.0 (3.1.0.151) - Oct 17th 2022
+### 3.1.0 (3.1.0.151) (ARM) - Oct 17th 2022
 
 {{< hint info >}}
 Addons upgrading is not required but is recommended.
@@ -97,7 +104,7 @@ Known issues:
 - **Bug Fix:** Disabled beta program enrollment for macOS.
 
 
-### 3.0.1 (3.0.1.144) - May 12th 2022
+### 3.0.1 (3.0.1.144) (ARM) - May 12th 2022
 
 {{< hint info >}}
 Addons upgrading is not required for features in this release. However, it's always recommended.

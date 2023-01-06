@@ -18,7 +18,8 @@ We do not follow strict [semantic versioning](https://semver.org/); minor and ma
 
 Existing Version | Target Version | Recommendation
 --- | --- | ---
-<= 2.x.x | 3.2.0 | 
+<= 2.x.x | 3.2.0 (intel) | {{< rawhtml >}}<ul><li>The Controller Agent version that comes with Anka will start at <b>1.30.1</b>. <b>Older versions of the Controller do not support Anka 3.</b></li><li></li></ul>{{< /rawhtml >}}
+
 
 Existing VM macOS Version | Target Version | Recommendation
 --- | --- | ---

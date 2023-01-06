@@ -30,7 +30,7 @@ RAM, DISK, and CPU are all set from the defaults under the Anka configuration:
 {{< /hint >}}
 
 {{< hint warning >}}
-**INTEL USERS:** Suspending VMs can sometimes produce a VM which is frozen on start. Usually this is because the hardware & cpu type you created the VM and suspended it on is different from the one you're trying to start it on. Be sure to suspend your VMs on the same hardware that will be running VMs. You can use `ANKA_CREATE_SUSPEND=0 anka create . . .` to produce a stopped VM.
+**INTEL USERS:** Suspending VMs can sometimes produce a VM which is frozen on start. Usually this is because the hardware & cpu type you created the VM and suspended it on is different from the one you're trying to start it on. Be sure to suspend your VMs on the same hardware that will be running VMs.
 {{< /hint >}}
 
 {{< hint info >}}
