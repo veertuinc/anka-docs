@@ -46,5 +46,5 @@ Upgrading Anka Virtualization software while VMs are running **is typically safe
 
 If your existing version is noted in the [Pre-Upgrade Considerations]({{< relref "anka-virtualization-cli/upgrading.md#pre-upgrade-considerations" >}}) as requiring an addons upgrade, or, if you're going between major/minor versions of Anka:
 
-   1. Upgrade the guest addons inside existing VM Templates `anka start -u`. This opens the VM desktop in a viewer window and allows you to manually launch and install the addons package.
+   1. Upgrade the guest addons inside existing VM Templates `anka start -u`.
    2. Push the newly upgraded VM templates to registry with `anka registry push {vmNameOrUUID} --tag <newTag>`
