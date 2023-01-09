@@ -7,23 +7,23 @@ cascade:
 
 # What is Anka?
 
-{{< include file="_partials/What Is Anka/_short-what-is.md" >}}
+{{< include file="_partials/what-is-anka/_short-what-is.md" >}}
 
-{{< include file="_partials/What Is Anka/_bullet-info.md" >}}
-
----
-
-{{< include file="_partials/What Is Anka/_ways-to-use.md" >}}
+{{< include file="_partials/what-is-anka/_bullet-info.md" >}}
 
 ---
 
-#### Choose the right documentation for your architecture
+{{< include file="_partials/what-is-anka/_ways-to-use.md" >}}
 
-[Anka 3 (Apple Processors)]({{< relref "apple" >}}) | [Anka 2 (Intel Processors)]({{< relref "intel" >}})
+{{< include file="_partials/anka-virtualization-cli/_index.md" >}}
 
 ---
 
-## Connect with us
+{{< include file="_partials/what-is-anka/anka-build-cloud.md" >}}
+
+---
+
+## Questions? Connect with us
 
 <ul>
 <li title=Email>

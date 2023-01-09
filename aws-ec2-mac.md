@@ -1,12 +1,12 @@
 ---
 title: "Anka on AWS EC2 Macs"
 linkTitle: "Anka on AWS EC2 Macs"
-weight: 3
+weight: 5
 date: 2017-01-20
 description: >
   Up and running fast, with Anka and Amazon (AWS) EC2 Macs
 aliases:
-  - /intel/getting-started/aws-ec2-mac/
+  - /anka-virtualization-cli/getting-started/aws-ec2-mac/
 ---
 
 {{< hint info >}}
@@ -105,9 +105,7 @@ To get up and running with our AWS EC2 Mac instances using our BYOL Community AM
 3. Choose the Community AMI when starting an instance:
   {{< imgwithlink src="images/getting-started/aws-ec2-mac/aws-choose-ami.png" >}}
 
-{{< include file="_partials/intel/Getting Started/ec2-mac-amis/prep-steps.md" >}}
-
-
+{{< include file="_partials/ec2-mac-amis/prep-steps.md" >}}
 
 #### Licensing
 

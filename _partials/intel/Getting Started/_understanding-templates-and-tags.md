@@ -11,7 +11,7 @@ To create a VM Template, you'll use the Anka CLI's `create` command or Anka UI w
 Once the VM Template is configured how you want it, you have two options:
 
 1. Stop the VM Template: `anka stop {templateName}`
-2. Suspend the VM Template: `anka suspend {templateName}`
+2. (intel only) Suspend the VM Template: `anka suspend {templateName}`
 
 With option 1, you are issuing a full shutdown -- similar to hitting the power button on your physical machine -- and therefore have to wait the full boot time for the VM to start back up. This usually takes 20 to 30 seconds.
 

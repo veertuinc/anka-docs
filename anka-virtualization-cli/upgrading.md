@@ -1,0 +1,50 @@
+---
+date: 2019-12-12T00:00:00-00:00
+title: "Upgrading"
+linkTitle: "Upgrading"
+weight: 5
+description: How to upgrade the Anka Virtualization package
+---
+
+{{< hint info >}}
+Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Build Cloud Controller & Registry]({{< relref "anka-build-cloud/upgrading.md" >}})
+{{< /hint >}}
+
+{{< hint warning >}}
+We do not follow strict [semantic versioning](https://semver.org/); minor and major version increases can have significant changes
+{{< /hint >}}
+
+### Pre-upgrade Considerations
+
+Existing Version | Target Version | Recommendation
+--- | --- | ---
+<= 2.x.x | 3.2.0 (intel) | {{< rawhtml >}}<ul><li>VMs suspended on Anka 2.x will need to be re-suspended on 3.x.</li><li>The Controller Agent version that comes with Anka will start at <b>1.30.1</b>. <b>Older versions of the Controller do not support Anka 3. You will need to upgrade your controller to at least 1.30.1.</b></li><li>Previously, <code>anka create</code> would create a suspended VM. Starting in this version, VMs are stopped.</li><li>GUI (Anka.app) VM creation will produce a VM without macOS set up.</li><li><code>anka --machine-readable registry list</code> has a key name change from <code>id</code> to <code>uuid</code></li><li><code>modify set</code> commands will continue to work, but not show in the <code>anka modify --help</code> output.</li><li>Only macOS 10.15 and above are supported by Veertu. If you're using an older version, do not upgrade addons to 3.x and they should continue to function.</li></ul>{{< /rawhtml >}}
+
+Existing VM macOS Version | Target Version | Recommendation
+--- | --- | ---
+<= Big Sur | Monterey | You will need to change your VM template: `anka modify {vmName} set hard-drive -c sata`, `anka modify {vmName} set network-card -c virtio-net`
+<= Big Sur | Ventura | You will need to change your VM template: `anka modify {vmName} set hard-drive -c sata`, `anka modify {vmName} set network-card -c virtio-net`, and `anka modify {vmName} set custom-variable hw.x2apic 1`
+Monterey | Ventura | You will need to change your VM template: `anka modify {vmName} set custom-variable hw.x2apic 1`
+
+### Upgrade Procedure
+
+#### [1. Download and install the latest version]({{< relref "anka-virtualization-cli/getting-started/installing-the-anka-virtualization-package.md" >}})
+
+{{< hint info >}}
+Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Build Cloud Controller & Registry]({{< relref "anka-build-cloud/upgrading.md" >}})
+{{< /hint >}}
+
+{{< hint warning >}}
+We do not follow strict [semantic versioning](https://semver.org/); minor and major version increases can have significant changes
+{{< /hint >}}
+
+{{< hint info >}}
+Upgrading Anka Virtualization software while VMs are running **is typically safe.** Please see the Pre-upgrade Considerations below to be sure.
+{{< /hint >}}
+
+#### 2. Upgrade VM addons
+
+If your existing version is noted in the [Pre-Upgrade Considerations]({{< relref "anka-virtualization-cli/upgrading.md#pre-upgrade-considerations" >}}) as requiring an addons upgrade, or, if you're going between major/minor versions of Anka:
+
+   1. Upgrade the guest addons inside existing VM Templates `anka start -u`. This opens the VM desktop in a viewer window and allows you to manually launch and install the addons package.
+   2. Push the newly upgraded VM templates to registry with `anka registry push {vmNameOrUUID} --tag <newTag>`
