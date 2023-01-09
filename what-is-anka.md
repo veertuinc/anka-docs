@@ -1,7 +1,6 @@
 ---
 date: 2019-12-12T00:00:00-00:00
 title: "What is Anka?"
-linkTitle: "What is Anka?"
 weight: 1
 description: >
   All about Veertu's Anka Software
@@ -12,6 +11,8 @@ description: >
 {{< include file="_partials/what-is-anka/_bullet-info.md" >}}
 
 ---
+
+## Using Anka
 
 {{< include file="_partials/what-is-anka/_ways-to-use.md" >}}
 

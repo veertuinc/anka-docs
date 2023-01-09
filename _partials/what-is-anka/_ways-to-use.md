@@ -1,8 +1,6 @@
 ---
 ---
 
-## Using Anka
-
 ### Anka Virtualization CLI
 
 There are many ways in which our customers utilize the Anka Virtualization software. The first is on its own as a CLI tool:
