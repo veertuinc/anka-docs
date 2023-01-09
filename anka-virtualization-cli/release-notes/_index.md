@@ -10,7 +10,7 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
-### 3.2.0 (3.2.0.153) (Intel) - Nov 16th 2022
+### 3.2.0 (3.2.0.153) (Intel) - Jan 9th 2023
 
 - VMs suspended on Anka 2.x will need to be re-suspended on 3.x.
 - The Controller Agent version that comes with Anka will start at `1.30.1` (ARM will be `1.22.0`). **Older versions of the Controller do not support Anka 3. You will need to upgrade your controller to at least 1.30.1.**
