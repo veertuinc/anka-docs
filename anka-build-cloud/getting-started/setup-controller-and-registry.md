@@ -219,7 +219,7 @@ We recommend looking through the [entire ETCD operations guide](https://etcd.io/
 
 ## Standalone Registry (Linux)
 
-Often we find that customers wish to only run the Anka Build Cloud Registry and not the Controller. This is a useful setup when you're using [a Controller-less Build Cloud]({{< relref "plugins-and-integrations/_index.md#controller-less-build-cloud-registry-only" >}}).
+Often we find that customers wish to only run the Anka Build Cloud Registry and not the Controller. This is a useful setup when you're using [a Controller-less Build Cloud]({{< relref "plugins-and-integrations/_index.md#controller-less-registry-only" >}}).
 
 In order to run the standalone registry you'll:
 

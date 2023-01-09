@@ -21,8 +21,8 @@ It's important to understand that the `anka` CLI VM creation, modification, etc,
 
 You have two methods of creating your Anka VMs. We will describe both in this guide, but you only really need to choose one.
 
-1. [With the **anka create** command](#using-the-anka-cli) (recommended).
-2. [With the Anka.app UI](#using-the-anka-ui).
+1. [With the **anka create** command](#using-anka-create) (recommended).
+2. [With the Anka.app UI](#using-the-anka-gui).
 
 ---
 
