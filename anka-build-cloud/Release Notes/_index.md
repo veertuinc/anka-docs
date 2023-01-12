@@ -6,6 +6,15 @@ weight: 100
 
 ## Current Version
 
+### 1.31.1 (1.31.1-ab1c787e) - Jan 12th, 2023
+
+- **Bug Fix:** Registry threw a panic when using OIDC.
+- (Standalone Registry: 1.31.1-f997f56d)
+
+---
+
+## Previous Versions
+
 ### 1.31.0 (1.31.0-93a0aa2c) - Dec 28th, 2022
 
 - **Bug Fix:** Streaming logs (from Controller's Logs page) created high CPU usage on registry.
@@ -15,11 +24,6 @@ weight: 100
 - **New Feature:** [Support calling group claims from userinfo endpoint with `ANKA_OIDC_USER_INFO` ENV.]({{< relref "whats-new/build-cloud-1.31.0/index.md#ability-to-call-group-claims-from-userinfo-endpoint-with-anka_oidc_user_info-env" >}}) We have also added `ANKA_OIDC_CACHE_TTL` which allows control for how long we cache the returned group list from the endpoint as calls to this endpoint can have a performance impact.
 - **New Feature:** [Ability to set custom scopes for OIDC with `ANKA_OIDC_SCOPES` ENV.]({{< relref "whats-new/build-cloud-1.31.0/index.md#ability-to-set-custom-scopes-with-anka_oidc_scopes-env" >}})
 - (Standalone Registry: 1.31.0-5c7ab105)
-
----
-
-## Previous Versions
-
 
 ### 1.30.1 (1.30.1-299dcb37) - Dec 20th, 2022
 
