@@ -11,6 +11,13 @@ As the popularity and maturity of Kubernetes grows, we've also received an incre
 
 There are many ways to deploy your Anka Build Cloud into Kubernetes. We have a helm chart built for AWS that will get you up and running quickly. You can also use it for reference when creating your own, should you wish to have a more advanced configuration: https://github.com/veertuinc/helm-charts/tree/main/charts/anka-build-cloud
 
+## Notes on ETCD
+
+Running ETCD on Kubernetes can be problematic for many reasons. Here are a list of things to consider before you design your deployments:
+
+1. ETCD is highly sensitive to disk IO. If your PV is slow, etcd will timeout queries and things will not work as expected -- especially under heavy load which you may not see until production testing, so be sure to address this sooner than later.
+2. ETCD pod\[s] running on a cluster with multiple nodes must either have `nodeAffinity` or distributed data across the nodes. If the etcd pod is rescheduled on a different node in the cluster, it will lose its data, and that data is critical for the Controller to function. A sign that the pod was rescheduled: you'll wake up one day and Anka Node and permission groups, auth keys, etc will be gone.
+
 <!-- Our [Getting Started GitHub Repository](https://github.com/veertuinc/getting-started/tree/master#anka-build-cloud--kubernetes-anka_build_cloudkubernetes) has a few scripts available to help you run the Anka Build Cloud on your macOS device using [minikube](https://kubernetes.io/docs/setup/learning-environment/minikube/). These scripts will generate the necessary YAML you can use to deploy it into your minikube (We cannot guarantee they will work properly outside of minikube and recommend against production use). You may, of course, choose to use Deployments instead of our Statefulsets and even split your controller and registry into separate pods.
 
 The YAML we generate includes:
