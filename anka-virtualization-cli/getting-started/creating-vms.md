@@ -121,6 +121,8 @@ done
 
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/create/_example.md" >}}
 
+---
+
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/create/_extra.md" >}}
 
 After executing `anka create`, Anka will automatically set up macOS, create the user `anka` with password: `admin`, disable SIP, and enable VNC for you. The VM will then be stopped.
