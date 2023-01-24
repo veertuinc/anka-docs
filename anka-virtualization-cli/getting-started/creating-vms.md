@@ -60,7 +60,7 @@ Anka allows you to create VMs for the following macOS versions:
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>macOS 13.x</b></td>
+    <td style="vertical-align: middle"><b>macOS 13.x<a href="https://support.apple.com/en-us/HT213264">*</a></b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
@@ -96,6 +96,10 @@ Anka allows you to create VMs for the following macOS versions:
 </table>
 </div>
 {{< /rawhtml >}}
+
+{{< hint warning >}}
+**Apple has limited the ability to install Ventura to specific hardware models. <a href="https://support.apple.com/en-us/HT213264">You can view a list of supported models here.</a>**
+{{< /hint >}}
 
 {{< hint warning >}}
 **ARM USERS:** Creating macOS 13.x VMs on Monterey (12.x) hosts requires that Xcode >= 14.0.1 is installed on the host (not in the VM). This is a requirement from Apple at the moment. There is also a rare problem where your Xcode is not fully set up and still creates problems, regardless of being on Ventura. Be sure to run the following:
