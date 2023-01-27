@@ -109,13 +109,13 @@ You can also port forward the guest port onto the host so it's accessible from t
 ## Anka `view`
 
 {{< hint warning >}}
-We do not currently recommend using the `anka start -v` or `anka view` commands over VNC. By default VMs come with VNC enabled and it's far more flexible.
+**ARM USERS:** We recommend using VNC over `anka start -v` or `anka view` commands. By default VMs come with VNC enabled and it's far more flexible.
 {{< /hint >}}
 
 ### Known Issues with `anka view`
 
 - Chrome, Edge, and any other GPU accelerated browser will not function due to limitations in Apple's hypervisor. You would need to launch the browsers without GPU acceleration. For example, with Chrome: `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-gpu`.
-- `anka view` will not work unless you first started the VM with `anka start -v`. We enable VNC for the VM by default and recommend this approach instead.
+- **ARM USERS:** `anka view` will not work unless you first started the VM with `anka start -v`. We enable VNC for the VM by default and recommend this approach instead.
 
 ### With the CLI
 
