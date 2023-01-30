@@ -3,6 +3,7 @@
 
 | Name         |
 |--------------|
+| anka-build-3.2.0.154-macos-13.0 |
 | anka-build-3.2.0.153-macos-13.0.1-arm64 |
 | anka-build-3.2.0.153-macos-13.0-arm64 |
 |	anka-build-3.1.1.152-macos-12.6-arm64 |
