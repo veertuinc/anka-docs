@@ -71,7 +71,7 @@
   This will issue a `git fetch` and then, if there are changes pending on our [aws-ec2-mac-amis repo](https://github.com/veertuinc/aws-ec2-mac-amis), issue `git pull` to collect the latest version of the Cloud Connect scripts. This is useful if there is a bug in our scripts and you can't update to a newer AMI yet.
 
   - Optional
-  - Only available in >= 3.2.0/13.0 AMIs.
+  - Only available in > 3.2.0/13.0 AMIs.
 
 
 #### Manual Preparation
