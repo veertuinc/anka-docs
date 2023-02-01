@@ -36,7 +36,7 @@ Anka allows you to create VMs for the following macOS versions:
 <tbody style="text-align:center">
   <tr>
     <td style="font-size: 1.5rem; background-color: #f2e6ff;"><b>INTEL</b></td>
-    <td style="background-color: #f2e6ff;"><b>Anka 2.5.x</b></td>
+    <td style="background-color: #f2e6ff;"><b>Anka 2.5.7</b></td>
     <td style="background-color: #f2e6ff;"><b>Anka 3.2.x</b></td>
   </tr>
   <tr>
