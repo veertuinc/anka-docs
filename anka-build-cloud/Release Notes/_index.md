@@ -16,7 +16,7 @@ weight: 100
 ---
 
 ## Previous Versions
-s
+
 ### 1.31.1 (1.31.1-ab1c787e) - Jan 12th, 2023
 
 - **Bug Fix:** Registry threw a panic when using OIDC.
