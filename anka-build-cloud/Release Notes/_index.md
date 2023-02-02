@@ -8,14 +8,15 @@ weight: 100
 
 ### 1.32.0 (1.32.0-bfdd223f) - Jan 12th, 2023
 
-- **New Feature:** Ability to Change Node Configuration from UI + [Drain Mode, allowing users to prevent any *new* VMs from starting on the node, but not terminate already running VMs (and the jobs using them]({{< relref "whats-new/build-cloud-1.32.0/index.md#drain-mode" >}}).
+- **New Feature:** [Drain Mode, allowing users to prevent any *new* VMs from starting on the node, but not terminate already running VMs (and the jobs using them]({{< relref "whats-new/build-cloud-1.32.0/index.md#drain-mode" >}}).
+- **New Feature:** [Certificate Revocation.]({{< relref "whats-new/build-cloud-1.32.0/index.md#certificate-revocation" >}})
 - **Bug Fix:** 
 - (Standalone Registry: 1.32.0-81cf056c)
 
 ---
 
 ## Previous Versions
-
+s
 ### 1.31.1 (1.31.1-ab1c787e) - Jan 12th, 2023
 
 - **Bug Fix:** Registry threw a panic when using OIDC.
