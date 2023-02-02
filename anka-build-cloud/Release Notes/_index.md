@@ -6,12 +6,12 @@ weight: 100
 
 ## Current Version
 
-### 1.32.0 (1.32.0-bfdd223f) - Jan 12th, 2023
+### 1.32.0 (1.32.0-XXXX) - Feb 6th, 2023
 
 - **New Feature:** [Drain Mode, allowing users to prevent any *new* VMs from starting on the node, but not terminate already running VMs (and the jobs using them]({{< relref "whats-new/build-cloud-1.32.0/index.md#drain-mode" >}}).
 - **New Feature:** [Certificate Revocation.]({{< relref "whats-new/build-cloud-1.32.0/index.md#certificate-revocation" >}})
-- **Bug Fix:** 
-- (Standalone Registry: 1.32.0-81cf056c)
+- **Bug Fix:** `/api/v1/node?id=SOME_ID` would return a different object from `/api/v1/node` (without ID).
+- (Standalone Registry: 1.32.0-XXX)
 
 ---
 
