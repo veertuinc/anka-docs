@@ -52,7 +52,7 @@ Starting around Big Sur, Apple has introduced security requirements which can ca
   
       ![security prompt]({{< siteurl >}}images/ci-plugins-and-integrations/jenkins/ankanetd-system-events-warning.png)
 
-  3. Once approved, go into `System Preferences > Security & Privacy > Privacy > Accessiblity` and make sure `ankarund` is allowed just as the image below shows.
+  3. Once approved, go into `System Preferences > Security & Privacy > Privacy > Accessiblity` and make sure `/Library/Application\ Support/Veertu/Anka/addons/ankarund` is added and allowed (checked) just as the image below shows.
 
       ![security prefs]({{< siteurl >}}images/ci-plugins-and-integrations/jenkins/ankanetd-security-and-privacy.png)
 
