@@ -92,5 +92,5 @@ Any revocations must happen against the latest `index.txt` and `crlnumber` (`ope
 
 - You can check if a certificate is revoked with `openssl verify -crl_check -CAfile anka-ca-crt.pem -CRLfile crl.pem node-Veertu.local-crt.pem`.
 - The `index.txt`, `crlnumber`, and certs generated should be stored in a centralized location. We recommend a repo or a server with openssl on it that only admins have access to. Any changes made should be checked into the repo so that others can pull them and start from the latest version of the revocation DB (index.txt).
-- If the crl.pem expires, the controller and registry will fail.
-- The crl.pem must be generated with the same CA Root cert that the client certs are.
+- If the `crl.pem` expires, the controller and registry will fail.
+- The `crl.pem` must be generated with CA Root cert that the Controller and Registry are using.
