@@ -6,14 +6,21 @@ weight: 100
 
 ## Current Version
 
-### 1.31.1 (1.31.1-ab1c787e) - Jan 12th, 2023
+### 1.32.0 (1.32.0-c375584c) - Feb 6th, 2023
 
-- **Bug Fix:** Registry threw a panic when using OIDC.
-- (Standalone Registry: 1.31.1-f997f56d)
+- **New Feature:** [Drain Mode, allowing users to prevent any *new* VMs from starting on the node, but not terminate already running VMs (and the jobs using them]({{< relref "whats-new/build-cloud-1.32.0/index.md#drain-mode" >}}).
+- **New Feature:** [Certificate Revocation.]({{< relref "whats-new/build-cloud-1.32.0/index.md#certificate-revocation" >}})
+- **Bug Fix:** `/api/v1/node?id=SOME_ID` would return a different object from `/api/v1/node` (without ID).
+- (Standalone Registry: 1.32.0-81cf056c)
 
 ---
 
 ## Previous Versions
+
+### 1.31.1 (1.31.1-ab1c787e) - Jan 12th, 2023
+
+- **Bug Fix:** Registry threw a panic when using OIDC.
+- (Standalone Registry: 1.31.1-f997f56d)
 
 ### 1.31.0 (1.31.0-93a0aa2c) - Dec 28th, 2022
 

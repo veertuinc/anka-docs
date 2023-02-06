@@ -42,7 +42,7 @@ The JDK/JAVA version inside of the VM **must match the version inside of Jenkins
 #### SSH Launch Method
 
   2. In the VM, make sure remote login is enabled (`System Preferences > Sharing`).
-  3. On the host, enable SSH [port forwarding]({{< relref "anka-virtualization-cli/command-line-reference.md#modify-nameuuid-port" >}}) for your VM Template using the Anka CLI: `sudo anka modify <VM Template name> add port-forwarding --guest-port 22 ssh`. _We recommend not specifying --host-port._
+  3. On the host, enable SSH [port forwarding]({{< relref "anka-virtualization-cli/command-line-reference.md#modify-nameuuid-port" >}}) for your VM Template using the Anka CLI: `sudo anka modify <VM Template name> add port --guest-port 22 ssh`. _We recommend not specifying --host-port._
 
 #### JNLP Launch Method
 

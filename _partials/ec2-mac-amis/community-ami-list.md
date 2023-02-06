@@ -1,6 +1,10 @@
 ---
 ---
 
+{{< hint info >}}
+AMIs will be published under account IDs `930457884660` (veertu official) and `679593333241` (marketplace account from amazon). Do not trust AMIs from other accounts.
+{{< /hint >}}
+
 | Name         |
 |--------------|
 | anka-build-3.2.0.154-macos-13.0 |

@@ -15,6 +15,7 @@
 | ANKA_CLIENT_CERT_KEY | (string) | (Certificate Authentication) The Controller will use this when making http requests, mainly to the Registry |  |
 | ANKA_CLIENT_KEYPASS | (string) | (Certificate Authentication) Password for certificate and keystore (optional) |  |
 | ANKA_CLIENT_KEYSTORE | (string) | (Certificate Authentication) A client keystore file in pkcs12 format; The Controller will use this when making http requests (mainly to the Registry). |  |
+| ANKA_CRL | (string) | (Certificate Authentication) File containing certificate revocation list (CRL) used to authenticate incoming requests/certs. |  |
 | ANKA_ENABLE_API_KEYS | (boolean) | Enable API Key Authentication. | false |
 | ANKA_ENABLE_AUTH | (boolean) | Enable Authentication (Root Token, Certificate, SSO/OpenID Connect or API Keys) (Not to be confused with Authorization). | false |
 | ANKA_ENABLE_CONTROLLER_AUTHORIZATION | (boolean) | Enable Authorization (Users, groups, permission control for specific certificates) in the Controller. | false |

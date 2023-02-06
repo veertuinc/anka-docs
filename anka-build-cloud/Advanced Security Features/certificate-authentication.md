@@ -78,6 +78,9 @@ The Controller's authentication module uses the Root CA (anka-ca-crt.pem) to aut
 You can use the following openssl commands to create Node certificates using the Root CA:
 
 ```shell
+NODE_NAME="$(hostname)"
+ORG_UNIT="TEAM_ONE"
+ORGANIZATION="MYORG"
 openssl genrsa -out node-$NODE_NAME-key.pem 4096
 openssl req -new -sha256 -key node-$NODE_NAME-key.pem -out node-$NODE_NAME-csr.pem \
   -subj "/O=$ORGANIZATION/OU=$ORG_UNIT/CN=$NODE_NAME"
@@ -88,6 +91,17 @@ openssl x509 -req -days 365 -sha256 -in node-$NODE_NAME-csr.pem -CA anka-ca-crt.
 ## 4. Configuring the Controller & Registry to enable authentication
 
 In addition to the node certificates, the controller itself makes API calls to the Registry (you've enabled registry auth, right?) to get templates, etc, and will need a client cert to communicate with it. This is where `ANKA_CA_CERT` comes in as it's used to validate the incoming requests.
+
+```shell
+NAME="anka-controller"
+ORG_UNIT="TEAM_ONE"
+ORGANIZATION="MYORG"
+openssl genrsa -out $NAME-key.pem 4096
+openssl req -new -sha256 -key $NAME-key.pem -out $NAME-csr.pem \
+  -subj "/O=$ORGANIZATION/OU=$ORG_UNIT/CN=$NODE_NAME"
+openssl x509 -req -days 365 -sha256 -in $NAME-csr.pem -CA anka-ca-crt.pem -CAkey anka-ca-key.pem \
+  -CAcreateserial -out $NAME-crt.pem
+```
 
 ### MacOS combined Controller & Registry package
 
@@ -137,9 +151,38 @@ The `ANKA_CA_CERT` is the authority that is used to validate the Anka Node Agent
 If you're connecting the Anka CLI with the HTTPS Registry URL, you can use the Node certificates: `anka registry --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem add $REGISTRY_NAME https://$REGISTRY_ADDRESS:8089` (`--cacert` may also be needed if you're using a self-signed HTTPS cert and it's not in your keychain)
 {{< /hint >}}
 
-## 5. Testing & Joining your Node to the Controller with the Node certificate
+### Joining and Testing your Node and Controller Auth
 
-Copy both the Node certificates (node-$NODE_NAME-crt.pem, node-$NODE_NAME-key.pem) and the anka-ca-crt.pem to the host/node you wish to join.
+First, copy both the Node certificates (`node-$NODE_NAME-crt.pem`, `node-$NODE_NAME-key.pem`) and the `anka-ca-crt.pem` to the host/node you wish to join.
+
+{{< hint warning >}}
+If you previously joined your Nodes to the Controller, you'll want to `sudo ankacluster disjoin` on each before proceeding (if it hangs, use `ps aux | grep anka_agent | awk '{print $2}' | xargs kill -9` and try disjoin again).
+{{< /hint >}}
+
+{{< hint info >}}
+Note: Certificates are cached, so if you update/renew them, you need to either:
+1. disjoin and re-join them to the controller, issue `sudo pkill -9 anka_agent` on each node to restart the agent
+2. or, issue a `<controller>/v1/node/update` PUT to the controller API to forcefully update all nodes.
+{{< /hint >}}
+
+{{< hint info >}}
+If you're using a signed certificate for the controller dashboard, but self-signed certificates for your nodes and CI tools, you'll need to specify the `--cacert` for `ankacluster join` and `anka registry add` commands and point it to the signed CA certificate. You'll usually see `SSLError: ("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",)` if the wrong CA is being used.
+{{< /hint >}}
+
+Then, use the `ankacluster` command to connect it to the Controller with:
+
+```shell
+sudo ankacluster join https://$CONTROLLER_ADDRESS --skip-tls-verification \
+  --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --cert-key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem --cacert /Users/nathanpierce/anka-ca-crt.pem
+Testing connection to Controller...: OK
+Testing connection to registry….: OK
+Ok
+Cluster join success
+```
+
+{{< hint info >}}
+The `--skip-tls-verification` is only necessary if using a self-signed cert. Please avoid using `--skip-tls-verification` AND the `--cacert`.
+{{< /hint >}}
 
 ### Testing
 
@@ -198,37 +241,6 @@ If everything is configured correctly, you should see something like this (I use
 * Closing connection 0
 ```
 
-### Joining
-
-{{< hint warning >}}
-If you previously joined your Nodes to the Controller, you'll want to `sudo ankacluster disjoin` on each before proceeding (if it hangs, use `ps aux | grep anka_agent | awk '{print $2}' | xargs kill -9` and try disjoin again).
-{{< /hint >}}
-
-{{< hint info >}}
-Note: Certificates are cached, so if you update/renew them, you need to either:
-1. disjoin and re-join them to the controller, issue `sudo pkill -9 anka_agent` on each node to restart the agent
-2. or, issue a `<controller>/v1/node/update` PUT to the controller API to forcefully update all nodes.
-{{< /hint >}}
-
-{{< hint info >}}
-If you're using a signed certificate for the controller dashboard, but self-signed certificates for your nodes and CI tools, you'll need to specify the `--cacert` for `ankacluster join` and `anka registry add` commands and point it to the signed CA certificate. You'll usually see `SSLError: ("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",)` if the wrong CA is being used.
-{{< /hint >}}
-
-Then, use the `ankacluster` command to connect it to the Controller with:
-
-```shell
-sudo ankacluster join https://$CONTROLLER_ADDRESS --skip-tls-verification \
-  --cert /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-crt.pem --cert-key /Users/$USER_WHERE_CERTS_ARE/node-$NODE_NAME-key.pem
-Testing connection to Controller...: OK
-Testing connection to registry….: OK
-Ok
-Cluster join success
-```
-
-{{< hint info >}}
-The `--skip-tls-verification` is only necessary if using a self-signed cert. Please avoid using `--skip-tls-verification` AND the `--cacert`.
-{{< /hint >}}
-
 ## 6. Configuring your Builder Node to push to the Registry
 
 Typically you want to assign a specific Anka Node as a "builder node". This node will run a licensed Anka installation and allow you to create and prepare VMs to be pushed to the Anka Build Cloud Registry as templates/tags. With Certificate Authentication enabled, you won't be able to do this unless you specify the certs on the `anka registry` command:
@@ -244,6 +256,12 @@ You can also use `anka registry add` to add it to the default configuration and 
 ## Accessing the Controller UI
 
 Once Cert Auth as been enabled, loading your Controller UI will show `Controller Not Connected`. This is because the Controller is fully protected. In order to access the UI, you can set up your browser to use client certificates to access the page. Alternatively, you can enable root token auth with `ANKA_ROOT_TOKEN` which must be set to a minimum of 10 characters. You can read more about it [here]({{< relref "anka-build-cloud/Advanced Security Features/token-authentication.md#protecting-your-cloud-with-rta-root-token-auth" >}}).
+
+---
+
+## Certificate Revocation
+
+{{< include file="_partials/anka-build-cloud/whatsnew/1.32.0/certificate-revocation.md" >}}
 
 ---
 

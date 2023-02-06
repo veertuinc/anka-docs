@@ -14,19 +14,19 @@ You can work with controller through the web portal interface, REST APIs or the 
 
 ---
 
-### Controller Portal
+## Controller Portal
 
 Access it by going to your controller IP - `http://<controllerIP>:port`.
 
 You can view the status of your Anka Build macOS cloud from this UI and also perform basic management operations.  
 
-#### Dashboard View
+### Dashboard View
 
 This view displays the total active build nodes, running VM instances, instance run capacity utilization, registry storage consumption, average cpu and ram utilization across the entire cloud.
 
 ![image1]({{< siteurl >}}images/using-controller/image1.png)
 
-#### Nodes View
+### Nodes View
 
 Click on nodes to go to node list view.
 
@@ -34,15 +34,22 @@ You can view all active build nodes, instances running on them, their cpu and ra
 
 ![image2]({{< siteurl >}}images/using-controller/image2.png)
 
-##### Explanation of Node States
+#### Change Node Configuration
+
+##### Drain Mode
+
+{{< include file="_partials/anka-build-cloud/whatsnew/1.32.0/drain-mode.md" >}}
+
+#### Explanation of Node States
 
 - **Offline:** Node has not checked in recently
 - **Inactive:** (Invalid License): License has likely expired; log in to the node and run `anka license show`
 - **Active:** Node is healthy
 - **Updating:** Node is downloading and installing the proper agent pkg (if the controller has been upgraded)
 - **Unhealthy:** VMs running on Node are in an errored or failed
+- **Drain Mode:** Node will not pick up new start VM tasks. Existing VMs will not be impacted.
 
-#### Templates View
+### Templates View
 
 Click on templates to look at all VMs stored in the registry.
 
@@ -62,19 +69,19 @@ Distribution to nodes is complete.
 
 ![image6]({{< siteurl >}}images/using-controller/image6.png)
 
-#### Instances View
+### Instances View
 
 Click on Instances to get a list of all running instances on the cloud.
 
 ![image7]({{< siteurl >}}images/using-controller/image7.png)
 
-#### Manually starting instances
+### Manually starting instances
 
 Click on create instance to manually start instances using a specific VM template/tag on the cloud.
 
 ![image8]({{< siteurl >}}images/using-controller/image8.png)
 
-#### Accessing Error logs
+### Accessing Error logs
 
 Starting from Controller release version 1.0.12, logs will be available for download from the Controller Management portal for error scenarios during VM provisioning.
 
