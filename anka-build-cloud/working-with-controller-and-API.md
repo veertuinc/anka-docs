@@ -663,6 +663,7 @@ curl "http://anka.controller/api/v1/node?id=f8707005-4630-4c9c-8403-c9c5964097f6
  vcpu_override | int    | When using capacity mode `resource` set the VCPU scheduling limit | -
  ram_override  | int    | When using capacity mode `resource` set the VRAM scheduling limit | -
  disable_central_logging | bool | If true, disables central logging (logs will not be sent to the log server) | -
+ drain_mode | bool | Puts the Node into [drain mode]({{< relref "whats-new/build-cloud-1.32.0/index.md#drain-mode" >}}) | -
 
  **Returns:**
 
@@ -679,6 +680,9 @@ curl -X POST "http://anka.controller/api/v1/node/config" -H "Content-Type: appli
    "status":"OK",
    "message":""
 }
+
+❯ curl -X POST http://anka.controller:8090/api/v1/node/config -d '{"node_id": "3c101836-9540-4733-9482-604d0c5fbe30", "drain_mode": true}'
+{"status":"OK","message":""}
 ```
 
 #### Delete Node
