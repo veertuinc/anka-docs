@@ -20,20 +20,20 @@
   If you pass in user-data with the exports all on one line, and have non ANKA_ ENVs you're setting, the `cloud-connect.bash` service we run on instance start/boot will source/execute them. We recommend you split exports and user-data onto separate lines to avoid this.
   {{< /hint >}}
 
-  ##### ANKA_CONTROLLER_ADDRESS
+  ##### ANKA_CONTROLLER_ADDRESS (string)
 
   Full URL for the Anka Build Cloud Controller.
 
   - **REQUIRED**
   - Must be in the following structure: `http[s]://[IP/DOMAIN]:[PORT]`.
 
-  ##### ANKA_JOIN_ARGS
+  ##### ANKA_JOIN_ARGS (string)
 
   Allows you to pass in any "Flags" from `ankacluster join --help`.
 
   - Optional
 
-  ##### ANKA_REGISTRY_OVERRIDE_IP + ANKA_REGISTRY_OVERRIDE_DOMAIN
+  ##### ANKA_REGISTRY_OVERRIDE_IP + ANKA_REGISTRY_OVERRIDE_DOMAIN (string)
 
   Allows you to set the registry IP address and domain in the `/etc/hosts` file.
 
@@ -41,7 +41,7 @@
   - Use 1: if your corporate registry doesn't have a public domain name, but does have a public IP.
   - Use 2: if you want the EC2 mac mini to pull from a second registry that's hosted on EC2 instead of a local corporate one (AWS -> AWS is much faster).
 
-  ##### ANKA_LICENSE
+  ##### ANKA_LICENSE (string)
 
   If not already licensed, the cloud-connect service will license Anka using this ENV's value.
 
@@ -51,13 +51,13 @@
   - You can also update invalid/expired licenses with this (requires a reboot).
   - Starting in AMIs with a macOS version greater than 12.2.1: The Fulfillment ID output from `anka license activate`, which is used for releasing cores, is logged to your Cloud Controller > Logs section in the "AWS Cloud Connect Service".
 
-  ##### ANKA_USE_PUBLIC_IP
+  ##### ANKA_USE_PUBLIC_IP (boolean)
 
   This will determine whether the instance/node is joined using the public ipv4. Otherwise, it will default to the local/private ipv4.
   
   - Optional
 
-  ##### ANKA_CONTROLLER_API_CERT / _KEY / _CA | ANKA_REGISTRY_API_CERT / _KEY / _CA
+  ##### ANKA_CONTROLLER_API_CERT / _KEY / _CA | ANKA_REGISTRY_API_CERT / _KEY / _CA (string)
 
   The script which handles joining to your controller has a few calls to the controller as well as the registry APIs. If you're protecting your APIs with TLS and Certificate Authentication, you can set the certs to use with these ENVs.
 
@@ -66,7 +66,7 @@
   {{< imgwithlink src="images/getting-started/aws-ec2-mac/user-data.png" >}}
 
 
-  ##### ANKA_PULL_LATEST_CLOUD_CONNECT
+  ##### ANKA_PULL_LATEST_CLOUD_CONNECT (boolean)
 
   This will issue a `git fetch` and then, if there are changes pending on our [aws-ec2-mac-amis repo](https://github.com/veertuinc/aws-ec2-mac-amis), issue `git pull` to collect the latest version of the Cloud Connect scripts. This is useful if there is a bug in our scripts and you can't update to a newer AMI yet.
 
