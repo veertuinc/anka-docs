@@ -15,7 +15,9 @@ options:
   -d,--delete              Delete the rule
   --set-name <val>         Rename the rule
 
-❯ anka modify 12.6 port test 22:0.0.0.0
+❯ anka modify 12.6 port ssh 22:0.0.0.0
+
+❯ anka start 12.6
 
 ❯ anka show 12.6 network
 . . .
@@ -23,10 +25,8 @@ port_forwarding_rules:
 +------+----------+------------+-----------+
 | name | protocol | guest_port | host_port |
 +------+----------+------------+-----------+
-| test | tcp      | 22         | 10000     |
+| ssh | tcp      | 22         | 10000     |
 +------+----------+------------+-----------+
-
-❯ anka start 12.6
 
 ❯ ssh anka@localhost -p 10000
 (anka@localhost) Password:
