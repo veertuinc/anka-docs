@@ -299,6 +299,19 @@ You can easily create VM clones from a source VM and _its current state_ using `
 
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/clone/_index.md" >}}
 
+{{< hint info >}}
+Don’t worry, at no point do clones have access to change the original source VM state.
+{{< /hint >}}
+
+{{< hint info >}}
+All clones share as many underlying layers and data as possible.
+{{< /hint >}}
+
+There are two types of cloning you can perform:
+
+1. **Shallow Clone**: `anka clone {source} {dest}` -- Shallow clones allow you to get a distinct entity, separate from the source, with a new name and UUID.
+2. **Full Clone**: `anka clone --copy {source} {dest}` -- Full clones create a copy that merges all underlying layers so that they cannot be shared with other VMs. While this could theoretically shrink the size of the VM, it loses the ability to re-use existing layers from other VMs on the host and can actually use more disk space than before.
+
 ```bash
 ❯ anka list
 +------------------+--------------------------------------+----------------------+---------+
@@ -323,12 +336,12 @@ You can easily create VM clones from a source VM and _its current state_ using `
 
 ### VM Templates
 
-Once a VM has been tagged, it becomes a "VM Template". The VM template & tag's state cannot be permanently modified unless you create a new tag, post-changes. This is very reminiscent of how `git commit` works. You can execute commands and modify the state of the VM after tagging it, but it will not save the changes to the existing template + tag. This is important to consider when using the [Anka Build Cloud Registry]({{< relref "anka-build-cloud/_index.md" >}}) since it will only push the state of the VM when the tag was created, not after.
+Once a VM has been tagged, it becomes a "VM Template". The VM template & tag's state cannot be permanently modified unless you create a new tag, post-changes. This is very reminiscent of how `git commit` works. You can execute commands and modify the state of the VM after tagging it, but it will not save the changes until you create a new tag. This is important to consider when using the [Anka Build Cloud Registry]({{< relref "anka-build-cloud/_index.md" >}}) since it will only push the state of the VM when the tag was created, not after.
 
 In summary, when cloning a tagged VM you have two options:
 
-1. Clone from the current VM state, regardless of the state when it was tagged (`anka clone {source} {clone}`).
-2. Clone the state of a VM template & tag by targeting the tag by name (`anka clone --tag {tagName} {source} {clone}`), regardless of what has been done to it since tagging.
+1. Shallow Clone from the current VM state, regardless of the state when it was tagged (`anka clone {source} {clone}`).
+2. Shallow Clone the state of a VM template & tag by targeting the tag by name (`anka clone --tag {tagName} {source} {clone}`), regardless of what has been done to it since tagging.
 
 {{< hint info >}}
 Clones are not automatically tagged.
