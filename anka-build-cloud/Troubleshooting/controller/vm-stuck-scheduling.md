@@ -151,7 +151,14 @@ Solving this typically means that you need to adjust the frequency the node comm
 2. Edit the file and add `<string>--dial-timeout</string><string>15s</string>`
 3. `sudo launchctl load -w /Library/LaunchDaemons/com.veertu.anka.cluster.agent.plist`
 
+---
+
 ## Still experiencing problems?
 
-Talk to us! we are available via [slack](https://slack.veertu.com/) or [email](mailto:support@veertu.com)
+Please run the following on one of your joined Anka Nodes and provide the archive to support:
 
+```bash
+curl -O https://raw.githubusercontent.com/veertuinc/scripts/main/generate-anka-node-diagnostics.bash && chmod +x ./generate-anka-node-diagnostics.bash && ./generate-anka-node-diagnostics.bash
+```
+
+Talk to us! we are available via [slack](https://slack.veertu.com/) or [email](mailto:support@veertu.com)

@@ -276,7 +276,8 @@ When creating certificates, you'll want to specify CSR values using openssl's `-
 -subj "/O=MyOrgName/OU=$ORG_UNIT/CN=Jenkins"
 ```
 
-- **Both `O=` and `CN=` are required.**
+- **At least one `O=` and `CN=` is required.**
+- You can specify multiple `O=` like so: `/O=DevOps/O=iOSDEV/ . . .`
 - Within the Controller's Permission administration panel, we use **`O=`** as the **Group Name** and **`CN=`** as the **Username**.
 - Spaces are supported in `O=` and Anka Build Cloud Controller version >= 1.10.
 {{< /hint >}}
