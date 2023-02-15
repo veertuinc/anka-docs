@@ -10,6 +10,36 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.2.1 (3.2.1.155) (Intel) - Feb 15th 2023
+
+{{< hint info >}}
+Addons upgrading is not required but is recommended.
+{{< /hint >}}
+
+- **Bug Fix:** Marketplace AMI licensing fixes.
+
+### 3.2.1 (3.2.1.157) (ARM) - Feb 15th 2022
+
+{{< hint info >}}
+Addons upgrading is not required but is recommended.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+Known issues:
+
+- Nested virtualization is not functional inside of VMs yet.
+- `anka view` and `anka start -v` are partially broken and require double clicking the VM name in the Anka.app VM listing. Also, the Anka viewer requires you first start the VM with `anka start -v`. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- iCloud/Apple logins will fail inside of the VM. You can still log into your account through Apple's website and download apps through your developer account. Or, transfer them from the host into the VM with `anka cp`.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **Bug Fix:** Marketplace AMI licensing fixes.
+
+## Previous Versions
+
 ### 3.2.0 (3.2.0.153) (Intel) - Jan 9th 2023
 
 {{< hint info >}}
@@ -50,8 +80,6 @@ Known issues:
 - **Bug Fix:** Controller Agent coming with Anka package was being installed and forcefully upgrading the version users already have.
 - **Bug Fix:** Anka run was hanging when the VM received a `sudo reboot` (supports packer's expect disconnect feature).
 - **Bug Fix:** `ANKA_DEFAULT_USER` and `ANKA_DEFAULT_PASSWD` did not allow users to change the default user and pass in the VM when using `anka create`.
-
-## Previous Versions
 
 ### 3.1.1 (3.1.1.152) (ARM) - Oct 25th 2022
 
