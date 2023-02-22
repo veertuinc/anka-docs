@@ -7,7 +7,7 @@ description: >
   Instructions on how to use Buildkite with Anka Build
 ---
 
-The [anka-buildkite-plugin](https://github.com/chef/anka-buildkite-plugin) provides a quick way to integrate Anka with Buidkite. The plugin helps Buildkite jobs dynamically provision Anka VM instances for building, testing, and more.
+The [anka-buildkite-plugin](https://github.com/veertuinc/anka-buildkite-plugin) provides a quick way to integrate Anka with Buidkite. The plugin helps Buildkite jobs dynamically provision Anka VM instances for building, testing, and more.
 
 The Anka Buildkite plugin works differently than our other plugins. It will not start VM instances using your Anka Build Cloud Controller and instead connect directly to an unused Node agent to execute the VM setup commands.
 
@@ -29,7 +29,7 @@ Buildkite provides [manual or YAML options](https://buildkite.com/docs/pipelines
 
 ---
 
-We'd like to recognize Tom Duffield (tom@chef.io) for developing the plugin for Anka. The official repo can be found [HERE](https://github.com/chef/anka-buildkite-plugin).
+We'd like to recognize Tom Duffield (tom@chef.io) for developing the plugin for Anka. The official repo can be found [HERE](https://github.com/veertuinc/anka-buildkite-plugin).
 
 ---
 
