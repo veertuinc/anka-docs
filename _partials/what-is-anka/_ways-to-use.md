@@ -13,10 +13,17 @@ There are many ways in which our customers utilize the Anka Virtualization CLI t
 - Any manual steps you need to perform in the GUI can be done through VNC or automated with [Anka Click Scripts](https://github.com/veertuinc/anka-click-scripts).
 - Create Packer Templates and run them to perform the steps for VM creation and preparation with our [packer builders and post-provisioner](https://github.com/veertuinc/packer-builder-veertu-anka)..
 
+{{< rawhtml >}}<br />{{< /rawhtml >}}
+
+---
 
 {{< rawhtml >}}<center>{{< /rawhtml >}}
+
 ##### [Check out the Getting Started installing and using Anka CLI Guide.]({{< relref "anka-virtualization-cli/getting-started/_index.md" >}})
 
+
 {{< rawhtml >}}</center>{{< /rawhtml >}}
+
+---
 
 ![Anka list start and run]({{< siteurl >}}images/what-is-anka/anka-list-start-run.png)
