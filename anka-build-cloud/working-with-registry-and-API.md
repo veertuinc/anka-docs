@@ -682,3 +682,23 @@ curl -X DELETE  "http://anka.registry.net:8089/registry/revert?id=a3cc47f0-3a73-
 ❯ curl -X DELETE -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.registry:8089/v1/apikey -d '{ "id": "nathan" }'
 {"status":"OK","message":""}
 ```
+
+## Miscellaneous
+
+### Disk Info
+
+- **Description:** Display Disk usage information.
+
+- **Path:** /registry/disk
+
+- **Method:** GET
+
+**Returns:**
+- `status`: Operation Result (OK|FAIL)
+- `body`: Free and Total disk space for the registry
+- `message`: Error message in case of an error
+
+```bash
+❯ curl https://anka.registry:8089/registry/disk
+{"status":"OK","body":{"free":335356690432,"total":1000240963584},"message":""}
+```
