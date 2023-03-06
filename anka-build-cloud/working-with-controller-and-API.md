@@ -46,8 +46,8 @@ You can view all active build nodes, instances running on them, their cpu and ra
 - **Inactive:** (Invalid License): License has likely expired; log in to the node and run `anka license show`
 - **Active:** Node is healthy
 - **Updating:** Node is downloading and installing the proper agent pkg (if the controller has been upgraded)
-- **Unhealthy:** VMs running on Node are in an errored or failed
-- **Drain Mode:** Node will not pick up new start VM tasks. Existing VMs will not be impacted.
+- **Unhealthy:** When all or the only Instance on a Node is in an errored/failed state
+- **Drain Mode:** Node will not pick up new start VM tasks. Existing VMs will not be impacted
 
 ### Templates View
 
