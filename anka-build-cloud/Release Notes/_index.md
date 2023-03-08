@@ -8,6 +8,9 @@ weight: 100
 
 ### 1.33.0 (1.33.0-34919d48) - March 7th, 2023
 
+- **Bug Fix:** Getting distribution status returned a null body with OK status.
+- **Bug Fix:** Distribution was blocked for Unhealthy nodes.
+- **Bug Fix:** Distribution (/api/v1/registry/vm/distribute) API response randomly showing `progress: 1` but `status: false` indefinitely.
 - **Improvement:** [New Permissions Management Panel]({{< relref "whats-new/build-cloud-1.33.0/index.md#new-permissions-management-panel" >}})
 - **Improvement:** [Code/Explicit Flow support for OIDC.]({{< relref "whats-new/build-cloud-1.33.0/index.md#codeexplicit-flow-oidc-support" >}})
   - ENV `ANKA_OIDC_CACHE_TTL` has been deprecated.
