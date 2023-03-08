@@ -7,8 +7,16 @@ description: >
   How to set up OIDC / SSO for the Anka Build Cloud Controller UI.
 ---
 
+Many organizations and developers are already familiar with OpenID Connect (OIDC). OIDC is a layer that sits on top of OAuth 2.0 and performs the authorization necessary to access protected resources, such as the Anka Build Cloud Controller. Let's walk through what you need to know to set it up and protect your Controller Dashboard/UI.
+
+### Before you begin
+
 {{< hint warning >}}
-This guide and feature require an Anka Enterprise Plus license.
+Requires an Anka Enterprise Plus license.
+{{< /hint >}}
+
+{{< hint warning >}}
+It currently only protects the UI/Dashboard and is not available for API or others types of protection.
 {{< /hint >}}
 
 {{< hint warning >}}
@@ -19,18 +27,33 @@ If you're using root token auth for your Controller UI, without certificate auth
 You must have at least one node with a Enterprise or higher license joined to the Controller for these features to work.
 {{< /hint >}}
 
-Many organizations and developers are already familiar with OpenID Connect (OIDC). OIDC is a layer that sits on top of OAuth 2.0 and performs the authorization necessary to access protected resources, such as the Anka Build Cloud Controller.
+{{< hint warning >}}
+We currently only support `Code/Explicit Flow`.
+{{< /hint >}}
+
+---
 
 ## Usage Instructions
 
 When using OIDC, you'll need an Authorization Provider or Server. Most of our customers use Providers like [Okta](https://www.okta.com/), [Cyberark's Idaptive](https://www.cyberark.com/products/workforce-identity/), and others. we won't get into the specifics for these tools as they often differ greatly. However we will go through several general things you need to know, regardless of provider.
 
-1. We currently only support `Implicit` flow.
-2. Your provider config must allow a redirect to the Anka Controller URL homepage. The URL doesn't need to be public, but must match the hostname or IP (and port) you use locally.
-3. The controller/your browser will request certain `scopes` from the provider. These `scopes` have `claims` attached. By default, we look for `openid`, `profile`, and `groups`.
-4. Within the `scopes`, we look for `claims`. The following `claims` are required (by default): `name` (part of `profile`) & `groups`. These are changeable with `ANKA_OIDC_GROUPS_CLAIM` and `ANKA_OIDC_USERNAME_CLAIM` in your controller's config. In version 1.29.0, we will also look for `scopes` using the values of those ENVs.
-5. Once the `scopes` are requested successfully, the data returned needs to be in a specific format (`id_token` & `token`). We make the request with `response_type` to ensure this.
-6. The `groups` claim is expected to be an array of strings, each correlating to a [Controller permission group](#managing-usergroup-permissions-authorization).
+### Required Changes
+
+#### Anka Build Cloud Controller & Registry
+
+1. Set `ANKA_OIDC_CLIENT_SECRET` to the Client Secret you generate at your provider application.
+2. Set `ANKA_OIDC_PROVIDER_URL` to the appropriate provider URL for oauth2. For example, in Okta, I would set this to `https://dev-123456.okta.com/oauth2/default`.
+3. Set `ANKA_OIDC_CLIENT_ID` to the client ID for the application.
+
+#### At Your Provider
+
+1. Your provider config must allow a redirect to the Anka Controller at `/oidc/v1/callback`. The URL doesn't need to be public, but must match the hostname or IP (and port) you use locally. As an example, in Okta, you'll set `Sign-in redirect URIs` to `https://anka.controller:8090/oidc/v1/callback`.
+2. The controller/your browser will request certain `scopes` from the provider. These `scopes` have `claims` attached. By default, we look for `openid`, `profile`, and `groups`.
+3. Within the `scopes`, we look for `claims`. The following `claims` are required (by default): `name` (part of `profile`) & `groups`. These are changeable with `ANKA_OIDC_GROUPS_CLAIM` and `ANKA_OIDC_USERNAME_CLAIM` in your controller's config. In version 1.29.0, we will also look for `scopes` using the values of those ENVs.
+4. Once the `scopes` are requested successfully, the data returned needs to be in a specific format (`id_token` & `token`). We make the request with `response_type` to ensure this.
+5. The `groups` claim is expected to be an array of strings, each correlating to a [Controller permission group](#managing-usergroup-permissions-authorization).
+
+---
 
 Here is an example config showing what it looks like for a user with Okta:
 
@@ -58,8 +81,9 @@ Here is an example config showing what it looks like for a user with Okta:
       ANKA_ENABLE_AUTH: "true"
       ANKA_ROOT_TOKEN: "1111111111"
       ANKA_OIDC_DISPLAY_NAME: "Okta SSO"
-      ANKA_OIDC_PROVIDER_URL: "https://dev-193371238.okta.com/oauth2/default"
-      ANKA_OIDC_CLIENT_ID: "0oa7a07mc0kQxyfrusdd"
+      ANKA_OIDC_PROVIDER_URL: "https://dev-1234567.okta.com/oauth2/default"
+      ANKA_OIDC_CLIENT_ID: "0oa7a07mc0kQxyfrus11"
+      ANKA_OIDC_CLIENT_SECRET: "aHWQYCbH0mTYwLwwIfBvT-JWotYQAR8HAn7glnSB"
 
   anka-registry:
     container_name: anka-registry
@@ -79,9 +103,10 @@ Here is an example config showing what it looks like for a user with Okta:
       ANKA_SERVER_KEY: "/mnt/cert/anka-controller-key.pem"
       ANKA_CA_CERT: "/mnt/cert/anka-ca-crt.pem"
       ANKA_ENABLE_AUTH: "true"
-      ANKA_OIDC_DISPLAY_NAME: "Keycloak"
-      ANKA_OIDC_PROVIDER_URL: "http://host.docker.internal:8080/auth/realms/myrealm"
-      ANKA_OIDC_CLIENT_ID: "anka"
+      ANKA_OIDC_DISPLAY_NAME: "Okta SSO"
+      ANKA_OIDC_PROVIDER_URL: "https://dev-1234567.okta.com/oauth2/default"
+      ANKA_OIDC_CLIENT_ID: "0oa7a07mc0kQxyfrus11"
+      ANKA_OIDC_CLIENT_SECRET: "aHWQYCbH0mTYwLwwIfBvT-JWotYQAR8HAn7glnSB"
 ```
 
 {{< hint warning >}}
@@ -200,6 +225,8 @@ Once logged in, you will see **Admin** on the left navigation
 ![Admin Navigation]({{< siteurl >}}images/openid/admin.png)
 
 Under the **Admin** page, we want to add a **New Group**. **The Group Name will be the name of the group you created within Keycloak.** -->
+
+---
 
 ## Managing User/Group Permissions (Authorization)
 

@@ -7,7 +7,7 @@ By default, `ANKA_ENABLE_AUTH` will not use authorization/permissions and allow 
 - `ANKA_ENABLE_REGISTRY_AUTHORIZATION` is for the combined (controller + registry in one binary) package only.
 - `ANKA_ENABLE_AUTHORIZATION` is only for the standalone registry package.
 
-Permission groups are configurable from your Controller's `https://<controller address>/admin/ui` page. You can target and add permissions for either the group name or the username (which is different between the various Advanced Security Features we offer).
+Permission groups are configurable from your Controller's `https://<controller address>/#/permission-groups` page. You can target and add permissions for either the group name or the username (which is different between the various Advanced Security Features we offer).
 
 {{< hint warning >}}
 **This feature requires Enterprise Plus.** The regular enterprise license automatically adds all permissions to each certificate or token that is used and gives no control over them.
@@ -21,21 +21,9 @@ This also requires that you've enabled [Root Token Authentication]({{< relref "a
 The permission groups here differ from the groups you assign to nodes within the Controller UI.
 {{< /hint >}}
 
-The **Available Permissions** list will display all of the permissions we can assign to the group (see below for the full list). These permissions will allow plugins/users (like Jenkins) to communicate with the Controller & Registry:
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/new-permissions-management.png" >}}
 
-#### Minimum Recommended Permissions
-
-- `get_groups`
-- `get_registry_disk_info`
-- `list_images`
-- `list_nodes`
-- `list_vms`
-- `save_image`
-- `start_vm`
-- `terminate_vm`
-- `update_vm`
-- `view_logs`
-
+<!-- 
 ### Controller Permissions
 
 | Permission | Description |
@@ -104,4 +92,4 @@ The **Available Permissions** list will display all of the permissions we can as
 | `view_permissions` | gives the user permission to view the list of available permissions |
 | `view_prmission_groups` | gives the user permission to view permission groups |
 | `update_permission_groups` | gives the user permission to update permission groups |
-| `delete_permission_groups` | gives the user permission to delete permission groups |
+| `delete_permission_groups` | gives the user permission to delete permission groups | -->
