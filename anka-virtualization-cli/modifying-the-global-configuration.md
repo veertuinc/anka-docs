@@ -27,7 +27,11 @@ View all default configuration settings for Anka installation on the host with `
 
 ## Changing the default Anka VM storage location
 
-Depending on how many Anka VMs you have, the disk usage might be too much for the default storage location. There are three configuration parameters to control location for storing Anka VMs. 
+Depending on how many Anka VMs you have, the disk usage might be too much for the default storage location. There are three configuration parameters to control location for storing Anka VMs.
+
+{{< hint warning >}}
+Anka 3.x and greater requires a APFS volume.
+{{< /hint >}}
 
 {{< hint info >}}
 It's recommended to keep the vm_lib_dir on the local disk as it contains file locks.
