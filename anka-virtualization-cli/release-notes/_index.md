@@ -18,7 +18,7 @@ Addons upgrading is not required but is recommended.
 
 - **Bug Fix:** Marketplace AMI licensing fixes.
 
-### 3.2.2 (3.2.2.158) (ARM) - March 10th 2023
+### 3.2.2 (3.2.2.158) (ARM) - March 13th 2023
 
 {{< hint info >}}
 Addons upgrading is not required but is recommended.
