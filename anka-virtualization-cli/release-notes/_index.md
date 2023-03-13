@@ -36,7 +36,7 @@ Known issues:
 
 {{< /hint >}}
 
-- **Bug Fix:** Anka Develop license support for M2 hardware.
+- **Bug Fix:** License fixes/support for M1 and M2 hardware.
 
 ## Previous Versions
 
