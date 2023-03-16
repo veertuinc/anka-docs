@@ -27,7 +27,11 @@ View all default configuration settings for Anka installation on the host with `
 
 ## Changing the default Anka VM storage location
 
-Depending on how many Anka VMs you have, the disk usage might be too much for the default storage location. There are three configuration parameters to control location for storing Anka VMs. 
+Depending on how many Anka VMs you have, the disk usage might be too much for the default storage location. There are three configuration parameters to control location for storing Anka VMs.
+
+{{< hint warning >}}
+Anka 3.x and greater requires a APFS volume.
+{{< /hint >}}
 
 {{< hint info >}}
 It's recommended to keep the vm_lib_dir on the local disk as it contains file locks.
@@ -38,3 +42,4 @@ Assuming you want to store your Templates on **/Volumes/ExternalDrive/**, perfor
 1. `anka config img_lib_dir /Volumes/ExternalDrive/image_lib`
 2. `anka config state_lib_dir /Volumes/ExternalDrive/state_lib`
 3. `anka config vm_lib_dir /Volumes/ExternalDrive/vm_lib`
+4. Go under System Preferences > Security & Privacy > Full Disk Access and add `ankahv`. Make sure the slider button is enabled too!

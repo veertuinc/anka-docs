@@ -276,9 +276,9 @@ When creating certificates, you'll want to specify CSR values using openssl's `-
 -subj "/O=MyOrgName/OU=$ORG_UNIT/CN=Jenkins"
 ```
 
-- **At least one `O=` and `CN=` is required.**
+- **At least one `O=` AND `CN=` is required.**
 - You can specify multiple `O=` like so: `/O=DevOps/O=iOSDEV/ . . .`
-- Within the Controller's Permission administration panel, we use **`O=`** as the **Group Name** and **`CN=`** as the **Username**.
+- Within the Controller's Permission administration panel, we use **`O=`** as the **Group Name**.
 - Spaces are supported in `O=` and Anka Build Cloud Controller version >= 1.10.
 {{< /hint >}}
 
@@ -287,9 +287,15 @@ When creating certificates, you'll want to specify CSR values using openssl's `-
 ## 6. Final Notes
 
 - If you enabled AUTH for the registry, you'll need to ensure that you set the `ANKA_CLIENT_CERT` and `ANKA_CLIENT_CERT_KEY` in your controller config or else it won't be able to communicate with the registry.
-  ```
-  ANKA_CLIENT_CERT	(string)	(Certificate Authentication) The Controller will use this when making http requests, mainly to the Registry	
+  ```go
+  ANKA_CLIENT_CERT	(string)	(Certificate Authentication) The Controller will use this when making http requests, mainly to the Registry
   ANKA_CLIENT_CERT_KEY	(string)	(Certificate Authentication) The Controller will use this when making http requests, mainly to the Registry
   ```
 - You may notice that the Controller UI doesn't load or acts strangely. You will need to enable [Root Token Authentication]({{< relref "anka-build-cloud/Advanced Security Features/token-authentication.md" >}}) to access the controller UI.
 - If you get an invalid cert error from the Controller UI, make sure that you add the root CA you generated to your system keychain.
+
+---
+
+## Kubernetes & NGINX Ingress Header Passthrough
+
+{{< include file="_partials/anka-build-cloud/advanced-security-features/nginx-header-passthrough.md" >}}

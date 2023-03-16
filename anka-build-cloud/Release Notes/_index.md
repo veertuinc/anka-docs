@@ -6,6 +6,22 @@ weight: 100
 
 ## Current Version
 
+### 1.33.0 (1.33.0-5465bb03) - March 16th, 2023
+
+- **Bug Fix:** Getting distribution status returned a null body with OK status.
+- **Bug Fix:** Distribution was blocked for Unhealthy nodes.
+- **Bug Fix:** Distribution (/api/v1/registry/vm/distribute) API response randomly showing `progress: 1` (100%) but `status: false` indefinitely.
+- **Improvement:** [New Permissions Management Panel]({{< relref "whats-new/build-cloud-1.33.0/index.md#new-permissions-management-panel" >}})
+- **Improvement:** [Code/Explicit Flow support for OIDC.]({{< relref "whats-new/build-cloud-1.33.0/index.md#codeexplicit-flow-oidc-support" >}})
+  - ENV `ANKA_OIDC_CACHE_TTL` has been deprecated.
+- **Improvement:** ETCD upgraded to 3.5.7.
+- **New Feature:** [Kubernetes NGINX Ingress Controller Header Passthrough support.]({{< relref "whats-new/build-cloud-1.33.0/index.md#certificate-revocation" >}})
+- (Standalone Registry: 1.33.0-a2d41374)
+
+---
+
+## Previous Versions
+
 ### 1.32.0 (1.32.0-c375584c) - Feb 6th, 2023
 
 - **New Feature:** [Drain Mode, allowing users to prevent any *new* VMs from starting on the node, but not terminate already running VMs and the jobs using them]({{< relref "whats-new/build-cloud-1.32.0/index.md#drain-mode" >}}).
@@ -13,9 +29,6 @@ weight: 100
 - **Bug Fix:** `/api/v1/node?id=SOME_ID` would return a different object from `/api/v1/node` (without ID).
 - (Standalone Registry: 1.32.0-81cf056c)
 
----
-
-## Previous Versions
 
 ### 1.31.1 (1.31.1-ab1c787e) - Jan 12th, 2023
 

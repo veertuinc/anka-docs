@@ -19,13 +19,14 @@
 | ANKA_ENABLE_API_KEYS | (boolean) | Enable API Key Authentication. | false |
 | ANKA_ENABLE_AUTH | (boolean) | Enable Authentication (Root Token, Certificate, SSO/OpenID Connect or API Keys) (Not to be confused with Authorization). | false |
 | ANKA_ENABLE_CONTROLLER_AUTHORIZATION | (boolean) | Enable Authorization (Users, groups, permission control for specific certificates) in the Controller. | false |
+| ANKA_ENABLE_INGRESS_NGINX | (boolean) | Enable Authentication based on headers set by Ingress Nginx (https://kubernetes.github.io/ingress-nginx/examples/auth/client-certs/ | false |
 | ANKA_ETCD_CA_CERT | (string) | (ETCD Certificate Authentication) The Etcd client will use this when connecting to the cluster. |  |
 | ANKA_ETCD_CERT | (string) | (ETCD Certificate Authentication) The ETCD client will use this when connecting to the cluster. |  |
 | ANKA_ETCD_CERT_KEY | (string) | (ETCD Certificate Authentication) The ETCD client will use this when connecting to the cluster. |  |
 | ANKA_ETCD_PASSWORD | (string) | (ETCD Certificate Authentication) ETCD Password to use for login. |  |
 | ANKA_ETCD_USERNAME | (string) | (ETCD Certificate Authentication) ETCD Username to use for login. |  |
-| ANKA_OIDC_CACHE_TTL | (duration) | (OpenID Connect/SSO) Cache entry TTL | 1h0m0s |
 | ANKA_OIDC_CLIENT_ID | (string) | (OpenID Connect/SSO) Client id |  |
+| ANKA_OIDC_CLIENT_SECRET | (string) | (OpenID Connect/SSO) Client secret |  |
 | ANKA_OIDC_DISPLAY_NAME | (string) | (OpenID Connect/SSO) Name to display on login page |  |
 | ANKA_OIDC_GROUPS_CLAIM | (string) | (OpenID Connect/SSO) Claim key to use for groups, defaults to groups | groups |
 | ANKA_OIDC_PROVIDER_URL | (string) | (OpenID Connect/SSO) Provider URL |  |
