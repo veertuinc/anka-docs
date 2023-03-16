@@ -239,4 +239,3 @@ Once you've added all of the proper permissions, you can now go back to the main
 ## Final Notes
 
 - UI sessions will have the same length as the OIDC Access Token's lifetime. Your provider can set this value lower if needed.
-
