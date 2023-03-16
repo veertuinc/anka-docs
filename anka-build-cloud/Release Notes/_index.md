@@ -15,7 +15,7 @@ weight: 100
 - **Improvement:** [Code/Explicit Flow support for OIDC.]({{< relref "whats-new/build-cloud-1.33.0/index.md#codeexplicit-flow-oidc-support" >}})
   - ENV `ANKA_OIDC_CACHE_TTL` has been deprecated.
 - **Improvement:** ETCD upgraded to 3.5.7.
-- **New Feature:** [Kubernetes NGINX Ingress Controller Header Passthrough.]({{< relref "whats-new/build-cloud-1.33.0/index.md#certificate-revocation" >}})
+- **New Feature:** [Kubernetes NGINX Ingress Controller Header Passthrough support.]({{< relref "whats-new/build-cloud-1.33.0/index.md#certificate-revocation" >}})
 - (Standalone Registry: 1.33.0-a2d41374)
 
 ---
