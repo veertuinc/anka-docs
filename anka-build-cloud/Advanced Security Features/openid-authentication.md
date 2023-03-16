@@ -235,3 +235,8 @@ You can then add the exact `groups` claim name from your SSO provider (or other 
 {{< include file="_partials/anka-build-cloud/_managing-permissions.md" >}}
 
 Once you've added all of the proper permissions, you can now go back to the main Controller page and log out of the superuser. You can now choose **Login with Okta SSO**, which will redirect you to your Okta to have you log in with your user. You will then be taken to the Controller UI and be logged in as that user.
+
+## Final Notes
+
+- UI sessions will have the same length as the OIDC Access Token's lifetime. Your provider can set this value lower if needed.
+
