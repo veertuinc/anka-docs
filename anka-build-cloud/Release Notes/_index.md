@@ -6,7 +6,7 @@ weight: 100
 
 ## Current Version
 
-### 1.33.0 (1.33.0-34919d48) - March 7th, 2023
+### 1.33.0 (1.33.0-5465bb03) - March 16th, 2023
 
 - **Bug Fix:** Getting distribution status returned a null body with OK status.
 - **Bug Fix:** Distribution was blocked for Unhealthy nodes.
