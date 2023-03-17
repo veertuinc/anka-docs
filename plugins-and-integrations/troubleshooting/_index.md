@@ -1,5 +1,6 @@
 ---
-title: "Troubleshooting"
+title: "Troubleshooting (Plugins and Integrations)"
+linkTitle: "Troubleshooting"
 weight: 99
 hideSubPagesInLeftMenu: true
 showBaseDirName: true
