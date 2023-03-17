@@ -283,8 +283,8 @@ usage: /usr/local/bin/anka-controller [start|stop|restart|status|logs]
 When `sudo anka-controller start` is executed, the script will use `launchd` to load the daemon: `/Library/LaunchDaemons/com.veertu.anka.controller.plist`.
  - The Anka Controller & Registry run script is `/usr/local/bin/anka-controllerd`. This file acts as a run script **and configuration file**. You can modify it to change the default ports used by adding the proper option or ENV. For example, if you want to run the Registry on a different port and use 127.0.0.1, you would add the following above the `"$CONTROLLER_BIN"` line ([reference]({{< relref "anka-build-cloud/configuration-reference.md" >}})): 
     ```shell
-    export ANKA_ANKA_REGISTRY="http://127.0.0.1:8081"
-    export ANKA_REGISTRY_LISTEN_ADDRESS=":8081" 
+    export ANKA_ANKA_REGISTRY="http://127.0.0.1:8089"
+    export ANKA_REGISTRY_LISTEN_ADDRESS=":8089" 
     ```
 
 ##### Logging
