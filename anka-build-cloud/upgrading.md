@@ -1,6 +1,6 @@
 ---
 date: 2019-12-12T00:00:00-00:00
-title: "Upgrading"
+title: "Upgrading (CLOUD)"
 linkTitle: "Upgrading"
 weight: 12
 description: How to upgrade the Anka Build Cloud
