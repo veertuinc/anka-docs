@@ -6,7 +6,7 @@ title: "Anka Build Cloud Controller & Registry Version 1.33.0"
 ### Code/Explicit Flow OIDC support
 
 {{< hint warning >}}
-Customers must ensure their providers support Code/Explicit Flow before upgrading.
+Customers must ensure their provider supports Code/Explicit Flow before upgrading.
 {{< /hint >}}
 
 {{< hint warning >}}
