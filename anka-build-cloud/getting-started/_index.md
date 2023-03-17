@@ -1,5 +1,5 @@
 ---
-title: "Getting Started"
+title: "Getting Started (Cloud)"
 linkTitle: "Getting Started"
 weight: 1
 description: >
