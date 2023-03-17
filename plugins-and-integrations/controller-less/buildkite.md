@@ -5,6 +5,8 @@ linkTitle: "Buildkite"
 weight: 2
 description: >
   Instructions on how to use Buildkite with Anka Build
+aliases:
+  - /ci-plugins-and-integrations/controller-less/buildkite/
 ---
 
 The [anka-buildkite-plugin](https://github.com/veertuinc/anka-buildkite-plugin) provides a quick way to integrate Anka with Buidkite. The plugin helps Buildkite jobs dynamically provision Anka VM instances for building, testing, and more.

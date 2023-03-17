@@ -5,6 +5,8 @@ linkTitle: "Azure DevOps Pipelines"
 weight: 1
 description: >
   Instructions on how to use Azure Devops Pipelines with Anka Build
+aliases:
+  - /ci-plugins-and-integrations/controller-less/github-actions/
 ---
 
 Microsoft's [Azure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/) provide a useful CI/CD solution within Azure DevOps.

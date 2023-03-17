@@ -5,6 +5,8 @@ linkTitle: "GitHub Actions"
 weight: 1
 description: >
   Instructions on how to use GitHub Actions with Anka Build
+aliases:
+  - /ci-plugins-and-integrations/controller-less/github-actions/
 ---
 
 {{< hint warning >}}

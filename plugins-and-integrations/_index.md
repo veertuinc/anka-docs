@@ -5,6 +5,8 @@ weight: 6
 description: >
   Anka Build Plugins and Integrations for CI/CD software and Automation
 expand_sub_menu_items: true
+aliases:
+  - ci-plugins-and-integrations
 ---
 
 Here we will break down the two different ways to use Anka with your CI/CD/Automation platforms and tools.

@@ -5,6 +5,8 @@ linkTitle: "GitLab"
 weight: 3
 description: >
   Instructions on how to use GitLab with Anka Build Cloud
+aliases:
+  - /ci-plugins-and-integrations/controller-+-registry/gitlab
 ---
 
 If you are using GitLab, Veertu provides and maintains the [Anka GitLab Runner](https://github.com/veertuinc/gitlab-runner). The runner connects GitLab to the Anka Cloud Controller to perform VM Instance creation and command execution through SSH into the VM Instance.

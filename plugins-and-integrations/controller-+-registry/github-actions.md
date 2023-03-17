@@ -5,6 +5,8 @@ linkTitle: "Github Actions"
 weight: 3
 description: >
   Instructions on how to use Github Actions with the Anka Build Cloud
+aliases:
+  - /ci-plugins-and-integrations/controller-+-registry/github-actions
 ---
 
 ## VM Template & Tag Requirements
