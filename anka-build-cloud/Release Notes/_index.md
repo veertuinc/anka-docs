@@ -1,6 +1,7 @@
 ---
 date: 2018-03-06
-title: "Release Notes"
+title: "Release Notes (Cloud)"
+linkTitle: "Release Notes"
 weight: 100
 ---
 

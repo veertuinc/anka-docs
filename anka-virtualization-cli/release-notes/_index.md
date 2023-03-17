@@ -1,6 +1,7 @@
 ---
 date: 2018-03-06
-title: "Release Notes"
+title: "Release Notes (CLI)"
+linkTitle: "Release Notes"
 weight: 100
 ---
 
