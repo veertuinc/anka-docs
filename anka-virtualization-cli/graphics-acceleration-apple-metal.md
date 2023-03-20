@@ -7,7 +7,7 @@ description: >
 ---
 
 {{< hint warning >}}
-The host macOS should always be either newer or the same version as VMs running PG to avoid incompatibilities between the Apple metal APIs. We also recommend the latest Big Sur or higher versions.
+Big Sur Users: The host macOS should always be either newer or the same version as VMs running PG to avoid incompatibilities between the Apple metal APIs.
 {{< /hint >}}
 
 ### Intel
