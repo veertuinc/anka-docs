@@ -61,7 +61,7 @@ Known issues:
 
 - **Bug Fix:** Marketplace AMI licensing fixes.
 
-### 3.2.0 (3.2.0.153) (Intel) - Jan 9th 2023
+### 3.2.0 (3.2.0.154) (Intel) - Jan 9th 2023
 
 {{< hint info >}}
 Addons upgrading from Anka 2.x is not required but is recommended.
