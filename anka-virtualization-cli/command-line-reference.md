@@ -113,6 +113,7 @@ description: >
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/suspend/_extra.md" >}}
 ## Mount
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/mount/_index.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/mount/_extra.md" >}}
 ## Unmount
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/unmount/_index.md" >}}
 ## Usb
