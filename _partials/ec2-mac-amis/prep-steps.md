@@ -82,13 +82,20 @@ By default all of our AMIs have a cloud-connect agent which on boot will join yo
 
 Our AMIs attempt to do the majority of preparation for you, however, there are several steps you need to perform once the instance is started:
 
+1. Enable VNC:
+
+```bash
+sudo defaults write /var/db/launchd.db/com.apple.launchd/overrides.plist com.apple.screensharing -dict Disabled -bool false
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist
+```
+
 1. Set password with `sudo /usr/bin/dscl . -passwd /Users/ec2-user {PASSWORD HERE}`
 
 {{< hint info >}}
 Some of our older AMIs (2.5.7 or older) set a default password to `zbun0ok=`. We no longer do that in AMIs by default for security reasons. **It is unsafe to continue to use the default password we set.** You can change it with `sudo /usr/bin/dscl . -passwd /Users/ec2-user zbun0ok= {NEW PASSWORD HERE}`
 {{< /hint >}}
 
-2. You now need to VNC in and log into the ec2-user (requirement for Anka to start the hypervisor): `open vnc://ec2-user:{NEWPASSWORDHERE}@{INSTANCEPUBLICIP}`.
+1. You now need to VNC in and log into the ec2-user (requirement for Anka to start the hypervisor): `open vnc://ec2-user:{NEWPASSWORDHERE}@{INSTANCEPUBLICIP}`.
 
 {{< hint warning >}}
 **Amazon EBS volumes can be very slow even when you max iOPS, etc.** Because of this, `anka create` and other processes can take very long times or outright fail (Apple's installer is sensitive to disk IO). We recommend that you "pre-warm" the EBS volume by running `dd if=/dev/random of=testfile bs=1g count=$(($(df -h | grep "/$" | awk '{print $4}' | grep -oE "[0-9]+")-2))` on the host right after it starts. Additionally, pre-warmed volumes stay warmed -- no need to run `dd` after periods of inactivity on the AWS instance.
