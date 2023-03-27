@@ -1,6 +1,6 @@
 ---
 date: 2019-12-12T00:00:00-00:00
-title: "Advanced Security Features"
+title: "Advanced Security Features (CLOUD)"
 linkTitle: "Advanced Security Features"
 weight: 8
 description: >
