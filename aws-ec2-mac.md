@@ -39,9 +39,9 @@ Note: You must request a dedicated mac* host in order to run EC2 Mac instances. 
 
 In order to get started using our Marketplace AMIs you have four options:
 
-1. Intel + Basic License : [Product Page](https://aws.amazon.com/marketplace/pp/prodview-tzmid5kfn2knw)
-2. Intel + Enterprise License : [Product Page](https://aws.amazon.com/marketplace/pp/prodview-rp7kfyl56arbe)
-3. Intel + Enterprise Plus License : [Product Page](https://aws.amazon.com/marketplace/pp/prodview-qs6yqgdbmc4vm)
+1. Basic License: [intel](https://aws.amazon.com/marketplace/pp/prodview-tzmid5kfn2knw) | [arm64](https://aws.amazon.com/marketplace/pp/prodview-n54do7hhvqd2q)
+2. Enterprise License: [intel](https://aws.amazon.com/marketplace/pp/prodview-rp7kfyl56arbe) | [arm64](https://aws.amazon.com/marketplace/pp/prodview-w6sxovunownv6)
+3. Enterprise Plus License: [intel](https://aws.amazon.com/marketplace/pp/prodview-qs6yqgdbmc4vm) | [arm64](https://aws.amazon.com/marketplace/pp/prodview-td6ik34jd2z2m)
 
 Other than the hourly price, there is [a list of features that differ between the two.]({{< relref "licensing.md#anka-build-cloud" >}})
 
