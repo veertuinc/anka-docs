@@ -57,6 +57,10 @@ In these directories you will find the following logs:
 
 4. `{UUID}.log` - (`{UUID}` is the specific VM's UUID) Specific VM logs; useful if VM exits abnormally or fails to start.
 
+{{< hint warning >}}
+**ARM USERS:** When starting VMs with `-v`, VM logs will be written to `anka.log` instead of their `{UUID}.log`. 
+{{< /hint >}}
+
 {{< hint info >}}
 If you're using the Anka Build Cloud Controller to start and terminate VMs, you need to set an ENV so the Node Agent doesn't delete the `{UUID}.log` on termination. This requires editing the agent's plist:
 ```xml
