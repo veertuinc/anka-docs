@@ -90,15 +90,20 @@ Anka allows you to create VMs for the following macOS versions:
   </tr>
   <tr>
     <td style="vertical-align: middle"></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;<small>**</small></td>
   </tr>
 </tbody>
 </table>
 </div>
 {{< /rawhtml >}}
 
+
 {{< hint warning >}}
-**Apple has limited the ability to install Ventura to specific hardware models. <a href="https://support.apple.com/en-us/HT213264">You can view a list of supported models here.</a>**
+**(*) Apple has limited the ability to install Ventura to specific hardware models. <a href="https://support.apple.com/en-us/HT213264">You can view a list of supported models here.</a>**
+{{< /hint >}}
+
+{{< hint warning >}}
+**ARM USERS: (\*\*) Apple is requiring the host OS be 13.x for creation of VMs on version >= 13.3.</a>**
 {{< /hint >}}
 
 {{< hint warning >}}
