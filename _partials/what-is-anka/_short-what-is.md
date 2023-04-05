@@ -1,9 +1,9 @@
 ---
 ---
 
-Veertu's Anka software is a collection of software built on top of the macOS virtualization platform that allows you to run single or multi-use macOS VMs like you would with Docker. It is designed for DevOps and CI/CD teams who want to build and test their native macOS or iOS applications. It provides a simple, intuitive, and easy-to-use solution for virtualizing macOS at scale.
+Veertu's Anka software is a collection of software built on top of the macOS virtualization platform that allows you to run single or multi-use macOS VMs like you would with Docker. It is designed for DevOps and CI/CD teams who want to build and test their native macOS or iOS applications. Because Anka is built on top of the official Apple hypervisor/virtualization, it benefits from greater performance and security.
 
-Because Anka is built on top of official Apple hypervisor and virtualization, offering the most secure and efficient solutions. You can create Anka macOS VMs using infrastructure as code tools, push or pull VM tags with your specific dependencies and state using the Anka Registry, and run on-demand Anka macOS VMs on any connected nodes.
+It provides a simple, intuitive, and easy-to-use solution for virtualizing macOS at scale. You can create Anka macOS VMs using infrastructure as code tools, push or pull VM tags with your specific dependencies and state using the Anka Registry, and run Anka macOS VMs on any connected nodes.
 
 The [Anka Build Cloud]({{< relref "../../anka-build-cloud/_index.md" >}}) also provides a central dashboard for management of Anka Build Nodes, VMs instances, VM Templates/Tags, and logs. It has built-in intelligent queueing and load balancing for many simultaneous CI/CD job macOS VM requests. There are also integrations with popular CI/CD servers and tools like Jenkins, Github Actions, Buildkite, TeamCity, GitLab, and if needed has an API you can write your own integration in.
 
