@@ -12,7 +12,7 @@ description: >
 
 There are several license specific differences that should be noted before you begin:
 
-- **Enterprise:** By default, any secrets generate and use (root or user) always have full access to the API.
+- **Enterprise:** By default, any secrets you generate and use (root or user) always have full access to the API.
 - **Enterprise Plus:** By default, _only_ the root token (RTA) has full access to the API. User tokens _must be_ created with a group attached and permissions added for the group.
 {{< /hint >}}
 
