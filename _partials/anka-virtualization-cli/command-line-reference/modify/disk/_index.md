@@ -1,5 +1,5 @@
 ```shell
-> anka modify 13.1-openjdk-11.0.14.1-jenkins disk --help
+> anka modify 13.3.1 disk --help
 usage: disk [options]
 
    Modify hard drive settings

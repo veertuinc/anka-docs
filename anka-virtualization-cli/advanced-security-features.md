@@ -7,8 +7,14 @@ description: >
   Advanced Security Feature for the Anka CLI.
 ---
 
-## Block VM to VM and VM to Host communication
+## VM Networking
+
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/network/_index.md" >}}
+
+### Block VM to VM and VM to Host communication
 
 You may wish to disable the ability for VMs or VMs and the Host to communicate. This can be done with `--no-local` under `modify {VM} network`.
 
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/network/_index.md" >}}
+### IP Filtering
+
+{{< include file="_partials/anka-virtualization-cli/advanced-security-features/ip-filtering.md" >}}

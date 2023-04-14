@@ -11,6 +11,35 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.3.0 (3.3.0.XXXX) - Xth 2023
+
+{{< hint info >}}
+Addons upgrading is not required but is recommended.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM issues:
+
+- Nested virtualization is not functional inside of VMs yet.
+- `anka view` and `anka start -v` are partially broken and require double clicking the VM name in the Anka.app VM listing. Also, the Anka viewer requires you first start the VM with `anka start -v`. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- iCloud/Apple logins will fail inside of the VM. You can still log into your account through Apple's website and download apps through your developer account. Or, transfer them from the host into the VM with `anka cp`.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **New Feature:** Apply [VM Networking IP Filtering]({{< relref "whats-new/anka-3.3.0/index.md#vm-networking-ip-filtering" >}}) rules for VMs.
+- **Improvement:** ARM and Intel PKGs have now been combined into a single installer.
+- **Improvement:** `anka delete --cache` will also clean up `vm_lib` directories.
+- **Bug Fix:** `anka start -v` was not opening the Viewer window.
+
+
+
+
+## Previous Versions
+
+
 ### 3.2.1 (3.2.1.155) (Intel) - Feb 15th 2023
 
 {{< hint info >}}
@@ -38,8 +67,6 @@ Known issues:
 {{< /hint >}}
 
 - **Bug Fix:** License fixes/support for M1 and M2 hardware.
-
-## Previous Versions
 
 ### 3.2.1 (3.2.1.157) (ARM) - Feb 15th 2023
 

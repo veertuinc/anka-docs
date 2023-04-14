@@ -1,5 +1,5 @@
 ```shell
-> anka modify 13.1-openjdk-11.0.14.1-jenkins label --help
+> anka modify 13.3.1 label --help
 usage: label [options] [name] [value]
 
    Assign labels to a VM in key/value form

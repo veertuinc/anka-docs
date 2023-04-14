@@ -1,4 +1,9 @@
 ```shell
-> anka show 13.1-openjdk-11.0.14.1-jenkins network --help
+> anka show 13.3.1 network --help
+usage: network [options]
 
+   Network information
+
+options:
+  -f,--filter              show network filter rules
 ```

@@ -1,5 +1,5 @@
 ```shell
-> anka modify 13.1-openjdk-11.0.14.1-jenkins port --help
+> anka modify 13.3.1 port --help
 usage: port [options] name [rule]
 
    Add port forwarding rule

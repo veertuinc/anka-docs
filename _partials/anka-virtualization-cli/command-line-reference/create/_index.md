@@ -1,12 +1,13 @@
 ```shell
 > anka create --help
-usage: create [options] [name] [version]
+usage: create [options] [name] [macOS version/installer file/installer url]
 
    Creates a VM Template
 
 arguments:
   name                     VM name
-  version                  macOS version to install (use 'latest' to install the latest version)
+  macOS version/installer file/installer url
+                           MacOS version (see --list), installer file location, or installer URL to use for creation (example: 'latest')
 
 options:
   -m,--ram-size <val>      Specify the VM RAM size (supported suffixes: T|G|M|K)
