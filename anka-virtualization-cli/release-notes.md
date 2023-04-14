@@ -22,7 +22,7 @@ Addons upgrading is not required but is recommended.
 ARM issues:
 
 - Nested virtualization is not functional inside of VMs yet.
-- `anka view` and `anka start -v` are partially broken and require double clicking the VM name in the Anka.app VM listing. Also, the Anka viewer requires you first start the VM with `anka start -v`. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- `anka view` is partially broken and require double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
 - iCloud/Apple logins will fail inside of the VM. You can still log into your account through Apple's website and download apps through your developer account. Or, transfer them from the host into the VM with `anka cp`.
 - Changing the display resolution dynamically fails.
 - Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
@@ -30,6 +30,8 @@ ARM issues:
 {{< /hint >}}
 
 - **New Feature:** Apply [VM Networking IP Filtering]({{< relref "whats-new/anka-3.3.0/index.md#vm-networking-ip-filtering" >}}) rules for VMs.
+- **New Feature:** [Automated log in for autologin disabled VM]({{< relref "whats-new/anka-3.3.0/index.md#automated-log-in-for-autologin-disabled-vm" >}}).
+- **New Feature:** [Support for FileVault in ARM VMs]({{< relref "whats-new/anka-3.3.0/index.md#support-for-filevault-arm" >}}).
 - **Improvement:** ARM and Intel PKGs have now been combined into a single installer.
 - **Improvement:** `anka delete --cache` will also clean `vm_lib` directories.
 - **Improvement:** To increase registry IO efficiency, we are now reusing TCP connections during registry operations.
@@ -37,8 +39,9 @@ ARM issues:
 - **Bug Fix:** Fix for `failed to enable VNC: Operation timed out` while running `anka create`.
 - **Bug Fix:** Fixes for `failed to get status of task after start: Operation timed out`, `ankanet: failed to get response, error 2`, and `failed to start: No such file or directory`.
 - **Bug Fix:** Registry show output shows a failed status.
-
-
+- **Bug Fix:** Eliminated `failed to open config (config.yaml): No such file or directory` log spam.
+- **Bug Fix:** Creating VM on EC2 M1 was throwing `setup failed: Connection refused`.
+- **Bug Fix:** Nested Virtualization was enabled when `hw.hvapic` is enabled. It will not work, so it is not disabled.
 
 ## Previous Versions
 
