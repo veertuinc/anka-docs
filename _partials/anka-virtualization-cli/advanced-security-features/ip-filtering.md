@@ -72,6 +72,10 @@ You can apply rules in several ways:
 
 1. You can also apply a single rule using `echo "block any" | anka modify 13.3.1 network -f-`.
 
+{{< hint warning >}}
+Applying new rules will remove all previously set.
+{{< /hint >}}
+
 {{< hint info >}}
 You can disable the rules with `anka modify 13.3.1 network --filter off`.
 {{< /hint >}}
