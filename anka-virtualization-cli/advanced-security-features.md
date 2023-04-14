@@ -4,8 +4,12 @@ title: "Advanced Security Features (CLI)"
 linkTitle: "Advanced Security Features"
 weight: 8
 description: >
-  Advanced Security Feature for the Anka CLI.
+  Advanced Security Feature for the Anka CLI (enterprise or higher license required).
 ---
+
+{{< hint warning >}}
+These features require a Enterprise or Enterprise Plus license.
+{{< /hint >}}
 
 ## VM Networking
 

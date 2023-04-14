@@ -31,9 +31,12 @@ ARM issues:
 
 - **New Feature:** Apply [VM Networking IP Filtering]({{< relref "whats-new/anka-3.3.0/index.md#vm-networking-ip-filtering" >}}) rules for VMs.
 - **Improvement:** ARM and Intel PKGs have now been combined into a single installer.
-- **Improvement:** `anka delete --cache` will also clean up `vm_lib` directories.
+- **Improvement:** `anka delete --cache` will also clean `vm_lib` directories.
+- **Improvement:** To increase registry IO efficiency, we are now reusing TCP connections during registry operations.
 - **Bug Fix:** `anka start -v` was not opening the Viewer window.
-
+- **Bug Fix:** Fix for `failed to enable VNC: Operation timed out` while running `anka create`.
+- **Bug Fix:** Fixes for `failed to get status of task after start: Operation timed out`, `ankanet: failed to get response, error 2`, and `failed to start: No such file or directory`.
+- **Bug Fix:** Registry show output shows a failed status.
 
 
 
