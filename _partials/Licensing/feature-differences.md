@@ -1,4 +1,4 @@
-| **Feature** | **Develop** | **Flow** | **Build** |
+| **Feature** | **Develop License** | **Flow License** | **Build License** |
 | --- | --- | --- | --- |
 | Run Multiple VMs | No | Yes | Yes |
 | State Snapshot / Suspend VM (Anka 2 Only) | No | Yes | Yes |
