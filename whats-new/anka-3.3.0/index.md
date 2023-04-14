@@ -20,7 +20,7 @@ Customers will now find a single PKG installer for both Intel and ARM. Existing 
 
 {{< include file="_partials/anka-virtualization-cli/advanced-security-features/ip-filtering.md" >}}
 
-## Automated log in for autologin disabled VM
+## Automated log in for autologin disabled VMs
 
 Users requiring that VMs do not have autologin enabled can now set `sudo anka config default_passwd` with the appropriate password for the VM and allow Anka, post-boot, to run an [anka click script](https://github.com/veertuinc/anka-click-scripts) that logs the user in. You can also specify `anka start --login-passwd "${VM_PASSWD}" "${VM_NAME}"`.
 
