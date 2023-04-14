@@ -51,7 +51,7 @@ You can apply rules in several ways:
       net_filter: /Users/nathanpierce/rules
     ```
 
-1. Embedding the rules inside of the VM's config so that they can be pushed to the registry. This is useful to avoid having to ensure the rules file exists on each host.
+1. Embedding the rules inside of the VM's config, but not require a file on the host. This is useful to avoid having to ensure the rules file exists on each host.
 
     ```bash
     ❯ cd ~; cat << EOF > ./rules
