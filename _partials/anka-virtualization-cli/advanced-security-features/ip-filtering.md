@@ -27,9 +27,9 @@ block local
 
 You can apply rules in several ways:
 
-1. Globally for all VMs that run on the host by setting the path to the rules file: `anka config net_filter /Users/myUser/vm-filter-rules`.
+1. Globally for all VMs that run on the host by setting the path to the rules file: `anka config net_filter /Users/myUser/vm-filter-rules`. This will be ignored if the VM Template has filter rules applied already.
 
-1. With a dynamic file on the host which is applied at VM start time. This allows you to create rules specific to your hosts that run VMs.
+1. With a dynamic file from the host, set in the specific VM template, which is then applied at VM start time. This allows you to create rules specific to a VM + Host.
 
     ```bash
     ❯ cd ~; cat << EOF > ./rules
