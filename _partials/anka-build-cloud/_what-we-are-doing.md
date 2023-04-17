@@ -12,7 +12,7 @@
 
 [Please go over our Getting Started guide before proceeding.]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})
 
-### Step 2: Install the Anka Build Cloud Controller & Registry
+### Step 2: Install the Anka Build Cloud Controller and/or Registry
 
 {{< hint warning >}}
 Perform the following steps on the machine intended to run the Controller & Registry and not the node running the Anka Virtualization software.

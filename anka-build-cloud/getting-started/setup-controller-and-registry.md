@@ -213,11 +213,9 @@ In versions of the Anka Build Cloud <= 1.27.0, we would have the Controller trig
 
 {{< include file="_partials/anka-build-cloud/etcd-snapshotting.md" >}}
 
----
-
 We recommend looking through the [entire ETCD operations guide](https://etcd.io/docs/v3.5/op-guide/) to gain a better understanding of everything we've spoken about here, and more!
 
-## Standalone Registry (Linux)
+### Standalone Registry (docker)
 
 Often we find that customers wish to only run the Anka Build Cloud Registry and not the Controller. This is a useful setup when you're using [a Controller-less Build Cloud]({{< relref "plugins-and-integrations/_index.md#controller-less-registry-only" >}}).
 
@@ -237,30 +235,32 @@ The macOS package will install and run using Apple's Rosetta. There is no native
 
 ### Necessary Hardware
 
-1. A Mac to install the Anka Controller & Registry.
+1. A Mac to install the Anka Controller and/or Registry.
 2. A second Mac to install the Anka CLI (the "Node").
 
 > You can complete this tutorial with only one machine running Mac OS, but it's not recommended.
 
 {{< include file="_partials/anka-build-cloud/_what-we-are-doing.md" >}}
 
-#### Download the Controller & Registry PKG
+#### Download the Controller and/or Registry PKG
 
 Download the file called "Cloud Controller & Registry (Run on Mac)" from {{< ext-link href="https://veertu.com/download-anka-build" text="Anka Build Download page." >}}
 If you are more comfortable with the command line, you can download the file with curl:
+
 ```shell
 curl -S -L -o ~/Downloads/$(echo $(curl -Ls -r 0-1 -o /dev/null -w %{url_effective} https://veertu.com/downloads/ankacontroller-registry-mac-latest) | cut -d/ -f5) https://veertu.com/downloads/ankacontroller-registry-mac-latest
 ```
 
-#### Install the Controller & Registry PKG
+#### Install the Controller and/or Registry PKG
 
-Double click on the .pkg to start the UI install process.
-- Or, you can install the package using the command line:
-    ```shell
-    sudo installer -pkg ~/Downloads/$(echo $(curl -Ls -r 0-1 -o /dev/null -w %{url_effective} https://veertu.com/downloads/ankacontroller-registry-mac-latest) | cut -d/ -f5) -target /
-    ```
+Double click on the .pkg to start the UI install process. Or, you can install the package using the command line:
 
-#### Verify your installation
+  ```shell
+  sudo installer -pkg ~/Downloads/$(echo $(curl -Ls -r 0-1 -o /dev/null -w %{url_effective} https://veertu.com/downloads/ankacontroller-registry-mac-latest) | cut -d/ -f5) -target /
+  ```
+
+#### Verify your installation (macOS)
+
 Two methods are available:
 - Use the CLI status command:
   ```shell
@@ -271,9 +271,23 @@ Two methods are available:
   curl http://<ip>/api/v1/status
   ```
 
-{{< include file="_partials/anka-virtualization-cli/getting-started/_controller-listening-on-80-and-orientation.md" >}}
+#### Orientation (macOS)
 
-##### Configuration and scripts ([reference]({{< relref "anka-build-cloud/configuration-reference.md" >}}))
+- Default Ports: Anka Controller: 80 / Anka Registry: 8089  
+- Binaries and scripts: Anka Controller has only one combined binary. It can run Anka Controller, Anka Registry and ETCD Server.  
+    Installed at: `/Library/Application Support/Veertu/Anka/bin/anka-controller`  
+    Start script: `/usr/local/bin/anka-controllerd`  
+    Start/Stop script: `/usr/local/bin/anka-controller`  
+    Launchd daemon: `/Library/LaunchDaemons/com.veertu.anka.controller.plist`
+- Configuration files: Configuration for this package is done by altering the start script at `/usr/local/bin/anka-controllerd`.
+- Logs: `/Library/Logs/Veertu/AnkaController`
+- Data:
+    ETCD data will be saved in: `/Library/Application Support/Veertu/Anka/anka-controller`  
+    Registry data will be saved in: `/Library/Application Support/Veertu/Anka/registry`
+
+#### Configuration and Scripts
+
+- [Config Reference]({{< relref "anka-build-cloud/configuration-reference.md" >}})
 
 The Anka Controller **AND Registry** command is installed into `/usr/local/bin/anka-controller`. To see what functions it has, execute the script with root privileges:
 ```shell 
@@ -287,7 +301,7 @@ When `sudo anka-controller start` is executed, the script will use `launchd` to 
     export ANKA_REGISTRY_LISTEN_ADDRESS=":8089" 
     ```
 
-##### Logging
+#### Logging (macOS)
 
 Logs are written to `/Library/Logs/Veertu/AnkaController` by default:
 ```shell
@@ -305,45 +319,35 @@ sudo anka-controller logs
  
 > The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([reference]({{< relref "anka-build-cloud/configuration-reference.md#logging" >}}))
 
-### Step 3: Link the Anka CLI Node to the Controller
+### Step 3: Link the Anka CLI Node to the Controller (macOS)
 
 Great! Now that we have our Anka Controller & Registry up and running, let's add Nodes!
 
 > Perform the following steps on the Node where you created your first VM Template.
 
-#### Add the Registry
+#### Add the Registry (macOS)
 
 {{< include file="_partials/anka-virtualization-cli/getting-started/_add-the-registry.md" >}}
 
-#### Push the VM to the Registry
+#### Push the VM to the Registry (macOS)
 
 {{< include file="_partials/anka-virtualization-cli/getting-started/_push-vm-to-registry.md" >}}
 
-#### Join to the Controller & Registry
+#### Join to the Controller & Registry (macOS)
 
 {{< include file="_partials/anka-virtualization-cli/getting-started/_join-to-cluster.md" >}}
 
-### Step 4: Start a VM instance using the Controller UI
+### Step 4: Start a VM instance using the Controller UI (macOS)
 
 {{< include file="_partials/anka-virtualization-cli/getting-started/_start-vm-instance-using-controller-ui.md" >}}
 
-### Step 5: Orientate to your new environment
+### Standalone Registry (macOS)
 
-#### Anka Controller and Registry package
+Often we find that customers wish to run the Anka Build Cloud Registry alongside their Anka Nodes to optimize the speed of pulling VM Templates, but keep the Controller hosted in a cloud offsite.
 
-- Default Ports: Anka Controller: 80 / Anka Registry: 8089  
-- Binaries and scripts: Anka Controller has only one combined binary. It can run Anka Controller, Anka Registry and ETCD Server.  
-    Installed at: `/Library/Application Support/Veertu/Anka/bin/anka-controller`  
-    Start script: `/usr/local/bin/anka-controllerd`  
-    Start/Stop script: `/usr/local/bin/anka-controller`  
-    Launchd daemon: `/Library/LaunchDaemons/com.veertu.anka.controller.plist`
-- Configuration files: Configuration for this package is done by altering the start script at `/usr/local/bin/anka-controllerd`.
-- Logs: `/Library/Logs/Veertu/AnkaController`
-- Data:
-    ETCD data will be saved in: `/Library/Application Support/Veertu/Anka/anka-controller`  
-    Registry data will be saved in: `/Library/Application Support/Veertu/Anka/registry`
+In order to run the standalone registry on macOS you'll download and install the [the registry standalone pkg](https://veertu.com/downloads/ankaregistry-mac-latest). Below you will find instructions for configuration.
 
-#### Standalone Anka Registry
+#### Orientation (macOS/registry)
 
 - Default Ports: 80
 - Binaries and scripts:
@@ -351,6 +355,32 @@ Great! Now that we have our Anka Controller & Registry up and running, let's add
     Launchd daemon: `/Library/LaunchDaemons/com.veertu.anka.registry.plist`
 - Configuration files: Configuration for this package is done by altering the Launchd daemon xml file at `/Library/LaunchDaemons/com.veertu.anka.registry.plist`. Be sure to unload it first.
 - Data will be saved in: `/Library/Application Support/Veertu/Anka/registry`
+
+#### Configuration (macOS/registry)
+
+In order to change the configuration of your registry on macOS, you'll need to unload the plist with `sudo launchctl unload -w /Library/LaunchDaemons/com.veertu.anka.registry.plist` and then edit it to include what you need. You can get a full list of supported config options from the help output:
+
+```bash
+❯ /Library/Application\ Support/Veertu/Anka/bin/ankaregd --help
+Usage of /Library/Application Support/Veertu/Anka/bin/ankaregd:
+
+-access_logs                           Enables registry access logs.
+
+-add_dir_header                        If true, adds the file directory to the header of the log messages
+
+-alsologtostderr                       log to standard error as well as files (default: "true")
+
+-api-keys-cleaning-interval (duration) The interval for cleaning of expired api keys. (default: "4h0m0s")
+
+-api-keys-session-ttl (duration)       The API Keys session TTL (used for automatic expiration). (default: "5m0s")
+
+-backend-plugin-path (string)          The path to a backend plugin (instead of using disk)
+
+-base-path (string)                    Set the registry data's base path (default: ".")
+
+-ca-cert (string)                      (Certificate Authentication) The CA/root cert used to authenticate incoming requests/certs.
+. . .
+```
 
 ---
 

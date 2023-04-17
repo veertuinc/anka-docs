@@ -5,6 +5,7 @@ Your new dashboard should look like the picture below
 ![How your new dashboard looks like]({{< siteurl >}}images/getting-started/new-dashboard.png)
 
 ### Orientation
+
 Let's take a look at what is now running on your machine:
 1. Anka Controller is serving web UI and REST API on port 80.
 2. Anka Registry is serving REST API on port 8089.
