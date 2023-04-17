@@ -90,13 +90,13 @@ aa1de7c150e7        test_anka-controller   "/bin/bash -c 'anka-…"   About a mi
 
 {{< include file="_partials/anka-build-cloud/_controller-listening-on-80-and-orientation.md" >}}
 
-##### Configuration and scripts
+#### Configuration and Scripts
 
 Any non-default configuration changes are done by editing the .env files, or directly in `docker-compose.yml`.
 
 [A full configuration reference is available.]({{< relref "anka-build-cloud/configuration-reference.md" >}})
 
-##### Logging
+#### Logging
 
 Containers are writing logs to STDOUT+ERR, making them available to Docker.  
 
@@ -115,6 +115,7 @@ docker logs --tail 100 -f test_anka-registry_1
 [By default, docker does not do log-rotation. As a result, log-files stored by the default json-file logging driver logging driver can cause a significant amount of disk space to be used for containers that generate much output, which can lead to disk space exhaustion.](https://docs.docker.com/config/containers/logging/configure/)
 
 {{< hint info >}}
+
 ##### Troubleshooting tip
 
 The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([reference]({{< relref "anka-build-cloud/configuration-reference.md#logging" >}}))
@@ -146,7 +147,7 @@ In order for the host/node to perform controller tasks (pull, start, delete, etc
 
 {{< include file="_partials/anka-virtualization-cli/getting-started/_start-vm-instance-using-controller-ui.md" >}}
 
-### Step 5: Orientate to your new environment
+### Step 5: Orientation
 
 #### Anka Controller Container
 
@@ -221,9 +222,11 @@ Often we find that customers wish to only run the Anka Build Cloud Registry and 
 
 In order to run the standalone registry you'll:
 
-1. Follow [Step #1]({{< relref "#step-2-install-the-anka-build-cloud-controller--registry" >}}) above, but:
-  - skip the sections to configure the controller. This means only set the registry volume.
-  - before you `docker-compose up -d`, comment out or remove the Controller and ETCD services from the yml.
+1. Follow [Step #2]({{< relref "#step-2-install-the-anka-build-cloud-controller-andor-registry" >}}) above, but:
+
+- skip the sections to configure the controller. This means only set the registry volume.
+
+- before you `docker-compose up -d`, comment out or remove the Controller and ETCD services from the yml.
 
 ---
 
