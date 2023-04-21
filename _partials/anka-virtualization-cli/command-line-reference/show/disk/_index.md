@@ -1,4 +1,4 @@
 ```shell
-> anka show 13.3.1 disk --help
+> anka show null disk --help
 
 ```

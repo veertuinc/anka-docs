@@ -1,5 +1,5 @@
 ```shell
-> anka  --help
+❯ anka --help
 usage: anka [options] <command>
 
    Anka command line tool

@@ -1,5 +1,5 @@
 ```shell
-> anka modify 13.3.1 cpu --help
+> anka modify null cpu --help
 usage: cpu [options] [vcpu]
 
    Set number of vcpu cores and frequency

@@ -1,4 +1,4 @@
 ```shell
-> anka show 13.3.1 name --help
+> anka show null name --help
 
 ```

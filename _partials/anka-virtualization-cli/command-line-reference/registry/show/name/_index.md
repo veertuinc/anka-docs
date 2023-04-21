@@ -1,4 +1,4 @@
 ```shell
-> anka registry show 13.3.1 name --help
+> anka registry show null name --help
 
 ```

@@ -1,5 +1,5 @@
 ```shell
-> anka modify 13.3.1 ram --help
+> anka modify null ram --help
 usage: ram [size]
 
    Set RAM size and parameters

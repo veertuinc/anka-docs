@@ -1,5 +1,5 @@
 ```shell
-> anka modify 13.3.1 name --help
+> anka modify null name --help
 usage: name name
 
    Set new name for the VM

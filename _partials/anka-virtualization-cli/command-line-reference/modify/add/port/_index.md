@@ -1,5 +1,5 @@
 ```shell
-> anka modify 13.3.1 add port --help
+> anka modify null add port --help
 usage: port-forwarding,port [options] name [rule]
 
    Add port forwarding rule

@@ -1,5 +1,5 @@
 ```shell
-> anka registry show 13.3.1 tag --help
+> anka registry show null tag --help
 usage: tag [options]
 
    Show template tags

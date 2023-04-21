@@ -1,5 +1,5 @@
 ```shell
-> anka show 13.3.1 network --help
+> anka show null network --help
 usage: network [options]
 
    Network information

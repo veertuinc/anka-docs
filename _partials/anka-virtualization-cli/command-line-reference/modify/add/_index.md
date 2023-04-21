@@ -1,5 +1,5 @@
 ```shell
-> anka modify 13.3.1 add --help
+> anka modify null add --help
 usage: add <command>
 
    Add new items to a VM configuration
