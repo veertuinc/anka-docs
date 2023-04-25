@@ -47,7 +47,7 @@ If you are upgrading the host/node macOS version, please disjoin and join the no
 ### Upgrade Procedure
 
 {{< hint warning >}}
-**The following steps also apply to downgrading, though, you need to forcefully downgrade the cluster agent on each of your nodes.**
+**The following steps also apply to downgrading, though, you need to forcefully downgrade the cluster agent on each of your nodes (see step 7).**
 {{< /hint >}}
 
 #### Docker
@@ -58,6 +58,7 @@ If you are upgrading the host/node macOS version, please disjoin and join the no
   4. Run `docker-compose build` in the new package directory to prepare the new docker tag.
   5. Run `docker-compose down` in the previous package directory to take down the older version.
   6. Run `docker-compose up -d` in the newer version directory to finally bring it up.
+  7. (downgrading only) Run the following on each node that is joined: `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` (`AnkaAgentArm.pkg` if using Anka 3.0)
 
 {{< hint info >}}
 You can temporarily run `docker-compose up` which attached you immediately to the service logs so you can watch for errors. However, it will not stay running so once things are confirmed to be working, you'd need to `docker-compose down` and `docker-compose up -d` before logging out of the server.
