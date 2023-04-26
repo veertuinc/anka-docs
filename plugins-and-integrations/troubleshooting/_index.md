@@ -54,6 +54,11 @@ Our gitlab runner is based on the core and official gitlab runner release, so th
 1. Follow [official troubleshooting guide from Microsoft.](https://docs.microsoft.com/en-us/azure/devops/pipelines/troubleshooting/troubleshooting?view=azure-devops)
 1. [Perform the Anka Virtualization checklist and check the logs at the time of the error on the Anka Node that ran the VM.]({{< relref "anka-virtualization-cli/troubleshooting/_index.md#anka-virtualization" >}})
 
+#### Anka Packer Plugin
+
+1. Run your `packer build` with debug logging enabled: `export ANKA_LOG_LEVEL=debug; export ANKA_DELETE_LOGS=0; PACKER_LOG=1 packer build. . .`
+2. Looks at the various anka commands in the logs to determine the exact one failing (if an anka command at all).
+
 ---
 
 ## Troubleshooting Guides
