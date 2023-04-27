@@ -80,6 +80,10 @@ By default, we enable VNC inside of VMs created with `anka create`. You can VNC 
 ❯ open vnc://192.168.64.6:5900
 ```
 
+{{< hint info >}}
+To expose the VM VNC port on the Host IP, [read more about port forwarding here]({{< relref "anka-virtualization-cli/getting-started/modifying-your-vm.md#port-forwarding-from-guest-to-host" >}}).
+{{< /hint >}}
+
 ## SSH
 
 By default, SSH is enabled inside of the VM. You can SSH into the VM using the VM's IP and port 22:
