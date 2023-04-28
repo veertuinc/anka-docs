@@ -27,6 +27,8 @@ You are trying to start a VM Instance from the controller dashboards or rest API
 
 ## Solutions
 
+**PRO TIP:** Nodes will usually throw `can't start vm` in their `/var/log/veertu/anka_agent.INFO`. Look for this first.
+
 ---
 
 ### None of the Nodes are active
