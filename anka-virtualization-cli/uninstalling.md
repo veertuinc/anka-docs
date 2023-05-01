@@ -1,6 +1,6 @@
 ---
 date: 2019-12-12T00:00:00-00:00
-title: "Uninstalling (CLOUD)"
+title: "Uninstalling (Anka)"
 linkTitle: "Uninstalling"
 weight: 6
 description: >
