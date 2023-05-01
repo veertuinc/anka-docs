@@ -23,4 +23,4 @@ description: >
 
 ## Release Notes
 
-Release notes for the Anka Github Actions can be found on github using the above URLs.
+- **1.8.0**: null-check of rootCAParam prior to empty-check https://github.com/veertuinc/teamcity-anka-cloud/pull/12 + Various security updates.
