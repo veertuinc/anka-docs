@@ -9,6 +9,12 @@ Welcome! This tutorial guides you through setting up your Anka Build Cloud Contr
 **This guide is for first time users and shouldn't be used for upgrading. Please use [the upgrading guide]({{< relref "anka-build-cloud/upgrading.md" >}}) instead.**
 {{< /hint >}}
 
+## Checklist
+
+- [ ] Set up the Build Cloud Controller components.
+- [ ] Set up [Monitoring of both logs and usage metric]({{< relref "anka-build-cloud/monitoring.md" >}}).
+- [ ] Stress test your setup.
+
 ## Linux / Docker
 
 ### Necessary Hardware

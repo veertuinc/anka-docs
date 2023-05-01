@@ -8,13 +8,88 @@ description: >
 
 In order to monitor your Anka Build Cloud, you'll need a few things:
 
+1. A way to collect and aggregate logs.
+
+1. A way to search and even set up alerts for log occurrences.
+
 1. A way to collect metrics (time series database, etc).
 
-2. A way to graph and setup alerts.
+1. A way to graph and setup alerts from those metrics.
+
+Let's start with logs...
 
 ---
 
-## Prometheus + Grafana
+## Logs
+
+The Anka Build Cloud agent attempts to retry failures, however, it's still a good idea to look for certain types of errors occurring in your setup and handle them before they become larger problems. We're going to walk you through where important logs are found and then what to look for and trigger alerts on.
+
+### Nodes
+
+On your Anka Nodes runs the Controller Agent, handling communication to the Anka Build Cloud. This agent logs to `/var/log/veertu`.
+
+{{< include file="_partials/troubleshooting/controller-agent.md" >}}
+
+#### Node Common Errors
+
+1. `can't start vm`
+  - These errors are thrown at the end of a start VM task attempt by the Node. It's a generic error and not specific. However, if enough of these are thrown in a short amount of time, you should dig in further.
+  - Alerts should trigger when more than 3 of these happen in a 20 minute time period.
+
+2. `rejecting due to lack of disk space`
+  - These errors happen when the Node itself can't handle the amount of disk space needed for the VM template it's about to pull. This means either 1. your individual VM templates are too large and need to be optimized a bit, and/or 2. your node just doesn't have enough space for the amount of templates it needs to hold.
+  - Alerts should trigger when more than 3 of these happen in a 60 minute time period.
+  - Also, the agent will delete the least used templates one by one from the Node until it has enough space to download. On top of that, the node will not take new tasks while it's pulling. You can experience a situation where two massive templates that cannot both exists on the host due to their size will cause the node to clean up one to pull the other over and over, all while locking task processing for other unrelated jobs. The Node will be useless while it's pulling.
+
+### Controller
+
+Central to the Anka Build Cloud is the Controller, handling the UI/visual interaction for users, APIs, Queuing of tasks, etc. Behind it is ETCD, handling storage of temporary information used by the Controller.
+
+Error logs are formatted starting with severity as a character: `I` as Information, `W` as Warning, and `E` as Error:
+
+```bash
+E0501 12:32:30.426698     341 controller.go:114] StartVm: failed to get VM 7141d04e-cb45-46bf-9026-4266d74998d5 from registry
+```
+
+{{< hint info >}}
+Unless your ETCD is run separately (like in the case of docker), the logs for both services are combined.
+{{< /hint >}}
+
+{{< hint warning >}}
+Some error are not critical and can be ignored. Feel free to contact support for confirmation of any of these you find.
+{{< /hint >}}
+
+#### Docker
+
+{{< include file="_partials/anka-build-cloud/docker-controller-logs.md" >}}
+
+#### Mac Package
+
+{{< include file="_partials/anka-build-cloud/mac-controller-logs.md" >}}
+
+#### Controller/ETCD Common Errors
+
+1. \[etcd] `database space exceeded`
+  - This is detailed in [the official documentation](https://etcd.io/docs/v3.5/op-guide/maintenance/#space-quota).
+  - You should alert on this immediately. It is a critical error.
+
+### Registry
+
+The Registry stores your Anka VM Templates and Tags. It is also responsible for storage of the Centralized Logs (all other components post their logs to it). It is very uncommon to find errors in the logs, but you should still become familiar with where they are.
+
+#### Docker
+
+{{< include file="_partials/anka-build-cloud/docker-registry-logs.md" >}}
+
+#### Mac Package
+
+{{< include file="_partials/anka-build-cloud/mac-registry-logs.md" >}}
+
+---
+
+## Usage Metrics
+
+### Prometheus + Grafana
 
 {{< hint info >}}
 Release Notes can be found [on the official Github repo](https://github.com/veertuinc/anka-prometheus-exporter/releases).
@@ -68,3 +143,9 @@ We won't go into depth with setting up Grafana as it's already covered on https:
 {{< rawhtml >}}<center>{{< /rawhtml >}}
 ![prometheus-grafana]({{< siteurl >}}images/anka-build-cloud/monitoring/prometheus-grafana.png)
 {{< rawhtml >}}</center>{{< /rawhtml >}}
+
+### Recommended Alerts
+
+- Total Free Capacity across all Nodes is 0 for more than 15 minutes. This typically means you need more Nodes to handle the VM start request load.
+- Registry Available Space is less than 70GB. We recommend keeping your Registry free space at 50GB or more.
+- Usage of a specific VM Template is 0 over a week period. This usually means that a Template is ready to be deletes as it is no longer used.
