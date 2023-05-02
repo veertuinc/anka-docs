@@ -63,6 +63,10 @@ First, edit the `controller/controller.env`:
     ANKA_ANKA_REGISTRY="http://<ip/fqdn>:8089"
     ```
 
+{{< hint warning >}}
+**Do not put a slash on the end of the ANKA_ANKA_REGISTRY URL.**
+{{< /hint >}}
+
 Next, edit the `docker-compose.yml` (in the package root, not under the `registry` directory):
 
 1. Under `anka-registry > volumes`, find the line that says ***# - \*\*\*\*EDIT_ME\*\*\*\*:/mnt/vol***. Change this to include the host directory you wish to mount into the container and which will be used to store the data. It should look like:
