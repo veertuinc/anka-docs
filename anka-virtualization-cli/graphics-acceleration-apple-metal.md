@@ -3,8 +3,12 @@ date: 2019-12-12T00:00:00-00:00
 title: "Graphics Acceleration / Apple Metal"
 weight: 8
 description: >
-  Using Apple's Metal/GPUs inside of your Anka VMs.
+  Using Apple's Metal inside of your Anka VMs.
 ---
+
+{{< hint info >}}
+MPS users: Support may be limited. Please be sure test your apps.
+{{< /hint >}}
 
 {{< hint warning >}}
 Big Sur Users: The host macOS should always be either newer or the same version as VMs running PG to avoid incompatibilities between the Apple metal APIs.
