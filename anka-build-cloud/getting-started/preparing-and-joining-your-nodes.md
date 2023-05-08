@@ -20,7 +20,7 @@ Be sure to reboot the host after applying these changes.
 
 ### Required
 
-1. **Start a UI session by logging into your node's user** to ensure Apple's services are started (it doesn't have to be an administrator).
+1. **Start a UI session by logging into your node's user** to ensure Apple's services are started (it doesn't have to be an administrator). This is not necessary unless you are not using the Controller.
 
 2. **Ensure you uncheck `Log out after X minutes of inactivity`** under System Preferences > Security & Privacy > Advanced (disabled by default, but good to check)
 
