@@ -32,6 +32,10 @@ We recommend disjoining all but one node. One node must stay joined to ensure th
 
 Enabling root token authentication is a simple process. The root user has what we call "superuser" (full) access to the controller, API (basic auth), etc.
 
+{{< hint warning >}}**The root token must be at least 10 characters long.**{{< /hint >}}
+
+{{< hint warning >}}**The root token set for both the registry and controller must match.**{{< /hint >}}
+
 ### How to configure RTA
 ##### MacOS Package
 
@@ -43,8 +47,6 @@ export ANKA_ROOT_TOKEN="{min10chartoken}"
 ```
 
 {{< hint info >}}The macOS package has no way to set tokens or auth for either the controller or registry. It will be enabled for both if the ENV is set to true.{{< /hint >}}
-
-{{< hint warning >}}**The root token must be at least 10 characters long.**{{< /hint >}}
 
 ##### Linux/Docker Package
 
