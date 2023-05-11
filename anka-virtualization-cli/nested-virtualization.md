@@ -40,9 +40,8 @@ You must set a single vCPU for the virtualbox VM for it to run properly.
 
 There are however some steps that you need to perform to get Android emulators to run properly:
 
-1. Uninstall previous Anka versions using `sudo /Library/Application\ Support/Veertu/Anka/tools/uninstall.sh`
-2. When android studio goes to install the intel HAXM extension, you may need to approve the exception in System Preference > Security & Privacy and then reboot (requires a GUI session).
-3. You need to ensure that the config.ini for your virtual device/emulator has:
+1. When android studio goes to install the intel HAXM extension, you may need to approve the exception in System Preference > Security & Privacy and then reboot (requires a GUI session).
+2. You need to ensure that the config.ini for your virtual device/emulator has:
 
     ```shell
     hw.gpu.enabled=yes
