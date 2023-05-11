@@ -29,7 +29,6 @@ It is also best to run this as close to when an issue happens as several command
 - Ensure that you've run `sudo anka license accept-eula` on the host.
 - Make sure you've got a valid license with `sudo anka license validate`.
 - Check `df -h` and other host or VM resource usage (CPU/RAM) and be sure that the host resources are not exhausted.
-- Ensure that the user running Anka VMs is logged in and that Sleep and passworded Screensaver are disable. The hypervisor will not work without an active/logged in user.
 - Check `[~]/Library/Logs/Anka/` logs for any indication of why the failure happened.
 - Ensure that all components in your Anka environment can communicate. This includes connectivity between CI/CD tooling we do not support.
 - Disable anti-virus and firewalls on the host.
