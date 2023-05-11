@@ -16,7 +16,11 @@ Starting in Anka 2.5.0, Nested Virtualization has received a large refactor and 
 
 ### Supported Technologies
 
-#### Docker
+#### Docker*
+
+{{< hint warning >}}
+* **Not currently supported.**
+{{< /hint >}}
 
 {{< hint warning >}}
 Please avoid suspending VMs while Docker or other nested virtualization apps are started. You will need to start the apps post-vm start.
