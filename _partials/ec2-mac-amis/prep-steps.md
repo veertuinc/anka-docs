@@ -74,12 +74,15 @@
   - Only available in > 3.2.0/13.0 AMIs.
 
 
-#### Manual Preparation
+#### Manual Preparation (optional)
+
+**Amazon EBS volumes can be very slow even when you max iOPS, etc.** Because of this, `anka create` and other processes can take very long times or outright fail (Apple's installer is sensitive to disk IO). We recommend that you "pre-warm" the EBS volume by running `dd if=/dev/random of=testfile bs=1g count=$(($(df -h | grep "/$" | awk '{print $4}' | grep -oE "[0-9]+")-2))` on the host right after it starts. Additionally, pre-warmed volumes stay warmed -- no need to run `dd` after periods of inactivity on the AWS instance.
 
 {{< hint warning >}}
-By default all of our AMIs have a cloud-connect agent which on boot will join your AWS instance to the Anka Build Cloud controller automatically with [user data ENVs you set]({{< relref "#user-data-envs" >}}). This is issuing `ankacluster join` under the hood. Once joind, the agent which runs and communicates with the Anka Build Controller does its best to determine the proper IP to use for the node. On AWS the interfaces are loaded at different times and orders and often you'll end up with an IP assigned to the node which cannot be used for communication. To solve this, you'll want to set `ANKA_JOIN_ARGS` with `--host {IP HERE}` in the user data for the AWS instance. You can find all available flags/options for the join command [here]({{< relref "anka-build-cloud/getting-started/preparing-and-joining-your-nodes.md#joining-to-your-anka-build-cloud-controller" >}}).
+By default all of our AMIs have a cloud-connect agent which on boot will join your AWS instance to the Anka Build Cloud controller automatically with [user data ENVs you set]({{< relref "#user-data-envs" >}}). This is issuing `ankacluster join` under the hood. Once joined, the agent which runs and communicates with the Anka Build Controller does its best to determine the proper IP to use for the node. On AWS the interfaces are loaded at different times and orders and often you'll end up with an IP assigned to the node which cannot be used for communication. To solve this, you'll want to set `ANKA_JOIN_ARGS` with `--host {IP HERE}` in the user data for the AWS instance. You can find all available flags/options for the join command [here]({{< relref "anka-build-cloud/getting-started/preparing-and-joining-your-nodes.md#joining-to-your-anka-build-cloud-controller" >}}).
 {{< /hint >}}
 
+<!-- 
 Our AMIs attempt to do the majority of preparation for you, however, there are several steps you need to perform once the instance is started:
 
 1. Enable VNC:
@@ -97,13 +100,10 @@ Some of our older AMIs (2.5.7 or older) set a default password to `zbun0ok=`. We
 
 1. You now need to VNC in and log into the ec2-user (requirement for Anka to start the hypervisor): `open vnc://ec2-user:{NEWPASSWORDHERE}@{INSTANCEPUBLICIP}`.
 
-{{< hint warning >}}
-**Amazon EBS volumes can be very slow even when you max iOPS, etc.** Because of this, `anka create` and other processes can take very long times or outright fail (Apple's installer is sensitive to disk IO). We recommend that you "pre-warm" the EBS volume by running `dd if=/dev/random of=testfile bs=1g count=$(($(df -h | grep "/$" | awk '{print $4}' | grep -oE "[0-9]+")-2))` on the host right after it starts. Additionally, pre-warmed volumes stay warmed -- no need to run `dd` after periods of inactivity on the AWS instance.
-{{< /hint >}}
 
 {{< hint info >}}
 You can see how we generate these AMIs in our open source repo: https://github.com/veertuinc/aws-ec2-mac-amis.
-{{< /hint >}}
+{{< /hint >}} -->
 
 #### Logs
 
