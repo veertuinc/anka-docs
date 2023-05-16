@@ -16,27 +16,30 @@ There are several license specific differences that should be noted before you b
 - **Enterprise Plus:** By default, _only_ the root token (RTA) has full access to the API. User tokens _must be_ created with a group attached and permissions added for the group.
 {{< /hint >}}
 
-Starting in 1.19.0 of the Anka Build Cloud, there are two token based options for securing the communication with the Build Cloud Controller & Registry:
-
-1. Setting the Root Token, protecting the Controller UI + API and Registry API.
-
-2. Generate an RSA priv/pub key which is then used to request a temporary auth session in a client. These sessions (TAP) allow access to the API to perform various tasks.
-
 {{< hint info >}}
 We recommend disjoining all but one node. One node must stay joined to ensure the Build Cloud has the proper license attached. You can rejoin it later once you're configured and you've rejoined all of your other nodes.
 {{< /hint >}}
+
+Starting in 1.19.0 of the Anka Build Cloud, there are two token based options for securing the communication with the Build Cloud Controller & Registry:
+
+1. Setting the Root Token, protecting the Controller UI/API and Registry API. It is not available for nodes to communicate.
+
+2. Generate a UAK which is then used to request a temporary auth session in a client. These sessions (TAP) allow access to the API to perform various tasks.
 
 ---
 
 ## Protecting your cloud with RTA (Root Token Auth)
 
-Enabling root token authentication is a simple process. The root user has what we call "superuser" (full) access to the controller, API (basic auth), etc.
+Enabling root token authentication is a simple process. The root user has full permissions to the Controller UI and APIs for both the Controller and Registry. It is however not used for Node communication.
 
 {{< hint warning >}}**The root token must be at least 10 characters long.**{{< /hint >}}
 
 {{< hint warning >}}**The root token set for both the registry and controller must match.**{{< /hint >}}
 
+{{< hint warning >}}**Keep this safe. We don't recommend trying to use the root token for API calls in scripts due to security risk.**{{< /hint >}}
+
 ### How to configure RTA
+
 ##### MacOS Package
 
 Edit `/usr/local/bin/anka-controllerd` and add:
