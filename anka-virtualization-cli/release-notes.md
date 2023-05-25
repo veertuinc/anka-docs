@@ -32,9 +32,11 @@ ARM issues:
 - **New Feature:** Apply [VM Networking IP Filtering]({{< relref "whats-new/anka-3.3.0/index.md#vm-networking-ip-filtering" >}}) rules for VMs.
 - **New Feature:** [Automated log in for autologin disabled VMs]({{< relref "whats-new/anka-3.3.0/index.md#automated-log-in-for-autologin-disabled-vms" >}}).
 - **New Feature:** [Support for FileVault in ARM VMs]({{< relref "whats-new/anka-3.3.0/index.md#support-for-filevault-arm" >}}).
+- **New Feature:** [(ARM ONLY) Trigger click scripts from within VMs, allowing UI specific interactions.]({{< relref "whats-new/anka-3.3.0/index.md#trigger-click-scripts-from-inside-vm-arm" >}})
 - **Improvement:** ARM and Intel PKGs have now been combined into a single installer.
 - **Improvement:** `anka delete --cache` will also clean `vm_lib` directories.
 - **Improvement:** To increase registry IO efficiency, we are now reusing TCP connections during registry operations.
+- **Improvement:** Arm users will notice `anka config default_format` is now set to `1`. This indicates that the new 3.3.0 image format will be used, increasing VM performance and decreasing disk usage by VM templates significantly.
 - **Bug Fix:** `anka start -v` was not opening the Viewer window.
 - **Bug Fix:** Fix for `failed to enable VNC: Operation timed out` while running `anka create`.
 - **Bug Fix:** Fixes for `failed to get status of task after start: Operation timed out`, `ankanet: failed to get response, error 2`, and `failed to start: No such file or directory`.
@@ -42,6 +44,7 @@ ARM issues:
 - **Bug Fix:** Eliminated `failed to open config (config.yaml): No such file or directory` log spam.
 - **Bug Fix:** Creating VM on EC2 M1 was throwing `setup failed: Connection refused`.
 - **Bug Fix:** Nested Virtualization was enabled when `hw.hvapic` is enabled. It will not work, so it is not disabled.
+- **Bug Fix:** `anka stop -f` would rarely fail.
 
 ## Previous Versions
 

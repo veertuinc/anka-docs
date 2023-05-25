@@ -29,3 +29,7 @@ Users requiring that VMs do not have autologin enabled can now set `anka modify 
 ARM users can now enable FileVault inside of their VMs. However, keep in mind that Apple disables autologin while FileVault is enabled. This will break existing flows until users update their `sudo anka config default_passwd` so that our [anka click script](https://github.com/veertuinc/anka-click-scripts) can perform the log in, post-boot.
 
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/start/_index.md" >}}
+
+## Trigger click scripts from inside VM (ARM)
+
+ARM users will be able to use `/Library/Application\ Support/Veertu/Anka/bin/click` inside of their VMs to run click scripts. This is a major improvement for automation. An example is using [the Prefer Discrete GPU in iOS simulator click script](https://github.com/veertuinc/anka-click-scripts/blob/main/13.0/simulator-prefer-discrete-gpu/simulator-prefer-discrete-gpu.click) to improve iOS simulator performance.
