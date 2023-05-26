@@ -31,7 +31,7 @@ ARM issues:
 
 - **New Feature:** Apply [VM Networking IP Filtering]({{< relref "whats-new/anka-3.3.0/index.md#vm-networking-ip-filtering" >}}) rules for VMs.
 - **New Feature:** [Automated log in for autologin disabled VMs]({{< relref "whats-new/anka-3.3.0/index.md#automated-log-in-for-autologin-disabled-vms" >}}).
-- **New Feature:** [Support for FileVault in ARM VMs]({{< relref "whats-new/anka-3.3.0/index.md#support-for-filevault-arm" >}}).
+- **New Feature:** [(ARM ONLY) Support for FileVault in VMs]({{< relref "whats-new/anka-3.3.0/index.md#support-for-filevault-arm" >}}).
 - **New Feature:** [(ARM ONLY) Trigger click scripts from within VMs, allowing UI specific interactions.]({{< relref "whats-new/anka-3.3.0/index.md#anka-click-scripts-inside-vm-arm" >}})
 - **Improvement:** ARM and Intel PKGs have now been combined into a single installer.
 - **Improvement:** `anka delete --cache` will also clean `vm_lib` directories.
