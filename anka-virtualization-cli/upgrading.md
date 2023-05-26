@@ -18,6 +18,7 @@ We do not follow strict [semantic versioning](https://semver.org/); minor and ma
 
 Existing Version | Target Version | Recommendation
 | --- | --- | --- |
+| < 3.3 | 3.3 | Optional: Delete and re-pull VM templates to host machines to take advantage of new performance and smaller disk usage changes. |
 | < 3.x | 3.x | {{< rawhtml >}}<ul><li>External volumes must be mounted as APFS in order to use them for `img_lib_dir`, etc.</li></ul>{{< /rawhtml >}} |
 | < 3.x | 3.x (intel) | {{< rawhtml >}}<ul><li>VMs suspended on Anka 2.x will need to be re-suspended on 3.x.</li><li>The Controller Agent version that comes with Anka will start at <b>1.30.1</b>. <b>Older versions of the Controller do not support Anka 3. You will need to upgrade your controller to at least 1.30.1.</b></li><li>Previously, <code>anka create</code> would create a suspended VM. Starting in this version, VMs are stopped.</li><li>GUI (Anka.app) VM creation will produce a VM without macOS set up.</li><li><code>anka --machine-readable registry list</code> has a key name change from <code>id</code> to <code>uuid</code></li><li><code>modify set</code> commands will continue to work, but not show in the <code>anka modify --help</code> output.</li><li>Only macOS 10.15 and above are supported by Veertu. If you're using an older version, do not upgrade addons to 3.x and they should continue to function.</li></ul>{{< /rawhtml >}} |
 
