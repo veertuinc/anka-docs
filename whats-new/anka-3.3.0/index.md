@@ -30,6 +30,6 @@ ARM users can now enable FileVault inside of their VMs. However, keep in mind th
 
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/start/_index.md" >}}
 
-## Trigger click scripts from inside VM (ARM)
+## Anka click scripts inside VM (ARM)
 
 ARM users will be able to use `/Library/Application\ Support/Veertu/Anka/bin/click` inside of their VMs to run click scripts. This is a major improvement for automation. An example is using [the Prefer Discrete GPU in iOS simulator click script](https://github.com/veertuinc/anka-click-scripts/blob/main/13.0/simulator-prefer-discrete-gpu/simulator-prefer-discrete-gpu.click) to improve iOS simulator performance.
