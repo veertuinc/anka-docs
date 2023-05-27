@@ -44,7 +44,7 @@ ARM issues:
 - **Bug Fix:** Registry show output shows a failed status.
 - **Bug Fix:** Eliminated `failed to open config (config.yaml): No such file or directory` log spam.
 - **Bug Fix:** Creating VM on EC2 M1 was throwing `setup failed: Connection refused`.
-- **Bug Fix:** Nested Virtualization was enabled when `hw.hvapic` is enabled. It will not work, so it is not disabled.
+- **Bug Fix:** Nested Virtualization is now disabled when `hw.hvapic` is enabled.
 - **Bug Fix:** `anka stop -f` would rarely fail.
 
 ## Previous Versions
