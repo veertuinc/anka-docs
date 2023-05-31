@@ -43,7 +43,7 @@ You can view all active build nodes, instances running on them, their cpu and ra
 #### Explanation of Node States
 
 - **Offline:** Node has not checked in recently
-- **Inactive:** (Invalid License): License has likely expired; log in to the node and run `anka license show`
+- **Inactive (Invalid License)**: License has likely expired; log in to the node and run `anka license show`
 - **Active:** Node is healthy
 - **Updating:** Node is downloading and installing the proper agent pkg (if the controller has been upgraded)
 - **Unhealthy:** Only set if node's capacity is full AND all of the vms are NOT in "running" state
