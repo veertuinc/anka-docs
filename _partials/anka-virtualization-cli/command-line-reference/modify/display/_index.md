@@ -1,5 +1,5 @@
 ```shell
-> anka modify 13.1-openjdk-11.0.14.1-jenkins display --help
+> anka modify 13.4 display --help
 usage: display [options]
 
    Configure displays

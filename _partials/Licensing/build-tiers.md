@@ -7,14 +7,12 @@
 --- | --- | --- |  ---
 Core based licensing | Yes | Yes | Yes
 Cloud Controller with REST APIs | Yes(Single instance of Anka controller included) | Yes(Single instance of Anka controller included) | Yes
-Central Registry | Yes(Single instance Anka Registry included) | Yes | Yes
 [GitHub Action](https://github.com/marketplace/actions/anka-vm-github-action) | Yes | Yes | Yes
 [Jenkins Plugin](https://plugins.jenkins.io/anka-build/) | Yes | Yes | Yes
 [TeamCity Plugin](https://plugins.jetbrains.com/plugin/10733-anka-build-cloud) | Yes | Yes | Yes
 [GitLab Runner with custom executor](https://github.com/veertuinc/gitlab-runner) | Yes | Yes | Yes
 [BuildKite Plugin](https://github.com/veertuinc/anka-buildkite-plugin) | Yes | Yes | Yes
 HA for Controller configuration setup | Yes (Additional controller/registry instances needed) | Yes | Yes
-[USB Device control through the CLI]({{< relref "anka-virtualization-cli/working-with-usb-devices.md" >}}) |    | Yes | Yes
 [USB Device control through Controller API]({{< relref "anka-build-cloud/working-with-controller-and-api.md#usb-device-control-controller-api" >}}) |    | Yes | Yes
 [Priority scheduling of VMs through controller]({{< relref "anka-build-cloud/working-with-controller-and-api.md#priority-scheduling" >}}) |    | Yes | Yes
 [Clustering (Grouping) of Nodes]({{< relref "anka-build-cloud/working-with-controller-and-api.md#node-groups" >}}) |    | Yes | Yes 

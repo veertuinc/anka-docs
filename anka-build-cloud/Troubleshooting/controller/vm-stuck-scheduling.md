@@ -27,6 +27,8 @@ You are trying to start a VM Instance from the controller dashboards or rest API
 
 ## Solutions
 
+**PRO TIP:** Nodes will usually throw `can't start vm` in their `/var/log/veertu/anka_agent.INFO`. Look for this first.
+
 ---
 
 ### None of the Nodes are active
@@ -34,10 +36,11 @@ You are trying to start a VM Instance from the controller dashboards or rest API
 Go to your dashboard, look at the box on the right. It should say "X More Instances Available". If this number is larger than 0, the problem is probably someplace else. Check out one of the next common reasons.
 
 
-Go to your `Nodes` screen and go over the Nodes.  
-If any of your Nodes has the message `Inactive (Invalid License)` under it's state, you need to go to that Node and activate the license. You can find more information about Anka License commands [here]({{< relref "anka-virtualization-cli/command-line-reference.md#license" >}}).
+1. Go to your `Nodes` pages on the Controller UI. 
+2. If any of your Nodes has the message `Inactive (Invalid License)` under it's state, you need to go to that Node and activate the license. You can find more information about Anka License commands [here]({{< relref "anka-virtualization-cli/command-line-reference.md#license" >}}).
 If one of your Nodes has the state `Offline` it usually means that the agent running on the Node have crashed. To solve this, execute a `disjoin` and `join` commands on the Node:
-```shell 
+
+```shell
 # Disjoin
 sudo ankacluster disjoin                 
 Disjoined the cluster
@@ -48,13 +51,11 @@ Testing connection to controller...: Ok
 Testing connection to the registry...: Ok
 Ok
 Cluster join success
-
-
 ```
-> **Note**  
-> You might get the following error after performing the `disjoin`:   
-> `Error:  agent not installed in domain specified`  
-> If you do get this error, continue and perform `join` command.
+
+{{< hint info >}}
+You might get the following error after performing the `disjoin`: `Error:  agent not installed in domain specified`. If you do get this error, continue and perform `join` command.
+{{< /hint >}}
 
 After rejoining the Node, check the dashboard to see if the Node is in `Active` state. It may take about a minute for the Node to show in dashboard, so wait at least this amount. In case the Node is still in `Offline` state, contact support via [slack](https://slack.veertu.com/) or [email](mailto:support@veertu.com)
 

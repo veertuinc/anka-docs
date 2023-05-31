@@ -1,4 +1,4 @@
 ```shell
-> anka modify 13.1-openjdk-11.0.14.1-jenkins delete network --help
+> anka modify 13.4 delete network --help
 
 ```

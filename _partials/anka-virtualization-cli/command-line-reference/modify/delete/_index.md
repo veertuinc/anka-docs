@@ -1,5 +1,5 @@
 ```shell
-> anka modify 13.1-openjdk-11.0.14.1-jenkins delete --help
+> anka modify 13.4 delete --help
 usage: delete <command>
 
    Remove items from a VM configuration

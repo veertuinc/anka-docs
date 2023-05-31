@@ -1,5 +1,5 @@
 ```shell
-> anka modify 13.1-openjdk-11.0.14.1-jenkins add --help
+> anka modify 13.4 add --help
 usage: add <command>
 
    Add new items to a VM configuration

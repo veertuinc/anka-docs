@@ -1,7 +1,6 @@
 ---
-date: 2017-01-27
+date: 2017-04-04T01:00:00-00:00
 title: "Legacy Backup"
-weight: 999
 description: >
   Description of new Anka software features
 ---

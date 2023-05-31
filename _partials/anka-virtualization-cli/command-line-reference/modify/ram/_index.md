@@ -1,5 +1,5 @@
 ```shell
-> anka modify 13.1-openjdk-11.0.14.1-jenkins ram --help
+> anka modify 13.4 ram --help
 usage: ram [size]
 
    Set RAM size and parameters

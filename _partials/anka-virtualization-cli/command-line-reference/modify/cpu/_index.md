@@ -1,5 +1,5 @@
 ```shell
-> anka modify 13.1-openjdk-11.0.14.1-jenkins cpu --help
+> anka modify 13.4 cpu --help
 usage: cpu [options] [vcpu]
 
    Set number of vcpu cores and frequency

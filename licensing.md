@@ -30,7 +30,7 @@ Anka licenses are available for the following products:
 
 Trial licenses for Anka products is valid for 30 days from the date of trial registration. They enable unlimited access to product features. You can use the same activation key on multiple machines depending upon the quantity specified at the time of trial registration. They can be obtained at https://veertu.com/getting-started-anka-trials/.
 
-## Anka Virtualization
+## Anka Virtualization (CLI)
 
 {{< include file="_partials/Licensing/feature-differences.md" >}}
 
@@ -53,6 +53,8 @@ Trial licenses for Anka products is valid for 30 days from the date of trial reg
 + **Anka Flow (Intel)** - Cost is per machine. For example, if you are installing Anka Flow on 10 developer machines, then quantity will be 10.
 
 + **Anka Build (Apple Silicon)** - Pricing model is host-based and not core based. Due to the complexity of core-based licensing with new Apple Silicon-based hardware, we are changing the licensing model to host-based licensing.
+
+<!-- + **Anka Build (Apple Silicon)** - Cost is performance core based. For example, 8-core Apple processor mac mini had 4 performance cores. if you are setting up a cloud consisting of 2, 8-core Apple processor mac minis, then total performance core count will be 8 cores. For very large core count, there are other licensing models. For M1 Max and M1 Ultra machines, contact us for pricing information. -->
 
 Contact [support@veertu.com](mailto:support@veertu.com) to get a pricing estimate.  
 

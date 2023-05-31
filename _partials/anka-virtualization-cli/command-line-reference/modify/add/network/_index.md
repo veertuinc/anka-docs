@@ -1,5 +1,5 @@
 ```shell
-> anka modify 13.1-openjdk-11.0.14.1-jenkins add network --help
+> anka modify 13.4 add network --help
 usage: network-card,network [options]
 
    Modify network card settings
@@ -10,6 +10,5 @@ options:
   -m,--mac <val>           specify fixed MAC address, or "auto"
   -v,--vlan <val>          assign VLAN ID, 0 to deassign
   -c,--controller <val>    set controller: anet, virtio-net
-  --local                  enable (default) inter-VM and VM-host communication
-  --no-local               disable inter-VM and VM-host communication
+  -f,--filter <val>        filtering rules file to inject on VM start, or embed in VM config (with '-f- < rules.txt'), or use 'off' to disable
 ```

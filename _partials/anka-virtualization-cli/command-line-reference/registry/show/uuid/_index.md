@@ -1,4 +1,4 @@
 ```shell
-> anka registry show 13.1-openjdk-11.0.14.1-jenkins uuid --help
+> anka registry show 13.4 uuid --help
 
 ```

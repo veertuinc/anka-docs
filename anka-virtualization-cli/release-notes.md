@@ -11,6 +11,45 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.3.0 (3.3.0.164) - May 31st 2023
+
+{{< hint info >}}
+- Addons upgrading is not required but is recommended.
+- (ARM ONLY) Delete and re-pull VM templates to host machines to take advantage of new performance and smaller disk usage changes.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM issues:
+
+- Nested virtualization is not functional inside of VMs yet.
+- `anka view` is partially broken and require double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- iCloud/Apple logins will fail inside of the VM. You can still log into your account through Apple's website and download apps through your developer account. Or, transfer them from the host into the VM with `anka cp`.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **New Feature:** Apply [VM Networking IP Filtering]({{< relref "whats-new/anka-3.3.0/index.md#vm-networking-ip-filtering" >}}) rules for VMs.
+- **New Feature:** [Automated log in for autologin disabled VMs]({{< relref "whats-new/anka-3.3.0/index.md#automated-log-in-for-autologin-disabled-vms" >}}).
+- **New Feature:** [(ARM ONLY) Support for FileVault in VMs]({{< relref "whats-new/anka-3.3.0/index.md#support-for-filevault-arm" >}}).
+- **New Feature:** [(ARM ONLY) Trigger click scripts from within VMs, allowing UI specific interactions.]({{< relref "whats-new/anka-3.3.0/index.md#anka-click-scripts-inside-vm-arm" >}})
+- **Improvement:** ARM and Intel PKGs have now been combined into a single installer.
+- **Improvement:** `anka delete --cache` will also clean `vm_lib` directories.
+- **Improvement:** To increase registry IO efficiency, we are now reusing TCP connections during registry operations.
+- **Improvement:** Arm users will notice `anka config default_format` is now set to `1`. This indicates that the new 3.3.0 image format will be used, increasing VM performance and decreasing disk usage by VM templates significantly.
+- **Bug Fix:** `anka start -v` was not opening the Viewer window.
+- **Bug Fix:** Fix for `failed to enable VNC: Operation timed out` while running `anka create`.
+- **Bug Fix:** Fixes for `failed to get status of task after start: Operation timed out`, `ankanet: failed to get response, error 2`, and `failed to start: No such file or directory`.
+- **Bug Fix:** Registry show output shows a failed status.
+- **Bug Fix:** Eliminated `failed to open config (config.yaml): No such file or directory` log spam.
+- **Bug Fix:** Creating VM on EC2 M1 was throwing `setup failed: Connection refused`.
+- **Bug Fix:** Nested Virtualization is now disabled when `hw.hvapic` is enabled.
+- **Bug Fix:** `anka stop -f` would rarely fail.
+
+## Previous Versions
+
+
 ### 3.2.1 (3.2.1.155) (Intel) - Feb 15th 2023
 
 {{< hint info >}}
@@ -38,8 +77,6 @@ Known issues:
 {{< /hint >}}
 
 - **Bug Fix:** License fixes/support for M1 and M2 hardware.
-
-## Previous Versions
 
 ### 3.2.1 (3.2.1.157) (ARM) - Feb 15th 2023
 

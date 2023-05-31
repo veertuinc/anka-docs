@@ -4,8 +4,8 @@
 By default, `ANKA_ENABLE_AUTH` will not use authorization/permissions and allow any certs or users to connect to all API endpoints and pages in the UI. In order to enable Authorization, you will need to include specific ENVs in your config:
 
 - `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` works for both combined and standalone (docker) packages.
+- `ANKA_ENABLE_AUTHORIZATION` is only for the standalone (native or docker) registry packages.
 - `ANKA_ENABLE_REGISTRY_AUTHORIZATION` is for the combined (controller + registry in one binary) package only.
-- `ANKA_ENABLE_AUTHORIZATION` is only for the standalone registry package.
 
 Permission groups are configurable from your Controller's `https://<controller address>/#/permission-groups` page. You can target and add permissions for either the group name or the username (which is different between the various Advanced Security Features we offer).
 
