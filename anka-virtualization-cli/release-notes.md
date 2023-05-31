@@ -11,11 +11,11 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
-### 3.3.0 (3.3.0.XXXX) - Xth 2023
+### 3.3.0 (3.3.0.164) - May 31st 2023
 
 {{< hint info >}}
 - Addons upgrading is not required but is recommended.
-- Delete and re-pull VM templates to host machines to take advantage of new performance and smaller disk usage changes.
+- (ARM ONLY) Delete and re-pull VM templates to host machines to take advantage of new performance and smaller disk usage changes.
 {{< /hint >}}
 
 {{< hint warning >}}
