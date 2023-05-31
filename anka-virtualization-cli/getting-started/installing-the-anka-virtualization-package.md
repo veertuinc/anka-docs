@@ -80,7 +80,7 @@ description: >
 
 ### With GUI
 
-1. Download the [apple/arm](https://veertu.com/downloads/anka-virtualization-apple) or [intel](https://veertu.com/downloads/anka-virtualization-intel) PKG.
+1. Download the [universal](https://veertu.com/downloads/anka-virtualization-latest) PKG.
 2. Once downloaded, double click the .pkg to start the installation process.
 
 ![installer with pkg]({{< siteurl >}}images/anka-virtualization/installer.png)
