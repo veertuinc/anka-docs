@@ -1,4 +1,4 @@
 ```shell
-> anka show null ram --help
+> anka show 13.4 ram --help
 
 ```

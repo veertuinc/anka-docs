@@ -1,4 +1,4 @@
 ```shell
-> anka modify null delete network --help
+> anka modify 13.4 delete network --help
 
 ```

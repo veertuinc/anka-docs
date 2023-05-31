@@ -1,4 +1,4 @@
 ```shell
-> anka show null usb --help
+> anka show 13.4 usb --help
 
 ```

@@ -1,4 +1,4 @@
 ```shell
-> anka registry show null port --help
+> anka registry show 13.4 port --help
 
 ```

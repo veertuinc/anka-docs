@@ -1,4 +1,4 @@
 ```shell
-> anka show null uuid --help
+> anka show 13.4 uuid --help
 
 ```

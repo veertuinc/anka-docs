@@ -1,5 +1,5 @@
 ```shell
-> anka modify null delete disk --help
+> anka modify 13.4 delete disk --help
 usage: hard-drive,disk index
 
    Remove disk

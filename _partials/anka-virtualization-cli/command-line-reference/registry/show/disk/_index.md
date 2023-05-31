@@ -1,4 +1,4 @@
 ```shell
-> anka registry show null disk --help
+> anka registry show 13.4 disk --help
 
 ```

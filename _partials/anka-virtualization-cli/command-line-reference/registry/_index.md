@@ -10,8 +10,8 @@ options:
   --cert <val>             Path to a client certificate (if user authentication is configured)
   --key <val>              Path to private key if the client certificate doesn't contain one
   --cacert <val>           Use custom CA certificates location (default is /etc/ssl/certs)
-  --api-key-id <val>       TAP identity
-  --api-key <val>          TAP key in PEM form
+  --api-key-id <val>       UAK/TAP identity
+  --api-key <val>          UAK/TAP key in PEM format (path or string)
 
 commands:
   list-repos               List registries configured

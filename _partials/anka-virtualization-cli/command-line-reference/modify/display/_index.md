@@ -1,5 +1,5 @@
 ```shell
-> anka modify null display --help
+> anka modify 13.4 display --help
 usage: display [options]
 
    Configure displays

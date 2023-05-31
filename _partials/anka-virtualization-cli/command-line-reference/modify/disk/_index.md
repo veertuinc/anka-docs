@@ -1,5 +1,5 @@
 ```shell
-> anka modify null disk --help
+> anka modify 13.4 disk --help
 usage: disk [options]
 
    Modify hard drive settings

@@ -1,4 +1,4 @@
 ```shell
-> anka registry show null ram --help
+> anka registry show 13.4 ram --help
 
 ```
