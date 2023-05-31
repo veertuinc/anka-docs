@@ -9,7 +9,7 @@ We are very excited to announce Anka Virtualization 3.3.0. In this version, you'
 1. [VM Networking IP Filtering](#vm-networking-ip-filtering)
 1. [Automated log in for autologin disabled VM](#automated-log-in-for-autologin-disabled-vms)
 1. [Support for FileVault (ARM)](#support-for-filevault-arm)
-1. [Anka click scripts inside VM (ARM)](#anka-clikc-scripts-inside-vm-arm)
+1. [Anka click scripts inside VM (ARM)](#anka-click-scripts-inside-vm-arm)
 
 ---
 
