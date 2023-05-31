@@ -89,19 +89,11 @@ description: >
 
 ![terminal installation]({{< siteurl >}}images/anka-virtualization/terminal-installation.png)
 
-#### Apple/ARM
+#### Apple/ARM & Intel
 
 ```shell
-FULL_FILE_NAME="$(curl -Ls -r 0-1 -o /dev/null -w %{url_effective} https://veertu.com/downloads/anka-virtualization-apple | cut -d/ -f5)"
-curl -S -L -o ./$FULL_FILE_NAME https://veertu.com/downloads/anka-virtualization-apple
-sudo installer -pkg $FULL_FILE_NAME -tgt /
-```
-
-#### Intel
-
-```shell
-FULL_FILE_NAME="$(curl -Ls -r 0-1 -o /dev/null -w %{url_effective} https://veertu.com/downloads/anka-virtualization-intel | cut -d/ -f5)"
-curl -S -L -o ./$FULL_FILE_NAME https://veertu.com/downloads/anka-virtualization-intel
+FULL_FILE_NAME="$(curl -Ls -r 0-1 -o /dev/null -w %{url_effective} https://veertu.com/downloads/anka-virtualization-latest | cut -d/ -f5)"
+curl -S -L -o ./$FULL_FILE_NAME https://veertu.com/downloads/anka-virtualization-latest
 sudo installer -pkg $FULL_FILE_NAME -tgt /
 ```
 
