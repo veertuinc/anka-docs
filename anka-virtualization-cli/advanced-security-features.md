@@ -19,6 +19,6 @@ These features require a Enterprise or Enterprise Plus license.
 
 You may wish to disable the ability for VMs or VMs and the Host to communicate. This can be done with `--no-local` under `modify {VM} network`.
 
-### IP Filtering
+### IP Filtering Rules
 
 {{< include file="_partials/anka-virtualization-cli/advanced-security-features/ip-filtering.md" >}}
