@@ -103,7 +103,7 @@ Anka allows you to create VMs for the following macOS versions:
 {{< /hint >}}
 
 {{< hint warning >}}
-**ARM USERS: (\*\*) Apple is requiring the host OS be 13.x for creation of VMs on version >= 13.3.</a>**
+**ARM USERS: (\*\*) Apple is requiring the host OS be 13.x for creation (and running) of VMs on version >= 13.3.</a>**
 {{< /hint >}}
 
 {{< hint warning >}}
