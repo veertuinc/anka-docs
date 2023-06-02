@@ -145,6 +145,8 @@ description: >
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/registry/list/_index.md" >}}
 ### registry show
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/registry/show/_index.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/registry/show/_extra.md" >}}
+
 #### registry show {name/uuid} name
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/registry/show/name/_index.md" >}}
 #### registry show {name/uuid} uuid
