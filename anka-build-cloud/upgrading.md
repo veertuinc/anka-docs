@@ -38,11 +38,12 @@ If you are upgrading the host/node macOS version, please disjoin and join the no
 
 | Existing Version | Target Version | Recommendation |
 | --- | --- | --- |
+| < 1.34.0 | 1.34.0 | The Controller will exclusively use the Root Token for communication and authentication with the Registry in 1.34.0. This means that both the Registry and Controller **must** have AUTH enabled as well as the same Root Token in their configs. Several ENVs like `ANKA_API_KEY_`, `ANKA_CLIENT_`, and `ANKA_OIDC_` (registry only) are no longer available and necessary. They can be removed from your configuration, but be sure to mirror the AUTH configuration for Root Token and other ENVS from the Controller. |
 | < 1.32.0 | >= 1.33.0 | This release removed Implicit Flow OIDC support. Customers will need to review [the new Code/Explicit Flow and its requirements]({{< relref "whats-new/build-cloud-1.33.0/index.md#codeexplicit-flow-oidc-support" >}}). |
 | < 1.21.0 | >= 1.21.0 | The docker package (.tar.gz) was redesigned and has lot of changes around the use of ENVs and method of binary execution. We recommend using the new https://docs.veertu.com/anka/anka-build-cloud/getting-started/setup-controller-and-registry/ guide, from scratch in your environment, if upgrading from a version prior to 1.21.0. |
 | 1.18.0 | > 1.18.0 | Please note that there is a temporary workaround required for a bug that started in versions after 1.18.0 of the Controller/Registry agent which runs on your nodes. All versions of the agent, when noticing that the version of itself does not match the version of the controller, will perform a self-upgrade and restart. The restart seems to be problematic on some setups and leaves a zombie anka_agent process and and Offline status in the controller UI. To work around the bug when upgrading your controller/registry, you'll need to change the existing steps to include: <ul><li>Disjoining all of the nodes first</li><li>Do the controller/registry upgrade</li><li>Run `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt /` (`AnkaAgentArm.pkg` if using Anka 3.0) on each node to download the new version</li><li>And finally join each node back</li></ul>We will be fixing the bug soon. Thanks for your understanding and we are sorry for the inconvenience this causes.
 | x.xx.x | 1.20.0 | _Minimum Registry version required for Controller - 1.19.0_
-| < 1.24.0 | 1.24.0 | SHA1 certificates are no longer supported for TLS/HTTPS & Certificate Authentication. 
+| < 1.24.0 | 1.24.0 | SHA1 certificates are no longer supported for TLS/HTTPS & Certificate Authentication.
 
 ### Upgrade Procedure
 
