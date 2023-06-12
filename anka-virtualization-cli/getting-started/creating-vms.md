@@ -158,7 +158,7 @@ This is not needed if you ran `anka create`.
 
 The GUI tool will not automatically set up macOS and requires you to perform several steps manually.
 
-1. Start the VM with `anka start -uv` to launch the [Anka Viewer]({{< relref "anka-virtualization-cli/command-line-reference.md#view" >}}). **Please do not use `-uv` in your scripts when starting VMs. It is only for interactive/logged in sessions.**
+1. Start the VM with `anka start -uv` to launch the [Anka Viewer]({{< relref "anka-virtualization-cli/command-line-reference.md#view" >}}) and addons. **Please do not use `-uv` in your scripts when starting VMs. It is only for interactive/logged in sessions.**
 
 - `anka view` does not currently work post-start unless you started it with -v.
 - **ARM USERS:** `sudo anka view` as a normal user is not possible yet. You'll need to ensure that VNC is enabled to access VMs running under `sudo`.
