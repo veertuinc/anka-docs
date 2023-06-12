@@ -32,7 +32,7 @@ While it's possible to run Docker on mac, it's not recommended. An Anka Controll
 
 2. {{< ext-link href="https://docs.docker.com/compose/install/" text="Docker-Compose" >}} -- Be sure to follow the {{< ext-link href="https://docs.docker.com/install/linux/linux-postinstall/" text="Post Installation setup" >}} in order to run docker-compose without using sudo.  
 
-{{< include file="_partials/anka-build-cloud/_what-we-are-doing.md" >}}
+{{< include file="_partials/anka-build-cloud/_what-we-are-doing-linux.md" >}}
 
 #### Download and extract the Controller & Registry
 
@@ -252,8 +252,6 @@ The macOS package will install and run using Apple's Rosetta. There is no native
 2. A second Mac to install the Anka CLI (the "Node").
 
 > You can complete this tutorial with only one machine running Mac OS, but it's not recommended.
-
-{{< include file="_partials/anka-build-cloud/_what-we-are-doing.md" >}}
 
 #### Download the Controller and/or Registry PKG
 
