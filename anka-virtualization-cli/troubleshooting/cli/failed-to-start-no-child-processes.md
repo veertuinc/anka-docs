@@ -7,7 +7,7 @@ weight: 1
 ## Scenarios
 
 ```bash
-anka --debug start -uv 12.0.1
+anka --debug start -v 12.0.1
 3fcc268d-ac62-4951-8e64-32b350530c56: failed to start: status -43
 3fcc268d-ac62-4951-8e64-32b350530c56: failed to start: error 70
 3fcc268d-ac62-4951-8e64-32b350530c56: hypervisor failed with status 70
