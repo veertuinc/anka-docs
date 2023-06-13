@@ -54,7 +54,7 @@ If you are upgrading the host/node macOS version, please disjoin and join the no
 #### Docker
 
   1. Make a backup of your `docker-compose.yml`.
-  2. [Download and extract the latest package]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md#step-2-install-the-anka-build-cloud-controller-andor-registry" >}}).
+  2. [Download and extract the latest package]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md" >}}).
   3. Configure the values in the `docker-compose.yml` or copy your previous `docker-compose.yml` to the new directory and also any .env files you have under the various service directories.
   4. Run `docker-compose build` in the new package directory to prepare the new docker tag.
   5. Run `docker-compose down` in the previous package directory to take down the older version.
@@ -72,5 +72,5 @@ Post-upgrade of the controller you will need to wait for Anka Nodes to finish up
 #### Native macOS package
 
   1. Make a backup of your `/usr/local/bin/anka-controllerd`.
-  2. Install the new .pkg (see the [MacOS Guide]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md#macos" >}})).
+  2. Install the new .pkg (see the [MacOS Guide]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry-mac.md" >}})).
   3. Run `sudo anka-controller restart`.

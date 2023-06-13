@@ -8,7 +8,7 @@ description: >
 
 ## Preparing your Nodes
 
-Once the Anka Build Virtualization software has been installed onto a macOS machine, you'll want to turn off sleep and several other default features that would cause the machine to become unavailable.
+Once you've set up your Controller & Registry, you'll want to install Anka Build Virtualization software onto a macOS machine and join it to your Build Cloud.
 
 {{< hint warning >}}
 This guide has a few options that are typically not available on MDM controlled machines. You may need to ask your system administrators/local IT team to allow them.
@@ -18,17 +18,7 @@ This guide has a few options that are typically not available on MDM controlled 
 Be sure to reboot the host after applying these changes.
 {{< /hint >}}
 
-### Required
-
-1. **Start a UI session by logging into your node's user** to ensure Apple's services are started (it doesn't have to be an administrator). This is not necessary unless you are not using the Controller.
-
-2. **Ensure you uncheck `Log out after X minutes of inactivity`** under System Preferences > Security & Privacy > Advanced (disabled by default, but good to check)
-
-3. Disable screensaver and sleep: `sudo systemsetup -setsleep Never && sudo defaults write com.apple.screensaver idleTime 0`
-
-4. Run `anka create test && anka delete --yes test` at least once for both root and non-root users to create the necessary folders and garbage collect temporary files.
-
-### Optional but recommended
+### Host Preparation (Optional, but Recommended)
 
 - **Enable `Automatic Login` for the current user:** Go to Preferences > Users > Enable Automatic Login for the current user. Or, [using the CLI](https://github.com/veertuinc/kcpassword).
   {{< hint warning >}}
@@ -73,78 +63,29 @@ You may also want to have your nodes restart on host level failure: `systemsetup
 
 - [Your Node should be prepared for high availability.]({{< relref "#preparing-your-nodes" >}})
 
-## Joining to your Anka Build Cloud Controller
+## Add the Registry
 
-{{< hint warning >}}
-Be sure to run ankacluster as root.
-{{< /hint >}}
+{{< include file="_partials/anka-virtualization-cli/getting-started/_add-the-registry.md" >}}
 
-{{< hint warning >}}
-Avoid using underscores in your domainnames/urls.
-{{< /hint >}}
+## Push the VM to the Registry
 
+{{< include file="_partials/anka-virtualization-cli/getting-started/_push-vm-to-registry.md" >}}
 
-```shell
-❯ sudo ankacluster join http://anka.controller
-Testing connection to the controller...: Ok
-Testing connection to the registry...: Ok
-Success!
-Anka Cloud Cluster join success
-```
+## Join to the Controller & Registry
 
-> You can join a Node to multiple controllers by comma separating them:
-> `sudo ankacluster join http://anka.controller1,http://anka.controller2`
+{{< include file="_partials/anka-virtualization-cli/getting-started/_join-to-cluster.md" >}}
 
-```shell
-❯ ankacluster join --help
-Joins the current machine to one or many Anka Build Cloud Controllers
+## Start a VM instance using the Controller UI
 
-Usage:
-  ankacluster join CONTROLLER_ADDRESS[,CONTROLLER_ADDRESS2] [flags]
+{{< include file="_partials/anka-virtualization-cli/getting-started/_start-vm-instance-using-controller-ui.md" >}}
 
-Flags:
-      --api-key-id string           API Key identifier
-      --api-key-string string       API Key string
-  -c, --cacert string               Specify the path to your Root CA Certificate (PEM/X509)
-  -M, --capacity-mode string        Set the capacity mode (resource or number) the Node will use when pulling jobs from the Anka Cloud Cluster queue. 'resource' will look at available resources (see --vcp-override and --ram-override) / 'number' will only accept if --max-vm-count isn't already met (default "number")
-  -C, --cert string                 Specify the path to the Node's certificate file (PEM/X509)
-  -K, --cert-key string             Specify the path to the Node's certificate key file (PEM/X509)
-      --enable-vm-monitor           Enabled unresponsive VM monitoring. This will throw a failure when the VM becomes unresponsive for longer than the --vm-stuck-timeout
-  -f, --force-no-sudo               Force the anka_agent to start without sudo
-  -g, --global                      DEPRECATED! Install agent into system domain
-  -G, --groups string               Specify group name (or multiple names sepearated by ',') to add the current Node to
-      --heartbeat duration          Set the duration between status updates the Node sends to the Anka Cloud Cluster (default: 5 seconds)
-  -h, --help                        help for join
-  -H, --host string                 Set the address (IP or Hostname) of the Node that the Anka Cloud Cluster will use when communicating with CI tools/plugins. This is useful when your CI tool cannot connect to the Node's local IP address (the default value of --host), but does have access to an external IP or hostname for it (proxy, load balancer, etc).
-  -k, --keystore string             Specify the path to your certificate keystore (PEM/PKCS12)
-  -p, --keystore-pass string        Specify the password for your certificate keystore
-  -m, --max-vm-count int            Set the maximum number of VMs this Node is allowed to run (default: 2) (default 2)
-  -n, --name string                 Set a custom Node name (default: hostname)
-      --no-central-logging          Disable sending logs to central logging location
-      --node-id string              Custom node id
-  -R, --ram-override int            Set the the max RAM (in GB) that this Node can handle (default: {total ram} - 2GB)
-      --reserve-space string        Disk space to reserve when pulling. Number followed by magnitude (1024B, 10KB, 140MB, 45GB...) (default: 20% of disk size)
-  -r, --root-cert string            Identical to --cacert
-      --skip-tests                  Disable testing the connection before starting the agent
-      --skip-tls-verification       Skip TLS verification
-  -t, --tls                         Enable TLS for communicating with the Anka Cloud Cluster
-  -V, --vcpu-override int           Set the max vcpus that this Node can handle. (default: {current physical cpu count} * 2)
-      --vm-stuck-delay duration     The time between unresponsive VM checks (default: 30s - Duration examples: 3500s, 20m, 5h)
-      --vm-stuck-timeout duration   The time to wait until the VM is considered unresponsive (default: 10s - Duration examples: 3500s, 20m, 5h)
-  ```
-
-{{< hint info >}}
-The Anka agent is listening on a socket to provide status information at runtime.
-You can override the path of the socket by setting the `ANKA_AGENT_SOCKET` env var.
-{{< /hint >}}
-
-### Joining as a non-sudo user
+<!-- ### Joining as a non-sudo user
 
 It is also possible to join without needing `sudo`. However, as of right now, this has a problems you need to consider:
 
 1. When you upgrade the Anka Build Controller software, there is an automatic agent update triggered for each one of your Anka Nodes. This agent communicates with the Controller to pick up tasks from the queue. Since Apple's `installer` command requires root, this process will not work when running the agent as a non-sudo user. The solution is to disjoin nodes before upgrading your Build Cloud and then issue `curl -O http://**{controllerUrlHere}**/pkg/AnkaAgent.pkg && sudo installer -pkg AnkaAgent.pkg -tgt / ` (`AnkaAgentArm.pkg` if using Anka 3.0) on the nodes after it's running.
 
-To join with a non-sudo user, you simply run `ankacluster join http://anka.controller --force-no-sudo`.
+To join with a non-sudo user, you simply run `ankacluster join http://anka.controller --force-no-sudo`. -->
 
 ## Disjoining
 
@@ -155,28 +96,6 @@ You don't need to disjoin nodes to upgrade the Anka Virtualization package.
 ```shell
 ❯ sudo ankacluster disjoin
 Disjoined from the Anka Cloud Cluster
-```
-
-## Check Join Status
-
-You can check the status of the Anka agent using the `ankacluster status` command.
-
-
-```shell
-❯ ankacluster status
-status: running
-config:
-  vm_limit: 2
-  optimization_threshold: 5
-  num_workers: 2
-  controller_addresses:
-  - http://anka.controller.dev
-  version: 1.13.0-6cd34a2c
-  capacity_mode: number
-  heartbeat: 5s
-  node_name: MyMacMiniNode
-  vm_stuck_check_delay: 30s
-  vm_stuck_check_timeout: 10s
 ```
 
 ## Answers to Frequently Asked Questions

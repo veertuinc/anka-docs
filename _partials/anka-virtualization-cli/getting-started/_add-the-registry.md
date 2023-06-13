@@ -1,4 +1,11 @@
-We now need to configure the Registry on this machine so we can push/upload the local VM Template we created earlier. Uploading the Template to the Registry makes it possible to download and run it from other nodes.
+---
+---
+
+{{< hint warning >}}
+This is not needed on all Nodes connecting to the Controller. Most users have a "builder machine" that has the registry connection and is used to create and push VM Templates/Tags.
+{{< /hint >}}
+
+We now need to configure the Registry on this machine so we can push/upload the local VM Template so other machines connected to the Anka Build Cloud. Uploading the Template to the Registry makes it possible to download and run it from other nodes.
 
 _Assuming you haven't changed the default port configuration, your Registry is serving requests on port `8089`._
 

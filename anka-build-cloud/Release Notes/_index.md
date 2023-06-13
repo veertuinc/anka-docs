@@ -64,7 +64,7 @@ weight: 100
 ### 1.30.0 (1.30.0-66973267) - Dec 1st, 2022
 
 {{< hint warning >}}
-1.28.0 had a significant change you should be aware of to prevent problems. Please read over [the ETCD Compaction and Defragmentation documentation to understand what has changed]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md#compaction-and-defragmentation" >}}).
+1.28.0 had a significant change you should be aware of to prevent problems. Please read over [the ETCD Compaction and Defragmentation documentation to understand what has changed]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md#etcd-compaction-and-defragmentation" >}}).
 {{< /hint >}}
 
 - **Bug Fix:** VNC urls from the Controller Instances page now show the password properly in Anka 3.
@@ -80,7 +80,7 @@ weight: 100
 ### 1.29.0 (1.29.0-49077f79) - Oct 3rd, 2022
 
 {{< hint warning >}}
-1.28.0 had a significant change you should be aware of to prevent problems. Please read over [the ETCD Compaction and Defragmentation documentation to understand what has changed]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md#compaction-and-defragmentation" >}}).
+1.28.0 had a significant change you should be aware of to prevent problems. Please read over [the ETCD Compaction and Defragmentation documentation to understand what has changed]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md#etcd-compaction-and-defragmentation" >}}).
 {{< /hint >}}
 
 - **Bug Fix:** Mac package anka-controllerd improperly uses `ANKA_LISTEN_ADDRESS` instead of `ANKA_LISTEN_ADDR` ENV.
@@ -92,7 +92,7 @@ weight: 100
 ### 1.28.0 (1.28.0-347c73ea) - Sep 6th, 2022
 
 {{< hint warning >}}
-This release has a significant change you should be aware of to prevent problems. Please read over [the ETCD Compaction and Defragmentation documentation to understand what has changed]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md#compaction-and-defragmentation" >}}).
+This release has a significant change you should be aware of to prevent problems. Please read over [the ETCD Compaction and Defragmentation documentation to understand what has changed]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md#etcd-compaction-and-defragmentation" >}}).
 {{< /hint >}}
 
 - **New Feature:** Nodes with an expired Anka license now show "Inactive (Invalid License)" in the Nodes UI and do not accept start VM tasks.

@@ -1,9 +1,9 @@
 ---
-title: "Setting up the Controller & Registry"
+title: "Setting up the Controller & Registry on Linux/Docker"
 weight: 1
 ---
 
-Welcome! This tutorial guides you through setting up your Anka Build Cloud Controller & Registry on either Linux/Docker or MacOS.
+Welcome! This tutorial guides you through setting up your Anka Build Cloud Controller & Registry on either Linux/Docker [or MacOS]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry-mac.md" >}}).
 
 {{< hint warning >}}
 **This guide is for first time users and shouldn't be used for upgrading. Please use [the upgrading guide]({{< relref "anka-build-cloud/upgrading.md" >}}) instead.**
@@ -11,13 +11,16 @@ Welcome! This tutorial guides you through setting up your Anka Build Cloud Contr
 
 ## Checklist
 
-- [ ] Set up the Build Cloud Controller components.
-- [ ] Set up [Monitoring of both logs and usage metric]({{< relref "anka-build-cloud/monitoring.md" >}}).
-- [ ] Stress test your setup.
+- [ ] Set up the Anka Build Cloud.
+- [ ] Get Orientated.
 
-## Linux / Docker
+### Install the Anka Build Cloud on Docker
 
-### Necessary Hardware
+{{< hint warning >}}
+Perform the following steps on the machine intended to run the Controller & Registry and not the node running the Anka Virtualization software.
+{{< /hint >}}
+
+#### Necessary Hardware
 
 1. A machine running Linux to install the Anka Controller & Registry.
 2. A Mac to install Anka CLI as a Node.
@@ -26,15 +29,13 @@ Welcome! This tutorial guides you through setting up your Anka Build Cloud Contr
 While it's possible to run Docker on mac, it's not recommended. An Anka Controller & Registry package exists for native macOS if absolutely necessary.
 {{< /hint >}}
 
-### Necessary Software
+#### Necessary Software
 
 1. {{< ext-link href="https://docs.docker.com/install/" text="Docker" >}}
 
 2. {{< ext-link href="https://docs.docker.com/compose/install/" text="Docker-Compose" >}} -- Be sure to follow the {{< ext-link href="https://docs.docker.com/install/linux/linux-postinstall/" text="Post Installation setup" >}} in order to run docker-compose without using sudo.  
 
-{{< include file="_partials/anka-build-cloud/_what-we-are-doing-linux.md" >}}
-
-#### Download and extract the Controller & Registry
+#### Download and Extract the Docker Package
 
 ```shell
 FULL_FILE_NAME=$(echo $(curl -Ls -r 0-1 -o /dev/null -w %{url_effective} https://veertu.com/downloads/ankacontroller-registry-docker-latest) | cut -d/ -f5)
@@ -87,7 +88,7 @@ In the root package directory, execute:
 docker-compose up -d
 ```
 
-#### Verify the containers are running
+##### Verify the containers are running
 
 ```shell
 docker ps -a
@@ -98,13 +99,42 @@ aa1de7c150e7        test_anka-controller   "/bin/bash -c 'anka-…"   About a mi
 03787d28d3a3        test_etcd              "/usr/bin/etcd --dat…"   About a minute ago   Up About a minute                            test_etcd_1
 ```
 
-{{< include file="_partials/anka-build-cloud/_controller-listening-on-80-and-orientation.md" >}}
+### Docker Orientation and Testing
 
-#### Configuration and Scripts
+Anka Controller should be listening on port 80 (HTTP). Try pointing your browser to the machine's IP or hostname. You can use `localhost` or `127.0.0.1` if you're on the Controller machine.
 
-Any non-default configuration changes are done by editing the .env files, or directly in `docker-compose.yml`.
+Your new dashboard should look like the picture below
 
-[A full configuration reference is available.]({{< relref "anka-build-cloud/configuration-reference.md" >}})
+![How your new dashboard looks like]({{< siteurl >}}images/getting-started/new-dashboard.png)
+
+Let's take a look at what is now running on your machine:
+
+1. Anka Controller is serving web UI and REST API on port 80.
+2. Anka Registry is serving REST API on port 8089.
+3. ETCD database server serving on ports 2379 and 2380 (used by Anka Controller; not public).
+
+#### Anka Controller Container
+
+- Default Port: `80`
+- Configuration files: Configuration is done through the `controller/controller.env` or docker-compose file under `environment:`. ([full configuration reference]({{< relref "anka-build-cloud/configuration-reference.md" >}}))
+- Logs will be written to: STDOUT/ERR. It's possible to get the logs through `docker logs` command.  
+- Data Storage: No data is saved on disk.
+
+#### Anka Registry Container
+
+- Default Port: `8089`
+- Configuration files: Configuration is done through the `registry/registry.env` or docker-compose file under `environment:`. ([full configuration reference]({{< relref "anka-build-cloud/configuration-reference.md" >}}))
+- Logs will be written to: STDOUT/ERR. It's possible to get the logs through `docker logs` command.  
+- Data will be written to: No default; You must set it in docker-compose.yml.
+
+#### ETCD Container
+
+ETCD is a critical piece of your Anka Build Cloud. It stores tasks, Node and VM Instance information, and many other types of state for the Controller service. If it's not functional, the Controller will throw failures. We'll orient ourself to the basics and defaults of the ETCD service we include with our package and then describe how to maintain it for optimal performance and stability.
+
+- Default Ports: `2379`
+- Configuration files: Configuration is done through the `etcd/etcd.env` or docker-compose file under `environment:`. ([full configuration reference]({{< relref "anka-build-cloud/configuration-reference.md" >}}))
+- Logs will be written to: STDOUT/ERR. It's possible to get the logs through `docker logs` command.
+- The data directory and the "DB SIZE" you see under the `endpoint status` are not the same thing. Disk usage can be significantly different, so you should monitor both independently.
 
 #### Logging
 
@@ -122,67 +152,15 @@ To see the Registry's logs:
 docker logs --tail 100 -f test_anka-registry_1
 ```
 
-[By default, docker does not do log-rotation. As a result, log-files stored by the default json-file logging driver logging driver can cause a significant amount of disk space to be used for containers that generate much output, which can lead to disk space exhaustion.](https://docs.docker.com/config/containers/logging/configure/)
-
-{{< hint info >}}
-
-##### Troubleshooting tip
-
-The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([reference]({{< relref "anka-build-cloud/configuration-reference.md#logging" >}}))
+{{< hint warning >}}
+By default, docker does not do log-rotation. As a result, log-files stored by the default json-file logging driver logging driver can cause a significant amount of disk space to be used for containers that generate much output, which can lead to disk space exhaustion. ([config reference](https://docs.docker.com/config/containers/logging/configure/))
 {{< /hint >}}
 
-### Step 3: Link the Anka CLI Node to the Controller
-
-Great! Now that we have our Anka Controller & Registry up and running, let's add Nodes!
-
 {{< hint info >}}
-Perform the following steps on the host machine/node where you created your first VM.
+**Troubleshooting Tip**
+
+The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([config reference]({{< relref "anka-build-cloud/configuration-reference.md#logging" >}}))
 {{< /hint >}}
-
-#### Add the Registry
-
-{{< include file="_partials/anka-virtualization-cli/getting-started/_add-the-registry.md" >}}
-
-#### Push the VM to the Registry
-
-{{< include file="_partials/anka-virtualization-cli/getting-started/_push-vm-to-registry.md" >}}
-
-#### Join to the Controller & Registry
-
-In order for the host/node to perform controller tasks (pull, start, delete, etc), it must be joined to the Anka Build Cloud. You can do this by executing:
-
-{{< include file="_partials/anka-virtualization-cli/getting-started/_join-to-cluster.md" >}}
-
-### Step 4: Start a VM instance using the Controller UI
-
-{{< include file="_partials/anka-virtualization-cli/getting-started/_start-vm-instance-using-controller-ui.md" >}}
-
-### Step 5: Orientation
-
-#### Anka Controller Container
-
-- Default Ports: 80
-- Binary in the container: `/bin/anka-controller`
-- Configuration files: Configuration is done through docker-compose file, the `controller/controller.env`, or through environment variables.
-- Logs will be written to: STDOUT/ERR. It's possible to get the logs through `docker logs` command.  
-- Data Storage: No data is saved on disk.
-
-#### Anka Registry Container
-
-- Default Ports: 8089
-- Binary in the container: `/bin/anka-registry`
-- Configuration files: Configuration is done through docker-compose file, the `registry/registry.env`, or through environment variables.
-- Logs will be written to: STDOUT/ERR. It's possible to get the logs through `docker logs` command.  
-- Data will be written to: No default; You must set it in docker-compose.yml.
-
-### ETCD Container
-
-ETCD is a critical piece of your Anka Build Cloud. It stores tasks, Node and VM Instance information, and many other types of state for the Controller service. If it's not functional, the Controller will throw failures. We'll orient ourself to the basics and defaults of the ETCD service we include with our package and then describe how to maintain it for optimal performance and stability.
-
-- Default Ports: 2379
-- Configuration files: Configuration is done through the docker-compose file (as ENV variables under `environment:`), or the `etcd/etcd.env` file.
-- Logs will be written to: STDOUT/ERR. It's possible to get the logs through `docker logs` command.
-- The data directory and the "DB SIZE" you see under the `endpoint status` are not the same thing. Disk usage can be significantly different, so you should monitor both independently.
 
 #### Testing ETCD Performance
 
@@ -197,7 +175,7 @@ PASS: Stddev is 0.000141s
 PASS
 ```
 
-#### Compaction and Defragmentation
+#### ETCD Compaction and Defragmentation
 
 In versions of the Anka Build Cloud <= 1.27.0, we would have the Controller trigger a defragmentation every 3 hours. This is no longer the case and **we perform no defragmentation by default**. It actually turns out that defragmentation is not fully necessary (and dangerous since it prevents writing to etcd, even when etcd is clustered).
 
@@ -226,172 +204,19 @@ In versions of the Anka Build Cloud <= 1.27.0, we would have the Controller trig
 
 We recommend looking through the [entire ETCD operations guide](https://etcd.io/docs/v3.5/op-guide/) to gain a better understanding of everything we've spoken about here, and more!
 
-### Standalone Registry (docker)
+---
+
+### Standalone Registry
 
 Often we find that customers wish to only run the Anka Build Cloud Registry and not the Controller. This is a useful setup when you're using [a Controller-less Build Cloud]({{< relref "plugins-and-integrations/_index.md#controller-less-registry-only" >}}).
 
 In order to run the standalone registry you'll:
 
-1. Follow [Step #2]({{< relref "#step-2-install-the-anka-build-cloud-controller-andor-registry" >}}) above, but:
+1. Follow the installation guide above, but:
 
 - skip the sections to configure the controller. This means only set the registry volume.
 
 - before you `docker-compose up -d`, comment out or remove the Controller and ETCD services from the yml.
-
----
-
-## MacOS
-
-{{< hint info >}}
-The macOS package will install and run using Apple's Rosetta. There is no native arm package at this time.
-{{< /hint >}}
-
-### Necessary Hardware
-
-1. A Mac to install the Anka Controller and/or Registry.
-2. A second Mac to install the Anka CLI (the "Node").
-
-> You can complete this tutorial with only one machine running Mac OS, but it's not recommended.
-
-#### Download the Controller and/or Registry PKG
-
-Download the file called "Cloud Controller & Registry (Run on Mac)" from {{< ext-link href="https://veertu.com/download-anka-build" text="Anka Build Download page." >}}
-If you are more comfortable with the command line, you can download the file with curl:
-
-```shell
-curl -S -L -o ~/Downloads/$(echo $(curl -Ls -r 0-1 -o /dev/null -w %{url_effective} https://veertu.com/downloads/ankacontroller-registry-mac-latest) | cut -d/ -f5) https://veertu.com/downloads/ankacontroller-registry-mac-latest
-```
-
-#### Install the Controller and/or Registry PKG
-
-Double click on the .pkg to start the UI install process. Or, you can install the package using the command line:
-
-  ```shell
-  sudo installer -pkg ~/Downloads/$(echo $(curl -Ls -r 0-1 -o /dev/null -w %{url_effective} https://veertu.com/downloads/ankacontroller-registry-mac-latest) | cut -d/ -f5) -target /
-  ```
-
-#### Verify your installation (macOS)
-
-Two methods are available:
-- Use the CLI status command:
-  ```shell
-  sudo anka-controller status
-  ```
-- Use curl:
-  ```shell
-  curl http://<ip>/api/v1/status
-  ```
-
-#### Orientation (macOS)
-
-- Default Ports: Anka Controller: 80 / Anka Registry: 8089  
-- Binaries and scripts: Anka Controller has only one combined binary. It can run Anka Controller, Anka Registry and ETCD Server.  
-    Installed at: `/Library/Application Support/Veertu/Anka/bin/anka-controller`  
-    Start script: `/usr/local/bin/anka-controllerd`  
-    Start/Stop script: `/usr/local/bin/anka-controller`  
-    Launchd daemon: `/Library/LaunchDaemons/com.veertu.anka.controller.plist`
-- Configuration files: Configuration for this package is done by altering the start script at `/usr/local/bin/anka-controllerd`.
-- Logs: `/Library/Logs/Veertu/AnkaController`
-- Data:
-    ETCD data will be saved in: `/Library/Application Support/Veertu/Anka/anka-controller`  
-    Registry data will be saved in: `/Library/Application Support/Veertu/Anka/registry`
-
-#### Configuration and Scripts
-
-- [Config Reference]({{< relref "anka-build-cloud/configuration-reference.md" >}})
-
-The Anka Controller **AND Registry** command is installed into `/usr/local/bin/anka-controller`. To see what functions it has, execute the script with root privileges:
-```shell 
-sudo anka-controller
-usage: /usr/local/bin/anka-controller [start|stop|restart|status|logs]
-```
-When `sudo anka-controller start` is executed, the script will use `launchd` to load the daemon: `/Library/LaunchDaemons/com.veertu.anka.controller.plist`.
- - The Anka Controller & Registry run script is `/usr/local/bin/anka-controllerd`. This file acts as a run script **and configuration file**. You can modify it to change the default ports used by adding the proper option or ENV. For example, if you want to run the Registry on a different port and use 127.0.0.1, you would add the following above the `"$CONTROLLER_BIN"` line ([reference]({{< relref "anka-build-cloud/configuration-reference.md" >}})): 
-    ```shell
-    export ANKA_ANKA_REGISTRY="http://127.0.0.1:8089"
-    export ANKA_REGISTRY_LISTEN_ADDRESS=":8089" 
-    ```
-
-#### Logging (macOS)
-
-Logs are written to `/Library/Logs/Veertu/AnkaController` by default:
-```shell
-/Library/Logs/Veertu/AnkaController/anka-controller.INFO
-/Library/Logs/Veertu/AnkaController/anka-controller.WARNING
-/Library/Logs/Veertu/AnkaController/anka-controller.ERROR
-```
- 
-> You can modify the destination in the `/usr/local/bin/anka-controllerd` file ([reference]({{< relref "anka-build-cloud/configuration-reference.md#logging" >}})).
-
-You can also watch the logs live (similar to tail -f):
-```shell
-sudo anka-controller logs
-```
- 
-> The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([reference]({{< relref "anka-build-cloud/configuration-reference.md#logging" >}}))
-
-### Step 3: Link the Anka CLI Node to the Controller (macOS)
-
-Great! Now that we have our Anka Controller & Registry up and running, let's add Nodes!
-
-> Perform the following steps on the Node where you created your first VM Template.
-
-#### Add the Registry (macOS)
-
-{{< include file="_partials/anka-virtualization-cli/getting-started/_add-the-registry.md" >}}
-
-#### Push the VM to the Registry (macOS)
-
-{{< include file="_partials/anka-virtualization-cli/getting-started/_push-vm-to-registry.md" >}}
-
-#### Join to the Controller & Registry (macOS)
-
-{{< include file="_partials/anka-virtualization-cli/getting-started/_join-to-cluster.md" >}}
-
-### Step 4: Start a VM instance using the Controller UI (macOS)
-
-{{< include file="_partials/anka-virtualization-cli/getting-started/_start-vm-instance-using-controller-ui.md" >}}
-
-### Standalone Registry (macOS)
-
-Often we find that customers wish to run the Anka Build Cloud Registry alongside their Anka Nodes to optimize the speed of pulling VM Templates, but keep the Controller hosted in a cloud offsite.
-
-In order to run the standalone registry on macOS you'll download and install the [the registry standalone pkg](https://veertu.com/downloads/ankaregistry-mac-latest). Below you will find instructions for configuration.
-
-#### Orientation (macOS/registry)
-
-- Default Ports: 80
-- Binaries and scripts:
-    Anka Registry for Mac binary is installed at: `/Library/Application Support/Veertu/Anka/bin/ankaregd`  
-    Launchd daemon: `/Library/LaunchDaemons/com.veertu.anka.registry.plist`
-- Configuration files: Configuration for this package is done by altering the Launchd daemon xml file at `/Library/LaunchDaemons/com.veertu.anka.registry.plist`. Be sure to unload it first.
-- Data will be saved in: `/Library/Application Support/Veertu/Anka/registry`
-
-#### Configuration (macOS/registry)
-
-In order to change the configuration of your registry on macOS, you'll need to unload the plist with `sudo launchctl unload -w /Library/LaunchDaemons/com.veertu.anka.registry.plist` and then edit it to include what you need. You can get a full list of supported config options from the help output:
-
-```bash
-❯ /Library/Application\ Support/Veertu/Anka/bin/ankaregd --help
-Usage of /Library/Application Support/Veertu/Anka/bin/ankaregd:
-
--access_logs                           Enables registry access logs.
-
--add_dir_header                        If true, adds the file directory to the header of the log messages
-
--alsologtostderr                       log to standard error as well as files (default: "true")
-
--api-keys-cleaning-interval (duration) The interval for cleaning of expired api keys. (default: "4h0m0s")
-
--api-keys-session-ttl (duration)       The API Keys session TTL (used for automatic expiration). (default: "5m0s")
-
--backend-plugin-path (string)          The path to a backend plugin (instead of using disk)
-
--base-path (string)                    Set the registry data's base path (default: ".")
-
--ca-cert (string)                      (Certificate Authentication) The CA/root cert used to authenticate incoming requests/certs.
-. . .
-```
 
 ---
 
