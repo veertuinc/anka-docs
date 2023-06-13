@@ -11,6 +11,29 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.3.1 (3.3.1.165) - June 13th 2023
+
+{{< hint info >}}
+- Addons upgrading is not required but is recommended.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM issues:
+
+- Nested virtualization is not functional inside of VMs yet.
+- `anka view` is partially broken and require double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- iCloud/Apple logins will fail inside of the VM. You can still log into your account through Apple's website and download apps through your developer account. Or, transfer them from the host into the VM with `anka cp`.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **Improvement:** Support for macOS Sonoma.
+- **Bug Fix:** Support for older Anka 2.x addons.
+
+## Previous Versions
+
 ### 3.3.0 (3.3.0.164) - May 31st 2023
 
 {{< hint info >}}
@@ -46,9 +69,6 @@ ARM issues:
 - **Bug Fix:** Creating VM on EC2 M1 was throwing `setup failed: Connection refused`.
 - **Bug Fix:** Nested Virtualization is now disabled when `hw.hvapic` is enabled.
 - **Bug Fix:** `anka stop -f` would rarely fail.
-
-## Previous Versions
-
 
 ### 3.2.1 (3.2.1.155) (Intel) - Feb 15th 2023
 
