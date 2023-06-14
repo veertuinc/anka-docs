@@ -119,6 +119,10 @@ done
 {{< /hint >}}
 
 {{< hint warning >}}
+**ARM USERS:** Creating macOS 14.x VMs requires that Xcode >= 15.0 is installed on the host (not in the VM). This is a requirement from Apple at the moment.
+{{< /hint >}}
+
+{{< hint warning >}}
 **Apple's .app installer files are currently not supported on ARM. Instead, you'll need to obtain .ipsw files.**
 {{< /hint >}}
 
