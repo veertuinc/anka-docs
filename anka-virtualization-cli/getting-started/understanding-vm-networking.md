@@ -88,7 +88,7 @@ Be aware that if you clone your VM Template with a specific MAC, both VMs cannot
 {{< /hint >}}
 
 {{< hint warning >}}
-You must use a static MAC for each VM running on the machine. You cannot use a mix of dynamically assigned and statically assigned. 
+You must use a static MAC for each VM running on the machine. You cannot use a mix of dynamically assigned and statically assigned.
 {{< /hint >}}
 
 
