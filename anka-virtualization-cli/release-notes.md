@@ -68,7 +68,7 @@ ARM issues:
 - **Bug Fix:** Eliminated `failed to open config (config.yaml): No such file or directory` log spam.
 - **Bug Fix:** Creating VM on EC2 M1 was throwing `setup failed: Connection refused`.
 - **Bug Fix:** Nested Virtualization is now disabled when `hw.hvapic` is enabled.
-- **Bug Fix:** `anka stop -f` would rarely fail.
+- **Bug Fix:** `anka stop -f` and `anka start` would rarely become stuck.
 
 ### 3.2.1 (3.2.1.155) (Intel) - Feb 15th 2023
 
