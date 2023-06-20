@@ -7,6 +7,16 @@ weight: 100
 
 ## Current Version
 
+### 1.35.0 (1.35.0-525badf3) - June 20th, 2023
+
+- **New Feature:** The Controller Agent running on Nodes will now timeout when `anka start` commands take longer than 1m30s to complete. This can be controlled by setting `ankacluster join --cli-start-timeout {new time here}`.
+- **Improvement:** Controller logs will now indicate when a Node has picked up the task to start a VM.
+- (Standalone Registry: 1.35.0-16331641)
+
+---
+
+## Previous Versions
+
 ### 1.34.0 (1.34.0-4cda29d3) - June 8th, 2023
 
 - **Improvement:** (AUTH ONLY) The Controller will now exclusively use the Root Token for communication and authentication with the Registry. This means that both the Registry and Controller **must** have AUTH enabled as well as the same Root Token in their configs. Several ENVs like `ANKA_API_KEY_`, `ANKA_CLIENT_`, and `ANKA_OIDC_` (registry only) are no longer available and necessary. They can be removed from your configuration, but be sure to mirror the AUTH configuration for Root Token and other ENVS from the Controller.
@@ -15,10 +25,6 @@ weight: 100
 - **Bug Fix:** Azure backed registry not returning entire list of templates from API.
 - **Bug Fix:** Azure Registry failing to clean failed pushes.
 - (Standalone Registry: 1.33.0-20746877)
-
----
-
-## Previous Versions
 
 ### 1.33.0 (1.33.0-5465bb03) - March 16th, 2023
 
