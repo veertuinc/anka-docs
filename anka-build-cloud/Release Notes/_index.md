@@ -9,7 +9,7 @@ weight: 100
 
 ### 1.34.0 (1.34.0-4cda29d3) - June 8th, 2023
 
-- **Improvement:** The Controller will now exclusively use the Root Token for communication and authentication with the Registry. This means that both the Registry and Controller **must** have AUTH enabled as well as the same Root Token in their configs. Several ENVs like `ANKA_API_KEY_`, `ANKA_CLIENT_`, and `ANKA_OIDC_` (registry only) are no longer available and necessary. They can be removed from your configuration, but be sure to mirror the AUTH configuration for Root Token and other ENVS from the Controller.
+- **Improvement:** (AUTH ONLY) The Controller will now exclusively use the Root Token for communication and authentication with the Registry. This means that both the Registry and Controller **must** have AUTH enabled as well as the same Root Token in their configs. Several ENVs like `ANKA_API_KEY_`, `ANKA_CLIENT_`, and `ANKA_OIDC_` (registry only) are no longer available and necessary. They can be removed from your configuration, but be sure to mirror the AUTH configuration for Root Token and other ENVS from the Controller.
 - **Bug Fix:** Azure registry `version upload failed` errors.
 - **Bug Fix:** User API Keys button was missing from UI.
 - **Bug Fix:** Azure backed registry not returning entire list of templates from API.
