@@ -88,6 +88,11 @@ Be aware that if you clone your VM Template with a specific MAC, both VMs cannot
 {{< /hint >}}
 
 {{< hint warning >}}
+You must use a static MAC for each VM running on the machine. You cannot use a mix of dynamically assigned and statically assigned. 
+{{< /hint >}}
+
+
+{{< hint warning >}}
 When using bridged networking mode for your VM, dynamic MAC Addresses are not guaranteed to be unique, though, reuse/collision is extremely unlikely. We do our best to prevent this with our randomization logic.
 {{< /hint >}}
 
