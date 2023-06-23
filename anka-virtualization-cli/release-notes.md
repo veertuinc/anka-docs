@@ -30,7 +30,7 @@ ARM issues:
 {{< /hint >}}
 
 - **Improvement:** `anka create` now uses [anka click scripts](https://github.com/veertuinc/anka-click-scripts/tree/main) for enabling auto-login.
-- **Bug Fix:** Improved [anka click scripts](https://github.com/veertuinc/anka-click-scripts/tree/main) for Anka Creation, preventing `failed to enable VNC: Bad address`.
+- **Bug Fix:** `anka create` would randomly show `failed to enable VNC: Bad address`.
 - **Bug Fix:** `anka show` was hitting a deadlock.
 - **Bug Fix:** Some older addons were not able to be read.
 
