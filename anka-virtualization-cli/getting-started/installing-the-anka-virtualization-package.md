@@ -16,7 +16,7 @@ description: >
   <tr>
     <td style="font-size: 1.5rem; background-color: #f2e6ff;"><b>INTEL</b></td>
     <td style="background-color: #f2e6ff;"><b>Anka 2.5.x</b></td>
-    <td style="background-color: #f2e6ff;"><b>Anka 3.2.x</b></td>
+    <td style="background-color: #f2e6ff;"><b>Anka 3.3.x</b></td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 10.14</b></td>
@@ -49,7 +49,7 @@ description: >
 <tbody style="text-align:center;">
   <tr>
     <td style="font-size: 1.4rem; background-color: #ccebff;"><b>Apple/ARM</b></td>
-    <td style="background-color: #ccebff;"><b>Anka 3.2.x</b></td>
+    <td style="background-color: #ccebff;"><b>Anka 3.3.x</b></td>
   </tr>
   <tr>
     <td style="vertical-align: middle"></td>
