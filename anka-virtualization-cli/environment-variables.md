@@ -25,3 +25,4 @@ Outside of the config environment variables, there are a few others you might fi
 | ANKA_HOSTNAME                   | Allows to specify VM host name on VM start |
 | ANKA_BRIDGE                     | The name of the network bridge name to target. |
 | ANKA_CREATE_VNC                 | Set to `0` to disable executing the VNC enable step/script in `anka create`. |
+| ANKA_CREATE_SIP                 | Set to `0` to disable executing the SIP disabling step/script in `anka create`. |
