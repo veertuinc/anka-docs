@@ -23,6 +23,7 @@ Perform the following steps on the machine intended to run the Controller & Regi
 #### Necessary Hardware
 
 1. A machine running Linux to install the Anka Controller & Registry.
+  - We recommend starting the Controller with 2CPU and 4GBs of memory and the Registry with 2CPU/1GB as it's more CPU reliant. The database for the Controller, ETCD, [recommends the following](https://etcd.io/docs/v3.5/op-guide/hardware/): `Typical clusters need two to four cores to run smoothly. [For memory] typically 8GB is enough.`
 2. A Mac to install Anka CLI as a Node.
 
 {{< hint info >}}
