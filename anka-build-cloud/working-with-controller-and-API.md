@@ -185,7 +185,7 @@ If you are writing your own SDK to make API calls, be sure to set `external_id` 
 
  Parameter | Type   | Description
  ---       |   ---  |          ---
- vmid      | string | The UUID for the VM you wish to use.
+ vmid      | string | The UUID for the VM Template you wish to use to run a VM.
 
 **Optional Data Parameters:**
 
