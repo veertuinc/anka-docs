@@ -36,7 +36,7 @@ You can use the same certificate for both the Controller and Registry.
 Beginning in Controller version 1.12.0, [you can control the allowed TLS Cipher Suites and minimum/maximum TLS versions]({{< relref "anka-build-cloud/configuration-reference.md#https--tls" >}}).
 {{< /hint >}}
 
-Next, ensure that the certificate has **Signature Algorithm: sha256WithRSAEncryption** using `openssl x509 -text -noout -in ~/anka-controller-crt.pem | grep Signature` (https://support.apple.com/en-us/HT210176)
+<!-- Next, ensure that the certificate has **Signature Algorithm: sha256WithRSAEncryption** using `openssl x509 -text -noout -in ~/anka-controller-crt.pem | grep Signature` (https://support.apple.com/en-us/HT210176) -->
 
 ### Configure the services to use the TLS cert
 
