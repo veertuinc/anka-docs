@@ -18,7 +18,7 @@ Outside of the config environment variables, there are a few others you might fi
 | ANKA_NETWORK_CONTROLLER         | Allow setting network controller when running `anka create` |
 | ANKA_DISK_CONTROLLER            | Allow setting disk controller when running `anka create` |
 | ANKA_MACHINE_READABLE           | Whether or not commands return machine readable |
-| ANKA_LOG_LEVEL                  | The log level for Anka CLI. Set to `DEBUG`, this will allow click scripts to output /tmp/_last* png files for debugging |
+| ANKA_DEBUG                      | Set to `1` and this will allow click scripts to output /tmp/_last* png files for debugging. |
 | ANKA_START_MODE                 | Allow starting the VM in normal or recovery mode. Recovery mode is `2`. |
 | ANKA_REGISTRY_API_KEY_ID        | The UAK ID to use for registry commands. |
 | ANKA_REGISTRY_API_KEY           | The UAK private key file location for registry commands |
