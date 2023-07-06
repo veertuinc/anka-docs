@@ -352,6 +352,11 @@ There are two types of cloning you can perform:
 +------------------+--------------------------------------+----------------------+---------+
 ```
 
+{{< hint info >}}
+**Note for Intel Users**
+`anka show` output will indicate the logical size (what you set with `anka create --disk` or with `anka modify {vm} disk`) and also "on disk" usage. The "on disk" usage is a combination of all shared data and not unique usage for itself if the VM is cloned from another. Unique usage can be obtained using `anka run {vmname} bash -c "df -h"`.
+{{< /hint >}}
+
 ### VM Templates
 
 Once a VM has been tagged, it becomes a "VM Template". The VM template & tag's state cannot be permanently modified unless you create a new tag, post-changes. This is very reminiscent of how `git commit` works. You can execute commands and modify the state of the VM after tagging it, but it will not save the changes until you create a new tag. This is important to consider when using the [Anka Build Cloud Registry]({{< relref "anka-build-cloud/_index.md" >}}) since it will only push the state of the VM when the tag was created, not after.
