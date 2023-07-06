@@ -73,7 +73,7 @@ weight: 100
 1.28.0 had a significant change you should be aware of to prevent problems. Please read over [the ETCD Compaction and Defragmentation documentation to understand what has changed]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md#etcd-compaction-and-defragmentation" >}}).
 {{< /hint >}}
 
-- **Bug Fix:** VNC urls from the Controller Instances page now show the password properly in Anka 3.
+- **Bug Fix:** Anka 3 users: VNC urls from the Controller Instances page now show the password properly. The URL is also not visible at all if there is no forwarded guest 5900 port for the VM template.
 - **Bug Fix:** Incorrect CPU displayed in dashboard and calculation of default value for --vcpu-override on arm machines.
 - **Bug Fix:** Panic on `ankacluster join` when registry URL in the controller is not configured.
 - **Bug Fix:** Anka cloud agent calculates ram incorrectly when doing resource check.
