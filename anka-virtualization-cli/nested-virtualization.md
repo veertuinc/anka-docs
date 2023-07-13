@@ -6,11 +6,15 @@ description: >
   Running Docker and other types of virtualization within your Anka VMs.
 ---
 
-Starting in Anka 2.5.0, Nested Virtualization has received a large refactor and expanded support. **It is now enabled by default.**
+Starting in Anka 2.5.0, Nested Virtualization has received a large refactor and expanded support. **It is now enabled by default.** However, note that Nested Virtualization has many instabilities and limitations that it's best to consider running things like Docker or Android Studio Emulators on linux instead.
+
+{{< hint warning >}}
+Please avoid suspending VMs while Docker or other nested virtualization apps are started. You will need to start the apps post-vm start.
+{{< /hint >}}
 
 ## System Requirements
 
-- At the moment only Big Sur hosts and both Catalina and Big Sur VMs can use Nested Virtualization.
+- Host macOS >= Catalina + Anka VM with Big Sur.
 
 - We've tested on i7 Mac Minis and cannot guarantee that it will work properly on different hardware.
 
@@ -39,7 +43,7 @@ You must set a single vCPU for the virtualbox VM for it to run properly.
 {{< /hint >}}
 
 {{< hint warn >}}
-Android emulators are very slow inside of VMs. Expect long delays (like 1+ minutes waiting at a black screen) booting the emulator.
+Android emulators are very slow inside of VMs. Expect long delays (like 1+ minutes waiting at a black screen) booting the emulator. Also, you will receive lots of "isn't responding" warnings in the UI which may impact your tests. We recommend you avoid using Android Emulators on MacOS VMs.
 {{< /hint >}}
 
 There are however some steps that you need to perform to get Android emulators to run properly:
