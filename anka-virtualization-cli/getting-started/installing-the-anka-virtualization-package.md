@@ -15,32 +15,26 @@ description: >
 <tbody style="text-align:center">
   <tr>
     <td style="font-size: 1.5rem; background-color: #f2e6ff;"><b>INTEL</b></td>
-    <td style="background-color: #f2e6ff;"><b>Anka 2.5.x</b></td>
     <td style="background-color: #f2e6ff;"><b>Anka 3.3.x</b></td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 10.14</b></td>
     <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
-    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 10.15</b></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;" class="emojifont">⚠️</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 11.x</b></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;" class="emojifont">⚠️</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 12.x</b></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;" class="emojifont">⚠️</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 13.x</b></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
 </tbody>
@@ -65,7 +59,7 @@ description: >
   </tr>
   <tr>
     <td style="vertical-align: middle"></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;" class="emojifont">⚠️</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"></td>
@@ -75,6 +69,10 @@ description: >
 </table>
 </div>
 {{< /rawhtml >}}
+
+{{< hint warning >}}
+<b class="emojifont">⚠️</b> We use several APIs that are only available starting in macOS 12.3 and later. While Anka may install, and work, there are features that will cause it to crash. Please upgrade macOS to the latest before using Anka.
+{{< /hint >}}
 
 ## Download and Install
 
