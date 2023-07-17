@@ -668,7 +668,6 @@ curl "http://anka.controller/api/v1/node?id=f8707005-4630-4c9c-8403-c9c5964097f6
  **Returns:**
 
 - *Status:* Operation Result (OK|FAIL)  
-- *Body*:  Array of Nodes
 - *message:* Error message in case of an error
 
 ##### Example
