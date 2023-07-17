@@ -287,7 +287,7 @@ network_local | string | Modify the VM's network locality before starting it. Va
 
  **Returns:**
 
-- *Status:* Operation Result (OK|FAIL)  
+- *status:* Operation Result (OK|FAIL)  
 - *message:* Error message in case of an error
 
 ##### Example
@@ -315,7 +315,7 @@ curl -X DELETE "http://anka.controller/api/v1/vm" -H "Content-Type: application/
 
  **Returns:**
 
-- *Status:* Operation Result (OK|FAIL)  
+- *status:* Operation Result (OK|FAIL)  
 - *Body*:  Array of Instances
 - *message:* Error message in case of an error
 
@@ -502,7 +502,7 @@ templates      | array of objects | List of templates that the node has, each te
 
  **Returns:**
 
-- *Status:* Operation Result (OK|FAIL)  
+- *status:* Operation Result (OK|FAIL)  
 - *Body*:  Array of Nodes
 - *message:* Error message in case of an error
 
@@ -667,7 +667,7 @@ curl "http://anka.controller/api/v1/node?id=f8707005-4630-4c9c-8403-c9c5964097f6
 
  **Returns:**
 
-- *Status:* Operation Result (OK|FAIL)  
+- *status:* Operation Result (OK|FAIL)  
 - *message:* Error message in case of an error
 
 ##### Example
@@ -700,7 +700,7 @@ curl -X POST "http://anka.controller/api/v1/node/config" -H "Content-Type: appli
 
  **Returns:**
 
-- *Status:* Operation Result (OK|FAIL)  
+- *status:* Operation Result (OK|FAIL)  
 - *message:* Error message in case of an error
 
 ##### Example
@@ -723,7 +723,7 @@ curl -X DELETE "http://anka.controller/api/v1/node" -H "Content-Type: applicatio
 
  **Returns:**
 
-- *Status:* Operation Result (OK|FAIL)  
+- *status:* Operation Result (OK|FAIL)  
 - *message:* Error message in case of an error
 
 ---
@@ -767,7 +767,7 @@ config_file    | string | Name of the tag's config file
 
  **Returns:**
 
-- *Status:* Operation Result (OK|FAIL)  
+- *status:* Operation Result (OK|FAIL)  
 - *Body*:  Array of Templates or Template (if id supplied)
 - *message:* Error message in case of an error
 
@@ -886,7 +886,7 @@ curl "http://anka.controller/api/v1/registry/vm?id=00510971-5c37-4a60-a9c6-ea185
 
  **Returns:**
 
-- *Status:* Operation Result (OK|FAIL)  
+- *status:* Operation Result (OK|FAIL)  
 - *message:* Error message in case of an error
 
 ##### Example
@@ -923,7 +923,7 @@ Reverting is a potentially dangerous operation. It will revert all tags which ca
 
  **Returns:**
 
-- *Status:* Operation Result (OK|FAIL)  
+- *status:* Operation Result (OK|FAIL)  
 - *message:* Error message in case of an error
 
 ##### Example
@@ -973,7 +973,7 @@ curl -X DELETE  "http://anka.controller/api/v1/registry/revert?id=a3cc47f0-3a73-
 
  **Returns:**
 
-- *Status:* Operation Result (OK|FAIL)  
+- *status:* Operation Result (OK|FAIL)  
 - *message:* Error message in case of an error
 - *body:*
    Number of requests sent (int): "requests_sent"
@@ -1035,7 +1035,7 @@ curl -X POST "http://anka.controller/api/v1/registry/vm/distribute" \
 
  **Returns:**
 
-- *Status:* Operation Result (OK|FAIL)  
+- *status:* Operation Result (OK|FAIL)  
 - *Body*:  List of request status or single request status
 - *message:* Error message in case of an error
 
@@ -1125,7 +1125,7 @@ curl  "http://anka.controller/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e0
 
  **Returns:**
 
-- *Status:* Operation Result (OK|FAIL)  
+- *status:* Operation Result (OK|FAIL)  
 - *Body:* The created request id
 - *message:* Error message in case of an error
 
@@ -1174,7 +1174,7 @@ IyEvYmluL2Jhc2gKZWNobyAkKGhvc3RuYW1lKQplY2hvCmVudgpleHBvcnQgVEVTVD10cnVlCmJhc2gg
 
  **Returns:**
 
-- *Status:* Operation Result (OK|FAIL)  
+- *status:* Operation Result (OK|FAIL)  
 - *Body:* Array of Save Image requests, or Single Save Image request
 - *message:* Error message in case of an error
 
@@ -1312,7 +1312,7 @@ curl "http://anka.controller/api/v1/image?id=cc55f7dd-5280-4120-461c-9b0ef9b4013
 
 **Returns:**
 
-- *Status:* Operation Result (OK|FAIL)  
+- *status:* Operation Result (OK|FAIL)  
 - *Body*: Array of Group
 - *message:* Error message in case of an error
 
@@ -1472,7 +1472,7 @@ curl -X DELETE "http://anka.controller/api/v1/node/group" \
 
 **Returns:**
 
-- *Status:* Operation Result (OK|FAIL)  
+- *status:* Operation Result (OK|FAIL)  
 - *Body*: Map of USB devices
 - *message:* Error message in case of an error
 
