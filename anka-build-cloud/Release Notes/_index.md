@@ -7,15 +7,31 @@ weight: 100
 
 ## Current Version
 
+### 1.36.0 (1.36.0-37d289c1) - July 18th, 2023
+
+- **Bug Fix** Race condition fixes with VM termination to avoid orphans.
+- **Bug Fix:** Runnings the Anka docker package, the controller would be unable to write centralized logs.
+- **Bug Fix:** (HA only) Improper handling of second VM start for same Instance leaving orphans.
+- **Bug Fix:** Instance can go to started state even after termination request comes in.
+- **Improvement:** Docker packages have been rewritten to eliminate .env files and instead include them directly in the `docker-compose.yml`
+- **Improvement:** Registry could (depending on configuration, enabled by default) start an additional un-secure server (on port 8085 by default) that is meant to be used by locally running Controller only. This un-secure server is no longer being ran by the Registry.
+  - Configurations removed: `ANKA_INTERNAL_LISTEN_ADDR`, `ANKA_USE_HTTPS_INTERNAL`
+  - **_Action required:_** Please ensure that any configuration using `ANKA_LOCAL_ANKA_REGISTRY` will instead point to the official 8089 port. Your TLS certificates may need to be updated to support a new address.
+- **Improvement:** Registry standalone package for macOS will now automatically restart on failure.
+- **Improvement:** MacOS Controller log directory is now 755 and readable by non-root users.
+- **Improvement:** Removed debug logs like `Could not get instance`.
+- **New Feature:** A VM is terminated as an orphan/"zombie" if a Node is reporting it 30 times (or more) and the Controller does not know which Instance to correlate it with. This can now be changed by setting `ANKA_UNKNOWN_VM_THRESHOLD`.
+- (Standalone Registry: 1.36.0-f6c28a0a)
+
+---
+
+## Previous Versions
+
 ### 1.35.0 (1.35.0-525badf3) - June 20th, 2023
 
 - **New Feature:** The Controller Agent running on Nodes will now timeout when `anka start` commands take longer than 1m30s to complete. This can be controlled by setting `ankacluster join --cli-start-timeout {new time here}`.
 - **Improvement:** Controller logs will now indicate when a Node has picked up the task to start a VM.
 - (Standalone Registry: 1.35.0-16331641)
-
----
-
-## Previous Versions
 
 ### 1.34.0 (1.34.0-4cda29d3) - June 8th, 2023
 

@@ -12,4 +12,3 @@
 | ANKA_SERVER_KEY | (string) | The path to a HTTPS/TLS certificate private key file in PEM format. |  |
 | ANKA_SKIP_TLS_VERIFICATION | (boolean) | Disable verification of the HTTPS/TLS certificates (for self-signed certs). | false |
 | ANKA_USE_HTTPS | (boolean) | Enable the HTTPS/TLS protocol for the UI and API (requires server-cert & server-key). | false |
-| ANKA_USE_HTTPS_INTERNAL | (boolean) | Enable the HTTPS/TLS protocol for the internal_listen_addr address/port. | false |
