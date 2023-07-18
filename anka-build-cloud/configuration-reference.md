@@ -21,50 +21,67 @@ Our default docker package will use .env files to store the configuration ENVs. 
 #### docker-compose.yml (docker)
 
 ```yml
-version: '3'
+version: '2'
 services:
   anka-controller:
-    container_name: anka.controller
     build:
        context: controller
     ports:
-       - "80:80" # You can change this to expose the controller on a different port
+       - "80:80"
+    ######   EDIT HERE FOR TLS  ########
+    # volumes:
+      # Path to ssl certificates directory 
+      # - ****EDIT_ME****:/mnt/cert
     depends_on:
        - etcd
        - anka-registry
-    restart: always
     environment:
-      ANKA_ANKA_REGISTRY: "http://anka-registry:8089"
+      ANKA_ETCD_ENDPOINTS: etcd:2379
+      ANKA_LISTEN_ADDR: :80
+      ANKA_LOG_DIR: /var/log/anka-controller
+      ANKA_LOCAL_ANKA_REGISTRY: http://anka-registry:8089
       ANKA_ENABLE_CENTRAL_LOGGING: "true"
+      ANKA_ANKA_REGISTRY: *******EDIT-ME********  # This URL must be reachable by your Anka nodes
+      # https://docs.veertu.com/anka/anka-build-cloud/configuration-reference/#configuration-envs
+    restart: always
 
   anka-registry:
-    container_name: anka.registry
     build:
       context: registry
     ports:
       - "8089:8089"
     restart: always
+    environment:
+      ANKA_BASE_PATH: /mnt/vol
+      ANKA_LISTEN_ADDR: :8089
+      # https://docs.veertu.com/anka/anka-build-cloud/configuration-reference/#configuration-envs
     volumes:
-      - "~/anka-registry-data:/mnt/vol"
+      ######   EDIT HERE  ########
+      # Path to registry data folder.
+      # VM data files and logs will be saved in this folder
+      # - ****EDIT_ME****:/mnt/vol
+
+      # Path to ssl certificates directory 
+      # - ****EDIT_ME****:/mnt/cert
 
   etcd:
-    container_name: anka.etcd
     build:
       context: etcd
     volumes:
       - /var/etcd-data:/etcd-data
-    restart: always
     environment:
-      ETCD_DATA_DIR: "/etcd-data"
-      ETCD_LISTEN_CLIENT_URLS: "http://0.0.0.0:2379"
-      ETCD_ADVERTISE_CLIENT_URLS: "http://0.0.0.0:2379"
-      ETCD_LISTEN_PEER_URLS: "http://0.0.0.0:2380"
-      ETCD_INITIAL_ADVERTISE_PEER_URLS: "http://0.0.0.0:2380"
-      ETCD_INITIAL_CLUSTER: "my-etcd=http://0.0.0.0:2380"
-      ETCD_INITIAL_CLUSTER_TOKEN: "my-etcd-token"
-      ETCD_INITIAL_CLUSTER_STATE: "new"
-      ETCD_AUTO_COMPACTION_RETENTION: "30m"
-      ETCD_NAME: "my-etcd"
+      ETCD_DATA_DIR: /etcd-data
+      ETCD_LISTEN_CLIENT_URLS: http://0.0.0.0:2379
+      ETCD_ADVERTISE_CLIENT_URLS: http://0.0.0.0:2379
+      ETCD_LISTEN_PEER_URLS: http://0.0.0.0:2380
+      ETCD_INITIAL_ADVERTISE_PEER_URLS: http://0.0.0.0:2380
+      ETCD_INITIAL_CLUSTER: my-etcd=http://0.0.0.0:2380
+      ETCD_INITIAL_CLUSTER_TOKEN: my-etcd-token
+      ETCD_INITIAL_CLUSTER_STATE: new
+      ETCD_AUTO_COMPACTION_RETENTION: 30m
+      ETCD_AUTO_COMPACTION_MODE: periodic
+      ETCD_NAME: my-etcd
+    restart: always
 ```
 
 #### /usr/local/bin/anka-controllerd (native)
@@ -85,7 +102,7 @@ export ANKA_LOG_DIR="/Library/Logs/Veertu/AnkaController"
 export ANKA_RUN_REGISTRY="true"
 export ANKA_ALLOW_EMPTY_REGISTRY="true"
 export ANKA_REGISTRY_BASE_PATH="/Library/Application Support/Veertu/Anka/registry"
-export ANKA_REGISTRY_LISTEN_ADDRESS="0.0.0.0:8089"
+export ANKA_REGISTRY_LISTEN_ADDRESS=":8089"
 
 # SSL + Cert Auth
 # export ANKA_USE_HTTPS="true"

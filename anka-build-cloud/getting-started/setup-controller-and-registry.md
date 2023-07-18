@@ -51,31 +51,11 @@ You can also manually download the file called "Cloud Controller & Registry (Run
 
 ##### Configuration
 
-We'll need to do two things:
+We'll need to do two things.
 
-1. Set the  **external registry address** -- This address is passed to the anka nodes so they can pull VM Templates from the Registry.
+1. Edit the `docker-compose.yml` and change the variable **ANKA_ANKA_REGISTRY**, setting it to the proper URL. It should look like: `ANKA_ANKA_REGISTRY: "http://<ip/fqdn>:8089"`. Please avoid trailing slashes on the URL.
 
-2. Mount a volume for the Registry data -- The directory containing VM Template/Tag layers/files and configuration metadata.
-
-First, edit the `controller/controller.env`:
-
-1. Find the variable **ANKA_ANKA_REGISTRY** and set it to the proper URL (remove the comment). It should look like:
-
-    ```shell
-    ANKA_ANKA_REGISTRY="http://<ip/fqdn>:8089"
-    ```
-
-{{< hint warning >}}
-**Do not put a slash on the end of the ANKA_ANKA_REGISTRY URL.**
-{{< /hint >}}
-
-Next, edit the `docker-compose.yml` (in the package root, not under the `registry` directory):
-
-1. Under `anka-registry > volumes`, find the line that says ***# - \*\*\*\*EDIT_ME\*\*\*\*:/mnt/vol***. Change this to include the host directory you wish to mount into the container and which will be used to store the data. It should look like:
-
-    ```shell
-    - /var/registry:/mnt/vol
-    ```
+1. Edit the `docker-compose.yml` and under `anka-registry > volumes` (`"Path to registry data folder."`) uncomment `# - ****EDIT_ME****:/mnt/vol`. Change this to include the host directory you wish to mount into the container and be used for Anka VM Templates/Tags/Centralized Logs. It should look similar to: `- /var/registry:/mnt/vol`
 
 {{< hint info >}}
 If you're running these containers on mac (which you should avoid), you need to also change volume source from `/var/etcd-data` and `/var/registry` to a writable location on your mac.
@@ -117,14 +97,14 @@ Let's take a look at what is now running on your machine:
 #### Anka Controller Container
 
 - Default Port: `80`
-- Configuration files: Configuration is done through the `controller/controller.env` or docker-compose file under `environment:`. ([full configuration reference]({{< relref "anka-build-cloud/configuration-reference.md" >}}))
+- Configuration files: Configuration is done through the docker-compose file under `environment:`. ([full configuration reference]({{< relref "anka-build-cloud/configuration-reference.md" >}}))
 - Logs will be written to: STDOUT/ERR. It's possible to get the logs through `docker logs` command.  
 - Data Storage: No data is saved on disk.
 
 #### Anka Registry Container
 
 - Default Port: `8089`
-- Configuration files: Configuration is done through the `registry/registry.env` or docker-compose file under `environment:`. ([full configuration reference]({{< relref "anka-build-cloud/configuration-reference.md" >}}))
+- Configuration files: Configuration is done through the docker-compose file under `environment:`. ([full configuration reference]({{< relref "anka-build-cloud/configuration-reference.md" >}}))
 - Logs will be written to: STDOUT/ERR. It's possible to get the logs through `docker logs` command.  
 - Data will be written to: No default; You must set it in docker-compose.yml.
 
@@ -133,7 +113,7 @@ Let's take a look at what is now running on your machine:
 ETCD is a critical piece of your Anka Build Cloud. It stores tasks, Node and VM Instance information, and many other types of state for the Controller service. If it's not functional, the Controller will throw failures. We'll orient ourself to the basics and defaults of the ETCD service we include with our package and then describe how to maintain it for optimal performance and stability.
 
 - Default Ports: `2379`
-- Configuration files: Configuration is done through the `etcd/etcd.env` or docker-compose file under `environment:`. ([full configuration reference]({{< relref "anka-build-cloud/configuration-reference.md" >}}))
+- Configuration files: Configuration is done through the docker-compose file under `environment:`. ([full configuration reference]({{< relref "anka-build-cloud/configuration-reference.md" >}}))
 - Logs will be written to: STDOUT/ERR. It's possible to get the logs through `docker logs` command.
 - The data directory and the "DB SIZE" you see under the `endpoint status` are not the same thing. Disk usage can be significantly different, so you should monitor both independently.
 
