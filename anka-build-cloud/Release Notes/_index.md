@@ -10,7 +10,7 @@ weight: 100
 ### 1.36.0 (1.36.0-37d289c1) - July 18th, 2023
 
 - **Bug Fix** Race condition fixes with VM termination to avoid orphans.
-- **Bug Fix:** Runnings the Anka docker package, the controller would be unable to write centralized logs.
+- **Bug Fix:** Running the Anka docker package, the controller would be unable to write centralized logs.
 - **Bug Fix:** (HA only) Improper handling of second VM start for same Instance leaving orphans.
 - **Bug Fix:** Instance can go to started state even after termination request comes in.
 - **Improvement:** Docker packages have been rewritten to eliminate .env files and instead include them directly in the `docker-compose.yml`
