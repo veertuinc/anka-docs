@@ -15,7 +15,7 @@ weight: 100
 - **Bug Fix:** Instance can go to started state even after termination request comes in.
 - **Improvement:** Docker packages have been rewritten to:
   1. Eliminate .env files and instead include them directly in the `docker-compose.yml`
-  1. Eliminate ENVs from Dockerfiles used to generate the images/tags in dockerhub. You will want to review our new docker-compose.yml to see which ENVs are now being set by default and ensure they are also included in your docker-compose.yml (or .env files).
+  1. Eliminate ENVs from Dockerfiles used to generate the images/tags in dockerhub. You will want to review [our new docker-compose.yml](https://docs.veertu.com/anka/anka-build-cloud/configuration-reference/#docker-composeyml-docker) to see which ENVs are now being set there by default and ensure they are also included in your docker-compose.yml (or .env files).
 - **Improvement:** Registry could (depending on configuration, enabled by default) start an additional un-secure server (on port 8085 by default) that is meant to be used by locally running Controller only. This un-secure server is no longer being ran by the Registry.
   - Configurations removed: `ANKA_INTERNAL_LISTEN_ADDR`, `ANKA_USE_HTTPS_INTERNAL`
   - **_Action required:_** Please ensure that any configuration using `ANKA_LOCAL_ANKA_REGISTRY` will instead point to the official 8089 port. Your TLS certificates may need to be updated to support a new address.
