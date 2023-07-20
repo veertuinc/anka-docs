@@ -7,9 +7,19 @@ weight: 100
 
 ## Current Version
 
+### 1.36.1 (1.36.1-efbe0727) - July 18th, 2023
+
+- **Bug Fix:** (macOS package) ANKA_LOCAL_ANKA_REGISTRY ignored when TLS enabled.
+- **Bug Fix:** Create Group modal is gray and unclickable.
+- (Standalone Registry: 1.36.1-cced806b)
+
+---
+
+## Previous Versions
+
 ### 1.36.0 (1.36.0-37d289c1) - July 18th, 2023
 
-- **Bug Fix** Race condition fixes with VM termination to avoid orphans.
+- **Bug Fix:** Race condition fixes with VM termination to avoid orphans.
 - **Bug Fix:** Running the Anka docker package, the controller would be unable to write centralized logs.
 - **Bug Fix:** (HA only) Improper handling of second VM start for same Instance leaving orphans.
 - **Bug Fix:** Instance can go to started state even after termination request comes in.
@@ -25,9 +35,6 @@ weight: 100
 - **New Feature:** A VM is terminated as an orphan/"zombie" if a Node is reporting it 30 times (or more) and the Controller does not know which Instance to correlate it with. This can now be changed by setting `ANKA_UNKNOWN_VM_THRESHOLD`.
 - (Standalone Registry: 1.36.0-f6c28a0a)
 
----
-
-## Previous Versions
 
 ### 1.35.0 (1.35.0-525badf3) - June 20th, 2023
 
