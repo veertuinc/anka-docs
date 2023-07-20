@@ -10,6 +10,7 @@ weight: 100
 ### 1.36.1 (1.36.1-efbe0727) - July 18th, 2023
 
 - **Bug Fix:** (macOS package) ANKA_LOCAL_ANKA_REGISTRY ignored when TLS enabled.
+  - Note: If you're running the registry on a different IP, and especially in your certs only allow specific IPs, you'll need to set ANKA_REGISTRY_LISTEN_ADDRESS to the `IP:PORT` vs the default `:PORT`.
 - **Bug Fix:** Create Group modal is gray and unclickable.
 - (Standalone Registry: 1.36.1-cced806b)
 
