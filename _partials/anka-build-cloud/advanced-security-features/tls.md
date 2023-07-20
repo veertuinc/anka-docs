@@ -12,7 +12,7 @@ Ensure your certs are decrypted! They cannot have passwords.
 {{< /hint >}}
 
 {{< hint warning >}}
-For this guide, we're running the Controller & Registry locally, so we use 127.0.0.1. Update this depending on where you have things hosted
+For this guide, we're running the Controller & Registry locally, so we use 127.0.0.1. If you're running the registry on a different IP, and especially in your certs only allow specific IPs, you'll need to set ANKA_REGISTRY_LISTEN_ADDRESS to the `IP:PORT` vs the default `:PORT`.
 {{< /hint >}}
 
 If you do not have TLS certificates for your Controller & Registry from a signed source, you can create them using your own CA:
