@@ -27,7 +27,9 @@ I0502 02:59:28.044878    7961 start_vm.go:51] started handling startVMRequest
 
 ## Solution
 
-At the moment this seems to be a problem with Apple's virtualization. The issue **should** resolve itself automatically given enough time. If not, a reboot of the host will solve it.
+At the moment this seems to be a problem with Apple's virtualization. If you ever see this again, please run `sudo sysdiagnose -u` and then email the sysdiagnose file that appears in `/private/var/tmp/` to support@veertu.com.
+
+The issue **should** resolve itself automatically given enough time. If not, a reboot of the host will solve it.
 
 ## Still experiencing problems?
 
