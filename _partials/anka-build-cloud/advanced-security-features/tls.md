@@ -125,3 +125,8 @@ For the standalone package (separate docker containers for the controller and re
 Start or restart your Controller and/or Registry and test the new TLS configuration using `https://`. You can also try using `curl -v https://$CONTROLLER_OR_REGISTRY_URL/api/v1/status`.
 
 If that doesn’t work, try to repeat the above steps and validate that the file names and paths are correct. If you are still having trouble, debug the system as explained in the Debugging Controller section.
+
+
+## Answers to Frequently Asked Questions
+
+- Load balancers must also have both the root CA and intermediate certificates in order to function properly.
