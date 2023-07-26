@@ -6,14 +6,6 @@ weight: 5
 description: How to upgrade the Anka Virtualization package
 ---
 
-{{< hint info >}}
-Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Build Cloud Controller & Registry]({{< relref "anka-build-cloud/upgrading.md" >}})
-{{< /hint >}}
-
-{{< hint warning >}}
-We do not follow strict [semantic versioning](https://semver.org/); minor and major version increases can have significant changes
-{{< /hint >}}
-
 ### Pre-upgrade Considerations
 
 Existing Version | Target Version | Recommendation
@@ -42,6 +34,10 @@ We do not follow strict [semantic versioning](https://semver.org/); minor and ma
 
 {{< hint info >}}
 Upgrading Anka Virtualization software while VMs are running **is typically safe.** Please see the Pre-upgrade Considerations below to be sure.
+{{< /hint >}}
+
+{{< hint warning >}}
+If you have the node joined to your Anka Build Cloud, the agent will restart itself in order to ensure it loads necessary components to support the new Anka version. You will see a message like `Version change detected! Stopping runner` in the logs. **Do not interrupt this processes as it is expected. Nodes may go offline temporarily.**
 {{< /hint >}}
 
 #### 2. Upgrade VM addons
