@@ -11,6 +11,30 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.3.4 (3.3.3.169) - July 26th 2023
+
+{{< hint info >}}
+- Addons upgrading is not required but is recommended.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM issues:
+
+- Nested virtualization is not functional inside of VMs yet.
+- `anka view` is partially broken and require double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- iCloud/Apple logins will fail inside of the VM. You can still log into your account through Apple's website and download apps through your developer account. Or, transfer them from the host into the VM with `anka cp`.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **Bug Fix:** Docker virtualization processes were being counted when determining amount of running VMs.
+- **Bug Fix:** Sudden VM networking failures under heavy load (`error 55` and `port_fwd: 25: socket error: Operation timed out`)
+- **Bug Fix:** Various fixes for 13.5 and Sonoma VM creation failure.
+
+## Previous Versions
+
 ### 3.3.3 (3.3.3.168) - July 10th 2023
 
 {{< hint info >}}
@@ -33,8 +57,6 @@ ARM issues:
 - **Bug Fix:** Disabling SIP in Sonoma was failing.
 - **Bug Fix:** EC2 Users: `anka show` was hitting a deadlock on start.
 - **Bug Fix:** Anka create fails if the VM can't access the internet or the host is using a proxy.
-
-## Previous Versions
 
 
 ### 3.3.2 (3.3.2.166) - June 23th 2023
