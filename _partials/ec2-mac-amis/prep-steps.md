@@ -71,8 +71,24 @@
   This will issue a `git fetch` and then, if there are changes pending on our [aws-ec2-mac-amis repo](https://github.com/veertuinc/aws-ec2-mac-amis), issue `git pull` to collect the latest version of the Cloud Connect scripts. This is useful if there is a bug in our scripts and you can't update to a newer AMI yet.
 
   - Optional
-  - Only available in > 3.2.0/13.0 AMIs.
+  - Only available in 3.2.0/13.0 or greater AMIs.
 
+  ##### ANKA_UPGRADE_CLI_TO_LATEST (boolean)
+
+  This will force an upgrade of Anka Virtualization CLI to its latest version.
+
+  - Optional
+  - Only available in 3.3.4/13.4.1 or greater AMIs.
+  - This could be dangerous; please don't rely on it unless newer AMIs are not available.
+
+  ##### ANKA_PULL_TEMPLATES_REGEX (string)
+
+  This will pull templates from the registry which match the given regex (egrep) pattern.
+
+  - Optional
+  - Only available in 3.3.4/13.4.1 or greater AMIs.
+  - Pulls will happen before the node is joined.
+  - If your regex starts with `-`, be sure to escape it with `\-`.
 
 #### Manual Preparation (optional)
 
