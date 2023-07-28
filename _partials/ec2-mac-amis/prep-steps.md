@@ -87,6 +87,7 @@
 
   - Optional
   - Only available in 3.3.4/13.4.1 or greater AMIs.
+  - Only the latest tag will be pulled.
   - Pulls will happen before the node is joined.
   - If your regex starts with `-`, be sure to escape it with `\-`.
 
