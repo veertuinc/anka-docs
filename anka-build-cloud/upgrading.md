@@ -53,6 +53,11 @@ If you are upgrading the host/node macOS version, please disjoin and join the no
 **The following steps also apply to downgrading, though, you need to forcefully downgrade the cluster agent on each of your nodes (see step 7).**
 {{< /hint >}}
 
+{{< hint warning >}}
+If you are not using our ETCD container, be sure that you upgrade ETCD to the version we require (see release notes) before trying to update the Controller and Registry.
+{{< /hint >}}
+
+
 #### Docker
 
   1. Make a backup of your `docker-compose.yml`.

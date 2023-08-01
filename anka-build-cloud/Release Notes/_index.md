@@ -13,6 +13,7 @@ weight: 100
   - Note: If you're running the registry on a different IP, and especially in your certs only allow specific IPs, you'll need to set `ANKA_REGISTRY_LISTEN_ADDRESS` to the `IP:PORT` vs the default `:PORT`.
 - **Bug Fix:** Create Group modal is gray and unclickable.
 - (Standalone Registry: 1.36.1-cced806b)
+- (Required ETCD Version: 3.5.7)
 
 ---
 
@@ -35,7 +36,7 @@ weight: 100
 - **Improvement:** Removed debug logs like `Could not get instance`.
 - **New Feature:** A VM is terminated as an orphan/"zombie" if a Node is reporting it 30 times (or more) and the Controller does not know which Instance to correlate it with. This can now be changed by setting `ANKA_UNKNOWN_VM_THRESHOLD`.
 - (Standalone Registry: 1.36.0-f6c28a0a)
-
+- (Required ETCD Version: 3.5.7)
 
 ### 1.35.0 (1.35.0-525badf3) - June 20th, 2023
 
