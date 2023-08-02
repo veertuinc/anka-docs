@@ -409,6 +409,15 @@ If it helps, here is it visually:
                   | -> clone -> 13.0.1-xcode13.4.1 (stopped) -> clone -> 13.0.1-xcode13.4.1-project3-v1 (suspended)
 ```
 
+## Anka Build Cloud
+### Add the Registry
+
+{{< include file="_partials/anka-virtualization-cli/getting-started/_add-the-registry.md" >}}
+
+### (Anka Build Cloud only) Push the VM to the Registry
+
+{{< include file="_partials/anka-virtualization-cli/getting-started/_push-vm-to-registry.md" >}}
+
 ---
 
 ## What's next?
