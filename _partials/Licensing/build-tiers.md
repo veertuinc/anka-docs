@@ -5,7 +5,6 @@
 
 **Feature** | **Basic** | **Enterprise** | **Enterprise Plus**
 --- | --- | --- |  ---
-Core based licensing | Yes | Yes | Yes
 Cloud Controller with REST APIs | Yes(Single instance of Anka controller included) | Yes(Single instance of Anka controller included) | Yes
 [GitHub Action](https://github.com/marketplace/actions/anka-vm-github-action) | Yes | Yes | Yes
 [Jenkins Plugin](https://plugins.jenkins.io/anka-build/) | Yes | Yes | Yes

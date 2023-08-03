@@ -8,7 +8,7 @@ description: >
 ---
 
 {{< hint info >}}
-With the Anka 3 (apple processor) version, licensing of cores will be determined based on the performance core count.
+Anka Licensing for Apple Silicon machines is determined based on number of host model and host count and not on CPU core count.
 {{< /hint >}}
 
 ---
@@ -20,7 +20,7 @@ With the Anka 3 (apple processor) version, licensing of cores will be determined
 
 Anka licenses are available for the following products:
 
-+ **[Anka Develop]({{< relref "anka-develop.md" >}})** - Very limited features allowing a developer to run a single VM at a time. Supported only on laptops (Macbook, Macbook Pro, and Macbook Air).
++ **[Anka Develop]({{< relref "anka-develop.md" >}})** - Allows a developer to run a single VM at a time. Supported only on laptops (Macbook, Macbook Pro, and Macbook Air).
 + **[Anka Build Basic]({{< relref "anka-build-cloud/build-license-tiers.md" >}})** - All Basic features to configure and run macOS CI Cloud infrastructure.
 + **[Anka Build Enterprise]({{< relref "anka-build-cloud/build-license-tiers.md" >}})** - Basic + additional features for grouping, priority provisioning, etc.
 + **[Anka Build Enterprise Plus]({{< relref "anka-build-cloud/build-license-tiers.md" >}})** - Enterprise + additional features to support SSO and event logging.
@@ -42,17 +42,18 @@ Trial licenses for Anka products is valid for 30 days from the date of trial reg
 
 ## Commercial Licenses
 
-> Commercial Anka licenses are issued for yearly license subscription which includes updates, upgrades, and standard support. They can be purchased for a single year or multiple years.
+{{< hint info >}}
+Commercial Anka licenses are issued for yearly license subscription which includes updates, upgrades, and standard support. They can be purchased for a single year or multiple years.
+{{< /hint >}}
 
-> Commercial licenses are automatically extended in activated Anka software if days to expiration is < 30 days. The machine where you've installed Anka must have a connection to the licensing server.
-
+{{< hint info >}}
+Commercial licenses are automatically extended in activated Anka software if days to expiration is < 30 days. The machine where you've installed Anka must have a connection to the licensing server.
+{{< /hint >}}
 ### Pricing
 
-+ **Anka Build (Intel)** - Cost is core based. For example, if you are setting up a cloud consisting of 2, 8-core Intel processor mac minis, then total core count will be 8 cores. For very large core count, there are other licensing models.
-
-+ **Anka Flow (Intel)** - Cost is per machine. For example, if you are installing Anka Flow on 10 developer machines, then quantity will be 10.
-
-+ **Anka Build (Apple Silicon)** - Pricing model is host-based and not core based. Due to the complexity of core-based licensing with new Apple Silicon-based hardware, we are changing the licensing model to host-based licensing.
+- **Anka Build (Apple Silicon)** - Pricing model is host-based and not CPU core based. With the introduction of performance and efficiency cores in Apple Silicon, CPU core based licensing model adds complexity and is not accurate representation of value alignment.
+- **Anka Build (Intel)** - Cost is core based. For example, if you are setting up a cloud consisting of 2, 8-core Intel processor mac minis, then total core count will be 8 cores. For very large core count, there are other licensing models.
+- **Anka Flow** - Cost is per machine. For example, if you are installing Anka Flow on 10 developer machines, then quantity will be 10.
 
 <!-- + **Anka Build (Apple Silicon)** - Cost is performance core based. For example, 8-core Apple processor mac mini had 4 performance cores. if you are setting up a cloud consisting of 2, 8-core Apple processor mac minis, then total performance core count will be 8 cores. For very large core count, there are other licensing models. For M1 Max and M1 Ultra machines, contact us for pricing information. -->
 
