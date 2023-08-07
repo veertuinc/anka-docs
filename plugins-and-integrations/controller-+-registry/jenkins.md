@@ -319,6 +319,14 @@ timeoutMinutes | int | 120 | Stops waiting for the result of the Tag -> Registry
 
 ---
 
+## Finding Job Name and ID for a running Instance
+
+Starting in 2.9.0, users can add a Custom Column in their Controller UI on the Instances page to see the Jenkins job name and ID for a VM.
+
+![job name and id]({{< siteurl >}}images/ci-plugins-and-integrations/jenkins/jenkins-job-name-and-id-instances-page.png)
+
+---
+
 ## Release Notes
 
 ### 2.9.0 - Jul 21st, 2022
@@ -327,6 +335,7 @@ timeoutMinutes | int | 120 | Stops waiting for the result of the Tag -> Registry
 - **Improvement:** Unique runOnceCloud symbol to not collides with other plugins
 - **Improvement:** Improved logging for http errors between plugin and controller
 - **Improvement:** KeepAliveOnError feature in plugin UI now has an indication it's for FreeStyle jobs only
+- **Improvement:** Users can now add a Custom Column named `jenkins-job-id` to see the Jenkins job name and number.
 
 ### 2.8.0 - Jun 13th, 2022
 
