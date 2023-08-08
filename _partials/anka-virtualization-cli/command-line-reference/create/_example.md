@@ -5,10 +5,6 @@ You can bring you own `.ipsw` and `.app` files to use with `anka create`. This i
 
 ##### 1. The specific macOS version from `--list`
 
-{{< hint error >}}
-Starting in macOS 13.3 this feature is no longer supported. As it was dependent on third party mirrors which have since broken. We are looking to re-add it in future versions.
-{{< /hint >}}
-
 {{< hint warning >}}
 **ARM USERS:** At the moment Apple only provides a public endpoint to list the latest macOS version. `anka create --list` will therefore only show a single version. We are working to get them to publically list all `ipsw`. In the meantime, Intel Anka does show all archived macOS versions for `.app`.
 {{< /hint >}}
