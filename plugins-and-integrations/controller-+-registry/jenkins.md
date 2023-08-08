@@ -335,7 +335,6 @@ Starting in 2.9.0, users can add a Custom Column in their Controller UI on the I
 - **Improvement:** Unique runOnceCloud symbol to not collides with other plugins
 - **Improvement:** Improved logging for http errors between plugin and controller
 - **Improvement:** KeepAliveOnError feature in plugin UI now has an indication it's for FreeStyle jobs only
-- **Improvement:** Users can now add a Custom Column named `jenkins-job-id` to see the Jenkins job name and number.
 
 ### 2.8.0 - Jun 13th, 2022
 
@@ -414,6 +413,8 @@ For either 2.7.0 or 2.6.1, please check over your Anka Build Plugin configuratio
 - New Feature: Ability to set an instance cap per Static Slave Template or per Anka Cloud
 - Bug Fix: VMs were being left in started stage after job completed/aborted in Jenkins
 - Bug Fix: When cache building, "Checking save image status" would immediately return success and the Job would complete even though the cache tag was still being pushed.
+- New Feature: Users can now add a Custom Column named `jenkins-job-id` to see the Jenkins job name and number.
+
 
 ---
 
