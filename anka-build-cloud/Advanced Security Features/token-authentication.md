@@ -158,10 +158,6 @@ There are several important points to know about Controller -> Registry communic
 
 - The Controller UI will use the same credentials that you use when logged into the UI to make Registry calls for Templates, Logs, and status.
 - However, starting VM instances does not use your UI session. You need to give a credential to the Controller to use.
-  - If you're using `ANKA_LOCAL_ANKA_REGISTRY` and have it set to :8085, credentials are not needed to communicate with the Registry. This is useful if the Controller and Registry are in the same Kubernetes pod or Docker network and auth is not important.
-  - If you're using `ANKA_LOCAL_ANKA_REGISTRY` and it's set to the external/public port (defaults to :8089), the Controller needs access to call the Registry but is gated by `ANKA_ENABLE_AUTH: "true"`. In order to allow the Controller communication access, you need to specify the `ANKA_API_KEY_ID` and `ANKA_API_KEY_STRING` (or `_FILE`) ENVs described in the [Configuration Reference]({{< relref "anka-build-cloud/configuration-reference.md#authentication-and-authorization" >}}).
-
-{{< hint info >}}Permissions (see below) are still respected, regardless if you use 8085 or the public port. {{< /hint >}}
 
 ---
 
