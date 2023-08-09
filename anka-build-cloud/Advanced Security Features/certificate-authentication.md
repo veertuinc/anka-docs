@@ -1,7 +1,6 @@
 ---
 date: 2019-12-12T00:00:00-00:00
-title: "Certificate Authentication"
-linkTitle: "Certificate Authentication"
+title: "MTLS / Certificate Authentication"
 weight: 2
 description: >
   How to protect your Controller UI, API, and Registry API with Certificates.
