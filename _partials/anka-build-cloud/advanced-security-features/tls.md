@@ -11,7 +11,7 @@ Certificates should be in `PEM (PKCS #8)` format.
 Ensure your certs are decrypted! They cannot have passwords.
 {{< /hint >}}
 
-{{< hint warning >}}
+{{< hint info >}}
 For this guide, we're running the Controller & Registry locally, so we use 127.0.0.1. If you're running the registry on a different IP, and especially in your certs only allow specific IPs, you'll need to set ANKA_REGISTRY_LISTEN_ADDRESS to the `IP:PORT` vs the default `:PORT`.
 {{< /hint >}}
 

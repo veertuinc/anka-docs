@@ -1,7 +1,7 @@
 ---
 date: 2019-12-12T00:00:00-00:00
 title: "MTLS / Certificate Authentication"
-weight: 2
+weight: 4
 description: >
   How to protect your Controller UI, API, and Registry API with Certificates.
 ---
@@ -22,9 +22,10 @@ There are several different ways you can enable Certificate authentication:
 
 ## Requirements
 
+1. [Root Token Authentication must be enabled.]({{< relref "anka-build-cloud/Advanced Security Features/root-token-authentication.md" >}})
 1. A Root CA certificate. For more information about CAs, see https://en.wikipedia.org/wiki/Certificate_authority. Usually provided by your organization or where you obtain your certificate signing. We will generate a self-signed one in this guide and refer to this as **anka-ca-crt.pem** and **anka-ca-key.pem**.
-2. Certificate[s] (signed with the Root CA) for the Anka Build Cloud Controller & Registry.
-3. Certificate[s] (signed with the Root CA) for your Anka Build Nodes so they can connect/authenticate with the Anka Build Cloud Controller & Registry.
+1. Certificate[s] (signed with the Root CA) for the Anka Build Cloud Controller & Registry.
+1. Certificate[s] (signed with the Root CA) for your Anka Build Nodes so they can connect/authenticate with the Anka Build Cloud Controller & Registry.
 
 {{< hint warning >}}
 If bringing your own certs, make sure they are not password protected ("encrypted") (use `openssl rsa -in <encrypted_private.key> -out <decrypted_private.key>` to decrypt).
@@ -254,7 +255,7 @@ You can also use `anka registry add` to add it to the default configuration and 
 
 ## Accessing the Controller UI
 
-Once Cert Auth as been enabled, loading your Controller UI will show `Controller Not Connected`. This is because the Controller is fully protected. In order to access the UI, you can set up your browser to use client certificates to access the page. Alternatively, you can enable root token auth with `ANKA_ROOT_TOKEN` which must be set to a minimum of 10 characters. You can read more about it [here]({{< relref "anka-build-cloud/Advanced Security Features/token-authentication.md#protecting-your-cloud-with-rta-root-token-auth" >}}).
+Once Cert Auth as been enabled, loading your Controller UI will show `Controller Not Connected`. This is because the Controller is fully protected. In order to access the UI, you can set up your browser to use client certificates to access the page. Alternatively, you can enable root token auth with `ANKA_ROOT_TOKEN` which must be set to a minimum of 10 characters. You can read more about it [here]({{< relref "anka-build-cloud/Advanced Security Features/root-token-authentication.md#protecting-your-cloud-with-rta-root-token-auth" >}}).
 
 ---
 
@@ -281,7 +282,7 @@ When creating certificates, you'll want to specify CSR values using openssl's `-
 - Spaces are supported in `O=` and Anka Build Cloud Controller version >= 1.10.
 {{< /hint >}}
 
-{{< include file="_partials/anka-build-cloud/_managing-permissions.md" >}}
+{{< include file="_partials/anka-build-cloud/advanced-security-features/managing-permissions.md" >}}
 
 ## 6. Final Notes
 
@@ -290,7 +291,7 @@ When creating certificates, you'll want to specify CSR values using openssl's `-
   ANKA_CLIENT_CERT	(string)	(Certificate Authentication) The Controller will use this when making http requests, mainly to the Registry
   ANKA_CLIENT_CERT_KEY	(string)	(Certificate Authentication) The Controller will use this when making http requests, mainly to the Registry
   ```
-- You may notice that the Controller UI doesn't load or acts strangely. You will need to enable [Root Token Authentication]({{< relref "anka-build-cloud/Advanced Security Features/token-authentication.md" >}}) to access the controller UI.
+- You may notice that the Controller UI doesn't load or acts strangely. You will need to enable [Root Token Authentication]({{< relref "anka-build-cloud/Advanced Security Features/root-token-authentication.md" >}}) to access the controller UI.
 - If you get an invalid cert error from the Controller UI, make sure that you add the root CA you generated to your system keychain.
 
 ---

@@ -1,126 +1,24 @@
 ---
 date: 2019-07-03T22:24:47-05:00
-title: "Configuring Token Authentication"
-linkTitle: "Token Authentication"
-weight: 1
+title: "UAK / TAP Authentication"
+weight: 3
 description: >
   How to protect your Controller UI, API, and Registry API with a Root Token and/or User API keys.
 ---
 
 {{< hint warning >}}
-**This guide requires an Anka Enterprise or Enterprise Plus license.**
-
-There are several license specific differences that should be noted before you begin:
-
-- **Enterprise:** By default, any secrets you generate and use (root or user) always have full access to the API.
-- **Enterprise Plus:** By default, _only_ the root token (RTA) has full access to the API. User tokens _must be_ created with a group attached and permissions added for the group.
+###### Important
+- This feature requires either `Enterprise` or `Enterprise Plus`. There are several license specific differences that should be noted before you begin:
+  - **Enterprise:** By default, any secrets you generate and use (root or user) always have full access to the API.
+  - **Enterprise Plus:** By default, _only_ the root token (RTA) has full access to the API. User tokens _must be_ created with a group attached and permissions added for the group.
+- Your Nodes will lose connection until you join them using the new credential.
 {{< /hint >}}
 
-{{< hint info >}}
-We recommend disjoining all but one node. One node must stay joined to ensure the Build Cloud has the proper license attached. You can rejoin it later once you're configured and you've rejoined all of your other nodes.
-{{< /hint >}}
-
-Starting in 1.19.0 of the Anka Build Cloud, there are two token based options for securing the communication with the Build Cloud Controller & Registry:
-
-1. Setting the Root Token, protecting the Controller UI/API and Registry API. It is not available for nodes to communicate.
-
-2. Generate a UAK which is then used to request a temporary auth session in a client. These sessions (TAP) allow access to the API to perform various tasks.
+Starting in 1.19.0 of the Anka Build Cloud, you can generate a UAK which is then used to request a temporary auth session and token for a client. These session tokens allow access to the API to perform various tasks.
 
 ---
 
-## Protecting your cloud with RTA (Root Token Auth)
-
-Enabling root token authentication is a simple process. The root user has full permissions to the Controller UI and APIs for both the Controller and Registry. It is however not used for Node communication.
-
-{{< hint warning >}}**The root token must be at least 10 characters long.**{{< /hint >}}
-
-{{< hint warning >}}**The root token set for both the registry and controller must match.**{{< /hint >}}
-
-{{< hint warning >}}**Keep this safe. We don't recommend trying to use the root token for API calls in scripts due to security risk.**{{< /hint >}}
-
-### How to configure RTA
-
-##### MacOS Package
-
-Edit `/usr/local/bin/anka-controllerd` and add:
-
-```bash
-export ANKA_ENABLE_AUTH="true"
-export ANKA_ROOT_TOKEN="{min10chartoken}"
-```
-
-{{< hint info >}}The macOS package has no way to set tokens or auth for either the controller or registry. It will be enabled for both if the ENV is set to true.{{< /hint >}}
-
-##### Linux/Docker Package
-
-{{< hint info >}}With our docker package, each service is split up into its own container. You can enable a root token for either the controller, registry, or both.{{< /hint >}}
-
-Edit the `docker-compose.yml` and add both `ANKA_ENABLE_AUTH` and `ANKA_ROOT_TOKEN` environment variables:
-
-{{< highlight dockerfile "hl_lines=16 17" >}}
-
-. . .
-
-anka-controller:
-   build:
-      context: .
-      dockerfile: anka-controller.docker
-   ports:
-      - "80:80"
-   volumes:
-     # Path to ssl certificates directory
-     - /home/ubuntu:/mnt/cert
-   depends_on:
-      - etcd
-   restart: always
-   environment:
-     ANKA_ENABLE_AUTH: "true"
-     ANKA_ROOT_TOKEN: "1111111111"
-     # ANKA_ENABLE_API_KEYS="true"
-
-anka-registry:
-   build:
-      context: .
-      dockerfile: anka-registry.docker
-   ports:
-      - "8089:8089"
-   . . .
-   environment:
-     ANKA_ENABLE_AUTH: "true"
-     ANKA_ROOT_TOKEN: "1111111111"
-     # ANKA_ENABLE_API_KEYS="true"
-. . .
-
-{{</ highlight >}}
-
-{{< hint warning >}}
-RTA is required in all of our Auth features. If you decide to not enable auth for the registry but keep it on for the controller, you cannot enable RTA for the registry.
-{{< /hint >}}
-
-### Testing RTA
-
-If everything is configured correctly, you can visit your Controller Dashboard and a login box should appear.
-
-![root token login]({{< siteurl >}}images/anka-build-cloud/advanced-security-features/controller-root-token-login.png)
-
-Enter the token you specified and ensure that it logs you in.
-
-Finally, you can test the API using:
-
-```bash
-❯ curl -H "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.registry:8089/registry/status
-{"status":"OK","body":{"status":"Running","version":"1.19.0-309d8150"},"message":""}
-```
-
-{{< hint warning >}}
-Enabling RTA will block any access to the UI and API for Anka Nodes joined to the primary interface/port for the controller. Instead, you can [expose a queue only interface]({{< relref "anka-build-cloud/configuration-reference.md#separate-queue-interface" >}}) instead which can be used to join your nodes.
-{{< /hint >}}
-
----
-
-## Protecting your cloud with UAK (User API Keys)
-
-### How to configure UAK
+## How to configure
 
 1. Follow the same instruction from the above root token section, but also include `ANKA_ENABLE_API_KEYS` set to `true`.
 
@@ -134,7 +32,9 @@ Enabling RTA will block any access to the UI and API for Anka Nodes joined to th
 Each UAK can have one or more TAP generated sessions. This means you can generate a single UAK for a single piece of software which is deployed multiple times, and each software instance will get its own TAP generated session, independent from the others, but using the same key. An example of this is having a single UAK for all of your Anka Nodes to use when joining.
 {{< /hint >}}
 
-### Joining Nodes with your UAK
+---
+
+## Joining Nodes
 
 Once you have the UAK key generated from Step 2 (above), you can use it to join the Anka Node.
 
@@ -152,7 +52,8 @@ Anka Cloud Cluster join success
 
 {{< hint info >}} Instead of passing the private key as a string (`--api-key-string`), you can specify the path to the key file with `--api-key-file`.{{< /hint >}}
 
-### Controller and Registry communication with your UAK
+
+### Controller and Registry Communication
 
 There are several important points to know about Controller -> Registry communication when using UAKs.
 
@@ -174,7 +75,7 @@ This communication protocol is for user authentication using asymmetric encrypti
 - Public key format is PKIX, ASN.1 DER.
 {{< /hint >}}
 
-#### Authentication flow
+### How it works
 
 1. You've generated a UAK and it's stored on the Controller and/or Registry with some unique identifier.
 2. Your client sends the first phase of the authentication: `POST /tap/v1/hand -d '{"id": "<API-KEY-USER-ID>" }'` (doesn't need auth to communicate with).
@@ -244,9 +145,9 @@ By default, the TTL for keys is 5 minutes. You can modify this with the `ANKA_AP
 ## Managing User/Group Permissions (Authorization)
 
 {{< hint warning >}}
-**UAK users:**
+###### Important
 - You can set groups for each api key or use the API Key ID as the "username" and create individual permissions for them.
 - Note for Enterprise Plus customers using OpenID and UAK: Typically, Authorization is enabled with the `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` and other similar ENVs. However, when using your Ent+ license with OpenID and UAK, you will **always** need to add permissions for the groups claim you set in your OpenID configuration. Otherwise, you'll see a blank Controller UI and API requests will fail.
 {{< /hint >}}
 
-{{< include file="_partials/anka-build-cloud/_managing-permissions.md" >}}
+{{< include file="_partials/anka-build-cloud/advanced-security-features/managing-permissions.md" >}}

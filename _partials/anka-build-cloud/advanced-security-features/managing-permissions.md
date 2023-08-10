@@ -1,25 +1,27 @@
 ---
 ---
 
-By default, `ANKA_ENABLE_AUTH` will not use authorization/permissions and allow any certs or users to connect to all API endpoints and pages in the UI. In order to enable Authorization, you will need to include specific ENVs in your config:
+By default, Authentication methods (enabled with `ANKA_ENABLE_AUTH`) will not use Authorization/permissions and allow any credential to connect to all API endpoints or pages in the UI. In order to enable Authorization, you will need to include specific ENVs in your config:
 
 - `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` works for both combined and standalone (docker) packages.
 - `ANKA_ENABLE_AUTHORIZATION` is only for the standalone (native or docker) registry packages.
 - `ANKA_ENABLE_REGISTRY_AUTHORIZATION` is for the combined (controller + registry in one binary) package only.
-
-Permission groups are configurable from your Controller's `https://<controller address>/#/permission-groups` page. You can target and add permissions for either the group name or the username (which is different between the various Advanced Security Features we offer).
 
 {{< hint warning >}}
 **This feature requires Enterprise Plus.** The regular enterprise license automatically adds all permissions to each certificate or token that is used and gives no control over them.
 {{< /hint >}}
 
 {{< hint warning >}}
-This also requires that you've enabled [Root Token Authentication]({{< relref "anka-build-cloud/Advanced Security Features/token-authentication.md" >}}), giving you super user access to the controller UI and permissions.
+This also requires that you've enabled [Root Token Authentication]({{< relref "anka-build-cloud/Advanced Security Features/root-token-authentication.md" >}}), giving you super user access to the controller UI and permissions.
 {{< /hint >}}
 
-{{< hint info >}}
-The permission groups here differ from the groups you assign to nodes within the Controller UI.
+{{< hint warning >}}
+Do not confuse Node Groups with Permission Groups.
 {{< /hint >}}
+
+#### Permission Groups
+
+Permission groups are configurable from your Controller's `https://<controller address>/#/permission-groups` page. You can target and add permissions for either the group name or the username (which is different between the various Advanced Security Features we offer).
 
 {{< imgwithlink src="images/anka-build-cloud/advanced-security-features/new-permissions-management.png" >}}
 

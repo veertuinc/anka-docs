@@ -30,7 +30,7 @@ Starting in Anka 3.1, we're the first to solve this problem by automating the ma
 
 ## Support for the Anka Build Cloud's UAKs when interacting with the registry commands
 
-[Read more about the Anka Build Cloud Advanced Security Token Feature here.]({{< relref "anka-build-cloud/Advanced Security Features/token-authentication.md" >}})
+[Read more about the Anka Build Cloud Advanced User Access Key feature.]({{< relref "anka-build-cloud/Advanced Security Features/uak-tap-authentication.md" >}})
 
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/registry/_index.md" >}}
 

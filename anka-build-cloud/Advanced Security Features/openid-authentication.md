@@ -2,33 +2,20 @@
 date: 2019-12-12T00:00:00-00:00
 title: "Configuring OpenID Connect (OIDC) / SSO based authentication"
 linkTitle: "OpenID Connect (OIDC) / SSO Authentication"
-weight: 3
+weight: 5
 description: >
   How to set up OIDC / SSO for the Anka Build Cloud Controller UI.
 ---
 
 Many organizations and developers are already familiar with OpenID Connect (OIDC). OIDC is a layer that sits on top of OAuth 2.0 and performs the authorization necessary to access protected resources, such as the Anka Build Cloud Controller. Let's walk through what you need to know to set it up and protect your Controller Dashboard/UI.
 
-### Before you begin
-
 {{< hint warning >}}
-Requires an Anka Enterprise Plus license.
-{{< /hint >}}
-
-{{< hint warning >}}
-It currently only protects the UI/Dashboard and is not available for API or others types of protection.
-{{< /hint >}}
-
-{{< hint warning >}}
-If you're using root token auth for your Controller UI, without certificate authentication, Nodes will no longer be able to connect to port 80 (or whatever port you've set) when running `ankacluster join`. You'll need to setup an interface for them to communicate. Or, use a [User Access Key]({{< relref "anka-build-cloud/Advanced Security Features/token-authentication.md#joining-nodes-with-your-uak" >}}).
-{{< /hint >}}
-
-{{< hint warning >}}
-You must have at least one node with a Enterprise or higher license joined to the Controller for these features to work.
-{{< /hint >}}
-
-{{< hint warning >}}
-We currently only support `Code/Explicit Flow`.
+###### Important
+- Requires an Anka Enterprise Plus license.
+- It currently only protects the UI/Dashboard and is not available for API or others types of protection.
+- You must have at least one node with a `Enterprise` or higher license joined to the Controller for these features to work.
+- Your Nodes will lose connection until you join them using the new credential.
+- We currently only support `Code/Explicit Flow`.
 {{< /hint >}}
 
 ---
@@ -232,7 +219,7 @@ Under the **Admin** page, we want to add a **New Group**. **The Group Name will 
 
 You can then add the exact `groups` claim name from your SSO provider (or other authorization server software) to the controller's permission management panel. This gives any users associated to the group in that cloud permission group the specific permissions to the API and even controller UI.
 
-{{< include file="_partials/anka-build-cloud/_managing-permissions.md" >}}
+{{< include file="_partials/anka-build-cloud/advanced-security-features/managing-permissions.md" >}}
 
 Once you've added all of the proper permissions, you can now go back to the main Controller page and log out of the superuser. You can now choose **Login with Okta SSO**, which will redirect you to your Okta to have you log in with your user. You will then be taken to the Controller UI and be logged in as that user.
 
