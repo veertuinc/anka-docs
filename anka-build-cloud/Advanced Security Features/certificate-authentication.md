@@ -255,7 +255,7 @@ You can also use `anka registry add` to add it to the default configuration and 
 
 ## Accessing the Controller UI
 
-Once Cert Auth as been enabled, loading your Controller UI will show `Controller Not Connected`. This is because the Controller is fully protected. In order to access the UI, you can set up your browser to use client certificates to access the page. Alternatively, you can enable root token auth with `ANKA_ROOT_TOKEN` which must be set to a minimum of 10 characters. You can read more about it [here]({{< relref "anka-build-cloud/Advanced Security Features/root-token-authentication.md#protecting-your-cloud-with-rta-root-token-auth" >}}).
+Once Cert Auth as been enabled, loading your Controller UI will show `Controller Not Connected`. This is because the Controller is fully protected. In order to access the UI, you can set up your browser to use client certificates to access the page. Alternatively, you can enable root token auth with `ANKA_ROOT_TOKEN` which must be set to a minimum of 10 characters. You can read more about it [here]({{< relref "anka-build-cloud/Advanced Security Features/root-token-authentication.md" >}}).
 
 ---
 
