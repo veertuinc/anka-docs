@@ -40,7 +40,6 @@ These methods are available for users and scripts that need to use the Controlle
 - [UAK+TAP]({{< relref "anka-build-cloud/Advanced Security Features/uak-tap-authentication.md" >}})
 - [MTLS / Certificates]({{< relref "anka-build-cloud/Advanced Security Features/certificate-authentication.md" >}})
 
-
 ### Authorization
 
 {{< include file="_partials/anka-build-cloud/advanced-security-features/managing-permissions.md" >}}
