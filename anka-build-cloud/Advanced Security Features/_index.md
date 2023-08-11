@@ -36,7 +36,6 @@ These methods are available to a human through a browser and the Controller UI.
 
 These methods are available for users and scripts that need to use the Controller API, Registry API, or are using the Anka CLI through `ankacluster join --api-*` and `anka registry --api-*` options.
 
-- [Root Token]({{< relref "anka-build-cloud/Advanced Security Features/root-token-authentication.md" >}}) (not recommended)
 - [UAK+TAP]({{< relref "anka-build-cloud/Advanced Security Features/uak-tap-authentication.md" >}})
 - [MTLS / Certificates]({{< relref "anka-build-cloud/Advanced Security Features/certificate-authentication.md" >}})
 
