@@ -144,6 +144,13 @@ We won't go into depth with setting up Grafana as it's already covered on https:
 ![prometheus-grafana]({{< siteurl >}}images/anka-build-cloud/monitoring/prometheus-grafana.png)
 {{< rawhtml >}}</center>{{< /rawhtml >}}
 
+
+{{< hint warning >}}
+###### Important
+- Instances in a Scheduling state will transfer to Terminating for 1 minute until they disappear. There is no Terminated state for an Instance that hasn't started. This can cause Terminating and Terminated to not match up and cannot be relied upon.
+{{< /hint >}}
+
+
 ### Recommended Alerts
 
 - Total Free Capacity across all Nodes is 0 for more than 15 minutes. This typically means you need more Nodes to handle the VM start request load.
