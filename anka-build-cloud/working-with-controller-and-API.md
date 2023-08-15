@@ -979,6 +979,10 @@ curl -X DELETE  "http://anka.controller/api/v1/registry/revert?id=a3cc47f0-3a73-
    Number of requests sent (int): "requests_sent"
    Node IDs that the request was sent to (string array): "node_ids"
 
+##### Example
+
+{{< include file="_partials/anka-build-cloud/whatsnew/1.20.0/delete-template-from-nodes.md" >}}
+
 #### Distribute Template
 
 > Note
