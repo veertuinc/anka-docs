@@ -14,7 +14,7 @@ Welcome! This tutorial guides you through setting up your Anka Build Cloud Contr
 - [ ] Set up the Anka Build Cloud.
 - [ ] Get Orientated.
 
-### Install the Anka Build Cloud on Docker
+### Install the Anka Build Cloud with Docker
 
 {{< hint warning >}}
 Perform the following steps on the machine intended to run the Controller & Registry and not the node running the Anka Virtualization software.
