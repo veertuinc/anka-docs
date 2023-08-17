@@ -81,7 +81,7 @@ By default, we enable VNC inside of VMs created with `anka create`. You can VNC 
 ```
 
 {{< hint info >}}
-**ARM Users:** To expose the VM VNC port on the Host IP, [read more about port forwarding here]({{< relref "anka-virtualization-cli/getting-started/modifying-your-vm.md#port-forwarding-from-guest-to-host" >}}). You will need to create a rule named `vnc` with guest port `5900`. This is especially important for displaying the VNC url in the Anka Build Cloud Controller's Instances page.
+To expose the VM VNC port on the Host IP, [read more about port forwarding here]({{< relref "anka-virtualization-cli/getting-started/modifying-your-vm.md#port-forwarding-from-guest-to-host" >}}). You will need to create a rule named `vnc` with guest port `5900`. **This is especially important for displaying the VNC url in the Anka Build Cloud Controller's Instances page.**
 {{< /hint >}}
 
 ## SSH
