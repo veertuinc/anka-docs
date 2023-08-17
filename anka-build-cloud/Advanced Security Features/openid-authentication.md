@@ -30,7 +30,11 @@ When using OIDC, you'll need an Authorization Provider or Server. Most of our cu
 
 1. Set `ANKA_OIDC_CLIENT_SECRET` to the Client Secret you generate at your provider application.
 2. Set `ANKA_OIDC_PROVIDER_URL` to the appropriate provider URL for oauth2. For example, in Okta, I would set this to `https://dev-123456.okta.com/oauth2/default`.
+  {{< hint info >}}
+  Don't know what URL to use for your provider? The provider url + /.well-known/openid-configuration  must lead to the issuer's OIDC config.
+  {{< /hint >}}
 3. Set `ANKA_OIDC_CLIENT_ID` to the client ID for the application.
+
 
 #### At Your Provider
 
