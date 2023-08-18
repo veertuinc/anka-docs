@@ -26,4 +26,4 @@ To enable this feature, you'll need to:
 
 ### ARM
 
-For ARM, PG is enabled by default.
+For ARM Anka VMs, PG is enabled by default.
