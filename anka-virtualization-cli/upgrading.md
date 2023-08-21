@@ -19,6 +19,7 @@ Existing VM macOS Version | Target Version | Recommendation
 <= Big Sur | Monterey | You will need to change your VM template: `anka modify {vmName} set hard-drive -c sata`, `anka modify {vmName} set network-card -c virtio-net`
 <= Big Sur | Ventura | You will need to change your VM template: `anka modify {vmName} set hard-drive -c sata`, `anka modify {vmName} set network-card -c virtio-net`, and `anka modify {vmName} set custom-variable hw.x2apic 1`
 Monterey | Ventura | You will need to change your VM template: `anka modify {vmName} set custom-variable hw.x2apic 1`
+<= Ventura | Ventura | (Intel only + 3.3.x) You will need to resuspend your Templates and push them to the registry.
 
 ### Upgrade Procedure
 
