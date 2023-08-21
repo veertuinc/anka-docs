@@ -140,7 +140,7 @@ By default, docker does not do log-rotation. As a result, log-files stored by th
 {{< hint info >}}
 **Troubleshooting Tip**
 
-The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. ([config reference]({{< relref "anka-build-cloud/configuration-reference.md#logging" >}}))
+The log level can be modified from the default 0 value. The higher the number, the more verbose the logging. This can be done by modifying the `ENDPOINT` in the controller/Dockerfile to add `"-v", "10"`.
 {{< /hint >}}
 
 #### Testing ETCD Performance
