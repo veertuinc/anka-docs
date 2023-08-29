@@ -1,5 +1,5 @@
 ---
-title: "Anka Build Cloud 1.36.1"
+title: "Anka Build Cloud 1.37.0"
 weight: 4
 ---
 
@@ -25,7 +25,7 @@ These Nodes have our [Virtualization software]({{< relref "anka-virtualization-c
 
 ---
 
-![High level architechture]({{< siteurl >}}images/anka-build/high-level.png)
+![High level architecture]({{< siteurl >}}images/anka-build/high-level.png)
 
 ---
 
