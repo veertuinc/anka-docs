@@ -211,10 +211,12 @@ vram      |  int    | Override the VM's RAM size in MB (1GB = 1024MB) **(only wo
 metadata  | object  | Sets the instance metadata, a key-value object. Keys are strings. Values are strings, ints or booleans | -
 mac_address      |  string    | Specify MAC address for the VM (Capital letters and ':' as separators) **(only works when the VM Template is stopped and when ANKA_MANAGE_MAC_ADDRESSES is enabled in the controller config)**.
 vlan_tag | string | Specify the VLAN ID to target when starting the VM. This will run `anka modify {clonedVMName} set network-card --vlan {ID}` on the host running the VM **and only works when the VM Template is stopped and has `bridge` mode networking**.
-video_controller | string | Modify the VM's display controller before starting it. Valid Values: fbuf, pg **Only works when the VM Template is in stopped state and Intel architecture**
-hvapic | string | Modify the VM's hvapic value before starting it. Valid Values: forceOn, forceOff **Only works when the VM Template is in stopped state and Intel architecture**
-csr_active_config | string | Modify the VM's csr-active-config value before starting it. Valid Values: forceOn **Only works when the VM Template is in stopped state and Intel architecture**
+video_controller | string | Modify the VM's display controller before starting it. Valid Values: fbuf, pg **(requires Intel and stopped Template)**
+hvapic | string | Modify the VM's hvapic value before starting it. Valid Values: forceOn, forceOff **(requires Intel and stopped Template)**
+csr_active_config | string | Modify the VM's csr-active-config value before starting it. Valid Values: forceOn **(requires Intel and stopped Template)**
 network_local | string | Modify the VM's network locality before starting it. Valid Values: forceOn, forceOff
+hw_serial | string | Modify the hw.serial of the VM **(requires Intel and stopped Template)**.
+hw_uuid | string | Modify the hw.uuid of the VM **(requires Intel and stopped Template)**.
 
 **Returns:**  
 
