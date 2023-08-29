@@ -7,6 +7,22 @@ weight: 100
 
 ## Current Version
 
+### 1.37.0 (1.37.0-4e3ffe71) - Aug 28th, 2023
+
+- **Improvement:** MacOS Packages are now available for ARM64.
+- **New Feature:** Ability to set `hw.serial` and `hw.uuid` through Controller API.
+- **New Feature:** Ability to delete a Template from Nodes when deleting from the Controller UI Templates page.
+- **Improvement:** Distribution is now supported for Nodes in Drain Mode.
+- **Improvement:** Agent log improvement: "Version change detected! Stopping runner" -> "Anka version change detected! Stopping runner"
+- **Improvement:** Agent log improvement: Template and Tag are now indicated in the Start VM logs.
+- **Improvement:** All agent Start VM logs will now have the Request ID and Instance ID attached.
+- **Bug Fix:** Some Registry API endpoints were using a mix of FAIL and ERROR in the returned JSON. To make consistent with the Controller API, they all now return FAIL.
+- (Required ETCD Version: 3.5.7)
+
+---
+
+## Previous Versions
+
 ### 1.36.1 (1.36.1-efbe0727) - July 18th, 2023
 
 - **Bug Fix:** (macOS package) ANKA_LOCAL_ANKA_REGISTRY ignored when TLS enabled.
@@ -14,10 +30,6 @@ weight: 100
 - **Bug Fix:** Create Group modal is gray and unclickable.
 - (Standalone Registry: 1.36.1-cced806b)
 - (Required ETCD Version: 3.5.7)
-
----
-
-## Previous Versions
 
 ### 1.36.0 (1.36.0-37d289c1) - July 18th, 2023
 
