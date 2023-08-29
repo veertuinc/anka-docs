@@ -7,7 +7,7 @@ weight: 100
 
 ## Current Version
 
-### 1.37.0 (1.37.0-4e3ffe71) - Aug 28th, 2023
+### 1.37.0 (1.37.0-4e3ffe71) - Aug 29th, 2023
 
 - **Improvement:** MacOS Packages are now available for ARM64.
 - **New Feature:** Ability to set `hw.serial` and `hw.uuid` through Controller API.
