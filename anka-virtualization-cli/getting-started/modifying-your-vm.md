@@ -37,8 +37,8 @@ Things are similar with slightly different CPUs calculations due to the differen
 <tbody>
   <tr style="text-align:center">
     <td style="font-size: 1.3rem; background-color: #f2e6ff;"><b>Apple/ARM</b></td>
-    <td style="background-color: #f2e6ff;"><b>1VM</b></td>
-    <td style="background-color: #f2e6ff;"><b>2VMs</b></td>
+    <td style="background-color: #f2e6ff;"><b>1 VM</b></td>
+    <td style="background-color: #f2e6ff;"><b>2 VMs</b></td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>Mac Mini, M1/M2</b><br />8-core</td>
