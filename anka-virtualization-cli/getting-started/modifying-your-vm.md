@@ -41,18 +41,38 @@ Things are similar with slightly different CPUs calculations due to the differen
     <td style="background-color: #f2e6ff;"><b>2VMs</b></td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>Mac Mini, M1, 2020</b><br />8-core (4-performance + 4-efficiency)<br />8 or 16GB RAM</td>
-    <td><b>CPUs:</b> 6-cores<br /><b>RAM:</b> totalRAMGB - 2GB</td>
+    <td style="vertical-align: middle"><b>Mac Mini, M1/M2</b><br />8-core</td>
+    <td><b>CPUs:</b> 6 or 8-cores<br /><b>RAM:</b> totalRAMGB - 2GB</td>
     <td><b>CPUs:</b> 4-cores<br /><b>RAM:</b> (totalRAMGB / 2) - 2GB</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>Mac Studio, M1 Max, 2022</b><br />10-core (8-performance + 2-efficiency)<br />32 or 64GB RAM</td>
+    <td style="vertical-align: middle"><b>Mac Mini, M2 Pro</b><br />10-core</td>
+    <td><b>CPUs:</b> 8 or 10-cores<br /><b>RAM:</b> totalRAMGB - 2GB</td>
+    <td><b>CPUs:</b> 6-cores<br /><b>RAM:</b> (totalRAMGB / 2) - 2GB</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>Mac Mini, M2 Pro</b><br />12-core</td>
+    <td><b>CPUs:</b> 10 or 12-cores<br /><b>RAM:</b> totalRAMGB - 2GB</td>
+    <td><b>CPUs:</b> 8-cores<br /><b>RAM:</b> (totalRAMGB / 2) - 2GB</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>Mac Studio, M2 Max</b><br />12-core</td>
+    <td><b>CPUs:</b> 10 or 12-cores<br /><b>RAM:</b> totalRAMGB - 2GB (max of 60GB)</td>
+    <td><b>CPUs:</b> 8-cores<br /><b>RAM:</b> (totalRAMGB / 2) - 2GB (max of 60GB)</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>Mac Studio, M2 Ultra</b><br />24-core</td>
+    <td><b>CPUs:</b> 10 or 12-cores<br /><b>RAM:</b> totalRAMGB - 2GB (max of 60GB)</td>
+    <td><b>CPUs:</b> 10 or 12-cores<br /><b>RAM:</b> (totalRAMGB / 2) - 2GB (max of 60GB)</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>Mac Studio, M1 Max, 2022</b><br />10-core</td>
     <td><b>CPUs:</b> 8-cores<br /><b>RAM:</b> totalRAMGB - 2GB (max of 60GB)</td>
     <td><b>CPUs:</b> 6 or 8-cores<br /><b>RAM:</b> (totalRAMGB / 2) - 2GB (max of 60GB)</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>Mac Studio, M1 Ultra, 2022</b><br />20-core (16-performance + 4-efficiency)<br />64 or 128GB RAM</td>
-    <td><b>CPUs:</b> 8-cores<br /><b>RAM:</b> totalRAMGB - 2GB (max of 60GB)</td>
+    <td style="vertical-align: middle"><b>Mac Studio, M1 Ultra, 2022</b><br />20-core</td>
+    <td><b>CPUs:</b> 10-cores<br /><b>RAM:</b> totalRAMGB - 2GB (max of 60GB)</td>
     <td><b>CPUs:</b> 6 or 8-cores<br /><b>RAM:</b> (totalRAMGB / 2) - 2GB (max of 60GB)</td>
   </tr>
 </tbody>
