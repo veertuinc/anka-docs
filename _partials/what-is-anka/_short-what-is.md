@@ -1,13 +1,13 @@
 ---
 ---
 
-Veertu's Anka software is a collection of software built on top of the macOS virtualization platform that allows you to run single or multi-use macOS VMs like you would with Docker. It is designed for DevOps and CI/CD teams who want to build and test their native macOS or iOS applications. Because Anka is built on top of the official Apple hypervisor/virtualization, it benefits from greater performance and security.
+Veertu's Anka is a suite of software tools built on the macOS virtualization platform. It enables the execution of single or multi-use macOS virtual machines (VMs) in a manner similar to Docker. Anka is specifically designed for DevOps and CI/CD teams that need to build and test macOS or iOS applications. Leveraging the official Apple hypervisor/virtualization technology, Anka offers enhanced performance and security.
 
-It provides a simple, intuitive, and easy-to-use solution for virtualizing macOS at scale. You can create Anka macOS VMs using infrastructure as code tools, push or pull VM tags with your specific dependencies and state using the Anka Registry, and run Anka macOS VMs on any connected nodes.
+Anka is also a user-friendly solution for large-scale macOS virtualization. It allows you to generate Anka macOS VMs using a simple CLI, infrastructure as code tools, manage VM tags with specific dependencies and states via the Anka Registry (part of the Anka Build Cloud), and execute Anka macOS VMs on any connected nodes.
 
-The [Anka Build Cloud]({{< relref "../../anka-build-cloud/_index.md" >}}) also provides a central dashboard for management of Anka Build Nodes, VMs instances, VM Templates/Tags, and logs. It has built-in intelligent queueing and load balancing for many simultaneous CI/CD job macOS VM requests. There are also integrations with popular CI/CD servers and tools like Jenkins, Github Actions, Buildkite, TeamCity, GitLab, and if needed has an API you can write your own integration in.
+Along side of the Anka CLI is the [Anka Build Cloud]({{< relref "../../anka-build-cloud/_index.md" >}}) which serves as a unified management interface for Anka Build Nodes, VM instances, VM Templates/Tags, and logs. It features intelligent queueing and load balancing for handling numerous concurrent CI/CD job macOS VM requests. Additionally, it integrates with widely-used CI/CD servers and tools such as Jenkins, Github Actions, Buildkite, TeamCity, GitLab, and provides an API for custom integrations.
 
-Anka is a powerful and flexible macOS virtualization platform that can help you improve your DevOps and iOS CI/CD workflows. It is easy to use and configure, and provides a wide range of features and capabilities.
+Anka is a robust and adaptable macOS virtualization platform that can enhance your DevOps and iOS CI/CD processes. It is straightforward to use and customize, and offers a broad array of features and capabilities.
 
 {{< rawhtml >}}<center>{{< /rawhtml >}}
 ![Anka High Level]({{< siteurl >}}images/what-is-anka/anka-high-level-v1.png)

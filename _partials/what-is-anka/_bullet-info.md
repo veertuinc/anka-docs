@@ -4,13 +4,13 @@
 * Easy to install.
 * Built on the native Apple hypervisor, utilizing macOS resource scheduling, power management, and flexibility.
 * Optimized VM network and disk performance using para-virtual drivers.
+* Access to Paravirtualized Graphics (GPU) inside of VMs.
 * VM management through the Anka Virtualization CLI, UI app, or web based Build Cloud Controller UI.
 * Ability to suspended and then instantly start VMs from a specific state.
-* Nested Virtualization for running Docker, Android Emulators, and others inside of the VM (intel only).
 * Attach physical USB devices (like an iPhone) to VMs for on-device testing.
 * Compatibility with T2 enabled Apple hardware.
 * Can be installed on any Apple supported macOS versions.
-* Anka VMs can install and run any modern and Apple supported macOS version.
+* Install and run any modern and Apple supported macOS version inside of VMs.
 
 DevOps teams implementing Anka can expect flexibility, allowing them to plug into existing infrastructure and automation -- whether it's cloud providers like AWS or on-premises! We have many examples of use cases and also provide packages like our [Build Cloud Controller & Registry Helm Chart](https://github.com/veertuinc/helm-charts/tree/main/charts/anka-build-cloud) for Kubernetes users.
 
