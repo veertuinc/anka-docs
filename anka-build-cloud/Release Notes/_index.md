@@ -7,6 +7,15 @@ weight: 100
 
 ## Current Version
 
+### 1.38.0 (1.38.0-XXX) - XXXXth, 2023
+
+- **New Feature:** [Resource Permissions for Permission Groups]({{< relref "whats-new/build-cloud-1.38.0/index.md#resource-permissions-for-permission-groups" >}})
+- (Required ETCD Version: 3.5.7)
+
+---
+
+## Previous Versions
+
 ### 1.37.0 (1.37.0-4e3ffe71) - Aug 29th, 2023
 
 - **Improvement:** MacOS Packages are now available for ARM64.
@@ -18,10 +27,6 @@ weight: 100
 - **Improvement:** All agent Start VM logs will now have the Request ID and Instance ID attached.
 - **Bug Fix:** Some Registry API endpoints were using a mix of FAIL and ERROR in the returned JSON. To make consistent with the Controller API, they all now return FAIL.
 - (Required ETCD Version: 3.5.7)
-
----
-
-## Previous Versions
 
 ### 1.36.1 (1.36.1-efbe0727) - July 18th, 2023
 

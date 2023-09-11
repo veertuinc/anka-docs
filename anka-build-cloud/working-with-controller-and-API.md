@@ -203,7 +203,8 @@ script_monitoring | bool | Enable script monitoring. This will put the instance 
 script_timeout | int | Seconds. Will terminate startup script execution and treat it as failed. **(only works when script_monitoring is true)** | 90
 script_fail_handler | int | How to handle the **VM running on your host/node** when startup script fails. Options are 0, 1 and 2. If 0 is passed, VM will be stopped, if 1 is passed VM will be kept alive, if 2 is passed VM will be deleted **(only works when script_monitoring is true)** | 0
 name_template | string | String to use for the VM name. You can interpolate several variables in the string: $template_name, $template_id, $instance_id, $node_id, $node_name and $ts (timestamp). The VM name will be prepended with `mgmtManaged-{name_template}`. | -
-group_id  | string | Run the VM on a node from this group. | -
+group     | string | The Permissions Group name to use when creating the VM. **(REQUIRED and only available when [Resource Permissions for Permission Groups]({{< relref "anka-build-cloud/Advanced Security Features/resource-permissions.md" >}}) is enabled)** | -
+group_id  | string | Run the VM on a specific Node Group, targeting its ID **(disabled when [Resource Permissions for Permission Groups]({{< relref "anka-build-cloud/Advanced Security Features/resource-permissions.md" >}}) is enabled)** | -
 priority  | int    | Priority of this instance in range 1-10000 (lower is more urgent). | 1000
 usb_device | string | Name of the USB device to attach to the VM | -
 vcpu      |  int    | Override the number of CPU cores for the VM Template **(only works when the template VM is stopped)**.
@@ -1585,6 +1586,11 @@ curl http://anka.controller/api/v1/vlan
 
 ### User Key Management
 
+{{< hint warning >}}
+Only available when [UAK/TAP]({{< relref "anka-build-cloud/Advanced Security Features/uak-tap-authentication.md" >}}) is enabled.
+{{< /hint >}}
+
+
 #### Get Key
 
 - **Description:** Display information about api key\[s\]
@@ -1724,4 +1730,250 @@ cat $FILE_OUTPUT_DIR/$NAME-pub.pem | sed '1,1d' | sed '$d' | tr -d '\n'
 ```bash
 ❯ curl -X DELETE -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64)" http://anka.controller:8090/api/v1/apikey -d '{ "id": "developer3" }'
 {"status":"OK","message":""}
+```
+
+---
+
+### Resource Permissions
+
+{{< hint warning >}}
+Only available when [Resource Permissions for Permission Groups]({{< relref "anka-build-cloud/Advanced Security Features/resource-permissions.md" >}}) is enabled.
+{{< /hint >}}
+
+#### Get Available Resources and Permissions
+
+- **Description:** Returns a list of all available Resource types, Permissions, and their descriptions. The Controller and Registry differ and will return their individual Resource types.
+
+- **Path:** /admin/api/v1/permission/resources/permissions
+
+- **Method:** GET
+
+**Returns:**
+- `status`: Operation Result (OK|FAIL)
+- `message`: Error message in case of an error
+- `body`: An array of objects
+
+```bash
+❯ curl -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64 -b 0)" http://anka.controller:8090/admin/v1/api/permission/resources/permissions | jq
+{
+  "status": "OK",
+  "message": "",
+  "body": [
+    {
+      "resource_type": "node",
+      "permissions": {
+        "change_config": {
+          "label": "Change Node Configuration",
+          "description": "Change Node Configuration"
+        },
+        "create_instance": {
+          "label": "Create Instance",
+          "description": "Create Instance"
+        },
+        "delete_template": {
+          "label": "Delete Template from Node",
+          "description": "Delete Template from Node"
+        },
+        "distribute": {
+          "label": "Distribute Template to Node",
+          "description": "Distribute Template to Node"
+        },
+        "force_upgrade": {
+          "label": "Force Node Upgrade",
+          "description": "Force Node Upgrade"
+        },
+        "list": {
+          "label": "List Node",
+          "description": "List Node"
+        },
+        "remove": {
+          "label": "Remove Node",
+          "description": "Remove Node"
+        }
+      }
+    }
+  ]
+}
+
+❯ curl -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64 -b 0)" http://anka.registry:8089/admin/v1/api/permission/resources/permissions | jq
+{
+  "status": "OK",
+  "message": "",
+  "body": [
+    {
+      "resource_type": "template",
+      "permissions": {
+        "delete_revert": {
+          "label": "Delete and/or Revert Template",
+          "description": "Delete and/or Revert Template"
+        },
+        "get_config": {
+          "label": "Get Template Configuration",
+          "description": "Get Template Configuration"
+        },
+        "list": {
+          "label": "List Template",
+          "description": "List Template"
+        },
+        "pull": {
+          "label": "Pull Template",
+          "description": "Pull Template"
+        },
+        "push_tag": {
+          "label": "Push Template Tag",
+          "description": "Push Template Tag"
+        },
+        "save_image": {
+          "label": "Save Image Target",
+          "description": "Target Template for Save Image"
+        },
+        "set_arch": {
+          "label": "Set Template Architecture",
+          "description": "Set Template Architecture"
+        }
+      }
+    }
+  ]
+}
+```
+
+#### Resource Model
+
+**Object Model:**
+
+Property       | Type   | Description
+ ---           | ---    | ---
+id    | string | Identifier for the resource. This can be set to anything you want, however, if set to a Node or Template ID, it will display the proper name of the resource in the Controller UI.
+id_type | string | Optional, but defaults to "id" (subject to change).
+type | string | The type of resource this is. For example `node` or `template`.
+permissions | array of strings | The permissions to enable for the specific resource and targeted group. [Get Available Resources and Permissions](#get-available-resources-and-permissions) to see what's possible.
+
+#### Get Group Resources and Permissions
+
+- **Description:** Returns a list of all currently set Resource Permissions for a specific group (`groupName`).
+
+- **Path:** /admin/api/v1/permission/group/{groupName}/resources
+
+- **Method:** GET
+
+**Returns:**
+- `status`: Operation Result (OK|FAIL)
+- `message`: Error message in case of an error
+- `body`: An array of objects
+
+```bash
+❯ curl -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64 -b 0)" http://anka.controller:8090/admin/v1/api/permission/group/devops/resources | jq
+{
+  "status": "OK",
+  "message": "",
+  "body": [
+    {
+      "id": "3c101836-9540-4733-9482-604d0c5fbe30",
+      "id_type": "id",
+      "type": "node",
+      "permissions": [
+        "change_config",
+        "create_instance",
+        "delete_template",
+        "distribute",
+        "force_upgrade",
+        "list",
+        "remove"
+      ]
+    }
+  ]
+}
+
+❯ curl -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64 -b 0)" http://anka.registry:8089/admin/v1/api/permission/group/devops/resources | jq
+{
+  "status": "OK",
+  "message": "",
+  "body": [
+    {
+      "id": "e882dbfe-e6c2-4297-9932-c5efe9bb2322",
+      "id_type": "id",
+      "type": "template",
+      "permissions": [
+        "delete_revert",
+        "get_config",
+        "list",
+        "pull",
+        "push_tag",
+        "save_image",
+        "set_arch"
+      ]
+    },
+    {
+      "id": "5d1b40b9-7e68-4807-a290-c59c66e926b4",
+      "id_type": "id",
+      "type": "template",
+      "permissions": [
+        "delete_revert",
+        "get_config",
+        "list",
+        "pull",
+        "push_tag",
+        "save_image",
+        "set_arch"
+      ]
+    },
+    {
+      "id": "c0847bc9-5d2d-4dbc-ba6a-240f7ff08032",
+      "id_type": "id",
+      "type": "template",
+      "permissions": [
+        "delete_revert",
+        "get_config",
+        "list",
+        "pull",
+        "push_tag",
+        "save_image",
+        "set_arch"
+      ]
+    },
+    {
+      "id": "c12ccfa5-8757-411e-9505-128190e9854e",
+      "id_type": "id",
+      "type": "template",
+      "permissions": [
+        "delete_revert",
+        "get_config",
+        "list",
+        "pull",
+        "push_tag",
+        "save_image",
+        "set_arch"
+      ]
+    }
+  ]
+}
+```
+
+#### Create or Update Group Resources
+
+- **Description:** Sets the Resource Permissions for a specific group (`groupName`). Input data structure is an array of Resource objects.
+
+- **Path:** /admin/api/v1/permission/group/{groupName}/resources
+
+- **Method:** POST
+
+**Returns:**
+- `status`: Operation Result (OK|FAIL)
+- `message`: Success or Error message
+
+```bash
+❯ curl -X POST -sH "Authorization: Basic $(echo -ne "root:1111111111" | base64 -b 0)" http://anka.registry:8090/admin/v1/api/permission/group/devops/resources -d '[{
+      "id": "3c101836-9540-4733-9482-604d0c5fbe30",
+      "id_type": "id",
+      "type": "node",
+      "permissions": [
+        "change_config",
+        "create_instance",
+        "delete_template",
+        "distribute",
+        "force_upgrade",
+        "list"
+      ]
+    }]'
+{"status":"OK","message":"Saved"}
 ```

@@ -13,6 +13,7 @@
 | ANKA_ENABLE_AUTH | (boolean) | Enable Authentication (Root Token, Certificate, SSO/OpenID Connect or API Keys) (Not to be confused with Authorization). | false |
 | ANKA_ENABLE_CONTROLLER_AUTHORIZATION | (boolean) | Enable Authorization (Users, groups, permission control for specific certificates) in the Controller. | false |
 | ANKA_ENABLE_INGRESS_NGINX | (boolean) | Enable Authentication based on headers set by Ingress Nginx (https://kubernetes.github.io/ingress-nginx/examples/auth/client-certs/ | false |
+| ANKA_ENABLE_RESOURCE_MANAGEMENT | (boolean) | Enable resource management for the controller (requires enable-controller-authorization) | false |
 | ANKA_ETCD_CA_CERT | (string) | (ETCD Certificate Authentication) The Etcd client will use this when connecting to the cluster. |  |
 | ANKA_ETCD_CERT | (string) | (ETCD Certificate Authentication) The ETCD client will use this when connecting to the cluster. |  |
 | ANKA_ETCD_CERT_KEY | (string) | (ETCD Certificate Authentication) The ETCD client will use this when connecting to the cluster. |  |
