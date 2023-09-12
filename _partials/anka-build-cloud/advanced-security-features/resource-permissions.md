@@ -22,10 +22,3 @@ These permissions must be added through the root user (using the root token).
 {{< imgwithlink src="images/anka-build-cloud/advanced-security-features/resources-controller-node-example.png" >}}
 
 In the above example, you'll see that the **devops** Permission Group has access to perform very specific actions for the node Veertu.local. For example, any authentication method (UAK, Certs, etc) with the **devops** group attached will be unable to Remove the node, but will be able to Create Instances on it.
-
-## Answers to Frequently Asked Questions
-
-- The Nodes joined to the Controller must have Permissions to access the Template being used to start a VM.
-- Node Groups differ from Permissions Groups and are disabled when this feature is enabled.
-- Save Image requests can only target Instances that belong to a group the user has access to.
-

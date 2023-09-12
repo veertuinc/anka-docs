@@ -42,3 +42,7 @@ These methods are available for users and scripts that need to use the Controlle
 ### Authorization
 
 {{< include file="_partials/anka-build-cloud/advanced-security-features/managing-permissions.md" >}}
+
+#### Resource Permissions
+
+{{< include file="_partials/anka-build-cloud/advanced-security-features/resource-permissions.md" >}}
