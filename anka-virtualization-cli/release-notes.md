@@ -11,6 +11,34 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.3.5 (3.3.5.171) - Sep 12th 2023
+
+{{< hint info >}}
+- Addons upgrading is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM issues:
+
+- Nested virtualization is not functional inside of VMs yet.
+- `anka view` is partially broken and require double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- iCloud/Apple logins will fail inside of the VM. You can still log into your account through Apple's website and download apps through your developer account. Or, transfer them from the host into the VM with `anka cp`.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **Improvement:** Pulls from registry will now handle downloads that get interrupted better to avoid `failed to checkout: Input/output error` and other corrupt .ank file problems.
+- **Improvement:** More support for Sonoma VM creation AND Sonoma host OS.
+- **Bug Fix:** Both `--machine-readable` and `--debug` can be used at the same time. Note: JSON will go to STDOUT while debug to STDERR.
+- **Bug Fix:** VMs which lose networking for whatever reason will now change to the proper failed state.
+- **Bug Fix:** VM networking would suddenly fail (`ankanetd` would crash) under high CPU conditions with `ankanet: 22: network connection closed`
+- **Bug Fix:** VM image chains were growing too large. This should prevent max file descriptor issues. We've also added an increase to the `maxfiles` for the hosts running Anka which should help existing customers with larger chains avoid failures.
+- **Bug Fix:** Fixed problems with 10.13 and 10.14 networking running 2.5.6 addons.
+
+## Previous Versions
+
 ### 3.3.4 (3.3.4.169) - July 26th 2023
 
 {{< hint info >}}
@@ -32,8 +60,6 @@ ARM issues:
 - **Bug Fix:** Docker virtualization processes were being counted when determining amount of running VMs.
 - **Bug Fix:** Sudden VM networking failures under heavy load (`error 55` and `port_fwd: 25: socket error: Operation timed out`)
 - **Bug Fix:** Various fixes for 13.5 and Sonoma VM creation failure.
-
-## Previous Versions
 
 ### 3.3.3 (3.3.3.168) - July 10th 2023
 
