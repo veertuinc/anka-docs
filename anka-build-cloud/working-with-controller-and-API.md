@@ -1843,7 +1843,7 @@ Only available when [Resource Permissions for Permission Groups]({{< relref "ank
 
 Property       | Type   | Description
  ---           | ---    | ---
-id    | string | Identifier for the resource. This can be set to anything you want, however, if set to a Node or Template ID, it will display the proper name of the resource in the Controller UI.
+id    | string | Identifier for the resource. It should match the Node ID or Template ID and will display the proper name of the resource in the Controller UI if set properly.
 id_type | string | Optional, but defaults to "id" (subject to change).
 type | string | The type of resource this is. For example `node` or `template`.
 permissions | array of strings | The permissions to enable for the specific resource and targeted group. [Get Available Resources and Permissions](#get-available-resources-and-permissions) to see what's possible.
