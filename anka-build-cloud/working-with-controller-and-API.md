@@ -203,8 +203,8 @@ script_monitoring | bool | Enable script monitoring. This will put the instance 
 script_timeout | int | Seconds. Will terminate startup script execution and treat it as failed. **(only works when script_monitoring is true)** | 90
 script_fail_handler | int | How to handle the **VM running on your host/node** when startup script fails. Options are 0, 1 and 2. If 0 is passed, VM will be stopped, if 1 is passed VM will be kept alive, if 2 is passed VM will be deleted **(only works when script_monitoring is true)** | 0
 name_template | string | String to use for the VM name. You can interpolate several variables in the string: $template_name, $template_id, $instance_id, $node_id, $node_name and $ts (timestamp). The VM name will be prepended with `mgmtManaged-{name_template}`. | -
-group     | string | The Permissions Group name to use when creating the VM. **(REQUIRED and only available when [Resource Permissions for Permission Groups]({{< relref "anka-build-cloud/Advanced Security Features/resource-permissions.md" >}}) is enabled)** | -
-group_id  | string | Run the VM on a specific Node Group, targeting its ID **(disabled when [Resource Permissions for Permission Groups]({{< relref "anka-build-cloud/Advanced Security Features/resource-permissions.md" >}}) is enabled)** | -
+group     | string | The Permissions Group name to use when creating the VM. **(REQUIRED and only available when [Resource Permissions for Permission Groups]({{< relref "anka-build-cloud/Advanced Security Features/authorization.md" >}}) is enabled)** | -
+group_id  | string | Run the VM on a specific Node Group, targeting its ID **(disabled when [Resource Permissions for Permission Groups]({{< relref "anka-build-cloud/Advanced Security Features/authorization.md" >}}) is enabled)** | -
 priority  | int    | Priority of this instance in range 1-10000 (lower is more urgent). | 1000
 usb_device | string | Name of the USB device to attach to the VM | -
 vcpu      |  int    | Override the number of CPU cores for the VM Template **(only works when the template VM is stopped)**.
@@ -1737,7 +1737,7 @@ cat $FILE_OUTPUT_DIR/$NAME-pub.pem | sed '1,1d' | sed '$d' | tr -d '\n'
 ### Resource Permissions
 
 {{< hint warning >}}
-Only available when [Resource Permissions for Permission Groups]({{< relref "anka-build-cloud/Advanced Security Features/resource-permissions.md" >}}) is enabled.
+Only available when [Resource Permissions for Permission Groups]({{< relref "anka-build-cloud/Advanced Security Features/authorization.md" >}}) is enabled.
 {{< /hint >}}
 
 #### Get Available Resources and Permissions
