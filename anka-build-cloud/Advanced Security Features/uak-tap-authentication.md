@@ -150,4 +150,4 @@ By default, the TTL for keys is 5 minutes. You can modify this with the `ANKA_AP
 - Note for Enterprise Plus customers using OpenID and UAK: Typically, Authorization is enabled with the `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` and other similar ENVs. However, when using your Ent+ license with OpenID and UAK, you will **always** need to add permissions for the groups claim you set in your OpenID configuration. Otherwise, you'll see a blank Controller UI and API requests will fail.
 {{< /hint >}}
 
-{{< include file="_partials/anka-build-cloud/advanced-security-features/managing-permissions.md" >}}
+{{< include file="_partials/anka-build-cloud/advanced-security-features/authorization.md" >}}

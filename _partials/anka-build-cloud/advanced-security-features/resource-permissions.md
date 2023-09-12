@@ -1,6 +1,8 @@
 ---
 ---
 
+#### Resource Permissions
+
 {{< hint warning >}}
 Resource Management "Groups" differ from the Node Groups you may already be familiar with.
 {{< /hint >}}
@@ -15,10 +17,16 @@ The Resource Permissions feature is enabled by setting **ANKA_ENABLE_RESOURCE_MA
 
 Under the **Resources** tab, you'll see the available resources you can add granular permissions for. For example, the Controller Component will have Node Resources you can control and the Registry, Template Resources.
 
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/resources-controller-node-example.png" >}}
+
 {{< hint info >}}
 These permissions must be added through the root user (using the root token).
 {{< /hint >}}
 
-{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/resources-controller-node-example.png" >}}
-
 In the above example, you'll see that the **devops** Permission Group has access to perform very specific actions for the node Veertu.local. For example, any authentication method (UAK, Certs, etc) with the **devops** group attached will be unable to Remove the node, but will be able to Create Instances on it.
+
+##### Answers to Frequently Asked Questions
+
+- The Nodes joined to the Controller must have Permissions to access the Template being used to start a VM.
+- Node Groups differ from Permissions Groups and are disabled when this feature is enabled.
+- Save Image requests can only target Instances that belong to a group the user has access to.

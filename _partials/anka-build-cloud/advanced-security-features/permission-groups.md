@@ -1,29 +1,34 @@
 ---
 ---
 
-By default, Authentication methods (enabled with `ANKA_ENABLE_AUTH`) will not use Authorization/permissions and allow any credential to connect to all API endpoints or pages in the UI. In order to enable Authorization, you will need to include specific ENVs in your config:
-
-- `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` works for both combined and standalone (docker) packages.
-- `ANKA_ENABLE_AUTHORIZATION` is only for the standalone (native or docker) registry packages.
-- `ANKA_ENABLE_REGISTRY_AUTHORIZATION` is for the combined (controller + registry in one binary) package only.
-
-{{< hint warning >}}
-**This feature requires Enterprise Plus.** The regular enterprise license automatically adds all permissions to each certificate or token that is used and gives no control over them.
-{{< /hint >}}
-
-{{< hint warning >}}
-This also requires that you've enabled [Root Token Authentication]({{< relref "anka-build-cloud/Advanced Security Features/root-token-authentication.md" >}}), giving you super user access to the controller UI and permissions.
-{{< /hint >}}
-
-{{< hint warning >}}
-Do not confuse Node Groups with Permission Groups.
-{{< /hint >}}
-
 #### Permission Groups
 
-Permission groups are configurable from your Controller's `https://<controller address>/#/permission-groups` page. You can target and add permissions for either the group name or the username (which is different between the various Advanced Security Features we offer).
 
-{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/new-permissions-management.png" >}}
+Enabling **Permission Groups** can be done in your Controller and Registry configuration:
+
+- `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` works for both combined (macOS) and standalone (docker) packages.
+- `ANKA_ENABLE_REGISTRY_AUTHORIZATION` is for the macOS combined (controller + registry in one) package only.
+- `ANKA_ENABLE_AUTHORIZATION` is only for the standalone (macOS or docker) registry packages.
+
+Once enabled, you can set up your first Group from your Controller's `https://<controller address>/#/permission-groups` page.
+
+First choose the Component from the drop down:
+
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-choose-component.png" >}}
+
+Next, create a new group by clicking the + button:
+
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-create-group.png" >}}
+
+You can now target and add specific permissions for the group:
+
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-set-perms.png" >}}
+
+{{< hint info >}}
+Pro Tip: There are circular buttons on the right to assist in knowing which to choose based on the use-case.
+{{< /hint >}}
+
+The group can now be attached to a specific [Authentication Credential]({{< relref "anka-build-cloud/Advanced Security Features/_index.md#authentication" >}}) and the credential used to access and perform the permitted actions.
 
 <!-- 
 ### Controller Permissions

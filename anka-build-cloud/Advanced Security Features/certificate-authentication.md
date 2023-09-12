@@ -267,9 +267,6 @@ Once Cert Auth as been enabled, loading your Controller UI will show `Controller
 
 ## Managing User/Group Permissions (Authorization)
 
-{{< hint warning >}}
-**Certificate Authentication users:**
-
 When creating certificates, you'll want to specify CSR values using openssl's `-subj` option. For example, if we're going to generate a certificate so our Jenkins instance can access the Controller & Registry, you'll want to use something like this:
 
 ```shell
@@ -280,9 +277,8 @@ When creating certificates, you'll want to specify CSR values using openssl's `-
 - You can specify multiple `O=` like so: `/O=DevOps/O=iOSDEV/ . . .`
 - Within the Controller's Permission administration panel, we use **`O=`** as the **Group Name**.
 - Spaces are supported in `O=` and Anka Build Cloud Controller version >= 1.10.
-{{< /hint >}}
 
-{{< include file="_partials/anka-build-cloud/advanced-security-features/managing-permissions.md" >}}
+{{< include file="_partials/anka-build-cloud/advanced-security-features/authorization.md" >}}
 
 ## 6. Final Notes
 
