@@ -23,19 +23,32 @@ Once added, you will be able to set the Resource Permissions, allowing you to li
 
 {{< imgwithlink src="images/anka-build-cloud/advanced-security-features/resources-basic.png" >}}
 
-In the previous section on Permissions, we joined a Node using a credential with the Permission Group of `node` attached. This Group only has permissions to perform the minimum required actions to run as an Anka Node and communicate with the Controller. We did not add Resources to it though (even though we technically could) so we could have a team specific Groups with specific resources assigned.
+In the previous section on Permissions, we joined a Node using a credential with the Permission Group of `node` attached. This Group only has permissions to perform the minimum required actions to run as an Anka Node and communicate with the Controller. We did not add Resources to it though (even though we technically could) so we can instead have team specific Groups with specific resources assigned.
 
 **It's important to understand that a credential, like a UAK or a certificate, should only ever be used by a specific user and client.** You wouldn't ever want to share the Node credential with a team for example. Create a second credential for that team, then in order for the Node to be able to access the team's credential, add the team's Group to the Node credential.
-
-Under the **Resources** tab, you'll see the available resources you can add granular permissions for. For example, the Controller Component will have Node Resources you can control and the Registry, Template Resources.
 
 {{< hint info >}}
 These permissions must be added through the root user (using the root token).
 {{< /hint >}}
 
 
+1. Create two groups: `ios` and `instance-control`.
 
-In the above example, you'll see that the **node** Permission Group has access to perform very specific actions for the node Veertu.local. For example, any authentication method (UAK, Certs, etc) with the **devops** group attached will be unable to Remove the node, but will be able to Create Instances on it.
+2. Under the `ios` Group > Resources, add the Template Resource you want this team to access. The bare minimum permissions are seen in the image below.
+
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-ios-resources-template.png" >}}
+
+2. Under the `instance-control` Group > Permissions, add all of the Instances Permissions like in the image below.
+
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-instance-control-perms.png" >}}
+
+2. Now create a new credential named `service-user` and attach those two groups. We'll use [UAKs]({{< relref "anka-build-cloud/Advanced Security Features/uak-tap-authentication.md" >}}) for this example. There is no need for the `service-user` to have its own group as it will get the VM start and terminate permissions from `instance-control` group and Template/Node permissions from the `ios` group.
+
+3. Attach the group `ios` to the `node` credential we created in the previous section and joined our node with so that that it can also collect information about the Template in order to start the VM Instance properly (it checks the download size of the template before pulling). Your UAK setup should look something like this image.
+
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-uak-service-user-list.png" >}}
+
+We can now use `service-user` in our CI/CD tools to communicate with the Controller when an `ios` team member triggers a job and that job requests a VM Instance to run the job commands inside of. When the `service-user` makes an API call to start a VM Instance, it will pass in the `ios` group, as that group has access to the template being targeted.
 
 ##### Answers to Frequently Asked Questions
 
