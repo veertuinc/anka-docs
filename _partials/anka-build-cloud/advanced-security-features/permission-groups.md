@@ -3,32 +3,54 @@
 
 #### Permission Groups
 
+Under the Permissions section of the Controller UI (`https://<controller address>/#/permission-groups`), let's create a group for our nodes to be able to connect.
 
-Enabling **Permission Groups** can be done in your Controller and Registry configuration:
-
-- `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` works for both combined (macOS) and standalone (docker) packages.
-- `ANKA_ENABLE_REGISTRY_AUTHORIZATION` is for the macOS combined (controller + registry in one) package only.
-- `ANKA_ENABLE_AUTHORIZATION` is only for the standalone (macOS or docker) registry packages.
-
-Once enabled, you can set up your first Group from your Controller's `https://<controller address>/#/permission-groups` page.
-
-First choose the Component from the drop down:
+1. First choose the Controller Component from the drop down.
 
 {{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-choose-component.png" >}}
 
-Next, create a new group by clicking the + button:
+2. Next, create a new group named `node` by clicking the + button.
 
-{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-create-group.png" >}}
+3. You can now target and add specific **Permissions** or **Resources** for the group. Click on the circular icon on the right to highlight what permission should be set for Nodes to communicate with the Controller. Then, check/enable the highlighted permissions and click Save Permissions at the bottom of the page. 
 
-You can now target and add specific permissions for the group:
-
-{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-set-perms.png" >}}
-
-{{< hint info >}}
-Pro Tip: There are circular buttons on the right to assist in knowing which to choose based on the use-case.
+{{< hint warning >}}
+Note: We'll not be setting **Resources** right now for this guide.
 {{< /hint >}}
 
-The group can now be attached to a specific [Authentication Credential]({{< relref "anka-build-cloud/Advanced Security Features/_index.md#authentication" >}}) and the credential used to access and perform the permitted actions.
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-highlight-node-perms.png" >}}
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-set-perms.png" >}}
+
+4. Check/enable the same highlighted permissions for the Registry Component.
+
+5. The group can now be attached to a specific [Authentication Credential]({{< relref "anka-build-cloud/Advanced Security Features/_index.md#authentication" >}}) and the credential used to access and perform the permitted actions.
+
+For example, you need to create and attach the group to a [UAK]({{< relref "anka-build-cloud/Advanced Security Features/uak-tap-authentication.md" >}}) like this image shows.
+
+{{< hint info >}}
+Be sure to download the key if you're creating a new UAK.
+{{< /hint >}}
+
+{{< rawhtml >}}<center>{{< /rawhtml >}}
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-set-group-on-uak.png" >}}
+{{< rawhtml >}}</center>{{< /rawhtml >}}
+
+You will now see the UAK in the list.
+
+{{< rawhtml >}}<center>{{< /rawhtml >}}
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-uak-list.png" >}}
+{{< rawhtml >}}</center>{{< /rawhtml >}}
+
+The node certificate now has permissions to perform the specifically set actions against all Resources (if Resource Management is disabled).
+
+6. You can now try joining the node to the Controller using the UAK and confirm it's all joined by checking the Controller Nodes page, or the agent logs.
+
+```bash
+❯ sudo ankacluster join http://anka.controller:8090 --api-key-file ~/node.cer --api-key-id "node"
+Testing connection to the controller...: Ok
+Testing connection to the registry...: Ok
+Success!
+Anka Cloud Cluster join success
+```
 
 <!-- 
 ### Controller Permissions

@@ -9,7 +9,7 @@ weight: 100
 
 ### 1.38.0 (1.38.0-XXX) - XXXXth, 2023
 
-- **New Feature:** [Resource Permissions for Permission Groups]({{< relref "whats-new/build-cloud-1.38.0/index.md#resource-permissions-for-permission-groups" >}})
+- **New Feature:** Resource Permissions for Permission Groups. We have a [new Authorization guide]({{< relref "anka-build-cloud/Advanced Security Features/authorization.md" >}}) you can read over to understand how this feature works.
 - (Required ETCD Version: 3.5.7)
 
 ---

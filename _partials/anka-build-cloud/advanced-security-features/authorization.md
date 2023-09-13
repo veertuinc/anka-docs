@@ -1,13 +1,34 @@
 ---
 ---
-Authorization allows you to control access to specific actions/endpoints of the API, and even specific resources like Nodes and Templates in your Controller and Registry. It has two features that are important to understand:
 
-1. **Permission Groups**
-1. **Resource Permissions**
+Authorization allows you to control access to specific actions/endpoints of the API, and even specific resources like Nodes and Templates in your Controller and Registry. It has four parts to it that are important to understand:
 
-You can think of **Permission Groups** (or just "Groups") as the wrapper for all permissions. Therefore, **Resource Permissions** are a dependent on **Permission Groups**. You can enable **Permission Groups** without **Resource Permissions**, but cannot have it the other way.
+- **Groups**
+    - **Permissions**
+    - **Resources**
+      - **Permissions**
 
-To enable Authorization features, you'll need to ensure that both `ANKA_ENABLE_AUTH` and `ANKA_ROOT_TOKEN` ENVs are set in your Controller & Registry config and you're familiar with one of the existing [Authentication]({{< relref "anka-build-cloud/Advanced Security Features/_index.md#authentication" >}}) methods. You then log into your Controller using the Root Token (or as you'll see later on, a credential/group that can modify permissions).
+**Groups** are the wrappers for all Permissions and Resources. You'll attach Groups to the [Authentication]({{< relref "anka-build-cloud/Advanced Security Features/_index.md#authentication" >}}) credentials to enable certain access.
+
+**Permissions** are given to allow a credential access to perform a specific action, like listing all running VM Instances.
+
+**Resources** limit which Nodes and Templates the credential can see, start VMs on, as well as the Permissions for each specific Resource. As an example, these Resource Permissions allow an admin to prevent a specific Group from deleting a Node from the cloud, yet allow changes to its config, and more.
+
+Permissions and Resources are dependent on Groups. However, Resource Management is optional. If disabled, all Resources (and Resource Permissions) are available to the credential.
+
+After a Group is created, you'll assign it to a specific credential. The credential can have one or more Groups attached and it's important you consider how much access for each group you need to provide for the use-case and security. 
+
+In this guide we will start with the most common use-case of Sharing Nodes, then explain how to isolate Nodes per team (similar to how the older Node Groups worked).
+
+#### Prerequisites
+
+To enable Authorization features, you'll need to ensure that both `ANKA_ENABLE_AUTH` and `ANKA_ROOT_TOKEN` ENVs are set in your Controller & Registry config and you're familiar with one of the existing [Authentication]({{< relref "anka-build-cloud/Advanced Security Features/_index.md#authentication" >}}) methods. Then, turn Authorization on Controller and Registry configuration:
+
+- `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` works for both combined (macOS) and standalone (docker) packages.
+- `ANKA_ENABLE_REGISTRY_AUTHORIZATION` is for the macOS combined (controller + registry in one) package only.
+- `ANKA_ENABLE_AUTHORIZATION` is only for the standalone (macOS or docker) registry packages.
+
+You then log into your Controller using the Root Token and access the `https://<controller address>/#/permission-groups` page.
 
 {{< hint warning >}}
 Do not confuse Node Groups with Permission Groups.
