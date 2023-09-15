@@ -1,20 +1,20 @@
 ---
 ---
 
-Authorization allows you to control access to specific actions/endpoints of the API, and even specific resources like Nodes and Templates in your Controller and Registry. It has four parts to it that are important to understand:
+Authorization allows you to control access to specific actions/endpoints of the API and even specific Resources like Nodes and Templates in your Controller and Registry. It has four parts to it that are important to understand:
 
 - **Groups**
     - **Permissions**
     - **Resources**
       - **Permissions**
 
-**Groups** are the wrappers for all Permissions and Resources. You'll attach Groups to the [Authentication]({{< relref "anka-build-cloud/Advanced Security Features/_index.md#authentication" >}}) credentials to enable certain access.
+**Groups** are the wrappers for all Permissions and Resources. You attach a Groups to a [Authentication]({{< relref "anka-build-cloud/Advanced Security Features/_index.md#authentication" >}}) credential to enable certain access.
 
-**Permissions** are given to allow a credential access to perform a specific action, like listing all running VM Instances.
+**Permissions** are given to allow a credential access to perform a specific action, like listing or creating a VM Instances.
 
 **Resources** limit which Nodes and Templates the credential can see, start VMs on, as well as the Permissions for each specific Resource. As an example, these Resource Permissions allow an admin to prevent a specific Group from deleting a Node from the cloud, yet allow changes to its config, and more.
 
-Permissions and Resources are dependent on Groups. However, Resource Management is optional. If disabled, all Resources (and Resource Permissions) are available to the credential.
+Permissions and Resources are dependent on Group. However, Resource Management is optional. If disabled, all Resources (and Resource Permissions) are available to all credentials.
 
 After a Group is created, you'll assign it to a specific credential. The credential can have one or more Groups attached and it's important you consider how much access for each group you need to provide for the use-case and security. 
 

@@ -31,7 +31,6 @@ In the previous section on Permissions, we joined a Node using a credential with
 These permissions must be added through the root user (using the root token).
 {{< /hint >}}
 
-
 1. Create two groups: `ios` and `instance-control`.
 
 2. Under the `ios` Group > Resources, add the Template Resource you want this team to access. The bare minimum permissions are seen in the image below.
