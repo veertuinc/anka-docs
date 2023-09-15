@@ -18,7 +18,7 @@ Permissions and Resources are dependent on Group. However, Resource Management i
 
 After a Group is created, you'll assign it to a specific credential. The credential can have one or more Groups attached and it's important you consider how much access for each Group you need to provide for your use-case and security requirements.
 
-In this guide we will start with the most common use-case of Sharing Nodes, then explain how to isolate Nodes per team (similar to how the older Node Groups worked).
+In this guide we will start with the most common use-case of sharing Node between multiple teams (Groups), then explain how to isolate Nodes per team (similar to how the older Node Groups worked) later on.
 
 #### Prerequisites
 
