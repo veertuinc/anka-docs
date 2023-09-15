@@ -22,17 +22,16 @@ In this guide we will start with the most common use-case of sharing Node betwee
 
 #### Prerequisites
 
-To enable Authorization features, you'll need to ensure that both `ANKA_ENABLE_AUTH` and `ANKA_ROOT_TOKEN` ENVs are set in your Controller & Registry config and you're familiar with one of the existing [Authentication]({{< relref "anka-build-cloud/Advanced Security Features/_index.md#authentication" >}}) methods. Then, turn Authorization on Controller and Registry configuration:
+To enable Authorization features, you'll need to ensure:
 
-- `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` works for both combined (macOS) and standalone (docker) packages.
-- `ANKA_ENABLE_REGISTRY_AUTHORIZATION` is for the macOS combined (controller + registry in one) package only.
-- `ANKA_ENABLE_AUTHORIZATION` is only for the standalone (macOS or docker) registry packages.
+1. That both `ANKA_ENABLE_AUTH` and `ANKA_ROOT_TOKEN` ENVs are set in your Controller & Registry config. You're also familiar with one of the existing [Authentication]({{< relref "anka-build-cloud/Advanced Security Features/_index.md#authentication" >}}) methods and have one set up.
+1. Authorization ENVs are enabled for the Controller and Registry configuration:
 
-You then log into your Controller using the Root Token and access the `https://<controller address>/#/permission-groups` page.
+    - `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` works for both combined (macOS) and standalone (docker) packages.
+    - `ANKA_ENABLE_REGISTRY_AUTHORIZATION` is for the macOS combined (controller + registry in one) package only.
+    - `ANKA_ENABLE_AUTHORIZATION` is only for the standalone (macOS or docker) registry packages.
 
-{{< hint warning >}}
-Do not confuse Node Groups with Permission Groups.
-{{< /hint >}}
+This should expose the `https://<controller address>/#/permission-groups` page in your Controller.
 
 {{< hint warning >}}
 License Considerations: These features are only available for Enterprise tier licenses. 

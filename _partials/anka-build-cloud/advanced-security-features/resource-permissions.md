@@ -7,28 +7,16 @@
 Node Groups are disabled while Resource Management is enabled.
 {{< /hint >}}
 
-{{< hint warning >}}
-Resource Management "Groups" differ from the Node Groups you may already be familiar with.
-{{< /hint >}}
-
-{{< hint warning >}}
-Node Groups are disabled while Resource Management is enabled.
-{{< /hint >}}
-
 The Resource Permissions feature is enabled by setting **ANKA_ENABLE_RESOURCE_MANAGEMENT** to **true** in your configuration. Once enabled, it unlocks the Resources tab under **/permission-groups**.
 
-Within Resources you will be able to, depending on the Component selected, add specific Nodes or Templates to the Group.
-
-Once added, you will be able to set the Resource Permissions, allowing you to limit the Group to certain actions that can be performed against the Resource. An example of this is allowing the iOS team/group to distribute specific Templates to specific Nodes, but not create VM Instances or delete the Node.
+Within Resources you will be able to, depending on the Component selected, add specific Nodes or Templates to the Group. This limits the Group to certain actions that can be performed against the Resource. An example of this is allowing the iOS team/group to distribute specific Templates to specific Nodes, but not create VM Instances or delete the Node.
 
 {{< imgwithlink src="images/anka-build-cloud/advanced-security-features/resources-basic.png" >}}
 
-In the previous section on Permissions, we joined a Node using a credential with the Permission Group of `node` attached. This Group only has permissions to perform the minimum required actions to run as an Anka Node and communicate with the Controller. We did not add Resources to it though (even though we technically could) so we can instead have team specific Groups with specific resources assigned.
+In the [previous section on Permissions](#permission-groups), we joined a Node using a credential with the Permission Group of `node` attached. This Group only has Permissions to perform the minimum required actions to run as an Anka Node and communicate with the Controller. We *did not* add Resources to it though (even though we technically could) so we can instead have team specific Groups. This is the first recommendation method of grouping permissions: Each team gets only Resources assigned to their Group, and other Groups handle the ability to request certain information from and perform actions to the Controller and Registry.
 
-**It's important to understand that a credential, like a UAK or a certificate, should only ever be used by a specific user and client.** You wouldn't ever want to share the Node credential with a team for example. Create a second credential for that team, then in order for the Node to be able to access the team's credential, add the team's Group to the Node credential.
-
-{{< hint info >}}
-These permissions must be added through the root user (using the root token).
+{{< hint warning >}}
+**It's important to understand that a single credential, like a [UAK]({{< relref "anka-build-cloud/Advanced Security Features/uak-tap-authentication.md" >}}) or a [Certificate]({{< relref "anka-build-cloud/Advanced Security Features/certificate-authentication.md" >}}), should only ever be used by a specific user and client.** You wouldn't ever want to share the Node credential with a team for example. Create a second credential for that team, then in order for the Node to be able to access the team's credential, add the team's Group to the Node credential.
 {{< /hint >}}
 
 1. Create two groups: `ios` and `instance-control`.
