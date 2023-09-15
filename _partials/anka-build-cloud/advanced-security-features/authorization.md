@@ -16,7 +16,7 @@ Authorization allows you to control access to specific actions/endpoints of the 
 
 Permissions and Resources are dependent on Group. However, Resource Management is optional. If disabled, all Resources (and Resource Permissions) are available to all credentials.
 
-After a Group is created, you'll assign it to a specific credential. The credential can have one or more Groups attached and it's important you consider how much access for each group you need to provide for the use-case and security.
+After a Group is created, you'll assign it to a specific credential. The credential can have one or more Groups attached and it's important you consider how much access for each Group you need to provide for your use-case and security requirements.
 
 In this guide we will start with the most common use-case of Sharing Nodes, then explain how to isolate Nodes per team (similar to how the older Node Groups worked).
 
