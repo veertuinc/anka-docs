@@ -29,7 +29,7 @@ In the [previous section on Permissions](#permission-groups), we joined a Node u
 
 {{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-instance-control-perms.png" >}}
 
-2. Now create a new credential named `service-user` and attach those two groups. We'll use [UAKs]({{< relref "anka-build-cloud/Advanced Security Features/uak-tap-authentication.md" >}}) for this example. There is no need for the `service-user` to have its own group as it will get the VM start and terminate permissions from `instance-control` group and Template/Node permissions from the `ios` group.
+2. Now create a *new credential* (not Group) named `service-user` and attach those two groups. We'll use [UAKs]({{< relref "anka-build-cloud/Advanced Security Features/uak-tap-authentication.md" >}}) for this example. There is no need for the `service-user` to have its own group as it will get the VM start and terminate permissions from `instance-control` group and Template/Node permissions from the `ios` group.
 
 3. Attach the group `ios` to the `node` credential we created in the previous section and joined our node with so that that it can also collect information about the Template in order to start the VM Instance properly (it checks the download size of the template before pulling). Your UAK setup should look something like this image.
 
