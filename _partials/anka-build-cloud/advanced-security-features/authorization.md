@@ -3,16 +3,17 @@
 
 Authorization allows you to control access to specific actions/endpoints of the API and even specific Resources like Nodes and Templates in your Controller and Registry. It has four parts to it that are important to understand:
 
-- **Groups**
+- **Component**
+  - **Groups**
     - **Permissions**
     - **Resources**
       - **Permissions**
 
 **Groups** are the wrappers for all Permissions and Resources. You attach a Groups to a [Authentication]({{< relref "anka-build-cloud/Advanced Security Features/_index.md#authentication" >}}) credential to enable certain access.
 
-**Permissions** are given to allow a credential access to perform a specific action, like listing or creating a VM Instances.
+**Permissions** are given to allow a credential access to perform a specific action, like listing or creating a VM Instances. Because these control general access to the API to make calls, it overrides any Resource Permissions.
 
-**Resources** limit which Nodes and Templates the credential can see, start VMs on, as well as the Permissions for each specific Resource. As an example, these Resource Permissions allow an admin to prevent a specific Group from deleting a Node from the cloud, yet allow changes to its config, and more.
+**Resources** limit which Nodes and Templates the credential can see, start VMs on, as well as the Permissions for each specific Resource. As an example, these Resource Permissions allow an admin to prevent a specific Group from deleting a Node from the cloud, yet allow changes to its config, and more. It's critical to understand that if the Permission "Instance > Start" is not checked, the Resource Permissions for the Group allowing Create Instance won't matter as the credential has no access to make a Start VM API call.
 
 Permissions and Resources are dependent on Group. However, Resource Management is optional. If disabled, all Resources (and Resource Permissions) are available to all credentials.
 

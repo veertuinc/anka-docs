@@ -13,7 +13,7 @@ Within Resources you will be able to, depending on the Component selected, add s
 
 {{< imgwithlink src="images/anka-build-cloud/advanced-security-features/resources-basic.png" >}}
 
-In the [previous section on Permissions](#permission-groups), we joined a Node using a credential with the Permission Group of `node` attached. This Group only has Permissions to perform the minimum required actions to run as an Anka Node and communicate with the Controller. We *did not* add Resources to it though (even though we technically could) so we can instead have team specific Groups. This is the first recommendation method of grouping permissions: Each team gets only Resources assigned to their Group, and other Groups handle the ability to request certain information from and perform actions to the Controller and Registry.
+In the [previous section on Permissions](#permission-groups), we joined a Node using a credential with the Permission Group of `node` attached. This Group only has Permissions to perform the minimum required actions to run as an Anka Node and communicate with the Controller. We *did not* add Resources to it though (even though we technically could) so we can instead have team specific Groups. This is the first recommended method of grouping permissions: Each team gets only Resources assigned to their Group, and other Groups handle the ability to request certain information from and perform actions to the Controller and Registry.
 
 {{< hint warning >}}
 **It's important to understand that a single credential, like a [UAK]({{< relref "anka-build-cloud/Advanced Security Features/uak-tap-authentication.md" >}}) or a [Certificate]({{< relref "anka-build-cloud/Advanced Security Features/certificate-authentication.md" >}}), should only ever be used by a specific user and client.** You wouldn't ever want to share the Node credential with a team for example. Create a second credential for that team, then in order for the Node to be able to access the team's credential, add the team's Group to the Node credential.
@@ -36,6 +36,16 @@ In the [previous section on Permissions](#permission-groups), we joined a Node u
 {{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-uak-service-user-list.png" >}}
 
 We can now use `service-user` in our CI/CD tools to communicate with the Controller when an `ios` team member triggers a job and that job requests a VM Instance to run the job commands inside of. When the `service-user` makes an API call to start a VM Instance, it will pass in the `ios` group, as that group has access to the template being targeted.
+
+#### What about grouping Nodes?
+
+The method described above works well for sharing the same nodes amongst all teams in an organization. But what if you want to isolate specific nodes to specific teams? Node Groups are disabled when 
+
+
+
+
+
+
 
 ##### Answers to Frequently Asked Questions
 
