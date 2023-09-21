@@ -37,9 +37,12 @@ In the [previous section on Permissions](#permission-groups), we joined a Node u
 
 We can now use `service-user` in our CI/CD tools to communicate with the Controller when an `ios` team member triggers a job and that job requests a VM Instance to run the job commands inside of. When the `service-user` makes an API call to start a VM Instance, it will pass in the `ios` group, as that group has access to the template being targeted.
 
-#### What about grouping Nodes?
+#### Node Groups
 
-The method described above works well for sharing the same nodes amongst all teams in an organization. But what if you want to isolate specific nodes to specific teams? Node Groups are disabled when 
+The method described above works well for sharing the same nodes amongst all teams in an organization. But what if you want to isolate specific nodes to specific teams? Node Groups are disabled when Resource Permissions are enabled, but that should make sense to you by now in this guide as Node access/permissions are now bound to a specific Group and then a specific credential.
+
+
+
 
 
 
