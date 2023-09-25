@@ -476,8 +476,8 @@ ram            | int    | Amount of RAM in GB
 vm_count       | int    | Number of VMs currently running
 vcpu_count     | int    | Number of running virtual CPUs
 vram           | int    | Amount of virtual RAM used
-cpu_util       | float  | CPU utilization (0-1)
-ram_util       | float  | RAM utilization (0-1)
+cpu_util       | float  | CPU utilization of currently running Instances (0.0-1.0)
+ram_util       | float  | RAM utilization of currently running Instances (0.0-1.0)
 ip_address     | string | The IP address or host name of the node
 state          | string | State of the node values can be "Offline", "Inactive (Invalid License)", "Active", "Updating", "Unhealthy"
 capacity       | int    | Number of VMs the node can run
