@@ -42,6 +42,58 @@ We can now use `service-user` in our CI/CD tools to communicate with the Control
 The method described above works well for sharing the same nodes amongst all teams in an organization. But what if you want to isolate specific nodes to specific teams? Node Groups are disabled when Resource Permissions are enabled, but that should make sense to you by now in this guide as Node access/permissions are now bound to a specific Group and then a specific credential.
 
 
+Scenario 1: Shared node credential, limited by templates
+	- one credential for each node to join
+	- one group 'node' for the node credential
+	- all team groups are added to the nodes (node,ios,android)
+	- a team specific credential is created to make API calls with (service_user,ios)
+	- node1 with UAK node(node,ios,android)
+	- node2 with UAK node(node,ios,android)
+	- node3 with UAK node(node,ios,android)
+	- UAK ios_su(service_user,ios)
+	- UAK android_su(service_user,android)
+
+Scenario 2: Shared node credential, limited by nodes
+	- node1 with UAK node(node,ios,android)
+	- node2 with UAK node(node,ios,android)
+	- node3 with UAK node(node,ios,android)
+	*Currently not supported*
+
+Scenario 3: Shared node credential, full access
+	- node1 with UAK node(node,all-templates)
+	- node2 with UAK node(node,all-templates)
+	- node3 with UAK node(node,all-templates)
+	- UAK ios_su(service_user,all-templates)
+	- UAK android_su(service_user,all-templates)
+	*You don't need Resource Management at all for this*
+
+Scenario 4: Shared nodes, but only between specific teams
+	- node1 with UAK team1_nodes(node,team1)
+	- node2 with UAK team2_nodes(node,team1,team2,team3)
+	- node3 with UAK team3_nodes(node,team3)
+	- UAK team1_su(service_user,team1)
+	- UAK team2_su(service_user,team2)
+	- UAK team3_su(service_user,team3)
+
+Scanario 5: Dynamically shared nodes
+	- node1 with UAK team1_nodes(node,team1)
+	- node2 with UAK team2_nodes(node,team2)
+	- node3 with UAK team3_nodes(node,team3)
+	- node4 with UAK dynamic_nodes(node)
+	- node5 with UAK dynamic_nodes(node)
+	- node6 with UAK dynamic_nodes(node)
+	- UAK team1_su(service_user,team1)
+	- UAK team2_su(service_user,team2)
+	- UAK team3_su(service_user,team3)
+	Modify dynamic_nodes UAK to add the specific team group that should get the extra capacity.
+
+Scenario 6: No shared nodes
+	- node1 with UAK team1_nodes(node,team1)
+	- node2 with UAK team2_nodes(node,team2)
+	- node3 with UAK team3_nodes(node,team3)
+	- UAK team1_su(service_user,team1)
+	- UAK team2_su(service_user,team2)
+	- UAK team3_su(service_user,team3)
 
 
 

@@ -1,11 +1,10 @@
 ---
 ---
 
-#### Permission Groups
-
+#### Group Permissions
 
 {{< hint warning >}}
-Do not confuse Node Groups with Permission Groups.
+Do not confuse Node Groups with Group Permissions.
 {{< /hint >}}
 
 Under the Permissions section of the Controller UI (`https://<controller address>/#/permission-groups`), let's create a group for our nodes to be able to connect.
@@ -87,9 +86,9 @@ Anka Cloud Cluster join success
 | `get_config` | gives the user permission to view global configuration |
 | **Permissions and groups** | |
 | `view_permissions` | gives the user permission to view the list of available permissions |
-| `view_prmission_groups` | gives the user permission to view permission groups |
-| `update_permission_groups` | gives the user permission to update permission groups |
-| `delete_permission_groups` | gives the user permission to delete permission groups |
+| `view_prmission_groups` | gives the user permission to view Group Permissions |
+| `update_permission_groups` | gives the user permission to update Group Permissions |
+| `delete_permission_groups` | gives the user permission to delete Group Permissions |
 
 ### Registry Permissions
 
@@ -120,6 +119,6 @@ Anka Cloud Cluster join success
 | `send_log` | gives the user permission to send a log file row |
 | **Permissions and groups** | |
 | `view_permissions` | gives the user permission to view the list of available permissions |
-| `view_prmission_groups` | gives the user permission to view permission groups |
-| `update_permission_groups` | gives the user permission to update permission groups |
-| `delete_permission_groups` | gives the user permission to delete permission groups | -->
+| `view_prmission_groups` | gives the user permission to view Group Permissions |
+| `update_permission_groups` | gives the user permission to update Group Permissions |
+| `delete_permission_groups` | gives the user permission to delete Group Permissions | -->
