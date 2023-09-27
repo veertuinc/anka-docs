@@ -116,7 +116,7 @@ Anka allows you to create VMs for the following macOS versions:
 {{< /hint >}}
 
 {{< hint warning >}}
-**ARM USERS:** Creating macOS 14.x or higher VMs requires that Xcode >= 15.0 OR the Device Support package is installed on the host (not in the VM). This is a requirement from Apple at the moment.
+**ARM USERS:** Creating macOS 14.x or higher VMs requires that Xcode >= 15.0 OR the Device Support package is installed on the host (not in the VM). Alternatively, you can install the Device Support Image/pkg Apple provides. This is a requirement from Apple at the moment.
 
 There is also a rare problem where your Xcode is not fully set up and still creates problems. Be sure to run the following:
 
