@@ -11,7 +11,7 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
-### 3.3.5 (3.3.5.171) - Sep 12th 2023
+### 3.3.6 (3.3.6.172) - Oct 10th 2023
 
 {{< hint info >}}
 - Addons upgrading is not required.
@@ -29,15 +29,24 @@ ARM issues:
 
 {{< /hint >}}
 
+- **Improvement:** Support for Sonoma Host OS.
+- **Improvement:** Stability / Support for Sonoma VM creation.
 - **Improvement:** Pulls from registry will now handle downloads that get interrupted better to avoid `failed to checkout: Input/output error` and other corrupt .ank file problems.
-- **Improvement:** More support for Sonoma VM creation AND Sonoma host OS.
+- **Bug Fix:** Preventing rare `maximum number of running instances exceeded` errors when starting VMs.
+- **Bug Fix:** Fix for `process early exit status 6`/`failed to connect: No such file or directory`.
+- **Bug Fix:** `hypervisor failed with status 256`/`failed to start: No child processes`/`ankanetd` hanging and blocking VM starts.
+- **Bug Fix:** `anka delete` would rarely hang.
+- **Bug Fix:** `anka clone -c` was not creating a fully unique copy (intel).
 - **Bug Fix:** Both `--machine-readable` and `--debug` can be used at the same time. Note: JSON will go to STDOUT while debug to STDERR.
 - **Bug Fix:** VMs which lose networking for whatever reason will now change to the proper failed state.
 - **Bug Fix:** VM networking would suddenly fail (`ankanetd` would crash) under high CPU conditions with `ankanet: 22: network connection closed`
 - **Bug Fix:** VM image chains were growing too large. This should prevent max file descriptor issues. We've also added an increase to the `maxfiles` for the hosts running Anka which should help existing customers with larger chains avoid failures.
 - **Bug Fix:** Fixed problems with 10.13 and 10.14 networking running 2.5.6 addons.
 
+
 ## Previous Versions
+
+### 3.3.5  (retracted; production impacting bugs)
 
 ### 3.3.4 (3.3.4.169) - July 26th 2023
 
