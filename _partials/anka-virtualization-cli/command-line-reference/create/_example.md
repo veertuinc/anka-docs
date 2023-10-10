@@ -34,7 +34,7 @@ You can bring you own `.ipsw` and `.app` files to use with `anka create`. This i
   . . .
   ```
 
-##### 3. The URL to download the `ipsw` or `.app` from
+##### 3. The URL to download the `ipsw` from (.app not supported)
 
   ```bash
   bash$ anka create --cpu-count 5 --disk-size 100G 12.5.1 https://myCompanyIntranet/UniversalMac_13.1_22C65_Restore.ipsw
