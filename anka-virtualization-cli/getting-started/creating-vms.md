@@ -128,7 +128,7 @@ done
 {{< /hint >}}
 
 {{< hint warning >}}
-**ARM USERS:** Creating macOS 14.x or higher VMs requires that Xcode >= 15.0. This is a requirement from Apple at the moment.
+**ARM USERS:** Creating macOS 14.x or higher VMs requires that Xcode >= 15.0. Alternatively, you can install the Device Support Image/dmg Apple provides. This is a requirement from Apple at the moment.
 {{< /hint >}}
 
 {{< hint warning >}}
