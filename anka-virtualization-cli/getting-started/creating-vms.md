@@ -67,7 +67,7 @@ Anka allows you to create VMs for the following macOS versions:
   <tr>
     <td style="vertical-align: middle"><b>macOS 14.x</b></td>
     <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
-    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
 </tbody>
 </table>
@@ -127,6 +127,10 @@ for PKG in $(/bin/ls /Applications/Xcode.app/Contents/Resources/Packages/*.pkg);
     sudo /usr/sbin/installer -pkg "$PKG" -target /
 done
 ```
+{{< /hint >}}
+
+{{< hint warning >}}
+**ARM USERS:** Creating macOS 14.x or higher VMs requires that Xcode >= 15.0. Alternatively, you can install the Device Support Image/dmg Apple provides. This is a requirement from Apple at the moment.
 {{< /hint >}}
 
 {{< hint warning >}}
