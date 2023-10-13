@@ -39,7 +39,34 @@ We can now use `service-user` in our CI/CD tools to communicate with the Control
 
 #### Node Groups
 
-The method described above works well for sharing the same nodes amongst all teams in an organization. But what if you want to isolate specific nodes to specific teams? Node Groups are disabled when Resource Permissions are enabled, but that should make sense to you by now in this guide as Node access/permissions are now bound to a specific Group and then a specific credential.
+The method described above works well for sharing the same nodes amongst all teams in an organization. But what if you want to isolate specific nodes to specific teams? Node Groups are disabled when Resource Permissions are enabled, but that should make sense to you by now as Node access/permissions are now bound to a specific Group + a specific credential. There are are several other scenarios possible which we'll detail below.
+
+##### Scenario 1: Team Specific Anka Nodes
+
+This configuration allows isolating certain Nodes to certain teams. The service-user credential is necessary to make API calls. In the Controller > Instances page or the API the team member can now start VM Instances with the group `team1` (or 2, 3) and it will only start on the Nodes assigned to the team's group. This is due to the Resource Permission for the Node being attached to the team group.
+
+###### High Level Overview
+
+- Three Anka Nodes joined to the Controller.
+- Three "service user" credentials for teams to make API calls:
+  - UAK: **team1-su** | Groups attached: **service-user,team1**
+  - UAK: **team2-su** - Groups attached: **service-user,team2**
+  - UAK: **team3-su** - Groups attached: **service-user,team3**
+- Three Node credentials used to join:
+  - UAK: **team1-nodes** - Groups attached: **node,team1**
+  - UAK: **team2-nodes** - Groups attached: **node,team2**
+  - UAK: **team3-nodes** - Groups attached: **node,team3**
+- Group `service_user` has
+  - Permissions: **Instances, Nodes, and Distribute.**
+  - Resources:
+- Group `node` has
+  - Permissions: Recommended Node permissions (see UI).
+  - Resources:
+- Group `team1/team2/team3` has
+  - Permissions: None.
+  - Resources: The specific Node for the team.
+
+##### Scenario 2: 
 
 
 Scenario 1: Shared node credential, limited by templates
@@ -87,13 +114,6 @@ Scanario 5: Dynamically shared nodes
 	- UAK team3_su(service_user,team3)
 	Modify dynamic_nodes UAK to add the specific team group that should get the extra capacity.
 
-Scenario 6: No shared nodes
-	- node1 with UAK team1_nodes(node,team1)
-	- node2 with UAK team2_nodes(node,team2)
-	- node3 with UAK team3_nodes(node,team3)
-	- UAK team1_su(service_user,team1)
-	- UAK team2_su(service_user,team2)
-	- UAK team3_su(service_user,team3)
 
 
 
