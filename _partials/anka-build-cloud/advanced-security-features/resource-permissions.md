@@ -41,86 +41,95 @@ We can now use `service-user` in our CI/CD tools to communicate with the Control
 
 The method described above works well for sharing the same nodes amongst all teams in an organization. But what if you want to isolate specific nodes to specific teams? Node Groups are disabled when Resource Permissions are enabled, but that should make sense to you by now as Node access/permissions are now bound to a specific Group + a specific credential. There are are several other scenarios possible which we'll detail below.
 
+{{< hint warning >}}
+You cannot have a shared Node credential and also limit by Node Resources for specific teams.
+{{< /hint >}}
+
+
 ##### Scenario 1: Team Specific Anka Nodes
 
 This configuration allows isolating certain Nodes to certain teams. The service-user credential is necessary to make API calls. In the Controller > Instances page or the API the team member can now start VM Instances with the group `team1` (or 2, 3) and it will only start on the Nodes assigned to the team's group. This is due to the Resource Permission for the Node being attached to the team group.
 
 ###### High Level Overview
 
-- Three Anka Nodes joined to the Controller.
-- Three "service user" credentials for teams to make API calls:
-  - UAK: **team1-su** | Groups attached: **service-user,team1**
-  - UAK: **team2-su** - Groups attached: **service-user,team2**
-  - UAK: **team3-su** - Groups attached: **service-user,team3**
+- Three Anka Nodes joined to the Controller, each with separate credentials.
 - Three Node credentials used to join:
   - UAK: **team1-nodes** - Groups attached: **node,team1**
   - UAK: **team2-nodes** - Groups attached: **node,team2**
   - UAK: **team3-nodes** - Groups attached: **node,team3**
-- Group `service_user` has
-  - Permissions: **Instances, Nodes, and Distribute.**
-  - Resources:
+- Three "service user" credentials for teams to make API calls:
+  - UAK: **team1-su** | Groups attached: **service-user,team1**
+  - UAK: **team2-su** - Groups attached: **service-user,team2**
+  - UAK: **team3-su** - Groups attached: **service-user,team3**
 - Group `node` has
   - Permissions: Recommended Node permissions (see UI).
   - Resources:
+- Group `service_user` has
+  - Permissions: **Instances, Nodes, and Distribute.**
+  - Resources:
 - Group `team1/team2/team3` has
   - Permissions: None.
-  - Resources: The specific Node for the team.
+  - Resources: The specific Node (and other Resources) for the team.
 
-##### Scenario 2: 
+##### Scenario 2: Shared Anka Nodes / Teams limited by VM Template Resource Permissions
 
+This configuration allows all teams to share all Anka Node capacity, but only be able to start specific VMs from specific Templates Resources assigned to their team's Permission Group.
 
-Scenario 1: Shared node credential, limited by templates
-	- one credential for each node to join
-	- one group 'node' for the node credential
-	- all team groups are added to the nodes (node,ios,android)
-	- a team specific credential is created to make API calls with (service_user,ios)
-	- node1 with UAK node(node,ios,android)
-	- node2 with UAK node(node,ios,android)
-	- node3 with UAK node(node,ios,android)
-	- UAK ios_su(service_user,ios)
-	- UAK android_su(service_user,android)
+###### High Level Overview
 
-Scenario 2: Shared node credential, limited by nodes
-	- node1 with UAK node(node,ios,android)
-	- node2 with UAK node(node,ios,android)
-	- node3 with UAK node(node,ios,android)
-	*Currently not supported*
+- Three Anka Nodes joined to the Controller, each with the same credential.
+- Three Node credentials used to join:
+  - UAK: **nodes** - Groups attached: **node,team1,team2,team3**
+  - UAK: **nodes** - Groups attached: **node,team1,team2,team3**
+  - UAK: **nodes** - Groups attached: **node,team1,team2,team3**
+- Three "service user" credentials for teams to make API calls:
+  - UAK: **team1-su** | Groups attached: **service-user,team1**
+  - UAK: **team2-su** - Groups attached: **service-user,team2**
+  - UAK: **team3-su** - Groups attached: **service-user,team3**
+- Group `node` has
+  - Permissions: Recommended Node permissions (see UI).
+  - Resources: None.
+- Group `service_user` has
+  - Permissions: **Instances, Nodes, and Distribute.**
+  - Resources: None
+- Group `team1/team2/team3` has
+  - Permissions: None.
+  - Resources: The specific Template Resources for that team. No Nodes.
 
-Scenario 3: Shared node credential, full access
+<!-- Scenario 3: Shared node credential, full access
 	- node1 with UAK node(node,all-templates)
 	- node2 with UAK node(node,all-templates)
 	- node3 with UAK node(node,all-templates)
 	- UAK ios_su(service_user,all-templates)
 	- UAK android_su(service_user,all-templates)
-	*You don't need Resource Management at all for this*
+	*You don't need Resource Management at all for this* -->
 
-Scenario 4: Shared nodes, but only between specific teams
-	- node1 with UAK team1_nodes(node,team1)
-	- node2 with UAK team2_nodes(node,team1,team2,team3)
-	- node3 with UAK team3_nodes(node,team3)
-	- UAK team1_su(service_user,team1)
-	- UAK team2_su(service_user,team2)
-	- UAK team3_su(service_user,team3)
+##### Scenario 3: Team Specific Anka Nodes + Dynamic Nodes
 
-Scanario 5: Dynamically shared nodes
-	- node1 with UAK team1_nodes(node,team1)
-	- node2 with UAK team2_nodes(node,team2)
-	- node3 with UAK team3_nodes(node,team3)
-	- node4 with UAK dynamic_nodes(node)
-	- node5 with UAK dynamic_nodes(node)
-	- node6 with UAK dynamic_nodes(node)
-	- UAK team1_su(service_user,team1)
-	- UAK team2_su(service_user,team2)
-	- UAK team3_su(service_user,team3)
-	Modify dynamic_nodes UAK to add the specific team group that should get the extra capacity.
+This configuration allows teams to have specific nodes guaranteed, then admins to increase capacity by assigning the specific team's group to the nodes.
 
+###### High Level Overview
 
-
-
-
-
-
-
+- Four Anka Nodes joined to the Controller, each with separate credentials. Three get assign to specific teams, but the fourth can dynamically change to provide extra capacity to specific teams when needed.
+- Four Node credentials used to join:
+  - UAK: **team1-nodes** - Groups attached: **node,team1**
+  - UAK: **team2-nodes** - Groups attached: **node,team2**
+  - UAK: **team3-nodes** - Groups attached: **node,team3**
+  - UAK: **dynamic-nodes** - Groups attached: **node**
+    - Dynamically update this UAK's groups to add any team or teams that need the extra capacity
+- Three "service user" credentials for teams to make API calls:
+  - UAK: **team1-su** | Groups attached: **service-user,team1**
+  - UAK: **team2-su** - Groups attached: **service-user,team2**
+  - UAK: **team3-su** - Groups attached: **service-user,team3**
+- Group `node` has
+  - Permissions: Recommended Node permissions (see UI).
+  - Resources:
+- Group `service_user` has
+  - Permissions: **Instances, Nodes, and Distribute.**
+  - Resources:
+- Group `team1/team2/team3` has
+  - Permissions: None.
+  - Resources: The specific Node (and other Resources) for the team.
 
 ##### Answers to Frequently Asked Questions
 
