@@ -63,10 +63,10 @@ This configuration allows isolating certain Nodes to certain teams. The service-
   - UAK: **team3-su** - Groups attached: **service-user,team3**
 - Group `node` has
   - Permissions: Recommended Node permissions (see UI).
-  - Resources:
+  - Resources: None.
 - Group `service_user` has
   - Permissions: **Instances, Nodes, and Distribute.**
-  - Resources:
+  - Resources: None.
 - Group `team1/team2/team3` has
   - Permissions: None.
   - Resources: The specific Node (and other Resources) for the team.
@@ -91,7 +91,7 @@ This configuration allows all teams to share all Anka Node capacity, but only be
   - Resources: None.
 - Group `service_user` has
   - Permissions: **Instances, Nodes, and Distribute.**
-  - Resources: None
+  - Resources: None.
 - Group `team1/team2/team3` has
   - Permissions: None.
   - Resources: The specific Template Resources for that team. No Nodes.
@@ -123,10 +123,10 @@ This configuration allows teams to have specific nodes guaranteed, then admins t
   - UAK: **team3-su** - Groups attached: **service-user,team3**
 - Group `node` has
   - Permissions: Recommended Node permissions (see UI).
-  - Resources:
+  - Resources: None.
 - Group `service_user` has
   - Permissions: **Instances, Nodes, and Distribute.**
-  - Resources:
+  - Resources: None.
 - Group `team1/team2/team3` has
   - Permissions: None.
   - Resources: The specific Node (and other Resources) for the team.
