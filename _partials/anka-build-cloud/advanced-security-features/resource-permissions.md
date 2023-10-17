@@ -133,6 +133,6 @@ This configuration allows teams to have specific nodes guaranteed, then admins t
 
 ##### Answers to Frequently Asked Questions
 
-- The Nodes joined to the Controller must have Permissions to access the Template being used to start a VM.
+- The Nodes joined to the Controller must have Permissions to access the Template being used to start a VM. This mean at least one of the groups attached to a node credential must have the template resource attached.
 - Node Groups differ from Permissions Groups and are disabled when this feature is enabled.
 - Save Image requests can only target Instances that belong to a group the user has access to.
