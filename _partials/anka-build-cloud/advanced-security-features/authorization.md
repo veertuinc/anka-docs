@@ -16,7 +16,7 @@ Authorization allows you to control access to specific actions/endpoints of the 
 1. **Resources** limit which Nodes and Templates the credential can control.
 
     - **Resource Permissions** are given to a Resource, further limiting the Group's access per Resource. As an example, these Resource Permissions allow an admin to prevent a specific Group from deleting a Node from the cloud, yet allow changes to its config, and more. It's critical to understand that if the Groups Permission "Instances > Start" is not checked, the Resource Permissions for the Group allowing Create Instance won't matter as the credential has no access to make a Start VM API call.
-    - Group Permissions and Resources are dependent on Groups. However, Resource Management, which enables Resource control, is optional. If disabled, all Resources (and Resource Permissions) are available to all credentials.
+    - Resource Management, which enables Resource control, is optional. If disabled, all Resources (and Resource Permissions) are available to all credentials.
 
 After a Group is created, you'll assign it to a specific credential. The credential can have one or more Groups attached and it's important you consider how much access for each Group you need to provide for your use-case and security requirements.
 
@@ -27,14 +27,14 @@ In this guide we will start with the most common use-case of sharing Node betwee
 To enable Authorization features, you'll need to ensure:
 
 1. That both `ANKA_ENABLE_AUTH` and `ANKA_ROOT_TOKEN` ENVs are set in your Controller & Registry config. You're also familiar with one of the existing [Authentication]({{< relref "anka-build-cloud/Advanced Security Features/_index.md#authentication" >}}) methods and have one set up.
-1. **Groups Permissions** are enabled by configuring the following ENVs:
+1. **Groups + Group Permissions** are enabled by enabling Authorization. The following ENVs can be added to your config to achieve this:
 
     - `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` (boolean) works for both combined (macOS) and standalone (docker) packages.
     - `ANKA_ENABLE_REGISTRY_AUTHORIZATION` (boolean) is for the macOS combined (controller + registry in one) package only.
     - `ANKA_ENABLE_AUTHORIZATION` (boolean) is only for the standalone (macOS or docker) registry packages.
 
     This should expose the `https://<controller address>/#/permission-groups` page in your Controller.
-1. **Resources Permissions** are enabled by setting **ANKA_ENABLE_RESOURCE_MANAGEMENT** to **true** in your configuration.
+1. **Resource Permissions** are enabled by setting **ANKA_ENABLE_RESOURCE_MANAGEMENT** to **true** in your configuration.
 
 
 {{< hint warning >}}
