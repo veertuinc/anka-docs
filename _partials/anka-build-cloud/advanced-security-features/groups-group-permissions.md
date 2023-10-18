@@ -1,10 +1,10 @@
 ---
 ---
 
-#### Group Permissions
+#### Groups + Group Permissions
 
 {{< hint warning >}}
-Do not confuse Node Groups with Group Permissions.
+Do not confuse Node Groups with Groups/Group Permissions.
 {{< /hint >}}
 
 Under the Permissions section of the Controller UI (`https://<controller address>/#/permission-groups`), let's create a group for our nodes to be able to connect.

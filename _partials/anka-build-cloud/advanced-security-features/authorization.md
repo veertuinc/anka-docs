@@ -43,6 +43,6 @@ License Considerations: These features are only available for Enterprise tier li
 - However, Enterprise Plus customers will be able to use **Permission Groups** and Resources to have more fine-grained control over access.
 {{< /hint >}}
 
-{{< include file="_partials/anka-build-cloud/advanced-security-features/permission-groups.md" >}}
+{{< include file="_partials/anka-build-cloud/advanced-security-features/groups-group-permissions.md" >}}
 
-{{< include file="_partials/anka-build-cloud/advanced-security-features/resource-permissions.md" >}}
+{{< include file="_partials/anka-build-cloud/advanced-security-features/resources-resource-permissions.md" >}}
