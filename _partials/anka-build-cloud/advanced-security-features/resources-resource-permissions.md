@@ -39,7 +39,7 @@ This is the first recommended method of grouping permissions: Each team gets onl
 
 {{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-uak-service-user-list.png" >}}
 
-We can now use `service-user` in our CI/CD tools to communicate with the Controller when an `ios` team member triggers a job and that job requests a VM Instance to run the job commands inside of. When the `service-user` makes an API call to start a VM Instance, it will pass in the `ios` group, as that group has access to the template being targeted.
+We can now use the `service-user` credential in your CI/CD tools to communicate with the Controller when an `ios` team member triggers a job. When the `service-user` credential makes an API call to start a VM Instance, it will pass in the `ios` group. That `ios` group has access to the template being targeted and is required.
 
 #### Node Groups
 
