@@ -43,7 +43,7 @@ We can now use the `service-user` credential in your CI/CD tools to communicate 
 
 #### Node Groups
 
-The method described above works well for sharing the same nodes amongst all teams in an organization. But what if you want to isolate specific nodes to specific teams? Node Groups are disabled when Resource Permissions are enabled, but that should make sense to you by now as Node access/permissions are now bound to a specific Group + a specific credential. There are are several other scenarios possible which we'll detail below.
+The method described above works well for sharing the same nodes amongst all teams in an organization. But what if you want to isolate specific nodes to specific teams? Node Groups are disabled when Resource Management is enabled, but that should make sense to you by now as Node access/permissions are now bound to a specific Group + a specific credential. There are are several other scenarios possible which we'll detail below.
 
 {{< hint warning >}}
 You cannot have a shared Node credential and also limit by Node Resources for specific teams.
