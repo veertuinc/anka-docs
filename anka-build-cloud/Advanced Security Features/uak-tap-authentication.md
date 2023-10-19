@@ -57,8 +57,8 @@ Anka Cloud Cluster join success
 
 There are several important points to know about Controller -> Registry communication when using UAKs.
 
-- The Controller UI will use the same credentials that you use when logged into the UI to make Registry calls for Templates, Logs, and status.
-- However, starting VM instances does not use your UI session. You need to give a credential to the Controller to use.
+- The Controller UI will use the Root Token that you use when logged into the UI (usually the root token if not using OpenID) to make Registry calls for Templates, Logs, and status.
+- However, starting VM Instances does not use your UI session. You need to give a credential to the Controller to use.
 
 ---
 
