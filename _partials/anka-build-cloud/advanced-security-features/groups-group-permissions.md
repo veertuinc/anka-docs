@@ -1,29 +1,56 @@
 ---
 ---
 
-By default, Authentication methods (enabled with `ANKA_ENABLE_AUTH`) will not use Authorization/permissions and allow any credential to connect to all API endpoints or pages in the UI. In order to enable Authorization, you will need to include specific ENVs in your config:
-
-- `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` works for both combined and standalone (docker) packages.
-- `ANKA_ENABLE_AUTHORIZATION` is only for the standalone (native or docker) registry packages.
-- `ANKA_ENABLE_REGISTRY_AUTHORIZATION` is for the combined (controller + registry in one binary) package only.
+#### Groups + Group Permissions
 
 {{< hint warning >}}
-**This feature requires Enterprise Plus.** The regular enterprise license automatically adds all permissions to each certificate or token that is used and gives no control over them.
+Do not confuse Node Groups with Groups/Group Permissions.
 {{< /hint >}}
+
+Under the Permissions section of the Controller UI (`https://<controller address>/#/permission-groups`), let's create a group for our nodes to be able to connect.
+
+1. First choose the Controller Component from the drop down.
+
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-choose-component.png" >}}
+
+2. Next, create a new group named `node` by clicking the [+] button.
+
+3. You can now target and add specific **Permissions** or **Resources** for the Group. Click the circular (💻) icon on the right to highlight what permission should be set for Nodes to communicate with the Controller. Then check/enable the highlighted permissions and click Save Permissions at the bottom of the page. *Important:* Finally, do the same but under the Registry Component.
 
 {{< hint warning >}}
-This also requires that you've enabled [Root Token Authentication]({{< relref "anka-build-cloud/Advanced Security Features/root-token-authentication.md" >}}), giving you super user access to the controller UI and permissions.
+Note: We'll *not* be setting **Resources** right now.
 {{< /hint >}}
 
-{{< hint warning >}}
-Do not confuse Node Groups with Permission Groups.
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-highlight-node-perms.png" >}}
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-set-perms.png" >}}
+
+4. The group can now be attached to a specific [Authentication Credential]({{< relref "anka-build-cloud/Advanced Security Features/_index.md#authentication" >}}) and the credential used to access and perform the permitted actions. For example, create a [UAK]({{< relref "anka-build-cloud/Advanced Security Features/uak-tap-authentication.md" >}}) and attach the group.
+
+{{< hint info >}}
+Be sure to download the key if you're creating a new UAK.
 {{< /hint >}}
 
-#### Permission Groups
+{{< rawhtml >}}<center>{{< /rawhtml >}}
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-set-group-on-uak.png" >}}
+{{< rawhtml >}}</center>{{< /rawhtml >}}
 
-Permission groups are configurable from your Controller's `https://<controller address>/#/permission-groups` page. You can target and add permissions for either the group name or the username (which is different between the various Advanced Security Features we offer).
+You will now see the UAK in the list.
 
-{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/new-permissions-management.png" >}}
+{{< rawhtml >}}<center>{{< /rawhtml >}}
+{{< imgwithlink src="images/anka-build-cloud/advanced-security-features/perm-groups-uak-list.png" >}}
+{{< rawhtml >}}</center>{{< /rawhtml >}}
+
+The node certificate now has permissions to perform the specifically set actions against all Resources (if Resource Management is disabled).
+
+5. You can now try joining the node to the Controller using the UAK and confirm it's all joined by checking the Controller Nodes page, or the agent logs.
+
+```bash
+❯ sudo ankacluster join http://anka.controller:8090 --api-key-file ~/node.cer --api-key-id "node"
+Testing connection to the controller...: Ok
+Testing connection to the registry...: Ok
+Success!
+Anka Cloud Cluster join success
+```
 
 <!-- 
 ### Controller Permissions
@@ -59,9 +86,9 @@ Permission groups are configurable from your Controller's `https://<controller a
 | `get_config` | gives the user permission to view global configuration |
 | **Permissions and groups** | |
 | `view_permissions` | gives the user permission to view the list of available permissions |
-| `view_prmission_groups` | gives the user permission to view permission groups |
-| `update_permission_groups` | gives the user permission to update permission groups |
-| `delete_permission_groups` | gives the user permission to delete permission groups |
+| `view_prmission_groups` | gives the user permission to view Group Permissions |
+| `update_permission_groups` | gives the user permission to update Group Permissions |
+| `delete_permission_groups` | gives the user permission to delete Group Permissions |
 
 ### Registry Permissions
 
@@ -92,6 +119,6 @@ Permission groups are configurable from your Controller's `https://<controller a
 | `send_log` | gives the user permission to send a log file row |
 | **Permissions and groups** | |
 | `view_permissions` | gives the user permission to view the list of available permissions |
-| `view_prmission_groups` | gives the user permission to view permission groups |
-| `update_permission_groups` | gives the user permission to update permission groups |
-| `delete_permission_groups` | gives the user permission to delete permission groups | -->
+| `view_prmission_groups` | gives the user permission to view Group Permissions |
+| `update_permission_groups` | gives the user permission to update Group Permissions |
+| `delete_permission_groups` | gives the user permission to delete Group Permissions | -->

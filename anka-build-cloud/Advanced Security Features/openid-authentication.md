@@ -223,7 +223,7 @@ Under the **Admin** page, we want to add a **New Group**. **The Group Name will 
 
 You can then add the exact `groups` claim name from your SSO provider (or other authorization server software) to the controller's permission management panel. This gives any users associated to the group in that cloud permission group the specific permissions to the API and even controller UI.
 
-{{< include file="_partials/anka-build-cloud/advanced-security-features/managing-permissions.md" >}}
+{{< include file="_partials/anka-build-cloud/advanced-security-features/authorization.md" >}}
 
 Once you've added all of the proper permissions, you can now go back to the main Controller page and log out of the superuser. You can now choose **Login with Okta SSO**, which will redirect you to your Okta to have you log in with your user. You will then be taken to the Controller UI and be logged in as that user.
 

@@ -52,14 +52,6 @@ Anka Cloud Cluster join success
 
 {{< hint info >}} Instead of passing the private key as a string (`--api-key-string`), you can specify the path to the key file with `--api-key-file`.{{< /hint >}}
 
-
-### Controller and Registry Communication
-
-There are several important points to know about Controller -> Registry communication when using UAKs.
-
-- The Controller UI will use the same credentials that you use when logged into the UI to make Registry calls for Templates, Logs, and status.
-- However, starting VM instances does not use your UI session. You need to give a credential to the Controller to use.
-
 ---
 
 ## Token Authentication Protocol (TAP)
@@ -150,4 +142,4 @@ By default, the TTL for keys is 5 minutes. You can modify this with the `ANKA_AP
 - Note for Enterprise Plus customers using OpenID and UAK: Typically, Authorization is enabled with the `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` and other similar ENVs. However, when using your Ent+ license with OpenID and UAK, you will **always** need to add permissions for the groups claim you set in your OpenID configuration. Otherwise, you'll see a blank Controller UI and API requests will fail.
 {{< /hint >}}
 
-{{< include file="_partials/anka-build-cloud/advanced-security-features/managing-permissions.md" >}}
+{{< include file="_partials/anka-build-cloud/advanced-security-features/authorization.md" >}}

@@ -116,7 +116,9 @@ Anka allows you to create VMs for the following macOS versions:
 {{< /hint >}}
 
 {{< hint warning >}}
-**ARM USERS:** Creating VMs of any version requires that a recent Xcode is installed on the host (not in the VM). Alternatively, you can install the Device Support Image/dmg Apple provides. There is also a rare problem where your Xcode is not fully set up and still creates problems, regardless of being on Ventura. Be sure to run the following:
+**ARM USERS:** Creating macOS 14.x or higher VMs requires that Xcode >= 15.0 OR the Device Support package is installed on the host (not in the VM). Alternatively, you can install the Device Support Image/dmg Apple provides. This is a requirement from Apple at the moment.
+
+There is also a rare problem where your Xcode is not fully set up and still creates problems. Be sure to run the following:
 
 ```bash
 sudo xcodebuild -license accept
@@ -128,7 +130,7 @@ done
 {{< /hint >}}
 
 {{< hint warning >}}
-**ARM USERS:** Creating macOS 14.x or higher VMs requires that Xcode >= 15.0. Alternatively, you can install the Device Support Image/dmg Apple provides. This is a requirement from Apple at the moment.
+**ARM USERS:** Creating macOS 14.x (or higher) VMs on Ventura Host OS requires Xcode 15 or greater. Alternatively, you can install the Device Support Image/dmg Apple provides.
 {{< /hint >}}
 
 {{< hint warning >}}

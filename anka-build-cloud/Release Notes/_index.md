@@ -7,6 +7,16 @@ weight: 100
 
 ## Current Version
 
+### 1.38.0 (1.38.0-3989ee24) - Oct 24th, 2023
+
+- **New Feature:** Resource Permissions for Permission Groups. We have a [new Authorization guide]({{< relref "anka-build-cloud/Advanced Security Features/authorization.md" >}}) you can read over to understand how this feature works.
+  - At the moment Resource Management will disable Node Groups and break compatibility with CI/CD plugins for Jenkins, etc. We are working to add support soon.
+- (Required ETCD Version: 3.5.7)
+
+---
+
+## Previous Versions
+
 ### 1.37.0 (1.37.0-4e3ffe71) - Aug 29th, 2023
 
 - **Improvement:** MacOS Packages are now available for ARM64.
@@ -18,10 +28,6 @@ weight: 100
 - **Improvement:** All agent Start VM logs will now have the Request ID and Instance ID attached.
 - **Bug Fix:** Some Registry API endpoints were using a mix of FAIL and ERROR in the returned JSON. To make consistent with the Controller API, they all now return FAIL.
 - (Required ETCD Version: 3.5.7)
-
----
-
-## Previous Versions
 
 ### 1.36.1 (1.36.1-efbe0727) - July 18th, 2023
 
