@@ -7,7 +7,7 @@ weight: 100
 
 ## Current Version
 
-### 1.38.0 (1.38.0-3989ee24) - Oct 18th, 2023
+### 1.38.0 (1.38.0-3989ee24) - Oct 24th, 2023
 
 - **New Feature:** Resource Permissions for Permission Groups. We have a [new Authorization guide]({{< relref "anka-build-cloud/Advanced Security Features/authorization.md" >}}) you can read over to understand how this feature works.
   - At the moment Resource Management will disable Node Groups and break compatibility with CI/CD plugins for Jenkins, etc. We are working to add support soon.
