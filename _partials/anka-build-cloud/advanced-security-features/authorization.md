@@ -24,9 +24,9 @@ In this guide we will start with the most common use-case of sharing Node betwee
 
 #### Prerequisites
 
-To enable Authorization features, you'll need to ensure:
+To enable **Authorization** features, you'll need to ensure:
 
-1. Authentication is enabled by setting `ANKA_ENABLE_AUTH` and `ANKA_ROOT_TOKEN` ENVs in your Controller & Registry config. You're also familiar with one of the existing [Authentication]({{< relref "anka-build-cloud/Advanced Security Features/_index.md#authentication" >}}) methods and have one set up.
+1. **Authentication** is enabled by setting `ANKA_ENABLE_AUTH` and `ANKA_ROOT_TOKEN` ENVs in your Controller & Registry config. You're also familiar with one of the existing [Authentication]({{< relref "anka-build-cloud/Advanced Security Features/_index.md#authentication" >}}) methods and have one set up.
 1. **Groups + Group Permissions** are enabled by enabling Authorization. The following ENVs can be added to your config to achieve this:
 
     - `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` (boolean) works for both combined (macOS) and standalone (docker) packages.
@@ -34,7 +34,7 @@ To enable Authorization features, you'll need to ensure:
     - `ANKA_ENABLE_AUTHORIZATION` (boolean) is only for the standalone (macOS or docker) registry packages.
 
     This should expose the `https://<controller address>/#/permission-groups` page in your Controller.
-1. **Resource Permissions** are enabled by setting **ANKA_ENABLE_RESOURCE_MANAGEMENT** to **true** in your configuration.
+1. **Resource Permissions** are enabled by setting `ANKA_ENABLE_RESOURCE_MANAGEMENT` to `true` in your configuration.
 
 
 {{< hint warning >}}

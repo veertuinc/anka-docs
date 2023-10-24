@@ -7,20 +7,20 @@
 Node Groups are disabled while Resource Management is enabled.
 {{< /hint >}}
 
-The Resource Management/Permissions feature is enabled by setting **ANKA_ENABLE_RESOURCE_MANAGEMENT** to **true** in your configuration. Once enabled, it unlocks the Resources tab under **/permission-groups**.
+The Resource Management/Permissions feature is enabled by setting `ANKA_ENABLE_RESOURCE_MANAGEMENT` to `true` in your configuration. Once enabled, it unlocks the Resources tab under **/permission-groups**.
 
-Within Resources you will be able to, depending on the Component selected, add specific Nodes or Templates to the Group. This limits the Group to certain actions that can be performed against those Resources.
+Within the **Resources** tab you will be able to, depending on the Component selected, add specific Nodes or Template Resources to the Group. This limits the Group to certain actions that can be performed against those Resources.
 
 An example of this is allowing the iOS team/group to distribute specific Templates to specific Nodes, but not create VM Instances or delete the Node.
 
 {{< imgwithlink src="images/anka-build-cloud/advanced-security-features/resources-basic.png" >}}
 
-In the [previous section on Group Permissions](#groups--group-permission), we joined a Node using a credential with the Group `node` attached. This Group only has Permissions to perform the minimum required actions to run as an Anka Node and communicate with the Controller. We *did not* add Resources to it though (even though we technically could) so we can instead have team specific Groups. 
+In the [previous section on Group Permissions](#groups--group-permissions), we joined a Node using a credential with the Group `node` attached. This Group only has Permissions to perform the minimum required actions to run as an Anka Node and communicate with the Controller. We *did not* add Resources to it though (even though we technically could) so we can instead have team specific Groups and credentials.
 
-This is the first recommended method of grouping permissions: Each team gets only their Resources assigned to their Group with no ability to call the Components, and other non-team related Groups handle the ability to call certain endpoints and perform certain actions to the Controller and Registry. Individual groups (team and non-team related) are then assigned to certain credentials to give that credential the access it needs. Let's show how this is set up below.
+In this example, each team gets only their Node or Template Resources assigned to their Group, with no ability to make API calls to Components/Permissions. Instead, other non-team Groups handle the ability to call certain endpoints and perform certain actions to the Controller and Registry. Individual groups (team and non-team related) are then assigned to certain credential, combining the Permissions and Resources.
 
 {{< hint warning >}}
-**It's important to understand that a single credential, like a [UAK]({{< relref "anka-build-cloud/Advanced Security Features/uak-tap-authentication.md" >}}) or a [Certificate]({{< relref "anka-build-cloud/Advanced Security Features/certificate-authentication.md" >}}), should only ever be used by a specific user and client.** You wouldn't ever want to share the Node credential with a team for example. Create a second credential for that team, then in order for the Node to be able to access the team's credential, add the team's Group to the Node credential.
+**It's important to understand that a single credential, like a [UAK]({{< relref "anka-build-cloud/Advanced Security Features/uak-tap-authentication.md" >}}) or a [Certificate]({{< relref "anka-build-cloud/Advanced Security Features/certificate-authentication.md" >}}), should only ever be used by a single user or client.** You wouldn't ever want to share the Node credential with a team for example. Create a second credential for that team, then in order for the Node to be able to access the team's credential, add the team's Group to the Node credential.
 {{< /hint >}}
 
 1. Create two groups: `ios` and `instance-control`.
