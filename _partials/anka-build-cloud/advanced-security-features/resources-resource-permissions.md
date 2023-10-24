@@ -15,7 +15,7 @@ An example of this is allowing the iOS team/group to distribute specific Templat
 
 {{< imgwithlink src="images/anka-build-cloud/advanced-security-features/resources-basic.png" >}}
 
-In the [previous section on Group Permissions](#groups--group-permissions), we joined a Node using a credential with the Group `node` attached. This Group only has Permissions to perform the minimum required actions to run as an Anka Node and communicate with the Controller. We *did not* add Resources to it though (even though we technically could) so we can instead have team specific Groups and credentials.
+In the previous section on Group Permissions, we joined a Node using a credential with the Group `node` attached. This Group only has Permissions to perform the minimum required actions to run as an Anka Node and communicate with the Controller. We *did not* add Resources to it though (even though we technically could) so we can instead have team specific Groups and credentials.
 
 In this example, each team gets only their Node or Template Resources assigned to their Group, with no ability to make API calls to Components/Permissions. Instead, other non-team Groups handle the ability to call certain endpoints and perform certain actions to the Controller and Registry. Individual groups (team and non-team related) are then assigned to certain credential, combining the Permissions and Resources.
 
