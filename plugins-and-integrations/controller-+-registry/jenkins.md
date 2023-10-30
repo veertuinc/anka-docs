@@ -145,6 +145,8 @@ numberOfExecutors | int | `1` | Number of Jenkins executors to run on the Node (
 description | string | -  | On creation of the instance, set the description | -
 labelString | string | -  | Override the returned label (not recommended) | -
 dontAppendTimestamp | boolean | `false`  | Do not append timestamp to the tag being pushed | -
+vcpu | int | -  | Sets the CPUs for the VM before starting it (requires that the VM is stopped) | -
+vcpu | int | -  | Sets the RAM for the VM before starting it (requires that the VM is stopped AND that the value is in MBs) | -
 
 #### Dynamic Jenkinsfile Example
 
@@ -328,6 +330,12 @@ Starting in 2.9.0, users can add a Custom Column in their Controller UI on the I
 ---
 
 ## Release Notes
+
+### 2.10.0 - Oct 26th, 2022
+
+- **Bug Fix:** UI elements were distorted and larger than necessary.
+- **New Feature:** Ability to set vcpu and vram for stopped VMs prior to starting.
+- **Improvement:** Various security patches.
 
 ### 2.9.0 - Jul 21st, 2022
 
