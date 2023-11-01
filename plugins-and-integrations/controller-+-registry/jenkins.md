@@ -331,7 +331,7 @@ Starting in 2.9.0, users can add a Custom Column in their Controller UI on the I
 
 ## Release Notes
 
-### 2.10.0 - Oct 30th, 2022
+### 2.10.0 - Oct 30th, 2023
 
 - **Bug Fix:** UI elements were distorted and larger than necessary.
 - **New Feature:** Ability to set vcpu and vram for stopped VMs prior to starting.
