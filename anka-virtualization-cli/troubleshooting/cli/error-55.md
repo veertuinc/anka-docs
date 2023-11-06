@@ -12,7 +12,7 @@ weight: 1
 ## Solution
 
 {{< hint error >}}
-Please upgrade to later versions of Anka 3.3.x as they solve this without the need to change `net.local.dgram`.
+Please upgrade to later versions >= Anka 3.3.4 as they solve this without the need to change `net.local.dgram`.
 {{< /hint >}}
 
 This is very common when the VMs have heavy CPU usage. Normally it shouldn't be a critical error -- packet loss is being handled by the TCP stack of guest. But if the error rate is very high, it definitely could cause applications or downloads to fail inside of the VM or even communication to the VM to be severed. If the occurrence of these errors is more than just a few log entries, you can increase the value of `net.local.dgram.recvspace` and `net.local.dgram.maxdgram` with sysctl ON THE HOST.
