@@ -11,7 +11,7 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
-### 3.3.7 (3.3.6.173) - Oct 13th 2023
+### 3.3.7 (3.3.7.173) - Oct 13th 2023
 
 - **Bug Fix:** Anka Create failures for Sonoma OS VMs only on AWS EC2 MAC Instances: `create: failed to execute script, status 74`/`click: error: Operation not permitted`/`click: failed to receive screenshot: Operation not permitted`.
 
