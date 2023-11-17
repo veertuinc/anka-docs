@@ -9,6 +9,8 @@ showBaseDirName: true
 EOL and Deprecation list:
 - Jenkins Plugin versions < 2.0 EOL
 - Anka GitLab Runner versions < 1.0 EOL
+- Anka GitLab Runner at any version is now Deprecated. Please use the [Custom Executor]({{< relref "plugins-and-integrations/controller-+-registry/gitlab-custom-executor.md" >}}).
+
 {{< /hint >}}
 
 **Please perform the checklist steps below before reaching out to customer support.**
