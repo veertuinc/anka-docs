@@ -19,7 +19,14 @@ EOL and Deprecation list:
 
 These checklists give you an idea where to look and what logs to check for indications of exactly what's wrong when you see failures.
 
-#### Gitlab Runner
+#### Anka Cloud Gitlab Executor
+
+1. Find the job's log inside of your Gitlab and gather the VM and node information from it, as well as the failure messages.
+1. If you have access to the gitlab runner logs, collect those for the time period of the failure. Logs in the runner are labelled with `job=#`, matching the job ID.
+1. Collect the logs in the Anka Build Cloud Controller from the time period of the failure (`Controller > Logs > Service: Controller`)
+1. [Perform the Anka Virtualization checklist and check the logs at the time of the error on the Anka Node that ran the VM.]({{< relref "anka-virtualization-cli/troubleshooting/_index.md#anka-virtualization" >}})
+
+#### Gitlab Runner (deprecated)
 
 Our gitlab runner is based on the core and official gitlab runner release, so the [official troubleshooting guide](https://docs.gitlab.com/runner/faq/) is also good to review.
 
