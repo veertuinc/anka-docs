@@ -1,16 +1,24 @@
 ---
 date: 2019-07-03T22:24:47-05:00
 title: "Using GitLab and Anka Build Cloud"
-linkTitle: "GitLab"
+linkTitle: "GitLab (deprecated)"
 weight: 3
 description: >
-  Instructions on how to use GitLab with Anka Build Cloud
+  Instructions on how to use GitLab with Anka Build Cloud (deprecated)
 aliases:
   - /ci-plugins-and-integrations/controller-+-registry/gitlab
 ---
 
+---
+
+{{< hint error >}}
+**This Anka Gitlab Runner has been deprecated and replaced with the [Anka Custom Executor]({{< relref "plugins-and-integrations/controller-+-registry/gitlab-custom-executor.md" >}}) you can load into the official Gitlab Runner.**
+{{< /hint >}}
+
+---
+
 If you are using GitLab, Veertu provides and maintains the [Anka GitLab Runner](https://github.com/veertuinc/gitlab-runner). The runner connects GitLab to the Anka Cloud Controller to perform VM Instance creation and command execution through SSH into the VM Instance.
- 
+
 ## VM Template & Tag Requirements
 
 > The below list are the absolute necessities needed to execute commands in a VM through your CI and the GitLab Runner. You may have to include other dependencies depending on your needs.
@@ -239,7 +247,7 @@ OPTIONS:
 
 > We run `update-ca-certificates` each time you start the container. You can add a volume to mount in your certificates if needed.
 
-You use the same non-interactive arguments that we mentioned in [the Registration section]({{< relref "plugins-and-integrations/controller-+-registry/gitlab.md#registration" >}}) when executing the binary (but without `--non-interactive`):
+You use the same non-interactive arguments that we mentioned in [the Registration section]({{< relref "plugins-and-integrations/controller-+-registry/gitlab-runner.md#registration" >}}) when executing the binary (but without `--non-interactive`):
 
 ```shell
 ❯ docker run -ti --rm veertu/anka-gitlab-runner-amd64 --url "http://anka.gitlab:8084/" --registration-token nHKqG3sYV4B5roRK1ZhW --ssh-user anka --ssh-password admin --name "localhost shared runner" --anka-controller-address "https://anka.controller" --anka-template-uuid d09f2a1a-e621-463d-8dfd-8ce9ba9f4160 --anka-tag base:port-forward-22:brew-git:gitlab --executor anka --anka-root-ca-path /Users/nathanpierce/anka-ca-crt.pem --anka-cert-path /Users/nathanpierce/anka-gitlab-crt.pem --anka-key-path /Users/nathanpierce/anka-gitlab-key.pem --clone-url "http://anka.gitlab:8084" --tag-list "localhost-shared,localhost,iOS"
@@ -266,7 +274,7 @@ When you stop or exit the container, it will automatically unregister it from yo
 
 ---
 
-{{< include file="_partials/troubleshooting/flows/gitlab.md" >}}
+{{< include file="_partials/troubleshooting/flows/gitlab-runner.md" >}}
 
 ---
 ## Answers to Common Questions

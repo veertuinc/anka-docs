@@ -3,5 +3,5 @@
 
 ## Plugin and Integration Troubleshooting Flows
 
-{{< include file="_partials/troubleshooting/flows/gitlab.md" >}}
+{{< include file="_partials/troubleshooting/flows/gitlab-runner.md" >}}
 

@@ -33,8 +33,8 @@ Upgrading the Build Cloud too? Check out our [upgrade procedure for the Anka Bui
 We do not follow strict [semantic versioning](https://semver.org/); minor and major version increases can have significant changes
 {{< /hint >}}
 
-{{< hint info >}}
-Upgrading Anka Virtualization software while VMs are running **is typically safe.** Please see the Pre-upgrade Considerations below to be sure.
+{{< hint warning >}}
+Upgrading Anka Virtualization software while VMs are running **is NOT safe.**
 {{< /hint >}}
 
 {{< hint warning >}}
