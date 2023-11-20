@@ -218,6 +218,9 @@ csr_active_config | string | Modify the VM's csr-active-config value before star
 network_local | string | Modify the VM's network locality before starting it. Valid Values: forceOn, forceOff
 hw_serial | string | Modify the hw.serial of the VM **(requires Intel and stopped Template)**.
 hw_uuid | string | Modify the hw.uuid of the VM **(requires Intel and stopped Template)**.
+port_forwarding_override | array[object] | An array of objects, each object being the port forwarding rule to apply. Any pre-existing rules will be ignored and ONLY the ones specified made available.
+network_mode | string | Set the network mode for the VM.
+disk | object | Set the disk size for the VM. By defautl, it will issue `sudo diskutil apfs resizeContainer` inside of the VM before `startup_script` or the VM is available.
 
 **Returns:**  
 
@@ -228,7 +231,7 @@ hw_uuid | string | Modify the hw.uuid of the VM **(requires Intel and stopped Te
 ##### Example
 
 ```shell
- curl -X POST "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" \
+❯ curl -X POST "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" \
   -d '{"vmid": "6b135004-0c89-43bb-b892-74796b8d266c", "count": 2}'
 
 {
@@ -239,6 +242,35 @@ hw_uuid | string | Modify the hw.uuid of the VM **(requires Intel and stopped Te
     "e74dfc0e-dc94-4ca2-575e-3219ac08ffa2"
   ]
 }
+```
+
+##### Example for `port_forwarding_override`
+
+Each object in the array as the following parameters:
+
+ Parameter | Type   | Description
+ ---       |   ---  |          ---
+ name       | string | Name of the rule. **Required**
+ guest_port | string | Port inside of the VM to make available on host. **Required**
+ host_ip    | string | Host IP.
+ host_port  | string | Port on host where the VM's port will be available. If not set, defaults to 10000, 10001, etc.
+
+```shell
+❯ curl http://anka.controller:8090/api/v1/vm -d '{"vmid":"c12ccfa5-8757-411e-9505-128190e9854e","port_forwarding_override":[{"host_port":"8080", "name":"web","guest_port":"80"},{"name":"vnc","guest_port":"5900"}]}'
+
+{"status":"OK","message":"","body":["4eb107b9-2ce1-4d00-4f6b-d7b03c8b107e"]}
+```
+
+##### Example for `disk`
+
+ Parameter | Type   | Description
+ ---       |   ---  |          ---
+ size       | string | Target size of VM disk in T, G, M, or K. **Required**
+ skip_container_resize | boolean | Do not issue the `diskutil` resize command inside of the VM on start.
+
+```shell
+❯ curl http://anka.controller:8090/api/v1/vm -d '{"vmid":"c12ccfa5-8757-411e-9505-128190e9854e","disk": {"size": "256G", "skip_container_resize": true}}'
+{"status":"OK","message":"","body":["d90c2339-4d9c-42ad-6c8a-81469e7eadbe"]}
 ```
 
 #### Update Instance
@@ -1420,7 +1452,7 @@ curl -X DELETE "http://anka.controller/api/v1/group?id=89a66167-62b1-42bb-5a0b-f
  Parameter | Type         | Description       | Default
  ---       | ---          |   ---             | ---
  group_ids | string array | List of group ids to add the nodes to. | []
- node_ids  | string array | List of nodes to add to the specified groups. | []
+ node_ids  | string array | The Node ID to add the group IDs to. Currently only supports a single ID. | []
 
 **Returns:**  
 
@@ -1449,7 +1481,7 @@ curl -X POST "http://anka.controller/api/v1/node/group" \
  Parameter | Type         | Description       | Default
  ---       | ---          |   ---             | ---
  group_ids | string array | List of group ids to remove the nodes from. | []
- node_ids  | string array | List of nodes to remove from the specified group ids. | []
+ node_ids  | string array | The Node ID to remove the group IDs from. Currently only supports a single ID. | []
 
 **Returns:**  
 

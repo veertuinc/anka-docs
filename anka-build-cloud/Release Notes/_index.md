@@ -7,15 +7,29 @@ weight: 100
 
 ## Current Version
 
+### 1.39.0 (1.39.0-d35842e6) - November 20th, 2023
+
+- **New Feature:** We've added a task queue/listing element in the UI showing status of bulk actions like adding groups to nodes, changing node configuration, and will be improved to include other actions over time. It will show on the Controller UI in the bottom right.
+- **New Feature:** [The Start Instance now supports setting the Port Forwarding for a VM before start]({{< relref "anka-build-cloud/working-with-controller-and-API.md#example-for-port_forwarding_override" >}}).
+- **New Feature:** The Start Instance now supports setting the VM's Network Mode.
+- **New Feature:** [The Start Instance now supports changing the VM's disk size]({{< relref "anka-build-cloud/working-with-controller-and-API.md#example-for-disk" >}}).
+- **Improvement:** Clarified UAK expiration functionality with a message on the Edit page.
+- **Improvement:** UAK/TAP now works for HA environments.
+- **Improvement:** Create Instance Node listing is now sorted by hostname.
+- **Bug Fix:** Using the save image API/features with a non-existent tag caused a panic and Instance stuck in "Pushing".
+- **Bug Fix:** Special characters in root password caused controller -> registry communication errors.
+- **Bug Fix:** Port forwarding rule names now display properly on Instance page.
+- **Bug Fix:** Bulk adding multiple nodes to a node group only sets it for one node. Note: The existing `node_ids` param in the API now only supports a single node ID.
+
+---
+
+## Previous Versions
+
 ### 1.38.0 (1.38.0-3989ee24) - Oct 24th, 2023
 
 - **New Feature:** Resource Permissions for Permission Groups. We have a [new Authorization guide]({{< relref "anka-build-cloud/Advanced Security Features/authorization.md" >}}) you can read over to understand how this feature works.
   - At the moment Resource Management will disable Node Groups and break compatibility with CI/CD plugins for Jenkins, etc. We are working to add support soon.
 - (Required ETCD Version: 3.5.7)
-
----
-
-## Previous Versions
 
 ### 1.37.0 (1.37.0-4e3ffe71) - Aug 29th, 2023
 
