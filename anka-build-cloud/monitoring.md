@@ -140,7 +140,9 @@ Once you've confirmed the metric are available, you can now use the built in gra
 
 We won't go into depth with setting up Grafana as it's already covered on https://grafana.com/docs/grafana/latest/getting-started/getting-started-prometheus/. You can use our [example dashboard](https://github.com/veertuinc/anka-build-cloud-grafana-dashboard) json as a starting place for your own.
 
-> Grafana will need to connect to the host and port for Prometheus. This is available at `http://host.docker.internal:8095` if you used the scripts in the Getting Started repo.
+{{< hint info >}}
+Grafana will need to connect to the host and port for Prometheus. This is available at `http://host.docker.internal:8095` if you used the scripts in the Getting Started repo.
+{{< /hint >}}
 
 {{< rawhtml >}}<center>{{< /rawhtml >}}
 ![grafana]({{< siteurl >}}images/anka-build-cloud/monitoring/grafana.png)
