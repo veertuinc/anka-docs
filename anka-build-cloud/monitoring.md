@@ -89,7 +89,7 @@ The Registry stores your Anka VM Templates and Tags. It is also responsible for 
 
 ## Usage Metrics
 
-### Prometheus + Grafana
+### Prometheus
 
 {{< hint info >}}
 Release Notes can be found [on the official Github repo](https://github.com/veertuinc/anka-prometheus-exporter/releases).
@@ -136,14 +136,15 @@ Next, you'll want to confirm that the metrics are now available in Prometheus.
 
 Once you've confirmed the metric are available, you can now use the built in graph and alerting for several metrics. For example: `anka_node_states` to see when Node connectivity to the controller fails, `anka_instance_state_count` to see when instances are throwing errors, `anka_node_cpu_util` to trigger alarms when VMs are crippling the Node, and much more. A full list of metrics is available at https://github.com/veertuinc/anka-prometheus-exporter#exposed-metrics.
 
-We won't go into depth with setting up Grafana as it's already covered on https://grafana.com/docs/grafana/latest/getting-started/getting-started-prometheus/.
+### Grafana
+
+We won't go into depth with setting up Grafana as it's already covered on https://grafana.com/docs/grafana/latest/getting-started/getting-started-prometheus/. You can use our [example dashboard](https://github.com/veertuinc/anka-build-cloud-grafana-dashboard) json as a starting place for your own.
 
 > Grafana will need to connect to the host and port for Prometheus. This is available at `http://host.docker.internal:8095` if you used the scripts in the Getting Started repo.
 
 {{< rawhtml >}}<center>{{< /rawhtml >}}
-![prometheus-grafana]({{< siteurl >}}images/anka-build-cloud/monitoring/prometheus-grafana.png)
+![grafana]({{< siteurl >}}images/anka-build-cloud/monitoring/grafana.png)
 {{< rawhtml >}}</center>{{< /rawhtml >}}
-
 
 {{< hint warning >}}
 ###### Important
