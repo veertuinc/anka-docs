@@ -131,44 +131,25 @@ Great! Now that we have our Anka Controller & Registry up and running, let's add
 
 ### Standalone Registry (macOS)
 
-Often we find that customers wish to run the Anka Build Cloud Registry alongside their Anka Nodes to optimize the speed of pulling VM Templates, but keep the Controller hosted in a cloud offsite.
+Often we find that customers wish to run the Anka Build Cloud Registry alongside their Anka Nodes to optimize the speed of pulling VM Templates, but keep the Controller hosted in a different location.
 
 In order to run the standalone registry on macOS you'll download and install the [the registry standalone pkg](https://veertu.com/downloads/ankaregistry-mac-latest). Below you will find instructions for configuration.
 
 #### Orientation (macOS/registry)
 
-- Default Ports: 80
+- Command: `anka-registry [start|stop|restart|status|logs]`
+- Default Ports: `8089`
 - Binaries and scripts:
-    Anka Registry for Mac binary is installed at: `/Library/Application Support/Veertu/Anka/bin/ankaregd`  
-    Launchd daemon: `/Library/LaunchDaemons/com.veertu.anka.registry.plist`
-- Configuration files: Configuration for this package is done by altering the Launchd daemon xml file at `/Library/LaunchDaemons/com.veertu.anka.registry.plist`. Be sure to unload it first.
-- Data will be saved in: `/Library/Application Support/Veertu/Anka/registry`
+    - Registry binary: `/Library/Application Support/Veertu/Anka/bin/anka-registryd`  
+    - Launchd daemon: `/Library/LaunchDaemons/com.veertu.anka.registry.plist`
+    - Configuration file: `/usr/local/bin/anka-registryd`
+- By default, Registry storage is set to: `/Library/Application Support/Veertu/Anka/registry`
 
 #### Configuration (macOS/registry)
 
-In order to change the configuration of your registry on macOS, you'll need to unload the plist with `sudo launchctl unload -w /Library/LaunchDaemons/com.veertu.anka.registry.plist` and then edit it to include what you need. You can get a full list of supported config options from the help output:
-
-```bash
-❯ /Library/Application\ Support/Veertu/Anka/bin/ankaregd --help
-Usage of /Library/Application Support/Veertu/Anka/bin/ankaregd:
-
--access_logs                           Enables registry access logs.
-
--add_dir_header                        If true, adds the file directory to the header of the log messages
-
--alsologtostderr                       log to standard error as well as files (default: "true")
-
--api-keys-cleaning-interval (duration) The interval for cleaning of expired api keys. (default: "4h0m0s")
-
--api-keys-session-ttl (duration)       The API Keys session TTL (used for automatic expiration). (default: "5m0s")
-
--backend-plugin-path (string)          The path to a backend plugin (instead of using disk)
-
--base-path (string)                    Set the registry data's base path (default: ".")
-
--ca-cert (string)                      (Certificate Authentication) The CA/root cert used to authenticate incoming requests/certs.
-. . .
-```
+1. `sudo anka-registry stop`
+1. Edit `/usr/local/bin/anka-registryd` with the ENVs for what you want to change.
+1. `sudo anka-registry start`
 
 ---
 
