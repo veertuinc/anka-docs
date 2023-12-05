@@ -10,5 +10,5 @@ Along side of the Anka CLI is the [Anka Build Cloud]({{< relref "../../anka-buil
 Anka is a robust and adaptable macOS virtualization platform that can enhance your DevOps and iOS CI/CD processes. It is straightforward to use and customize, and offers a broad array of features and capabilities.
 
 {{< rawhtml >}}<center>{{< /rawhtml >}}
-![Anka High Level]({{< siteurl >}}images/what-is-anka/anka-high-level-v1.png)
+![Anka High Level]({{< siteurl >}}images/what-is-anka/isoflow-build-cloud-v2.png)
 {{< rawhtml >}}</center>{{< /rawhtml >}}
