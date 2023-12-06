@@ -19,4 +19,4 @@
 | ANKA_NUM_WORKERS | (int) | The number of concurrent workers processing node tasks. | 2 |
 | ANKA_PUSH_REGISTRY | (string)  | Comma separated list of Registry addresses to use for push operations (saveImage/Jenkins cache building). |  |
 | ANKA_QUEUE_ETCD_ENDPOINTS | (string)  | Comma seperated list of ETCD endpoints to use for queue data (only available in standalone mode). |  |
-| ANKA_STANDALONE | (boolean) | Run controller service, the built in registry, and etcd database together in a single binary/service. | false |
+| ANKA_STANDALONE | (boolean) | Run controller service with built etcd database in a single binary/service. | false |

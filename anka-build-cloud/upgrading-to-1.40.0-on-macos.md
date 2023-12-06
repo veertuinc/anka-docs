@@ -1,5 +1,5 @@
 ---
-title: "Upgrading to 1.40.0"
+title: "Upgrading to 1.40.0 on macOS"
 toc_hide: true
 weight: 1
 ---
@@ -26,11 +26,15 @@ Any ENVs you had in the combined package's `/usr/local/bin/anka-controllerd` spe
 
 - The `ANKA_STANDALONE` ENV will now only control if the built-in `etcd` will start with the controller.
 
-### No Authorization / Authentication
+#### Steps to Upgrade
 
+{{< hint warning >}}
+You will need to re-create all of your Groups and permissions. You can technically migrate them one by one, but the time it takes to do this vs just re-creating them on the new packages is the same, if not slower.
+{{< /hint >}}
 
+1. Uninstall the current standalone package: `sudo /Library/Application\ Support/Veertu/Anka/tools/controller/uninstall.sh`
 
-### Authorization / Authentication Enabled
+2. Follow the [setup guide]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry-mac.md" >}}).
 
 ## Standalone Registry Users
 

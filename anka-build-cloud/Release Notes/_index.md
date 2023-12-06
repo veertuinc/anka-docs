@@ -7,9 +7,22 @@ weight: 100
 
 ## Current Version
 
+### 1.40.0 (1.40.0-95a63938) - December 6th, 2023
+
+{{< hint warning >}}
+**This release is for native macOS package users only.**
+{{< /hint >}}
+
+- This release splits the Combined MacOS Package into two packages. [Please see our upgrade guide.]({{< relref "anka-build-cloud/upgrading-to-1.40.0-on-macos.md" >}})
+- The standalone macOS Registry package has been modernized to match the controller. You can read more about the changes [here]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry-mac.md#registry-1" >}}).
+
+---
+
+## Previous Versions
+
 ### 1.39.0 (1.39.0-d35842e6) - November 20th, 2023
 
-- **New Feature:** We've added a task queue/listing element in the UI showing status of bulk actions like adding groups to nodes, changing node configuration, and will be improved to include other actions over time. It will show on the Controller UI in the bottom right.
+- **New Feature:** We've added a task queue + listing element in the UI showing status of bulk actions like adding groups to nodes, changing node configuration, and will be improved to include other actions over time. It will show on the Controller UI in the bottom right.
 - **New Feature:** [The Start Instance now supports setting the Port Forwarding for a VM before start]({{< relref "anka-build-cloud/working-with-controller-and-API.md#example-for-port_forwarding_override" >}}).
 - **New Feature:** The Start Instance now supports setting the VM's Network Mode.
 - **New Feature:** [The Start Instance now supports changing the VM's disk size]({{< relref "anka-build-cloud/working-with-controller-and-API.md#example-for-disk" >}}).
@@ -20,10 +33,6 @@ weight: 100
 - **Bug Fix:** Special characters in root password caused controller -> registry communication errors.
 - **Bug Fix:** Port forwarding rule names now display properly on Instance page.
 - **Bug Fix:** Bulk adding multiple nodes to a node group only sets it for one node. Note: The existing `node_ids` param in the API now only supports a single node ID.
-
----
-
-## Previous Versions
 
 ### 1.38.0 (1.38.0-3989ee24) - Oct 24th, 2023
 
