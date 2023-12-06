@@ -42,7 +42,7 @@ You will need to re-create all of your Groups and permissions. You can technical
 Registry mac package requires a full uninstall and re-install to upgrade.
 {{< /hint >}}
 
-The Registry Standalone package for macOS now comes with an updated plist, a new `anka-registryd` file that holds configuration, and a `anka-registry` executable that has `start/restart/stop/status/logs` commands (identical to the controller mac package). [Full Registry Standalone guide here]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry-mac.md#standalone-registry-macos" >}}).
+The Registry Standalone package for macOS now comes with an updated plist, a new `anka-registryd` file that holds configuration, and a `anka-registry` executable that has `start/restart/stop/status/logs` commands (identical to the controller mac package). [Full Registry Standalone guide here]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry-mac.md" >}}).
 
 #### Quick Overview of changes
 
