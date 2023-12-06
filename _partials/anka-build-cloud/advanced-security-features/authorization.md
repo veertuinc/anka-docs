@@ -29,9 +29,9 @@ To enable **Authorization** features, you'll need to ensure:
 1. **Authentication** is enabled by setting `ANKA_ENABLE_AUTH` and `ANKA_ROOT_TOKEN` ENVs in your Controller & Registry config. You're also familiar with one of the existing [Authentication]({{< relref "anka-build-cloud/Advanced Security Features/_index.md#authentication" >}}) methods and have one set up.
 1. **Groups + Group Permissions** are enabled by enabling Authorization. The following ENVs can be added to your config to achieve this:
 
-    - `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` (boolean) works for both combined (macOS) and standalone (docker) packages.
-    - `ANKA_ENABLE_REGISTRY_AUTHORIZATION` (boolean) is for the macOS combined (controller + registry in one) package only.
-    - `ANKA_ENABLE_AUTHORIZATION` (boolean) is only for the standalone (macOS or docker) registry packages.
+    - `ANKA_ENABLE_CONTROLLER_AUTHORIZATION` (boolean) works for both macOS and docker controller packages.
+    - `ANKA_ENABLE_REGISTRY_AUTHORIZATION` (boolean) works for the macOS registry package only.
+    - `ANKA_ENABLE_AUTHORIZATION` (boolean) is only for the registry.
 
     This should expose the `https://<controller address>/#/permission-groups` page in your Controller.
 1. **Resource Permissions** are enabled by setting `ANKA_ENABLE_RESOURCE_MANAGEMENT` to `true` in your configuration.

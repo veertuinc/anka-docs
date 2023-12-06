@@ -78,6 +78,6 @@ Post-upgrade of the controller you will need to wait for Anka Nodes to finish up
 
 #### Native macOS package
 
-  1. Make a backup of your `/usr/local/bin/anka-controllerd`.
-  2. Install the new .pkg (see the [MacOS Guide]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry-mac.md" >}})).
-  3. Run `sudo anka-controller restart`.
+  1. Make a backup of your `/usr/local/bin/anka-controllerd` and `/usr/local/bin/anka-registryd`.
+  2. Install the new packages (see the [MacOS Guide]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry-mac.md" >}})).
+  3. Run `sudo anka-controller restart` and `sudo anka-registry restart`.

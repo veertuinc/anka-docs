@@ -87,18 +87,13 @@ When editing the /usr/local/bin/anka-controllerd, be sure to use export when set
 {{< /hint >}}
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
-export ANKA_STANDALONE="true"
+export ANKA_STANDALONE="true" # If false, will disable etcd
 export ANKA_LISTEN_ADDR=":80"
 export ANKA_DATA_DIR="/Library/Application Support/Veertu/Anka/anka-controller"
 export ANKA_ENABLE_CENTRAL_LOGGING="true"
 export ANKA_LOG_DIR="/Library/Logs/Veertu/AnkaController"
-
-export ANKA_RUN_REGISTRY="true"
-export ANKA_ALLOW_EMPTY_REGISTRY="true"
-export ANKA_REGISTRY_BASE_PATH="/Library/Application Support/Veertu/Anka/registry"
-export ANKA_REGISTRY_LISTEN_ADDRESS=":8089"
 
 # SSL + Cert Auth
 # export ANKA_USE_HTTPS="true"
