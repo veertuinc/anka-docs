@@ -9,10 +9,6 @@ weight: 100
 
 ### 1.40.0 (1.40.0-95a63938) - December 6th, 2023
 
-{{< hint warning >}}
-**This release is for native macOS package users only.**
-{{< /hint >}}
-
 - **Bug Fix:** Inability to delete 3 more more selected Templates from the Controller UI.
 - This release splits the Combined MacOS Package into two packages. [Please see our upgrade guide.]({{< relref "anka-build-cloud/upgrading-to-1.40.0-on-macos.md" >}})
 - The standalone macOS Registry package has been modernized to match the controller. You can read more about the changes [here]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry-mac.md#registry-1" >}}).
