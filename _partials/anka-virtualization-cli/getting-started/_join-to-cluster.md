@@ -83,11 +83,10 @@ Flags:
 
 ### Check Join Status
 
-You can check the status of the Anka agent using the `ankacluster status` command.
-
+You can check the status of the Anka agent using the `sudo ankacluster status` command.
 
 ```shell
-❯ ankacluster status
+❯ sudo ankacluster status
 status: running
 config:
   vm_limit: 2
