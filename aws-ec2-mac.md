@@ -67,7 +67,7 @@ Once subscribed, you can start launching AMIs.
 
 #### Licensing
 
-The Marketplace AMI does not require a license. You are charged hourly for the usage through [the AWS marketplace](https://docs.aws.amazon.com/marketplace/latest/userguide/pricing.html). Anka marketplace AMIs are available with Anka Basic and Anka Enterprise Tier features. For more details on Basic and Enterprise Tier, [check out our documention.]({{< relref "licensing.md#anka-build-cloud" >}})
+The Marketplace AMI does not require a license. You are charged hourly for the usage through [the AWS marketplace](https://docs.aws.amazon.com/marketplace/latest/userguide/pricing.html). Anka marketplace AMIs are available with Anka Basic and Anka Enterprise Tier features. For more details on Basic and Enterprise Tier, [check out our documentation.]({{< relref "licensing.md#anka-build-cloud" >}})
 
 ### Anka Build Cloud automated setup scripts
 

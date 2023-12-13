@@ -106,6 +106,15 @@ Anka Build Basic version 3.X.X (build XXX)
 
 ---
 
+## Activate your Anka Build Cloud License
+
+[Details about our licensing]({{< relref "licensing.md" >}})
+
+
+{{< include file="_partials/Licensing/activating.md" >}}
+
+---
+
 ## What's next?
 
 - [Creating your first VM]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})

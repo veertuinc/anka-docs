@@ -59,7 +59,7 @@ You may also want to have your nodes restart on host level failure: `systemsetup
 
 - [Anka Build Cloud Controller should be configured and running before your Anka Node can join.]({{< relref "anka-build-cloud/_index.md" >}})
 
-- [Your Node should be licensed.]({{< relref "Licensing/_index.md" >}})
+- [Your Node should be licensed.]({{< relref "licensing.md" >}})
 
 - [Your Node should be prepared for high availability.]({{< relref "#preparing-your-nodes" >}})
 

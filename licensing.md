@@ -12,11 +12,6 @@ Anka Licensing for Apple Silicon machines is determined based on number of host 
 {{< /hint >}}
 
 ---
----
-
-{{< include file="_partials/Licensing/activating.md" >}}
-
----
 
 Anka licenses are available for the following products:
 
@@ -29,6 +24,10 @@ Anka licenses are available for the following products:
 ## Trial License
 
 Trial licenses for Anka products is valid for 30 days from the date of trial registration. They enable unlimited access to product features. You can use the same activation key on multiple machines depending upon the quantity specified at the time of trial registration. They can be obtained at https://veertu.com/getting-started-anka-trials/.
+
+## How to Activate your License
+
+{{< include file="_partials/Licensing/activating.md" >}}
 
 ## Anka Virtualization (CLI)
 
