@@ -19,7 +19,7 @@ In order to monitor your Anka Build Cloud, you'll need a few things:
 
 ## Grafana
 
-Start with reading over [Setup Grafana documentation](https://grafana.com/docs/grafana/latest/setup-grafana/).
+Start with reading over and performing the steps in the [Setup Grafana documentation](https://grafana.com/docs/grafana/latest/setup-grafana/).
 
 Once setup, you can use our [example dashboard](https://github.com/veertuinc/anka-build-cloud-grafana-dashboard) json as a starting place for your own. You will need Prometheus and Loki setup for that. Read about those below.
 
