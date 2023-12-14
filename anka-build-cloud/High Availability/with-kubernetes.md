@@ -48,7 +48,6 @@ Once it's up and running, you can [join your nodes to the Controller load balanc
     ```
     metadata:
       annotations:
-        nginx.ingress.kubernetes.io/client-max-body-size: "0"
         nginx.ingress.kubernetes.io/proxy-body-size: "0"
         nginx.ingress.kubernetes.io/proxy-max-temp-file-size: "0"
         nginx.ingress.kubernetes.io/proxy-buffering: "off"
