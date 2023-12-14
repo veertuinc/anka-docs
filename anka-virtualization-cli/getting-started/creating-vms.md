@@ -221,7 +221,7 @@ It's recommended that you disable:
 - Spotlight and `coreduetd`:
 
 ```bash
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.coreduetd.osx.plist || true
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.coreduetd.plist || true
 sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Volumes" || true
 sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Network" || true
 sudo killall mds || true
