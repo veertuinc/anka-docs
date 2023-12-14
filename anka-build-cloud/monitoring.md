@@ -310,6 +310,7 @@ scrape_configs:
   pipeline_stages:
   - multiline:
       firstline: '^{'
+      lastline: '^}'
       max_wait_time: 3s
   - json:
       expressions:
