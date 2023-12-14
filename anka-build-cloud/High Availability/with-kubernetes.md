@@ -44,7 +44,7 @@ Once it's up and running, you can [join your nodes to the Controller load balanc
 
 ## Answers to Frequently Asked Questions
 
-- From our experience, the default nginx ingress controller doesn't handle large file transfers (pushing your VM template to the registry for example). You will need to tweak the configuration of nginx to allow for large file transfer and so that the default timeouts are not met for long running transfers. Example:
+- From our experience, the default nginx ingress controller doesn't handle large file transfers (pushing your VM template to the registry for example). You will need to tweak the configuration of nginx to allow for large file transfer and so that the default timeouts are not met for long running transfers. You can find annotation documentation for the kubernetes ingress-nginx [here](https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/nginx-configuration/annotations.md#custom-timeouts) Example:
     ```
     metadata:
       annotations:
