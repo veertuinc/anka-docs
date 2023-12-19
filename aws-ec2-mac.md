@@ -157,3 +157,7 @@ Some important notes about creating your own AMI:
 - Be sure that the minimum EBS volume specs are gp3, 6000IOPS, and 256 throughput. Anka VM creation is sensitive on slow disks and will likely fail.
 
 ---
+
+## Answers to Frequently Asked Questions
+
+- VMs can enable access to the `169.254.169.254` instance Metadata by routing it from the host with: `networksetup -setadditionalroutes Ethernet 169.254.169.254 255.255.255.255 192.168.64.1`
