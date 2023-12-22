@@ -11,6 +11,35 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.3.8 (3.3.6.177) - Dec 22nd 2023
+
+{{< hint info >}}
+- Addons upgrading is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- Nested virtualization is not functional inside of VMs yet.
+- `anka view` is partially broken and require double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- iCloud/Apple logins will fail inside of the VM. You can still log into your account through Apple's website and download apps through your developer account. Or, transfer them from the host into the VM with `anka cp`.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **New Feature:** Two new CLI options: `anka import` and `anka export` allows you to create an archive for a specific VM so it can easily moved between hosts.
+- **Improvement:** Support for Apple Silicon M3.
+- **Improvement:** Support for more vmnet.framework interfaces in large setups.
+- **Improvement:** `.{UUID}.plain.ank` files are now included in the garbage cleanup, optimizing disk space.
+- **Improvement:** `Bad address` errors should now show a more accurate error message as to what is wrong.
+- **Improvement:** `anka registry --api-key` now supports relative paths.
+- **Bug Fix:** Automation for `anka create` can sometimes fail to enable autologin.
+- **Bug Fix:** `bytes` field in `check-download-size` response was miscalculating.
+
+## Previous Versions
+
 ### 3.3.7 (3.3.7.173) - Oct 13th 2023
 
 - **Bug Fix:** Anka Create failures for Sonoma OS VMs only on AWS EC2 MAC Instances: `create: failed to execute script, status 74`/`click: error: Operation not permitted`/`click: failed to receive screenshot: Operation not permitted`.
@@ -47,8 +76,6 @@ ARM issues:
 - **Bug Fix:** VM image chains were growing too large. This should prevent max file descriptor issues. We've also added an increase to the `maxfiles` for the hosts running Anka which should help existing customers with larger chains avoid failures.
 - **Bug Fix:** Fixed problems with 10.13 and 10.14 networking running 2.5.6 addons.
 
-
-## Previous Versions
 
 ### 3.3.5  (retracted; production impacting bugs)
 
