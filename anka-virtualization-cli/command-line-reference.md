@@ -146,7 +146,6 @@ description: >
 ### registry show
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/registry/show/_index.md" >}}
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/registry/show/_extra.md" >}}
-
 #### registry show {name/uuid} name
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/registry/show/name/_index.md" >}}
 #### registry show {name/uuid} uuid
@@ -186,3 +185,7 @@ description: >
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/license/remove/_index.md" >}}
 ### license accept-eula
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/license/accept-eula/_index.md" >}}
+## Export
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/export/_index.md" >}}
+## Import
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/import/_index.md" >}}

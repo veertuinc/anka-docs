@@ -1,5 +1,5 @@
 ```shell
-> anka show 13.4 network --help
+> anka show failed network --help
 usage: network [options]
 
    Network information

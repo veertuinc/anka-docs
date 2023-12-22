@@ -1,4 +1,4 @@
 ```shell
-> anka show 13.4 uuid --help
+> anka show failed uuid --help
 
 ```

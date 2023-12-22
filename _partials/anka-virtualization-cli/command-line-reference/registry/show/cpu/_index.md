@@ -1,4 +1,4 @@
 ```shell
-> anka registry show 13.4 cpu --help
+> anka registry show failed cpu --help
 
 ```

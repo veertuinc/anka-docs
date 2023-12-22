@@ -32,4 +32,6 @@ commands:
   registry                 Configure and control template registries
   cp                       Copy files in/out of the Anka VM and host
   license                  Manage licenses
+  export                   Export a VM as an archive
+  import                   Import VM from an archive
 ```

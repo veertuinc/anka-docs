@@ -1,5 +1,5 @@
 ```shell
-> anka modify 13.4 add disk --help
+> anka modify failed add disk --help
 usage: hard-drive,disk [options]
 
    Modify hard drive settings

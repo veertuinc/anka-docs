@@ -1,4 +1,4 @@
 ```shell
-> anka registry show 13.4 display --help
+> anka registry show failed display --help
 
 ```

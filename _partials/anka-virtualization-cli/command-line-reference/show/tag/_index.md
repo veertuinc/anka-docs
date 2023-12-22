@@ -1,5 +1,5 @@
 ```shell
-> anka show 13.4 tag --help
+> anka show failed tag --help
 usage: tag [options]
 
    Local VM tags

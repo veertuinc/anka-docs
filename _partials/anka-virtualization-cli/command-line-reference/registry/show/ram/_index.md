@@ -1,4 +1,4 @@
 ```shell
-> anka registry show 13.4 ram --help
+> anka registry show failed ram --help
 
 ```

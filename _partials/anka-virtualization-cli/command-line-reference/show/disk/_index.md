@@ -1,5 +1,5 @@
 ```shell
-> anka show 13.4 disk --help
+> anka show failed disk --help
 usage: disk [options]
 
    Disk information
