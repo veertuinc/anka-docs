@@ -57,3 +57,4 @@ Once it's up and running, you can [join your nodes to the Controller load balanc
 - If the registry pod has resource limits which are hit, it can be rescheduled on another host while it's performing actions. We recommend avoiding this as much as possible.
 - Per https://github.com/kubernetes/kubernetes/issues/43916, memory request limits for the registry may cause it to frequently restart due to the linux kernel defaulting to using lots of cached memory for disk IO operations. It's best to avoid placing memory limits for the registry when running in Kubernetes.
 - EFS as a backend for the registry storage can be very slow and is not recommended.
+- AWS Network Load Balancers (NLB) do not support mutual TLS authentication (mTLS). For mTLS support, you need to create a TCP listener instead of a TLS listener. When configured this way, the load balancer will pass through the request as-is, allowing you to implement mTLS on the target, i.e. NGINX.

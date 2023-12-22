@@ -28,6 +28,10 @@ There are several different ways you can enable Certificate authentication:
 1. Certificate[s] (signed with the Root CA) for your Anka Build Nodes so they can connect/authenticate with the Anka Build Cloud Controller & Registry.
 
 {{< hint warning >}}
+AWS Network Load Balancers (NLB) do not support mutual TLS authentication (mTLS). For mTLS support, you need to create a TCP listener instead of a TLS listener. When configured this way, the load balancer will pass through the request as-is, allowing you to implement mTLS on the target, i.e. NGINX.
+{{< /hint >}}
+
+{{< hint warning >}}
 If bringing your own certs, make sure they are not password protected ("encrypted") (use `openssl rsa -in <encrypted_private.key> -out <decrypted_private.key>` to decrypt).
 {{< /hint >}}
 
