@@ -1039,7 +1039,8 @@ curl -X DELETE  "http://anka.controller/api/v1/registry/revert?id=a3cc47f0-3a73-
  tag       | string | Specify a Tag to distribute | Latest Tag
  version   | int    | Specify a version number to distribute | Latest
  node_ids  | string array | Choose specific Nodes to distribute the Template to | All
- group_id  | string | Distribute the Template to the specified group (enterprise) | -
+ group_id  | string | Distribute the Template to the specified Node Group (enterprise only) | -
+ group  | string | Set the Resource Permissions Group (required when Resource Management is enabled) (enterprise only) | -
 
 **Returns:**  
 
