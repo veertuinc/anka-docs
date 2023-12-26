@@ -64,7 +64,7 @@ Next steps are to:
        - anka-registry
     restart: always
     environment:
-      ANKA_REGISTRY_ADDR: http://10.0.1.4:8089
+      ANKA_ANKA_REGISRY: http://10.0.1.4:8089
       ANKA_LOCAL_ANKA_REGISTRY: http://10.0.1.4:8089
       ANKA_ETCD_ENDPOINTS: "http://etcd:2379,http://10.0.1.5:2379,http://10.0.1.6:2379"
       ANKA_PUSH_REGISTRY: http://10.0.1.4:8089

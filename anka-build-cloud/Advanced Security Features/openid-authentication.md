@@ -63,7 +63,7 @@ Here is an example config showing what it looks like for a user with Okta:
        - anka-registry
     restart: always
     environment:
-      ANKA_REGISTRY_ADDR: "https://anka.registry:8089"
+      ANKA_ANKA_REGISTRY: "https://anka.registry:8089"
       ANKA_USE_HTTPS: "true"
       ANKA_SKIP_TLS_VERIFICATION: "false"
       ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
@@ -166,7 +166,7 @@ Here is what your `docker-compose.yml` should look like for use with Keycloak:
        - anka-registry
     restart: always
     environment:
-      ANKA_REGISTRY_ADDR: "https://anka.registry:8089"
+      ANKA_ANKA_REGISRY: "https://anka.registry:8089"
       ANKA_USE_HTTPS: "true"
       ANKA_SKIP_TLS_VERIFICATION: "false"
       ANKA_SERVER_CERT: "/mnt/cert/anka-controller-crt.pem"
