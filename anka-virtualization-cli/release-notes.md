@@ -11,10 +11,10 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
-### 3.3.8 (3.3.6.177) - Dec 22nd 2023
+### 3.3.8 (3.3.6.177) - Dec 26th 2023
 
 {{< hint info >}}
-- Addons upgrading is not required.
+Addons upgrading is not required.
 {{< /hint >}}
 
 {{< hint warning >}}
