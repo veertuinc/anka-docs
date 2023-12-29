@@ -5,7 +5,7 @@ title: "Anka Virtualization 3.3.8"
 
 We are very excited to announce Anka Virtualization 3.3.8. In this version, you're going to find:
 
-1. [Import and Export for VMs](#import-and-export)
+1. [Import and Export for VMs](#import-and-export-for-vms)
 
 ---
 
