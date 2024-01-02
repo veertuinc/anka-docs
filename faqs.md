@@ -21,7 +21,7 @@ For us at Veertu, it therefore becomes more about focusing on taking a holistic 
 
 #### World Class Support
 
-Our users can also expect that when features are not available, we'll work with you to define them to meet your needs. World class support from our team is a major benefit to your ability to get up and running quickly, as well as help solve problems when they arise.
+Our users can also expect that when features are not available, we'll work with you to define them to meet your needs. Our attentive and friendly support team is a major benefit to your ability to get up and running quickly, as well as help solve problems when they arise.
 
 ---
 
