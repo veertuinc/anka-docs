@@ -96,6 +96,18 @@ You must use a static MAC for each VM running on the machine. You cannot use a m
 When using bridged networking mode for your VM, dynamic MAC Addresses are not guaranteed to be unique, though, reuse/collision is extremely unlikely. We do our best to prevent this with our randomization logic.
 {{< /hint >}}
 
+### Default NAT Subnet
+
+VMs are created using the default NAT subnet which can be found with `sudo defaults read /Library/Preferences/SystemConfiguration/com.apple.vmnet.plist Shared_Net_Address`.
+
+To change this, you can use `sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.vmnet.plist Shared_Net_Address -string 192.168.80.1`. Changing the `Shared_Net_Mask` is also available with the same modification to the plist.
+
+### Default DHCP Lease Time
+
+MacOS sets the DHCP timeout to 86,400 seconds (one day) by default. This can easily be exhausted if you run more than roughly 253 VMs a day. You can check the amount currently in use with `cat /var/db/dhcpd_leases`.
+
+In order to change this default TTL, you can use `sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.InternetSharing.default.plist bootpd -dict DHCPLeaseTimeSecs -int 1200` (1200 = 20 minutes).
+
 ---
 
 ## FAQs

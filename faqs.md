@@ -6,7 +6,7 @@ description: >
   Frequently Asked Questions
 ---
 
-## How do we differ?
+## How do we differ from competition?
 
 #### Mature and Battle-tested Ecosystem
 
@@ -25,3 +25,23 @@ Our users can also expect that when features are not available, we'll work with 
 
 ---
 
+## Ventura Host OS, Sonoma (14.x) VM creation requirements
+
+On Silicon/ARM, creating macOS 14.x (or higher) VMs on Ventura Host OS requires Xcode 15 or greater. Alternatively, you can install the Device Support Image/dmg Apple provides.
+
+---
+
+## Nested Virtualization?
+
+Apple's `Virtualization.Framework` doesn't support nested virtualization such as Android emulators.
+
+---
+
+## Keychain not accessible over SSH
+
+Often users who want to use credentials in the VM's keychain for things like codesigning will experience errors when using SSH. This is due to SSH not unlocking the keychain by default. You can add the following to your `.zprofile`, or run it manually to unlock the keychain:
+```bash
+security set-key-partition-list -v -S apple-tool:,apple: -s -k <Login Keychain Password> <Login Keychain Path> > 2>&1 > /dev/null
+```
+
+---
