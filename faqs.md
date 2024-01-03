@@ -12,7 +12,7 @@ description: >
 
 It's important to understand that virtualization on Intel and Silicon differ drastically behind the scenes.
 
- - For **Intel**, Anka has always provided the most feature-rich and performant solution for enterprise grade macOS virtualization. We use a custom virtualization framework to meet our customers needs for maximum performance and flexibility.
+ - For **Intel**, Anka has always provided the most feature-rich and performant solution for enterprise grade macOS virtualization. We built a custom virtualization on top of Hypervisor framework to meet our customers needs for maximum performance and flexibility.
  - For **Silicon**, Apple now requires all providers build on the [Virtualization Framework](https://developer.apple.com/documentation/virtualization) and this limits the features and performance available for everyone.
 
 For us at Veertu, it therefore becomes more about focusing on taking a holistic approach to the tools your team needs and ensuring they all function in an optimal way to maximize your CI and Automation task performance. This is where each of our custom built and flexible components of the [Anka Build Cloud]({{< relref "what-is-anka.md" >}}) shine compared to other solutions.
@@ -33,7 +33,7 @@ On Silicon/ARM, creating macOS 14.x (or higher) VMs on Ventura Host OS requires 
 
 ## Nested Virtualization?
 
-Apple's `Virtualization.Framework` doesn't support nested virtualization such as Android emulators.
+Apple’s `Virtualization.Framework` on Apple Silicon/ARM doesn’t support nested virtualization such as Android emulators or Docker inside macOS VMs.
 
 ---
 
