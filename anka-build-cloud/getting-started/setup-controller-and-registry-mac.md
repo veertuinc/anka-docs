@@ -98,6 +98,10 @@ Anka Registry is Running
 - Configuration file: `/usr/local/bin/anka-registryd`
 - By default, Registry storage is set to: `/Library/Application Support/Veertu/Anka/registry`
 
+{{< hint warn >}}
+Changing the location from the default may require that you give Full Disk Access to the Registry binary. This is done under System Preferences > Privacy & Security.
+{{< /hint >}}
+
 #### Configuration
 
 You can find a list of ENVs available to use and examples in your configuration in our [Config Reference]({{< relref "anka-build-cloud/configuration-reference.md" >}}).
