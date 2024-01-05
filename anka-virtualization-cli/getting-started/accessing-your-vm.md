@@ -11,7 +11,9 @@ description: >
 1. [You've installed the Anka Virtualization package.]({{< relref "anka-virtualization-cli/getting-started/installing-the-anka-virtualization-package.md" >}})
 2. [You've created and prepared your first VM Template.]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})
 
-## Anka `run`
+---
+
+## Anka Run
 
 {{< hint warning >}}
 Requires addons are installed inside of the VM. You can check if they are installed with the `anka show {vmName}` command.
@@ -61,6 +63,36 @@ round-trip min/avg/max/stddev = 10.163/10.267/10.316/0.055 ms
 Some advanced usage examples of `anka run` inside of a bash script can be found in our [Getting Started repo's VM Tag creation script.](https://github.com/veertuinc/getting-started/blob/master/create-vm-template-tags.bash)
 {{< /hint >}}
 
+---
+
+## SSH
+
+By default, SSH is enabled inside of the VM. You can SSH into the VM using the VM's IP and port 22:
+
+```bash
+❯ anka show 14.2.1 network
++------------+-------------------+
+| mode       | shared            |
++------------+-------------------+
+| controller | virtio-net        |
++------------+-------------------+
+| ip         | 192.168.64.6      |
++------------+-------------------+
+| mac        | ae:86:1c:97:a5:8a |
++------------+-------------------+
+
+❯ ssh anka@$(anka show 14.2.1 network ip)
+(anka@192.168.64.6) Password:
+Last login: Fri Oct 14 04:25:21 2022
+anka@Ankas-Virtual-Machine ~ % 
+```
+
+You can also port forward the guest port onto the host so it's accessible from the host IP:
+
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/port/_example.md" >}}
+
+---
+
 ## VNC
 
 By default, we enable VNC inside of VMs created with `anka create`. You can VNC into the VM using the VM's IP and port 5900:
@@ -84,33 +116,9 @@ By default, we enable VNC inside of VMs created with `anka create`. You can VNC 
 To expose the VM VNC port on the Host IP, [read more about port forwarding here]({{< relref "anka-virtualization-cli/getting-started/modifying-your-vm.md#port-forwarding-from-guest-to-host" >}}). You will need to create a rule named `vnc` with guest port `5900`. **This is especially important for displaying the VNC url in the Anka Build Cloud Controller's Instances page.**
 {{< /hint >}}
 
-## SSH
+---
 
-By default, SSH is enabled inside of the VM. You can SSH into the VM using the VM's IP and port 22:
-
-```bash
-❯ anka show 12.6 network
-+------------+-------------------+
-| mode       | shared            |
-+------------+-------------------+
-| controller | virtio-net        |
-+------------+-------------------+
-| ip         | 192.168.64.6      |
-+------------+-------------------+
-| mac        | ae:86:1c:97:a5:8a |
-+------------+-------------------+
-
-❯ ssh anka@192.168.64.6 -p 22
-(anka@192.168.64.6) Password:
-Last login: Fri Oct 14 04:25:21 2022
-anka@Ankas-Virtual-Machine ~ % 
-```
-
-You can also port forward the guest port onto the host so it's accessible from the host IP:
-
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/port/_example.md" >}}
-
-## Anka `view`
+## Anka View
 
 {{< hint warning >}}
 **ARM USERS:** We recommend using VNC over `anka start -v` or `anka view` commands. By default VMs come with VNC enabled and it's far more flexible.

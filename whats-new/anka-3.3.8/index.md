@@ -13,6 +13,7 @@ We are very excited to announce Anka Virtualization 3.3.8. In this version, you'
 
 You can now export and import your VMs to an archive to assist with moving VMs between hosts.
 
+- Only available for Enterprise or Enterprise Plus licenses.
 - A VM Template tag will not be included in the export/import. However the active tag for a VM is the state we will export. Future versions will support this and allow registry users to utilize export/import to migrate VM templates without `anka pull` and `anka push`.
 - Underlying layer/data sharing between the VMs does not happen. Exporting a VM is performing a unique copy like `anka clone -c` would do.
 
