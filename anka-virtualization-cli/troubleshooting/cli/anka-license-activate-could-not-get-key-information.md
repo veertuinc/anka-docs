@@ -14,7 +14,7 @@ Anka license activate throws `-anka: Could not get key information`
 
 ## Solution
 
-Set the ENV `RLM_ACT_TIMEOUT=240` (or higher)
+Set the ENV `RLM_ACT_TIMEOUT=30000` (or higher)
 
 ## Still experiencing problems?
 
