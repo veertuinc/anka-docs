@@ -8,7 +8,7 @@ description: >
 ---
 
 {{< hint info >}}
-Anka Licensing for Apple Silicon machines is determined based on number of host model and host count and not on CPU core count.
+Anka Licensing for Apple Silicon machines is determined based on host count and host model and not on CPU core count. We have a special migration path for licensing for our existing Intel users. Contact us for more details.
 {{< /hint >}}
 
 ---
