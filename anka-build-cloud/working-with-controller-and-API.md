@@ -346,7 +346,6 @@ curl -X DELETE "http://anka.controller/api/v1/vm" -H "Content-Type: application/
  Parameter | Type   | Description
  ---       |   ---  |          ---
  id      | string | Return the VM with that ID. If the vm does not exists the server will return the status `FAIL`
- apiVer  | string | Use "v1" to use Registry V1 API (faster for large deployments, without size and arch data)
 
  **Returns:**
 
@@ -799,6 +798,7 @@ config_file    | string | Name of the tag's config file
  Parameter | Type   | Description
  ---       |   ---  |          ---
  id        | string | Return a specific Template. Passing this parameter will show more information about the Template's tags
+ apiVer  | string | Use "v1" to use Registry V1 API (faster for large deployments, without size and arch data)
 
  **Returns:**
 
