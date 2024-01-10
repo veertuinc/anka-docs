@@ -11,6 +11,12 @@ description: >
 1. [You've installed the Anka Virtualization package.]({{< relref "anka-virtualization-cli/getting-started/installing-the-anka-virtualization-package.md" >}})
 2. [You've created and prepared your first VM Template.]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})
 
+## Defaults and Expectations
+
+- Inside of the VMs created with `anka create`, you will find `Screen Sharing` and `Remote Login` enabled automatically. In `shared` networking mode (the default), it allows you to access SSH and VNC using the VM's IP directly from the host running the VM. To access the VM VNC and SSH outside of the host, you'll need to [forward the ports from the VM to the host]({{< relref "anka-virtualization-cli/getting-started/modifying-your-vm.md#port-forwarding-from-guest-to-host" >}}) or enable `bridge` networking mode to get an IP from DHCP in your network.
+- Anka Addons are installed into your VM and support `anka run`.
+- With `anka view`, the clipboard is not supported. We currently recommend VNC instead.
+
 ---
 
 ## Anka Run

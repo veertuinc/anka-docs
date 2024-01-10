@@ -1,5 +1,6 @@
 ---
 ---
+
 {{< hint info >}}
 If you have any issues with this step, please see [our troubleshooting guide]({{< relref "anka-virtualization-cli/troubleshooting/controller-agent/unable-to-join.md" >}}).
 {{< /hint >}}

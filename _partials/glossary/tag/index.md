@@ -1,0 +1,1 @@
+VM [Templates]({{< relref "glossary#template" >}}) can have multiple Tags. The Tag is a label given to the specific state of the VM when it was saved.

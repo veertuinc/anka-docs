@@ -1,5 +1,5 @@
 ```shell
-> anka modify failed delete --help
+> anka modify 14.2.1 delete --help
 usage: delete <command>
 
    Remove items from a VM configuration

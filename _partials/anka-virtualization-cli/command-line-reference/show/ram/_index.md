@@ -1,4 +1,4 @@
 ```shell
-> anka show failed ram --help
+> anka show 14.2.1 ram --help
 
 ```

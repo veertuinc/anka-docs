@@ -238,7 +238,7 @@ sudo rm -rf /.Spotlight-V100/*
 
 ## Listing available VMs in the CLI
 
-{{< include file="_partials/anka-virtualization-cli/list/_example.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/list/_example.md" >}}
 
 
 ## Stop or Suspend the VM
@@ -278,7 +278,7 @@ are you sure you want to delete vm 77f33f4a-75c3-47aa-b3f6-b99e7cdac001 test [y/
 
 Customers coming from Anka 2 will know that when you clone a VM (_untagged_ or _tagged_), it will share the underlying VM image files between the two. However, this is not the case for Anka 3. As of right now, sharing of the underlying VM image files between a clone and its source requires first creating a tag for the source _before_ you clone. You can do this with `anka push --local`, or just a regular `anka push` if you're running the [Anka Build Cloud Registry]({{< relref "anka-build-cloud/_index.md" >}}). Don't worry, clones will not have access to change the original source VM state.
 
-{{< include file="_partials/anka-virtualization-cli/push/_index.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/push/_index.md" >}}
 
 ```bash
 ❯ anka list

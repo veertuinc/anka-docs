@@ -1,5 +1,4 @@
----
----
+
 
 When requesting multiple VMs through the API, a priority can be assigned. The lower the priority integer, the higher the urgency:
 

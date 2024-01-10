@@ -1,5 +1,4 @@
----
----
+
 
 Enabling root token authentication is a simple process. The root user has full permissions to the Controller UI and APIs for both the Controller and Registry. It is however not used for Node communication.
 

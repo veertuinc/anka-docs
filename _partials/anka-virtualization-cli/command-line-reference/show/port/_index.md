@@ -1,4 +1,4 @@
 ```shell
-> anka show failed port --help
+> anka show 14.2.1 port --help
 
 ```

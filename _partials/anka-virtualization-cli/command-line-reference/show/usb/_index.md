@@ -1,4 +1,4 @@
 ```shell
-> anka show failed usb --help
+> anka show 14.2.1 usb --help
 
 ```

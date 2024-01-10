@@ -1,8 +1,7 @@
 
----
----
+
 ### Separate Queue Interface
-{{< include file="content/_partials/anka-build-cloud/configuration-reference/controller/separatequeueinterface/notice.md" >}}
+{{< include file="_partials/anka-build-cloud/configuration-reference/controller/separatequeueinterface/notice.md" >}}
 | ENV | Type | Description | Default Value |
 | --- | :---: | --- | :---: |
 | ANKA_CLEAN_QUEUES_INTERVAL | (duration) | The interval to clean the queues (delete any tasks older than 24 hours), 0 to disable | 1h0m0s |

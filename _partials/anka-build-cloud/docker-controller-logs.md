@@ -1,5 +1,4 @@
----
----
+
 Using the `docker logs` command: `docker logs --follow <ControllerContainerName>`
 
 {{< hint info >}}

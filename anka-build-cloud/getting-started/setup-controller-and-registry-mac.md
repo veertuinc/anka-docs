@@ -24,8 +24,6 @@ The macOS package will install and run using Apple's Rosetta. There is no native
 
 > You can complete this tutorial with only one machine running Mac OS, but it's not recommended.
 
-{{< include file="_partials/anka-build-cloud/_what-we-are-doing-mac.md" >}}
-
 #### Download the Controller and Registry packages
 
 Download links are available on the {{< ext-link href="https://veertu.com/download-anka-build" text="Anka Build Download page." >}}

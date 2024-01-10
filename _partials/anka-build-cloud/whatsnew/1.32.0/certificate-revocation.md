@@ -1,5 +1,4 @@
----
----
+
 
 Starting in 1.32.0, users can now revoke certificates without needing to change the CA or permissions.
 

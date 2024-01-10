@@ -273,10 +273,6 @@ listen_address not defined, metrics & debug endpoints disabled  builds=0
 When you stop or exit the container, it will automatically unregister it from your GitLab.
 
 ---
-
-{{< include file="_partials/troubleshooting/flows/gitlab-runner.md" >}}
-
----
 ## Answers to Common Questions
 
 - Long running jobs will fail due to the default SSHD configuration within macOS. You can set `ClientAliveInterval` and `ClientAliveMaxCount` in the `/etc/ssh/sshd_config` file of the VM to address this.

@@ -11,4 +11,4 @@ aliases:
 
 {{< include file="_partials/what-is-anka/_ways-to-use.md" >}}
 
-{{< include file="_partials/anka-virtualization-cli/_index.md" >}}
+{{< include file="anka-virtualization-cli/getting-started/_index.md" >}}

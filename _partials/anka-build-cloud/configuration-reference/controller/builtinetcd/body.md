@@ -1,8 +1,7 @@
 
----
----
+
 ### Built in ETCD
-{{< include file="content/_partials/anka-build-cloud/configuration-reference/controller/builtinetcd/notice.md" >}}
+{{< include file="_partials/anka-build-cloud/configuration-reference/controller/builtinetcd/notice.md" >}}
 | ENV | Type | Description | Default Value |
 | --- | :---: | --- | :---: |
 | ANKA_ADVERTISE_CLIENT_URLS | (string) | Comma separated list of client urls for ETCD to advertise (only available in standalone mode) | http://127.0.0.1:2379 |

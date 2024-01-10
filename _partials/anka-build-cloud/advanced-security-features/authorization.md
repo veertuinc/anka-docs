@@ -1,5 +1,4 @@
----
----
+
 
 Authorization allows you to control access to specific actions/endpoints of the API and even specific Resources like Nodes and Templates in your Controller and Registry. It has four parts to it that are important to understand:
 

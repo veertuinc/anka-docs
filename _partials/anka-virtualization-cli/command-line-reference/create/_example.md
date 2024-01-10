@@ -1,5 +1,4 @@
----
----
+
 
 You can bring you own `.ipsw` and `.app` files to use with `anka create`. This is an alternative to specifying the version from `--list`. It supports three different methods:
 

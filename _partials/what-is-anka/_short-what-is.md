@@ -1,6 +1,3 @@
----
----
-
 Veertu's Anka and Build Cloud is a suite of software tools built for small or enterprise level macOS virtualization needs. It enables the creation, storage, and management of macOS virtual machines (VMs), offering a user experience similar to what Docker and Docker Hub provide for container management, but with an added orchestrator component. Anka is specifically designed for DevOps, CI/CD, and Automation teams that need to build and test macOS or iOS applications.
 
 Anka is a mature and battle-tested solution for small or large-scale macOS virtualization. Leveraging a combination of custom and Apple hypervisor/virtualization technology, Anka offers enhanced performance and security. It provides a simple CLI for generating Anka macOS VMs as well as tools like [Packer](https://github.com/veertuinc/packer-plugin-veertu-anka). You can then manage the VMs as Templates/Tags in the Anka Registry (part of the Anka Build Cloud) and push/pull to and from hosts in your macOS cluster.

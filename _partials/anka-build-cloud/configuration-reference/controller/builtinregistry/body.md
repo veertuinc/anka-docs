@@ -1,8 +1,7 @@
 
----
----
+
 ### Built in Registry
-{{< include file="content/_partials/anka-build-cloud/configuration-reference/controller/builtinregistry/notice.md" >}}
+{{< include file="_partials/anka-build-cloud/configuration-reference/controller/builtinregistry/notice.md" >}}
 | ENV | Type | Description | Default Value |
 | --- | :---: | --- | :---: |
 | ANKA_ENABLE_REGISTRY_AUTHORIZATION | (boolean) | Enable Authorization (Users, groups, permission control for specific certificates) in the Registry. | false |

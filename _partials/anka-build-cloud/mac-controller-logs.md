@@ -1,5 +1,4 @@
----
----
+
 
 ```shell
 /Library/Logs/Veertu/AnkaController/anka-controller.INFO

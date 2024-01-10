@@ -1,3 +1,10 @@
+---
+---
+
+{{< hint info >}}
+We do not recommend setting `--host-port`, as it will cause collisions if two VMs attempt to use the same port. If no `--host-port` is specified, we will dynamically assign them starting from 10000 and incrementing (10001, 10002, etc) depending on if there are other VMs running and consuming ports from the range already.
+{{< /hint >}}
+
 ```shell
 ❯ anka modify 12.6 port --help
 usage: port [options] name [rule]

@@ -1,5 +1,4 @@
----
----
+
 
 ```bash
 ❯ anka config

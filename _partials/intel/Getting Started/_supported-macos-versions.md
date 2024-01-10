@@ -1,5 +1,4 @@
----
----
+
 
 Anka VM Templates support the following macOS versions:
 

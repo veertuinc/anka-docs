@@ -1,5 +1,4 @@
----
----
+
 
 ```shell
 ❯ sudo anka registry pull ea663a61-0e5c-4419-8194-697104fb693a

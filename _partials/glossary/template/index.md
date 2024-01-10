@@ -1,0 +1,1 @@
+What we call a VM after it has been tagged. See [Tag]({{< relref "glossary#tag" >}}).

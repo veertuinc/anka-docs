@@ -1,4 +1,4 @@
 ```shell
-> anka show failed display --help
+> anka show 14.2.1 display --help
 
 ```

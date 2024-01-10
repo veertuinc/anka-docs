@@ -1,8 +1,7 @@
 
----
----
+
 ### Logging
-{{< include file="content/_partials/anka-build-cloud/configuration-reference/controller/logging/notice.md" >}}
+{{< include file="_partials/anka-build-cloud/configuration-reference/controller/logging/notice.md" >}}
 | ENV | Type | Description | Default Value |
 | --- | :---: | --- | :---: |
 | ANKA_CMD_LOG_MAX_DAYS | (int) | Number of days to keep cmd logs (0 will use the value in log-max-days). | 7 |

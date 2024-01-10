@@ -1,5 +1,4 @@
----
----
+
 
 Starting in Anka 3.3, users can use a VM/Template specific network traffic filtering which mimicks the behavior of [ipf.conf](https://man.netbsd.org/ipf.conf.5). 
 

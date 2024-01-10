@@ -1,8 +1,7 @@
 
----
----
+
 ### Logging (standalone registry)
-{{< include file="content/_partials/anka-build-cloud/configuration-reference/registry/logging(standaloneregistry)/notice.md" >}}
+{{< include file="_partials/anka-build-cloud/configuration-reference/registry/logging(standaloneregistry)/notice.md" >}}
 | ENV | Type | Description | Default Value |
 | --- | :---: | --- | :---: |
 | ANKA_ACCESS_LOGS | (boolean) | Enables registry access logs. | false |

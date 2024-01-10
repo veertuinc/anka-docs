@@ -1,8 +1,7 @@
 
----
----
+
 ### Authentication and Authorization
-{{< include file="content/_partials/anka-build-cloud/configuration-reference/controller/authenticationandauthorization/notice.md" >}}
+{{< include file="_partials/anka-build-cloud/configuration-reference/controller/authenticationandauthorization/notice.md" >}}
 | ENV | Type | Description | Default Value |
 | --- | :---: | --- | :---: |
 | ANKA_API_KEYS_CLEANING_INTERVAL | (duration) | The interval for cleaning of expired api keys. | 4h0m0s |

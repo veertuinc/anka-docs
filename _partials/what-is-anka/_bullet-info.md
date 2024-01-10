@@ -1,5 +1,4 @@
----
----
+
 
 * Easy to install and use; Docker-like experience.
 * Built on Apple's native hypervisor and virtualization, utilizing macOS resource scheduling, power management, and consistency.
