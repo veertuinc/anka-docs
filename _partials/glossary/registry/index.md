@@ -1,0 +1,1 @@
+The Registry is a component of the [Anka Build Cloud]({{< relref "what-is-anka.md" >}}). It acts as a centralized storage and distribution system, containing Anka VM [Templates]({{< relref "glossary#template" >}}) + [Tags]({{< relref "glossary#tag" >}}).

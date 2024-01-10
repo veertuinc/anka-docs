@@ -1,0 +1,1 @@
+The Controller is a component of the [Anka Build Cloud]({{< relref "what-is-anka.md" >}}). It provides a management UI, API, and task management layer for users and clients to manage [Templates]({{< relref "glossary#template" >}}) + [Tags]({{< relref "glossary#tag" >}}), Anka VMs, and the [Nodes]({{< relref "glossary#node" >}}) they run on.

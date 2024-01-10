@@ -27,6 +27,18 @@
       {{< /rawhtml >}}{{< include file="_partials/glossary/tag/index.md" >}}{{< rawhtml >}}
     </td>
   </tr>
+  <tr id="registry">
+    <td style="font-weight: bold; border-right: 1px solid #d1d1e0"">Registry</td>
+    <td style="width: 75%">
+      {{< /rawhtml >}}{{< include file="_partials/glossary/registry/index.md" >}}{{< rawhtml >}}
+    </td>
+  </tr>
+  <tr id="controller">
+    <td style="font-weight: bold; border-right: 1px solid #d1d1e0"">Controller</td>
+    <td style="width: 75%">
+      {{< /rawhtml >}}{{< include file="_partials/glossary/controller/index.md" >}}{{< rawhtml >}}
+    </td>
+  </tr>
 </tbody>
 </table>
 </div>
