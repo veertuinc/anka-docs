@@ -198,7 +198,7 @@ external_id | string | An arbitrary string to be saved with the instance | -
 count     | int    | Number of instances to start. | 1
 node_id   | string | Start the instance on this specific node | -
 startup_script | string | Script to be executed after the instance is started, encoded as a base64 string. You can set ENVs as well as the script (example: `REPO_URL=repourl TOKEN=123 UUID=abc-123 /Users/admin/startup.sh`). Under the hood, this is performing `anka run {vmname} sh` and passing the decoded base64 into STDIN. You can find the `startup_script` results in the /api/v1/vm results only when `script_monitoring` is set to `true`. | -
-startup_script_condition | int | Options are 0 or 1. If 0 is passed the script will run after the VM's network is up, if 1 is passed the script will run as soon as the VM boots. | wait for network
+startup_script_condition | int | Options are 0 or 1. If 0 is passed the script will run after the VM's network is up, if 1 is passed the script will run as soon as the VM boots. | 0
 script_monitoring | bool | Enable script monitoring. This will put the instance to Error state if exit code is not 0. Enables script_fail_handler and script_timeout parameters. | false
 script_timeout | int | Seconds. Will terminate startup script execution and treat it as failed. **(only works when script_monitoring is true)** | 90
 script_fail_handler | int | How to handle the **VM running on your host/node** when startup script fails. Options are 0, 1 and 2. If 0 is passed, VM will be stopped, if 1 is passed VM will be kept alive, if 2 is passed VM will be deleted **(only works when script_monitoring is true)** | 0

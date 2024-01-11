@@ -45,3 +45,9 @@ security set-key-partition-list -v -S apple-tool:,apple: -s -k <Login Keychain P
 ```
 
 ---
+
+## Unable to activate license
+
+In order to activate your anka license with `sudo anka license activate {LICENSE}` the host must have access to two different urls in your firewall rules. Please reach out to us and we can provide them.
+
+---
