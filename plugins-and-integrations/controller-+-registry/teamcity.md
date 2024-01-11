@@ -10,12 +10,13 @@ description: >
 ## VM Template & Tag Requirements
 
 1. **In the VM**, install the proper JDK/JAVA version. We recommend [Zulu](https://www.azul.com/downloads/?package=jdk#download-openjdk).
+1. Install the Build Agent into the VM Template/Tag under ~/. [Example of how we install it.](https://github.com/veertuinc/getting-started/blob/1ef4ed31eead3dccd900e16912d487b1befcb5a5/create-vm-template-tags.bash#L161)
 
 ## Usage
 
 1. [Download the latest plugin zip.](https://veertu.com/downloads/ankabuild-tc-latest/).
 2. Upload it to your Teamcity.
-3. Edit your project and under Cloud Profiles add a new Profile. For Cloud type, choose Anka Build Cloud and specify the URL for your Controller.
+3. Edit your project and under Cloud Profiles add a new Profile. For Cloud type, choose Anka Build Cloud and specify the URL for your Controller and the Server URL (if it differs from the default).
 4. Choose the template you created for Teamcity and specify any other required fields.
 5. Run your job and then watch the Controller's Instances page to ensure an instance is starting.
 

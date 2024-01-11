@@ -68,6 +68,12 @@ Our gitlab runner is based on the core and official gitlab runner release, so th
 1. Run your `packer build` with debug logging enabled: `export ANKA_LOG_LEVEL=debug; export ANKA_DELETE_LOGS=0; PACKER_LOG=1 packer build. . .`
 2. Looks at the various anka commands in the logs to determine the exact one failing (if an anka command at all).
 
+#### Teamcity
+
+1. Check the teamcity server logs for errors.
+1. Check the `/Users/anka/buildAgent/logs/teamcity-agent.log` inside of the VM where you've installed the build agent and look for errors.
+1. Ensure your Controller URL and also the "Server URL" (under the cloud profile) are correct and accessible.
+
 ---
 
 ## Troubleshooting Guides
