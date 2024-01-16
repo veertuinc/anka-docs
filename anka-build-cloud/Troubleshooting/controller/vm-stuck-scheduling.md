@@ -159,7 +159,7 @@ Solving this typically means that you need to adjust the frequency the node comm
 Please run the following on one of your joined Anka Nodes and provide the archive to support:
 
 ```bash
-curl -O https://raw.githubusercontent.com/veertuinc/scripts/main/generate-anka-node-diagnostics.bash && chmod +x ./generate-anka-node-diagnostics.bash && ./generate-anka-node-diagnostics.bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/veertuinc/scripts/main/generate-anka-node-diagnostics.bash)"
 ```
 
 Talk to us! we are available via [slack](https://slack.veertu.com/) or [email](mailto:support@veertu.com)

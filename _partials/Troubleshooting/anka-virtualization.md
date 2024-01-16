@@ -10,9 +10,7 @@ EOL and Deprecation list:
 We recommend using our diagnostic package collection script. This script collects logs and usage statistics from the host and archives them.
 
 ```bash
-curl https://raw.githubusercontent.com/veertuinc/scripts/main/generate-anka-node-diagnostics.bash -O && \
-chmod +x generate-anka-node-diagnostics.bash && \
-./generate-anka-node-diagnostics.bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/veertuinc/scripts/main/generate-anka-node-diagnostics.bash)"
 ```
 
 It is also best to run this as close to when an issue happens as several commands grab a window in time.
