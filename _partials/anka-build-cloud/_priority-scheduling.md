@@ -18,5 +18,7 @@ curl -X POST "http://anka.controller/api/v1/vm" -H "Content-Type: application/js
 ```
 
 {{< hint info >}}
-Nodes are constantly asking for tasks in the Controller. They will send a payload with information about what Templates/Tags exist already and the Controller will use that information + the start VM task priority and determine which task is right for the Node. If nodes that do not have the Template are getting tasks and having to pull all the time, you should consider using groups and placing these nodes in a fallback group. Then, tell your jobs to target the non-fallback group and they will prioritize the nodes that have the templates.
+Nodes are constantly asking for tasks in the Controller. They will send a payload with information about itself to the Controller including the Templates/Tags it has, usb devices available, etc, and the Controller will then use that information to score and choose the best task for the node. The `priority` of the start VM request also contributes to this score. This is not a pure FIFO task queue though.
+
+If nodes that do not have the Template are getting tasks and having to pull all the time, you should consider using groups and placing these nodes in a fallback group. Then, tell your jobs to target the non-fallback group and they will prioritize the nodes that have the templates.
 {{< /hint >}}
