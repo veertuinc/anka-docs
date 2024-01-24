@@ -7,15 +7,21 @@ weight: 100
 
 ## Current Version
 
+### 1.41.0 (1.41.0-6a102e20) - Jan 24th, 2024
+
+- **New Feature:** [Ability to set External ID when creating a new VM Instance from the UI.]({{< relref "whats-new/build-cloud-1.41.0/index.md#ability-to-set-external-id-when-creating-a-new-vm-instance-from-the-ui" >}})
+- **New Feature:** [Ability to join a Node in "Drain Mode".]({{< relref "whats-new/build-cloud-1.41.0/index.md#ability-to-join-a-node-in-drain-mode" >}})
+- **Improvement:** [VM Instances listing in UI now shows Creation Time + sortable by Creation Time.]({{< relref "whats-new/build-cloud-1.41.0/index.md#vm-instances-listing-in-ui-now-shows-creation-time--sortable-by-creation-time" >}})
+
+---
+
+## Previous Versions
+
 ### 1.40.0 (1.40.0-95a63938) - December 6th, 2023
 
 - **Bug Fix:** Inability to delete three or more selected Templates from the Controller UI.
 - This release splits the Combined MacOS Package into two packages. [Please see our upgrade guide.]({{< relref "anka-build-cloud/upgrading-to-1.40.0-on-macos.md" >}})
 - The standalone macOS Registry package has been modernized to match the controller. You can read more about the changes [here]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry-mac.md#registry-1" >}}).
-
----
-
-## Previous Versions
 
 ### 1.39.0 (1.39.0-d35842e6) - November 20th, 2023
 

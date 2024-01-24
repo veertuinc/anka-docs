@@ -363,93 +363,105 @@ curl  "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" | j
    "status": "OK",
    "body": [
       {
-         "instance_id": "04b7ca7a-945c-4bdc-5123-68b2e4c8ad13",
-         "name": "My VM",
-         "external_id": "ly79930",
-         "vm": {
-            "anka_registry": "",
-            "ts": "2019-12-25T16:06:20.681609561Z",
-            "progress": 0,
-            "vminfo": {
-               "ip": "192.168.64.4",
-               "status": "running",
-               "cpu_cores": 2,
-               "name": "mgmtManaged-build_vm3-MacPro-02.local-1574781776830830000",
-               "port_forwarding": [
-                  {
-                     "Name": "ssh",
-                     "protocol": "tcp",
-                     "host_port": 10001,
-                     "guest_port": 22
-                  }
-               ],
-               "ram": "2G",
-               "vnc_port": 5902,
-               "node_id": "f8707005-4630-4c9c-8403-c9c5964097f6",
-               "vnc_connection_string": "vnc://:@123.123.123.123:5902",
-               "host_ip": "123.123.123.123",
-               "uuid": "381e5c9f-d453-48dc-87a4-af6a2a98e46f"
-            },
-            "tag": "t1",
-            "instance_state": "Started",
-            "cr_time": "2019-11-26T15:22:52.221924626Z",
-            "vmid": "a29dcb72-f663-469d-9d83-8c4641b2e5dd",
-            "node_id": "f8707005-4630-4c9c-8403-c9c5964097f6"
-         }
-      },
-      {
-         "vm": {
+  "status": "OK",
+  "message": "",
+  "body": [
+    {
+      "external_id": "TEST123",
+      "instance_id": "e51259fe-6277-4776-4de0-016ea5971c7e",
+      "name": null,
+      "vm": {
+        "instance_id": "e51259fe-6277-4776-4de0-016ea5971c7e",
+        "instance_state": "Started",
+        "anka_registry": "http://anka.registry:8089",
+        "vmid": "d792c6f6-198c-470f-9526-9c998efe7ab4",
+        "tag": "vanilla+port-forward-22+brew-git",
+        "vminfo": {
+          "uuid": "27f9cae9-08c4-48ad-8a06-0c10d66a45aa",
+          "name": "mgmtManaged-14.2-arm64-1706114704759425000",
+          "status": "running",
+          "version": "",
+          "creation_date": "2023-12-11T20:18:25Z",
+          "access_date": "2024-01-24T16:51:54Z",
+          "cpu_cores": 4,
+          "ram": "4G",
+          "node_id": "dc76c575-20dc-48be-a2a5-4f672fd758c6",
+          "host_ip": "192.168.0.200",
+          "ip": "192.168.69.15",
+          "vnc_port": 5900,
+          "port_forwarding": [
+            {
+              "guest_port": 22,
+              "host_port": 10001,
+              "protocol": "tcp",
+              "name": "ssh"
+            }
+          ],
+          "stop_date": "0001-01-01T00:00:00Z",
+          "timestamp": "2024-01-24T11:51:54.502527-05:00"
+        },
+        "node_id": "dc76c575-20dc-48be-a2a5-4f672fd758c6",
+        "inflight_reqid": "ace1715e-ace7-4ae8-718e-825c02f579c5",
+        "ts": "2024-01-24T11:51:56.935646-05:00",
+        "cr_time": "2024-01-24T11:44:59.489699-05:00",
+        "progress": 0,
+        "external_id": "TEST123",
+        "arch": "arm64",
+        "vlan": ""
+    },
+    {
+      "vm": {
+        "node_id": "f8707005-4630-4c9c-8403-c9c5964097f6",
+        "instance_state": "Started",
+        "cr_time": "2019-12-25T16:06:04.658586219Z",
+        "vmid": "6b135004-0c89-43bb-b892-74796b8d266c",
+        "vminfo": {
+            "status": "running",
+            "cpu_cores": 2,
+            "ip": "",
+            "name": "mgmtManaged-mojave-w-java-1577289969489444000",
+            "vnc_port": 5903,
+            "ram": "2G",
             "node_id": "f8707005-4630-4c9c-8403-c9c5964097f6",
-            "instance_state": "Started",
-            "cr_time": "2019-12-25T16:06:04.658586219Z",
-            "vmid": "6b135004-0c89-43bb-b892-74796b8d266c",
-            "vminfo": {
-               "status": "running",
-               "cpu_cores": 2,
-               "ip": "",
-               "name": "mgmtManaged-mojave-w-java-1577289969489444000",
-               "vnc_port": 5903,
-               "ram": "2G",
-               "node_id": "f8707005-4630-4c9c-8403-c9c5964097f6",
-               "uuid": "4284cb1a-246c-4a2f-b773-ab18d6785957",
-               "host_ip": "123.123.123.123",
-               "vnc_connection_string": "vnc://:@123.123.123.123:5903"
-            },
-            "tag": "teamcity",
-            "anka_registry": "",
-            "ts": "2019-12-25T16:06:20.717627395Z",
-            "progress": 0
-         },
-         "instance_id": "6d5b7632-6ace-433a-44d9-e0c25f56706b"
+            "uuid": "4284cb1a-246c-4a2f-b773-ab18d6785957",
+            "host_ip": "123.123.123.123",
+            "vnc_connection_string": "vnc://:@123.123.123.123:5903"
+        },
+        "tag": "teamcity",
+        "anka_registry": "",
+        "ts": "2019-12-25T16:06:20.717627395Z",
+        "progress": 0
       },
-      {
-         "vm": {
+      "instance_id": "6d5b7632-6ace-433a-44d9-e0c25f56706b"
+    },
+    {
+      "vm": {
+        "tag": "teamcity",
+        "vminfo": {
+            "ip": "",
             "tag": "teamcity",
-            "vminfo": {
-               "ip": "",
-               "tag": "teamcity",
-               "status": "running",
-               "cpu_cores": 2,
-               "name": "mojave-w-java-1577289976968997000",
-               "vnc_port": 5904,
-               "ram": "2G",
-               "node_id": "f8707005-4630-4c9c-8403-c9c5964097f6",
-               "host_ip": "123.123.123.123",
-               "vnc_connection_string": "vnc://:admin@123.123.123.123:5904",
-               "uuid": "bfd4106c-2a88-462f-a545-50f832b7a0f7"
-            },
-            "progress": 1,
-            "anka_registry": "",
-            "ts": "2019-12-25T16:06:21.163835272Z",
+            "status": "running",
+            "cpu_cores": 2,
+            "name": "mojave-w-java-1577289976968997000",
+            "vnc_port": 5904,
+            "ram": "2G",
             "node_id": "f8707005-4630-4c9c-8403-c9c5964097f6",
-            "cr_time": "2019-12-25T16:06:04.763922869Z",
-            "vmid": "6b135004-0c89-43bb-b892-74796b8d266c",
-            "instance_state": "Started"
-         },
-         "instance_id": "9c623cc1-e489-4d02-4559-0c76492bec9f"
-      }
-   ],
-   "message": ""
+            "host_ip": "123.123.123.123",
+            "vnc_connection_string": "vnc://:admin@123.123.123.123:5904",
+            "uuid": "bfd4106c-2a88-462f-a545-50f832b7a0f7"
+        },
+        "progress": 1,
+        "anka_registry": "",
+        "ts": "2019-12-25T16:06:21.163835272Z",
+        "node_id": "f8707005-4630-4c9c-8403-c9c5964097f6",
+        "cr_time": "2019-12-25T16:06:04.763922869Z",
+        "vmid": "6b135004-0c89-43bb-b892-74796b8d266c",
+        "instance_state": "Started"
+      },
+      "instance_id": "9c623cc1-e489-4d02-4559-0c76492bec9f"
+    }
+  ],
+  "message": ""
 }
 
 # Show specific VM

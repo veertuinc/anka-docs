@@ -46,6 +46,7 @@ Flags:
   -K, --cert-key string                       Specify the path to the Node's certificate key file (PEM/X509)
       --cli-start-timeout duration            Timeout for anka start command (default 1m30s)
       --dial-timeout duration                 http dial timeout (default 15s)
+      --drain-mode                            Join node with Drain Mode
       --dump-network-meter                    Dump aggregation of http stats to a file (default true)
       --dump-network-meter-file-name string   Filepath to dump http stats to, dir is log dir (default "http-dump.json")
       --enable-vm-monitor                     Enabled unresponsive VM monitoring. This will throw a failure when the VM becomes unresponsive for longer than the --vm-stuck-timeout
