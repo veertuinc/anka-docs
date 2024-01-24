@@ -91,6 +91,13 @@
   - Pulls will happen before the node is joined.
   - If your regex starts with `-`, be sure to escape it with `\-`.
 
+  ##### ANKA_DRAINED_ON_JOIN (string)
+
+  This will join the node in [Drain Mode.]({{< relref "whats-new/build-cloud-1.32.0/index.md#drain-mode" >}})
+
+  - Optional
+  - Only available in 3.3.9 or greater AMIs.
+
 #### Manual Preparation (optional)
 
 **Amazon EBS volumes can be very slow even when you max iOPS, etc.** Because of this, `anka create` and other processes can take very long times or outright fail (Apple's installer is sensitive to disk IO). AWS indicates that you have to pre-warm EBS volumes that are restored from snapshots (which our AMIs are). To do this, [follow the instructions outlined here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-initialize.html#ebs-initialize-linux): `brew install fio && sudo fio --filename=/dev/r$(df -h / | grep -o 'disk[0-9]') --rw=read --bs=1M --iodepth=32 --ioengine=posixaio --direct=1 --name=volume-initialize` Finally, pre-warmed volumes stay warmed -- no need to run `dd` after periods of inactivity on the AWS instance. **NOTE: This command is not able to run from user-data.**
