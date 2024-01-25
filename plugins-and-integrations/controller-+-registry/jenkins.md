@@ -21,7 +21,7 @@ The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud w
 
 ## Anka VM Template & Tag Preparation
 
-In order for Jenkins remoting to communicate with your Anka VMs and turn them into agents, you'll need to prepare the VMs. The primary dependency to install inside of the VM is JDK/JAVA. However, there are other tweaks which depend on the Launch Method you'll choose when configuring our Jenkins plugin.
+In order for Jenkins remoting to communicate with your Anka VMs and turn them into agents, you'll need to prepare the VMs. The primary dependency to install inside of the VM is JRE/JAVA. However, there are other tweaks which depend on the Launch Method you'll choose when configuring our Jenkins plugin.
 
 {{< hint info >}}
 ###### **Launch Methods Explained**
@@ -32,14 +32,27 @@ In order for Jenkins remoting to communicate with your Anka VMs and turn them in
 {{< /hint >}}
 
 {{< hint warning >}}
-The JDK/JAVA version inside of the VM **must match the version inside of Jenkins**.
+The JRE/JAVA version inside of the VM **must match the version inside of Jenkins**.
 {{< /hint >}}
 
 ### Dependency Installation & Configuration
 
-1. **In the VM**, install the proper JDK/JAVA version:
+1. **In the VM**, install the proper JRE/JAVA version:
     1. Within Jenkins, visit **/systemInfo** (`System Properties`) and look for `java.version`.
-    2. Use the value to determine the proper JDK/JAVA version you need to download and install in your VM Template. For example if the `java.version` is set to `1.8.0_242`, you can download and install the [AdoptOpenJDK jdk8u242-b08.pkg](https://github.com/AdoptOpenJDK/openjdk8-binaries/releases) ([Zulu](https://www.azul.com/downloads/?package=jdk#download-openjdk) is also an option).
+    2. Use the value to determine the proper JRE/JAVA version you need to download and install in your VM Template.
+
+As an example using the Anka CLI:
+
+```bash
+sudo anka run 14.3-jre17.48.15 bash -c '
+  set -exo pipefail;PATH=$PATH:/usr/local/bin:/opt/homebrew/bin;
+  [[ $(arch) == arm64 ]] && export ARCH=aarch64 || export ARCH=x64;
+  rm -rf zulu*;
+  curl -v -L -O https://cdn.azul.com/zulu/bin/zulu17.48.15-ca-jre17.0.10-macosx_${ARCH}.tar.gz && [ $(du -s zulu17.48.15-ca-jre17.0.10-macosx_${ARCH}.tar.gz  | awk '\''{print $1}'\'') -gt 80000 ] && \
+  tar -xzvf zulu17.48.15-ca-jre17.0.10-macosx_${ARCH}.tar.gz && \
+  sudo mkdir -p /usr/local/bin && for file in $(ls ~/zulu17.48.15-ca-jre17.0.10-macosx_${ARCH}/bin/*); do sudo rm -f /usr/local/bin/$(echo $file | rev | cut -d/ -f1 | rev); sudo ln -s $file /usr/local/bin/$(echo $file | rev | cut -d/ -f1 | rev); done && \
+  java -version && [[ ! -z $(java -version 2>&1 | grep 17.48.15) ]]'
+```
 
 #### SSH Launch Method
 
