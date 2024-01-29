@@ -1,0 +1,1 @@
+The name given to a scheduled VM by the [Controller]({{< relref "glossary#controller" >}}).

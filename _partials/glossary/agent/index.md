@@ -1,0 +1,1 @@
+Sometimes referred to as the "cloud agent" or "cluster agent", this service runs on [Anka Nodes]({{< relref "glossary#node" >}}) and handles communication with the [Controller]({{< relref "glossary#controller" >}}). It is responsible for all host-level execution of Anka CLI commands.
