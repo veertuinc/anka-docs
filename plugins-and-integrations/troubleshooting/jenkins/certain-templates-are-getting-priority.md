@@ -7,7 +7,7 @@ weight: 3
 
 ## Scenario
 
-You configured Anka Build Cloud alongside the Jenkins plugin. You also have several labels setup using different templates. The templates are `xcode14.1`, `xcode14.2`, and `xcode14.3`.
+You configured Anka Build Cloud through our Jenkins plugin. You also have several labels setup using different templates. The templates are `xcode14.1`, `xcode14.2`, and `xcode14.3`.
 
 When you run the jobs, your capacity in the Controller is quickly used up, but for some reason the `xcode14.2` and `xcode14.3` are not scheduling as much and Nodes seem to be running only `xcode14.1` VMs.
 
