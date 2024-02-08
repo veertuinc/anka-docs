@@ -25,7 +25,7 @@ Be sure to set **Agent Path** to the agent root directory, not a folder inside o
 5. Run your job and then watch the Controller's Instances page to ensure an instance is starting.
 
 {{< hint warn >}}
-**Be sure to review our [troubleshooting guides]({{< relref "plugins-and-integrations/troubleshooting/_index.md" >}}) for Teamcity should you have any problems.**
+**Be sure to review our [troubleshooting guides]({{< relref "plugins-and-integrations/troubleshooting/_index.md#teamcity" >}}) for Teamcity should you have any problems.**
 {{< /hint >}}
 
 ---
