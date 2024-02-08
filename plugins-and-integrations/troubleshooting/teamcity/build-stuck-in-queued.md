@@ -9,7 +9,7 @@ You configured Anka Build Cloud alongside the Teamcity plugin. You are now tryin
 
 ## Common Causes
 
-1. Cloud Profile configuration mistakes; Missing `Server URL:` or incorrect `Agent Path:` not pointing to agent directory root.
+1. Cloud Profile configuration mistakes; Missing `Server URL:` or incorrect `Agent Path:` not pointing to agent directory root. The `Server URL` may look populated, but it only works if you manually type it into the input.
 1. SSH port forwarding not set correctly on VM.
 1. The Anka Cloud can't run VMs (see [VM is stuck at scheduling]({{< relref "anka-build-cloud/troubleshooting/controller/vm-stuck-scheduling.md">}}))
 

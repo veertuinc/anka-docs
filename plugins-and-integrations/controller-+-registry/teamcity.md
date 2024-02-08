@@ -17,7 +17,7 @@ description: >
 
 1. [Download the latest plugin zip.](https://veertu.com/downloads/ankabuild-tc-latest/).
 2. Upload it to your Teamcity.
-3. Edit your project and under Cloud Profiles add a new Profile. For Cloud type, choose Anka Build Cloud and specify the URL for your Controller and the Server URL (if it differs from the default).
+3. Edit your project and under Cloud Profiles add a new Profile. For Cloud type, choose Anka Build Cloud and specify the URL for your Controller and the Server URL. The Server URL may look populated, but it will not work unless you manually type it.
 4. Choose the template you created for Teamcity and specify any other required fields.
 {{< hint warn >}}
 Be sure to set **Agent Path** to the agent root directory, not a folder inside of it like bin, etc.
