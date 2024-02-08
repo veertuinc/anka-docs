@@ -37,6 +37,10 @@ description: >
     <td style="vertical-align: middle"><b>macOS 13.x</b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>macOS 14.x</b></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
 </tbody>
 </table>
 <table>
@@ -60,6 +64,10 @@ description: >
   <tr>
     <td style="vertical-align: middle"></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;" class="emojifont">⚠️</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"></td>
