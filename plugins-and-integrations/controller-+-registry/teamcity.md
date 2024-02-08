@@ -19,7 +19,14 @@ description: >
 2. Upload it to your Teamcity.
 3. Edit your project and under Cloud Profiles add a new Profile. For Cloud type, choose Anka Build Cloud and specify the URL for your Controller and the Server URL (if it differs from the default).
 4. Choose the template you created for Teamcity and specify any other required fields.
+{{< hint warn >}}
+Be sure to set **Agent Path** to the agent root directory, not a folder inside of it like bin, etc.
+{{< /hint >}}
 5. Run your job and then watch the Controller's Instances page to ensure an instance is starting.
+
+{{< hint warn >}}
+**Be sure to review our [troubleshooting guides]({{< relref "plugins-and-integrations/troubleshooting/_index.md" >}}) for Teamcity should you have any problems.**
+{{< /hint >}}
 
 ---
 

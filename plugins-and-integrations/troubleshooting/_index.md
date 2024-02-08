@@ -72,7 +72,9 @@ Our gitlab runner is based on the core and official gitlab runner release, so th
 
 1. Check the teamcity server logs for errors.
 1. Check the `/Users/anka/buildAgent/logs/teamcity-agent.log` inside of the VM where you've installed the build agent and look for errors.
-1. Ensure your Controller URL and also the "Server URL" (under the cloud profile) are correct and accessible.
+1. Ensure your **Controller URL** and also the **Server URL** (under the cloud profile) are correct and accessible to the VM's network.
+1. Double check that the **Agent Path** is set to the root of the agent you installed in the VM. It cannot be a sub folder like bin, etc.
+1. Ensure your Teamcity Agent was installed properly. You can find our installation instructions [here](https://github.com/veertuinc/getting-started/blob/1ef4ed31eead3dccd900e16912d487b1befcb5a5/create-vm-template-tags.bash#L161).
 
 ---
 
