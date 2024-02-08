@@ -9,10 +9,9 @@ You configured Anka Build Cloud alongside the Teamcity plugin. You are now tryin
 
 ## Common Causes
 
-1. Cloud Profile configuration mistakes; Missing `Server URL:`
-2. SSH port forwarding not set correctly on VM 
-3. The Anka Cloud can't run VMs (see [VM is stuck at scheduling]({{< relref "anka-build-cloud/troubleshooting/controller/vm-stuck-scheduling.md">}}))
-
+1. Cloud Profile configuration mistakes; Missing `Server URL:` or incorrect `Agent Path:` not pointing to agent directory root.
+1. SSH port forwarding not set correctly on VM.
+1. The Anka Cloud can't run VMs (see [VM is stuck at scheduling]({{< relref "anka-build-cloud/troubleshooting/controller/vm-stuck-scheduling.md">}}))
 
 If the controller has started the VM, you can take a look at the logs inside of the VM and look for the failure logs:
 
@@ -88,3 +87,8 @@ Veertu:~ root# anka run $(anka list | grep mgmtManaged | awk '{print $2}') tail 
 [2021-02-08 05:49:56,449]   WARN - buildServer.AGENT.registration - Error registering on the server via URL http://localhost:8111. Will continue repeating connection attempts.
 [2021-02-08 05:49:56,942]   INFO - r.artifacts.impl.HttpDiskCache - Cleaning up items with life time in cache greater than 172800 seconds
 ```
+
+## Still experiencing problems?
+
+Talk to us! we are available via [slack](https://slack.veertu.com/) or [email](mailto:support@veertu.com)
+
