@@ -164,6 +164,19 @@ Instead of launching the viewer with the CLI, you can open the Anka.app under /A
 
   ![recovery-mode]({{< siteurl >}}images/apple/getting-started/accessing-your-vm/anka-app-recovery-mode.png)
 
+- Inside of your VM, you can obtain host level details about the VM using `nc -U /var/run/anka`. You can also set ENVs prefixed with `ANKA_HOST_PARAM_` to make them available inside.
+
+  ```shell
+  ❯ anka stop 14.3.1-arm64
+  ❯ export ANKA_HOST_PARAM_TEST=123
+  ❯ anka run 14.3.1-arm64 bash -c "nc -U /var/run/anka"
+  uuid: d792c6f6-198c-470f-9526-9c998efe7ab4
+  license: com.veertu.anka.entplus,h:255
+  name: 14.3.1-arm64
+  TEST: 123
+  version: 3.3.9
+  ```
+
 ## What's next?
 
 - [Modifying your VM]({{< relref "anka-virtualization-cli/getting-started/modifying-your-vm.md" >}})
