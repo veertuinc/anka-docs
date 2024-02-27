@@ -11,7 +11,7 @@ description: >
 
 - These features are currently only available for our `Enterprise` tier customers.
 
-- You must have at least one node with a Enterprise or higher license joined to the Controller for these features to enable.
+- You must have all Nodes licensed with Enterprise or higher for these features to enable.
 
 {{< hint warning >}}
 We highly recommend that [HTTPS/TLS]({{< relref "anka-build-cloud/Advanced Security Features/tls.md" >}}) is enabled before using any of these features.
