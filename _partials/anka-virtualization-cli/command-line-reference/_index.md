@@ -21,16 +21,15 @@ commands:
   clone                    Clone a VM
   push                     Push a VM to the registry
   pull                     Pull a VM template from the registry
-  suspend                  Suspend a running VM(s)
-  mount                    Mount or check the mounted directories the VM
-  unmount                  Unmount the mounted directory
   usb                      Manage USB devices
   attach                   Attach USB device(s) to a running VM
   detach                   Detach USB device(s) from a VM
   reboot                   Reboot a running VM(s)
   delete                   Delete a VM(s) and tags
   registry                 Configure and control template registries
-  cp                       Copy files in/out of the Anka VM and host
+  cp                       Copy files in/out of the Anka VM and host:
+       cp [options] <vmid>:path/inside </path/on/host>
+       cp [options] </path/on/host> <vmid>:[path/inside]
   license                  Manage licenses
   export                   Export a VM as an archive
   import                   Import VM from an archive

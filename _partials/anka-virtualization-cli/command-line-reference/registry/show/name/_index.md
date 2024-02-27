@@ -1,4 +1,4 @@
 ```shell
-> anka registry show 14.2.1 name --help
+> anka registry show 14.3.1-arm64 name --help
 
 ```

@@ -1,5 +1,5 @@
 ```shell
-> anka modify 14.2.1 ram --help
+> anka modify 14.3.1-arm64 ram --help
 usage: ram [size]
 
    Set RAM size and parameters

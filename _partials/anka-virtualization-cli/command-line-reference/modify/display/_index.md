@@ -1,5 +1,5 @@
 ```shell
-> anka modify 14.2.1 display --help
+> anka modify 14.3.1-arm64 display --help
 usage: display [options]
 
    Configure displays

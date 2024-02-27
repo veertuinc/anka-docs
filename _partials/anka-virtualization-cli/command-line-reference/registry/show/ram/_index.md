@@ -1,4 +1,4 @@
 ```shell
-> anka registry show 14.2.1 ram --help
+> anka registry show 14.3.1-arm64 ram --help
 
 ```

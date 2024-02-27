@@ -11,6 +11,39 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.3.9 (3.3.9.182) - Feb 27th 2024
+
+{{< hint info >}}
+Addons upgrade is required for VM Swap feature, but not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- Nested virtualization is not functional inside of VMs yet.
+- `anka view` is partially broken and require double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- iCloud/Apple logins will fail inside of the VM. You can still log into your account through Apple's website and download apps through your developer account. Or, transfer them from the host into the VM with `anka cp`.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **New Feature:** [Ability to set VM swap location to a specific host level location.]({{< relref "whats-new/anka-3.3.9/index.md#ability-to-set-vm-swap-location-to-a-specific-host-level-location" >}})
+- **New Feature:** [VM Export and Import v2: Tag support.]({{< relref "whats-new/anka-3.3.9/index.md#export-and-import-v2" >}})
+- **Improvement:** Adde `anka config no_local` for setting for all VMs on host.
+- **Improvement:** Better error message for licensing/clock drift.
+- **Improvement:** Network performance improvements.
+- **Bug Fix:** Heavy network activity inside of the VM would cause it to lose network connectivity and never recover.
+- **Bug Fix:** Interrupting `anka pull` would orphan a partially downloaded VM and block subsequent pulls.
+- **Bug Fix:** Stability to VM conversion process which fixes extremely rare unbootable VM problem.
+- **Bug Fix:** After setting resolution to exact size of host, trying to full screen would crash Anka.
+- **Bug Fix:** Creating VMs from GUI was crashing.
+- **Bug Fix:** `ankanetd` was starting post-host-boot andpersisting even when no VMs were running.
+- **Bug Fix:** Modifying disk then resizing using disktuil was causing VM to not boot.
+
+## Previous Versions
+
 ### 3.3.8 (3.3.8.178) - Jan 2nd 2024
 
 {{< hint info >}}
@@ -37,8 +70,6 @@ ARM/Silicon specific issues:
 - **Improvement:** `anka registry --api-key` now supports relative paths.
 - **Bug Fix:** Automation for `anka create` can sometimes fail to enable autologin.
 - **Bug Fix:** `bytes` field in `check-download-size` response was miscalculated.
-
-## Previous Versions
 
 ### 3.3.7 (3.3.7.173) - Oct 13th 2023
 

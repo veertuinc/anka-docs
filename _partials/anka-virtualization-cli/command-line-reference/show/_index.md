@@ -22,5 +22,4 @@ commands:
   network                  Network information
   port                     Port forwarding rules
   label                    Show assigned VM labels
-  usb                      Show USB devices attached
 ```

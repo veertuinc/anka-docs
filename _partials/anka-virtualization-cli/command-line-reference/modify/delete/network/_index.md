@@ -1,4 +1,4 @@
 ```shell
-> anka modify 14.2.1 delete network --help
+> anka modify 14.3.1-arm64 delete network --help
 
 ```

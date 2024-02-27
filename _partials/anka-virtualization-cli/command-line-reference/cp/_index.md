@@ -2,7 +2,9 @@
 > anka cp --help
 usage: cp [options]
 
-   Copy files in/out of the Anka VM and host
+   Copy files in/out of the Anka VM and host:
+       cp [options] <vmid>:path/inside </path/on/host>
+       cp [options] </path/on/host> <vmid>:[path/inside]
 
 options:
   -R                       copy the src and its entire subtree to the dst

@@ -1,4 +1,4 @@
 ```shell
-> anka registry show 14.2.1 network --help
+> anka registry show 14.3.1-arm64 network --help
 
 ```
