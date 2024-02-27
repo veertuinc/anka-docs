@@ -104,6 +104,8 @@ Changing the location from the default may require that you give Full Disk Acces
 
 You can find a list of ENVs available to use and examples in your configuration in our [Config Reference]({{< relref "anka-build-cloud/configuration-reference.md" >}}).
 
+In the `/usr/local/bin/anka-controllerd` you'll need to set `ANKA_ANKA_REGISTRY` to the IP and port of the registry. This is usually 127.0.0.1:8089.
+
 #### Logging
 
 You can modify the destination in the `/usr/local/bin/anka-controllerd` and `/usr/local/bin/anka-registryd` file ([reference]({{< relref "anka-build-cloud/configuration-reference.md#logging" >}})).

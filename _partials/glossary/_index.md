@@ -39,6 +39,18 @@
       {{< /rawhtml >}}{{< include file="_partials/glossary/controller/index.md" >}}{{< rawhtml >}}
     </td>
   </tr>
+  <tr id="agent">
+    <td style="font-weight: bold; border-right: 1px solid #d1d1e0"">Agent</td>
+    <td style="width: 75%">
+      {{< /rawhtml >}}{{< include file="_partials/glossary/agent/index.md" >}}{{< rawhtml >}}
+    </td>
+  </tr>
+  <tr id="instance">
+    <td style="font-weight: bold; border-right: 1px solid #d1d1e0"">Instance</td>
+    <td style="width: 75%">
+      {{< /rawhtml >}}{{< include file="_partials/glossary/instance/index.md" >}}{{< rawhtml >}}
+    </td>
+  </tr>
 </tbody>
 </table>
 </div>
