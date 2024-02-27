@@ -29,14 +29,14 @@ ARM/Silicon specific issues:
 
 {{< /hint >}}
 
-- **New Feature:** [Ability to set VM swap location to a specific host level location.]({{< relref "whats-new/anka-3.3.9/index.md#ability-to-set-vm-swap-location-to-a-specific-host-level-location" >}})
+- **New Feature:** [(ARM ONLY) Ability to set VM swap location to a specific host level location.]({{< relref "whats-new/anka-3.3.9/index.md#ability-to-set-vm-swap-location-to-a-specific-host-level-location" >}})
 - **New Feature:** [VM Export and Import v2: Tag support.]({{< relref "whats-new/anka-3.3.9/index.md#export-and-import-v2" >}})
 - **Improvement:** Adde `anka config no_local` for setting for all VMs on host.
 - **Improvement:** Better error message for licensing/clock drift.
 - **Improvement:** Network performance improvements.
 - **Bug Fix:** Heavy network activity inside of the VM would cause it to lose network connectivity and never recover.
 - **Bug Fix:** Interrupting `anka pull` would orphan a partially downloaded VM and block subsequent pulls.
-- **Bug Fix:** Stability to VM conversion process which fixes extremely rare unbootable VM problem.
+- **Bug Fix:** VM conversion process would rarely create unbootable VM.
 - **Bug Fix:** After setting resolution to exact size of host, trying to full screen would crash Anka.
 - **Bug Fix:** Creating VMs from GUI was crashing.
 - **Bug Fix:** `ankanetd` was starting post-host-boot andpersisting even when no VMs were running.
