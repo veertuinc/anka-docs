@@ -23,15 +23,15 @@ description: >
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 10.15</b></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;" class="emojifont">⚠️</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;" class="emojifont">&#128721;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 11.x</b></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;" class="emojifont">⚠️</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;" class="emojifont">&#128721;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 12.x</b></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;" class="emojifont">⚠️</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;" class="emojifont">&#128721;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 13.x</b></td>
@@ -63,7 +63,7 @@ description: >
   </tr>
   <tr>
     <td style="vertical-align: middle"></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;" class="emojifont">⚠️</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;" class="emojifont">&#128721;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"></td>
@@ -79,7 +79,7 @@ description: >
 {{< /rawhtml >}}
 
 {{< hint warning >}}
-<b class="emojifont">⚠️</b> We use several APIs that are only available starting in macOS 12.3 and later. While Anka may install, and work, there are features that will cause it to crash. Please upgrade macOS to the latest before using Anka.
+<b class="emojifont">⚠️</b> MacOS 12.x is currently not supported for 3.3.9 and above. Please upgrade macOS to the latest before using Anka.
 {{< /hint >}}
 
 ## Download and Install
