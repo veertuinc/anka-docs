@@ -27,17 +27,23 @@ We provide several Authentication methods for the Anka Build Cloud. They are spl
 
 #### Human Access
 
-These methods are available to a human through a browser and the Controller UI.
+These methods are available to a human through a browser to the Controller UI/Dashboard.
 
 - [Root Token]({{< relref "anka-build-cloud/Advanced Security Features/root-token-authentication.md" >}})
 - [OIDC / SSO]({{< relref "anka-build-cloud/Advanced Security Features/openid-authentication.md" >}})
 
 #### Programmatic Access
 
-These methods are available for users and scripts that need to use the Controller API, Registry API, or are using the Anka CLI through `ankacluster join --api-*` and `anka registry --api-*` options.
+These methods are available for users and scripts that need to use the Controller API, Registry API, or are using the Anka CLI. They can also be used in our CI Integrations.
 
 - [UAK+TAP]({{< relref "anka-build-cloud/Advanced Security Features/uak-tap-authentication.md" >}})
-- [MTLS / Certificates]({{< relref "anka-build-cloud/Advanced Security Features/certificate-authentication.md" >}})
+  - Anka CLI: through `ankacluster join --api-*` and `anka registry --api-*` options
+  - Plugins / Integrations: No support yet for Jenkins, TeamCity, etc. Coming soon.
+  - API: Full support.
+- [MTLS / Certificates]({{< relref "anka-build-cloud/Advanced Security Features/certificate-authentication.md" >}}})
+  - Anka CLI: through `ankalcluster join --cert`, `--cert-key`, etc.
+  - Plugins / Integrations: Full support across all tools.
+  - API: Full support.
 
 ---
 
