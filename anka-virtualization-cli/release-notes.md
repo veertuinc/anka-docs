@@ -22,7 +22,7 @@ Addons upgrade is required for VM Swap feature, but not required.
 ARM/Silicon specific issues:
 
 - Nested virtualization is not functional inside of VMs yet.
-- `anka view` is partially broken and require double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- The `anka view` command is partially broken and requires double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
 - iCloud/Apple logins will fail inside of the VM. You can still log into your account through Apple's website and download apps through your developer account. Or, transfer them from the host into the VM with `anka cp`.
 - Changing the display resolution dynamically fails.
 - Physical device capture outside of USB devices like keyboard and "pointing" is not possible.

@@ -127,7 +127,7 @@ To expose the VM VNC port on the Host IP, [read more about port forwarding here]
 ## Anka View
 
 {{< hint warning >}}
-**ARM USERS:** We recommend using VNC over `anka start -v` or `anka view` commands. By default VMs come with VNC enabled and it's far more flexible.
+**ARM USERS:** We recommend using VNC over `anka start -v` or `anka view` commands. By default, VMs Anka VMS come with VNC enabled and it's far more flexible.
 {{< /hint >}}
 
 ### Known Issues with `anka view`
