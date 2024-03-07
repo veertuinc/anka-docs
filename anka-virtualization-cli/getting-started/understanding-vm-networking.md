@@ -15,9 +15,13 @@ description: >
 
 ---
 
-## Basics
+## The Basics
 
-Primarily, we use Apple's VMNET interface set to "Using DHCP". By default Anka VMs use a `shared` networking configuration with the host. It’s a kind of NAT + DHCP.
+By default Anka VMs use a `shared` networking configuration with the host. This uses a combination of NAT with a local DHCP server provided by macOS, but adds a custom layer that we have more control over.
+
+### Checking network configuration for VMs
+
+#### Stopped VM
 
 ```shell
 ❯ anka show 12.6 network
@@ -26,10 +30,11 @@ Primarily, we use Apple's VMNET interface set to "Using DHCP". By default Anka V
 +------------+------------+
 | controller | virtio-net |
 +------------+------------+
-. . .
 ```
 
-Every time you start/resume a VM it will be assigned an IP:
+#### Running VM
+
+Every time you start/resume a VM it will be assigned an IP (may take a few seconds for the VM to boot and assign):
 
 ```shell
 ❯ anka show 12.6
@@ -67,6 +72,12 @@ Every time you start/resume a VM it will be assigned an IP:
 +------------+-------------------+
 ```
 
+### Types of networking available
+
+{{< hint info >}}
+These are set using [`anka modify`]({{< relref "anka-virtualization-cli/getting-started/modifying-your-vm.md" >}}). Please review the previous section to understand how modifying a VM works.
+{{< /hint >}}
+
 {{< include file="_partials/anka-virtualization-cli/getting-started/_understanding-vm-networking-types.md" >}}
 
 {{< hint warning >}}
@@ -78,6 +89,8 @@ If `anka show` does not display an IP, networking has either:
 {{< hint info >}}
 Within the VM, you can find an IP assigned for the host which can be used to ssh or transfer files out. To determine which IP is assigned to the host, execute `ipconfig getoption en0 server_identifier` (typically `192.168.64.1` for **shared** network mode and `192.168.128.1` for **host** network mode).
 {{< /hint >}}
+
+---
 
 ### MAC Addresses
 
@@ -107,6 +120,36 @@ To change this, you can use `sudo defaults write /Library/Preferences/SystemConf
 MacOS sets the DHCP timeout to 86,400 seconds (one day) by default. We reuse these leases, which means you will not run out after ~253 VMs in a day. From our testing, Anka's VM networking is much more stable because of this, and not subject to sudden network reconnections and failed tests when the leases timeout. You can check the amount of leases available with `cat /var/db/dhcpd_leases`.
 
 <!-- In order to change this default TTL, you can use `sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.InternetSharing.default.plist bootpd -dict DHCPLeaseTimeSecs -int 1200` (1200 = 20 minutes). -->
+
+---
+
+## Security
+
+We find that many users are interested in VM to VM isolation, VM to Host isolation, and ARP Spoofing prevention. Most macOS virtualization tools on the market do not support network security outside of the defaults Apple provides. We've included these features in Anka for both Intel and ARM/Silicon to help you secure your VMs.
+
+### IP Filtering
+
+{{< include file="_partials/anka-virtualization-cli/advanced-security-features/ip-filtering.md" >}}
+
+
+### VM to VM isolation
+
+This requires using IP Filtering features available for `shared` networking mode. To prevent VM to VM communication, you will use `block local`.
+
+### VM to Host isolation
+
+VM to Host isolation is a bit different. This is done using the `network --no-local` flag. Example: `anka modify 14.3.1-arm64 network --no-local`.
+
+You can also enable globally using using `sudo anka config no_local 1`, `1` being enabled, and `0` disabled. Only available for `root/sudo`.
+
+```
+❯ sudo anka config | grep local
+| no_local | 0 |
+```
+
+### ARP Spoofing Prevention
+
+In order to prevent ARP Spoofing, you'll need to modify the VM with `network --no-local`, similarly to how you prevent VM to Host communication. This is also available globally with `sudo anka config no_local 1`.
 
 ---
 
