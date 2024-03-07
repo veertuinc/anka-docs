@@ -131,7 +131,6 @@ We find that many users are interested in VM to VM isolation, VM to Host isolati
 
 {{< include file="_partials/anka-virtualization-cli/advanced-security-features/ip-filtering.md" >}}
 
-
 ### VM to VM isolation
 
 This requires using IP Filtering features available for `shared` networking mode. To prevent VM to VM communication, you will use `block local`.

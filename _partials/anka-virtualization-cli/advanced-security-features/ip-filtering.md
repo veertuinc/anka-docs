@@ -1,6 +1,8 @@
-
-
 Starting in Anka 3.3, users can use a VM/Template specific network traffic filtering which mimicks the behavior of [ipf.conf](https://man.netbsd.org/ipf.conf.5). 
+
+{{< hint warning >}}
+This is only available for `shared` networking.
+{{< /hint >}}
 
 {{< hint warning >}}
 Filter rules are checked in descending order, with the first matching rule determining the treatment of the packet. For example, the following rules will `block any` traffic and ignore all other rules:
