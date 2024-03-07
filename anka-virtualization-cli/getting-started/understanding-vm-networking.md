@@ -141,10 +141,10 @@ This requires using IP Filtering features available for `shared` networking mode
 
 ### ARP Spoofing Prevention
 
-In order to prevent ARP Spoofing, you'll need to modify the VM with `network --no-local`. This will also prevent VM to VM and VM to Host communication by default. This is also available globally with `sudo anka config no_local 1`.
+ARP Spoofing is prevented by default for all networking modes except for `nat`.
 
 {{< hint info >}}
-Note: `nat` mode does not support VM to Host isolation or ARP Spoofing prevention, even if `no-local` (or IP Filtering) is enabled.
+ARP Isolation is not blocked however. You can run `sudo arp -a` for example and see the other VMs running on the host and their MAC and IP. You can prevent this with `network --no-local`, but keep in mind this also disables VM to Host and VM to VM communication.
 {{< /hint >}}
 
 ---
