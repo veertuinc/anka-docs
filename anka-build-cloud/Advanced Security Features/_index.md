@@ -40,7 +40,7 @@ These methods are available for users and scripts that need to use the Controlle
   - Anka CLI: through `ankacluster join --api-*` and `anka registry --api-*` options
   - Plugins / Integrations: No support yet for Jenkins, TeamCity, etc. Coming soon.
   - API: Full support.
-- [MTLS / Certificates]({{< relref "anka-build-cloud/Advanced Security Features/certificate-authentication.md" >}}})
+- [MTLS / Certificates]({{< relref "anka-build-cloud/Advanced Security Features/certificate-authentication.md" >}})
   - Anka CLI: through `ankalcluster join --cert`, `--cert-key`, etc.
   - Plugins / Integrations: Full support across all tools.
   - API: Full support.
