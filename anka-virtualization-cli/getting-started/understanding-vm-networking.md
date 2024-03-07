@@ -138,18 +138,13 @@ This requires using IP Filtering features available for `shared` networking mode
 
 ### VM to Host isolation
 
-VM to Host isolation is a bit different. This is done using the `network --no-local` flag. Example: `anka modify 14.3.1-arm64 network --no-local`.
-
-You can also enable globally using using `sudo anka config no_local 1`, `1` being enabled, and `0` disabled. Only available for `root/sudo`.
-
-```
-❯ sudo anka config | grep local
-| no_local | 0 |
-```
+This requires using IP Filtering features available for `shared` networking mode. To prevent VM to Host communication, you will use `block local`.
 
 ### ARP Spoofing Prevention
 
-In order to prevent ARP Spoofing, you'll need to modify the VM with `network --no-local`, similarly to how you prevent VM to Host communication. This is also available globally with `sudo anka config no_local 1`.
+In order to prevent ARP Spoofing, you'll need to modify the VM with `network --no-local`. This will also prevent VM to VM and VM to Host communication by default. This is also available globally with `sudo anka config no_local 1`.
+
+Note, `nat` mode does not support VM to Host isolation or ARP Spoofing prevention, even if `no-local` this is enabled.
 
 ---
 
