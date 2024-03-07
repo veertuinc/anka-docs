@@ -125,7 +125,7 @@ MacOS sets the DHCP timeout to 86,400 seconds (one day) by default. We reuse the
 
 ## Security
 
-We find that many users are interested in VM to VM isolation, VM to Host isolation, and ARP Spoofing prevention. Most macOS virtualization tools on the market do not support network security outside of the defaults Apple provides. We've included these features in Anka for both Intel and ARM/Silicon to help you secure your VMs.
+We find that many users are interested in VM to VM isolation, VM to Host isolation, and ARP Spoofing prevention. Most macOS virtualization tools on the market do not support network security outside of the defaults Apple provides. We've included features to protect from all three in Anka for both Intel and ARM/Silicon.
 
 ### IP Filtering
 
