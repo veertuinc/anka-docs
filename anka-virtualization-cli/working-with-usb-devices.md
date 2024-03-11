@@ -12,81 +12,105 @@ description: >
 > If you've already trusted the device on your host in the past, you'll need to **Reset Network Settings** on the device: `Settings -> General -> Reset -> Reset Network Settings`.
 
 1. List USB devices and find your device and note the _name_, _vendor_id_, and _location_.
-{{< highlight shell "hl_lines=11" >}}
-sh-3.2# anka usb list
-+------------------------------------+------------------------------------------+------------+--------------+-----------+
-| name                               | vendor_id                                |   location |   is_claimed |   is_busy |
-+====================================+==========================================+============+==============+===========+
-| Device in Port 8                   | 05ac:8104                                | 2155872256 |            0 |         0 |
-+------------------------------------+------------------------------------------+------------+--------------+-----------+
-| Apple T2 Controller                | 05ac:8233                                | 2148532224 |            0 |         0 |
-+------------------------------------+------------------------------------------+------------+--------------+-----------+
-. . .
-+------------------------------------+------------------------------------------+------------+--------------+-----------+
-| iPhone                             | 275a5e5f1313b22305c9beaffc4d58d985ebxxxx |  336675856 |            0 |         0 |
-+------------------------------------+------------------------------------------+------------+--------------+-----------+
-{{</ highlight >}}
+
+```bash
+❯ sudo anka usb list
++------------------------------------+--------------------------+------------+---------+------------+
+| name                               | vendor_id                | location   | is_busy | claim_name |
++------------------------------------+--------------------------+------------+---------+------------+
+| Ambient Light Sensor               | 05ac:826                 | 2150629376 | No      |            |
++------------------------------------+--------------------------+------------+---------+------------+
+| Apple Internal Keyboard / Trackpad | FM7009501FNHYYKAV+WD     | 2152726528 | No      |            |
++------------------------------------+--------------------------+------------+---------+------------+
+| Apple T2 Controller                | 05ac:823                 | 2148532224 | No      |            |
++------------------------------------+--------------------------+------------+---------+------------+
+| Device in Port 8                   | 05ac:810                 | 2155872256 | No      |            |
++------------------------------------+--------------------------+------------+---------+------------+
+| FaceTime HD Camera (Built-in)      | CC2949500PVHNW11         | 2149580800 | No      |            |
++------------------------------------+--------------------------+------------+---------+------------+
+| Headset                            | 05ac:810                 | 2151677952 | No      |            |
++------------------------------------+--------------------------+------------+---------+------------+
+| Touch Bar Backlight                | 05ac:810                 | 2154823680 | No      |            |
++------------------------------------+--------------------------+------------+---------+------------+
+| Touch Bar Display                  | 05ac:830                 | 2153775104 | No      |            |
++------------------------------------+--------------------------+------------+---------+------------+
+| iPhone                             | 00008120-001A45813E9B401 | 337641472  | Yes     |            |
++------------------------------------+--------------------------+------------+---------+------------+
+```
 
 2. You can now claim the device using the _name_, _vendor_id_, or _location_ and optionally add it to a claim name group:
     ```shell
-    anka usb claim -n iphones 275a5e5f1313b22305c9beaffc4d58d985ebxxxx
+    anka usb claim iPhone
     ```
 
-> If you have more than one iPhone, using a claim name (`--claim-name`) to group them is usually good practice. This allows you to specify `iphones` when starting a VM. **Be aware:** If you've assigned multiple devices to the claim name, the VM will nondeterministically choose a non-busy device.
+{{< hint info >}}
+If you have more than one iPhone, using a claim name (`--claim-name`) to group them is usually good practice. This allows you to specify `iphones` when starting a VM. **Be aware:** If you've assigned multiple devices to the claim name, the VM will nondeterministically choose a non-busy device.
+{{< /hint >}}
     
-3. Confirm that it's claimed (`is_claimed = 1`):
-    ```shell
-    sh-3.2# anka usb list | grep -E "name|iPhone"
-    | name                               | vendor_id                                |   location |   is_claimed |   is_busy |
-    | iPhone (iphones)                   | 275a5e5f1313b22305c9beaffc4d58d985ebxxxx |  336675856 |            1 |         0 |
-    ```
+3. Confirm that it's claimed:
+
+```bash
+❯ sudo anka usb claim -n test 00008120-001A45813E9B401
+anka: test: device not found
+
+    ~ ··············································································································································· system   at 13:40:30  
+❯ sudo anka usb list
++------------------------------------+--------------------------+------------+---------+--------------+
+| name                               | vendor_id                | location   | is_busy | claim_name   |
++------------------------------------+--------------------------+------------+---------+--------------+
+| Ambient Light Sensor               | 05ac:826                 | 2150629376 | No      |              |
++------------------------------------+--------------------------+------------+---------+--------------+
+| Apple Internal Keyboard / Trackpad | FM7009501FNHYYKAV+WD     | 2152726528 | No      |              |
++------------------------------------+--------------------------+------------+---------+--------------+
+| Apple T2 Controller                | 05ac:823                 | 2148532224 | No      |              |
++------------------------------------+--------------------------+------------+---------+--------------+
+| Device in Port 8                   | 05ac:810                 | 2155872256 | No      |              |
++------------------------------------+--------------------------+------------+---------+--------------+
+| FaceTime HD Camera (Built-in)      | CC2949500PVHNW11         | 2149580800 | No      |              |
++------------------------------------+--------------------------+------------+---------+--------------+
+| Headset                            | 05ac:810                 | 2151677952 | No      |              |
++------------------------------------+--------------------------+------------+---------+--------------+
+| Touch Bar Backlight                | 05ac:810                 | 2154823680 | No      |              |
++------------------------------------+--------------------------+------------+---------+--------------+
+| Touch Bar Display                  | 05ac:830                 | 2153775104 | No      |              |
++------------------------------------+--------------------------+------------+---------+--------------+
+| iPhone                             | 00008120-001A45813E9B401 | 337641472  | No      | iPhone       |
++------------------------------------+--------------------------+------------+---------+--------------+
+```
+
 
 4. Now attach the device to a VM using the _name_, _vendor_id_, _location_, or _claim_name_ (we'll use the claim name):
     ```shell
-    sh-3.2# anka start --usb iphones 10.15.4
-    Downloading files  [####################################]  100%
-    vm pulled successfully with uuid: e56b4aaf-0797-42dd-9ebe-41908bf10a4d
-    +-----------------------+---------------------------------------------+
-    | uuid                  | e56b4aaf-0797-42dd-9ebe-41908bf10a4d        |
-
-    . . .
-
-    usb
-
-    +--------+------------------------------------------+------------+--------------+
-    | name   | vendor_id                                |   location | claim_name   |
-    +========+==========================================+============+==============+
-    | iPhone | 275a5e5f1313b22305c9beaffc4d58d985ebxxxx |  336675856 | iphones      |
-    +--------+------------------------------------------+------------+--------------+
+    sh-3.2# anka start 14.4
+    sh-3.2# anka attach 14.4 iPhone
     ```
 
-> Alternatively, the [`anka attach`]({{< relref "anka-virtualization-cli/command-line-reference.md#attach" >}}) command is available if the VM is already running.
-
 5. Confirm that the device is available within the VM:
-{{< highlight shell "hl_lines=16" >}}
-sh-3.2# anka run 10.15.4 system_profiler SPUSBDataType
-USB:
 
-    USB 3.0 Bus:
+    ```bash
+    ❯ anka run 14.4 system_profiler SPUSBDataType
+    USB:
 
-      Host Controller Driver: AppleUSBXHCIPPT
-      PCI Device ID: 0x1e31
-      PCI Revision ID: 0x0000
-      PCI Vendor ID: 0x8086
+        USB 3.0 Bus:
 
-        iPhone:
+          Host Controller Driver: AppleUSBXHCIPPT
+          PCI Device ID: 0x1e31
+          PCI Revision ID: 0x0000
+          PCI Vendor ID: 0x8086
 
-          Product ID: 0x12a8
-          Vendor ID: 0x05ac (Apple Inc.)
-          Version: 8.02
-          Serial Number: 275a5e5f1313b22305c9beaffc4d58d985ebxxxx
-          Speed: Up to 480 Mb/s
-          Manufacturer: Apple Inc.
-          Location ID: 0x07a00000 / 3
-          Current Available (mA): 500
-          Current Required (mA): 500
-          Extra Operating Current (mA): 0
-{{</ highlight >}}
+            iPhone:
+
+              Product ID: 0x12a8
+              Vendor ID: 0x05ac (Apple Inc.)
+              Version: 15.02
+              Serial Number: 00008120001A45813E9B401E
+              Speed: Up to 480 Mb/s
+              Manufacturer: Apple Inc.
+              Location ID: 0x07e00000 / 6
+              Current Available (mA): 500
+              Current Required (mA): 500
+              Extra Operating Current (mA): 0
+    ```
 
 
 ## Using the Controller API (Requires Enterprise or higher license)
@@ -134,4 +158,6 @@ USB:
 
 4. Finally, confirm the Instance was created and started on your Controller Instances page.
 
-> You might see a delay in receiving a Trust prompt on your device after starting the VM.
+{{< hint info >}}
+You might see a delay in receiving a Trust prompt on your device after starting the VM.
+{{< /hint >}}
