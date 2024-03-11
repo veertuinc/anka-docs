@@ -53,7 +53,6 @@ If you have more than one iPhone, using a claim name (`--claim-name`) to group t
 ❯ sudo anka usb claim -n test 00008120-001A45813E9B401
 anka: test: device not found
 
-    ~ ··············································································································································· system   at 13:40:30  
 ❯ sudo anka usb list
 +------------------------------------+--------------------------+------------+---------+--------------+
 | name                               | vendor_id                | location   | is_busy | claim_name   |
