@@ -2,6 +2,9 @@
 
 #### Create a self-signed cert for the services (optional)
 
+{{< include file="_partials/anka-build-cloud/advanced-security-features/root-ca.md" >}}
+
+
 {{< hint warning >}}
 Certificates should be in `PEM (PKCS #8)` format.
 {{< /hint >}}
