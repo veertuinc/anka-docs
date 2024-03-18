@@ -128,7 +128,7 @@ done
 {{< /hint >}}
 
 {{< hint warning >}}
-**ARM USERS:** Creating macOS 14.x (or higher) VMs on Ventura Host OS requires Xcode 15 or greater. Alternatively, you can install the Device Support Image/dmg Apple provides.
+**ARM USERS:** Creating macOS 14.x (or higher) VMs requires a host macOS version of 14.x.
 {{< /hint >}}
 
 {{< hint warning >}}
