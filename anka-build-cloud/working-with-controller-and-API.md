@@ -113,7 +113,9 @@ Starting from Controller release version 1.0.12, logs will be available for down
 
 ## REST API
 
-Use the REST APIs to integrate Anka Build cloud with your CI system (If there is no plugin/integration available).
+#### Health Check
+
+{{< include file="_partials/anka-build-cloud/whatsnew/1.41.1/health-check.md" >}}
 
 #### Status
 
