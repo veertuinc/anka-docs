@@ -7,15 +7,21 @@ weight: 100
 
 ## Current Version
 
-### 1.41.0 (1.41.0-6a102e20) - Jan 24th, 2024
+### 1.41.1 (1.41.1-ac4f02c4) - March 27th, 2024
+
+- **New Feature:** [Added Health Check Endpoints]({{< relref "whats-new/build-cloud-1.41.1/index.md#health-check-endpoints" >}})
+- **Bug Fix:** Arm64 macOS package required Rosetta to install.
+
+---
+
+## Previous Versions
+
+### 1.41.0 (1.41.0-6a102e20) - January 24th, 2024
 
 - **New Feature:** [Ability to set External ID when creating a new VM Instance from the UI.]({{< relref "whats-new/build-cloud-1.41.0/index.md#ability-to-set-external-id-when-creating-a-new-vm-instance-from-the-ui" >}})
 - **New Feature:** [Ability to join a Node in "Drain Mode".]({{< relref "whats-new/build-cloud-1.41.0/index.md#ability-to-join-a-node-in-drain-mode" >}})
 - **Improvement:** [VM Instances listing in UI now shows Creation Time + sortable by Creation Time.]({{< relref "whats-new/build-cloud-1.41.0/index.md#vm-instances-listing-in-ui-now-shows-creation-time--sortable-by-creation-time" >}})
 
----
-
-## Previous Versions
 
 ### 1.40.0 (1.40.0-95a63938) - December 6th, 2023
 
