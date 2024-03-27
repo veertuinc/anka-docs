@@ -1,3 +1,10 @@
+---
+---
+
+{{< hint warning >}}
+This feature is only available in 1.41.1 or later.
+{{< /hint >}}
+
 
 The health check endpoints are available at `/health` and `/ready`. They are accessible regardless of authorization.
 
