@@ -31,3 +31,6 @@ However, when importing, you will need to import all previous tags that make up 
 
 In short, your exporting/importing must be done in the order of tag creation if those tags are dependent on each other.
 
+{{< hint warning >}}
+This feature does not work if `chunk_size` is in use for the VM templates/tags.
+{{< /hint >}}
