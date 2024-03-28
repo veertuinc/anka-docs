@@ -6,7 +6,7 @@ This feature is only available in 1.41.1 or later.
 {{< /hint >}}
 
 
-The health check endpoints are available at `/health` and `/ready`. They are accessible regardless of authorization.
+The health check endpoints are available at `/livez` and `/readyz`. They are accessible regardless of authorization.
 
 1. The `/livez` endpoint returns a 200 OK response if the service is alive.
 
