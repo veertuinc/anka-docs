@@ -395,3 +395,10 @@ The Registry stores your Anka VM Templates and Tags. It is also responsible for 
 - Total Free Capacity across all Nodes is 0 for more than 15 minutes. This typically means you need more Nodes to handle the VM start request load.
 - Registry Available Space is less than 70GB. We recommend keeping your Registry free space at 50GB or more.
 - Usage of a specific VM Template is 0 over a week period. This usually means that a Template is ready to be deletes as it is no longer used.
+
+---
+
+## Stuck VM Monitoring
+
+{{< include file="_partials/anka-build-cloud/whatsnew/1.10.1/stuck-vm-monitor.md" >}}
+
