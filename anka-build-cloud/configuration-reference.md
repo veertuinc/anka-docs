@@ -50,6 +50,7 @@ services:
     environment:
       ANKA_BASE_PATH: /mnt/vol
       ANKA_LISTEN_ADDR: :8089
+      ANKA_ENABLE_CENTRAL_LOGGING: "true"
       # https://docs.veertu.com/anka/anka-build-cloud/configuration-reference/#configuration-envs
     volumes:
       ######   EDIT HERE  ########
