@@ -112,7 +112,7 @@ Anka allows you to create VMs for the following macOS versions:
 {{< /hint >}}
 
 {{< hint warning >}}
-**(\*\*) ARM USERS: Apple is requiring the host OS be 13.x for creating and running VMs with macOS >= 13.3.</a>**
+**(\*\*) ARM USERS: To run macOS 14.x VMs, you must have macOS 14.x (or higher) on your host. 13.x VMs also require a minimum host macOS version of 13.x.**
 {{< /hint >}}
 
 {{< hint warning >}}
@@ -125,10 +125,6 @@ for PKG in $(/bin/ls /Applications/Xcode.app/Contents/Resources/Packages/*.pkg);
     sudo /usr/sbin/installer -pkg "$PKG" -target /
 done
 ```
-{{< /hint >}}
-
-{{< hint warning >}}
-**ARM USERS:** Creating macOS 14.x (or higher) VMs requires a host macOS version of 14.x.
 {{< /hint >}}
 
 {{< hint warning >}}
