@@ -133,6 +133,7 @@ This section describes the steps to create dynamic labels inside of your Jenkins
 
 **Name** | **Type** | **Default Value** |  **Description** |  **Required**
 --- | --- | --- | --- | ---
+cloudName | String | -  | Cloud to target, by name | -
 masterVmId | String | -  | UUID of the VM Template | Yes
 tag | String | -  | VM Template Tag name | -
 remoteFS | String | `Users/anka` | Remote node workspace | -
@@ -343,6 +344,21 @@ Starting in 2.9.0, users can add a Custom Column in their Controller UI on the I
 ---
 
 ## Release Notes
+
+### 2.11.0 - April 10th, 2024
+
+{{< hint warning >}}
+MINIMUM REQUIRED JENKINS VERSION: `2.387.3`
+{{< /hint >}}
+
+- **Improvement:** Way better logging in various parts of the plugin.
+- **Improvement:** When specifying a non-existent key for `createDynamicAnkaNode`, you will now see an error in the job's Console Output.
+- **Improvement:** Support for new modern PKCS8 (as well as the older PKCS1), RSA, and EC certs.
+- **New Feature:** Ability to target a specific Cloud by setting `cloudName` in `createDynamicAnkaNode`.
+- **New Feature:** Ability to use Bridge mode VMs by waiting for the VM to obtain an IP from DHCP (you can configure this from Advanced in the Clouds > Anka Cloud you've created).
+- **Bug Fix:** Certificate Authentication was forcing all Clouds to use the same certificate. They are now separate and "None" is now a dropdown option to select if no Cert is needed.
+- **Bug Fix:** Skip TLS Verification was not working and required a CA Root.
+
 
 ### 2.10.0 - Oct 30th, 2023
 
