@@ -96,7 +96,8 @@
   This will join the node in [Drain Mode.]({{< relref "whats-new/build-cloud-1.32.0/index.md#drain-mode" >}})
 
   - Optional
-  - Only available in 3.3.9 or greater AMIs.
+  - Only available in 3.3.10 or greater AMIs.
+  - Requires Controller 1.32.0 or greater.
 
 #### Manual Preparation (optional)
 
