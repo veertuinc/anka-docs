@@ -39,7 +39,18 @@ When using OIDC, you'll need an Authorization Provider or Server. Most of our cu
 #### At Your Provider
 
 1. Your provider config must allow a redirect to the Anka Controller at `/oidc/v1/callback`. The URL doesn't need to be public, but must match the hostname or IP (and port) you use locally. As an example, in Okta, you'll set `Sign-in redirect URIs` to `https://anka.controller:8090/oidc/v1/callback`.
-2. The controller/your browser will request certain `scopes` from the provider. These `scopes` have `claims` attached. By default, we look for `openid`, `profile`, and `groups`.
+2. The controller/your browser will request certain `scopes` from the provider. These `scopes` have `claims` attached. By default, we look for `openid`, `profile`, and `groups`. For Okta, the `/.well-known/openid-configuration` json should show:
+    ```
+      "scopes_supported": [
+        "openid",
+        "email",
+        "profile",
+        "address",
+        "phone",
+        "offline_access",
+        "groups"
+      ],
+    ```
 3. Within the `scopes`, we look for `claims`. The following `claims` are required (by default): `name` (part of `profile`) & `groups`. These are changeable with `ANKA_OIDC_GROUPS_CLAIM` and `ANKA_OIDC_USERNAME_CLAIM` in your controller's config. In version 1.29.0, we will also look for `scopes` using the values of those ENVs.
 4. Once the `scopes` are requested successfully, the data returned needs to be in a specific format (`id_token` & `token`). We make the request with `response_type` to ensure this.
 5. The `groups` claim is expected to be an array of strings, each correlating to a [Controller permission group](#managing-usergroup-permissions-authorization).
