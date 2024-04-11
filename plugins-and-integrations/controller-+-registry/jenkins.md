@@ -127,7 +127,7 @@ This section describes the steps to create dynamic labels inside of your Jenkins
    
 > Jenkins has a Pipeline Snippet Generator, which helps you craft your `createDynamicAnkaNode` definition. You can find it in your Jenkins instance at `/pipeline-syntax`.
 
-#### `CreateDynamicAnkaNode` Parameters
+#### `createDynamicAnkaNode` Parameters
 
 > You can obtain the "masterVmId" (VM UUID) using: `sudo anka show <Template name> uuid`
 
