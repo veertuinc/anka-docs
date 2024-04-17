@@ -11,6 +11,33 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.3.10 (3.3.10.185) - Apr 17th 2024
+
+{{< hint info >}}
+Addons upgrade is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- Nested virtualization is not functional inside of VMs yet.
+- The `anka view` command is partially broken and requires double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- iCloud/Apple logins will fail inside of the VM. You can still log into your account through Apple's website and download apps through your developer account. Or, transfer them from the host into the VM with `anka cp`.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **New Feature:** `ANKA_DEFAULT_USER_NAME` can be set to change the name used when creating the VM's user.
+- **Improvement:** Better error indicating `chunk_size` is not currently supported for `anka export`.
+- **Improvement:** MacOS automated setups scripts now work when Siri screen is enabled.
+- **Bug Fix:** `anka export` bug would cause `import` to fail with `could not find the VM configuration`.
+- **Bug Fix:** Randomly bridge mode users will get the wrong interface attached to the VM (en1 instead of en0).
+- **Bug Fix:** `anka registry revert -t "brew+git+dotnet+commonsetup"` would throw `anka: 400 Did not find any versions with tag brew git dotnet commonsetup`.
+
+## Previous Versions
+
 ### 3.3.9 (3.3.9.182) - Feb 27th 2024
 
 {{< hint info >}}
@@ -42,7 +69,6 @@ ARM/Silicon specific issues:
 - **Bug Fix:** `ankanetd` was starting post-host-boot andpersisting even when no VMs were running.
 - **Bug Fix:** Modifying disk then resizing using disktuil was causing VM to not boot.
 
-## Previous Versions
 
 ### 3.3.8 (3.3.8.178) - Jan 2nd 2024
 
