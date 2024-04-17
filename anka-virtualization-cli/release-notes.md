@@ -33,7 +33,7 @@ ARM/Silicon specific issues:
 - **Improvement:** Better error indicating `chunk_size` is not currently supported for `anka export`.
 - **Improvement:** MacOS automated setup scripts now work when Siri screen is enabled.
 - **Bug Fix:** `anka export` bug would cause `import` to fail with `could not find the VM configuration`.
-- **Bug Fix:** Randomly bridge mode users will get the wrong interface attached to the VM (en1 instead of en0).
+- **Bug Fix:** Randomly bridge mode users would get the wrong interface attached to the VM (en1 instead of en0).
 - **Bug Fix:** `anka registry revert -t "brew+git+dotnet+commonsetup"` would throw `anka: 400 Did not find any versions with tag brew git dotnet commonsetup`.
 
 ## Previous Versions
