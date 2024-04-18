@@ -7,6 +7,7 @@ AMIs will be published under account IDs `930457884660` (veertu official) and `6
 
 | Name         | |
 | -------------- | --- |
+| anka-build-3.3.10.185-macos-14.4.1-arm64 | anka-build-3.3.10.185-macos-14.4.1 |
 | anka-build-3.3.9.182-macos-14.3-arm64 | anka-build-3.3.9.182-macos-14.3 |
 | anka-build-3.3.8.178-macos-14.1.2-arm64 | anka-build-3.3.8.178-macos-14.1.2 |
 | anka-build-3.3.7.173-macos-14.0-arm64 | 14.0 AMIs not available for Intel. |
