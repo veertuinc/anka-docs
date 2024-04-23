@@ -13,7 +13,7 @@ It's important to understand that the `anka` CLI VM creation, modification, etc,
 ## Prerequisites
 
 1. [You've installed the Anka Virtualization package.]({{< relref "anka-virtualization-cli/getting-started/installing-the-anka-virtualization-package.md" >}})
-2. The host you wish to use has networking (requirement of Apple Virtualization.Framework) and access to the internet.
+2. The host you wish to use has a full internet connection. If you are behind a corporate firewall/proxy, you'll need to review https://support.apple.com/101555.
 
 ---
 
