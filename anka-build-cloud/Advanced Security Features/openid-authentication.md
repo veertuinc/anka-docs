@@ -43,17 +43,19 @@ When using OIDC, you'll need an Authorization Provider or Server. Most of our cu
     ```
       "scopes_supported": [
         "openid",
-        "email",
         "profile",
-        "address",
-        "phone",
-        "offline_access",
+        . . .
         "groups"
       ],
     ```
-3. Within the `scopes`, we look for `claims`. The following `claims` are required (by default): `name` (part of `profile`) & `groups`. These are changeable with `ANKA_OIDC_GROUPS_CLAIM` and `ANKA_OIDC_USERNAME_CLAIM` in your controller's config. In version 1.29.0, we will also look for `scopes` using the values of those ENVs.
+3. Within the `scopes`, we look for `claims`. The following `claims` are required (by default): `name` (part of `profile`) & `groups`. These are changeable with `ANKA_OIDC_GROUPS_CLAIM` and `ANKA_OIDC_USERNAME_CLAIM` in your controller's config.
 4. Once the `scopes` are requested successfully, the data returned needs to be in a specific format (`id_token` & `token`). We make the request with `response_type` to ensure this.
 5. The `groups` claim is expected to be an array of strings, each correlating to a [Controller permission group](#managing-usergroup-permissions-authorization).
+
+
+{{< hint info >}}
+We request the claims from /userinfo, so if `groups` does not exist, your provider configuration should be setup to do so. You'll see an error like `failed translating claims to user: no Groups claim in groups` if this is the case.
+{{< /hint >}}
 
 ---
 
