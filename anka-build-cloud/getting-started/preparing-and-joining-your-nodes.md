@@ -20,19 +20,7 @@ Be sure to reboot the host after applying these changes.
 
 ### Host Preparation (Optional, but Recommended)
 
-- **Enable `Automatic Login` for the current user:** Go to Preferences > Users > Enable Automatic Login for the current user. Or, [using the CLI](https://github.com/veertuinc/kcpassword).
-  {{< hint warning >}}
-  Not available if FileVault is enabled or you use an iCloud password to log into the user.
-  {{< /hint >}}
-  {{< hint info >}}
-  If using the CLI method of enabling `Automatic Login`, you must also XOR-encrypt the login password and add it to `/etc/kcpassword`.
-
-  The `/etc/kcpassword` file must be owned by `root:wheel` with a mode of `0600`.
-
-  See the GitHub repository [veertuinc/kcpassword](https://github.com/veertuinc/kcpassword) for help generating the encrypted password string.
-  {{< /hint >}}
-
-- If on macOS version Big Sur: Disable Apple's mitigations with `sudo anka config vmx_mitigations 0`. Without it, performance will be ~10% worse inside of the VM. (This does not work on Monterey versions of macOS)
+- **Enable `Automatic Login` for the current user:** Go to Preferences > Users > Enable Automatic Login for the current user. Or, use `sudo sysadminctl -autologin set -userName {USERTOENABLE} -password {PASSWORD}`.
 
 - Disable spotlight on the host and also inside of the VM:
 
