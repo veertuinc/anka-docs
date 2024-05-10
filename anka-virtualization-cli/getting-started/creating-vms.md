@@ -131,6 +131,18 @@ done
 **Apple's .app installer files are currently not supported on ARM. Instead, you'll need to obtain .ipsw files.**
 {{< /hint >}}
 
+{{< hint warning >}}
+VM creation requires a full internet connection or access to the Apple URLs detailed on https://support.apple.com/101555. If you are behind a corporate firewall/proxy, you'll need to set up a proxy that has the access you need and tell the system to use that proxy with the following:
+
+```bash
+# networksetup is an alternative to going into the System Preferences > Network > <interface> > Details > Proxies and setting it up manually
+networksetup -setwebproxy <interface> <proxyURL> <port>
+networksetup -setsecurewebproxy <interface> <proxyURL> <port>
+export http_proxy=http://<proxyURL>:<port>
+export https_proxy=http://<proxyURL>:<port>
+```
+{{< /hint >}}
+
 ---
 
 ### Using `anka create`
