@@ -12,3 +12,5 @@
 Central Registry | Yes | Yes | Yes
 [USB Device control through the CLI]({{< relref "anka-virtualization-cli/working-with-usb-devices.md" >}}) |    | Yes | Yes
 [Advanced Security Features]({{< relref "anka-virtualization-cli/advanced-security-features.md" >}}) |    | Yes | Yes
+[Export and Import VMs]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md#exporting-and-importing-vms" >}}) |    | Yes | Yes
+

@@ -369,6 +369,17 @@ There are two types of cloning you can perform:
 
 {{< include file="_partials/anka-build-cloud/vm-templates.md" >}}
 
+## Exporting and Importing VMs
+
+### Export
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/export/_extra.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/export/_index.md" >}}
+
+### Import
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/import/_index.md" >}}
+
+---
+
 ## Anka Build Cloud
 
 ### Add the Registry

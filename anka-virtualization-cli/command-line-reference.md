@@ -210,6 +210,7 @@ Outside of the config environment variables, there are a few others you might fi
 ### license accept-eula
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/license/accept-eula/_index.md" >}}
 ## Export
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/export/_extra.md" >}}
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/export/_index.md" >}}
 ## Import
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/import/_index.md" >}}
