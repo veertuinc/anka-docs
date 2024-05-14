@@ -160,4 +160,4 @@ Some important notes about creating your own AMI:
 
 ## Answers to Frequently Asked Questions
 
-- VMs can enable access to the `169.254.169.254` instance Metadata by routing it from the host with: `networksetup -setadditionalroutes Ethernet 169.254.169.254 255.255.255.255 192.168.64.1`
+- VMs can enable access to the `169.254.169.254` instance Metadata by routing it from the host with: `networksetup -setadditionalroutes Ethernet 169.254.169.254 255.255.255.255 $(sudo defaults read /Library/Preferences/SystemConfiguration/com.apple.vmnet.plist Shared_Net_Address)`
