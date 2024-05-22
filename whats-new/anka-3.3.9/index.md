@@ -16,7 +16,7 @@ This feature is for ARM/Silicon only.
 This feature was designed for EC2/EBS users to be able to use the internal SSD on the host for VM swap space and avoid any performance limitations of EBS when VMs run out of Memory under heavy usage. It's technically not just for EBS/EC2 users though. You can set `anka config swap_dir` (or the ENV) to anything you want on any arch/hardware and it will automatically mount a directory from there into the VM.
 
 - To enable for all VMs, set `[sudo] anka config swap_dir`. If not set, it is disabled.
-- Each VM's swap mount is isolated from the others.
+- Each VM's swap mount is isolated from the others. They are stored as disk images under the location you specify for swap_dir.
 - It can be disabled per VM by using `ANKA_SWAP_DIR="" anka start . . .`
 - It can be enabled per VM by using `ANKA_SWAP_DIR="/location/on/host" anka start . . .`
 - Once mounted, it will automatically update `sudo sysctl vm.swapfileprefix` to the proper path. No action is necessary inside of the VM to use it. However, the feature will only work with 3.3.9 addons installed in the VM.
