@@ -99,12 +99,13 @@ Check that `TCP port for JNLP agents` is not set to **disabled**
 ![JNLP port setting]({{< siteurl >}}images/anka-build/troubleshooting/jnlp.png)
 
 ### Check JNLP log on the VM
-The VM writes a log when trying to connect to Jenkins via JNLP. The location of this log on the VM is `/tmp/log.txt`.  
+The VM writes a log when trying to connect to Jenkins via JNLP. The location of this log on the VM is `/tmp/log.txt`. This may be under `~/remoting/logs/` on newer versions.
 In order to log at the log you'll have to "catch" it when the VM tries to connect to Jenkins.  
 Start the job that would start the VM and go to your Anka Cloud dashboard. When the VM is started, SSH to it or connect to it via VNC and open the terminal.  
 Execute the `tail` command to view the log:
 ```shell
 tail -f /tmp/log.txt
+# Note: this may be under ~/remoting/logs/ on newer versions
 ```
 You can also check connectivity to Jenkins's JNLP port.
  > Replace `example.jenkins.com` with your Jenkins hostname or IP and `50000` with the JNLP port configured for your server.  
