@@ -5,6 +5,9 @@ linkTitle: "Teamcity"
 weight: 3
 description: >
   Instructions on how to use Teamcity with the Anka Build Cloud
+aliases:
+  - "/docs/ci-plugins-and-integrations/teamcity/"
+  - "/docs/plugins-and-integrations/teamcity/"
 ---
 
 ## VM Template & Tag Requirements

@@ -7,6 +7,7 @@ description: >
   Instructions on how to use Jenkins with Anka Build Cloud
 aliases:
   - /ci-plugins-and-integrations/controller-+-registry/jenkins/
+  - "docs/plugins-and-integrations/jenkins/"
 ---
 
 The Jenkins **Anka Plugin** provides a quick way to integrate Anka Build Cloud with Jenkins. The plugin helps Jenkins jobs dynamically provision Anka VM instances (based on the label used) for building, testing, and more.

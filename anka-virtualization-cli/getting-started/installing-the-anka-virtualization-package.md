@@ -5,6 +5,9 @@ linkTitle: "Installing Anka"
 weight: 1
 description: >
   How to install the Anka Virtualization software on your macOS
+aliases:
+  - "/apple/getting-started/installing-the-anka-virtualization-package/"
+  - "/intel/getting-started/installing-the-anka-virtualization-package/"
 ---
 
 ## MacOS Host Version Support

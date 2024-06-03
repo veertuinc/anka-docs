@@ -4,6 +4,9 @@ linkTitle: "Creating VMs"
 weight: 2
 description: >
   Step by step on how to create VMs
+aliases:
+  - "/apple/getting-started/creating-your-first-vm/"
+  - "/intel/getting-started/creating-your-first-vm/"
 ---
 
 {{< hint warning >}}
