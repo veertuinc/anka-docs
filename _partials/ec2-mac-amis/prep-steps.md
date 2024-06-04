@@ -99,6 +99,15 @@
   - Only available in 3.3.10 or greater AMIs.
   - Requires Controller 1.32.0 or greater.
 
+  ##### ANKA_EXECUTE_SCRIPT (string)
+
+  This will execute one of the available scripts included with the cloud-connect service.
+
+  - [A list of available scripts is available here.](https://github.com/veertuinc/aws-ec2-mac-amis/tree/main/scripts)
+  - Optional
+  - Only available in Anka 3.4.0 or greater AMIs.
+  - If the script fails, the node will still join.
+
 #### Manual Preparation (optional)
 
 **Amazon EBS volumes can be very slow even when you max iOPS, etc.** Because of this, `anka create` and other processes can take very long times or outright fail (Apple's installer is sensitive to disk IO). AWS indicates that you have to pre-warm EBS volumes that are restored from snapshots (which our AMIs are). To do this, [follow the instructions outlined here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-initialize.html#ebs-initialize-linux): `brew install fio && sudo fio --filename=/dev/r$(df -h / | grep -o 'disk[0-9]') --rw=read --bs=1M --iodepth=32 --ioengine=posixaio --direct=1 --name=volume-initialize` Finally, pre-warmed volumes stay warmed -- no need to run `dd` after periods of inactivity on the AWS instance. **NOTE: This command is not able to run from user-data.**
