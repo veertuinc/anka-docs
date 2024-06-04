@@ -101,7 +101,7 @@
 
   ##### ANKA_EXECUTE_SCRIPT (string)
 
-  This will execute one of the available scripts included with the cloud-connect service.
+  This will execute one of the available scripts included with the cloud-connect service. You must specify the full script name.
 
   - [A list of available scripts is available here.](https://github.com/veertuinc/aws-ec2-mac-amis/tree/main/scripts)
   - Optional
