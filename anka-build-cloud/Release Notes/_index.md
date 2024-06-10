@@ -9,7 +9,7 @@ weight: 100
 
 ### 1.42.0 (1.42.0-92735895) - June 10th, 2024
 
-- **New Feature:** [Ability to start an Intel VM's with specific VNC Password.]({{< relref "whats-new/build-cloud-1.42.0/index.md#ability-to-start-an-intel-vms-with-specific-vnc-password" >}})
+- **New Feature:** [Ability to start an Intel VM with a specific VNC Password.]({{< relref "whats-new/build-cloud-1.42.0/index.md#ability-to-start-an-intel-vm-with-a-specific-vnc-password" >}})
 - **New Feature:** [Ability to Search through Templates.]({{< relref "whats-new/build-cloud-1.42.0/index.md#ability-to-search-through-templates" >}})
 - **Improvement:** [New Sub-Menu for Templates.]({{< relref "whats-new/build-cloud-1.42.0/index.md#new-sub-menu-for-templates" >}})
 - **Improvement:** [New dialogue showing table/list of templates being deleted.]({{< relref "whats-new/build-cloud-1.42.0/index.md#new-dialogue-showing-tablelist-of-templates-being-deleted" >}})

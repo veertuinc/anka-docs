@@ -15,7 +15,7 @@ You can now search through Templates by name.
 
 {{< imgwithlink src="images/whatsnew/1.42.0/searchtemplates.png" >}}
 
-### Ability to start an Intel VM's with specific VNC Password
+### Ability to start an Intel VM with a specific VNC Password
 
 You can now set a VNC password for Intel VMs. This is similar to using `ANKA_VNC_PASSWORD` on the CLI.
 
