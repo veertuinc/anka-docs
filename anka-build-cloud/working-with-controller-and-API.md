@@ -223,6 +223,7 @@ hw_uuid | string | Modify the hw.uuid of the VM **(requires Intel and stopped Te
 port_forwarding_override | array[object] | An array of objects, each object being the port forwarding rule to apply. Any pre-existing rules will be ignored and ONLY the ones specified made available.
 network_mode | string | Set the network mode for the VM.
 disk | object | Set the disk size for the VM. By defautl, it will issue `sudo diskutil apfs resizeContainer` inside of the VM before `startup_script` or the VM is available.
+vnc_password | string | Set the VNC password for the VM (currently only for intel). Similar to using `ANKA_VNC_PASSWORD` on the CLI.
 
 **Returns:**  
 

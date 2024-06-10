@@ -1,7 +1,8 @@
 
-
+---
+---
 ### General & Commonly used
-{{< include file="_partials/anka-build-cloud/configuration-reference/controller/general&commonlyused/notice.md" >}}
+{{< include file="content/_partials/anka-build-cloud/configuration-reference/controller/general&commonlyused/notice.md" >}}
 | ENV | Type | Description | Default Value |
 | --- | :---: | --- | :---: |
 | ANKA_ANKA_REGISTRY | (string) | Anka Registry address that will be used by Nodes to pull/download VM Templates and Tags. This is not used by the Controller to communicate with the Registry. (format: "http[s]://address:[port]"). |  |

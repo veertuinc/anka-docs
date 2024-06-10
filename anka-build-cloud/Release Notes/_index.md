@@ -7,21 +7,33 @@ weight: 100
 
 ## Current Version
 
-### 1.41.1 (1.41.1-ac4f02c4) - March 27th, 2024
+### 1.42.0 (1.42.0-92735895) - June 10th, 2024
 
-- **New Feature:** [Added Health Check Endpoints]({{< relref "whats-new/build-cloud-1.41.1/index.md#health-check-endpoints" >}})
-- **Bug Fix:** Arm64 macOS package required Rosetta to install.
+- **New Feature:** [Ability to start an Intel VM's with specific VNC Password.]({{< relref "whats-new/build-cloud-1.42.0/index.md#ability-to-start-an-intel-vms-with-specific-vnc-password" >}})
+- **New Feature:** [Ability to Search through Templates.]({{< relref "whats-new/build-cloud-1.42.0/index.md#ability-to-search-through-templates" >}})
+- **Improvement:** [New Sub-Menu for Templates.]({{< relref "whats-new/build-cloud-1.42.0/index.md#new-sub-menu-for-templates" >}})
+- **Improvement:** [New dialogue showing table/list of templates being deleted.]({{< relref "whats-new/build-cloud-1.42.0/index.md#new-dialogue-showing-tablelist-of-templates-being-deleted" >}})
+- **Improvement:** Logging improvements, adding Node ID and other IDs where available.
+- **Bug Fix:** Failures for distribution of templates would show a gear icon and never show progress or failure.
+- **Bug Fix:** Registry package post-install message now shows proper port.
+- **Bug Fix:** Some error log lines for rest_sender.go and client.go were showing as blank.
+- **Bug Fix:** Centralized Logging when HTTPS/TLS is enabled was failing.
+- **Bug Fix:** Unable to view Controller Log streams when auth is enabled.
 
 ---
 
 ## Previous Versions
+
+### 1.41.1 (1.41.1-ac4f02c4) - March 27th, 2024
+
+- **New Feature:** [Added Health Check Endpoints]({{< relref "whats-new/build-cloud-1.41.1/index.md#health-check-endpoints" >}})
+- **Bug Fix:** Arm64 macOS package required Rosetta to install.
 
 ### 1.41.0 (1.41.0-6a102e20) - January 24th, 2024
 
 - **New Feature:** [Ability to set External ID when creating a new VM Instance from the UI.]({{< relref "whats-new/build-cloud-1.41.0/index.md#ability-to-set-external-id-when-creating-a-new-vm-instance-from-the-ui" >}})
 - **New Feature:** [Ability to join a Node in "Drain Mode".]({{< relref "whats-new/build-cloud-1.41.0/index.md#ability-to-join-a-node-in-drain-mode" >}})
 - **Improvement:** [VM Instances listing in UI now shows Creation Time + sortable by Creation Time.]({{< relref "whats-new/build-cloud-1.41.0/index.md#vm-instances-listing-in-ui-now-shows-creation-time--sortable-by-creation-time" >}})
-
 
 ### 1.40.0 (1.40.0-95a63938) - December 6th, 2023
 

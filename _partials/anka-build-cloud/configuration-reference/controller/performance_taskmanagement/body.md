@@ -1,7 +1,8 @@
 
-
+---
+---
 ### Performance / Task Management
-{{< include file="_partials/anka-build-cloud/configuration-reference/controller/performance_taskmanagement/notice.md" >}}
+{{< include file="content/_partials/anka-build-cloud/configuration-reference/controller/performance_taskmanagement/notice.md" >}}
 | ENV | Type | Description | Default Value |
 | --- | :---: | --- | :---: |
 | ANKA_BATCH_TASK_COUNT | (int) | The number of tasks to get from the queue in one request (max 40) | 2 |

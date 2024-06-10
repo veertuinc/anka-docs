@@ -1,7 +1,8 @@
 
-
+---
+---
 ### General & Commonly used (standalone registry)
-{{< include file="_partials/anka-build-cloud/configuration-reference/registry/general&commonlyused(standaloneregistry)/notice.md" >}}
+{{< include file="content/_partials/anka-build-cloud/configuration-reference/registry/general&commonlyused(standaloneregistry)/notice.md" >}}
 | ENV | Type | Description | Default Value |
 | --- | :---: | --- | :---: |
 | ANKA_BASE_PATH | (string) | Set the registry data's base path | . |
