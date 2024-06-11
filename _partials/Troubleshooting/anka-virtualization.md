@@ -27,18 +27,20 @@ It is also best to run this as close to when an issue happens as several command
 - Ensure that you've run `sudo anka license accept-eula` on the host.
 - Make sure you've got a valid license with `sudo anka license validate`.
 - Check `df -h` and other host or VM resource usage (CPU/RAM) and be sure that the host resources are not exhausted.
-- Check `[~]/Library/Logs/Anka/` logs for any indication of why the failure happened.
+- Check `[~]/Library/Logs/Anka/` logs for any indication of why the failure happened. See the Logs section right below this for more info.
 - Ensure that all components in your Anka environment can communicate. This includes connectivity between CI/CD tooling we do not support.
 - Disable anti-virus and firewalls on the host.
+- If a VM is failing, try manually starting it on the host and use `anka --debug . . .` when you do for verbose output.
+- If using the Anka Build Cloud, check under the `/var/log/veertu/` and specifically the `anka_agent.ERROR` for any messages related to the problem (or at all).
 
 ### Logs
 
 {{< hint warning >}}
-Anka runs as any user on the host, so the paths and locations described below can sometimes be under `$HOME/~`.
+Anka runs as any user on the host, so the paths and locations described below can sometimes be under `$HOME` or `~`.
 {{< /hint >}}
 
-- Anka CLI commands executed as root/sudo: **`/Library/logs/anka`**
-- Anka CLI commands as a non-root user: **`$HOME/Library/logs/anka`**
+- Anka CLI commands executed as root/sudo: **`/Library/logs/Anka`**
+- Anka CLI commands as a non-root user: **`$HOME/Library/logs/Anka`**
 
 {{< hint info >}}
 The above logs are rotated at 1MB and maintains a maximum of 10 files. This is not configurable.
