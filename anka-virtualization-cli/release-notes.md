@@ -11,6 +11,44 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.4.0 (3.4.0.xxxxxxxx) - XXXXXXXXXXXXXXXth 2024
+
+{{< hint info >}}
+Addons upgrade is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- Nested virtualization is not functional inside of VMs yet.
+- The `anka view` command is partially broken and requires double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- iCloud/Apple logins will fail inside of the VM. You can still log into your account through Apple's website and download apps through your developer account. Or, transfer them from the host into the VM with `anka cp`.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **New Feature:** Anka click scripts now support text targeting/clicking with a simple pattern. For example, if I wanted to click a button with the text OK in it, I'd use: `("OK")`.
+- **New Feature:** Offline licensing is now possible for customers without an internet connection.
+- **New Feature:** System proxy is now used if available for licensing.
+- **New Feature:** In situations where the registry is down, but your desired Template/Tag is cached on Nodes, you can change `anka config pull_failback` to `1` and it will skip pulling if it already has it.
+- **New Feature:** We are now including a real "Apple Virtual Sound Device" inside of the VM for users who cannot use the Null Audio Device.
+- **New Feature:** You can now stream import VMs using the CLI (`curl uuid.tar | anka import`).
+- **Improvement:** Checksumming for `anka pull` -- This feature will prevent `anka pull` from downloading VMs that are corrupt or incomplete.
+- **Improvement:** RFB VNC is now enabled again for VMs (intel only). To enable, use `anka modify VM display --vnc on`. ???????????????????????????????????????????????????
+- **Bug Fix:** `anka registry --insecure add` was not working.
+- **Bug Fix:** `10.15.7` setup scripts were failing for `anka create`.
+- **Bug Fix:** ARM VMs now show suspended if they are suspended in the Anka.app GUI.
+- **Bug Fix:** Suspending a VM can now function even if an IP wasn't assigned.
+- **Bug Fix:** Post start, the MAC would lose trailing zeroes.
+- **Bug Fix:** A double quote in VNC password breaks anka show (intel only).
+- **Bug Fix:** Trying to set experimental nat networking mode was not possible from CLI (`nat: bad network mode`).
+- **Bug Fix:** Two VMs get same MAC and IP assigned (intel only).
+
+
+## Previous Versions
+
 ### 3.3.10 (3.3.10.185) - Apr 17th 2024
 
 {{< hint info >}}
@@ -35,8 +73,6 @@ ARM/Silicon specific issues:
 - **Bug Fix:** `anka export` bug would cause `import` to fail with `could not find the VM configuration`.
 - **Bug Fix:** Randomly bridge mode users would get the wrong interface attached to the VM (en1 instead of en0).
 - **Bug Fix:** Tag names with `+`, like `anka registry revert -t "brew+git+dotnet+commonsetup"`, would throw `anka: 400 Did not find any versions with tag brew git dotnet commonsetup`.
-
-## Previous Versions
 
 ### 3.3.9 (3.3.9.182) - Feb 27th 2024
 
