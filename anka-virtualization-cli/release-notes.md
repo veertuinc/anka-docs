@@ -36,7 +36,7 @@ ARM/Silicon specific issues:
 - **New Feature:** We are now including a real "Apple Virtual Sound Device" inside of the VM for users who cannot use the Null Audio Device.
 - **New Feature:** You can now stream import VMs using the CLI (`curl uuid.tar | anka import`).
 - **Improvement:** Checksumming for `anka pull` -- This feature will prevent `anka pull` from downloading VMs that are corrupt or incomplete.
-- **Improvement:** RFB VNC is now enabled again for VMs (intel only). To enable, use `anka modify VM display --vnc on`. ???????????????????????????????????????????????????
+- **Improvement:** RFB VNC (password-less) is now allowed again for VMs (intel only). To enable, you must first change `[sudo] anka config vnc_nopassword 1` and then ensure the VM Template also has it enabled `anka modify VM display --vnc on`.
 - **Bug Fix:** `anka registry --insecure add` was not working.
 - **Bug Fix:** `10.15.7` setup scripts were failing for `anka create`.
 - **Bug Fix:** ARM VMs now show suspended if they are suspended in the Anka.app GUI.
