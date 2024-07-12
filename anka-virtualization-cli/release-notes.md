@@ -30,8 +30,8 @@ ARM/Silicon specific issues:
 {{< /hint >}}
 
 - **New Feature:** Anka click scripts now support text targeting/clicking with a simple pattern. For example, if I wanted to click a button with the text OK in it, I'd use: `("OK")`.
-- **New Feature:** Offline licensing is now possible for customers without an internet connection.
-- **New Feature:** System proxy is now used if available for licensing.
+- **New Feature:** Offline licensing is now possible for customers without an internet connection. Contact support for more information.
+- **New Feature:** The System Proxy settings are now used, if available, for `anka create` and `anka license activate`.
 - **New Feature:** In situations where the registry is down, but your desired Template/Tag is cached on Nodes, you can change `anka config pull_failback` to `1` and it will skip pulling if it already has it.
 - **New Feature:** We are now including a real "Apple Virtual Sound Device" inside of the VM for users who cannot use the Null Audio Device.
 - **New Feature:** You can now stream import VMs using the CLI (`curl uuid.tar | anka import`).
