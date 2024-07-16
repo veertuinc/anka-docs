@@ -91,6 +91,16 @@
   - Pulls will happen before the node is joined.
   - If your regex starts with `-`, be sure to escape it with `\-`.
 
+  ##### ANKA_PULL_TEMPLATES_REGEX_DISTRIBUTE (boolean)
+
+  This will distribute, using the controller API, templates that match the given regex (egrep) pattern to the current node. 
+
+  - Optional & Dependent on `ANKA_PULL_TEMPLATES_REGEX`.
+  - IMPORTANT: Be sure that your regex will match the template NAME and not the id. Otherwise this will fail.
+  - Only available in 3.4.0 or greater AMIs.
+  - Only the latest tag will be pulled.
+  - Because distribution is asynchronous, the node will be joined in "drained" mode.
+
   ##### ANKA_DRAINED_ON_JOIN (string)
 
   This will join the node in [Drain Mode.]({{< relref "whats-new/build-cloud-1.32.0/index.md#drain-mode" >}})
