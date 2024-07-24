@@ -1161,15 +1161,15 @@ curl  "http://anka.controller/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e0
 
  Parameter | Type   | Description
  ---       |   ---  |          ---
- id        | string | The ID of a running Controller Instance you want to save to the registry
- new_template_name  | string  | Create a new VM Template with a specific name. *Required if target_vm_id not supplied* | -
+ id                 | string | The ID of a running Controller Instance you want to save to the registry
+ tag                | string  | The tag name to set
+ new_template_name  | string  | Create a new VM Template with a specific name. *Required if target_vm_id not supplied*
 
  **Optional Data Parameters:**
 
  Parameter          | Type    | Description              | Default
  ---                | ---     |   ---                    | ---
  target_vm_id       | string  | The template id to save the tag to | -
- tag                | string  | The tag name to set | -
  description        | string  | The description to use for the new tag | -
  suspend            | bool    | If true, suspends the vm before pushing | true
  script             | string  | Script to be executed before the instance is stopped/suspended, encoded as a base64 string. | -
