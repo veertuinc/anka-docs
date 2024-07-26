@@ -27,14 +27,18 @@ Be sure to reboot the host after applying these changes.
     If you cannot perform launchctl commands, you can execute these commands from the command-line:
 
     ```shell
-    sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Volumes"
-    sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Network"
+    # Disable indexing volumes
+    sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Volumes" || true
+    sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Network" || true
     sudo killall mds || true
     sleep 60
-    sudo mdutil -a -i off /
-    sudo mdutil -a -i off
-    sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
+    sudo mdutil -a -i off / || true
+    sudo mdutil -a -i off || true
+    sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist || true
     sudo rm -rf /.Spotlight-V100/*
+    rm -rf ~/Library/Metadata/CoreSpotlight/ || true
+    killall -KILL Spotlight spotlightd mds || true
+    sudo rm -rf /System/Volums/Data/.Spotlight-V100 || true
     ```
 
     MDS can be disable entirely with `sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist`, but only if SIP is disabled on the host (not recommended).
