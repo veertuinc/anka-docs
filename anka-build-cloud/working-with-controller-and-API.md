@@ -1238,8 +1238,12 @@ IyEvYmluL2Jhc2gKZWNobyAkKGhvc3RuYW1lKQplY2hvCmVudgpleHBvcnQgVEVTVD10cnVlCmJhc2gg
 - *id* - The request’s id
 - *status* - The request's current status. Options are pending/done/error
 - *script_result* - Details about what was executed in `script`. Example: `{ "stdout": "", "stderr": "", "errors": [], "return_code": 0 }`
+  - `errors` - An array of errors that occurred while executing the script if `stdin` of `anka run` fails somehow
+  - `stderr` - The stderr output of your script
+  - `stdout` - The stdout output of your script
+  - `return_code` - The return code of your script
 - *request* - An object that represents the request
-- *error* - Error message if status is error
+- *error* - Error message if status is error (controller errors, like with decoding responses)
 
 ##### Example
 
