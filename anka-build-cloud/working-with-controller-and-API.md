@@ -1243,7 +1243,31 @@ IyEvYmluL2Jhc2gKZWNobyAkKGhvc3RuYW1lKQplY2hvCmVudgpleHBvcnQgVEVTVD10cnVlCmJhc2gg
   - `stdout` - The stdout output of your script
   - `return_code` - The return code of your script
 - *request* - An object that represents the request
-- *error* - Error message if status is error (controller errors, like with decoding responses)
+- *error* - Error message if status is error (controller errors, like with decoding responses). Examples: 
+  ```
+    "status": "error",
+    "error": {
+      "Message": "illegal base64 data at input byte 108",
+      "Type": "base64.CorruptInputError"
+    },
+    "script_result": null
+  ```
+
+  With `cancel_on_script_failure` set to `true` and `script` set to `echo 'fadsfsd' | base64 -i -`
+  ```
+    "status": "error",
+    "error": {
+      "Message": "Script execution failed",
+      "Code": 0
+    },
+    "script_result": {
+      "return_code": 127,
+      "errors": null,
+      "did_timeout": false,
+      "stdout": "",
+      "stderr": "sh: line 1: fadsfsd: command not found\n"
+    }
+  ```
 
 ##### Example
 
