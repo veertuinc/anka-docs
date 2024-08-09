@@ -1237,7 +1237,7 @@ IyEvYmluL2Jhc2gKZWNobyAkKGhvc3RuYW1lKQplY2hvCmVudgpleHBvcnQgVEVTVD10cnVlCmJhc2gg
 
 - *id* - The request’s id
 - *status* - The request's current status. Options are pending/done/error
-- *script_result* - Details about what was executed in `script`. Example: `{ "stdout": "", "stderr": "", "errors": [], "return_code": 0 }`
+- *script_result* - Details about what was executed in `script`. Example: `{ "stdout": "", "stderr": "", "errors": [], "return_code": 0, "did_timeout": false }`
   - `errors` - An array of errors that occurred while executing the script if `stdin` of `anka run` fails somehow
   - `stderr` - The stderr output of your script
   - `stdout` - The stdout output of your script
@@ -1304,6 +1304,7 @@ IyEvYmluL2Jhc2gKZWNobyAkKGhvc3RuYW1lKQplY2hvCmVudgpleHBvcnQgVEVTVD10cnVlCmJhc2gg
     "stdout": "mgmtmanaged-11-2-3-openjdk-1-8-0-242-teamcity-1617720254314199000.local\n\nSHELL=/bin/bash\nTMPDIR=/var/folders/by/jq7dzyxj0151058zdlzj_st00000gn/T/\nUSER=anka\nSSH_AUTH_SOCK=/private/tmp/com.apple.launchd.hregPBnx2b/Listeners\n__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0\nPATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin\nPWD=/Users/anka\nXPC_FLAGS=0x0\nXPC_SERVICE_NAME=0\nSHLVL=2\nHOME=/Users/anka\nLOGNAME=anka\n_=/usr/bin/env\ntrue\n",
     "stderr": "",
     "errors": null,
+    "did_timeout": false,
     "return_code": 0
   }
 }
