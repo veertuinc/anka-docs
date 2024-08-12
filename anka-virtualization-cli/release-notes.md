@@ -11,6 +11,28 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.4.1 (3.4.1.189) - August 12th, 2024
+
+{{< hint info >}}
+Addons upgrade is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- Nested virtualization is not functional inside of VMs yet.
+- The `anka view` command is partially broken and requires double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **Improvement:** Support for 15.0 betas with anka create.
+- **Bug Fix:** Simulators attempting to access the VM's microphone would receive a prompt users and break testing. Audio device usage in VM no longer causes the prompts.
+
+## Previous Versions
+
 ### 3.4.0 (3.4.0.188) - July 15th, 2024
 
 {{< hint info >}}
@@ -48,7 +70,6 @@ ARM/Silicon specific issues:
 - **Bug Fix:** Two VMs get same MAC and IP assigned (intel only).
 
 
-## Previous Versions
 
 ### 3.3.10 (3.3.10.185) - Apr 17th 2024
 
