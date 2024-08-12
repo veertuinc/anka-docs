@@ -134,7 +134,7 @@ docker logs --tail 100 -f test_anka-registry_1
 ```
 
 {{< hint warning >}}
-By default, docker does not do log-rotation. As a result, log-files stored by the default json-file logging driver logging driver can cause a significant amount of disk space to be used for containers that generate much output, which can lead to disk space exhaustion. ([config reference](https://docs.docker.com/config/containers/logging/configure/))
+By default, docker does not do log-rotation. As a result, log-files stored by the default json-file logging driver logging driver can cause a significant amount of disk space to be used for containers that generate much output, which can lead to disk space exhaustion.
 {{< /hint >}}
 
 {{< hint info >}}
