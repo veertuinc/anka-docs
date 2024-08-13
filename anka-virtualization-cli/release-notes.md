@@ -11,7 +11,7 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
-### 3.4.1 (3.4.1.189) - August 12th, 2024
+### 3.4.1 (3.4.1.189) - August 12th, 2024 - [Download Anka-3.4.1.189.pkg](https://downloads.veertu.com/anka/Anka-3.4.1.189.pkg)
 
 {{< hint info >}}
 Addons upgrade is not required.
