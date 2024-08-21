@@ -28,7 +28,7 @@ ARM/Silicon specific issues:
 
 {{< /hint >}}
 
-- **Improvement:** When using shared networking, VMs can now use the same MAC address inside and we'll handle obtaining separate IPs dynamically. This'll allow licensing software that's fixed to a specific MAC to function for builds and tests.
+- **Improvement:** When using shared networking with a fixed MAC address, VMs can now use the same MAC address inside and we'll handle obtaining separate IPs dynamically. This'll allow licensing software that's fixed to a specific MAC to function for builds and tests.
 - **Bug Fix:** 15.0 beta 5 SIP setup failure when running `anka create`.
 - **Bug Fix:** 14.6.1 VNC was not being enabled properly.
 
