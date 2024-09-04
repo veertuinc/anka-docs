@@ -94,7 +94,7 @@ Within the VM, you can find an IP assigned for the host which can be used to ssh
 
 ### MAC Addresses
 
-Anka will dynamically assign MAC addresses to your VM. You can assign a fixed MAC Addresses with the `anka modify {VM} network --mac`.
+Anka will dynamically assign MAC addresses to your VM. You can assign a fixed MAC Addresses with the `anka modify {VM} network --mac {mac address}`.
 
 Starting in Anka 3.4.2, you can assign a fixed MAC Addresses and use shared networking to run multiple VMs with the same MAC address. We will handle the dynamic IP assignment for each VM and not let DHCP try to assign the same IP to multiple VMs. This allows you to run licensed software that's fixed to a specific MAC inside of VMs and not have them conflict with each other.
 
