@@ -39,7 +39,7 @@ It's recommended to keep the vm_lib_dir on the local disk as it contains file lo
 
 Assuming you want to store your Templates on **/Volumes/ExternalDrive/**, perform these steps:
 
-1. `anka config img_lib_dir /Volumes/ExternalDrive/image_lib`
+1. `anka config img_lib_dir /Volumes/ExternalDrive/img_lib`
 2. `anka config state_lib_dir /Volumes/ExternalDrive/state_lib`
 3. `anka config vm_lib_dir /Volumes/ExternalDrive/vm_lib`
 4. Go under System Preferences > Security & Privacy > Full Disk Access and add `/Library/Application\ Support/Veertu/Anka/bin/ankahv` as well as `/Library/Application\ Support/Veertu/Anka/bin/anka_agent`. Make sure the slider button is enabled too!
