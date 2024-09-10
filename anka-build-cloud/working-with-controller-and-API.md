@@ -1153,7 +1153,10 @@ curl  "http://anka.controller/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e0
 
 **Description:** Create a "Save Image" request. Save a running VM instance to the Registry as a new Tag or Template.
 
-> **The instance you have running will no longer exist/be running after using this Save Template Image.**
+{{< hint warning >}}
+- Upon successful push, the instance you have running will no longer exist/be running.
+- Upon failure, the instance will still exist/be running for your to review.
+{{< /hint >}}
 
 **Path:** /api/v1/image  
 **Method:** POST  
