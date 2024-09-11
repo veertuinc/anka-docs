@@ -18,7 +18,7 @@
 | ANKA_LOG_MAX_DAYS | (int) | Number of days to keep logs for all log types unless otherwise defined. | 7 |
 | ANKA_LOG_MAX_MB | (int) | MB limit for log files, for all log types unless otherwise defined. | 700 |
 | ANKA_LOG_SERVER_BACKEND_TYPE | (string) | The log server backend type, either 'disk' or 'azure'. | disk |
-| ANKA_LOG_SERVER_ADDR | (string) | The address and port the registry will send logs to. Defaults to localhost, do this MUST be set if you're using a centralized logging registry. This is useful if you have multiple registries and only one is used for logging centralization (format: "http[s]://address:[port]"). |  |
+| ANKA_LOG_SERVER_ADDR | (string) | The address and port the registry will send logs to. This is useful if you have multiple registries and only one is used for logging centralization (format: "http[s]://address:[port]"). |  |
 | ANKA_LOGS_DIR | (string) | The directory to store centralized log files (relative to files-dir). | /central-logs |
 | ANKA_MAX_LOG_SIZE | (int) | The maximum size for a centralized log file in MB. | 1024 |
 | ANKA_ROTATE_LOG_FILES_AT_MAX_FILE_SIZE | (boolean) | Enable rotatation of centralized log files when they reach the size specified in max-log-size. | true |

@@ -13,6 +13,7 @@
 | ANKA_ERROR_LOG_MAX_MB | (int) | MB limit for error log files (0 will use the value in log-max-mb). | 200 |
 | ANKA_EVENT_LOG_URL | (string) | (Enterprise Plus Only) The url to post events to in json format. |  |
 | ANKA_INFO_LOG_MAX_DAYS | (int) | Number of days to keep info logs (0 will use the value in log-max-days). | 0 |
-| ANKA_INFO_LOG_MAX_MB | (int) | MB limit for info log files  (0 will use the value in log-max-mb). | 0 |
+| ANKA_INFO_LOG_MAX_MB | (int) | MB limit for info log files (0 will use the value in log-max-mb). | 0 |
 | ANKA_LOG_MAX_DAYS | (int) | Number of days to keep logs for all log types unless otherwise defined. | 7 |
 | ANKA_LOG_MAX_MB | (int) | MB limit for log files, for all log types unless otherwise defined. | 700 |
+| ANKA_V | (int) | verbosity level of logs (0-10, 10 being the most verbose) | 0 |
