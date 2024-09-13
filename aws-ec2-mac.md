@@ -13,13 +13,23 @@ aliases:
 This guide is also valid for the Anka 3/mac2.metal/Apple processor (M1, M2, etc) EC2 instances.
 {{< /hint >}}
 
-Customers often find that purchasing and managing their own hardware can become a burden. This is why we recommend using AWS EC2 Mac instances to run the Anka Virtualization software.
+{{< hint info >}}
+While you do not need to use the Anka Build Cloud with AWS EC2 Mac instances to run Anka VMs, it is a requirement if you'd like to use our [Controller Plugins/Integrations]({{< relref "plugins-and-integrations/controller-+-registry/_index.md" >}}) to create VMs. You can read more about the Anka Build Cloud [here]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md" >}}).
+{{< /hint >}}
 
-With Anka installed on your AWS EC2 Mac instance, you can run ephemeral macOS VMs as well as optimize the instance cost by running more than one at a time. [Visit our site](https://veertu.com/aws-ec2-mac/) and [Amazon's blog](https://aws.amazon.com/blogs/compute/getting-started-with-anka-on-ec2-mac-instances/) for more information about AWS EC2 Mac and Anka.
+Customers often find that purchasing and managing their own hardware can become a burden. While we do not currently provide an AMI for the [Anka Build Cloud]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md" >}}), we do for the Anka Virtualization software. This makes it easy to get started with AWS EC2 Mac instances that you can scale as needed using the AWS Management Console or AWS CLI. The AMI is pre-prepared with best practices/configurations for using Anka.
 
----
+With Anka installed on your AWS EC2 Mac instance, you can:
 
-There are three options available for you to use Anka with AWS EC2 Mac instances:
+1. Run ephemeral macOS VMs as well as optimize the instance cost by running more than one at a time. 
+2. Avoid idle hosts and maximize the usage in the first 24 hour period that Amazon charges you for when starting an EC2 Mac instance.
+3. Scale VM capacity up and down as needed using the AWS Management Console or AWS CLI.
+4. Prevent jobs from leaving a dirty environment on the host for other jobs to conflict with.
+5. Run multiple versions of macOS on the same host.
+
+And much more! [Visit our site](https://veertu.com/aws-ec2-mac/) and [Amazon's blog](https://aws.amazon.com/blogs/compute/getting-started-with-anka-on-ec2-mac-instances/) for more information about AWS EC2 Mac and Anka.
+
+There are three AMI options available for you to use:
 
 1. [**Use our Marketplace AMI**]({{< relref "#marketplace-ami" >}})
   - macOs pre-configured/optimized + Anka installed
