@@ -4,7 +4,7 @@
 - (Optional) Automatically join to the Anka Build Cloud Controller using User Data:
 
   {{< hint warning >}}
-  This step requires that you first [set up the Anka Build Cloud]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md" >}}).
+  This step requires that you first [set up the Anka Build Cloud]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md" >}}) on a Linux server/docker container in AWS (but not on the EC2 Mac instances we provide AMIs for).
   {{< /hint >}}
 
   {{< hint warning >}}

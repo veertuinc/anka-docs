@@ -165,6 +165,7 @@ Building your own AMI is easy! You can review our [AMI scripts](https://github.c
 Some important notes about creating your own AMI:
 
 - Be sure that the minimum EBS volume specs are gp3, 6000IOPS, and 256 throughput. Anka VM creation is sensitive on slow disks and will likely fail.
+- If using the Anka Build Cloud: This step requires that you first [set up the Anka Build Cloud]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md" >}}) on a Linux server/docker container in AWS (but not on the EC2 Mac instances we provide AMIs for).
 
 ---
 
