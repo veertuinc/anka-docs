@@ -86,7 +86,7 @@ aliases:
   </tr>
 </tbody>
 </table>
-<small>** Connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.</small>
+<small>** Connecting to the VM over port forwarding for the first time will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.</small>
 </div>
 {{< /rawhtml >}}
 
