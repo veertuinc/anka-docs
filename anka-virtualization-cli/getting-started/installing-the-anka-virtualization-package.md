@@ -86,9 +86,14 @@ aliases:
   </tr>
 </tbody>
 </table>
-<small>** Connecting to the VM over port forwarding for the first time will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.</small>
 </div>
 {{< /rawhtml >}}
+
+{{< hint warning >}}
+{{<rawhtml>}}
+<b>**</b> Connecting to the VM over port forwarding for the first time will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.
+{{< /rawhtml >}}
+{{< /hint >}}
 
 {{< hint warning >}}
 <b class="emojifont">⚠️</b> MacOS 12.x is currently not supported for 3.3.9 and above. Please upgrade macOS to the latest before using Anka.
