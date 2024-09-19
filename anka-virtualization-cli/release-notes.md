@@ -29,10 +29,10 @@ ARM/Silicon specific issues:
 {{< /hint >}}
 
 - [Download Anka-3.5.0.191.pkg](https://downloads.veertu.com/anka/Anka-3.5.0.191.pkg)
-- **Improvement / Bug Fix:** Major networking improvements for Intel VMs. You'll see network performance match that of the host inside of VMs as well as more stability for large transfers.
+- **Improvement / Bug Fix:** Major networking improvements for Intel VMs. You'll see network performance match that of the host inside of VMs, as well as more stability for large transfers.
 - **Bug Fix:** Anka click inside of VM cannot use simple text like ("Allow") to click on buttons.
-- **Bug Fix:** Full 15.0 GA `anka create` support for intel and arm (previous versions >= 3.3.9 already supported running 15.0 VMs).
-- **Bug Fix:** Immediately suspending VMs after a start on arm would cause a failure.
+- **Bug Fix:** Full 15.0 GA `anka create` automation support for intel and arm (note: previous versions >= 3.3.9 already supported running 15.0 VMs).
+- **Bug Fix:** Immediately suspending VMs after start on arm would cause a failure.
 
 ## Previous Versions
 
