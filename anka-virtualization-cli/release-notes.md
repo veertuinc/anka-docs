@@ -11,6 +11,31 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.5.0 (3.5.0.191) - September 19th, 2024
+
+{{< hint info >}}
+Addons upgrade is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- Nested virtualization is not functional inside of VMs yet.
+- The `anka view` command is partially broken and requires double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- [Download Anka-3.5.0.191.pkg](https://downloads.veertu.com/anka/Anka-3.5.0.191.pkg)
+- **Improvement / Bug Fix:** Major networking improvements for Intel VMs. You'll see network performance match that of the host inside of VMs as well as more stability for large transfers.
+- **Bug Fix:** Anka click inside of VM cannot use simple text like ("Allow") to click on buttons.
+- **Bug Fix:** Full 15.0 GA `anka create` support for intel and arm (previous versions >= 3.3.9 already supported running 15.0 VMs).
+- **Bug Fix:** Immediately suspending VMs after a start on arm would cause a failure.
+
+## Previous Versions
+
 ### 3.4.2 (3.4.2.190) - August 21th, 2024
 
 {{< hint info >}}
@@ -33,7 +58,6 @@ ARM/Silicon specific issues:
 - **Bug Fix:** 15.0 beta 5 SIP setup failure when running `anka create`.
 - **Bug Fix:** 14.6.1 VNC was not being enabled properly.
 
-## Previous Versions
 
 ### 3.4.1 (3.4.1.189) - August 12th, 2024
 
