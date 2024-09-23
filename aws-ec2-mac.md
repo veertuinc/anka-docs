@@ -64,7 +64,7 @@ Marketplace AMIs are charged on an hourly basis and don't need an Anka License.
 {{< /hint >}}
 
 {{< hint info >}}
-You can create custom AMIs from the Marketplace AMI and the license for Anka will continue to work and attach to your existing marketplace subscription.
+You can create custom AMIs from the Marketplace AMI and the license for Anka will continue to work and attach to your existing marketplace subscription. However, if we remove the base AMI you took a snapshot from, it will show an expired license and stop working. We instead recommend using our base AMIs instead of creating your own.
 {{< /hint >}}
 
 ### Usage
