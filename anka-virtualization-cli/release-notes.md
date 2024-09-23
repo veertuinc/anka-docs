@@ -31,6 +31,7 @@ ARM/Silicon specific issues:
 
 - [Download Anka-3.5.0.191.pkg](https://downloads.veertu.com/anka/Anka-3.5.0.191.pkg)
 - **Improvement / Bug Fix:** Major networking improvements for Intel VMs. You'll see network performance match that of the host inside of VMs, as well as more stability for large transfers.
+- **Improvement:** On ARM, you can now suspend VMs from the Anka App/UI. Note: Suspending from the CLI/Terminal will still stop the VM when issuing the suspend command due to an inability to move a suspended VM from one host to another (Apple limitation).
 - **Bug Fix:** Anka click inside of VM cannot use simple text like ("Allow") to click on buttons.
 - **Bug Fix:** Full 15.0 GA `anka create` automation support for intel and arm (note: previous versions >= 3.3.9 already supported running 15.0 VMs).
 - **Bug Fix:** Immediately suspending VMs after start on arm would cause a failure.
