@@ -22,6 +22,7 @@ options:
   -d,--delete              Delete the rule
   --set-name <val>         Rename the rule
 
+❯ anka modify 12.6 port vnc 5900
 ❯ anka modify 12.6 port ssh 22:0.0.0.0
 
 ❯ anka start 12.6
@@ -33,10 +34,15 @@ port_forwarding_rules:
 | name | protocol | guest_port | host_port |
 +------+----------+------------+-----------+
 | ssh | tcp      | 22         | 10000     |
+| vnc | tcp      | 5900       | 10001     |
 +------+----------+------------+-----------+
 
 ❯ ssh anka@localhost -p 10000
 (anka@localhost) Password:
 Last login: Fri Oct 14 06:37:54 2022
 anka@Ankas-Virtual-Machine ~ % 
+
+
+
+
 ```
