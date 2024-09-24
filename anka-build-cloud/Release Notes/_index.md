@@ -7,6 +7,26 @@ weight: 100
 
 ## Current Version
 
+### 1.43.0 (1.43.0-XXXXX) - June 10th, 2024
+
+- **New Feature:** [Last Push and Pull dates for Templates and Tags]({{< relref "whats-new/build-cloud-1.43.0/index.md#last-push-and-pull-dates-for-templates-and-tags" >}})
+- **New Feature:** [The Controller's /api/v1/nodes now return the license expiration date.]({{< relref "whats-new/build-cloud-1.43.0/index.md#the-controllers-apiv1nodes-now-return-the-license-expiration-date" >}})
+- **Improvement:** Distributions from the UI can now be cancelled using the Cancel Distribution button.
+- **Improvement:** Upgraded ETCD to 3.5.16.
+- **Improvement:** Fixed `ignoring unknown vm uuid` false positives showing in the logs.
+- **Improvement:** Various log improvements in Controller, Regsitry, and Controller Agent.
+- **Improvement:** Upgraded docker package to use newer ubuntu and include health checks.
+- **Bug Fix:** Preventing orphaning of VM on Node when users Terminate a VM while it's pulling.
+- **Bug Fix:** Upgrading the Controller Agent from 1.41.0-6a102e20 to 1.41.1 fails to join.
+- Various security patches.
+- (Required ETCD Version: 3.5.16)
+
+
+---
+
+## Previous Versions
+
+
 ### 1.42.0 (1.42.0-92735895) - June 10th, 2024
 
 - **New Feature:** [Ability to start an Intel VM with a specific VNC Password.]({{< relref "whats-new/build-cloud-1.42.0/index.md#ability-to-start-an-intel-vm-with-a-specific-vnc-password" >}})
@@ -19,10 +39,6 @@ weight: 100
 - **Bug Fix:** Some error log lines for rest_sender.go and client.go were showing as blank.
 - **Bug Fix:** Centralized Logging when HTTPS/TLS is enabled was failing.
 - **Bug Fix:** Unable to view Controller Log streams when auth is enabled.
-
----
-
-## Previous Versions
 
 ### 1.41.1 (1.41.1-ac4f02c4) - March 27th, 2024
 

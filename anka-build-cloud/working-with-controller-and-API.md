@@ -559,46 +559,58 @@ templates      | array of objects | List of templates that the node has, each te
 
 ```shell
 # List Nodes
-curl "http://anka.controller/api/v1/node" -H "Content-Type: application/json" | jq
+❯ curl http://anka.controller:8090/api/v1/node | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   924  100   924    0     0   279k      0 --:--:-- --:--:-- --:--:--  300k
 {
-   "body": [
-      {
-        "ip_address": "123.123.123.123",
-        "cpu_count": 12,
-        "capacity": 6,
-        "node_name": "MacPro-02.local",
-        "vm_count": 1,
-        "usb_devices": null,
-        "vcpu_count": 2,
-        "node_id": "f8707005-4630-4c9c-8403-c9c5964097f6",
-        "cpu_util": 0.074900396,
-        "vram": 2048,
-        "ram_util": 0.03125,
-        "state": "Active",
-        "vcpu_override": 0,
-        "anka_version": {
-          "build": "112",
-          "product": "Anka Build Enterpriseplus",
-          "version": "2.1.2",
-          "license": "com.veertu.anka.entplus"
+  "status": "OK",
+  "message": "",
+  "body": [
+    {
+      "node_id": "32c6cf26-009c-4aec-97c9-a5832ce1452c",
+      "node_name": "Nathans-MBP.attlocal.net",
+      "cpu_count": 6,
+      "ram": 36,
+      "vm_count": 0,
+      "vcpu_count": 0,
+      "vram": 0,
+      "cpu_util": 0.27960214,
+      "ram_util": 0,
+      "ip_address": "host.docker.internal",
+      "state": "Active",
+      "capacity": 2,
+      "anka_version": {
+        "product": "Anka Build Enterpriseplus",
+        "version": "3.5.0",
+        "build": "191",
+        "license": "com.veertu.anka.entplus",
+        "expires": "17-aug-2025"
+      },
+      "capacity_mode": "number",
+      "vcpu_override": 0,
+      "ram_override": 0,
+      "disk_size": 994662584320,
+      "free_disk_space": 306762862592,
+      "anka_disk_usage": 132683026432,
+      "host_arch": "arm64",
+      "templates": [
+        {
+          "uuid": "0222a870-0b8c-44b3-989c-775f5cd0785f",
+          "name": "14.5-arm64-jre17.48.15",
+          "tag": "v1"
         },
-        "free_disk_space": 155624185856,
-        "anka_disk_usage": 38274388000,
-        "disk_size": 250135076864,
-        "ram": 64,
-        "ram_override": 0,
-        "capacity_mode": "number",
-        "templates": [
-          {
-            "name": "11.2.3-openjdk-1.8.0_242-jenkins",
-            "tag": "base",
-            "uuid": "c0847bc9-5d2d-4dbc-ba6a-240f7ff08032"
-          }
-        ],
-      }
-   ],
-   "status": "OK",
-   "message": ""
+        {
+          "uuid": "d792c6f6-198c-470f-9526-9c998efe7ab4",
+          "name": "14.5-arm64",
+          "tag": "vanilla+port-forward-22+brew-git"
+        }
+      ],
+      "last_updated": "2024-09-24T13:27:31.317822-08:00",
+      "timestamp": 1727213251,
+      "agent_version": "1.43.0-9f1c073a"
+    }
+  ]
 }
 
 # List Nodes (with groups assigned in the Controller; Enterprise and Enterprise+ license feature)
@@ -633,6 +645,7 @@ curl "http://anka.controller/api/v1/node" -H "Content-Type: application/json" | 
         "version": "2.2.3",
         "build": "118",
         "license": "com.veertu.anka.entplus"
+        "expires": "17-aug-2025"
       },
       "usb_devices": null,
       "capacity_mode": "number",
@@ -655,36 +668,51 @@ curl "http://anka.controller/api/v1/node" -H "Content-Type: application/json" | 
 # Show specific Node
 curl "http://anka.controller/api/v1/node?id=f8707005-4630-4c9c-8403-c9c5964097f6" -H "Content-Type: application/json" | jq
 {
-  "message": "",
   "status": "OK",
+  "message": "",
   "body": [
     {
-      "cpu_count": 12,
-      "vcpu_override": 0,
-      "capacity": 6,
-      "usb_devices": null,
-      "ram": 64,
-      "ram_util": 0.03125,
+      "node_id": "32c6cf26-009c-4aec-97c9-a5832ce1452c",
+      "node_name": "Nathans-MBP.attlocal.net",
+      "cpu_count": 6,
+      "ram": 36,
+      "vm_count": 0,
+      "vcpu_count": 0,
+      "vram": 0,
+      "cpu_util": 0.2630597,
+      "ram_util": 0,
+      "ip_address": "host.docker.internal",
       "state": "Active",
-      "ip_address": "123.123.123.123",
-      "vm_count": 1,
-      "vram": 2048,
+      "capacity": 2,
       "anka_version": {
-        "license": "",
-        "build": "",
-        "product": "",
-        "version": ""
+        "product": "Anka Build Enterpriseplus",
+        "version": "3.5.0",
+        "build": "191",
+        "license": "com.veertu.anka.entplus",
+        "expires": "17-aug-2025"
       },
-      "capacity_mode": "",
-      "free_disk_space": 155624185856,
-      "anka_disk_usage": 38274388000,
-      "disk_size": 250135076864,
-      "cpu_util": 0.08308069,
-      "node_name": "MacPro-02.local",
-      "node_id": "f8707005-4630-4c9c-8403-c9c5964097f6",
+      "capacity_mode": "number",
+      "vcpu_override": 0,
       "ram_override": 0,
-      "vcpu_count": 2,
-      "templates": []
+      "disk_size": 994662584320,
+      "free_disk_space": 306627973120,
+      "anka_disk_usage": 132683026432,
+      "host_arch": "arm64",
+      "templates": [
+        {
+          "uuid": "0222a870-0b8c-44b3-989c-775f5cd0785f",
+          "name": "14.5-arm64-jre17.48.15",
+          "tag": "v1"
+        },
+        {
+          "uuid": "d792c6f6-198c-470f-9526-9c998efe7ab4",
+          "name": "14.5-arm64",
+          "tag": "vanilla+port-forward-22+brew-git"
+        }
+      ],
+      "last_updated": "2024-09-24T13:28:41.52849-08:00",
+      "timestamp": 1727213321,
+      "agent_version": "1.43.0-9f1c073a"
     }
   ]
 }
@@ -825,12 +853,20 @@ config_file    | string | Name of the tag's config file
 
 - *name:* Template's name
 - *id:* Template's id
+- *size:* Template's size
+- *arch:* Template's architecture
+- *last_pull:* Last pull date in epoch/unix seconds
+- *last_push:* Last push date in epoch/unix seconds
 
 **Template format**
 
 - *name:* Template's name
 - *id:* Template's id
-- *versions:* Array of Version objects.
+- *versions:* List of versions
+- *size:* Template's size
+- *arch:* Template's architecture
+- *last_pull:* Last pull date in epoch/unix seconds
+- *last_push:* Last push date in epoch/unix seconds
 
 **Version format**
 
@@ -841,6 +877,9 @@ config_file    | string | Name of the tag's config file
 - *state_files:* List of state file names (suspend images)
 - *config_file:* Name of the version's VM config file
 - *nvram:* Name of the VM nvram file
+- *arch:* Template's architecture
+- *last_pull:* Last pull date in epoch/unix seconds
+- *last_push:* Last push date in epoch/unix seconds
 
 ##### Example  
 
@@ -852,28 +891,43 @@ curl "http://anka.controller/api/v1/registry/vm" | jq
    "body": [
       {
          "id": "0bf1a7e8-be95-43d9-a0c8-68c6aed0f2dd",
-         "name": "jenkins-slave",
-         "size": 16427892736
+         "name": "jenkins",
+         "size": 16427892736,
+         "arch": "amd64",
+         "last_pull": 1727209082,
+         "last_push": 1721141574
       },
       {
          "id": "1820b42d-6581-46af-bf42-f64caa1e9633",
          "name": "catalina",
-         "size": 20643704832
+         "size": 20643704832,
+         "arch": "amd64",
+         "last_pull": 1727209082,
+         "last_push": 1721141574
       },
       {
          "id": "2fa0f10e-e91e-4665-8d42-00a39b9707de",
          "name": "Catalina-Xcode-11",
-         "size": 17834520576
+         "size": 17834520576,
+         "arch": "amd64",
+         "last_pull": 1727209082,
+         "last_push": 1721141574
       },
       {
          "name": "CachedBuidMojave",
          "id": "36fc63bb-6841-4528-9480-a9c44dc2740d",
-         "size": 15040651264
+         "size": 15040651264,
+         "arch": "amd64",
+         "last_pull": 1727209082,
+         "last_push": 1721141574
       },
       {
          "name": "android-2",
          "id": "59adf1a8-c239-11e8-821d-c4b301c47c6b",
-         "size": 19698943312
+         "size": 19698943312,
+         "arch": "amd64",
+         "last_pull": 1727209082,
+         "last_push": 1721141574
       }
    ],
    "status": "OK"
@@ -881,45 +935,41 @@ curl "http://anka.controller/api/v1/registry/vm" | jq
 
 
 # Get Single Template
-curl "http://anka.controller/api/v1/registry/vm?id=00510971-5c37-4a60-a9c6-ea185397d9b4" | jq
+❯ curl -s http://anka.controller:8090/api/v1/registry/vm\?id\=d937553f-ab5f-405a-8d91-198f5001794e | jq
 {
-   "message": "",
-   "body": {
-      "name": "android-2",
-      "id": "00510971-5c37-4a60-a9c6-ea185397d9b4",
-      "versions": [
-         {
-            "config_file": "00510971-5c37-4a60-a9c6-ea185397d9b4.yaml",
-            "state_files": [
-               "c19ba955c706475e9aeade79f174a925.ank"
-            ],
-            "number": 0,
-            "size": 16634568704,
-            "description": "",
-            "nvram": "nvram",
-            "images": [
-               "83e3eb9a2b694ddbb90f535ffae4cbb8.ank",
-               "fae1423d7c99419c92109c326162c2dd.ank",
-               "51f90db935494831a831dae51c9743e0.ank",
-               "2be4266d24704db2bacbbd258d0d6288.ank",
-               "2d07e328bfc449b58f74b3e08f8d049d.ank",
-               "06ad0ac5-af7a-11e8-884c-c4b301c47c6b.ank",
-               "237a78ab78254cde9f04f2cecaec21b7.ank",
-               "7ae0e540-cae2-11e8-b0c8-c4b301c47c6b.ank",
-               "916cd0f1087345659b70275bb8cc3101.ank",
-               "239bb374545141ceb481d495ec01683e.ank",
-               "4ef1b52304264ac2bacaa34903b7af9c.ank",
-               "d2da3f9b4faa49b1804af2adccf5bccd.ank",
-               "dd94fbf0-c6ed-11e8-920b-c4b301c47c6b.ank",
-               "daba8902e1d24636bc424ac44252a090.ank",
-               "d97298f5-a06c-11e8-964c-c4b301c47c6b.ank",
-               "85ab1ffd-af80-11e8-bd5e-c4b301c47c6b.ank"
-            ],
-            "tag": "t1"
-         }
-      ]
-   },
-   "status": "OK"
+  "status": "OK",
+  "message": "",
+  "body": {
+    "id": "d937553f-ab5f-405a-8d91-198f5001794e",
+    "name": "14.5-arm64-teamcity",
+    "versions": [
+      {
+        "number": 0,
+        "tag": "v1",
+        "config_file": "d937553f-ab5f-405a-8d91-198f5001794e.yaml",
+        "nvram": "nvram",
+        "images": [
+          "ac34d3acee6549b2bf4822a82546d04d.ank",
+          "7b1103ba6bdb433282160ca4b4b7362e.ank",
+          "2cce19c0585e48df95400cb35691e1cb.ank",
+          "770d9ec09d6b4207acfd0dd84a2920d4.ank"
+        ],
+        "state_files": [
+          "a5058396218943858021cb37b31c718c.ank"
+        ],
+        "description": "",
+        "state_file": "a5058396218943858021cb37b31c718c.ank",
+        "size": 28655484928,
+        "arch": "",
+        "last_pull": 1727208044,
+        "last_push": 1725265564
+      }
+    ],
+    "size": 28655484928,
+    "arch": "arm64",
+    "last_pull": 1727208044,
+    "last_push": 1725265564
+  }
 }
 ```
 
