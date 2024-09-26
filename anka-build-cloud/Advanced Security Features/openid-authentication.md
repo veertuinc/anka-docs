@@ -24,6 +24,10 @@ Many organizations and developers are already familiar with OpenID Connect (OIDC
 
 When using OIDC, you'll need an Authorization Provider or Server. Most of our customers use Providers like [Okta](https://www.okta.com/), [Cyberark's Idaptive](https://www.cyberark.com/products/workforce-identity/), and others. we won't get into the specifics for these tools as they often differ greatly. However we will go through several general things you need to know, regardless of provider.
 
+{{< hint info >}}
+Okta must support custom authorization servers. Please check with your Okta admin to ensure this is possible.
+{{< /hint >}}
+
 ### Required Changes
 
 #### Anka Build Cloud Controller & Registry
