@@ -1199,6 +1199,24 @@ curl  "http://anka.controller/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e0
 }
 ```
 
+
+#### Cancel Distribution
+
+**Description:** Cancel a distribution request  
+**Path:** /api/v1/registry/vm/distribute  
+**Method:** DELETE  
+**Required Query Parameters:**  
+
+ Parameter | Type   | Description
+ ---       |   ---  |          ---
+ id        | string | The Distribution request's id.
+
+ **Returns:**
+
+- *status:* Operation Result (OK|FAIL)  
+- *message:* Error message in case of an error
+
+
 #### Save Template Image
 
 **Description:** Create a "Save Image" request. Save a running VM instance to the Registry as a new Tag or Template.
