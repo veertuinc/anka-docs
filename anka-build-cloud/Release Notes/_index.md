@@ -11,7 +11,7 @@ weight: 100
 
 - **New Feature:** [Last Push and Pull dates for Templates and Tags.]({{< relref "whats-new/build-cloud-1.43.0/index.md#last-push-and-pull-dates-for-templates-and-tags" >}})
 - **New Feature:** [The Controller's /api/v1/nodes now return the license expiration date.]({{< relref "whats-new/build-cloud-1.43.0/index.md#the-controllers-apiv1nodes-now-return-the-license-expiration-date" >}})
-- **Improvement:** Distributions from the UI can now be cancelled using the `Cancel Distribution` button.
+- **Improvement:** Distributions can now be cancelled using the `Cancel Distribution` button or an API call.
 - **Improvement:** Upgraded ETCD to 3.5.16.
 - **Improvement:** Fixed `ignoring unknown vm uuid` false positives showing in the logs.
 - **Improvement:** Various log improvements in Controller, Regsitry, and Controller Agent.
