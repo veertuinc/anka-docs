@@ -9,7 +9,7 @@ weight: 100
 
 ### 1.43.0 (1.43.0-9f1c073a) - September 26th, 2024
 
-- **New Feature:** [Last Push and Pull dates for Templates and Tags]({{< relref "whats-new/build-cloud-1.43.0/index.md#last-push-and-pull-dates-for-templates-and-tags" >}})
+- **New Feature:** [Last Push and Pull dates for Templates and Tags.]({{< relref "whats-new/build-cloud-1.43.0/index.md#last-push-and-pull-dates-for-templates-and-tags" >}})
 - **New Feature:** [The Controller's /api/v1/nodes now return the license expiration date.]({{< relref "whats-new/build-cloud-1.43.0/index.md#the-controllers-apiv1nodes-now-return-the-license-expiration-date" >}})
 - **Improvement:** Distributions from the UI can now be cancelled using the `Cancel Distribution` button.
 - **Improvement:** Upgraded ETCD to 3.5.16.
