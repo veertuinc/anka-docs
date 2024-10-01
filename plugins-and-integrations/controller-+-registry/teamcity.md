@@ -10,6 +10,10 @@ aliases:
   - "/docs/plugins-and-integrations/teamcity/"
 ---
 
+Teamcity is a popular CI/CD tool that can be used to build and test software projects. The Anka Build Cloud can be used to run builds and tests in a cloud environment, and it can be integrated with Teamcity to provide a complete CI/CD solution needing ephemeral macOS VMs/containers.
+
+The Anka Teamcity plugin allows you to communicate with your Anka Build Cloud Controller to create, manage, and delete VMs/containers on demand. You'll create a Cloud Profile in Teamcity to define your Controller, VM Template, Tag, and other options. Once defined, you can assign that Cloud Profile to an Agent Pool, or keep it in the default pool. 
+
 ## VM Template & Tag Requirements
 
 1. **In the VM**, install the proper JRE/JAVA version. We recommend [Zulu](https://www.azul.com/downloads/?version=java-11-lts&package=jre#zulu).
