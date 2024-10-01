@@ -43,9 +43,9 @@ Anka allows you to create VMs for the following macOS versions:
     <td style="background-color: #f2e6ff;"><b>Anka 3.x</b></td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>macOS 10.14</b></td>
+    <td style="vertical-align: middle"><b>macOS 10.13/14</b></td>
     <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
-    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;***</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 10.15</b></td>
@@ -116,6 +116,10 @@ Anka allows you to create VMs for the following macOS versions:
 
 {{< hint warning >}}
 **(\*\*) ARM USERS: To run macOS 14.x VMs, you must have macOS 14.x (or higher) on your host. 13.x VMs also require a minimum host macOS version of 13.x.**
+{{< /hint >}}
+
+{{< hint warning >}}
+**(\*\*\*) Requires installing a kext (https://github.com/pmj/virtio-net-osx) on the VM for networking to function.**
 {{< /hint >}}
 
 {{< hint warning >}}
