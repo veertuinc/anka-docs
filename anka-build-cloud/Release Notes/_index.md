@@ -17,7 +17,7 @@ weight: 100
 - **Improvement:** Various log improvements in Controller, Regsitry, and Controller Agent.
 - **Improvement:** Upgraded docker package to use newer ubuntu and include health checks.
 - **Bug Fix:** Preventing orphaning of VM on Node when users Terminate a VM while it's pulling.
-- **Bug Fix:** After upgrading the Controller agent when a new version is installed, the agent was not joining itself to the cluster again.
+- **Bug Fix:** The automated agent upgrade process was not joining back to the cluster after self-upgrade.
 - Various security patches.
 - (Required ETCD Version: 3.5.16)
 
