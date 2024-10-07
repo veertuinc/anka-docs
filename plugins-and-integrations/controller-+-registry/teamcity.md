@@ -14,10 +14,11 @@ Teamcity is a popular CI/CD tool that can be used to build and test software pro
 
 The Anka Teamcity plugin allows you to communicate with your Anka Build Cloud Controller to create, manage, and delete VMs/containers on demand. You'll create a Cloud Profile in Teamcity to define your Controller, VM Template, Tag, and other options. Once defined, you can assign that Cloud Profile to an Agent Pool, or keep it in the default pool. 
 
+As of 1.9.0, our plugin will install the Teamcity Build Agent for you into the VM Template/Tag under the path specified in your Cloud Profile.
+
 ## VM Template & Tag Requirements
 
-1. **In the VM**, install the proper JRE/JAVA version. We recommend [Zulu](https://www.azul.com/downloads/?version=java-11-lts&package=jre#zulu).
-1. Install the Build Agent into the VM Template/Tag under ~/. [Example of how we install it.](https://github.com/veertuinc/getting-started/blob/1ef4ed31eead3dccd900e16912d487b1befcb5a5/create-vm-template-tags.bash#L161)
+1. **In the VM**, install the proper JRE/JAVA version. We recommend [Zulu](https://www.azul.com/downloads/?version=java-17-lts&package=jre#zulu). As of plugin 1.9.0, you will need Java 17 or higher.
 1. **If using Shared Networking mode:** In the VM Template, make sure remote login is enabled (`System Preferences > Sharing`). On the host, enable SSH [port forwarding]({{< relref "anka-virtualization-cli/command-line-reference.md#modify-nameuuid-port" >}}) for your VM Template using the Anka CLI: `sudo anka modify <VM Template name> add port --guest-port 22 ssh`. _We recommend not specifying --host-port._
 
 ## Usage
