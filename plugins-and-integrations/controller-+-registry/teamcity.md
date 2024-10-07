@@ -18,7 +18,7 @@ As of 1.9.0, our plugin will install the Teamcity Build Agent for you into the V
 
 ## VM Template & Tag Requirements
 
-1. **In the VM**, install the proper JRE/JAVA version. We recommend [Zulu](https://www.azul.com/downloads/?version=java-17-lts&package=jre#zulu). As of plugin 1.9.0, you will need Java 17 or higher.
+1. **In the VM**, install the proper JRE/JAVA version. We recommend [Zulu](https://www.azul.com/downloads/?version=java-17-lts&package=jre#zulu). **As of plugin 1.9.0, you will need Java 17 or higher.**
 1. **If using Shared Networking mode:** In the VM Template, make sure remote login is enabled (`System Preferences > Sharing`). On the host, enable SSH [port forwarding]({{< relref "anka-virtualization-cli/command-line-reference.md#modify-nameuuid-port" >}}) for your VM Template using the Anka CLI: `sudo anka modify <VM Template name> add port --guest-port 22 ssh`. _We recommend not specifying --host-port._
 
 ## Usage
