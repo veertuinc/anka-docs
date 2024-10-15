@@ -1,5 +1,5 @@
 ---
-title: "Anka Virtualization CLI 3.5.1"
+title: "Anka Virtualization CLI 3.5.2"
 weight: 3
 aliases:
   - "/arm/"
