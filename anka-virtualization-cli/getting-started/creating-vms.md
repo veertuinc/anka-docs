@@ -114,9 +114,12 @@ Anka allows you to create VMs for the following macOS versions:
 </div>
 {{< /rawhtml >}}
 
-
 {{< hint warning >}}
 **(*) Apple has limited the ability to install Ventura to specific hardware models. <a href="https://support.apple.com/en-us/HT213264">You can view a list of supported models here.</a>**
+{{< /hint >}}
+
+{{< hint warning >}}
+**(\*\*) When creating a 15.x VM to use in CI, you must run them on the same hardware. This is a limitation from Apple.**
 {{< /hint >}}
 
 {{< hint warning >}}

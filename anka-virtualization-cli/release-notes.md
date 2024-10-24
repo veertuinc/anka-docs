@@ -11,6 +11,30 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.5.3 (3.5.3.194) - October 24th, 2024
+
+{{< hint info >}}
+Addons upgrade is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- 15.0 Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.
+- Nested virtualization is not functional inside of VMs yet.
+- The `anka view` command is partially broken and requires double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- [Download Anka-3.5.3.194.pkg](https://downloads.veertu.com/anka/Anka-3.5.3.194.pkg)
+- **Improvement:** Support for 15.1.
+- **Bug Fix:** Missing `hostif` from `anka --machine-readable show {vm} network`.
+
+## Previous Versions
+
 ### 3.5.2 (3.5.2.193) - October 15th, 2024
 
 {{< hint info >}}
@@ -34,7 +58,6 @@ ARM/Silicon specific issues:
 - **Bug Fix:** (intel only) `anka create` would fail to enable autologin on 13.7 VM creation.
 - **Bug Fix:** (intel only) `anka create --no-setup` would freeze when creating non-English VMs on non-English Hosts.
 
-## Previous Versions
 
 ### 3.5.1 (3.5.0.192) - October 1st, 2024
 
