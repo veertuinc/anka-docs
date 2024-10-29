@@ -119,7 +119,7 @@ Anka allows you to create VMs for the following macOS versions:
 {{< /hint >}}
 
 {{< hint warning >}}
-**(\*\*) When creating a 15.x VM to run across different hosts, you must run them on the same hardware as well as ensure the hosts have 15.x. This is a limitation from Apple.**
+**(\*\*) When creating a 15.x VM on a host with 15.x, you must run them on the same hardware type as well as ensure the hosts have 15.x. This is a limitation from Apple. Creation of 15.x VMs on hosts with 14.x should not have this problem.**
 {{< /hint >}}
 
 {{< hint warning >}}
