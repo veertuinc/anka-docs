@@ -1,5 +1,5 @@
 ---
-date: 2024-09-10T01:00:00-00:00
+date: 2024-10-29T01:00:00-00:00
 title: "Anka Build Cloud Controller & Registry Version 1.44.0"
 ---
 
@@ -72,7 +72,6 @@ The `/v1/registry/vm` endpoint will now have additional property `start_date` in
   ]
 }
 ```
-
 
 Note that this data is sent by an agent to the controller every `status-heartbeat-time` (5s). Therefore, you will need to to poll `/v1/registry/vm` and check:
 

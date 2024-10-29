@@ -7,7 +7,7 @@ weight: 100
 
 ## Current Version
 
-### 1.44.0 (1.44.0-XXXXX) - XXXXXst, 2024
+### 1.44.0 (1.44.0-19dc773e) - October 29th, 2024
 
 - **New Feature:** [Endpoint to restart a running VM.]({{< relref "whats-new/build-cloud-1.44.0/index.md#restart-a-running-vm-endpoint" >}})
 - **Improvement:** The `/v1/registry/vm` endpoint now returns the `start_date` of the VM under `vminfo`.
@@ -20,7 +20,6 @@ weight: 100
 ---
 
 ## Previous Versions
-
 
 ### 1.43.0 (1.43.0-9f1c073a) - September 26th, 2024
 
