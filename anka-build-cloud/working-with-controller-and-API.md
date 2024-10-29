@@ -158,6 +158,41 @@ startup_script | object | [holds information about startup script execution (onl
 All fields but the following are omitted if empty: `vmid`, `group_id`, `instance_state`, `anka_registry`, `ts`, `cr_time`, `progress`, `vlan` and `usb_device`.
 {{< /hint >}}
 
+
+### VM Info
+
+**Object Model:**
+
+**VM Info Object Model:**
+
+Property       | Type   | Description
+ ---           | ---    | ---
+uuid           | string | The UUID of the VM
+name           | string | The name of the VM
+status         | string | The status of the VM
+version        | string | The version of the VM
+creation_date  | datetime | The creation date of the VM
+access_date    | datetime | The last access date of the VM
+start_date     | datetime | The start date of the VM
+cpu_cores      | int    | The number of CPU cores assigned to the VM
+ram            | string | The amount of RAM assigned to the VM
+node_id        | string | The ID of the node where the VM is running
+host_ip        | string | The host IP address
+ip             | string | The IP address of the VM
+vnc_port       | int    | The VNC port number
+port_forwarding | array of objects | The port forwarding configuration
+stop_date      | datetime | The stop date of the VM
+timestamp      | datetime | The timestamp of the last update
+
+**Port Forwarding Object Model:**
+
+Property       | Type   | Description
+ ---           | ---    | ---
+guest_port     | int    | The guest port number
+host_port      | int    | The host port number
+protocol       | string | The protocol used (e.g., tcp)
+name           | string | The name of the port forwarding rule
+
 ##### Startup Script
 
 **Object Model:**
@@ -339,6 +374,37 @@ curl -X DELETE "http://anka.controller/api/v1/vm" -H "Content-Type: application/
 }
 ```
 
+#### Restart VM instance
+
+**Description:** Restart a running VM instance  
+**Path:** /api/v1/rpc/vm/restart  
+**Method:** N/A
+**Required Data Parameters:**
+
+ Parameter | Type   | Description
+ ---       |   ---  |          ---
+ id      | string | The id of the instance to restart.
+
+Note that data is sent by an agent to the controller every `status-heartbeat-time` (5s). Therefore, in order to check the status of the restart, you will need to to poll `/v1/registry/vm` and check:
+
+1. `"instance_state": "Started"`
+2. `"status": "running"`
+3. `"start_date"` before restart and `"start_date"` after restart are NOT equal.
+
+The agent is then performing the following commands on the host where the VM is running:
+
+```
+time="2024-10-22T08:21:01-05:00" level=info msg="1729603261391772000 /usr/local/bin/anka --machine-readable stop --force 0a7ec9c7-99d1-4c3e-af19-7a3b9a279ce6" logger=CMD
+time="2024-10-22T08:21:02-05:00" level=info msg="1729603262827861000 /usr/local/bin/anka --machine-readable start 0a7ec9c7-99d1-4c3e-af19-7a3b9a279ce6" logger=CMD
+```
+
+##### Example
+
+```shell
+curl "http://anka.controller/api/v1/rpc/vm/restart" -d '{"instance_id":"c2af6080-3ae3-4cd3-64e5-2193f31b9aa5"}'
+{"status":"OK","message":""}
+```
+
 #### List VM Instances
 
 **Description:** List all VM instances  
@@ -400,6 +466,7 @@ curl  "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" | j
               "name": "ssh"
             }
           ],
+          "start_date": "2024-10-13T10:51:34Z",
           "stop_date": "0001-01-01T00:00:00Z",
           "timestamp": "2024-01-24T11:51:54.502527-05:00"
         },
@@ -428,7 +495,10 @@ curl  "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" | j
             "node_id": "f8707005-4630-4c9c-8403-c9c5964097f6",
             "uuid": "4284cb1a-246c-4a2f-b773-ab18d6785957",
             "host_ip": "123.123.123.123",
-            "vnc_connection_string": "vnc://:@123.123.123.123:5903"
+            "vnc_connection_string": "vnc://:@123.123.123.123:5903",
+            "start_date": "2024-10-13T10:51:34Z",
+            "stop_date": "0001-01-01T00:00:00Z",
+            "timestamp": "2024-10-13T10:51:34.658586219Z"
         },
         "tag": "teamcity",
         "anka_registry": "",
@@ -451,7 +521,10 @@ curl  "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" | j
             "node_id": "f8707005-4630-4c9c-8403-c9c5964097f6",
             "host_ip": "123.123.123.123",
             "vnc_connection_string": "vnc://:admin@123.123.123.123:5904",
-            "uuid": "bfd4106c-2a88-462f-a545-50f832b7a0f7"
+            "uuid": "bfd4106c-2a88-462f-a545-50f832b7a0f7",
+            "start_date": "2024-10-13T10:51:34Z",
+            "stop_date": "0001-01-01T00:00:00Z",
+            "timestamp": "2024-10-13T10:51:34.658586219Z"
         },
         "progress": 1,
         "anka_registry": "",

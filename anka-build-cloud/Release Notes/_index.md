@@ -7,6 +7,20 @@ weight: 100
 
 ## Current Version
 
+### 1.44.0 (1.44.0-19dc773e) - October 29th, 2024
+
+- **New Feature:** [Endpoint to restart a running VM.]({{< relref "whats-new/build-cloud-1.44.0/index.md#restart-a-running-vm-endpoint" >}})
+- **Improvement:** The `/v1/registry/vm` endpoint now returns the `start_date` of the VM under `vminfo`.
+- **Improvement:** Unclear error message when enabling central logging without specifying `ANKA_LOG_DIR`.
+- **Bug Fix:** Scroll bar blocks the checkbox for delete from nodes when deleting a template.
+- **Bug Fix:** Column sorting on Controller UI now works.
+- **Bug Fix:** Installer text in dark mode was showing white text on a white background.
+- (Required ETCD Version: 3.5.16)
+
+---
+
+## Previous Versions
+
 ### 1.43.0 (1.43.0-9f1c073a) - September 26th, 2024
 
 - **New Feature:** [Last Push and Pull dates for Templates and Tags.]({{< relref "whats-new/build-cloud-1.43.0/index.md#last-push-and-pull-dates-for-templates-and-tags" >}})
@@ -20,12 +34,6 @@ weight: 100
 - **Bug Fix:** The automated agent upgrade process was not joining back to the cluster after self-upgrade.
 - Various security patches.
 - (Required ETCD Version: 3.5.16)
-
-
----
-
-## Previous Versions
-
 
 ### 1.42.0 (1.42.0-92735895) - June 10th, 2024
 
