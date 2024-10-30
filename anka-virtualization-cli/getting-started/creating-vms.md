@@ -127,6 +127,18 @@ Anka allows you to create VMs for the following macOS versions:
 {{< /hint >}}
 
 {{< hint warning >}}
+**(\*\*) ARM USERS: When creating 15.x VMs on 14.x hosts, you must ensure that Xcode 16.1 is installed and set up fully.**
+
+```bash
+sudo xcodebuild -license accept
+sudo xcodebuild -runFirstLaunch
+for PKG in $(/bin/ls /Applications/Xcode.app/Contents/Resources/Packages/*.pkg); do
+    sudo /usr/sbin/installer -pkg "$PKG" -target /
+done
+```
+{{< /hint >}}
+
+{{< hint warning >}}
 **(\*\*\*) Requires installing a kext (https://github.com/pmj/virtio-net-osx) on the VM for networking to function.**
 {{< /hint >}}
 
