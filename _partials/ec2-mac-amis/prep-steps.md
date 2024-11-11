@@ -117,7 +117,7 @@
   - Optional
   - Only available in Anka 3.4.0 or greater AMIs.
   - If the script fails, the node will still join.
-  - Most scripts support ENVs being passed in through user-data, so be sure to review them to see what's possible.
+  - Most scripts support ENVs being passed in through user-data, so be sure to review them to see what's possible. Dev note: the cloud-connect will not set/see any ENVs without ANKA_ prefix.
 
 #### Manual Preparation (optional)
 
