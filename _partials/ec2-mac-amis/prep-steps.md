@@ -117,6 +117,7 @@
   - Optional
   - Only available in Anka 3.4.0 or greater AMIs.
   - If the script fails, the node will still join.
+  - Most scripts support ENVs being passed in through user-data, so be sure to review them to see what's possible.
 
 #### Manual Preparation (optional)
 
