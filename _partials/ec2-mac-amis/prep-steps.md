@@ -14,8 +14,9 @@
   #### User Data ENVs
 
   {{< hint info >}}
-  For user-data, don't use `;`, `&&` or any other type of separator between envs.
+  For user-data, don't use `;`, `&&` or any other type of separator between envs. You also cannot use multiline strings in the ENVs. However, you can replace newlines with `\n` and our service will get the ENV with the multiple line text
   {{< /hint >}}
+  
   {{< hint info >}}
   If you pass in user-data with the exports all on one line, and have non ANKA_ ENVs you're setting, the `cloud-connect.bash` service we run on instance start/boot will source/execute them. We recommend you split exports and user-data onto separate lines to avoid this.
   {{< /hint >}}
