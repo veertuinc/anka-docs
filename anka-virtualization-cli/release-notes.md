@@ -197,7 +197,7 @@ ARM/Silicon specific issues:
 - **New Feature:** Offline licensing is now possible for customers without an internet connection. Contact support for more information.
 - **New Feature:** The System Proxy settings are now used, if available, for `anka create` and `anka license activate`.
 - **New Feature:** In situations where the registry is down, but your desired Template/Tag is cached on Nodes, you can change `anka config pull_failback` to `1` and it will skip pulling if it already has the Template/Tag. This will only work for Anka CLI users, and not through the Build Cloud Controller & Registry.
-- **New Feature:** We are now including a real "Apple Virtual Sound Device" inside of the VM for users who cannot use the Null Audio Device.
+- **New Feature:** (Silicon/arm only) We are now including a real "Apple Virtual Sound Device" inside of the VM for users who cannot use the Null Audio Device.
 - **New Feature:** You can now stream import VMs using the CLI (`curl uuid.tar | anka import`).
 - **Improvement:** Checksumming for `anka pull` -- This feature will prevent `anka pull` from downloading VMs that are corrupt or incomplete.
 - **Improvement:** RFB VNC (password-less) is now allowed again for VMs (intel only). To enable, you must first change `[sudo] anka config vnc_nopassword 1` and then ensure the VM Template also has it enabled `anka modify VM display --vnc on`.
