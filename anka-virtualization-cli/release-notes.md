@@ -192,7 +192,7 @@ ARM/Silicon specific issues:
 
 {{< /hint >}}
 
-- **New Feature:** iCloud login now works with VM + Host running 15.0 beta2 (or above).
+- **New Feature:** iCloud login now works with VM + Host running 15.0 beta2 (or above). [Read more here as it requires you creating a 15.x VM on a 15.x host.](https://developer.apple.com/documentation/virtualization/using_icloud_with_macos_virtual_machines).
 - **New Feature:** Anka click scripts now support text targeting/clicking with a simple pattern. For example, if I wanted to click a button with the text OK in it, I'd use: `("OK")`. Read more (here)[https://github.com/veertuinc/anka-click-scripts].
 - **New Feature:** Offline licensing is now possible for customers without an internet connection. Contact support for more information.
 - **New Feature:** The System Proxy settings are now used, if available, for `anka create` and `anka license activate`.
