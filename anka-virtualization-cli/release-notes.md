@@ -33,6 +33,7 @@ ARM/Silicon specific issues:
 - [Download Anka-3.5.5.196.pkg](https://downloads.veertu.com/anka/Anka-3.5.5.196.pkg)
 - **New Feature:** `ANKA_NETWORK_MODE=disconnected` is now available for `anka create`.
 - **Improvement:** Support for M4 Macbook Pros using the Develop license.
+- **Improvement:** `anka create --list` now shows a more complete list of versions on intel.
 - **Bug Fix:** `anka create latest` could choose the wrong version if Apple has released a second version of the same version.
 
 ## Previous Versions
