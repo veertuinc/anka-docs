@@ -11,6 +11,32 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+
+### 3.5.5 (3.5.5.196) - December 2nd, 2024
+
+{{< hint info >}}
+Addons upgrade is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- 15.0 Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.
+- Nested virtualization is not functional inside of VMs yet.
+- The `anka view` command is partially broken and requires double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- [Download Anka-3.5.5.196.pkg](https://downloads.veertu.com/anka/Anka-3.5.5.196.pkg)
+- **New Feature:** `ANKA_NETWORK_MODE=disconnected` is now available for `anka create`.
+- **Improvement:** Support for M4 Macbook Pros using the Develop license.
+- **Bug Fix:** `anka create latest` could choose the wrong version if Apple has released a second version of the same version.
+
+## Previous Versions
+
 ### 3.5.4 (3.5.4.195) - November 4th, 2024
 
 {{< hint info >}}
@@ -31,8 +57,6 @@ ARM/Silicon specific issues:
 
 - [Download Anka-3.5.4.195.pkg](https://downloads.veertu.com/anka/Anka-3.5.4.195.pkg)
 - **Bug Fix:** Minor fix for creation of 15.1 VMs (SIP failure).
-
-## Previous Versions
 
 ### 3.5.3 (3.5.3.194) - October 24th, 2024
 
