@@ -34,6 +34,7 @@ There are three AMI options available for you to use:
 1. [**Use our Marketplace AMI**]({{< relref "#marketplace-ami" >}})
   - macOs pre-configured/optimized + Anka installed
   - Provides an hourly billing option for Anka based on the uptime of your EC2 Mac instance
+  - **Marketplace AMIs require `Instance metadata service` to be enabled.**
 2. [**Bring your own license (BYOL) Community AMI**]({{< relref "#community-ami" >}})
   - macOS pre-configured/optimized + Anka installed
   - With these AMIs, you will be able to use your own Anka License.
@@ -71,7 +72,8 @@ You can create custom AMIs from the Marketplace AMI and the license for Anka wil
 
 To get up and running with our AWS EC2 Mac instances using our Marketplace AMI, you'll need to navigate to one of the Marketplace AMI Product URLs listed above and go through the process of subscribing. [Take a look at the official AMI Subscription documentation to understand how to subscribe.](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-ami-subscriptions.html)
 
-Once subscribed, you can start launching AMIs.
+
+Once subscribed, you can start launching AMIs. **Marketplace AMIs require `Instance metadata service` to be enabled.**
 
 {{< include file="_partials/ec2-mac-amis/prep-steps.md" >}}
 
