@@ -11,6 +11,37 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.6.0 (3.6.0.197) - December 10th, 2024
+
+{{< hint info >}}
+Addons upgrade is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- 15.0 Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.
+- Nested virtualization is not functional inside of VMs yet.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- [Download Anka-3.6.0.197.pkg](https://downloads.veertu.com/anka/Anka-3.6.0.197.pkg)
+- **New Feature:** [You can now install multiple versions of Anka on the same host.]({{< relref "whats-new/anka-3.6.0/index.md#ability-to-install-multiple-versions-of-anka-on-the-same-host" >}})
+- **New Feature:** [arm ec2 mac] Support for IMDSv2 on our >= 3.6.0 marketplace AMIs.
+- **Improvement:** Support for M4 macbooks running Anka Develop license.
+- **Improvement:** [arm] Eliminated `ankanetd`, similar to what we already have done with intel, moving it into the hypervisor for better performance and stability.
+- **Improvement:** Support for 15.1.1 in `anka create --list`.
+- **Bug Fix:** `anka registry` was not showing push and pull commands.
+- **Bug Fix:** Overcommitting RAM was throwing "Bad Address" which is unclear.
+- **Bug Fix:** [arm] `anka view` now opens the Viewer window properly.
+- **Bug Fix:** `ANKA_NETWORK_MODE=disconnected` was not working. Note: This is useful for Proxy users who cannot get past the macOS setup process due to the internet requirement from Apple. It will create the VM without internet, get past the setup phase that fails, and then you can use `anka modify {vm} network` to enable shared or bridged networking again.
+- **Bug Fix:** Changing the language in the VM reverts post-reboot of the VM.
+- **Bug Fix:** A flaw in the renewal logic for licensing was preventing renewals from getting a new expiration date.
+
+## Previous Versions
 
 ### 3.5.5 (3.5.5.196) - December 2nd, 2024
 
@@ -35,8 +66,6 @@ ARM/Silicon specific issues:
 - **Improvement:** Support for M4 Macbook Pros using the Develop license.
 - **Improvement:** `anka create --list` now shows a more complete list of versions on intel.
 - **Bug Fix:** `anka create latest` could choose the wrong version if Apple has released a second version of the same version.
-
-## Previous Versions
 
 ### 3.5.4 (3.5.4.195) - November 4th, 2024
 
