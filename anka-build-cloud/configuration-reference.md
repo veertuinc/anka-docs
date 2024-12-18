@@ -34,7 +34,7 @@ services:
     environment:
       ANKA_ETCD_ENDPOINTS: etcd:2379
       ANKA_LISTEN_ADDR: :80
-      ANKA_LOG_DIR: /var/log/anka-controller
+      ANKA_LOG_DIR: /var/log/anka-controller # not to be confused with ANKA_LOGS_DIR
       ANKA_LOCAL_ANKA_REGISTRY: http://anka-registry:8089
       ANKA_ENABLE_CENTRAL_LOGGING: "true"
       ANKA_ANKA_REGISTRY: *******EDIT-ME********  # This URL must be reachable by your Anka nodes
@@ -50,7 +50,8 @@ services:
     environment:
       ANKA_BASE_PATH: /mnt/vol
       ANKA_LISTEN_ADDR: :8089
-      ANKA_ENABLE_CENTRAL_LOGGING: "true"
+      ANKA_LOG_DIR: /var/log/anka-registry # where the registry stores its own logs, not central logs
+      ANKA_LOGS_DIR: central-logs # becomes ${ANKA_BASE_PATH}/central-logs; does not support absolute paths
       # https://docs.veertu.com/anka/anka-build-cloud/configuration-reference/#configuration-envs
     volumes:
       ######   EDIT HERE  ########
