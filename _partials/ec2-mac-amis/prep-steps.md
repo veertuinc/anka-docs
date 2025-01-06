@@ -82,6 +82,13 @@
   - Only available in 3.3.4/13.4.1 or greater AMIs.
   - This could be dangerous; please don't rely on it unless newer AMIs are not available.
 
+  ##### ANKA_UPGRADE_CLI_TO_VERSION (string)
+
+  This will force an upgrade of Anka Virtualization CLI to the given version. It will perform a `curl -S -L -o ./$FULL_FILE_NAME https://downloads.veertu.com/anka/$FULL_FILE_NAME` so take a look at [https://downloads.veertu.com/#anka/](https://downloads.veertu.com/#anka/) to see a complete list of available versions.
+
+  - Optional
+  - Only available in 3.6.1/15.1.1 or greater AMIs.
+
   ##### ANKA_PULL_TEMPLATES_REGEX (string)
 
   This will pull templates from the registry which match the given regex (egrep) pattern.
