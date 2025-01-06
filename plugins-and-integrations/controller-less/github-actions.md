@@ -4,10 +4,16 @@ title: "Using GitHub Actions and Anka Build"
 linkTitle: "GitHub Actions"
 weight: 1
 description: >
-  Instructions on how to use GitHub Actions with Anka Build
+  Instructions on how to use GitHub Actions with the Anka Build and macOS VMs
 aliases:
   - /ci-plugins-and-integrations/controller-less/github-actions/
 ---
+
+## Anklet: GitHub Actions Plugins
+
+You can now use the [Anklet](https://github.com/veertuinc/anklet) GitHub Action plugins to run on-demand and ephemeral Anka macOS VMs in GitHub Actions.
+
+### Older Legacy GitHub Actions (not recommended)
 
 {{< hint warning >}}
 The github runner does not have an ARM version available but you can run the x64 without issue through Apple's rosetta.
@@ -28,9 +34,3 @@ The [Anka VM GitHub Action](https://github.com/marketplace/actions/anka-vm-githu
 ## Pipeline Step Definition
 
 An example workflow .yml can be found in the [Anka VM GitHub Action README](https://github.com/marketplace/actions/anka-vm-github-action).
-
----
-
-## Release Notes
-
-Release notes for the Anka Github Action can be found [on Github](https://github.com/veertuinc/anka-vm-github-action/releases).
