@@ -84,7 +84,7 @@
 
   ##### ANKA_UPGRADE_CLI_TO_VERSION (string)
 
-  This will force an upgrade of Anka Virtualization CLI to the given version. It will perform a `curl -S -L -o ./$FULL_FILE_NAME https://downloads.veertu.com/anka/$FULL_FILE_NAME` so take a look at [https://downloads.veertu.com/#anka/](https://downloads.veertu.com/#anka/) to see a complete list of available versions.
+  This will force an upgrade of Anka Virtualization CLI to the given version. It will perform a `curl -S -L -o ./$FULL_FILE_NAME https://downloads.veertu.com/anka/$FULL_FILE_NAME` so take a look at [https://downloads.veertu.com/#anka/](https://downloads.veertu.com/#anka/) to see a complete list of available packages. You'll need to use the full file name (eg: `Anka-3.6.1.198.pkg`).
 
   - Optional
   - Only available in 3.6.1/15.1.1 or greater AMIs.
