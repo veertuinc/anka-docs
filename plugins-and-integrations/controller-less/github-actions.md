@@ -13,6 +13,8 @@ aliases:
 
 You can now use the [Anklet](https://github.com/veertuinc/anklet) GitHub Action plugins to run on-demand and ephemeral Anka macOS VMs in GitHub Actions.
 
+---
+
 ### Older Legacy GitHub Actions (not recommended)
 
 {{< hint warning >}}
