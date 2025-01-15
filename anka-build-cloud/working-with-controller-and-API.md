@@ -429,9 +429,6 @@ curl "http://anka.controller/api/v1/rpc/vm/restart" -d '{"instance_id":"c2af6080
 
 curl  "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" | jq
 {
-   "status": "OK",
-   "body": [
-      {
   "status": "OK",
   "message": "",
   "body": [
@@ -478,6 +475,7 @@ curl  "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" | j
         "external_id": "TEST123",
         "arch": "arm64",
         "vlan": ""
+      }
     },
     {
       "vm": {
@@ -536,8 +534,7 @@ curl  "http://anka.controller/api/v1/vm" -H "Content-Type: application/json" | j
       },
       "instance_id": "9c623cc1-e489-4d02-4559-0c76492bec9f"
     }
-  ],
-  "message": ""
+  ]
 }
 
 # Show specific VM
