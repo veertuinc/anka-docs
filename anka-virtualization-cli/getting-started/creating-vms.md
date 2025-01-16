@@ -43,9 +43,9 @@ Anka allows you to create VMs for the following macOS versions:
     <td style="background-color: #f2e6ff;"><b>Anka 3.x</b></td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>macOS 10.14</b></td>
+    <td style="vertical-align: middle"><b>macOS 10.13/14</b></td>
     <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
-    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;***</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 10.15</b></td>
@@ -69,6 +69,11 @@ Anka allows you to create VMs for the following macOS versions:
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 14.x</b></td>
+    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>macOS 15.x</b></td>
     <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
@@ -109,13 +114,32 @@ Anka allows you to create VMs for the following macOS versions:
 </div>
 {{< /rawhtml >}}
 
-
 {{< hint warning >}}
 **(*) Apple has limited the ability to install Ventura to specific hardware models. <a href="https://support.apple.com/en-us/HT213264">You can view a list of supported models here.</a>**
 {{< /hint >}}
 
 {{< hint warning >}}
+**(\*\*) When creating a 15.x VM on a host with 15.x, you must run them on the same hardware type as well as ensure the hosts have 15.x. This is a limitation from Apple. Creation of 15.x VMs on hosts with 14.x should not have this problem.**
+{{< /hint >}}
+
+{{< hint warning >}}
 **(\*\*) ARM USERS: To run macOS 14.x VMs, you must have macOS 14.x (or higher) on your host. 13.x VMs also require a minimum host macOS version of 13.x.**
+{{< /hint >}}
+
+{{< hint warning >}}
+**(\*\*) ARM USERS: When creating 15.x VMs on 14.x hosts, you must ensure that Xcode 16.1 OR the MobileDevice.pkg (inside of Xcode.app) is installed.**
+
+```bash
+sudo xcodebuild -license accept
+sudo xcodebuild -runFirstLaunch
+for PKG in $(/bin/ls /Applications/Xcode.app/Contents/Resources/Packages/*.pkg); do
+    sudo /usr/sbin/installer -pkg "$PKG" -target /
+done
+```
+{{< /hint >}}
+
+{{< hint warning >}}
+**(\*\*\*) Requires installing a kext (https://github.com/pmj/virtio-net-osx) on the VM for networking to function.**
 {{< /hint >}}
 
 {{< hint warning >}}

@@ -9,5 +9,6 @@
 {{< include file="content/_partials/anka-build-cloud/configuration-reference/controller/authenticationandauthorization/body.md" >}}
 {{< include file="content/_partials/anka-build-cloud/configuration-reference/controller/separatequeueinterface/body.md" >}}
 {{< include file="content/_partials/anka-build-cloud/configuration-reference/controller/performance_taskmanagement/body.md" >}}
+{{< include file="content/_partials/anka-build-cloud/configuration-reference/controller/monitoring/body.md" >}}
 {{< include file="content/_partials/anka-build-cloud/configuration-reference/controller/internal/body.md" >}}
 {{< include file="content/_partials/anka-build-cloud/configuration-reference/controller/other/body.md" >}}

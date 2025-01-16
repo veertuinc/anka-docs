@@ -6,7 +6,7 @@ weight: 1
 
 ## Scenarios
 
-- The `[~]/Library/Logs/Anka/{UUID}.log` or `ankanetd.log` is filled with `22: failed to write packet, error 55` and `failed to send # packets: error 55`
+- The `[~]/Library/Logs/Anka/{UUID}.log` or `ankanetd.log` (>= 3.6.0 anka versions will store network logs in {UUID}.log for specific VM) is filled with `22: failed to write packet, error 55` and `failed to send # packets: error 55`
 - Sudden packet loss inside of the VM or to the VM.
 
 ## Solution

@@ -7,6 +7,29 @@ weight: 100
 
 ## Current Version
 
+### 1.45.0 (1.45.0-8cf8fb10) - November 13th, 2024
+
+- **Improvement:** The task drawer in the UI now keeps successful tasks around until the user dismisses them or closes the entire drawer.
+- **Improvement:** All nodes groups now show on the Controller's Nodes page without the ellipsis hiding them.
+- **Bug Fix:** Anka Usage in the Controller's Nodes page now shows the correct usage.
+- **Bug Fix:** Save Template Image with massive stdout/err output will cause failure posting to etcd. We now only include the last 1MB of output to prevent this.
+- **Bug Fix:** Controller UI was not showing API keys.
+- (Required ETCD Version: 3.5.16)
+
+---
+
+## Previous Versions
+
+### 1.44.0 (1.44.0-19dc773e) - October 29th, 2024
+
+- **New Feature:** [Endpoint to restart a running VM.]({{< relref "whats-new/build-cloud-1.44.0/index.md#restart-a-running-vm-endpoint" >}})
+- **Improvement:** The `/v1/registry/vm` endpoint now returns the `start_date` of the VM under `vminfo`.
+- **Improvement:** Unclear error message when enabling central logging without specifying `ANKA_LOG_DIR`.
+- **Bug Fix:** Scroll bar blocks the checkbox for delete from nodes when deleting a template.
+- **Bug Fix:** Column sorting on Controller UI now works.
+- **Bug Fix:** Installer text in dark mode was showing white text on a white background.
+- (Required ETCD Version: 3.5.16)
+
 ### 1.43.0 (1.43.0-9f1c073a) - September 26th, 2024
 
 - **New Feature:** [Last Push and Pull dates for Templates and Tags.]({{< relref "whats-new/build-cloud-1.43.0/index.md#last-push-and-pull-dates-for-templates-and-tags" >}})
@@ -17,15 +40,9 @@ weight: 100
 - **Improvement:** Various log improvements in Controller, Regsitry, and Controller Agent.
 - **Improvement:** Upgraded docker package to use newer ubuntu and include health checks.
 - **Bug Fix:** Preventing orphaning of VM on Node when users Terminate a VM while it's pulling.
-- **Bug Fix:** Upgrading the Controller Agent from 1.41.0-6a102e20 to 1.41.1 fails to join.
+- **Bug Fix:** The automated agent upgrade process was not joining back to the cluster after self-upgrade.
 - Various security patches.
 - (Required ETCD Version: 3.5.16)
-
-
----
-
-## Previous Versions
-
 
 ### 1.42.0 (1.42.0-92735895) - June 10th, 2024
 

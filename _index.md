@@ -1,6 +1,5 @@
 ---
 title: "Anka Documentation"
-linkTitle: "Anka Documentation"
 cascade:
   - type: "docs"
 ---

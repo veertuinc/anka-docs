@@ -14,8 +14,9 @@
   #### User Data ENVs
 
   {{< hint info >}}
-  For user-data, don't use `;`, `&&` or any other type of separator between envs.
+  For user-data, don't use `;`, `&&` or any other type of separator between envs. You also cannot use multiline strings in the ENVs. However, you can replace newlines with `\n` and our service will get the ENV with the multiple line text
   {{< /hint >}}
+  
   {{< hint info >}}
   If you pass in user-data with the exports all on one line, and have non ANKA_ ENVs you're setting, the `cloud-connect.bash` service we run on instance start/boot will source/execute them. We recommend you split exports and user-data onto separate lines to avoid this.
   {{< /hint >}}
@@ -81,6 +82,13 @@
   - Only available in 3.3.4/13.4.1 or greater AMIs.
   - This could be dangerous; please don't rely on it unless newer AMIs are not available.
 
+  ##### ANKA_UPGRADE_CLI_TO_VERSION (string)
+
+  This will force an upgrade of Anka Virtualization CLI to the given version. It will perform a `curl -S -L -o ./$FULL_FILE_NAME https://downloads.veertu.com/anka/$FULL_FILE_NAME` so take a look at [https://downloads.veertu.com/#anka/](https://downloads.veertu.com/#anka/) to see a complete list of available packages. You'll need to use the full file name (eg: `Anka-3.6.1.198.pkg`).
+
+  - Optional
+  - Only available in 3.6.1/15.1.1 or greater AMIs.
+
   ##### ANKA_PULL_TEMPLATES_REGEX (string)
 
   This will pull templates from the registry which match the given regex (egrep) pattern.
@@ -117,6 +125,7 @@
   - Optional
   - Only available in Anka 3.4.0 or greater AMIs.
   - If the script fails, the node will still join.
+  - Most scripts support ENVs being passed in through user-data, so be sure to review them to see what's possible. Dev note: the cloud-connect will not set/see any ENVs without ANKA_ prefix.
 
 #### Manual Preparation (optional)
 

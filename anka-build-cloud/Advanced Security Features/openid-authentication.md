@@ -33,11 +33,12 @@ Okta must support custom authorization servers. Please check with your Okta admi
 #### Anka Build Cloud Controller & Registry
 
 1. Set `ANKA_OIDC_CLIENT_SECRET` to the Client Secret you generate at your provider application.
-2. Set `ANKA_OIDC_PROVIDER_URL` to the appropriate provider URL for oauth2. For example, in Okta, I would set this to `https://dev-123456.okta.com/oauth2/default`.
+2. Set `ANKA_OIDC_PROVIDER_URL` to the appropriate provider URL for oauth2. For example, in Okta, I would set this to `https://dev-123456.okta.com/oauth2/default`. You may need to use the `https://dev-123456.okta.com` without the `/oauth2/default` if you are not able to get the groups claim.
   {{< hint info >}}
   Don't know what URL to use for your provider? The provider url + /.well-known/openid-configuration  must lead to the issuer's OIDC config.
   {{< /hint >}}
 3. Set `ANKA_OIDC_CLIENT_ID` to the client ID for the application.
+4. Set `ANKA_OIDC_SCOPES` to `groups`.
 
 
 #### At Your Provider

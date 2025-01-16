@@ -52,9 +52,7 @@ In these directories you will find the following logs:
 
 2. `lupd.log` - License auto-upgrade service logs; it's rarely used and most likely not related to VMs runtime
 
-3. `ankanetd.log` - Anka VM network service logs; useful for troubleshooting VM networking related problems
-
-4. `{UUID}.log` - (`{UUID}` is the specific VM's UUID) Specific VM logs; useful if VM exits abnormally or fails to start.
+3. `{UUID}.log` - (`{UUID}` is the specific VM's UUID) Specific VM logs; useful if VM exits abnormally or fails to start.
 
 {{< hint warning >}}
 **ARM USERS:** When starting VMs with `-v`, VM logs will be written to `anka.log` instead of their `{UUID}.log`. 

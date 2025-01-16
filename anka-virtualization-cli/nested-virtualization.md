@@ -6,7 +6,7 @@ description: >
   Running Docker and other types of virtualization within your Anka VMs.
 ---
 
-Starting in Anka 2.5.0, Nested Virtualization has received a large refactor and expanded support. **It is now enabled by default.** However, note that Nested Virtualization has many instabilities and limitations that it's best to consider running things like Docker or Android Studio Emulators on linux instead.
+Starting in Anka 2.5.0, Nested Virtualization has received a large refactor and expanded support. **It is now enabled by default.**
 
 {{< hint warning >}}
 Please avoid suspending VMs while Docker or other nested virtualization apps are started. You will need to start the apps post-vm start.
@@ -20,11 +20,13 @@ Please avoid suspending VMs while Docker or other nested virtualization apps are
 
 ### Supported Technologies
 
-#### Docker*
+#### QEMU
 
-{{< hint warning >}}
-* **Not currently supported.**
-{{< /hint >}}
+- Fully functional as of 3.5.2.
+
+#### Docker
+
+- Fully functional as of 3.5.2.
 
 {{< hint warning >}}
 Please avoid suspending VMs while Docker or other nested virtualization apps are started. You will need to start the apps post-vm start.
@@ -32,9 +34,7 @@ Please avoid suspending VMs while Docker or other nested virtualization apps are
 
 #### Virtualbox
 
-{{< hint warning >}}
-You must set a single vCPU for the virtualbox VM for it to run properly.
-{{< /hint >}}
+- Fully functional as of 3.5.2.
 
 #### Android Emulators
 

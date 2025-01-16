@@ -11,6 +11,176 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.6.1 (3.6.1.198) - January 2nd, 2025
+
+{{< hint info >}}
+Addons upgrade is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- 15.0 Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.
+- Nested virtualization is not functional inside of VMs yet.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- [Download Anka-3.6.1.198.pkg](https://downloads.veertu.com/anka/Anka-3.6.1.198.pkg)
+- **Bug Fix:** Anka VM creation was failing when the administrator user was not logged in fully (important for EC2 users).
+- **Bug Fix:** Mac Studio models were unable to activate licenses on 3.6.0.
+- **Bug Fix:** Anka click script improvement: 15.2 auto-login failing when iCloud login was required.
+
+## Previous Versions
+
+### 3.6.0 (3.6.0.197) - December 10th, 2024
+
+{{< hint info >}}
+Addons upgrade is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- 15.0 Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.
+- Nested virtualization is not functional inside of VMs yet.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- [Download Anka-3.6.0.197.pkg](https://downloads.veertu.com/anka/Anka-3.6.0.197.pkg)
+- **New Feature:** [You can now install multiple versions of Anka on the same host.]({{< relref "whats-new/anka-3.6.0/index.md#ability-to-install-multiple-versions-of-anka-on-the-same-host" >}})
+- **New Feature:** [arm ec2 mac] Support for IMDSv2 on our >= 3.6.0 marketplace AMIs.
+- **Improvement:** Support for M4 macbooks running Anka Develop license.
+- **Improvement:** [arm] Eliminated `ankanetd`, similar to what we already have done with intel, moving it into the hypervisor for better performance and stability.
+- **Improvement:** Support for 15.1.1 in `anka create --list`.
+- **Bug Fix:** `anka registry` was not showing push and pull commands.
+- **Bug Fix:** Overcommitting RAM was throwing "Bad Address" which is unclear.
+- **Bug Fix:** [arm] `anka view` now opens the Viewer window properly.
+- **Bug Fix:** `ANKA_NETWORK_MODE=disconnected` was not working. Note: This is useful for Proxy users who cannot get past the macOS setup process due to the internet requirement from Apple. It will create the VM without internet, get past the setup phase that fails, and then you can use `anka modify {vm} network` to enable shared or bridged networking again.
+- **Bug Fix:** Changing the language in the VM reverts post-reboot of the VM.
+- **Bug Fix:** A flaw in the renewal logic for licensing was preventing renewals from getting a new expiration date.
+
+### 3.5.5 (3.5.5.196) - December 2nd, 2024
+
+{{< hint info >}}
+Addons upgrade is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- 15.0 Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.
+- Nested virtualization is not functional inside of VMs yet.
+- The `anka view` command is partially broken and requires double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- [Download Anka-3.5.5.196.pkg](https://downloads.veertu.com/anka/Anka-3.5.5.196.pkg)
+- **New Feature:** `ANKA_NETWORK_MODE=disconnected` is now available for `anka create`.
+- **Improvement:** Support for M4 Macbook Pros using the Develop license.
+- **Improvement:** `anka create --list` now shows a more complete list of versions on intel.
+- **Bug Fix:** `anka create latest` could choose the wrong version if Apple has released a second version of the same version.
+
+### 3.5.4 (3.5.4.195) - November 4th, 2024
+
+{{< hint info >}}
+Addons upgrade is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- 15.0 Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.
+- Nested virtualization is not functional inside of VMs yet.
+- The `anka view` command is partially broken and requires double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- [Download Anka-3.5.4.195.pkg](https://downloads.veertu.com/anka/Anka-3.5.4.195.pkg)
+- **Bug Fix:** Minor fix for creation of 15.1 VMs (SIP failure).
+
+### 3.5.3 (3.5.3.194) - October 24th, 2024
+
+{{< hint info >}}
+Addons upgrade is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- 15.0 Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.
+- Nested virtualization is not functional inside of VMs yet.
+- The `anka view` command is partially broken and requires double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- [Download Anka-3.5.3.194.pkg](https://downloads.veertu.com/anka/Anka-3.5.3.194.pkg)
+- **Improvement:** Support for 15.1.
+- **Bug Fix:** Missing `hostif` from `anka --machine-readable show {vm} network`.
+
+### 3.5.2 (3.5.2.193) - October 15th, 2024
+
+{{< hint info >}}
+Addons upgrade is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- 15.0 Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.
+- Nested virtualization is not functional inside of VMs yet.
+- The `anka view` command is partially broken and requires double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- [Download Anka-3.5.2.193.pkg](https://downloads.veertu.com/anka/Anka-3.5.2.193.pkg)
+- **Improvement/Bug Fix:** (intel only) Nested Virtualization -- qemu, virtualbox, Docker, etc -- is now fully functional regardless of CPUs you assign.
+- **Bug Fix:** (intel only) `anka create` would fail to enable autologin on 13.7 VM creation.
+- **Bug Fix:** (intel only) `anka create --no-setup` would freeze when creating non-English VMs on non-English Hosts.
+
+
+### 3.5.1 (3.5.0.192) - October 1st, 2024
+
+{{< hint info >}}
+Addons upgrade is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- 15.0 Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.
+- Nested virtualization is not functional inside of VMs yet.
+- The `anka view` command is partially broken and requires double clicking the VM name in the Anka.app VM listing. Both of these issues make VNC, which is enabled by default, a better route for accessing your VM.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- [Download Anka-3.5.1.192.pkg](https://downloads.veertu.com/anka/Anka-3.5.1.192.pkg)
+- **Improvement:** Anka Develop now supports Macbook Air.
+- **Bug Fix:** SIP disable was broken when creating VMs on EC2. `failed to disable SIP: Operation timed out`
+- **Bug Fix:** For `anka create`, autologin enabling was not working on intel.
+- **Bug Fix:** Fixed `anka create` support for 10.X macOS and the inability to get networking. Note: Networking on 10.X VMs requires building and installing https://github.com/pmj/virtio-net-osx kext.
+
+
 ### 3.5.0 (3.5.0.191) - September 19th, 2024
 
 {{< hint info >}}
@@ -36,7 +206,6 @@ ARM/Silicon specific issues:
 - **Bug Fix:** Full 15.0 GA `anka create` automation support for intel and arm (note: previous versions >= 3.3.9 already supported running 15.0 VMs).
 - **Bug Fix:** Immediately suspending VMs after start on arm would cause a failure.
 
-## Previous Versions
 
 ### 3.4.2 (3.4.2.190) - August 21th, 2024
 
@@ -99,12 +268,12 @@ ARM/Silicon specific issues:
 
 {{< /hint >}}
 
-- **New Feature:** iCloud login now works with VM + Host running 15.0 beta2 (or above).
+- **New Feature:** iCloud login now works with VM + Host running 15.0 beta2 (or above). [Read more here as it requires you creating a 15.x VM on a 15.x host.](https://developer.apple.com/documentation/virtualization/using_icloud_with_macos_virtual_machines).
 - **New Feature:** Anka click scripts now support text targeting/clicking with a simple pattern. For example, if I wanted to click a button with the text OK in it, I'd use: `("OK")`. Read more (here)[https://github.com/veertuinc/anka-click-scripts].
 - **New Feature:** Offline licensing is now possible for customers without an internet connection. Contact support for more information.
 - **New Feature:** The System Proxy settings are now used, if available, for `anka create` and `anka license activate`.
 - **New Feature:** In situations where the registry is down, but your desired Template/Tag is cached on Nodes, you can change `anka config pull_failback` to `1` and it will skip pulling if it already has the Template/Tag. This will only work for Anka CLI users, and not through the Build Cloud Controller & Registry.
-- **New Feature:** We are now including a real "Apple Virtual Sound Device" inside of the VM for users who cannot use the Null Audio Device.
+- **New Feature:** (Silicon/arm only) We are now including a real "Apple Virtual Sound Device" inside of the VM for users who cannot use the Null Audio Device.
 - **New Feature:** You can now stream import VMs using the CLI (`curl uuid.tar | anka import`).
 - **Improvement:** Checksumming for `anka pull` -- This feature will prevent `anka pull` from downloading VMs that are corrupt or incomplete.
 - **Improvement:** RFB VNC (password-less) is now allowed again for VMs (intel only). To enable, you must first change `[sudo] anka config vnc_nopassword 1` and then ensure the VM Template also has it enabled `anka modify VM display --vnc on`.
