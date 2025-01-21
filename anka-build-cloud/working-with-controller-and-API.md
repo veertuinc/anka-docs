@@ -1220,6 +1220,7 @@ curl -X POST "http://anka.controller/api/v1/registry/vm/distribute" \
 **Request Status format**
 - *distribute_status* - Map of nodes
   - *status:* A boolean, true if the download is finished on the Node
+  - *error:* Error message if the download failed on the Node
   - *progress:* A number representing the download progress
 - *request* - An object that represents the request
   - *request_id:* The request's id
@@ -1246,9 +1247,23 @@ curl  "http://anka.controller/api/v1/registry/vm/distribute" | jq
                "status": false
             }
          }
+      },
+      {
+        "request": {
+          "time_requested": "2019-12-26T17:48:50.380949005+02:00",
+          "template_id": "fdfa-fdfa-fdfa-fdfa-fdfafdfafdfa",
+          "request_id": "42d42d42-d42d-42d4-2d42-d42d42d42d42"
+        },
+        "distribute_status": {
+          "i-092bc39e9268d3b54": {
+            "status": false,
+            "error": "request canceled",
+            "progress": 0.04
+          }
+        }
       }
-   ],
-   "status": "OK"
+    ],
+    "status": "OK"
 }
 
 # Get a specific distribution request
