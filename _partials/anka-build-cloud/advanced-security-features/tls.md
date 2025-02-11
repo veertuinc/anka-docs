@@ -22,7 +22,7 @@ If you do not have TLS certificates for your Controller & Registry from a signed
 ```shell
 export CONTROLLER_ADDRESS="127.0.0.1"
 export REGISTRY_ADDRESS=$CONTROLLER_ADDRESS
-openssl genrsa -out anka-controller-key.pem 4096
+openssl genrsa -traditional -out anka-controller-key.pem 4096
 openssl req -new -nodes -sha256 -key anka-controller-key.pem -out anka-controller-csr.pem -subj "/O=MyGroup/OU=MyOrgUnit/CN=MyUser" \
   -reqexts SAN -extensions SAN \
   -config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nextendedKeyUsage = serverAuth\nsubjectAltName=IP:$CONTROLLER_ADDRESS"))

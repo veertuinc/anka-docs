@@ -74,7 +74,7 @@ You can use the following openssl commands to create Node certificates using the
 NODE_NAME="$(hostname)"
 ORG_UNIT="TEAM_ONE"
 ORGANIZATION="MYORG"
-openssl genrsa -out node-$NODE_NAME-key.pem 4096
+openssl genrsa -traditional -out node-$NODE_NAME-key.pem 4096
 openssl req -new -sha256 -key node-$NODE_NAME-key.pem -out node-$NODE_NAME-csr.pem \
   -subj "/O=$ORGANIZATION/OU=$ORG_UNIT/CN=$NODE_NAME"
 openssl x509 -req -days 365 -sha256 -in node-$NODE_NAME-csr.pem -CA anka-ca-crt.pem -CAkey anka-ca-key.pem \
@@ -89,7 +89,7 @@ In addition to the node certificates, the controller itself makes API calls to t
 NAME="anka-controller"
 ORG_UNIT="TEAM_ONE"
 ORGANIZATION="MYORG"
-openssl genrsa -out $NAME-key.pem 4096
+openssl genrsa -traditional -out $NAME-key.pem 4096
 openssl req -new -sha256 -key $NAME-key.pem -out $NAME-csr.pem \
   -subj "/O=$ORGANIZATION/OU=$ORG_UNIT/CN=$NODE_NAME"
 openssl x509 -req -days 365 -sha256 -in $NAME-csr.pem -CA anka-ca-crt.pem -CAkey anka-ca-key.pem \
