@@ -275,11 +275,7 @@ When creating certificates, you'll want to specify CSR values using openssl's `-
 
 ## 6. Final Notes
 
-- If you enabled AUTH for the registry, you'll need to ensure that you set the `ANKA_CLIENT_CERT` and `ANKA_CLIENT_CERT_KEY` in your controller config or else it won't be able to communicate with the registry.
-  ```go
-  ANKA_CLIENT_CERT	(string)	(Certificate Authentication) The Controller will use this when making http requests, mainly to the Registry
-  ANKA_CLIENT_CERT_KEY	(string)	(Certificate Authentication) The Controller will use this when making http requests, mainly to the Registry
-  ```
+- The Controller and Registry must have the same Root Token in order to communicate with each other. It does not use any other form of authentication.
 - You may notice that the Controller UI doesn't load or acts strangely. You will need to enable [Root Token Authentication]({{< relref "anka-build-cloud/Advanced Security Features/root-token-authentication.md" >}}) to access the controller UI.
 - If you get an invalid cert error from the Controller UI, make sure that you add the root CA you generated to your system keychain.
 
