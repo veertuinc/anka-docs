@@ -13,7 +13,6 @@ Many organizations and developers are already familiar with OpenID Connect (OIDC
 ###### Important
 - Requires an Anka Enterprise Plus license.
 - It currently only protects the UI/Dashboard and is not available for API or others types of protection.
-- You must have all Nodes licensed with Enterprise or higher for these features to enable.
 - Your Nodes will lose connection until you join them using the new credential.
 - We currently only support `Code/Explicit Flow`.
 {{< /hint >}}
