@@ -99,6 +99,10 @@ Anka allows you to create VMs for the following macOS versions:
   </tr>
   <tr>
     <td style="vertical-align: middle"></td>
+    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
