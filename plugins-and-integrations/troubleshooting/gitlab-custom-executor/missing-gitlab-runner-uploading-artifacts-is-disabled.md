@@ -10,7 +10,7 @@ The gitlab runner and our custom executor is working fine, but you cannot upload
 
 ## Solution
 
-You need to add the proper `PATH=` to your gitlab-runner binary. This cna be done inside of the config under `[[runners.environment]]`.
+You need to add the proper `PATH=` to your gitlab-runner binary. This can be done inside of the config under `[[runners.environment]]`.
 
 ## Still experiencing problems?
 
