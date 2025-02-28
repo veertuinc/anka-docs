@@ -346,7 +346,7 @@ Starting in 2.9.0, users can add a Custom Column in their Controller UI on the I
 
 ## Release Notes
 
-### 2.12.0 - [February 25th, 2025](https://github.com/jenkinsci/anka-build-plugin/pull/30)
+### 2.12.0 - February 25th, 2025
 
 {{< hint warning >}}
 MINIMUM REQUIRED JENKINS VERSION: `2.426.3`
@@ -356,6 +356,7 @@ MINIMUM REQUIRED JENKINS VERSION: `2.426.3`
 - **Improvement:** Use jenkins.baseline to reduce bom update mistakes https://github.com/jenkinsci/anka-build-plugin/pull/29
 - **New Feature:** Support for UAK/TAP authentication. Select the `Secret text` credential type when creating. Make sure the ID of the credential matches that of the UAK in your Controller. The text will be the `key string` that was created from the PEM you downloaded when you created the UAK (to generate it from the PEM file, use `cat uak-key.pem | sed '1,1d' | sed '$d' | tr -d '\n'`).
 - **Bug Fix:** Errored instances caused Jenkins to grind to a halt.
+- [Github PR](https://github.com/jenkinsci/anka-build-plugin/pull/30)
 
 ### 2.11.0 - April 10th, 2024
 
