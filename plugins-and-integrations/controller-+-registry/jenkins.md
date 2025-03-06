@@ -151,10 +151,10 @@ nameTemplate | string | -  | Label to use in VM instance names (There are severa
 priority | int | 1000  | Override the default priority (lower is more urgent). **Available only in Enterprise and Enterprise Plus Tiers** | -
 saveImage | boolean | `false` | Save the VM as a Tag before terminating it | -
 suspend | boolean | `false` | When saving the Tag, suspend the VM before the push | -
-TemplateId | string | -  | When saving the Tag, push onto a specific Template UUID | -
+templateId | string | -  | When saving the Tag, push onto a specific Template UUID | -
 pushTag | string | -  | When saving the Tag, set the Tag name (A timestamp will be appended) | -
 deleteLatest | boolean | `false` | When saving the Tag, delete the latest Tag for the Template out of the registry before pushing (Dangerous: only use if the Template isn't holding other project tags) | -
-TemplateDescription | string | -  | When saving the Tag, set a description for the new Tag | -
+templateDescription | string | -  | When saving the Tag, set a description for the new Tag | -
 group | string | -  | Group ID to start the instance in (_Available only in Enterprise and Enterprise Plus Tiers_) | -
 numberOfExecutors | int | `1` | Number of Jenkins executors to run on the Node (we recommend 1) | -
 description | string | -  | On creation of the instance, set the description | -
