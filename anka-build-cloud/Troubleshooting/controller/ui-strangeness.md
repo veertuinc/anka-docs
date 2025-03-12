@@ -15,7 +15,7 @@ weight: 1
 
 1. Lots of VMS, Nodes, and not enough load balancing/instances of the controller, etcd, etc.
 2. ETCD is very sensitive to disk latency; not using SSDs for the etcd storage
-3. Session stickynesss is not enabled for your load balancer
+3. Session stickiness is not enabled for your load balancer or too low
 
 ## Solutions:
 
