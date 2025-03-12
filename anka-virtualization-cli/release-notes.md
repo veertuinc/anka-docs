@@ -11,6 +11,38 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.7.0 (3.7.0.199) - March 12th, 2025
+
+{{< hint info >}}
+Addons upgrade is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- 15.0 Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.
+- Nested virtualization is not functional inside of VMs yet.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- [Download Anka-3.7.0.199.pkg](https://downloads.veertu.com/anka/Anka-3.7.0.199.pkg)
+- **New Feature:** [The `anka create` command's Anka Click Scripts are now updated from a feed url, allowing you to get the latest scripts and macOS support without installing a new Anka CLI version.]({{< relref "whats-new/anka-3.7.0/index.md#anka-click-scripts-feed" >}})
+- **New Feature:** [The `anka list` command now supports advanced filtering and output.]({{< relref "whats-new/anka-3.7.0/index.md#advanced-list-filtering-output" >}})
+- **Improvement:** Intel only: For new creation, pulls, and imports, "plain" image format will be used for the VM, similar to how it works on ARM. This is a major change, and can be disabled using `anka config default_format 0` if you find an issue.
+- **Improvement:** Support for 15.4 beta.
+- **Improvement:** Dynamically determine minimum disk space required for ipsw in anka create.
+- **Bug Fix:** VLAN support has been rewritten to fix various bugs and improve reliability.
+- **Bug Fix:** `last_pull` timestamps for all templates were being updated in the registry, without a pull happening. 
+- **Bug Fix:** Checksum validation was failing for `anka_image`.
+- **Bug Fix:** The `anka create` command was becoming stuck when run under sudo.
+- **Bug Fix:** Anka Create was failing with `click: failed to wait "Not Now": Operation timed out` and `click: failed to wait "Close": Operation timed out` and `status 19968`.
+
+
+## Previous Versions
+
 ### 3.6.1 (3.6.1.198) - January 2nd, 2025
 
 {{< hint info >}}
@@ -32,8 +64,6 @@ ARM/Silicon specific issues:
 - **Bug Fix:** Anka VM creation was failing when the administrator user was not logged in fully (important for EC2 users).
 - **Bug Fix:** Mac Studio models were unable to activate licenses on 3.6.0.
 - **Bug Fix:** Anka click script improvement: 15.2 auto-login failing when iCloud login was required.
-
-## Previous Versions
 
 ### 3.6.0 (3.6.0.197) - December 10th, 2024
 
