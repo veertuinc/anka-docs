@@ -409,6 +409,7 @@ There are two types of cloning you can perform:
 
 ### Import
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/import/_index.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/import/_extra.md" >}}
 
 ---
 
