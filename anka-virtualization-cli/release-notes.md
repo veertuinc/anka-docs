@@ -30,7 +30,7 @@ ARM/Silicon specific issues:
 
 - [Download Anka-3.7.0.199.pkg](https://downloads.veertu.com/anka/Anka-3.7.0.199.pkg)
 - **New Feature:** [The `anka create` command's Anka Click Scripts are now updated from a feed url, allowing you to get the latest scripts and macOS support without installing a new Anka CLI version.]({{< relref "whats-new/anka-3.7.0/index.md#anka-click-scripts-feed" >}})
-- **New Feature:** [The `anka list` command now supports advanced filtering and output.]({{< relref "whats-new/anka-3.7.0/index.md#advanced-list-filtering-output" >}})
+- **New Feature:** [The `anka list` command now supports advanced filtering and output.]({{< relref "whats-new/anka-3.7.0/index.md#advanced-list-filtering-and-output" >}})
 - **Improvement:** Intel only: For new creation, pulls, and imports, "plain" image format will be used for the VM, similar to how it works on ARM. This is a major change, and can be disabled using `anka config default_format 0` if you find an issue.
 - **Improvement:** Support for 15.4 beta.
 - **Improvement:** Dynamically determine minimum disk space required for ipsw in anka create.

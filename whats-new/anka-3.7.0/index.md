@@ -20,7 +20,7 @@ You can switch between feeds using the `anka config feed_url` command.
 
 You can disable the feed entirely by setting the feed url to an empty string.
 
-## Advanced list filtering & output
+## Advanced list filtering and output
 
 You can now filter the output of `anka list` by status, name, and even by a specific match using `=`.
 ```
