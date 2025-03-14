@@ -123,15 +123,19 @@ Anka allows you to create VMs for the following macOS versions:
 {{< /hint >}}
 
 {{< hint warning >}}
-**(\*\*) When creating a 15.x VM on a host with 15.x, you must run them on the same hardware type as well as ensure the hosts have 15.x. This is a limitation from Apple. Creation of 15.x VMs on hosts with 14.x should not have this problem.**
+
 {{< /hint >}}
 
 {{< hint warning >}}
-**(\*\*) ARM USERS: To run macOS 14.x VMs, you must have macOS 14.x (or higher) on your host. 13.x VMs also require a minimum host macOS version of 13.x.**
+**(\*\*) When creating a 15.x VM on a host with 15.x, you must run them on the same hardware type. This is a limitation from Apple. Creation of 15.x VMs on hosts with 14.x should not have this problem.**
 {{< /hint >}}
 
 {{< hint warning >}}
-**(\*\*) ARM USERS: When creating 15.x VMs on 14.x hosts, you must ensure that Xcode 16.1 OR the MobileDevice.pkg (inside of Xcode.app) is installed.**
+**(\*\*) ARM USERS: To run macOS 14.x VMs, you must have macOS 14.x (or higher) on your host. Similarly, running 13.x VMs also require a minimum host macOS version of 13.x.**
+{{< /hint >}}
+
+{{< hint warning >}}
+**(\*\*) ARM USERS: When creating 15.x VMs on 14.x hosts, you must ensure that Xcode 16.2 OR the MobileDevice.pkg (inside of Xcode.app) is installed.**
 
 ```bash
 sudo xcodebuild -license accept
