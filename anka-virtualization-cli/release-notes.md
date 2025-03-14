@@ -38,7 +38,7 @@ ARM/Silicon specific issues:
 - **Bug Fix:** `last_pull` timestamps for all templates were being updated in the registry, without a pull happening. 
 - **Bug Fix:** Checksum validation was failing for `anka_image`.
 - **Bug Fix:** The `anka create` command was becoming stuck when run under sudo.
-- **Bug Fix:** Anka Create was failing with `click: failed to wait "Not Now": Operation timed out` and `click: failed to wait "Close": Operation timed out` and `status 19968`.
+- **Bug Fix:** Anka Create was failing with `click: failed to wait "Not Now": Operation timed out` and `click: failed to wait "Close": Operation timed out`, `status 17920`, and `status 19968`.
 
 
 ## Previous Versions
