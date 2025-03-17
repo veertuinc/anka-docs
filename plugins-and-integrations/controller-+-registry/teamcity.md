@@ -19,10 +19,13 @@ The Anka Teamcity plugin allows you to communicate with your Anka Build Cloud Co
 **IMPORTANT:** As of 1.9.0, our plugin will install the Teamcity Build Agent for you into the VM Template/Tag under the path specified in your Cloud Profile.
 
 1. **In the VM**, install the proper JRE/JAVA version. We recommend [Zulu](https://www.azul.com/downloads/?version=java-17-lts&package=jre#zulu). **As of plugin 1.9.0, you will need Java 17 or higher.**
-1. **If using Shared Networking mode:** In the VM Template, make sure remote login is enabled (`System Preferences > Sharing`). On the host, enable SSH [port forwarding]({{< relref "anka-virtualization-cli/command-line-reference.md#modify-nameuuid-port" >}}) for your VM Template using the Anka CLI: `sudo anka modify <VM Template name> add port --guest-port 22 ssh`. _We recommend not specifying --host-port._
-1. You'll need to ensure that java has access to the "local network" if you're using macOS 15.x or above in the VM. You'll see the image below otherwise and the buildAgent won't be able to connect fully as an instance to teamcity. To do this, temporarily install the buildAgent into the VM with VNC, connect it to teamcity, and then click Allow on the dialogue you see. Then delete the buildAgent folder from the VM as our plugin automatically installs it.
+1. **In the VM**, you'll need to ensure that java has access to the "local network" if you're using macOS 15.x or above in the VM. You'll see the image below otherwise and the buildAgent won't be able to connect fully as an instance to teamcity. To do this, temporarily install the buildAgent into the VM with VNC, connect it to teamcity, and then click Allow on the dialogue you see. Then delete the buildAgent folder from the VM as our plugin automatically installs it.
 
-![Java local network dialogue](/images/ci-plugins-and-integrations/teamcity/java-local-network-dialogue.png)
+{{< rawhtml >}}
+<center><img src="{{< siteurl >}}images/ci-plugins-and-integrations/teamcity/java-local-network-dialogue.png" alt="Java local network dialogue" style="width: 30%;" /></center>
+{{< /rawhtml >}}
+
+1. **If using Shared Networking mode:** In the VM Template, make sure remote login is enabled (`System Preferences > Sharing`). On the host, enable SSH [port forwarding]({{< relref "anka-virtualization-cli/command-line-reference.md#modify-nameuuid-port" >}}) for your VM Template using the Anka CLI: `sudo anka modify <VM Template name> add port --guest-port 22 ssh`. _We recommend not specifying --host-port._
 
 ## Usage
 
