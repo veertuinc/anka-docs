@@ -5,7 +5,7 @@
 {{< include file="content/_partials/anka-build-cloud/configuration-reference/controller/general&commonlyused/notice.md" >}}
 | ENV | Type | Description | Default Value |
 | --- | :---: | --- | :---: |
-| ANKA_ANKA_REGISTRY | (string) | Anka Registry address that will be used by Nodes to pull/download VM Templates and Tags. This is not used by the Controller to communicate with the Registry. (format: http[s]://address:[port]).) |  |
+| ANKA_ANKA_REGISTRY | (string) | The Anka Registry address used for communication from the Controller to the Registry as well as the address used by Nodes to pull VM Templates and Tags.) |  |
 | ANKA_CLEAN_MAC_ADDRESS_INTERVAL | (duration) | Delay between cleaning mac addresses.) | 1h0m0s |
 | ANKA_DEFRAG_DB_INTERVAL | (duration) | The interval for defragging ETCD (0 is disable).) | 0 |
 | ANKA_ETCD_ENDPOINTS | (string)  | 	Comma separated list of etcd addresses. These endpoints are used for the Application DB (instance, group, node information) and the Queue DB (if not defined separately with ANKA_QUEUE_ETCD_ENDPOINTS).) | 127.0.0.1:2379 |
