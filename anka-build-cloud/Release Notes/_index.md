@@ -7,6 +7,19 @@ weight: 100
 
 ## Current Version
 
+### 1.46.0 (1.46.0-d8fb9604) - March 17th, 2025
+
+- **New Feature:** `registry/v2/vm?id=` now supports `creation_date`.
+- **Bug Fix:** Pushing an empty VM (for testing) no longer causes `Internal server error` for `anka list`.
+- **Bug Fix:** Node gets stuck in updating state after Agent PKG fails to install.
+- **Bug Fix:** Changes to Permissions of a group, post-creation/attachment to a UAK, don't take and continue to work with the old settings.
+- **Bug Fix:** UAKs intermittently disappearing and reappearing on the API keys page.
+- (Required ETCD Version: 3.5.16)
+
+---
+
+## Previous Versions
+
 ### 1.45.0 (1.45.0-8cf8fb10) - November 13th, 2024
 
 - **Improvement:** The task drawer in the UI now keeps successful tasks around until the user dismisses them or closes the entire drawer.
@@ -15,10 +28,6 @@ weight: 100
 - **Bug Fix:** Save Template Image with massive stdout/err output will cause failure posting to etcd. We now only include the last 1MB of output to prevent this.
 - **Bug Fix:** Controller UI was not showing API keys.
 - (Required ETCD Version: 3.5.16)
-
----
-
-## Previous Versions
 
 ### 1.44.0 (1.44.0-19dc773e) - October 29th, 2024
 

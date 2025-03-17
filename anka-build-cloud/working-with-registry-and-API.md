@@ -208,6 +208,10 @@ anka registry list
  - *config_file:* Name of the version's VM config file
  - *nvram:* Name of the VM nvram file
  - *size:* Total size of all version's files on registry in bytes.
+ - *creation_date:* The date and time the version was created in Unix epoch time.
+ - *last_pull:* The date and time the version was last pulled in Unix epoch time.
+ - *last_push:* The date and time the version was last pushed in Unix epoch time.
+ - *arch:* The architecture of the version ("arm64" or "amd64")
 
 **CURL Example**  
 ```shell
@@ -228,57 +232,83 @@ curl -s http://anka.registry:8089/registry/v2/vm | jq                          {
 
 # Get Single Template 
 
-curl -s "http://anka.registry:8089/registry/v2/vm?id=c12ccfa5-8757-411e-9505-128190e9854e" | jq
+curl "http://localhost:8089/registry/v2/vm?id=2db3814c-2913-42b9-ae42-c33f1e6124d4" |jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1447  100  1447    0     0  1180k      0 --:--:-- --:--:-- --:--:-- 1413k
 {
   "status": "OK",
+  "message": "",
   "body": {
-    "id": "c12ccfa5-8757-411e-9505-128190e9854e",
-    "name": "11.6.0",
-    ("versions").[
+    "id": "2db3814c-2913-42b9-ae42-c33f1e6124d4",
+    "name": "sequoia",
+    "versions": [
       {
         "number": 0,
-        "tag": "vanilla",
-        "config_file": "c12ccfa5-8757-411e-9505-128190e9854e.yaml",
+        "tag": "suspended",
+        "config_file": "2db3814c-2913-42b9-ae42-c33f1e6124d4.yaml",
         "nvram": "nvram",
         "images": [
-          "6e45c8998fab41d9bbf4a6a6975efda0.ank"
+          "b16512b62a07485e853e6c67426094c0.ank",
+          "3b1d13f4a360444788a046ac98d7925d.ank"
         ],
-        "state_files": null,
+        "state_files": [
+          "16b5fd251f724d699df853e7718d750a.ank"
+        ],
         "description": "",
-        "state_file": "",
-        "size": 18645143552
+        "state_file": "16b5fd251f724d699df853e7718d750a.ank",
+        "size": 26937917952,
+        "arch": "",
+        "last_pull": 1741354557,
+        "last_push": 1741354557,
+        "creation_date": 1736162801
       },
       {
         "number": 1,
-        "tag": "vanilla+port-forward-22",
-        "config_file": "c12ccfa5-8757-411e-9505-128190e9854e.yaml",
+        "tag": "ssh",
+        "config_file": "2db3814c-2913-42b9-ae42-c33f1e6124d4.yaml",
         "nvram": "nvram",
         "images": [
-          "6e45c8998fab41d9bbf4a6a6975efda0.ank"
+          "b16512b62a07485e853e6c67426094c0.ank",
+          "3b1d13f4a360444788a046ac98d7925d.ank"
         ],
-        "state_files": null,
+        "state_files": [
+          "27a1c0f5c902420395ca32db43aa97be.ank",
+          "16b5fd251f724d699df853e7718d750a.ank"
+        ],
         "description": "",
-        "state_file": "",
-        "size": 18645143552
+        "state_file": "27a1c0f5c902420395ca32db43aa97be.ank",
+        "size": 26937922052,
+        "arch": "",
+        "last_pull": 1741354557,
+        "last_push": 1741354557,
+        "creation_date": 1739188070
       },
       {
         "number": 2,
-        "tag": "vanilla+port-forward-22+brew-git",
-        "config_file": "c12ccfa5-8757-411e-9505-128190e9854e.yaml",
+        "tag": "java17",
+        "config_file": "2db3814c-2913-42b9-ae42-c33f1e6124d4.yaml",
         "nvram": "nvram",
         "images": [
-          "732787cd099d47e2bcd429f93ba57613.ank",
-          "6e45c8998fab41d9bbf4a6a6975efda0.ank"
+          "808ed9baffd04a888e157de653a9fd7a.ank",
+          "b16512b62a07485e853e6c67426094c0.ank",
+          "3b1d13f4a360444788a046ac98d7925d.ank"
         ],
-        "state_files": null,
+        "state_files": [],
         "description": "",
         "state_file": "",
-        "size": 21024776192
+        "size": 28217180160,
+        "arch": "",
+        "last_pull": 1742211405,
+        "last_push": 1741354557,
+        "creation_date": 1739189692
       }
     ],
-    "size": 21024776192
-  },
-  "message": ""
+    "size": 28221379076,
+    "arch": "arm64",
+    "last_pull": 1742211405,
+    "last_push": 1741354557
+  }
 }
 
 ```

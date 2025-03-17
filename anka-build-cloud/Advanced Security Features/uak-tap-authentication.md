@@ -71,7 +71,7 @@ This communication protocol is for user authentication using asymmetric encrypti
 
 1. You've generated a UAK and it's stored on the Controller and/or Registry with some unique identifier.
 2. Your client sends the first phase of the authentication: `POST /tap/v1/hand -d '{"id": "<API-KEY-USER-ID>" }'` (doesn't need auth to communicate with).
-3. The server generates a random string, encrypts it with the client’s public key that is has stored, encodes it in base64, and passes it back to the requesting client in the response body.
+3. The server generates a random string, encrypts it with the client’s public key that it has stored, encodes it in base64, and passes it back to the requesting client in the response body.
 4. Your client then decodes and decrypts the response using the UAK private key it has available locally, and then sends the second phase of the authentication with the decoded string as `SECRET-STRING`: `POST /tap/v1/shake -d '{"id": "<API-KEY-USER-ID>", "secret": "<SECRET-STRING>" }'`
 
   {{< hint warning >}}
@@ -97,7 +97,7 @@ An example of the entire flow using BASH and CURL:
 
 ```bash
 ❯ brew install openssl
-❯ export PATH="/usr/local/opt/openssl@3/bin:$PATH"
+❯ export PATH="$(brew --prefix)/opt/openssl/bin:$PATH"
 
 ❯ ls nathan-*pem
 nathan-key.pem nathan-pub.pem

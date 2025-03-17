@@ -60,13 +60,22 @@
 
   ##### ANKA_CONTROLLER_API_CERT / _KEY / _CA | ANKA_REGISTRY_API_CERT / _KEY / _CA (string)
 
-  The script which handles joining to your controller has a few calls to the controller as well as the registry APIs. If you're protecting your APIs with TLS and Certificate Authentication, you can set the certs to use with these ENVs.
+  The script which handles joining to your controller has a few calls to the controller as well as the registry APIs. If you're protecting your APIs with mTLS/Certificate Authentication, you can set the certs to use with these ENVs.
 
   - Optional
   - We don't automatically use these to join the node so that you can use a different cert for the node communication. Add `--cert $ANKA_CONTROLLER_API_CERT --cert-key $ANKA_CONTROLLER_API_KEY --cacert $ANKA_CONTROLLER_API_CA` to `ANKA_JOIN_ARGS` to use these certs for the node communication.
 
   {{< imgwithlink src="images/getting-started/aws-ec2-mac/user-data.png" >}}
 
+  ##### ANKA_CONTROLLER_API_UAK_ID / _STRING / _FILE_PATH | ANKA_REGISTRY_API_UAK_ID / _STRING / _FILE_PATH (string)
+
+  The script which handles joining to your controller has a few calls to the controller as well as the registry APIs. If you're protecting your APIs with UAK/TAP authentication, you can set the UAK ID or UAK string with these ENVs.
+
+  - Optional
+  - Only available in AMIs for 3.7.1 and above.
+  - Only use either `ANKA_*_API_UAK_STRING` or `ANKA_*_API_UAK_FILE_PATH`, not both.
+  - We don't automatically use these to join the node so that you can use a different UAK for the node communication.
+  - Do not use with mTLS/Certificate Authentication.
 
   ##### ANKA_PULL_LATEST_CLOUD_CONNECT (boolean)
 
