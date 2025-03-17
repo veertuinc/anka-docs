@@ -112,7 +112,7 @@ Anka allows you to create VMs for the following macOS versions. There may be som
 {{< /hint >}}
 
 {{< hint warning >}}
-**(\*\*) ARM USERS: Creation of 15.3.x VMs currently requires you to prepare the host. The following steps are required:**
+**(\*\*) ARM USERS: Creation of 15.3.x VMs on a 15.x host currently requires you to prepare the host. The following steps are required:**
 
 1. Install Xcode 16.2 or later and set it up fully with the following commands:
     ```bash
