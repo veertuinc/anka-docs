@@ -16,7 +16,8 @@ It's important to understand that the `anka` CLI VM creation, modification, etc,
 ## Prerequisites
 
 1. [You've installed the Anka Virtualization package.]({{< relref "anka-virtualization-cli/getting-started/installing-the-anka-virtualization-package.md" >}})
-2. The host you wish to use has a full internet connection. If you are behind a corporate firewall/proxy, you'll need to review https://support.apple.com/101555.
+2. The host you wish to use has a full internet connection. If you are behind a corporate firewall/proxy, you'll need to review https://support.apple.com/101555. 
+  - If attempting to set/use `http_proxy` or `https_proxy`, they will not work. There is a requirement for full internet access to set up macOS properly in later 15.x VM versions (you'll see `status 70` errors if this is the case). You'll need to use `ANKA_NETWORK_MODE=disconnected` when creating the VM to temporarily disable networking entirely and eliminate the requirement.
 
 ---
 
@@ -31,50 +32,42 @@ You have two methods of creating your Anka VMs. We will describe both in this gu
 
 ### Supported VM macOS versions
 
-Anka allows you to create VMs for the following macOS versions:
+Anka allows you to create VMs for the following macOS versions. There may be some limitations which will be included below the table.
 
 {{< rawhtml >}}
 <div style="display:flex;">
 <table>
 <tbody style="text-align:center">
   <tr>
-    <td style="font-size: 1.5rem; background-color: #f2e6ff;"><b>INTEL</b></td>
-    <td style="background-color: #f2e6ff;"><b>Anka 2.5.7</b></td>
-    <td style="background-color: #f2e6ff;"><b>Anka 3.x</b></td>
+    <td style="font-size: 1.5rem; background-color: #f2e6ff;"></td>
+    <td style="background-color: #f2e6ff;"><b>Anka 3.x (amd64/intel)</b></td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 10.13/14</b></td>
-    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;***</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;*</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 10.15</b></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 11.x</b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 12.x</b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>macOS 13.x<a href="https://support.apple.com/en-us/HT213264">*</a></b></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    <td style="vertical-align: middle"><b>macOS 13.x</b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 14.x</b></td>
-    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 15.x</b></td>
-    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
 </tbody>
@@ -82,35 +75,27 @@ Anka allows you to create VMs for the following macOS versions:
 <table>
 <tbody style="text-align:center;">
   <tr>
-    <td style="font-size: 1.4rem; background-color: #ccebff;"><b>Apple/ARM</b></td>
-    <td style="background-color: #ccebff;"><b>Anka 3.x</b></td>
+    <td style="background-color: #ccebff;"><b>Anka 3.x (arm64)</b></td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"></td>
     <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"></td>
     <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"></td>
     <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"></td>
     <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;<small>**</small></td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;<small>**</small></td>
   </tr>
 </tbody>
@@ -119,19 +104,51 @@ Anka allows you to create VMs for the following macOS versions:
 {{< /rawhtml >}}
 
 {{< hint warning >}}
-**(*) Apple has limited the ability to install Ventura to specific hardware models. <a href="https://support.apple.com/en-us/HT213264">You can view a list of supported models here.</a>**
+**Apple has limited the ability to install macOS to specific hardware models. This differs for each major version of macOS. <a href="https://support.apple.com/en-us/HT213264">Here is the support page for 13.x/Ventura.</a> You can find similar pages for other versions on their support site.**
 {{< /hint >}}
 
 {{< hint warning >}}
-
+**(\*) Intel VM creation of 10.13/14 requires installing a kext (https://github.com/pmj/virtio-net-osx) on the VM for networking to function.**
 {{< /hint >}}
 
 {{< hint warning >}}
-**(\*\*) When creating a 15.x VM on a host with 15.x, you must run them on the same hardware type. This is a limitation from Apple. Creation of 15.x VMs on hosts with 14.x should not have this problem.**
+**(\*\*) ARM USERS: Creation of 15.3.x VMs currently requires you to prepare the host. The following steps are required:**
+
+1. Install Xcode 16.2 or later and set it up fully with the following commands:
+    ```bash
+    XCODE_DESTINATION="/Applications"
+    XCODE_APP="Xcode.app"
+    sudo /usr/sbin/dseditgroup -o edit -a everyone -t group _developer
+    sudo xcode-select -s ${XCODE_DESTINATION}/${XCODE_APP}/Contents/Developer
+    sudo xcodebuild -license accept
+    sudo xcodebuild -runFirstLaunch
+    sudo DevToolsSecurity -enable
+    for PKG in $(/bin/ls ${XCODE_DESTINATION}/${XCODE_APP}/Contents/Resources/Packages/*.pkg); do
+        sudo /usr/sbin/installer -pkg "$PKG" -target /
+    done
+    echo "Checking Xcode CLI tools"
+    sudo xcode-select -s "${XCODE_DESTINATION}/${XCODE_APP}"
+    xcode-select -p &> /dev/null
+    if [ $? -ne 0 ]; then
+      echo "Xcode CLI tools not found. Installing them..."
+      touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
+      PROD=$(softwareupdate -l |
+        grep "\*.*Command Line" |
+        tail -n 1 | sed 's/^[^C]* //')
+      softwareupdate -i "$PROD" --verbose;
+    else
+      echo "Xcode CLI tools OK"
+    fi
+    ```
+2. Install the <a href="https://veertu-xcode-xips.s3-us-west-2.amazonaws.com/15-4-beta-DeviceSupport.pkg">15.4 beta device support package</a>.
 {{< /hint >}}
 
 {{< hint warning >}}
-**(\*\*) ARM USERS: To run macOS 14.x VMs, you must have macOS 14.x (or higher) on your host. Similarly, running 13.x VMs also require a minimum host macOS version of 13.x.**
+**(\*\*) When creating a 15.x VM on a host with 15.x, you must plan to run them on the same hardware type. They will not run and fail with something similar to `hypervisor failed with status 256` if you try to run them on a different hardware type. However, creation of 15.x VMs on 14.x hosts should not have this problem. This is a limitation from Apple.**
+{{< /hint >}}
+
+{{< hint warning >}}
+**(\*\*) ARM USERS: To fully support macOS 14.x VMs, you must have macOS 14.x (or higher) on your host. Similarly, running 13.x VMs also require a minimum host macOS version of 13.x.**
 {{< /hint >}}
 
 {{< hint warning >}}
@@ -144,10 +161,6 @@ for PKG in $(/bin/ls /Applications/Xcode.app/Contents/Resources/Packages/*.pkg);
     sudo /usr/sbin/installer -pkg "$PKG" -target /
 done
 ```
-{{< /hint >}}
-
-{{< hint warning >}}
-**(\*\*\*) Requires installing a kext (https://github.com/pmj/virtio-net-osx) on the VM for networking to function.**
 {{< /hint >}}
 
 {{< hint warning >}}
@@ -176,6 +189,8 @@ networksetup -setsecurewebproxy <interface> <proxyURL> <port>
 export http_proxy=http://<proxyURL>:<port>
 export https_proxy=http://<proxyURL>:<port>
 ```
+
+If this does not work, you can try setting the `ANKA_NETWORK_MODE` environment variable to `disconnected` to temporarily disable networking entirely and eliminate the requirement.
 {{< /hint >}}
 
 ---
