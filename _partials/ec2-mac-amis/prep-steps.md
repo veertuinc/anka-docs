@@ -64,6 +64,7 @@
 
   - Optional
   - We don't automatically use these to join the node so that you can use a different cert for the node communication. Add `--cert $ANKA_CONTROLLER_API_CERT --cert-key $ANKA_CONTROLLER_API_KEY --cacert $ANKA_CONTROLLER_API_CA` to `ANKA_JOIN_ARGS` to use these certs for the node communication.
+  - Required permissions are the standard for "third party" API clients + `Nodes > Remove Node`.
 
   {{< imgwithlink src="images/getting-started/aws-ec2-mac/user-data.png" >}}
 
@@ -76,6 +77,7 @@
   - Only use either `ANKA_*_API_UAK_STRING` or `ANKA_*_API_UAK_FILE_PATH`, not both.
   - We don't automatically use these to join the node so that you can use a different UAK for the node communication.
   - Do not use with mTLS/Certificate Authentication.
+  - Required permissions are the standard for "third party" API clients + `Nodes > Remove Node`.
 
   ##### ANKA_PULL_LATEST_CLOUD_CONNECT (boolean)
 
