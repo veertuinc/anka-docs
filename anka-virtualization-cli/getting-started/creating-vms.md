@@ -36,73 +36,283 @@ Anka allows you to create VMs for the following macOS versions. There may be som
 
 {{< rawhtml >}}
 <div style="display:flex;">
+<div style="width: 50%">
+<h4>Anka 3 (arm64/Silicon)</h4>
+  <table>
+  <tbody style="text-align:center;">
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.4 beta 24E5206s</b></td>
+      <td style="font-size: 1.5rem; background-color: #c0392b;">&#10060;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.4 beta 3 24E5228e</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.3 beta 3 24D5055b</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.4 beta 2 24E5222f</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.3 beta 2 24D5040f</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.3.1 (24D70)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.3 (24D60)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.2 (24C101)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.1.1 (24B91)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.1.1 (24B2091)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.1 (24B2083)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.1 (24B83)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.0.1 (24A348)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.0 (24A335)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 14.6.1 (23G93)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 14.6 (23G80)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 14.5 (23F79)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 14.4.1 (23E224)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 14.3.1 (23D60)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 14.4 (23E214)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 14.3 (23D56)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 14.2.1 (23C71)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 14.1.2 (23B92)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 14.2 (23C64)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 14.1 (23B74)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 14.1.1 (23B81)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 13.6 (22G120)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 14.0 (23A344)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 13.5.1 (22G90)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 13.5.2 (22G91)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 13.5 (22G74)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 13.4.1 (22F82)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 13.4 (22F66)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 13.3.1 (22E261)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 13.3 (22E252)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 13.2.1 (22D68)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 13.2 (22D49)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 13.1 (22C65)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 13.0.1 (22A400)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 13.0 (22A380)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 12.6.1 (21G217)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 12.6 (21G115)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 12.5.1 (21G83)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 12.5 (21G72)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 12.4 (21F79)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 12.4 (21F2081)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 12.3.1 (21E258)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 12.3 (21E230)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 12.2.1 (21D62)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 12.2 (21D49)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 12.0.1 (21A559)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 12.1 (21C52)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+
+<div style="width: 50%">
+<h4>Anka 3 (amd64/intel)</h4>
 <table>
 <tbody style="text-align:center">
   <tr>
-    <td style="font-size: 1.5rem; background-color: #f2e6ff;"></td>
-    <td style="background-color: #f2e6ff;"><b>Anka 3.x (amd64/intel)</b></td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"><b>macOS 10.13/14</b></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;*</td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"><b>macOS 10.15</b></td>
+    <td style="vertical-align: middle"><b>macOS 15.3.1 (24D70)</b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>macOS 11.x</b></td>
+    <td style="vertical-align: middle"><b>macOS 15.3 (24D60)</b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>macOS 12.x</b></td>
+    <td style="vertical-align: middle"><b>macOS 15.2 (24C101)</b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>macOS 13.x</b></td>
+    <td style="vertical-align: middle"><b>macOS 15.1.1 (24B91)</b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>macOS 14.x</b></td>
+    <td style="vertical-align: middle"><b>macOS 15.1.1 (24B2091)</b></td>
+    <td style="font-size: 1.5rem; background-color: #c0392b;">&#10060;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>macOS 14.7.4 (23H420)</b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>macOS 15.x</b></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
-  </tr>
-</tbody>
-</table>
-<table>
-<tbody style="text-align:center;">
-  <tr>
-    <td style="background-color: #ccebff;"><b>Anka 3.x (arm64)</b></td>
-  </tr>
-  <tr>
-    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
-  </tr>
-  <tr>
-    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
-  </tr>
-  <tr>
-    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
-  </tr>
-  <tr>
-    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
-  </tr>
-  <tr>
+    <td style="vertical-align: middle"><b>macOS 14.7.3 (23H417)</b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;<small>**</small></td>
+    <td style="vertical-align: middle"><b>macOS 14.7.2 (23H311)</b></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;<small>**</small></td>
+    <td style="vertical-align: middle"><b>macOS 13.7.4 (22H420)</b></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>macOS 13.7.3 (22H417)</b></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>macOS 13.7.2 (22H313)</b></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>macOS 12.7.4 (21H1123)</b></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>macOS 11.7.10 (20G1427)</b></td>
+    <td style="font-size: 1.5rem; background-color:rgb(238, 179, 18);">&#9989;</td>
   </tr>
 </tbody>
 </table>
 </div>
 {{< /rawhtml >}}
-
+</div>
 {{< hint warning >}}
 **Apple has limited the ability to install macOS to specific hardware models. This differs for each major version of macOS. <a href="https://support.apple.com/en-us/HT213264">Here is the support page for 13.x/Ventura.</a> You can find similar pages for other versions on their support site.**
 {{< /hint >}}
