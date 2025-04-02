@@ -7,6 +7,15 @@ weight: 100
 
 ## Current Version
 
+### 1.46.1 (1.46.1-f1e9637c) - April 2nd, 2025
+
+- **Bug Fix:** S3 backend fixes for path style and self-signed certs.
+- (Required ETCD Version: 3.5.16)
+
+---
+
+## Previous Versions
+
 ### 1.46.0 (1.46.0-d8fb9604) - March 17th, 2025
 
 - **New Feature:** `registry/v2/vm?id=` now supports `creation_date`.
@@ -15,10 +24,6 @@ weight: 100
 - **Bug Fix:** Changes to Permissions of a group, post-creation/attachment to a UAK, don't take and continue to work with the old settings.
 - **Bug Fix:** UAKs intermittently disappearing and reappearing on the API keys page.
 - (Required ETCD Version: 3.5.16)
-
----
-
-## Previous Versions
 
 ### 1.45.0 (1.45.0-8cf8fb10) - November 13th, 2024
 
