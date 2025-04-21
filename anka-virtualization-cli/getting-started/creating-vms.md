@@ -34,6 +34,10 @@ You have two methods of creating your Anka VMs. We will describe both in this gu
 
 Anka allows you to create VMs for the following macOS versions. There may be some limitations which will be included below the table.
 
+{{< hint warning >}}
+It's possible that this table is out of date and newer versions are supported. Please try creation on the version you want before reaching out to support. We will do our best to keep this table up to date.
+{{< /hint >}}
+
 {{< rawhtml >}}
 <div style="display:flex;">
 <div style="width: 50%">
