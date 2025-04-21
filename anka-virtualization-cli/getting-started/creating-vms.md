@@ -45,23 +45,39 @@ It's possible that this table is out of date and newer versions are supported. P
   <table>
   <tbody style="text-align:center;">
     <tr>
-      <td style="vertical-align: middle"><b>macOS 15.4 beta 24E5206s</b></td>
+      <td style="vertical-align: middle"><b>macOS 15.5 beta (24F5042g)</b></td>
+      <td style="font-size: 1.5rem; background-color: #c0392b;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.4.1 (24E263)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.4 (24E248)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.4 beta (24E5206s)</b></td>
       <td style="font-size: 1.5rem; background-color: #c0392b;">&#10060;</td>
     </tr>
     <tr>
-      <td style="vertical-align: middle"><b>macOS 15.4 beta 3 24E5228e</b></td>
+      <td style="vertical-align: middle"><b>macOS 15.4 beta 3 (24E5228e)</b></td>
       <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
     </tr>
     <tr>
-      <td style="vertical-align: middle"><b>macOS 15.3 beta 3 24D5055b</b></td>
+      <td style="vertical-align: middle"><b>macOS 15.3 beta 3 (24D5055b)</b></td>
       <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
     </tr>
     <tr>
-      <td style="vertical-align: middle"><b>macOS 15.4 beta 2 24E5222f</b></td>
+      <td style="vertical-align: middle"><b>macOS 15.4 beta 2 (24E5222f)</b></td>
       <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
     </tr>
     <tr>
-      <td style="vertical-align: middle"><b>macOS 15.3 beta 2 24D5040f</b></td>
+      <td style="vertical-align: middle"><b>macOS 15.3 beta 2 (24D5040f)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle"><b>macOS 15.3.2 (24D81)</b></td>
       <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
     </tr>
     <tr>
