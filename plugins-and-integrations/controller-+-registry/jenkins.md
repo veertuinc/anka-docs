@@ -161,7 +161,7 @@ description | string | -  | On creation of the instance, set the description | -
 labelString | string | -  | Override the returned label (not recommended) | -
 dontAppendTimestamp | boolean | `false`  | Do not append timestamp to the tag being pushed | -
 vcpu | int | -  | Sets the CPUs for the VM before starting it (requires that the VM is stopped) | -
-vcpu | int | -  | Sets the RAM for the VM before starting it (requires that the VM is stopped AND that the value is in MBs) | -
+vram | int | -  | Sets the RAM for the VM before starting it (requires that the VM is stopped AND that the value is in MBs) | -
 
 #### Dynamic Jenkinsfile Example
 
