@@ -25,7 +25,7 @@
 
   Full URL for the Anka Build Cloud Controller.
 
-  - **REQUIRED**
+  - Not fully required. For example, `ANKA_EXECUTE_SCRIPT`, `ANKA_UPGRADE_CLI_TO_LATEST`, `ANKA_PULL_LATEST_CLOUD_CONNECT` can be used without setting this. However, without it you will need join to the controller.
   - Must be in the following structure: `http[s]://[IP/DOMAIN]:[PORT]`.
 
   ##### ANKA_JOIN_ARGS (string)
