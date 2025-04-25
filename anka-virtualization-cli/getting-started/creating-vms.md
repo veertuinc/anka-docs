@@ -278,11 +278,11 @@ It's possible that this table is out of date and newer versions are supported. P
 <tbody style="text-align:center">
   <tr>
     <td style="vertical-align: middle"><b>macOS 15.4.1 (24E263)</b></td>
-    <td style="font-size: 1.5rem; background-color: #c0392b;">&#10060;</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 15.4 (24E248)</b></td>
-    <td style="font-size: 1.5rem; background-color: #c0392b;">&#10060;</td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 15.3.2 (24D2082)</b></td>

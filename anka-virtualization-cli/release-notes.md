@@ -11,6 +11,33 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.7.1 (3.7.1.200) - April 22nd, 2025
+
+{{< hint info >}}
+Addons upgrade is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- 15.0 Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.
+- Nested virtualization is not functional inside of VMs yet.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- [Download Anka-3.7.1.200.pkg](https://downloads.veertu.com/anka/Anka-3.7.1.200.pkg)
+- **Bug Fix:** On EC2 first boot, creation fails with `failed to execute script, status 74`.
+- **Bug Fix:** Switching users in the VM causes it to crash.
+- **Bug Fix:** `anka registry add` doesn't work with UAK/TAP when specifying `--api-key-string`.
+- **Bug Fix:** 15.4 creation was failing.
+- **Bug Fix:** `anka export` of a large VM was failing.
+- **Bug Fix:** `uninstall.sh` was not "forgetting" packages properly.
+
+## Previous Versions
+
 ### 3.7.0 (3.7.0.199) - March 12th, 2025
 
 {{< hint info >}}
@@ -39,9 +66,6 @@ ARM/Silicon specific issues:
 - **Bug Fix:** Checksum validation was failing for `anka_image`.
 - **Bug Fix:** The `anka create` command was becoming stuck when run under sudo.
 - **Bug Fix:** Anka Create was failing with `click: failed to wait "Not Now": Operation timed out` and `click: failed to wait "Close": Operation timed out`, `status 17920`, and `status 19968`.
-
-
-## Previous Versions
 
 ### 3.6.1 (3.6.1.198) - January 2nd, 2025
 
