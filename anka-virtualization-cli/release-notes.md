@@ -11,7 +11,7 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
-### 3.7.1 (3.7.1.200) - April 22nd, 2025
+### 3.7.1 (3.7.1.201) - April 22nd, 2025
 
 {{< hint info >}}
 Addons upgrade is not required.
@@ -28,7 +28,7 @@ ARM/Silicon specific issues:
 
 {{< /hint >}}
 
-- [Download Anka-3.7.1.200.pkg](https://downloads.veertu.com/anka/Anka-3.7.1.200.pkg)
+- [Download Anka-3.7.1.201.pkg](https://downloads.veertu.com/anka/Anka-3.7.1.201.pkg)
 - **Bug Fix:** On EC2 first boot, creation fails with `failed to execute script, status 74`.
 - **Bug Fix:** Switching users in the VM causes it to crash.
 - **Bug Fix:** `anka registry add` doesn't work with UAK/TAP when specifying `--api-key-string`.
