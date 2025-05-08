@@ -386,7 +386,7 @@ It's possible that this table is out of date and newer versions are supported. P
       echo "Xcode CLI tools OK"
     fi
     ```
-2. Install the <a href="https://veertu-xcode-xips.s3-us-west-2.amazonaws.com/15-4-beta-DeviceSupport.pkg">15.4 beta device support package</a>.
+2. Install the <a href="https://downloads.veertu.com/anka/DeviceSupport-15.4.pkg">device support package</a>.
 {{< /hint >}}
 
 {{< hint warning >}}
