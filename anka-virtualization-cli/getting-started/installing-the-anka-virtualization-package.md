@@ -118,6 +118,10 @@ aliases:
 FULL_FILE_NAME="$(curl -Ls -r 0-1 -o /dev/null -w %{url_effective} https://veertu.com/downloads/anka-virtualization-latest | cut -d/ -f5)"
 curl -S -L -o ./$FULL_FILE_NAME https://veertu.com/downloads/anka-virtualization-latest
 sudo installer -pkg $FULL_FILE_NAME -tgt /
+
+# Install the device support package (15.4 support)
+curl -S -L -o ./DeviceSupport-15.4.pkg https://downloads.veertu.com/anka/DeviceSupport-15.4.pkg
+sudo installer -pkg ./DeviceSupport-15.4.pkg -tgt /
 ```
 
 ---
