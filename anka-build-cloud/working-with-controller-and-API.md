@@ -379,11 +379,16 @@ curl -X DELETE "http://anka.controller/api/v1/vm" -H "Content-Type: application/
 **Description:** Restart a running VM instance  
 **Path:** /api/v1/rpc/vm/restart  
 **Method:** POST  
-**Data Parameters:**
+**Required Data Parameters:**
 
  Parameter | Type   | Description
  ---       |   ---  |          ---
  instance_id      | string | The id of the instance to restart. **Required**
+
+**Optional Data Parameters:**
+
+ Parameter | Type   | Description
+ ---       |   ---  |          ---
  usb_device      | string | The name of the USB device to attach to the VM.
  vnc_password      | string | The VNC password for the VM.
 
