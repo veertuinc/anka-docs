@@ -383,7 +383,7 @@ curl -X DELETE "http://anka.controller/api/v1/vm" -H "Content-Type: application/
 
  Parameter | Type   | Description
  ---       |   ---  |          ---
- instance_id      | string | The id of the instance to restart. **Required**
+ instance_id      | string | The id of the instance to restart.
 
 **Optional Data Parameters:**
 
