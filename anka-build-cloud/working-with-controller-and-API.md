@@ -378,12 +378,14 @@ curl -X DELETE "http://anka.controller/api/v1/vm" -H "Content-Type: application/
 
 **Description:** Restart a running VM instance  
 **Path:** /api/v1/rpc/vm/restart  
-**Method:** N/A
-**Required Data Parameters:**
+**Method:** POST  
+**Data Parameters:**
 
  Parameter | Type   | Description
  ---       |   ---  |          ---
- id      | string | The id of the instance to restart.
+ instance_id      | string | The id of the instance to restart. **Required**
+ usb_device      | string | The name of the USB device to attach to the VM.
+ vnc_password      | string | The VNC password for the VM.
 
 Note that data is sent by an agent to the controller every `status-heartbeat-time` (5s). Therefore, in order to check the status of the restart, you will need to to poll `/v1/registry/vm` and check:
 
