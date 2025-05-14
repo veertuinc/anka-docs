@@ -10,7 +10,7 @@ weight: 100
 ### 1.47.0 (1.47.0-4f4a81ff) - May 14th, 2025
 
 - [Download](https://veertu.com/download-anka-build/)
-- **Bug Fix:** Fixes compatiblity for [Anka 3.7.2.203]({{< relref "anka-virtualization-cli/release-notes.md#372-372203---may-14th-2025" >}}) and `imgstat`.
+- **Bug Fix:** Fixes compatibility for [Anka 3.7.2.203]({{< relref "anka-virtualization-cli/release-notes.md#372-372203---may-14th-2025" >}}) and `imgstat`.
 - **Bug Fix:** Instances intermittently disappearing on Instances page reload.
 - **Bug Fix:** License flip-flops on a 2-controller HA setup.
 - **Bug Fix:** License now persists even after disjoining all nodes.
