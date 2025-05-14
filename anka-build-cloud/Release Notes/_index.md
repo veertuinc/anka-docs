@@ -7,14 +7,26 @@ weight: 100
 
 ## Current Version
 
-### 1.46.1 (1.46.1-f1e9637c) - April 2nd, 2025
+### 1.47.0 (1.47.0-4f4a81ff) - May 14th, 2025
 
-- **Bug Fix:** S3 backend fixes for path style and self-signed certs.
+- [Download](https://veertu.com/download-anka-build/)
+- **Bug Fix:** Fixes compatiblity for [Anka 3.7.2.203]({{< relref "anka-virtualization-cli/release-notes.md#372-372203---may-14th-2025" >}}) and `imgstat`.
+- **Bug Fix:** Instances intermittently disappearing on Instances page reload.
+- **Bug Fix:** License flip-flops on a 2-controller HA setup.
+- **Bug Fix:** License now persists even after disjoining all nodes.
+- **Bug Fix:** When doing a vm restart Instance State changes to "Error" for a small period of time causing certain scripts to fail.
+- **Bug Fix:** Agent incorrectly calculates disk space used by anka logs and anka vm_lib.
+- **Improvement:** Sort templates in Create Instance alphabetically.
 - (Required ETCD Version: 3.5.16)
 
 ---
 
 ## Previous Versions
+
+### 1.46.1 (1.46.1-f1e9637c) - April 2nd, 2025
+
+- **Bug Fix:** S3 backend fixes for path style and self-signed certs.
+- (Required ETCD Version: 3.5.16)
 
 ### 1.46.0 (1.46.0-d8fb9604) - March 17th, 2025
 

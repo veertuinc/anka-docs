@@ -10,6 +10,7 @@ description: How to upgrade the Anka Virtualization package
 
 Existing Version | Target Version | Recommendation
 | --- | --- | --- |
+| < 3.7.2 | 3.7.2 | Requires [Anka Build Cloud 1.47.0]({{< relref "anka-build-cloud/Release Notes/_index.md#1470-1470-4f4a81ff---may-14th-2025" >}}) or later. |
 | 3.x | 3.3.9 | Please `kill -9` the `ankanetd` process after upgrading to 3.3.9. Older 3.x versions had a bug that kept `ankanetd` running indefinitely and will cause 3.3.9 to have networking issues trying to use the older `ankanetd`. |
 | < 3.3 | 3.3 | Optional (ARM ONLY): Delete and re-pull VM templates to host machines to take advantage of new performance and smaller disk usage changes. |
 | < 3.x | 3.x | {{< rawhtml >}}<ul><li>External volumes must be mounted as APFS in order to use them for `img_lib_dir`, etc.</li></ul>{{< /rawhtml >}} |
