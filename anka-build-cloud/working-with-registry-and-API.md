@@ -459,7 +459,7 @@ Reverting is a potentially dangerous operation. It will revert all tags which ca
 
  Parameter | Type   | Description     | Default
  ---       |   ---  |          --- | ---
- tag       | string | The Tag to revert to. Newer versions will also be deleted | Latest 
+ tag       | string | The Tag to revert. Newer versions will also be deleted. | Latest 
  version   | int    | The number of the version to revert to, 0 indexed | Latest
 
  **Returns:** 
