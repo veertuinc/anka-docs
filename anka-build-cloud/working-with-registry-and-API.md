@@ -443,10 +443,10 @@ curl "http://anka.registry.net:8089/registry/vm/info?id=2fa0f10e-e91e-4665-8d42-
 ### Revert 
 
 {{< hint warning >}}
-Reverting is a potentially dangerous operation. It will revert all tags which came AFTER the one you're targeting. We recommend a multi-template-single-tag approach instead to avoid this.
+Reverting is a potentially dangerous operation. It will revert all tags which came AFTER the one you're targeting AND the target tag itself. We recommend a multi-template-single-tag approach, providing the flexibility to delete a template when it's no longer needed and not lose other layers.
 {{< /hint >}}
 
-**Description:** Revert a VM to a certain Tag or version number. Delete the latest version if none is specified.  
+**Description:** Reverts a Template's Tags. Will default to reverting the latest Tag if no Tag or version is specified. If specified, the target tag and all Tags that came after it will be deleted.
 **Path:** /registry/revert  
 **Method:** DELETE  
 **Required Query Parameters**  
