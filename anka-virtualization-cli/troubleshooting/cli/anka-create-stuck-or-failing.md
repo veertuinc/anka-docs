@@ -10,6 +10,7 @@ weight: 1
 - The Anka app creation process runs for hours and never completes.
 - `installation failed: Bad address`
 - `AMRestorePerformRestoreModeRestoreWithError failed with error: 1`
+- `status 70`, especially after upgrading the host to 15.5 or above.
 
 {{< hint info >}}
 To get more verbose errors, run `ANKA_CLICK_DEBUG=1 anka --debug create...`. If the click scripts fail, you can get the `/tmp/_last.png` generated when `ANKA_CLICK_DEBUG=1` to see what the last screen was in the VM before the failure.
@@ -18,6 +19,9 @@ To get more verbose errors, run `ANKA_CLICK_DEBUG=1 anka --debug create...`. If 
 
 ## Common Causes and solutions
 
+1. `status 70` can mean several things. It's a generic error from Virtualization APIs on macOS. The main ways to fix it are:
+    - Uninstall Anka CLI fully (`sudo /Library/Application\ Support/Veertu/Anka/tools/uninstall.sh`), then reinstall it.
+    - Install Device Support or the latest Xcode on the host: https://downloads.veertu.com/anka/DeviceSupport-15.4.pkg
 1. `AMRestorePerformRestoreModeRestoreWithError failed with error: 1` means that the host and VM have no internet connection.
 1. `installation failed: Bad address` is a generiic error and you need to run the creation again with `anka --debug create...`.
 1. Anka Creation, especially for 15.x and above, requires networking to be enabled.
