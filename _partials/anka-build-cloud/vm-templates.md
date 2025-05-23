@@ -34,10 +34,6 @@ If you're managing multiple templates for multiple teams and projects, you want 
 
 This allows everything to share the underlying layers that are the same (since they're all cloned from `13.0.1`) and optimize disk space. You can then just pull the last VM template in the hierarchy and create a new one when needed, telling the teams to point to the new one when ready.
 
-{{< hint warning >}}
-**ARM USERS:** Suspending will currently stop the VM. It will show as `suspended`, regardless.
-{{< /hint >}}
-
 If it helps, here is it visually:
 
 ```
@@ -49,3 +45,15 @@ If it helps, here is it visually:
                   |
                   | -> clone -> 13.0.1-xcode13.4.1 (stopped) -> clone -> 13.0.1-xcode13.4.1-project3-v1 (suspended)
 ```
+
+Now, there is another registry structure/approach you can use to fix a team to a specific UUID/Template in the registry and avoid having to change anything in the team's workflow/CI job files. Otherwise you'll have to change the UUID in your team's workflow/CI job files to the new one each time there is a new Template/Tag created with dependencies. Not a huge problem if you use version control, but we want to at least recommend it as an approach.
+
+1. Create empty VMs for each team: `anka create TeamA`
+1. Push those empty VMs to the registry with `anka push --tag empty TeamA`. Note the `empty` tag. This creates a single tag Template as placeholder in the registry. As long as you don't delete the tag in the registry, the Template/UUID will always remain.
+1. Now that an empty Template/Tag exist in the registry, you can use `anka push --remote-vm TeamA {new-template-name} -t dependencies-installed` to push the new template to the registry **onto the existing Template and therefore changing to match it's UUID**.
+
+Now you can use `revert` APIs or CLI commands to delete the last `--remote-vm` pushed tag from the TeamA Template, going back to the `empty` tag. After reverting, you can push a brand new tag with updated dependencies at any time without needing to change the UUID in your team's workflow/CI job files. Be careful that you don't revert the `empty` tag or you'll lose the Template. It also allows you to benefit from shared layers as long as you have still, at some point, cloned everything from the same base Template.
+
+{{< hint warning >}}
+**ARM USERS:** Suspending will currently stop the VM. It will show as `suspended`, regardless.
+{{< /hint >}}
