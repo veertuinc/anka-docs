@@ -27,6 +27,7 @@ Outside of the config environment variables, there are a few others you might fi
 | ANKA_BRIDGE                     | The name of the network bridge name to target. |
 | ANKA_CREATE_VNC                 | Set to `0` to disable executing the VNC enable step/script in `anka create`. |
 | ANKA_CREATE_SIP                 | Set to `0` to disable executing the SIP disabling step/script in `anka create`. |
+| ANKA_DEFAULT_USER_NAME          | The name to use when creating the macOS user in the VM. By default, this is `Anka`. Do not confuse this with `ANKA_DEFAULT_USER` which is `anka`. |
 
 ---
 
