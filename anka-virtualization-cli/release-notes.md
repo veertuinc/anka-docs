@@ -58,6 +58,7 @@ ARM/Silicon specific issues:
 - **Bug Fix:** 15.4 creation was failing.
 - **Bug Fix:** `anka export` of a large VM was failing.
 - **Bug Fix:** `uninstall.sh` was not "forgetting" packages properly.
+- **Bug Fix:** `anka push` hangs indefinitely.
 
 
 ### 3.7.0 (3.7.0.199) - March 12th, 2025
