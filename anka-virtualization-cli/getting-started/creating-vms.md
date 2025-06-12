@@ -640,8 +640,10 @@ All clones share as many underlying layers and data as possible.
 
 There are two types of cloning you can perform:
 
-1. **Shallow Clone**: `anka clone {source} {dest}` -- Shallow clones allow you to get a distinct entity, separate from the source, with a new name and UUID.
-2. **Full Clone**: `anka clone --copy {source} {dest}` -- Full clones create a copy that merges all underlying layers so that they cannot be shared with other VMs. While this could theoretically shrink the size of the VM, it loses the ability to re-use existing layers from other VMs on the host and can actually use more disk space than before.
+1. **Shallow Clone**: `anka clone {source} {dest}`
+    - Shallow clones allow you to get a new VM with a new name and UUID. Underlying layers are shared with the source VM (if the source VM has a tag). When the shallow clone is started, a new layer for that specific clone is created on top of existing layers that make up the VM.
+2. **Full Clone**: `anka clone --copy {source} {dest}`
+    - Full clones create a copy that merges all underlying layers so that they cannot be shared with other VMs. While this could theoretically shrink the size of the VM, it loses the ability to re-use existing layers from other VMs on the host and can actually use more disk space than before.
 
 ```bash
 ❯ anka list
@@ -664,11 +666,6 @@ There are two types of cloning you can perform:
 | 12.0.1-xcode13   | 6070ee59-6c16-4c93-ba7a-122b66b1472a | Nov 19 08:02:33 2021 | stopped |
 +------------------+--------------------------------------+----------------------+---------+
 ```
-
-{{< hint info >}}
-**Note for Intel Users**
-`anka show` output will indicate the logical size (what you set with `anka create --disk` or with `anka modify {vm} disk`) and also "on disk" usage. The "on disk" usage is a combination of all shared data and not unique usage for itself if the VM is cloned from another. Unique usage can be obtained using `anka run {vmname} bash -c "df -h"`.
-{{< /hint >}}
 
 ### VM Templates
 
