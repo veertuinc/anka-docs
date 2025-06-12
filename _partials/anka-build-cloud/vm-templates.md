@@ -1,6 +1,6 @@
 
 
-Once a VM has been tagged, it becomes a "VM Template". The Tag can be thought of as a commit in a git repository. The commit will always be there, even if you were to later on remove the code you added to the repo/codebase in that specific commit. The tag will always be a part of that Template going forward, even if you remove the data later on from the VM. This is important to consider when using the [Anka Build Cloud Registry]({{< relref "anka-build-cloud/_index.md" >}}).
+Once a VM has been tagged, it becomes a "VM Template". The Tag can be thought of as a commit in a git repository. The commit will always be there, even if you were to later on remove the code you added to the repo/codebase in that specific commit. Therefore, the VM Template Tag and anything created from it will always be there, even if you were to later on remove the data from the VM and create a new tag. This is important to consider when using the [Anka Build Cloud Registry]({{< relref "anka-build-cloud/_index.md" >}}).
 
 {{< hint info >}}
 Clones are not automatically tagged.
