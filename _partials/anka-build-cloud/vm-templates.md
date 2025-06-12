@@ -47,4 +47,6 @@ If it helps, here is it visually:
 **ARM USERS:** Suspending will currently stop the VM. It will show as `suspended`, regardless.
 {{< /hint >}}
 
-It's important to know that when you tag a VM you cannot remove the data from the layers that make up the VM unless you do a full clone. When you go to clone a VM or create a new tag, it may be beneficial to come from the tag/layers before you last made changes so that you don't include the data/layers and disk usage with the new tag you're creating.
+{{< hint info >}}
+**Important:** When you tag a VM you cannot remove the data from the layers that make up the VM unless you do a full clone. When you go to shallow clone a VM/create a new tag, it may be beneficial to start from the tag/layers before you last made changes so that you don't include the data/layers and disk usage with the new tag you're creating.
+{{< /hint >}}
