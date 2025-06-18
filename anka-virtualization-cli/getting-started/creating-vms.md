@@ -45,6 +45,10 @@ It's possible that this table is out of date and newer versions are supported. P
   <table>
   <tbody style="text-align:center;">
     <tr>
+      <td style="vertical-align: middle"><b>macOS 26.0 beta (25A5279m)</b></td>
+      <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+    </tr>
+    <tr>
       <td style="vertical-align: middle"><b>macOS 15.5 (24F74)</b></td>
       <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
     </tr>
@@ -641,7 +645,7 @@ All clones share as many underlying layers and data as possible.
 There are two types of cloning you can perform:
 
 1. **Shallow Clone**: `anka clone {source} {dest}`
-    - Shallow clones allow you to get a new VM with a new name and UUID. Underlying layers are shared with the source VM (if the source VM has a tag). When the shallow clone is started, a new layer for that specific clone is created on top of existing layers that make up the VM.
+    - Shallow clones allow you to get a new VM with a new name and UUID. Underlying layers are shared with the source VM (if the source VM has a tag). When the shallow clone VM is started, a new layer for that specific clone is created on top of existing layers that make up the VM.
 2. **Full Clone**: `anka clone --copy {source} {dest}`
     - Full clones create a copy that merges all underlying layers so that they cannot be shared with other VMs. While this could theoretically shrink the size of the VM, it loses the ability to re-use existing layers from other VMs on the host and can actually use more disk space than before.
 
