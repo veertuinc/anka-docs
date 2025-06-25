@@ -45,11 +45,15 @@ It's possible that this table is out of date and newer versions are supported. P
 <table>
 <tbody style="text-align:center;">
   <tr>
+    <td style="vertical-align: middle"><b>macOS 26.0 beta 2 (25A5295e) <span style="cursor: help;" title="Requires you set a disk size of 50GB or more.">&#8505;</span></b></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
     <td style="vertical-align: middle"><b>macOS 15.6 beta (24G5054d)</b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>macOS 26.0 beta (25A5279m)</b></td>
+    <td style="vertical-align: middle"><b>macOS 26.0 beta (25A5279m) <span style="cursor: help;" title="Requires you set a disk size of 50GB or more.">&#8505;</span></b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
