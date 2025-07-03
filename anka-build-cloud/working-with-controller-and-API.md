@@ -1319,6 +1319,7 @@ curl  "http://anka.controller/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e0
 {{< hint warning >}}
 - Upon successful push, the instance you have running will no longer exist/be running.
 - Upon failure, the instance will still exist/be running for your to review.
+- If using group permissions, you need to have `revert` permissions for all credentials involved in the request. This means the credential for both the API call and also the Node/Host that is running the VM.
 {{< /hint >}}
 
 **Path:** /api/v1/image  
