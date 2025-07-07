@@ -11,6 +11,28 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.7.3 (3.7.3.204) - July 7th, 2025
+
+{{< hint info >}}
+Addons upgrade is not required.
+{{< /hint >}}
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- 15.x Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.
+- Nested virtualization is not functional inside of VMs yet.
+- Changing the display resolution dynamically fails.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- [Download Anka-3.7.3.204.pkg](https://downloads.veertu.com/anka/Anka-3.7.3.204.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.7.3.204_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.7.3.204_SHA256SUMS.sig)
+- **Bug Fix:** Second template pull post-failure is immediately successful, yet fails trying to start the VM.
+
+## Previous Versions
+
 ### 3.7.2 (3.7.2.203) - May 14th, 2025
 
 {{< hint info >}}
@@ -31,8 +53,6 @@ ARM/Silicon specific issues:
 - [Download Anka-3.7.2.203.pkg](https://downloads.veertu.com/anka/Anka-3.7.2.203.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.7.2.203_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.7.2.203_SHA256SUMS.sig)
 - **IMPORTANT:** This version is only compatible with [Anka Build Cloud 1.47.0]({{< relref "anka-build-cloud/Release Notes/_index.md#1470-1470-4f4a81ff---may-14th-2025" >}}) or later.
 - **Bug Fix:** `imgstat` was causing heavy memory usage when there are lots of Templates/Tags on the host.
-
-## Previous Versions
 
 ### 3.7.1 (3.7.1.201) - April 22nd, 2025
 
