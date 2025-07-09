@@ -11,6 +11,7 @@ weight: 100
 
 {{< hint warning >}}
 This release requires a Registry version of 1.48.0 or higher.
+
 We've also updated the required ETCD version to 3.5.21.
 {{< /hint >}}
 
