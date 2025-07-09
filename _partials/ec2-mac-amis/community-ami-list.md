@@ -5,8 +5,13 @@
 AMIs will be published under account IDs `930457884660` (veertu official) and `679593333241` (marketplace account from amazon). Do not trust AMIs from other accounts.
 {{< /hint >}}
 
+{{< hint warning >}}
+**IMPORTANT:** The default volume size of AMIs starting from 3.7.3 will be 100GB. You will want to increase this to at least 200GB.
+{{< /hint >}}
+
 | Name         | |
 | -------------- | --- |
+| anka-build-3.7.3.204-macos-15.5-arm64 | anka-build-3.7.3.204-macos-15.5 |
 | anka-build-3.7.1.201-macos-15.3-arm64 | anka-build-3.7.1.201-macos-15.3 |
 | anka-build-3.7.0.199-macos-15.2-arm64 | anka-build-3.7.0.199-macos-15.2 |
 | anka-build-3.6.1.198-macos-15.1.1-arm64 | anka-build-3.6.1.198-macos-15.1.1 |
