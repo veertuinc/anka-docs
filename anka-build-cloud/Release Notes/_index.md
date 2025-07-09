@@ -7,7 +7,7 @@ weight: 100
 
 ## Current Version
 
-### 1.48.0 (1.48.0-4f4a81ff) - July 9th, 2025
+### 1.48.0 (1.48.0-067b4c29) - July 9th, 2025
 
 {{< hint warning >}}
 This release requires a Registry version of 1.48.0 or higher.
