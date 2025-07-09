@@ -7,6 +7,36 @@ weight: 100
 
 ## Current Version
 
+### 1.48.0 (1.48.0-4f4a81ff) - July 9th, 2025
+
+{{< hint warning >}}
+This release requires a Registry version of 1.48.0 or higher.
+We've also updated the required ETCD version to 3.5.21.
+{{< /hint >}}
+
+- [Download](https://veertu.com/download-anka-build/)
+- **New Feature:** When starting an instance in the Controller UI, you can now select a specific group using a dropdown instead of inputting text.
+- **Improvement:** VMs with long running `startup_script` will no longer block other VMs/tasks from being picked up by the Node Agent.
+- **Improvement:** When creating or editing UAKs, you can now choose the expiration date (now "Valid Till End Of") using a calendar widget.
+- **Improvement:** `startup_script` execution on a specific Node will now log to the CMD log.
+- **Improvement:** [mTLS / Cert Auth]: If `OU` is set on the certificate, the contents of `O` is ignored and it will be used to get list of groups to authenticate against. If `OU` is empty then groups list will be taken from `O`.
+- **Improvement:** On first ever start of the Controller, we'll enable the Enterprise Plus license so you can configure permission groups with CI/automation/scripts when deploying a new environment.
+- **Improvement:** Showing Node hostname on the Instance's General Info page.
+- **Bug Fix:** Registry with S3 backend fails to list templates uploaded with `--remote-vm` flag .
+- **Bug Fix:** OpenID Connect unstable when using HA.
+- **Bug Fix:** Anka Node state is empty on first join until it sends its very first message to the Controller.
+- **Bug Fix:** An empty VM pushed to the registry causes total usage to be stuck at 0.
+- **Bug Fix:** Creating an Instance in the Controller show Scheduling with Template Name and Tag populated. However, refreshing the page shows it blank for many seconds until it eventually shows again.
+- **Bug Fix:** Permissions page would randomly show as blank.
+- **Bug Fix:** When Node Agent performs a push to the registry longer than this timeout, this triggers retry which fails with an error: `http: invalid Read on closed Body`
+- **Bug Fix:** Long `script_timeout` values would result in `Error (startup script exit code 125)` and potentially an orphaned VM.
+- **Bug Fix:** Groups randomly disappear from the list on the "Create New API Key" page.
+- (Required ETCD Version: 3.5.21)
+
+---
+
+## Previous Versions
+
 ### 1.47.0 (1.47.0-4f4a81ff) - May 14th, 2025
 
 - [Download](https://veertu.com/download-anka-build/)
@@ -18,10 +48,6 @@ weight: 100
 - **Bug Fix:** Agent incorrectly calculates disk space used by anka logs and anka vm_lib.
 - **Improvement:** Sort templates in Create Instance alphabetically.
 - (Required ETCD Version: 3.5.16)
-
----
-
-## Previous Versions
 
 ### 1.46.1 (1.46.1-f1e9637c) - April 2nd, 2025
 
