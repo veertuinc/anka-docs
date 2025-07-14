@@ -23,6 +23,15 @@ IFS=$'\n'; for pkgfile in $(sudo pkgutil --only-files --files com.veertu.anka.re
 sudo pkgutil --forget com.veertu.anka.registry.pkg
 ```
 
+### Node Agent
+
+On each Node, we install an agent as part of the Anka CLI package. This can be removed by running the following command:
+
+```shell
+sudo rm -rf /Library/Application\ Support/Veertu/ # dangerous if you have important things under this directory you don't want to remove
+sudo pkgutil --forget com.veertu.anka.agent.pkg
+```
+
 ## Linux / Docker
 
 `docker-compose down` should stop the containers.
