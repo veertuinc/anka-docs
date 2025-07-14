@@ -206,6 +206,7 @@ ARM/Silicon specific issues:
 
 - [Download Anka-3.5.4.195.pkg](https://downloads.veertu.com/anka/Anka-3.5.4.195.pkg)
 - **Bug Fix:** Minor fix for creation of 15.1 VMs (SIP failure).
+- **Improvement:** New logic to handle newer hardware licensing and prevent `Product license key not supported on the current hardware`.
 
 ### 3.5.3 (3.5.3.194) - October 24th, 2024
 
