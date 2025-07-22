@@ -346,6 +346,17 @@ Starting in 2.9.0, users can add a Custom Column in their Controller UI on the I
 
 ## Release Notes
 
+### 2.13.0 - July 22nd, 2025
+
+{{< hint warning >}}
+MINIMUM REQUIRED JENKINS VERSION: `2.479.3`
+{{< /hint >}}
+
+- **Bug Fix:** [properly calculate scheduling seconds](https://github.com/jenkinsci/anka-build-plugin/pull/34)
+- **Improvement:** [migrate from using secret text credentials to username/password credentials for storing UAK](https://github.com/jenkinsci/anka-build-plugin/pull/36)
+- **Improvement:** [Upgrade to the next major parent version (5.X) requiring Jenkins 2.479.3 and Java 17](https://github.com/jenkinsci/anka-build-plugin/pull/37)
+- **Improvement:** Minor Styling fixes
+
 ### 2.12.0 - February 25th, 2025
 
 {{< hint warning >}}
