@@ -9,7 +9,8 @@ The official ETCD snapshotting docs can be found at https://etcd.io/docs/v3.5/op
 ##### Taking a snapshot
 
 ```bash
-docker exec -it anka-etcd /bin/bash -c "ETCDCTL_API=3 etcdctl snapshot save snapshot.db" && docker cp anka-etcd:/snapshot ./
+docker exec -it anka-etcd /bin/bash -c "ETCDCTL_API=3 etcdctl snapshot save snapshot.db"
+docker cp anka-etcd:/snapshot.db ./
 ```
 
 Output should be something like:
