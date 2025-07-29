@@ -45,3 +45,18 @@ License activated
 | expires      | 30-mar-2021             |
 +--------------+-------------------------+
 ```
+
+### Troubleshooting
+
+If you're having trouble activating your license, run the following command and look for an error code:
+
+```shell
+macuser@Mac-Mac-mini-1 ~ % sudo RLM_DEBUG= RLM_DIAGNOSTICS= RLM_ACT_TIMEOUT=30000 anka --debug license activate XXXX-XXXX-XXXX-XXXX
+Tue Jul 29 15:16:08 main: executing command license
+* Host licensing.veertu.com:443 was resolved.
+ . . .
+Tue Jul 29 15:16:09 lic: failed to activate: status -105, Could not get key information
+anka: Could not get key information
+```
+
+In the example above, the error code is `-105`. Check the [code reference](https://reprisesoftware.com/docs/actpro/diagnosing-act-problems.html#errors-detected-and-returned-locally-by-rlm-act-request-or-by-the-http-server) to see which error and any possible solutions, or reach out to [support](mailto:support@veertu.com) for assistance and provide the code.
