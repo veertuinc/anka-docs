@@ -348,7 +348,7 @@ Starting in 2.9.0, users can add a Custom Column in their Controller UI on the I
 
 ### 2.13.1 - July 31st, 2025
 
-- **Bug Fix:** Support for group name (instead of UUID) in the config.xml to support easier and flexible configuration [Github Issue](https://github.com/jenkinsci/anka-build-plugin/issues/50).
+- **Improvement:** Support for group name (instead of UUID) in the config.xml to support easier and flexible configuration [Github Issue](https://github.com/jenkinsci/anka-build-plugin/issues/50).
 
 ### 2.13.0 - July 22nd, 2025
 
