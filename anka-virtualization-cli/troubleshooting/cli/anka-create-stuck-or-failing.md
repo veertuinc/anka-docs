@@ -23,6 +23,7 @@ To get more verbose errors, run `ANKA_CLICK_DEBUG=1 anka --debug create...`. If 
     - Uninstall Anka CLI fully (`sudo /Library/Application\ Support/Veertu/Anka/tools/uninstall.sh`), then reinstall it.
     - Install Device Support or the latest Xcode on the host: https://downloads.veertu.com/anka/DeviceSupport-15.4.pkg
     - If attempting to set/use `http_proxy` or `https_proxy`, they will not work. There is a requirement for full internet access to set up macOS properly in later 15.x VM versions. You'll need to use `ANKA_NETWORK_MODE=disconnected` when creating the VM to temporarily disable networking entirely and eliminate the requirement.
+    - You're trying to anka create a VM through SSH with `sudo anka create...`. Apple's security changes in later macOS versions make this problematic. You should use VNC > Terminal to create the VM instead as sudo, or, just create it as the current non-root user.
 1. `AMRestorePerformRestoreModeRestoreWithError failed with error: 1` means that the host and VM have no internet connection.
 1. `installation failed: Bad address` is a generiic error and you need to run the creation again with `anka --debug create...`.
 1. Anka Creation, especially for 15.x and above, requires networking to be enabled.
