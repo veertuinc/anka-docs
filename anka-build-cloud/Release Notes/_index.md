@@ -7,6 +7,22 @@ weight: 100
 
 ## Current Version
 
+### 1.48.1 (1.48.1-f78e0361) - Aug 6th, 2025
+
+{{< hint warning >}}
+This release requires a Registry version of 1.48.0 or higher.
+
+We've also updated the required ETCD version to 3.5.21.
+{{< /hint >}}
+
+- [Download](https://veertu.com/download-anka-build/)
+- **Bug Fix:** External ID missing from Instance details page
+- (Required ETCD Version: 3.5.21)
+
+---
+
+## Previous Versions
+
 ### 1.48.0 (1.48.0-067b4c29) - July 9th, 2025
 
 {{< hint warning >}}
@@ -33,10 +49,6 @@ We've also updated the required ETCD version to 3.5.21.
 - **Bug Fix:** Long `script_timeout` values would result in `Error (startup script exit code 125)` and potentially an orphaned VM.
 - **Bug Fix:** Groups randomly disappear from the list on the "Create New API Key" page.
 - (Required ETCD Version: 3.5.21)
-
----
-
-## Previous Versions
 
 ### 1.47.0 (1.47.0-4f4a81ff) - May 14th, 2025
 
