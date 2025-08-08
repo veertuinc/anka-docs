@@ -51,7 +51,6 @@ services:
       ANKA_BASE_PATH: /mnt/vol
       ANKA_LISTEN_ADDR: :8089
       ANKA_LOG_DIR: /var/log/anka-registry # where the registry stores its own logs, not central logs
-      ANKA_LOGS_DIR: central-logs # becomes ${ANKA_BASE_PATH}/central-logs; does not support absolute paths
       # https://docs.veertu.com/anka/anka-build-cloud/configuration-reference/#configuration-envs
     volumes:
       ######   EDIT HERE  ########
