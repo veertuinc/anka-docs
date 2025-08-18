@@ -13,10 +13,6 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ### 3.7.4 (3.7.4.205) - August 12th, 2025
 
-{{< hint info >}}
-Addons upgrade is not required.
-{{< /hint >}}
-
 {{< hint warning >}}
 
 ARM/Silicon specific issues:
@@ -29,6 +25,8 @@ ARM/Silicon specific issues:
 {{< /hint >}}
 
 - [Download Anka-3.7.4.205.pkg](https://downloads.veertu.com/anka/Anka-3.7.4.205.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.7.4.205_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.7.4.205_SHA256SUMS.sig)
+- **NOTE: Addons upgrade is not required.**
+- **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
 - **Bug Fix:** When a pull fails, the VM is not properly cleaned up and subsequent pulls would fail.
 - **Bug Fix:** Click scripts were upgrading every time creation was run.
 - **Improvement:** Optimization for anka pull, making less network calls.
@@ -36,10 +34,6 @@ ARM/Silicon specific issues:
 ## Previous Versions
 
 ### 3.7.3 (3.7.3.204) - July 7th, 2025
-
-{{< hint info >}}
-Addons upgrade is not required.
-{{< /hint >}}
 
 {{< hint warning >}}
 
@@ -53,6 +47,8 @@ ARM/Silicon specific issues:
 {{< /hint >}}
 
 - [Download Anka-3.7.3.204.pkg](https://downloads.veertu.com/anka/Anka-3.7.3.204.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.7.3.204_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.7.3.204_SHA256SUMS.sig)
+- **NOTE: Addons upgrade is not required.**
+- **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
 - **Bug Fix:** Second template pull post-failure is immediately successful, yet fails trying to start the VM.
 
 ### 3.7.2 (3.7.2.203) - May 14th, 2025
