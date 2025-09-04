@@ -7,6 +7,22 @@ weight: 100
 
 ## Current Version
 
+### 1.48.2 (1.48.2-2d2d57bf) - Sep 4th, 2025
+
+{{< hint warning >}}
+This release requires a Registry version of 1.48.0 or higher.
+
+We've also updated the required ETCD version to 3.5.21.
+{{< /hint >}}
+
+- [Download](https://veertu.com/download-anka-build/)
+- **Bug Fix:** When using UAK/TAP, but only enabling it for the Controller, the agent couldn't push to the Registry.
+- (Required ETCD Version: 3.5.21)
+
+---
+
+## Previous Versions
+
 ### 1.48.1 (1.48.1-f78e0361) - Aug 6th, 2025
 
 {{< hint warning >}}
@@ -18,10 +34,6 @@ We've also updated the required ETCD version to 3.5.21.
 - [Download](https://veertu.com/download-anka-build/)
 - **Bug Fix:** External ID missing from Instance details page
 - (Required ETCD Version: 3.5.21)
-
----
-
-## Previous Versions
 
 ### 1.48.0 (1.48.0-067b4c29) - July 9th, 2025
 
