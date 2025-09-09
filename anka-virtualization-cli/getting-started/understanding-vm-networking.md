@@ -78,7 +78,7 @@ Every time you start/resume a VM it will be assigned an IP (may take a few secon
 These are set using [`anka modify`]({{< relref "anka-virtualization-cli/getting-started/modifying-your-vm.md" >}}). Please review the previous section to understand how modifying a VM works.
 {{< /hint >}}
 
-{{< include file="_partials/anka-virtualization-cli/getting-started/_understanding-vm-networking-types.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/network/_extra.md" >}}
 
 {{< hint warning >}}
 If `anka show` does not display an IP, networking has either:
