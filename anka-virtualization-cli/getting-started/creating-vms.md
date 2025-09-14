@@ -43,17 +43,40 @@ It's possible that this table is out of date and newer versions are supported. P
 <div style="width: 50%">
 <h4 style="padding: 10px;">Anka 3 (arm64/Silicon)</h4>
 <table>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <tbody style="text-align:center;">
   <tr>
-    <td style="vertical-align: middle"><b>macOS 15.6 (24G84)</b></td>
+    <td style="vertical-align: middle">
+      <b>
+        macOS 15.6.1 (24G90)
+        <a href="https://updates.cdn-apple.com/2025SummerFCS/fullrestores/093-10809/CFD6DD38-DAF0-40DA-854F-31AAD1294C6F/UniversalMac_15.6.1_24G90_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
+          <span class="fa fa-download" style="font-size:1.2em;"></span>
+        </a>
+      </b>
+    </td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>macOS 26 beta 6 (25A5338b) <span style="cursor: help;" title="Requires you set a disk size of 50GB or more.">&#8505;</span></b></td>
+    <td style="vertical-align: middle">
+      <b>
+        macOS 15.6 (24G84)
+        <a href="https://updates.cdn-apple.com/2025SummerFCS/fullrestores/082-08674/51294E4D-A273-44BE-A280-A69FC347FB87/UniversalMac_15.6_24G84_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
+          <span class="fa fa-download" style="font-size:1.2em;"></span>
+        </a>
+      </b>
+    </td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>macOS 15.6 RC (24G84)</b></td>
+    <td style="vertical-align: middle">
+      <b>
+        macOS 26.0 RC (25A353)
+        <span style="cursor: help;" title="Requires setting a disk size of 50GB or more.">&#8505;</span>
+        <a href="https://updates.cdn-apple.com/2025FallFCS/fullrestores/093-37294/119120C1-6306-4287-AC2B-0AF964CD0B3C/UniversalMac_26.0_25A353_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
+          <span class="fa fa-download" style="font-size:1.2em;"></span>
+        </a>
+      </b>
+    </td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
