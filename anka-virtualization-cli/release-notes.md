@@ -11,6 +11,35 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.8.0 (3.8.0.206) - September 15th, 2025
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- 15.x Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.
+- Nested virtualization is not functional inside of VMs yet.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- [Download Anka-3.8.0.206.pkg](https://downloads.veertu.com/anka/Anka-3.8.0.206.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.8.0.206_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.8.0.206_SHA256SUMS.sig)
+- **NOTE: Addons upgrade is not required.**
+- **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
+- **Bug Fix:** When double clicking a VM in the Anka App, it would allow opening the viewer multiple times.
+- **Bug Fix:** Click scripts from feed couldn't override newer ones from pkg.
+- **Bug Fix:** Permanent licenses are sending a renewal request every day.
+- **Bug Fix:** Using `ANKA_NETWORK_MODE=disconnected` with a corporate network for `anka create` will fail with `failed to wait "Mac Account": Operation timed out`.
+- **Bug Fix:** Anka viewer unable to function less the VM is started with `anka start -v`.
+- **Bug Fix:** VM fails to start if network --filter is assigned.
+- **Bug Fix:** `anka view`'s Live Resize was not working. It is now functional again on ARM.
+- **Improvement:** [Labels for the VM Template/Tag are now available inside of the VM through `nc -U /var/run/anka`]({{< relref "whats-new/anka-3.8.0/index.md#labels-for-the-vm-template-tag-are-now-available-inside-of-the-vm" >}}).
+- **Improvement:** Support for creation on macOS 26 host OS.
+- **Improvement:** [Configurable IO buffer size for `anka push`]({{< relref "whats-new/anka-3.8.0/index.md#configurable-io-buffer-size-for-anka-push" >}}).
+- **Improvement:** [New `anka log` command for troubleshooting]({{< relref "whats-new/anka-3.8.0/index.md#new-anka-log-command" >}}).
+
+## Previous Versions
+
 ### 3.7.4 (3.7.4.205) - August 12th, 2025
 
 {{< hint warning >}}
@@ -30,8 +59,6 @@ ARM/Silicon specific issues:
 - **Bug Fix:** When a pull fails, the VM is not properly cleaned up and subsequent pulls would fail.
 - **Bug Fix:** Click scripts were upgrading every time creation was run.
 - **Improvement:** Optimization for anka pull, making less network calls.
-
-## Previous Versions
 
 ### 3.7.3 (3.7.3.204) - July 7th, 2025
 
