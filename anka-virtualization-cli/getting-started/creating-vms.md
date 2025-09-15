@@ -312,6 +312,10 @@ It's possible that this table is out of date and newer versions are supported. P
 <table>
 <tbody style="text-align:center">
   <tr>
+    <td style="vertical-align: middle"><b>macOS 15.6.1 (24G90)</b></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
     <td style="vertical-align: middle"><b>macOS 15.5 (24F74)</b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
