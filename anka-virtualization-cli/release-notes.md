@@ -11,7 +11,7 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
-### 3.8.0 (3.8.0.206) - September 15th, 2025
+### 3.8.0 (3.8.0.206) - September 16th, 2025
 
 {{< hint warning >}}
 
