@@ -1,5 +1,5 @@
 ```shell
-> anka show 14.3.1-arm64 network --help
+> anka show null network --help
 usage: network [options]
 
    Network information

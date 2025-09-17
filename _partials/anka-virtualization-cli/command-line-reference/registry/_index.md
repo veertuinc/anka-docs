@@ -5,7 +5,7 @@ usage: registry [options] <command>
    Configure and control template registries
 
 options:
-  -r,--remote <val>        Sets an alternate registry
+  -r,--remote <val>        Sets an alternate registry (name or URL)
   --insecure               Skip TLS verification
   --cert <val>             Path to a client certificate (if user authentication is configured)
   --key <val>              Path to private key if the client certificate doesn't contain one
@@ -20,5 +20,7 @@ commands:
   remove                   Remove a registry from the configuration
   list                     List templates in registry (see anka-push/pull commands)
   show                     Show a template's properties
+  push                     Push a VM to the registry
+  pull                     Pull a VM template from the registry
   revert                   Delete a template or tag
 ```

@@ -1,5 +1,5 @@
 ```shell
-> anka modify 14.3.1-arm64 label --help
+> anka modify null label --help
 usage: label [options] [name] [value]
 
    Assign labels to a VM in key/value form

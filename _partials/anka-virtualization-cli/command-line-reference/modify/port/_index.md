@@ -1,17 +1,15 @@
 ```shell
-> anka modify 14.3.1-arm64 port --help
+> anka modify null port --help
 usage: port [options] name [rule]
 
    Add port forwarding rule
 
 arguments:
   name                     Rule name
-  rule                     Port forwarding rule: guest-port[:host-ip][:host-port]
+  rule                     Port forwarding rule in form guest-port[:addr][:port]
 
 options:
-  -g,--guest-port <val>    The port inside of the VM that the host-port connects to
-  -p,--host-port <val>     The host port to listen on (assigns dynamically if not specified)
-  -l,--host-ip <val>       Listen address (defaults to any)
+  -r,--reverse             Proxy from guest to an external address, e.g rule /var/run/syslog:/var/run/syslog
   -d,--delete              Delete the rule
   --set-name <val>         Rename the rule
 ```

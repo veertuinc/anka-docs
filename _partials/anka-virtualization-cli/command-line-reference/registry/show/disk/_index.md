@@ -1,4 +1,4 @@
 ```shell
-> anka registry show 14.3.1-arm64 disk --help
+> anka registry show null disk --help
 
 ```

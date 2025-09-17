@@ -1,5 +1,5 @@
 ```shell
-> anka show 14.3.1-arm64 disk --help
+> anka show null disk --help
 usage: disk [options]
 
    Disk information

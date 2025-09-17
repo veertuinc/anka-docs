@@ -6,7 +6,7 @@ usage: push [options] vmid [remote]
 
 arguments:
   vmid                     VM to push
-  remote                   Sets an alternate registry
+  remote                   Sets an alternate registry (name or URL)
 
 options:
   -t,--tag <val>           Set the tag name to push (mandatory)

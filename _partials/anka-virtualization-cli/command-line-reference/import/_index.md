@@ -1,6 +1,6 @@
 ```shell
 > anka import --help
-usage: import [options] file
+usage: import [options] [file]
 
    Import VM from an archive
 

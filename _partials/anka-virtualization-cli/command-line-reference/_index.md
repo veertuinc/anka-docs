@@ -33,4 +33,5 @@ commands:
   license                  Manage licenses
   export                   Export a VM as an archive
   import                   Import VM from an archive
+  log                      Show and manage the logs
 ```

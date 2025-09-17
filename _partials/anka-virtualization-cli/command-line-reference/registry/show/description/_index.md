@@ -1,4 +1,4 @@
 ```shell
-> anka registry show 14.3.1-arm64 description --help
+> anka registry show null description --help
 
 ```
