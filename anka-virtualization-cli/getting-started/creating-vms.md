@@ -9,15 +9,30 @@ aliases:
   - "/intel/getting-started/creating-your-first-vm/"
 ---
 
-{{< hint warning >}}
-It's important to understand that the `anka` CLI VM creation, modification, etc, is all exclusively within your current user. The root user and non-root users will have different environments. You can use the [Anka Build Cloud Registry]({{< relref "anka-build-cloud/_index.md" >}}) to move VMs between users (and hosts).
+## Prerequisites / Orientation
+
+{{< hint error >}}
+**IMPORTANT:** `anka` CLI VM creation, modifications, etc, are performed under your current user. The root user and non-root users will have different environments. You can use the [Anka Build Cloud Registry]({{< relref "anka-build-cloud/_index.md" >}}) or [Anka App]({{< relref "anka-virtualization-cli/getting-started/installing-the-anka-virtualization-package.md" >}}) or `anka export/import` to move VMs between users (and hosts).
 {{< /hint >}}
 
-## Prerequisites
+{{< hint warning >}}
+**[ARM/Silicon]** Apple has been making lots of changes to the Virtualization APIs in 15.x and beyond. There are requirements for the latest Xcode and sometimes Device Support packages to be installed and configued on the host or else creation will fail. We attempt to indicate what combinations are required to get creation working, but you might need to do some expirimentation to get it working.
+{{< /hint >}}
+
+{{< hint warning >}}
+Apple's .app installer files are currently not supported on ARM. Instead, you'll need to obtain .ipsw files.
+{{< /hint >}}
+
+{{< hint warning >}}
+**[ARM/Silicon]** `sudo anka create` over SSH is blocked by Apple's security features. Use VNC > Terminal to create the VM with sudo, or, just create it as the current non-root user.
+{{< /hint >}}
 
 1. [You've installed the Anka Virtualization package.]({{< relref "anka-virtualization-cli/getting-started/installing-the-anka-virtualization-package.md" >}})
-2. The host you wish to use has a full internet connection. If you are behind a corporate firewall/proxy, you'll need to review https://support.apple.com/101555. 
-  - If attempting to set/use `http_proxy` or `https_proxy`, they will not work. There is a requirement for full internet access to set up macOS properly in later 15.x VM versions (you'll see `status 70` errors if this is the case). You'll need to use `ANKA_NETWORK_MODE=disconnected` when creating the VM to temporarily disable networking entirely and eliminate the requirement.
+2. The host you wish to use has a full internet connection. 
+  - If you are behind a corporate firewall/proxy, you'll need to review https://support.apple.com/101555. 
+  - If attempting to set/use `http_proxy` or `https_proxy`, they will not work. There is a requirement for full internet access to set up macOS properly in later 15.x VM versions (you'll see `status 70` errors if this is the case). You'll need to use `ANKA_NETWORK_MODE=disconnected` when creating the VM and then use `anka modify {VM} network --mode shared` after creation to enable networking again.
+4. The hardware you have will work with the specific OS you're running on it. Apple has limited the ability to install macOS on specific hardware models. This differs for each major version of macOS. <a href="https://support.apple.com/kb/index?q=is+compatible+with+these+computers&src=globalnav_support&type=organic&page=search&locale=en_US">You can search for the supported hardware pages for each release here.</a>
+5. **[ARM/Silicon]** Starting in 15.x, Apple requires that you create and run VMs on the same hardware type. For example, you cannot create on an M1 with 15.5 and then try to run it on an M2 or M4. Apple prevents this sort of cross-compatibility based on the CPU architecture and 15.x host OS. However, this does not get enabled if creating on 14.x host OS and then trying to run it on a 15.x host with a different CPU architecture.
 
 ---
 
@@ -48,6 +63,18 @@ It's possible that this table is out of date and newer versions are supported. P
   <tr>
     <td style="vertical-align: middle">
       <b>
+        macOS 26.0 (25A354) <span style="cursor: help;" title="Requires setting a disk size of 50GB or more.
+15.x host: Requires Xcode 26 or later on the host, fully configured.">&#8505;</span>
+        <a href="https://updates.cdn-apple.com/2025FallFCS/fullrestores/093-37622/CE01FAB2-7F26-48EE-AEE4-5E57A7F6D8BB/UniversalMac_26.0_25A354_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
+          <span class="fa fa-download" style="font-size:1.2em;"></span>
+        </a>
+      </b>
+    </td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle">
+      <b>
         macOS 15.6.1 (24G90)
         <a href="https://updates.cdn-apple.com/2025SummerFCS/fullrestores/093-10809/CFD6DD38-DAF0-40DA-854F-31AAD1294C6F/UniversalMac_15.6.1_24G90_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
           <span class="fa fa-download" style="font-size:1.2em;"></span>
@@ -61,18 +88,6 @@ It's possible that this table is out of date and newer versions are supported. P
       <b>
         macOS 15.6 (24G84)
         <a href="https://updates.cdn-apple.com/2025SummerFCS/fullrestores/082-08674/51294E4D-A273-44BE-A280-A69FC347FB87/UniversalMac_15.6_24G84_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
-          <span class="fa fa-download" style="font-size:1.2em;"></span>
-        </a>
-      </b>
-    </td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle">
-      <b>
-        macOS 26.0 RC (25A353)
-        <span style="cursor: help;" title="Requires setting a disk size of 50GB or more.">&#8505;</span>
-        <a href="https://updates.cdn-apple.com/2025FallFCS/fullrestores/093-37294/119120C1-6306-4287-AC2B-0AF964CD0B3C/UniversalMac_26.0_25A353_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
           <span class="fa fa-download" style="font-size:1.2em;"></span>
         </a>
       </b>
@@ -307,10 +322,15 @@ It's possible that this table is out of date and newer versions are supported. P
 </table>
 </div>
 
+
 <div style="width: 50%">
 <h4 style="padding: 10px;">Anka 3 (amd64/intel)</h4>
 <table>
 <tbody style="text-align:center">
+  <tr>
+    <td style="vertical-align: middle"><b>macOS 26.0 (25A354)</b></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 15.6.1 (24G90)</b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
@@ -394,85 +414,51 @@ It's possible that this table is out of date and newer versions are supported. P
 </tbody>
 </table>
 </div>
-{{< /rawhtml >}}
 </div>
-{{< hint warning >}}
-**Apple has limited the ability to install macOS to specific hardware models. This differs for each major version of macOS. <a href="https://support.apple.com/en-us/HT213264">Here is the support page for 13.x/Ventura.</a> You can find similar pages for other versions on their support site.**
-{{< /hint >}}
+{{< /rawhtml >}}
 
-{{< hint warning >}}
-**(\*) Intel VM creation of 10.13/14 requires installing a kext (https://github.com/pmj/virtio-net-osx) on the VM for networking to function.**
-{{< /hint >}}
+### Specific Requirements
 
-{{< hint warning >}}
-**(\*\*) ARM USERS: Creation of 15.3.x VMs on a 15.x host currently requires you to prepare the host. The following steps are required:**
+- **[Intel]** 10.13/14 VM creation requires installing a kext (https://github.com/pmj/virtio-net-osx) on the VM for networking to function.
+- **[ARM]** Creation of later 15.x and any 26.x VMs requires you to prepare the host. The following steps are required by Apple:
+  - Install Xcode 26 or later and set it up fully with the following commands:
+      ```bash
+      XCODE_DESTINATION="/Applications"
+      XCODE_APP="Xcode.app"
+      sudo /usr/sbin/dseditgroup -o edit -a everyone -t group _developer
+      sudo xcode-select -s ${XCODE_DESTINATION}/${XCODE_APP}/Contents/Developer
+      sudo xcodebuild -license accept
+      sudo xcodebuild -runFirstLaunch
+      sudo DevToolsSecurity -enable
+      for PKG in $(/bin/ls ${XCODE_DESTINATION}/${XCODE_APP}/Contents/Resources/Packages/*.pkg); do
+          sudo /usr/sbin/installer -pkg "$PKG" -target /
+      done
+      echo "Checking Xcode CLI tools"
+      sudo xcode-select -s "${XCODE_DESTINATION}/${XCODE_APP}"
+      xcode-select -p &> /dev/null
+      if [ $? -ne 0 ]; then
+        echo "Xcode CLI tools not found. Installing them..."
+        touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
+        PROD=$(softwareupdate -l |
+          grep "\*.*Command Line" |
+          tail -n 1 | sed 's/^[^C]* //')
+        softwareupdate -i "$PROD" --verbose;
+      else
+        echo "Xcode CLI tools OK"
+      fi
+      ```
+- **[ARM]** To fully support macOS 14.x VMs, you must have macOS 14.x (or higher) on your host. Similarly, running 13.x VMs also require a minimum host macOS version of 13.x.
+- **[ARM]** Creation of 15.x VMs on 14.x hosts requires Xcode 16.2 OR the MobileDevice.pkg (inside of Xcode.app) is installed.
+- **[ARM]** There is also a rare problem where your Xcode is not fully set up and still creates problems. Be sure to run the following:
+  ```bash
+  sudo xcodebuild -license accept
+  sudo xcodebuild -runFirstLaunch
+  for PKG in $(/bin/ls /Applications/Xcode.app/Contents/Resources/Packages/*.pkg); do
+      sudo /usr/sbin/installer -pkg "$PKG" -target /
+  done
+  ```
 
-1. Install Xcode 16.2 or later and set it up fully with the following commands:
-    ```bash
-    XCODE_DESTINATION="/Applications"
-    XCODE_APP="Xcode.app"
-    sudo /usr/sbin/dseditgroup -o edit -a everyone -t group _developer
-    sudo xcode-select -s ${XCODE_DESTINATION}/${XCODE_APP}/Contents/Developer
-    sudo xcodebuild -license accept
-    sudo xcodebuild -runFirstLaunch
-    sudo DevToolsSecurity -enable
-    for PKG in $(/bin/ls ${XCODE_DESTINATION}/${XCODE_APP}/Contents/Resources/Packages/*.pkg); do
-        sudo /usr/sbin/installer -pkg "$PKG" -target /
-    done
-    echo "Checking Xcode CLI tools"
-    sudo xcode-select -s "${XCODE_DESTINATION}/${XCODE_APP}"
-    xcode-select -p &> /dev/null
-    if [ $? -ne 0 ]; then
-      echo "Xcode CLI tools not found. Installing them..."
-      touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
-      PROD=$(softwareupdate -l |
-        grep "\*.*Command Line" |
-        tail -n 1 | sed 's/^[^C]* //')
-      softwareupdate -i "$PROD" --verbose;
-    else
-      echo "Xcode CLI tools OK"
-    fi
-    ```
-2. Install the <a href="https://downloads.veertu.com/anka/DeviceSupport-15.4.pkg">device support package</a>.
-{{< /hint >}}
-
-{{< hint warning >}}
-**(\*\*) When creating a 15.x VM on a host with 15.x, you must plan to run them on the same hardware type. They will not run and fail with something similar to `hypervisor failed with status 256` if you try to run them on a different hardware type. However, creation of 15.x VMs on 14.x hosts should not have this problem. This is a limitation from Apple.**
-{{< /hint >}}
-
-{{< hint warning >}}
-**(\*\*) ARM USERS: To fully support macOS 14.x VMs, you must have macOS 14.x (or higher) on your host. Similarly, running 13.x VMs also require a minimum host macOS version of 13.x.**
-{{< /hint >}}
-
-{{< hint warning >}}
-**(\*\*) ARM USERS: When creating 15.x VMs on 14.x hosts, you must ensure that Xcode 16.2 OR the MobileDevice.pkg (inside of Xcode.app) is installed.**
-
-```bash
-sudo xcodebuild -license accept
-sudo xcodebuild -runFirstLaunch
-for PKG in $(/bin/ls /Applications/Xcode.app/Contents/Resources/Packages/*.pkg); do
-    sudo /usr/sbin/installer -pkg "$PKG" -target /
-done
-```
-{{< /hint >}}
-
-{{< hint warning >}}
-**ARM USERS:** There is also a rare problem where your Xcode is not fully set up and still creates problems. Be sure to run the following:
-
-```bash
-sudo xcodebuild -license accept
-sudo xcodebuild -runFirstLaunch
-for PKG in $(/bin/ls /Applications/Xcode.app/Contents/Resources/Packages/*.pkg); do
-    sudo /usr/sbin/installer -pkg "$PKG" -target /
-done
-```
-{{< /hint >}}
-
-{{< hint warning >}}
-**Apple's .app installer files are currently not supported on ARM. Instead, you'll need to obtain .ipsw files.**
-{{< /hint >}}
-
-{{< hint warning >}}
+<!-- {{< hint warning >}}
 VM creation requires a full internet connection or access to the Apple URLs detailed on https://support.apple.com/101555. If you are behind a corporate firewall/proxy, you'll need to set up a proxy that has the access you need and tell the system to use that proxy with the following:
 
 ```bash
@@ -484,7 +470,7 @@ export https_proxy=http://<proxyURL>:<port>
 ```
 
 If this does not work, you can try setting the `ANKA_NETWORK_MODE` environment variable to `disconnected` to temporarily disable networking entirely and eliminate the requirement.
-{{< /hint >}}
+{{< /hint >}} -->
 
 ---
 
