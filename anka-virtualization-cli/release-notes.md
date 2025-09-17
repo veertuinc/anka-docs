@@ -33,7 +33,7 @@ ARM/Silicon specific issues:
 - **Bug Fix:** Anka viewer unable to function less the VM is started with `anka start -v`.
 - **Bug Fix:** VM fails to start if network --filter is assigned.
 - **Bug Fix:** `anka view`'s Live Resize was not working. It is now functional again on ARM.
-- **Improvement:** [Labels for the VM Template & Tag are now available inside of the VM through `nc -U /var/run/anka`]({{< relref "whats-new/anka-3.8.0/index.md#labels-for-the-vm-template-tag-are-now-available-inside-of-the-vm" >}}).
+- **Improvement:** [Labels for the VM Template & Tag are now available inside of the VM through `nc -U /var/run/anka`]({{< relref "whats-new/anka-3.8.0/index.md#labels-for-the-vm-template--tag-are-now-available-inside-of-the-vm" >}}).
 - **Improvement:** Support for creation on macOS 26 host OS.
 - **Improvement:** [Configurable IO buffer size for `anka push`]({{< relref "whats-new/anka-3.8.0/index.md#configurable-io-buffer-size-for-anka-push" >}}).
 - **Improvement:** [New `anka log` command for troubleshooting]({{< relref "whats-new/anka-3.8.0/index.md#new-anka-log-command" >}}).
