@@ -3,7 +3,7 @@ date: 2025-09-15T01:00:00-00:00
 title: "Anka Virtualization 3.8.0"
 ---
 
-## Labels for the VM Template/Tag are now available inside of the VM
+## Labels for the VM Template & Tag are now available inside of the VM
 
 ```bash
 ❯ anka modify anklet label labelA testA
