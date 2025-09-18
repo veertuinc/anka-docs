@@ -23,6 +23,7 @@ ARM/Silicon specific issues:
 
 {{< /hint >}}
 
+- **IMPORTANT:** This version does not support INTEL hardware. Please use 3.8.1 instead.
 - [Download Anka-3.8.0.206.pkg](https://downloads.veertu.com/anka/Anka-3.8.0.206.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.8.0.206_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.8.0.206_SHA256SUMS.sig)
 - **NOTE: Addons upgrade is not required.**
 - **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
