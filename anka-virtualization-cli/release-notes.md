@@ -11,6 +11,28 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.8.1 (3.8.1.207) - September 22nd, 2025
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- 15.x Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.
+- Nested virtualization is not functional inside of VMs yet.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **IMPORTANT:** Once you upgrade to macOS 26, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
+- [Download Anka-3.8.1.207.pkg](https://downloads.veertu.com/anka/Anka-3.8.1.207.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.8.1.207_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.8.1.207_SHA256SUMS.sig)
+- **NOTE: Addons upgrade is not required.**
+- **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
+- **Bug Fix:** VM networking on Intel hardware was not working.
+- **Bug Fix:** `anka import` streaming was not working and failed with exit code 1.
+- **Improvement:** Default minimum RAM for creation is now 8GB.
+
+## Previous Versions
+
 ### 3.8.0 (3.8.0.206) - September 16th, 2025
 
 {{< hint warning >}}
@@ -39,8 +61,6 @@ ARM/Silicon specific issues:
 - **Improvement:** Support for creation on macOS 26 host OS.
 - **Improvement:** [Configurable IO buffer size for `anka push`]({{< relref "whats-new/anka-3.8.0/index.md#configurable-io-buffer-size-for-anka-push" >}}).
 - **Improvement:** [New `anka log` command for troubleshooting]({{< relref "whats-new/anka-3.8.0/index.md#new-anka-log-command" >}}).
-
-## Previous Versions
 
 ### 3.7.4 (3.7.4.205) - August 12th, 2025
 
