@@ -63,6 +63,18 @@ It's possible that this table is out of date and newer versions are supported. P
   <tr>
     <td style="vertical-align: middle">
       <b>
+        macOS 26.1 beta (25B5042k)<span style="cursor: help;" title="Requires setting a disk size of 50GB or more.
+15.x host: Requires Xcode 26 or later on the host, fully configured.">&#8505;</span>
+        <a href="https://updates.cdn-apple.com/2025FallSeed/fullrestores/082-91406/9745D030-E51F-497A-9E26-1B40A07FE9AE/UniversalMac_26.1_25B5042k_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
+          <span class="fa fa-download" style="font-size:1.2em;"></span>
+        </a>
+      </b>
+    </td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle">
+      <b>
         macOS 26.0 (25A354) <span style="cursor: help;" title="Requires setting a disk size of 50GB or more.
 15.x host: Requires Xcode 26 or later on the host, fully configured.">&#8505;</span>
         <a href="https://updates.cdn-apple.com/2025FallFCS/fullrestores/093-37622/CE01FAB2-7F26-48EE-AEE4-5E57A7F6D8BB/UniversalMac_26.0_25A354_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
