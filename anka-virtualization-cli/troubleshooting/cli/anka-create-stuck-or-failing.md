@@ -25,6 +25,14 @@ To get more verbose errors, run `ANKA_CLICK_DEBUG=1 anka --debug create...`. If 
     - If attempting to set/use `http_proxy` or `https_proxy`, they will not work. There is a requirement for full internet access to set up macOS properly in later 15.x VM versions. You'll need to use `ANKA_NETWORK_MODE=disconnected` when creating the VM to temporarily disable networking entirely and eliminate the requirement.
     - You're trying to anka create a VM through SSH with `sudo anka create...`. Apple's security changes in later macOS versions make this problematic. You should use VNC > Terminal to create the VM instead as sudo, or, just create it as the current non-root user.
     - The required apple URLs are not whitelisted in your firewall/proxy. See https://support.apple.com/101555 for more information.
+    - If the VM log shows `The virtual machine failed to start`, this is a problem with the Virtualization APIs accessing the keychain. Follow these steps:
+        1. Log into VNC.
+        2. Go under System Preferences > Apple Intelligence & Siri.
+        3. Enable Siri, wait 5 minutes, and then disable it (disable if it's enabled already). Wait another minute or two for the Intelligence stuff to turn off fully.
+        4. Then, delete all files under ~/Library/Keychains .
+        5. Now go to System Preferences > Users & Groups > clicked on the (i) icon for the main user, and then do Change for Password.
+        6. Reboot the host.
+        7. Then try to open open /System/Library/CoreServices/Applications/Keychain\ Access.app and make sure you can log in and see the login keychain show in the list.
 1. `AMRestorePerformRestoreModeRestoreWithError failed with error: 1` means that the host and VM have no internet connection.
 1. `installation failed: Bad address` is a generiic error and you need to run the creation again with `anka --debug create...`.
 1. Anka Creation, especially for 15.x and above, requires networking to be enabled.
