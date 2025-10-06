@@ -459,6 +459,11 @@ It's possible that this table is out of date and newer versions are supported. P
         echo "Xcode CLI tools OK"
       fi
       ```
+  - Install the Metal Toolchain or else overall performance of macOS 26 VMs will be poor (icons slow to load, etc)
+      ```bash
+      xcodebuild -downloadComponent metalToolchain
+      xcodebuild -importComponent metalToolchain
+      ```
 - **[ARM]** To fully support macOS 14.x VMs, you must have macOS 14.x (or higher) on your host. Similarly, running 13.x VMs also require a minimum host macOS version of 13.x.
 - **[ARM]** Creation of 15.x VMs on 14.x hosts requires Xcode 16.2 OR the MobileDevice.pkg (inside of Xcode.app) is installed.
 - **[ARM]** There is also a rare problem where your Xcode is not fully set up and still creates problems. Be sure to run the following:
