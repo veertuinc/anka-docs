@@ -168,13 +168,15 @@ Instead of launching the viewer with the CLI, you can open the Anka.app under /A
 
   ```shell
   ❯ anka stop 14.3.1-arm64
-  ❯ export ANKA_HOST_PARAM_TEST=123
+  ❯ export ANKA_HOST_PARAM_TEST=123 # set an ENV on the host
+  ❯ anka modify 14.3.1-arm64 add label labelA testA # set a label on the VM
   ❯ anka run 14.3.1-arm64 bash -c "nc -U /var/run/anka"
   uuid: d792c6f6-198c-470f-9526-9c998efe7ab4
   license: com.veertu.anka.entplus,h:255
   name: 14.3.1-arm64
   TEST: 123
   version: 3.3.9
+  labelA: testA
   ```
 
 ## What's next?
