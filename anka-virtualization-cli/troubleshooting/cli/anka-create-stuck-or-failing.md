@@ -22,7 +22,7 @@ To get more verbose errors, run `ANKA_CLICK_DEBUG=1 anka --debug create...`. If 
 1. `status 70` can mean several things. It's a generic error from Virtualization APIs on macOS. The main ways to fix it are:
     - Uninstall Anka CLI fully (`sudo /Library/Application\ Support/Veertu/Anka/tools/uninstall.sh`), then reinstall it.
     - (with 15.x VMs only) Install Device Support or the latest Xcode on the host: https://downloads.veertu.com/anka/DeviceSupport-15.4.pkg
-    - If attempting to set/use `http_proxy` or `https_proxy`, they will not work. There is a requirement for full internet access to set up macOS properly in later 15.x VM versions. You'll need to use `ANKA_NETWORK_MODE=disconnected` when creating the VM to temporarily disable networking entirely and eliminate the requirement.
+    - If attempting to set/use `http_proxy` or `https_proxy`, they will not work. There is a requirement for full internet access to set up macOS properly in later 15.x VM versions. You'll need to use `ANKA_NETWORK_DISCONNECTED=true` when creating the VM to temporarily disable networking entirely and eliminate the requirement.
     - You're trying to anka create a VM through SSH with `sudo anka create...`. Apple's security changes in later macOS versions make this problematic. You should use VNC > Terminal to create the VM instead as sudo, or, just create it as the current non-root user.
     - The required apple URLs are not whitelisted in your firewall/proxy. See https://support.apple.com/101555 for more information.
     - If the VM log shows `The virtual machine failed to start`, this is a problem with the Virtualization APIs accessing the keychain. Follow these steps:
