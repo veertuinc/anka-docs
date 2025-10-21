@@ -17,7 +17,7 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ARM/Silicon specific issues:
 
-- 15.x Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple.
+- 15.x Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple. 
 - Nested virtualization is not functional inside of VMs yet.
 - Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
 
