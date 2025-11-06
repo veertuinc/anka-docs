@@ -7,6 +7,23 @@ weight: 100
 
 ## Current Version
 
+### 1.48.3 (1.48.3-4f324404) - November 6th, 2025
+
+{{< hint warning >}}
+This release requires a Registry version of 1.48.0 or higher.
+
+We've also updated the required ETCD version to 3.5.21.
+{{< /hint >}}
+
+- [Download](https://veertu.com/download-anka-build/)
+- **Bug Fix:**  Agent deadlocks during log upload when registry URL is malformed or stalls
+- **Bug Fix:**  SaveImageProgress task stuck in the queue forever
+- (Required ETCD Version: 3.5.21)
+
+---
+
+## Previous Versions
+
 ### 1.48.2 (1.48.2-2d2d57bf) - Sep 4th, 2025
 
 {{< hint warning >}}
@@ -18,10 +35,6 @@ We've also updated the required ETCD version to 3.5.21.
 - [Download](https://veertu.com/download-anka-build/)
 - **Bug Fix:** When using UAK/TAP, but only enabling it for the Controller, the agent couldn't push to the Registry.
 - (Required ETCD Version: 3.5.21)
-
----
-
-## Previous Versions
 
 ### 1.48.1 (1.48.1-f78e0361) - Aug 6th, 2025
 
