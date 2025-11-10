@@ -340,6 +340,18 @@ It's possible that this table is out of date and newer versions are supported. P
 <table>
 <tbody style="text-align:center">
   <tr>
+    <td style="vertical-align: middle"><b>macOS 26.2 (25C5031i)</b></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>macOS 26.1 (25B78)</b></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>macOS 26.0.1 (25A362)</b></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
     <td style="vertical-align: middle"><b>macOS 26.0 (25A354)</b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
