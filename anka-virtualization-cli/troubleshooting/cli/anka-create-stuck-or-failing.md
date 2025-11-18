@@ -20,6 +20,8 @@ To get more verbose errors, run `ANKA_CLICK_DEBUG=1 anka --debug create...`. If 
 ## Common Causes and solutions
 
 1. `status 70` can mean several things. It's a generic error from Virtualization APIs on macOS. The main ways to fix it are:
+    - Make sure you're on the latest Anka CLI version.
+    - `rm -f ~/.anka/tools/*` and then try again. This will clear out any older click scripts that might be causing issues.
     - Uninstall Anka CLI fully (`sudo /Library/Application\ Support/Veertu/Anka/tools/uninstall.sh`), then reinstall it.
     - (with 15.x VMs only) Install Device Support or the latest Xcode on the host: https://downloads.veertu.com/anka/DeviceSupport-15.4.pkg
     - If attempting to set/use `http_proxy` or `https_proxy`, they will not work. There is a requirement for full internet access to set up macOS properly in later 15.x VM versions. You'll need to use `ANKA_NETWORK_DISCONNECTED=true` when creating the VM to temporarily disable networking entirely and eliminate the requirement.
