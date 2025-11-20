@@ -11,6 +11,27 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.8.4 (3.8.4.210) - November 20th, 2025
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- 15.x Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple. 
+- Nested virtualization is not functional inside of VMs yet.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **IMPORTANT:** Once you upgrade to macOS 26, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
+- [Download Anka-3.8.4.210.pkg](https://downloads.veertu.com/anka/Anka-3.8.4.210.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.8.4.210_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.8.4.210_SHA256SUMS.sig)
+- **NOTE: Addons upgrade is not required.**
+- **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
+- **Bug Fix:** Ability to set same MAC for two VMs, but get separate IPs/networking was not working.
+- **Improvement:** Cut down on debug logging.
+
+## Previous Versions
+
 ### 3.8.3 (3.8.3.209) - October 27th, 2025
 
 {{< hint warning >}}
@@ -29,8 +50,6 @@ ARM/Silicon specific issues:
 - **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
 - **Bug Fix:** Logs are growing too large.
 - **Bug Fix:** Use of the scroll wheel in `anka view` was not working.
-
-## Previous Versions
 
 ### 3.8.2 (3.8.2.208) - October 14th, 2025
 
