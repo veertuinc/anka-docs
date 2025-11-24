@@ -451,10 +451,10 @@ It's possible that this table is out of date and newer versions are supported. P
     <td style="vertical-align: middle"><b>macOS 12.7.4 (21H1123)</b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
-  <tr>
+  <!-- <tr>
     <td style="vertical-align: middle"><b>macOS 11.7.10 (20G1427)</b></td>
     <td style="font-size: 1.5rem; background-color:rgb(238, 179, 18);">&#9989;</td>
-  </tr>
+  </tr> -->
 </tbody>
 </table>
 </div>
