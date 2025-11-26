@@ -139,6 +139,17 @@
   - If the script fails, the node will still join.
   - Most scripts support ENVs being passed in through user-data, so be sure to review them to see what's possible. Dev note: the cloud-connect will not set/see any ENVs without ANKA_ prefix.
 
+  ##### ANKA_EXECUTE_SCRIPT_[1-9] (string)
+
+  This allows you to set multiple scripts to execute in order. You must specify the full script name in the value.
+
+  - Example: `export ANKA_EXECUTE_SCRIPT_1="install-anklet.bash"; export ANKA_EXECUTE_SCRIPT_2="prepare-external-disk.bash";`
+  - [A list of available scripts is available here.](https://github.com/veertuinc/aws-ec2-mac-amis/tree/main/scripts)
+  - Optional
+  - Only available in Anka 3.8.4 or greater AMIs.
+  - If the script fails, the node will still join.
+  - Most scripts support ENVs being passed in through user-data, so be sure to review them to see what's possible. Dev note: the cloud-connect will not set/see any ENVs without ANKA_ prefix.
+
   ##### ANKA_PREPARE_EXTERNAL_DISK (boolean)
 
   Prepares the /dev/disk4 provided by [AWS on M4 macs](https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-m4-and-m4-pro-mac-instances/) for use in Anka.
