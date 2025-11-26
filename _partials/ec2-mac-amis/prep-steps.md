@@ -158,7 +158,7 @@
 
   - Optional
   - Only available in 3.8.4 or greater AMIs.
-  - **Important:** This requires preparation of your own AMI on top of ours. This is due to a requirement in MacOS to visually approve the /Applications/Anka.app under `System Preferences > Security & Privacy > Full Disk Access` so it can use external locations. You'll need to perform the following steps:
+  - **Important:** This requires preparation of your own AMI on top of ours. This is due to a requirement in MacOS to visually approve the `/Applications/Anka.app` and `/Library/Application\ Support/Veertu/Anka/bin/anka_agent` under `System Preferences > Security & Privacy > Full Disk Access` so they can use external locations. You'll need to perform the following steps:
     - Start the instance with `export ANKA_PREPARE_EXTERNAL_DISK=true;` in user-data.
     - Wait for it to boot and check `/var/log/prepare-external-disk.log` for errors.
     - If it was a success and `/Volumes/Anka` exists, you need to [enable VNC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-mac-instance.html#mac-instance-vnc) and log in to the instance.
