@@ -139,6 +139,21 @@
   - If the script fails, the node will still join.
   - Most scripts support ENVs being passed in through user-data, so be sure to review them to see what's possible. Dev note: the cloud-connect will not set/see any ENVs without ANKA_ prefix.
 
+  ##### ANKA_PREPARE_EXTERNAL_DISK (boolean)
+
+  Prepares the /dev/disk4 provided by [AWS on M4 macs](https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-m4-and-m4-pro-mac-instances/) for use in Anka.
+
+  - Optional
+  - Only available in 3.8.4 or greater AMIs.
+  - **Important:** This requires preparation of your own AMI on top of ours. This is due to a requirement in MacOS to visually approve the /Applications/Anka.app under `System Preferences > Security & Privacy > Full Disk Access` so it can use external locations. You'll need to perform the following steps:
+    - Start the instance with `export ANKA_PREPARE_EXTERNAL_DISK=true;` in user-data.
+    - Wait for it to boot and check `/var/log/prepare-external-disk.log` for errors.
+    - If it was a success and `/Volumes/Anka` exists, you need to [enable VNC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-mac-instance.html#mac-instance-vnc) and log in to the instance.
+    - Once inside, go to `System Preferences > Security & Privacy > Full Disk Access` and add `/Applications/Anka.app` to the list. Also add `/Library/Application\ Support/Veertu/Anka/bin/anka_agent` if you use the Anka Build Cloud Controller.
+    - Then, try creating a VM to confirm it works. You should see files written to the `/Volumes/Anka/${current user creating}/vm_lib/` directory.
+    - Delete the VM (and any .ipsw file that was downloaded) to free up space.
+    - Save this Instance as an AMI to use internally in your organization.
+
 #### Manual Preparation (optional)
 
 **Amazon EBS volumes can be very slow even when you max iOPS, etc.** Because of this, `anka create` and other processes can take very long times or outright fail (Apple's installer is sensitive to disk IO). AWS indicates that you have to pre-warm EBS volumes that are restored from snapshots (which our AMIs are). To do this, [follow the instructions outlined here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-initialize.html#ebs-initialize-linux): `brew install fio && sudo fio --filename=/dev/r$(df -h / | grep -o 'disk[0-9]') --rw=read --bs=1M --iodepth=32 --ioengine=posixaio --direct=1 --name=volume-initialize` Finally, pre-warmed volumes stay warmed -- no need to run `dd` after periods of inactivity on the AWS instance. **NOTE: This command is not able to run from user-data.**
