@@ -138,6 +138,7 @@
   - Only available in Anka 3.4.0 or greater AMIs.
   - If the script fails, the node will still join.
   - Most scripts support ENVs being passed in through user-data, so be sure to review them to see what's possible. Dev note: the cloud-connect will not set/see any ENVs without ANKA_ prefix.
+  - On the host, logs for the script will be written to `/var/log/execute-script.log`.
 
   ##### ANKA_EXECUTE_SCRIPT_[1-9] (string)
 
@@ -149,6 +150,7 @@
   - Only available in Anka 3.8.4 or greater AMIs.
   - If the script fails, the node will still join.
   - Most scripts support ENVs being passed in through user-data, so be sure to review them to see what's possible. Dev note: the cloud-connect will not set/see any ENVs without ANKA_ prefix.
+  - On the host, logs for each script will be written to `/var/log/execute-script-[1-9].log`.
 
   ##### ANKA_PREPARE_EXTERNAL_DISK (boolean)
 
