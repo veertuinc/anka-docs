@@ -144,28 +144,13 @@
 
   This allows you to set multiple scripts to execute in order. You must specify the full script name in the value.
 
-  - Example: `export ANKA_EXECUTE_SCRIPT_1="install-anklet.bash"; export ANKA_EXECUTE_SCRIPT_2="prepare-external-disk.bash";`
+  - Example: `export ANKA_EXECUTE_SCRIPT_1="install-anklet.bash"; export ANKA_EXECUTE_SCRIPT_2="script2.bash";`
   - [A list of available scripts is available here.](https://github.com/veertuinc/aws-ec2-mac-amis/tree/main/scripts)
   - Optional
   - Only available in Anka 3.8.4 or greater AMIs.
   - If the script fails, the node will still join.
   - Most scripts support ENVs being passed in through user-data, so be sure to review them to see what's possible. Dev note: the cloud-connect will not set/see any ENVs without ANKA_ prefix.
   - On the host, logs for each script will be written to `/var/log/execute-script-[1-9].log`.
-
-  ##### ANKA_PREPARE_EXTERNAL_DISK (boolean)
-
-  Prepares the /dev/disk4 provided by [AWS on M4 macs](https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-m4-and-m4-pro-mac-instances/) for use in Anka.
-
-  - Optional
-  - Only available in 3.8.4 or greater AMIs.
-  - **Important:** This requires preparation of your own AMI on top of ours. This is due to a requirement in MacOS to visually approve the `/Applications/Anka.app` and `/Library/Application\ Support/Veertu/Anka/bin/anka_agent` under `System Preferences > Security & Privacy > Full Disk Access` so they can use external locations. You'll need to perform the following steps:
-    - Start the instance with `export ANKA_PREPARE_EXTERNAL_DISK=true;` in user-data.
-    - Wait for it to boot and check `/var/log/prepare-external-disk.log` for errors.
-    - If it was a success and `/Volumes/Anka` exists, you need to [enable VNC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-mac-instance.html#mac-instance-vnc) and log in to the instance.
-    - Once inside, go to `System Preferences > Security & Privacy > Full Disk Access` and add `/Applications/Anka.app` to the list. Also add `/Library/Application\ Support/Veertu/Anka/bin/anka_agent` if you use the Anka Build Cloud Controller.
-    - Then, try creating a VM to confirm it works. You should see files written to the `/Volumes/Anka/${current user creating}/vm_lib/` directory.
-    - Delete the VM (and any .ipsw file that was downloaded) to free up space.
-    - Save this Instance as an AMI to use internally in your organization.
 
 #### Manual Preparation (optional)
 
@@ -202,3 +187,15 @@ You can see how we generate these AMIs in our open source repo: https://github.c
 
 - `/var/log/resize-disk.log`
 - `/var/log/cloud-connect.log`
+
+
+#### Preparing the External Disk on EC2 M4 Mac
+
+[AWS EC2 Instances on M4 macs](https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-m4-and-m4-pro-mac-instances/) have a second disk attached to the instance by default. This disk is not formatted or used by default. This guide will walk you through how to prepare it for use in Anka.
+
+1. SSH into the Instance and [enable VNC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-mac-instance.html#mac-instance-vnc).
+2. Once enabled and once you VNC in, go to `System Preferences > Security & Privacy > Full Disk Access` and add `/Applications/Anka.app` to the list. Also add `/Library/Application\ Support/Veertu/Anka/bin/anka_agent` if you use the Anka Build Cloud Controller.
+3. Manually in a terminal run the following script to prepare the external disk for use in Anka: https://github.com/veertuinc/aws-ec2-mac-amis/blob/main/prepare-external-disk.bash
+4. Once the script is complete, you should see a new volume called `/Volumes/Anka`. Try creating a VM to confirm it works. You should see files written to the `/Volumes/Anka/${current user creating}/vm_lib/` directory.
+5. Delete the VM (and any .ipsw file that was downloaded) to free up space.
+6. Save this Instance as an AMI to use internally in your organization.
