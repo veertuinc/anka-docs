@@ -7,6 +7,25 @@ weight: 100
 
 ## Current Version
 
+### 1.49.0 (1.49.0-7d53dd9f.) - December 4th, 2025
+
+{{< hint warning >}}
+This release requires a Registry version of 1.48.0 or higher.
+
+We've also updated the required ETCD version to 3.5.21.
+{{< /hint >}}
+
+- [Download](https://veertu.com/download-anka-build/)
+- **Improvement:** The docker package will now use `image: quay.io/coreos/etcd:v3.5.25`.
+- **Bug Fix:** The Controller API > `/api/v1/vm` > `vminfo` changes to `deleted` and resets a bunch of other fields when there is an instance error. We now keep them all around.
+- **Bug Fix:** Sorting by version on nodes page doesn't seem to work.
+- **Improvement:** Logging entire payload for Start VM requests in Controller logs.
+- (Required ETCD Version: >= 3.5.21)
+
+---
+
+## Previous Versions
+
 ### 1.48.3 (1.48.3-4f324404) - November 6th, 2025
 
 {{< hint warning >}}
@@ -19,10 +38,6 @@ We've also updated the required ETCD version to 3.5.21.
 - **Bug Fix:**  Agent deadlocks during log upload when registry URL is malformed or stalls
 - **Bug Fix:**  SaveImageProgress task stuck in the queue forever
 - (Required ETCD Version: 3.5.21)
-
----
-
-## Previous Versions
 
 ### 1.48.2 (1.48.2-2d2d57bf) - Sep 4th, 2025
 
