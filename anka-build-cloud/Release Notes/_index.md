@@ -16,7 +16,7 @@ We've also updated the required ETCD version to 3.5.21.
 {{< /hint >}}
 
 - [Download](https://veertu.com/download-anka-build/)
-- **Improvement:** The docker package will now use `image: quay.io/coreos/etcd:v3.5.25`. Veertu dockerhub images will no longer be provided.
+- **Improvement:** The docker package will now use `image: quay.io/coreos/etcd:v3.5.25`. **Veertu dockerhub images will no longer be provided.**
 - **Bug Fix:** The Controller API > `/api/v1/vm` > `vminfo` changes to `deleted` and resets a bunch of other fields when there is an instance error. We now keep them all around.
 - **Bug Fix:** Sorting by version on nodes page doesn't seem to work.
 - **Improvement:** Logging entire payload for Start VM requests in Controller logs.
