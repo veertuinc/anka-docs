@@ -6,9 +6,3 @@ description: This is documentation for a Packer Plugin that allows you to build 
 ---
 
 Please see [the official Github Repo's README for a complete usage guide](https://github.com/veertuinc/packer-plugin-veertu-anka).
-
----
-
-## Release Notes
-
-Release notes for the Anka Buildkite Plugin can be found [on Github](https://github.com/veertuinc/packer-plugin-veertu-anka/releases).
