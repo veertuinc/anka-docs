@@ -32,7 +32,7 @@ Apple's .app installer files are currently not supported on ARM. Instead, you'll
   - If you are behind a corporate firewall/proxy, you'll need to review https://support.apple.com/101555. URLs like `fcs-keys-pub-prod.cdn-apple.com`, `wkms-public.apple.com`, `gs.apple.com`, etc, are all required to be whitelisted in your firewall/proxy to create macOS VMs.
   - If attempting to set/use `http_proxy` or `https_proxy`, they will not work. There is a requirement for full internet access to set up macOS properly in later 15.x VM versions (you'll see `status 70` errors if this is the case). You'll need to use `ANKA_NETWORK_MODE=disconnected` when creating the VM and then use `anka modify {VM} network --mode shared` after creation to enable networking again.
 4. The hardware you have will work with the specific OS you're running on it. Apple has limited the ability to install macOS on specific hardware models. This differs for each major version of macOS. <a href="https://support.apple.com/kb/index?q=is+compatible+with+these+computers&src=globalnav_support&type=organic&page=search&locale=en_US">You can search for the supported hardware pages for each release here.</a>
-5. **[ARM/Silicon]** Starting in 15.x, Apple requires that you create and run VMs on the same hardware type. For example, you cannot create on an M1 with 15.5 and then try to run it on an M2 or M4. Apple prevents this sort of cross-compatibility based on the CPU architecture and 15.x host OS. However, this does not get enabled if creating on 14.x host OS and then trying to run it on a 15.x host with a different CPU architecture.
+5. **[ARM/Silicon]** Creating VMs on 15.x macOS cannot run on 14.x hosts. However, if created on 14.x hosts, they can be run on 15.x hosts.
 
 ---
 
