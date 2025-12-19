@@ -81,7 +81,7 @@ Starting around Big Sur, Apple has introduced security requirements which can ca
 
 1. Navigate to `Manage Jenkins > Manage Plugins` and click on the **Available** tab. Search in **Filter** for "Anka", then install it. _You won't see any results if it's already installed._
 
-2. Now you can configure the Anka Cloud. Navigate to `Manage Jenkins > Manage Nodes and Clouds` and find the section called `Configure Clouds`. Inside of `Configure Clouds`, click on **Add a new Cloud** at the bottom of the page and then click on **Anka Build Cloud Plugin**.
+2. Now you can configure the Anka Cloud. Navigate to `Manage Jenkins -> System Configuration -> Clouds`, click on **New Cloud** at the bottom of the page and then click on **Anka Build Cloud Plugin**.
 
 3. You now have an **Anka Build Cloud Plugin** panel exposed to do your configuration. You can set **Cloud Name** to be anything you want. However, you'll need to set **Full Anka Build Cloud Controller URL** to the proper URL of your controller, and _**make sure you include the port**_: `http://<ip/domain>:80`. Once you're done, click **Save**.
 
