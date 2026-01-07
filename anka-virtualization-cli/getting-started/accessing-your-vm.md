@@ -126,14 +126,9 @@ To expose the VM VNC port on the Host IP, [read more about port forwarding here]
 
 ## Anka View
 
-{{< hint warning >}}
-**ARM USERS:** We recommend using VNC over `anka start -v` or `anka view` commands. By default, VMs Anka VMS come with VNC enabled and it's far more flexible.
-{{< /hint >}}
-
 ### Known Issues with `anka view`
 
 - Chrome, Edge, and any other GPU accelerated browser will not function due to limitations in Apple's hypervisor. You would need to launch the browsers without GPU acceleration. For example, with Chrome: `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-gpu`.
-- **ARM USERS:** `anka view` will not work unless you first started the VM with `anka start -v`. We enable VNC for the VM by default and recommend this approach instead.
 
 ### With the CLI
 
