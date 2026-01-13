@@ -21,7 +21,7 @@ Many organizations and developers are already familiar with OpenID Connect (OIDC
 
 ## Usage Instructions
 
-When using OIDC, you'll need an Authorization Provider or Server. Most of our customers use Providers like [Okta](https://www.okta.com/), [Cyberark's Idaptive](https://www.cyberark.com/products/workforce-identity/), and others. we won't get into the specifics for these tools as they often differ greatly. However we will go through several general things you need to know, regardless of provider.
+When using OIDC, you'll need an Authorization Provider or Server. Most of our customers use Providers like [Okta](https://www.okta.com/), [Cyberark's Idaptive](https://www.cyberark.com/products/workforce-identity/), and others. we won't get much into the specifics for these tools as they often differ greatly. However we will go through several general things you need to know, regardless of provider.
 
 {{< hint error >}}
 **Okta must support custom authorization servers. Please check with your Okta admin to ensure this is possible.**
@@ -56,6 +56,26 @@ When using OIDC, you'll need an Authorization Provider or Server. Most of our cu
 4. Once the `scopes` are requested successfully, the data returned needs to be in a specific format (`id_token` & `token`). We make the request with `response_type` to ensure this.
 5. The `groups` claim is expected to be an array of strings, each correlating to a [Controller permission group](#managing-usergroup-permissions-authorization).
 
+
+{{< hint info >}}
+In the Okta admin panel, you need to go under Security -> API -> `default` (or other) Authorization Server -> Access Policies, and create a Create a new Access Policy, OR if a policy exists, add a Rule to it:
+
+
+##### Access Policy:
+
+- `Policy Name`: anything you want.
+- `Assigned to clients`: Any client
+
+##### Rule:
+
+- `Rule Name`: anything you want.
+- `IF Grant type is`: check Client Credentials, Authorization Code, and Device Authorization
+- `AND User is`: Any user assigned the app (you can add a specific user or group here)
+- `AND Scopes requested`: Any scopes (you can add a specific scope here)
+- `THEN Use this inline hook`: None
+- Access token lifetimes and others can be anything you want. We used 1 hour, 90 days, and expires every 7 days if not used.
+
+{{< /hint >}}
 
 {{< hint info >}}
 We request the claims from /userinfo, so if `groups` does not exist, your provider configuration should be setup to do so. You'll see an error like `failed translating claims to user: no Groups claim in groups` if this is the case.
