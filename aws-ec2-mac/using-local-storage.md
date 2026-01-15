@@ -3,7 +3,7 @@ title: "Using Local Storage"
 linkTitle: "Using Local Storage"
 weight: 1
 description: >
-  Use local storage disk for AWS EC2 Mac instances
+  How to set up the local storage disk on your own AWS EC2 Mac AMI
 ---
 
 According to https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-m4-and-m4-pro-mac-instances/, M4 instances now come with a local storage disk. This guide will walk you through how to prepare it in your own AMI.
