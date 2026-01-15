@@ -1,7 +1,7 @@
 ---
 title: "Using Local Storage"
 linkTitle: "Using Local Storage"
-weight: 1
+weight: 3
 description: >
   How to set up the local storage disk on your own AWS EC2 Mac AMI
 ---
