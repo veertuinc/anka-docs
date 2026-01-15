@@ -106,6 +106,7 @@
   This will pull templates from the registry which match the given regex (egrep) pattern.
 
   - Optional
+  - Requires a Controller to be defined in `ANKA_CONTROLLER_ADDRESS`.
   - Only available in 3.3.4/13.4.1 or greater AMIs.
   - Only the latest tag will be pulled.
   - Pulls will happen before the node is joined.
@@ -154,7 +155,14 @@
 
 #### Manual Preparation (optional)
 
-**Amazon EBS volumes can be very slow even when you max iOPS, etc.** Because of this, `anka create` and other processes can take very long times or outright fail (Apple's installer is sensitive to disk IO). AWS indicates that you have to pre-warm EBS volumes that are restored from snapshots (which our AMIs are). To do this, [follow the instructions outlined here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-initialize.html#ebs-initialize-linux): `brew install fio && sudo fio --filename=/dev/r$(df -h / | grep -o 'disk[0-9]') --rw=read --bs=1M --iodepth=32 --ioengine=posixaio --direct=1 --name=volume-initialize` Finally, pre-warmed volumes stay warmed -- no need to run `dd` after periods of inactivity on the AWS instance. **NOTE: This command is not able to run from user-data.**
+**Amazon EBS volumes can be very slow even when you max iOPS, etc.** Because of this, `anka create` and other processes can take very long times or outright fail (Apple's installer is sensitive to disk IO). AWS indicates that you have to pre-warm EBS volumes that are restored from snapshots (which our AMIs are). To do this, [follow the instructions outlined here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-initialize.html#ebs-initialize-linux): `brew install fio && sudo fio --filename=/dev/r$(df -h / | grep -o 'disk[0-9]') --rw=read --bs=1M --iodepth=32 --ioengine=posixaio --direct=1 --name=volume-initialize` Finally, pre-warmed volumes stay warmed -- no need to run `dd` after periods of inactivity on the AWS instance.
+
+Running inside of user-data can be tricky, but possible using something like:
+
+```bash
+sudo --set-home -u ec2-user -g admin -E -S 'brew' 'install' 'fio'
+fio --filename=$(diskutil list external physical | grep "^/dev/disk" | awk {'print $1'} | sed 's,/disk,/rdisk,') --rw=read --bs=1M --iodepth=32 --ioengine=posixaio --direct=1 --name=volume-initialize
+```
 
 {{< hint warning >}}
 By default all of our AMIs have a cloud-connect agent which on boot will join your AWS instance to the Anka Build Cloud controller automatically with [user data ENVs you set]({{< relref "#user-data-envs" >}}). This is issuing `ankacluster join` under the hood. Once joined, the agent which runs and communicates with the Anka Build Controller does its best to determine the proper IP to use for the node. On AWS the interfaces are loaded at different times and orders and often you'll end up with an IP assigned to the node which cannot be used for communication. To solve this, you'll want to set `ANKA_JOIN_ARGS` with `--host {IP HERE}` in the user data for the AWS instance. You can find all available flags/options for the join command [here]({{< relref "anka-build-cloud/getting-started/preparing-and-joining-your-nodes.md" >}}).
