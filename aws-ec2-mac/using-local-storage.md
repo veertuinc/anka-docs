@@ -56,6 +56,8 @@ sudo ./prepare-local-disk.bash
 
 Once it runs, the local ec2-user and root user will both point to `/Volumes/Anka` for their VM storage directories.
 
+#### Prepare ankahv-arm64 to find devices on local networks
+
 If you are using Port Forwarding on your VMs, it's important to confirm the `Allow ankahv-arm64 to find devices on local networks` prompt while you have VNC open. To do this, you need to:
 
 1. Pull a VM with port forwarding enabled, or, create a new one then use the modify commands to add port forwarding.
