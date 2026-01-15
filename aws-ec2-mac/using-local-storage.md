@@ -6,7 +6,13 @@ description: >
   Use local storage disk for AWS EC2 Mac instances
 ---
 
-According to https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-m4-and-m4-pro-mac-instances/, M4 instances now come with a local storage disk. This guide will walk you through how to prepare it in your own AMIs.
+According to https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-m4-and-m4-pro-mac-instances/, M4 instances now come with a local storage disk. This guide will walk you through how to prepare it in your own AMI.
+
+You'll want to start an instance from our official AMIs. This gives you all of the Anka specific tweaks.
+
+{{< hint info >}}
+To clarify: You will be creating your own AMI on top of our official AMIs. Our AMIs do not ever set a password or enable VNC for security reasons, so these things need to happen in your own AMI.
+{{< /hint >}}
 
 ### Step 1: Log into the instance
 
