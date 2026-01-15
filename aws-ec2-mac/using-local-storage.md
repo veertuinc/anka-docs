@@ -78,3 +78,7 @@ You can now disable VNC:
 sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.screensharing.plist
 sudo launchctl disable system/com.apple.screensharing
 ```
+
+---
+
+A special thank you to Gregor for his help with this guide. It's customers like him that make Anka the best virtualization solution for macOS.
