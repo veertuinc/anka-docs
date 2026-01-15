@@ -6,7 +6,7 @@ description: >
   Use local storage disk for AWS EC2 Mac instances
 ---
 
-According to https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-m4-and-m4-pro-mac-instances/, M4 instances now come with a local storage disk. This disk is not formatted or used by default. This guide will walk you through how to prepare it in your own AMIs.
+According to https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-m4-and-m4-pro-mac-instances/, M4 instances now come with a local storage disk. This guide will walk you through how to prepare it in your own AMIs.
 
 ### Step 1: Log into the instance
 
