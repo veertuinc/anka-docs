@@ -6,12 +6,14 @@ description: >
   How to set up the local storage disk on your own AWS EC2 Mac AMI
 ---
 
-According to https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-m4-and-m4-pro-mac-instances/, M4 instances now come with a local storage disk. This guide will walk you through how to prepare it in your own AMI.
 
-You'll want to start an instance from our official AMIs. This gives you all of the Anka specific tweaks.
+
+According to https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-m4-and-m4-pro-mac-instances/, AWS EC2 Mac M4 instances now come with a local storage disk. This significantly improves the performance of Anka VMs running on AWS EC2 Mac instances. This guide will walk you through how to prepare an AMI with the local storage disk.
+
+Note: You'll want to start an instance from our official AMIs. This gives you all of the Anka specific tweaks.
 
 {{< hint info >}}
-To clarify: You will be creating your own AMI on top of our official AMIs. Our AMIs do not ever set a password or enable VNC for security reasons, so these things need to happen in your own AMI.
+Our AMIs do not ever set a password or enable VNC for security reasons, so you'll need to do this in your own AMI.
 {{< /hint >}}
 
 ### Step 1: Log into the instance
@@ -78,6 +80,10 @@ You can now disable VNC:
 sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.screensharing.plist
 sudo launchctl disable system/com.apple.screensharing
 ```
+
+## FAQs
+
+- If you Stop and Start the Instance, it will lose everything in the external drive and `/Volumes/Anka` directory. On start, the `prepare-local-disk.bash` script will automatically run and remount the local storage disk for you. However, normal inner OS reboots are not subject to this.
 
 ---
 
