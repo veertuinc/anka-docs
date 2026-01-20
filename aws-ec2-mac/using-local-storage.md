@@ -62,7 +62,10 @@ git pull
 sudo ./prepare-local-disk.bash
 ```
 
-Once it runs, the local ec2-user and root user will both point to `/Volumes/Anka` for their VM storage directories.
+It also will do the following post-creation of /Volumes/Anka:
+
+- The local `ec2-user` and `root` user will both point to `/Volumes/Anka` for their VM storage directories using `anka config` to set the storage locations.
+- Disable indexing for the `/Volumes/Anka` volume with `sudo mdutil -a -i off /Volumes/Anka`
 
 #### Prepare ankahv-arm64 to find devices on local networks
 
