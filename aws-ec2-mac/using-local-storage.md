@@ -48,6 +48,8 @@ open "x-apple.systempreferences:com.apple.settings.PrivacySecurity?Privacy_AllFi
 /Library/Application Support/Veertu/Anka/bin/ankacluster
 ```
 
+#### Enable Automatic Login
+
 Finally, execute `open "x-apple.systempreferences:com.apple.preferences.users"` to enable Automatic Login for the current user.
 
 ### Step 4: Prepare the local storage disk
@@ -62,14 +64,21 @@ git pull
 sudo ./prepare-local-disk.bash
 ```
 
-It also will do the following post-creation of /Volumes/Anka:
+It also will do the following:
 
+- Unload the amazon instance storage disk mounter service to avoid conflicts with the local storage disk.
 - The local `ec2-user` and `root` user will both point to `/Volumes/Anka` for their VM storage directories using `anka config` to set the storage locations.
 - Disable indexing for the `/Volumes/Anka` volume with `sudo mdutil -a -i off /Volumes/Anka`
 
-#### Prepare ankahv-arm64 to find devices on local networks
+#### Prepare ankahv-arm64 to find devices on local networks (ec2-user only)
 
-If you are using Port Forwarding on your VMs, it's important to confirm the `Allow ankahv-arm64 to find devices on local networks` prompt while you have VNC open. To do this, you need to:
+{{< hint warning >}}
+This is only necessary for the `ec2-user` user. Processes running as `root` do not need to do this because they have full access already.
+
+**ALSO:** It does NOT persist between instance creation using the final AMI. This is only useful for initial testing as the `ec2-user`. When you create a new instance from the eventual AMI, you'll see a prompt again when you try to start a VM with port forwarding as the `ec2-user`.
+{{< /hint >}}
+
+If you are using Port Forwarding on your VMs as the `ec2-user`, you'll need to confirm the `Allow ankahv-arm64 to find devices on local networks` prompt while you have VNC open. To do this, you need to:
 
 1. Pull a VM with port forwarding enabled, or, create a new one then use the modify commands to add port forwarding.
 2. Start the VM and inside of VNC you should see a prompt to allow the VM to find devices on local networks. Click "Allow".
@@ -87,6 +96,7 @@ sudo launchctl disable system/com.apple.screensharing
 ## FAQs
 
 - If you Stop and Start the Instance, it will lose everything in the external drive and `/Volumes/Anka` directory. On start, the `prepare-local-disk.bash` script will automatically run and remount the local storage disk for you. However, normal inner OS reboots are not subject to this.
+- Amazon is automounting the external drive named ephemeral0 with `/Library/LaunchDaemons/com.amazon.ec2.instance-storage-disk-mounter.plist` / `/usr/local/libexec/mount_instance_storage_disk.sh`.
 
 ---
 
