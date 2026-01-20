@@ -64,6 +64,10 @@ git pull
 sudo ./prepare-local-disk.bash
 ```
 
+{{< hint warning >}}
+**IMPORTANT:** Only run this script once!
+{{< /hint >}}
+
 It also will do the following:
 
 - Unload the amazon instance storage disk mounter service to avoid conflicts with the local storage disk.
