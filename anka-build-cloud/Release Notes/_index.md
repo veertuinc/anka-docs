@@ -7,6 +7,26 @@ weight: 100
 
 ## Current Version
 
+### 1.49.1 (1.49.1-b75b7e88) - January 21st, 2026
+
+{{< hint warning >}}
+- This release requires a Registry version of 1.48.0 or higher.
+- We've also updated the required ETCD version to 3.5.21.
+- The docker package will now use `image: quay.io/coreos/etcd:v3.5.25`. **Veertu dockerhub images will no longer be provided for etcd.**
+{{< /hint >}}
+
+- [Download](https://veertu.com/download-anka-build/)
+- **Bug Fix:** When uninstalling with `-f` flag, it does not remove data dirs.
+- **Bug Fix:** Starting the Controller with an incorrect path for ETCD certs causes logs to show `Could not load Etcd TLS certificates` followed by `Etcd TLS certificates loaded`, and no failure. It will not fail.
+- **Bug Fix:** Registry fails to reset stuck uploads after 20 seconds.
+- **Bug Fix:** When using OKTA SSO, the Controller would make too many requests and customers would eventually see `429 Too Many Requests`. We've found the problem and prevent extra calls from happening now.
+- **Improvement:** Clarification for how the Controler > Config > Registry URL override feature works.
+- (Required ETCD Version: >= 3.5.21)
+
+---
+
+## Previous Versions
+
 ### 1.49.0 (1.49.0-7d53dd9f) - December 4th, 2025
 
 {{< hint warning >}}
@@ -22,9 +42,6 @@ We've also updated the required ETCD version to 3.5.21.
 - **Improvement:** Logging entire payload for Start VM requests in Controller logs.
 - (Required ETCD Version: >= 3.5.21)
 
----
-
-## Previous Versions
 
 ### 1.48.3 (1.48.3-4f324404) - November 6th, 2025
 
