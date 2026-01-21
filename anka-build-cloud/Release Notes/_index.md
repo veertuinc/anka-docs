@@ -17,7 +17,7 @@ weight: 100
 
 - [Download](https://veertu.com/download-anka-build/)
 - **Bug Fix:** When uninstalling with `-f` flag, it does not remove data dirs.
-- **Bug Fix:** Starting the Controller with an incorrect path for ETCD certs causes logs to show `Could not load Etcd TLS certificates` followed by `Etcd TLS certificates loaded`, and no failure. It will not fail.
+- **Bug Fix:** Starting the Controller with an incorrect path for ETCD certs causes logs to show `Could not load Etcd TLS certificates` followed by `Etcd TLS certificates loaded`, and no failure. It will now fail the Controller.
 - **Bug Fix:** Registry fails to reset stuck uploads after 20 seconds.
 - **Bug Fix:** When using OKTA SSO, the Controller would make too many requests and customers would eventually see `429 Too Many Requests`. We've found the problem and prevent extra calls from happening now.
 - **Improvement:** Clarification for how the Controler > Config > Registry URL override feature works.
