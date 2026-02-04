@@ -78,6 +78,10 @@ In the Okta admin panel, you need to go under Security -> API -> `default` (or o
 {{< /hint >}}
 
 {{< hint info >}}
+You can return too many groups to the controller from Okta. The behavior would be logging into Okta and the Controller taking you right back to the login page after successfully logging in. You can limit the groups returned inside of Okta.
+{{< /hint >}}
+
+{{< hint info >}}
 We request the claims from /userinfo, so if `groups` does not exist, your provider configuration should be setup to do so. You'll see an error like `failed translating claims to user: no Groups claim in groups` if this is the case.
 {{< /hint >}}
 
