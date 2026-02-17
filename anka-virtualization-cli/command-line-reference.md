@@ -192,12 +192,6 @@ Outside of the config environment variables, there are a few others you might fi
 ## Cp
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/cp/_index.md" >}}
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/cp/_example.md" >}}
-## Cp
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/cp/_index.md" >}}
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/cp/_example.md" >}}
-## Cp
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/cp/_index.md" >}}
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/cp/_example.md" >}}
 ## License
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/license/_index.md" >}}
 ### license show
