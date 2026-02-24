@@ -145,6 +145,10 @@ The log level can be modified from the default 0 value. The higher the number, t
 
 #### Testing ETCD Performance
 
+{{< hint info >}}
+Update: We have a more modern and accurate [performance testing script](https://github.com/veertuinc/scripts/blob/main/etcd-performance-test.sh) available.
+{{< /hint >}}
+
 Testing ETCD performance to ensure it will run properly on your chosen hardware. This can be done by running `etcdctl check perf` command inside of the docker container:
 
 ```bash
