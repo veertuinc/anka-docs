@@ -11,6 +11,29 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.8.5 (3.8.5.211) - March 5th, 2026
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- 15.x Host OS currently has an issue where connecting to the VM over port forwarding for the first time after installing Anka will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple. 
+- Nested virtualization is not functional inside of VMs yet.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **IMPORTANT:** Once you upgrade to macOS 26, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
+- [Download Anka-3.8.5.211.pkg](https://downloads.veertu.com/anka/Anka-3.8.5.211.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.8.5.211_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.8.5.211_SHA256SUMS.sig)
+- **NOTE: Addons upgrade is not required.**
+- **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
+- **Bug Fix:** Intel: 3.8.x unable to run 2.5.7 created VMs
+- **Bug Fix:** DHCP renew fails inside VM and connectivity breaks
+- **Improvement:** By default we were blocking bonjour announcements from VMs to the host. This is now allowed by default (how macOS does it by default). However, we now need to block it when using `--no-local`. We've also added blocking of IPv6 too.
+- **Improvement:** `cli2srv: 16: connection error: Bad file descriptor` log spam removed.
+
+## Previous Versions
+
 ### 3.8.4 (3.8.4.210) - November 20th, 2025
 
 {{< hint warning >}}
@@ -29,8 +52,6 @@ ARM/Silicon specific issues:
 - **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
 - **Bug Fix:** Ability to set same MAC for two VMs, but get separate IPs/networking was not working.
 - **Improvement:** Cut down on debug logging.
-
-## Previous Versions
 
 ### 3.8.3 (3.8.3.209) - October 27th, 2025
 
