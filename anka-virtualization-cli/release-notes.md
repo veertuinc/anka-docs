@@ -23,7 +23,7 @@ ARM/Silicon specific issues:
 
 {{< /hint >}}
 
-- **IMPORTANT:** Once you upgrade to macOS 26, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
+- **IMPORTANT:** Once you upgrade to macOS 26 on your hosts, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 host OS version in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
 - [Download Anka-3.8.5.211.pkg](https://downloads.veertu.com/anka/Anka-3.8.5.211.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.8.5.211_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.8.5.211_SHA256SUMS.sig)
 - **NOTE: Addons upgrade is not required.**
 - **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
@@ -46,7 +46,7 @@ ARM/Silicon specific issues:
 
 {{< /hint >}}
 
-- **IMPORTANT:** Once you upgrade to macOS 26, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
+- **IMPORTANT:** Once you upgrade to macOS 26 on your hosts, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 host OS version in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
 - [Download Anka-3.8.4.210.pkg](https://downloads.veertu.com/anka/Anka-3.8.4.210.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.8.4.210_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.8.4.210_SHA256SUMS.sig)
 - **NOTE: Addons upgrade is not required.**
 - **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
@@ -65,7 +65,7 @@ ARM/Silicon specific issues:
 
 {{< /hint >}}
 
-- **IMPORTANT:** Once you upgrade to macOS 26, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
+- **IMPORTANT:** Once you upgrade to macOS 26 on your hosts, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 host OS version in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
 - [Download Anka-3.8.3.209.pkg](https://downloads.veertu.com/anka/Anka-3.8.3.209.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.8.3.209_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.8.3.209_SHA256SUMS.sig)
 - **NOTE: Addons upgrade is not required.**
 - **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
@@ -84,7 +84,7 @@ ARM/Silicon specific issues:
 
 {{< /hint >}}
 
-- **IMPORTANT:** Once you upgrade to macOS 26, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
+- **IMPORTANT:** Once you upgrade to macOS 26 on your hosts, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 host OS version in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
 - [Download Anka-3.8.2.208.pkg](https://downloads.veertu.com/anka/Anka-3.8.2.208.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.8.2.208_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.8.2.208_SHA256SUMS.sig)
 - **NOTE: Addons upgrade is not required.**
 - **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
@@ -105,7 +105,7 @@ ARM/Silicon specific issues:
 
 {{< /hint >}}
 
-- **IMPORTANT:** Once you upgrade to macOS 26, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
+- **IMPORTANT:** Once you upgrade to macOS 26 on your hosts, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 host OS version in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
 - [Download Anka-3.8.1.207.pkg](https://downloads.veertu.com/anka/Anka-3.8.1.207.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.8.1.207_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.8.1.207_SHA256SUMS.sig)
 - **NOTE: Addons upgrade is not required.**
 - **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
@@ -126,7 +126,7 @@ ARM/Silicon specific issues:
 {{< /hint >}}
 
 - **IMPORTANT:** This version does not support INTEL hardware. Please use 3.8.1 instead.
-- **IMPORTANT:** Once you upgrade to macOS 26, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
+- **IMPORTANT:** Once you upgrade to macOS 26 on your hosts, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 host OS version in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
 - [Download Anka-3.8.0.206.pkg](https://downloads.veertu.com/anka/Anka-3.8.0.206.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.8.0.206_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.8.0.206_SHA256SUMS.sig)
 - **NOTE: Addons upgrade is not required.**
 - **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
