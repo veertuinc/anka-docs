@@ -63,6 +63,18 @@ It's possible that this table is out of date and newer versions are supported. P
   <tr>
     <td style="vertical-align: middle">
       <b>
+        macOS 26.3.1 (25D2128) <span style="cursor: help;" title="Requires setting a disk size of 50GB or more.
+15.x host: Requires Xcode 26.2 or later on the host, fully set up (install all packages) and accepting the license.">&#8505;</span>
+        <a href="https://updates.cdn-apple.com/2026WinterFCS/fullrestores/047-88313/2E098049-1731-4415-A206-546D09301973/UniversalMac_26.3.1_25D2128_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
+          <span class="fa fa-download" style="font-size:1.2em;"></span>
+        </a>
+      </b>
+    </td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle">
+      <b>
         macOS 26.3 (25D125) <span style="cursor: help;" title="Requires setting a disk size of 50GB or more.
 15.x host: Requires Xcode 26.2 or later on the host, fully set up (install all packages) and accepting the license.">&#8505;</span>
         <a href="https://updates.cdn-apple.com/2026WinterFCS/fullrestores/047-60229/6D5DBEA5-75A0-4BEF-ACC9-5ACF9B8DF6B7/UniversalMac_26.3_25D125_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
@@ -375,6 +387,10 @@ It's possible that this table is out of date and newer versions are supported. P
 <h4 style="padding: 10px;">Anka 3 (amd64/intel)</h4>
 <table>
 <tbody style="text-align:center">
+  <tr>
+    <td style="vertical-align: middle"><b>macOS 26.3.1 (25D2128)</b></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
   <tr>
     <td style="vertical-align: middle"><b>macOS 26.1 (25B78)</b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
