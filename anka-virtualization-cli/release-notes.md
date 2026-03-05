@@ -29,7 +29,7 @@ ARM/Silicon specific issues:
 - **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
 - **Bug Fix:** Intel: 3.8.x unable to run 2.5.7 created VMs
 - **Bug Fix:** DHCP renew fails inside VM and connectivity breaks
-- **Improvement:** By default we were blocking bonjour announcements from VMs to the host. This is now allowed by default (how macOS does it by default). However, we now need to block it when using `--no-local`. We've also added blocking of IPv6 too.
+- **Improvement:** Improved `--no-local`: By default we were blocking bonjour announcements from VMs to the host. This is now allowed by default (how macOS does it by default). Only enabling `--no-local` will block the multicast traffic now. Finally, we also added blocking of IPv6.
 - **Improvement:** `cli2srv: 16: connection error: Bad file descriptor` log spam removed.
 
 ## Previous Versions
