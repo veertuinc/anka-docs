@@ -54,6 +54,56 @@ It's possible that this table is out of date and newer versions are supported. P
 {{< /hint >}}
 
 {{< rawhtml >}}
+<style>
+.vm-version-info-btn {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4em;
+  height: 1.4em;
+  margin-left: 6px;
+  padding: 0;
+  background: #f0f0f0;
+  border: none;
+  font-size: 1em;
+  color: #555;
+  transition: background 0.2s, color 0.2s;
+}
+.vm-version-info-btn:hover {
+  background: #e0e0e0;
+  color: #333;
+}
+.vm-version-notes {
+  text-align: left;
+  font-size: 0.9em;
+  display: none;
+  margin-top: 8px;
+}
+.vm-version-notes.is-open {
+  display: block;
+}
+.vm-version-notes ul {
+  margin: 0 0 0 1em;
+  padding: 0;
+}
+.vm-version-notes li {
+  margin-bottom: 0.25em;
+}
+.vm-version-notes li:last-child {
+  margin-bottom: 0;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.vm-version-info-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var notes = this.closest('td').querySelector('.vm-version-notes');
+      if (notes) notes.classList.toggle('is-open');
+    });
+  });
+});
+</script>
 <div style="display:flex; text-align: center;">
 <div style="width: 50%">
 <h4 style="padding: 10px;">Anka 3 (arm64/Silicon)</h4>
@@ -63,77 +113,91 @@ It's possible that this table is out of date and newer versions are supported. P
   <tr>
     <td style="vertical-align: middle">
       <b>
-        macOS 26.3.2 (25D2140) <details class="vm-version-details"><summary>&#8505;</summary><div class="vm-version-notes">Requires setting a disk size of 50GB or more.<br>15.x host: Requires Xcode 26.2 or later on the host, fully set up (install all packages) and accepting the license.</div></details>
+        macOS 26.3.2 (25D2140)
         <a href="https://updates.cdn-apple.com/2026WinterFCS/fullrestores/047-94879/40A2B65E-4E49-4EAA-8BEC-62A305007488/UniversalMac_26.3.2_25D2140_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
           <span class="fa fa-download" style="font-size:1.2em;"></span>
         </a>
+        <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
       </b>
+      <blockquote class="hint info vm-version-notes is-open"><ul><li>Requires setting a disk size of 50GB or more.</li><li>15.x host: Requires Xcode 26.2 or later on the host, fully set up (install all packages) and accepting the license.</li></ul></blockquote>
     </td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle">
       <b>
-        macOS 26.3.1 (25D2128) <details class="vm-version-details"><summary>&#8505;</summary><div class="vm-version-notes">Requires setting a disk size of 50GB or more.<br>15.x host: Requires Xcode 26.2 or later on the host, fully set up (install all packages) and accepting the license.</div></details>
+        macOS 26.3.1 (25D2128)
         <a href="https://updates.cdn-apple.com/2026WinterFCS/fullrestores/047-88313/2E098049-1731-4415-A206-546D09301973/UniversalMac_26.3.1_25D2128_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
           <span class="fa fa-download" style="font-size:1.2em;"></span>
         </a>
+        <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
       </b>
+      <blockquote class="hint info vm-version-notes"><ul><li>Requires setting a disk size of 50GB or more.</li><li>15.x host: Requires Xcode 26.2 or later on the host, fully set up (install all packages) and accepting the license.</li></ul></blockquote>
     </td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle">
       <b>
-        macOS 26.3 (25D125) <details class="vm-version-details"><summary>&#8505;</summary><div class="vm-version-notes">Requires setting a disk size of 50GB or more.<br>15.x host: Requires Xcode 26.2 or later on the host, fully set up (install all packages) and accepting the license.</div></details>
+        macOS 26.3 (25D125)
         <a href="https://updates.cdn-apple.com/2026WinterFCS/fullrestores/047-60229/6D5DBEA5-75A0-4BEF-ACC9-5ACF9B8DF6B7/UniversalMac_26.3_25D125_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
           <span class="fa fa-download" style="font-size:1.2em;"></span>
         </a>
+        <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
       </b>
+      <blockquote class="hint info vm-version-notes"><ul><li>Requires setting a disk size of 50GB or more.</li><li>15.x host: Requires Xcode 26.2 or later on the host, fully set up (install all packages) and accepting the license.</li></ul></blockquote>
     </td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle">
       <b>
-        macOS 26.2 (25C56) <details class="vm-version-details"><summary>&#8505;</summary><div class="vm-version-notes">Requires setting a disk size of 50GB or more.<br>15.x host: Requires Xcode 26 or later on the host, fully set up (install all packages) and accepting the license.</div></details>
+        macOS 26.2 (25C56)
         <a href="https://updates.cdn-apple.com/2025FallSeed/fullrestores/089-21529/D038FF08-78B0-4FFE-9E39-2F5A64AE46AB/UniversalMac_26.2_25C5031i_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
           <span class="fa fa-download" style="font-size:1.2em;"></span>
         </a>
+        <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
       </b>
+      <blockquote class="hint info vm-version-notes"><ul><li>Requires setting a disk size of 50GB or more.</li><li>15.x host: Requires Xcode 26 or later on the host, fully set up (install all packages) and accepting the license.</li></ul></blockquote>
     </td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle">
       <b>
-        macOS 26.1 (25B78) <details class="vm-version-details"><summary>&#8505;</summary><div class="vm-version-notes">Requires setting a disk size of 50GB or more.<br>15.x host: Requires Xcode 26 or later on the host, fully set up (install all packages) and accepting the license.</div></details>
+        macOS 26.1 (25B78)
         <a href="https://updates.cdn-apple.com/2025FallFCS/fullrestores/089-04148/791B6F00-A30B-4EB0-B2E3-257167F7715B/UniversalMac_26.1_25B78_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
           <span class="fa fa-download" style="font-size:1.2em;"></span>
         </a>
+        <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
       </b>
+      <blockquote class="hint info vm-version-notes"><ul><li>Requires setting a disk size of 50GB or more.</li><li>15.x host: Requires Xcode 26 or later on the host, fully set up (install all packages) and accepting the license.</li></ul></blockquote>
     </td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle">
       <b>
-        macOS 26.0.1 (25A362) <details class="vm-version-details"><summary>&#8505;</summary><div class="vm-version-notes">Requires setting a disk size of 50GB or more.<br>15.x host: Requires Xcode 26 or later on the host, fully set up (install all packages) and accepting the license.</div></details>
+        macOS 26.0.1 (25A362)
         <a href="https://updates.cdn-apple.com/2025FallFCS/fullrestores/093-50898/60AE7E97-3E60-441B-9B34-E603C694C5C1/UniversalMac_26.0.1_25A362_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
           <span class="fa fa-download" style="font-size:1.2em;"></span>
         </a>
+        <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
       </b>
+      <blockquote class="hint info vm-version-notes"><ul><li>Requires setting a disk size of 50GB or more.</li><li>15.x host: Requires Xcode 26 or later on the host, fully set up (install all packages) and accepting the license.</li></ul></blockquote>
     </td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
     <td style="vertical-align: middle">
       <b>
-        macOS 26.0 (25A354) <details class="vm-version-details"><summary>&#8505;</summary><div class="vm-version-notes">Requires setting a disk size of 50GB or more.<br>15.x host: Requires Xcode 26 or later on the host, fully set up (install all packages) and accepting the license.</div></details>
+        macOS 26.0 (25A354)
         <a href="https://updates.cdn-apple.com/2025FallFCS/fullrestores/093-37622/CE01FAB2-7F26-48EE-AEE4-5E57A7F6D8BB/UniversalMac_26.0_25A354_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
           <span class="fa fa-download" style="font-size:1.2em;"></span>
         </a>
+        <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
       </b>
+      <blockquote class="hint info vm-version-notes"><ul><li>Requires setting a disk size of 50GB or more.</li><li>15.x host: Requires Xcode 26 or later on the host, fully set up (install all packages) and accepting the license.</li></ul></blockquote>
     </td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
