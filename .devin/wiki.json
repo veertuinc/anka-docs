@@ -1,0 +1,17 @@
+{
+    "repo_notes": [
+      {
+        "content": ""
+      }
+    ],
+    "pages": [
+      {
+        "title": "Overview",
+        "purpose": "Introduce the Anka ecosystem at a high level: what Anka is, the two main product layers (Anka Virtualization CLI and Anka Build Cloud), how they relate to each other, and what kinds of users and workflows they support.",
+        "page_notes": [
+          { "content": "Avoid mentioning pkg files and just stick with the binary names; for anka CLI, it's 'anka'" },
+          { "content": "" }
+        ]
+      }
+    ]
+  }
