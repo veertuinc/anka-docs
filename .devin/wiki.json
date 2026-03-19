@@ -1,7 +1,7 @@
 {
     "repo_notes": [
       { "content": "Keep it really simple. No advanced guides. No need to get into depth with the Anka Build Cloud. Just the basics of using Anka CLI for now." },
-      { "content": "Avoid 'Command Execution Flow' sections and diagrams about how command execution happens. Users don't care about technical stuff like this. Focus on usage of the CLI, etc, and less about technical details." }
+      { "content": "Avoid 'Flow' sections and diagrams. Users don't care about technical stuff like this. Focus on usage of the CLI, etc, and less about technical details." }
     ],
     "pages": [
       {
