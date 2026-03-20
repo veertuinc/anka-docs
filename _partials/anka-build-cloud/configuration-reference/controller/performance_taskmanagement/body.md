@@ -8,6 +8,7 @@
 | ANKA_BATCH_TASK_COUNT | (int) | The number of tasks to get from the queue in one request (max 40)) | 2 |
 | ANKA_DIAL_TIMEOUT | (duration) | set http dial timeout) | 5s |
 | ANKA_ETCD_REQUEST_TIMEOUT | (duration) | Client side timeout for ETCD requests) | 20s |
+| ANKA_GRACEFUL_SHUTDOWN_TIMEOUT | (duration) | The duration to wait for graceful shutdown when receiving SIGINT/SIGTERM) | 10s |
 | ANKA_INSTANCE_ACTIVE_TIMEOUT | (duration) | How long before an instance is declared as 'not communicating') | 2m0s |
 | ANKA_MAX_IDLE_CONNECTION_PER_HOST | (int) | set mac idle connections per host) | 50 |
 | ANKA_NODE_ACTIVE_TIMEOUT | (duration) | How long before a node is declared as 'offline') | 2m0s |

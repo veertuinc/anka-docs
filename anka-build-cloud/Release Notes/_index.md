@@ -7,6 +7,27 @@ weight: 100
 
 ## Current Version
 
+### 1.50.0 (1.50.0-5908cc18) - March 20th, 2026
+
+{{< hint warning >}}
+- This release requires a Registry version of 1.48.0 or higher.
+- We've also updated the required ETCD version to 3.5.21.
+- The docker package will now use `image: quay.io/coreos/etcd:v3.5.25`. **Veertu dockerhub images will no longer be provided for etcd.**
+{{< /hint >}}
+
+- [Download](https://veertu.com/download-anka-build/)
+- **Bug Fix:** When nodes are restarted after joining to the controller, they would lose groups.
+- **Improvement:** Added node id to errored instances in controller UI.
+- **Improvement:** [You can now force CPU/RAM overrides to be considered when starting a VM in Resource Mode.]({{< relref "whats-new/build-cloud-1.50.0/index.md#force-cpu-ram-overrides-in-resource-mode" >}})
+- **Improvement:** [You can now change the VM name prefix.]({{< relref "whats-new/build-cloud-1.50.0/index.md#change-vm-name-prefix" >}})
+- **Improvement:** Eliminated CGO in our code, allowing customers to use our binaries anywhere. For example, in a `scratch` docker image.
+- **Improvement:** Post-"Pulling" status, the controller will mark the instance as "Scheduling" until it fully starts. Before, it would keep the status as Pulling.
+- (Required ETCD Version: >= 3.5.21)
+
+---
+
+## Previous Versions
+
 ### 1.49.1 (1.49.1-b75b7e88) - January 21st, 2026
 
 {{< hint warning >}}
@@ -22,10 +43,6 @@ weight: 100
 - **Bug Fix:** When using OKTA SSO, the Controller would make too many requests and customers would eventually see `429 Too Many Requests`. We've found the problem and prevent extra calls from happening now.
 - **Improvement:** Clarification for how the Controler > Config > Registry URL override feature works.
 - (Required ETCD Version: >= 3.5.21)
-
----
-
-## Previous Versions
 
 ### 1.49.0 (1.49.0-7d53dd9f) - December 4th, 2025
 

@@ -30,7 +30,7 @@ You can override the path of the socket by setting the `ANKA_AGENT_SOCKET` env v
 {{< /hint >}}
 
 ``` bash
-❯ sudo ankacluster join --help
+❯ ankacluster join --help
 Joins the current machine to one or many Anka Build Cloud Controllers
 
 Usage:
@@ -51,6 +51,7 @@ Flags:
       --dump-network-meter-file-name string   Filepath to dump http stats to, dir is log dir (default "http-dump.json")
       --enable-vm-monitor                     Enabled unresponsive VM monitoring. This will throw a failure when the VM becomes unresponsive for longer than the --vm-stuck-timeout
   -f, --force-no-sudo                         Force the anka_agent to start without sudo
+      --force-overrides-in-resource-mode      In resource capacity mode, use StartVmRequest VCPU/VRAM overrides (if > 0) for resource checks
   -g, --global                                DEPRECATED! Install agent into system domain
   -G, --groups string                         Specify group name (or multiple names sepearated by ',') to add the current Node to
       --heartbeat duration                    Set the duration between status updates the Node sends to the Anka Cloud Cluster (default: 5 seconds)
@@ -78,6 +79,7 @@ Flags:
       --tls-handshake-timeout duration        tls handshake timeout (default 5s)
   -V, --vcpu-override int                     Override vcpu limit for resource based capacity (default: {current physical(intel)/performance(arm) cpu count} * 2)
       --verbosity string                      verbosity level, 0 - 10 (higher number - more chatty)
+      --vm-prefix string                      VM name prefix for managed instances (dash will be added automatically) (default "mgmtManaged")
       --vm-stuck-delay duration               The time between unresponsive VM checks (default: 30s - Duration examples: 3500s, 20m, 5h)
       --vm-stuck-timeout duration             The time to wait until the VM is considered unresponsive (default: 10s - Duration examples: 3500s, 20m, 5h)
 ```
