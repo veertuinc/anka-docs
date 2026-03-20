@@ -18,7 +18,7 @@ weight: 100
 - [Download](https://veertu.com/download-anka-build/)
 - **Bug Fix:** When nodes are restarted after joining to the controller, they would lose groups.
 - **Improvement:** Added node id to errored instances in controller UI.
-- **Improvement:** [You can now force CPU/RAM overrides to be considered when starting a VM in Resource Mode.]({{< relref "whats-new/build-cloud-1.50.0/index.md#force-cpu-ram-overrides-in-resource-mode" >}})
+- **Improvement:** [You can now force CPU/RAM overrides to be considered when starting a VM in Resource Mode.]({{< relref "whats-new/build-cloud-1.50.0/index.md#force-cpuram-overrides-in-resource-mode" >}})
 - **Improvement:** [You can now change the VM name prefix.]({{< relref "whats-new/build-cloud-1.50.0/index.md#change-vm-name-prefix" >}})
 - **Improvement:** Eliminated CGO in our code, allowing customers to use our binaries anywhere. For example, in a `scratch` docker image.
 - **Improvement:** Post-"Pulling" status, the controller will mark the instance as "Scheduling" until it fully starts. Before, it would keep the status as Pulling.
