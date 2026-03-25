@@ -113,13 +113,26 @@ document.addEventListener('DOMContentLoaded', function() {
   <tr>
     <td style="vertical-align: middle">
       <b>
+        macOS 26.4 (25E246)
+        <a href="https://updates.cdn-apple.com/2026WinterFCS/fullrestores/122-00766/062A6121-2ABE-45D7-BCB1-72B666B6D2C2/UniversalMac_26.4_25E246_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
+          <span class="fa fa-download" style="font-size:1.2em;"></span>
+        </a>
+        <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
+      </b>
+      <blockquote class="hint info vm-version-notes is-open"><ul><li>Released 2026-03-24.</li><li>Requires <a href="https://downloads.veertu.com/anka/MobileDevice-26.4.pkg" target="_blank" rel="noopener">MobileDevice-26.4.pkg</a> to be installed on the host.</li><li>Requires setting a disk size of 50GB or more.</li></ul></blockquote>
+    </td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle">
+      <b>
         macOS 26.3.2 (25D2140)
         <a href="https://updates.cdn-apple.com/2026WinterFCS/fullrestores/047-94879/40A2B65E-4E49-4EAA-8BEC-62A305007488/UniversalMac_26.3.2_25D2140_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
           <span class="fa fa-download" style="font-size:1.2em;"></span>
         </a>
         <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
       </b>
-      <blockquote class="hint info vm-version-notes is-open"><ul><li>Requires setting a disk size of 50GB or more.</li><li>15.x host: Requires Xcode 26.2 or later on the host, fully set up (install all packages) and accepting the license.</li></ul></blockquote>
+      <blockquote class="hint info vm-version-notes"><ul><li>Requires setting a disk size of 50GB or more.</li></ul></blockquote>
     </td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
@@ -597,8 +610,7 @@ document.addEventListener('DOMContentLoaded', function() {
       xcodebuild -downloadComponent metalToolchain
       xcodebuild -importComponent metalToolchain
       ```
-- **[ARM]** To fully support macOS 14.x VMs, you must have macOS 14.x (or higher) on your host. Similarly, running 13.x VMs also require a minimum host macOS version of 13.x.
-- **[ARM]** Creation of 15.x VMs on 14.x hosts requires Xcode 16.2 OR the MobileDevice.pkg (inside of Xcode.app) is installed.
+- **[ARM]**  If you're running an older host OS version, you'll need to install the latest MobileDevice.pkg from the latest Xcode.app/Contents/Resources/Packages/ directory. For example, on Host OS 15.x, to create 26.4 VMs you need to install the Xcode 26.4 MobileDevice.pkg first. You can download the latest Xcode.app and then extract just the MobileDevice.pkg file from the Contents/Resources/Packages/ directory. Note, this may mean extracting it from the latest Xcode beta, depending on the version you're trying to create a VM from.
 - **[ARM]** There is also a rare problem where your Xcode is not fully set up and still creates problems. Be sure to run the following:
   ```bash
   sudo xcodebuild -license accept
