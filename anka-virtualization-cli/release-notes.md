@@ -11,6 +11,31 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.8.6 (3.8.6.212) - March 31st, 2026
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- There is an issue where connecting to the VM over port forwarding for the first time will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple. 
+- Nested virtualization is not functional inside of VMs yet.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **IMPORTANT:** Once you upgrade to macOS 26 on your hosts, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 host OS version in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
+- [Download Anka-3.8.5.211.pkg](https://downloads.veertu.com/anka/Anka-3.8.5.211.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.8.5.211_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.8.5.211_SHA256SUMS.sig)
+- **NOTE: Addons upgrade is not required.**
+- **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
+- **Bug Fix:** Duplicate port forwarding rules were allowed.
+- **Bug Fix:** Prevented `failed to load the update catalog: Error Domain=NSCocoaErrorDomain Code=256 "The file “versions.json” couldn’t be opened."` error.
+- **Bug Fix:** Click script IF statement interpreted improperly: `if "Try Again" ("Continue")` would be true if it actually was false.
+- **Bug Fix:** [Intel ONLY] ankahv SIGSEGV crash in iface_write during VM teardown.
+- **Bug Fix:** Uninstaller with `-a` wasn't removing the VM directories.
+- **Improvement:** Exposed `anka config rx_cksum` which allows for changing the location of the network packet checksum calculation. Defaults to 0, which calulates in the VM. 1 calculates in the host, but comes with a performance penalty which varies by host.
+
+## Previous Versions
+
 ### 3.8.5 (3.8.5.211) - March 5th, 2026
 
 {{< hint warning >}}
@@ -31,8 +56,6 @@ ARM/Silicon specific issues:
 - **Bug Fix:** DHCP renew fails inside VM and connectivity breaks
 - **Improvement:** Improved `--no-local`: By default we were blocking bonjour announcements from VMs to the host. This is now allowed by default (how macOS does it by default). Only enabling `--no-local` will block the multicast traffic now. Finally, we also added blocking of IPv6.
 - **Improvement:** `cli2srv: 16: connection error: Bad file descriptor` log spam removed.
-
-## Previous Versions
 
 ### 3.8.4 (3.8.4.210) - November 20th, 2025
 

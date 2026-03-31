@@ -119,6 +119,10 @@ MacOS sets the DHCP timeout to 86,400 seconds (one day) by default. We reuse the
 
 <!-- In order to change this default TTL, you can use `sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.InternetSharing.default.plist bootpd -dict DHCPLeaseTimeSecs -int 1200` (1200 = 20 minutes). -->
 
+### Network Packet Checksum Calculation
+
+Anka can calculate the network packet checksum in the VM or the host. The default is to calculate in the VM (`anka config rx_cksum 0`). This is faster and more reliable, but can cause issues with certain networking setups. You can change this with `anka config rx_cksum 1`. However, this will come with a performance penalty which varies by host.
+
 ---
 
 ## Security
