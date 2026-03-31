@@ -121,7 +121,7 @@ MacOS sets the DHCP timeout to 86,400 seconds (one day) by default. We reuse the
 
 ### Network Packet Checksum Calculation
 
-Anka can calculate the network packet checksum in the VM or the host. The default is to calculate in the VM (`anka config rx_cksum 0`). This is faster and more reliable, but can cause issues with certain networking setups. You can change this with `anka config rx_cksum 1`. However, this will come with a performance penalty which varies by host.
+Anka can calculate the network packet checksum in the VM or the host. The default is to calculate in the VM (`anka config rx_cksum 0`). This is faster and more reliable, but can cause issues with certain networking setups. You can change this with `anka config rx_cksum 1`. However, this will come with a performance penalty which varies by host. It requires VMs to be restarted to take effect.
 
 ---
 
