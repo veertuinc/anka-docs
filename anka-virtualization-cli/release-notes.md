@@ -23,8 +23,8 @@ ARM/Silicon specific issues:
 
 {{< /hint >}}
 
-- **IMPORTANT:** Once you upgrade to macOS 26 on your hosts, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 host OS version in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
 - [Download Anka-3.8.6.212.pkg](https://downloads.veertu.com/anka/Anka-3.8.6.212.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.8.6.212_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.8.6.212_SHA256SUMS.sig)
+- **IMPORTANT:** Once you upgrade to macOS 26 on your hosts, Anka 3.7.4 and older will no longer work. Please avoid upgrading to macOS 26 host OS version in production environments until you thoroughly test your existing templates and all necessary features for your team in staging and confirm they work.
 - **NOTE: Addons upgrade is not required.**
 - **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
 - **Bug Fix:** Duplicate port forwarding rules were allowed.
