@@ -32,7 +32,7 @@ ARM/Silicon specific issues:
 - **Bug Fix:** Click script IF statement interpreted improperly: `if "Try Again" ("Continue")` would be true if it actually was false.
 - **Bug Fix:** [Intel ONLY] ankahv SIGSEGV crash in iface_write during VM teardown.
 - **Bug Fix:** Uninstaller with `-a` wasn't removing the VM directories.
-- **Improvement:** Exposed `anka config rx_cksum` which allows for changing the location of the network packet checksum calculation. Defaults to 0, which calulates in the VM. 1 calculates in the host, but comes with a performance penalty which varies by host.
+- **Improvement:** [Intel ONLY] Exposed `anka config rx_cksum` which allows for changing the location of the network packet checksum calculation. Defaults to 0, which calulates in the VM. 1 calculates in the host, but comes with a performance penalty which varies by host.
 
 ## Previous Versions
 
