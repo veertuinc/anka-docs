@@ -35,7 +35,7 @@ Apple's .app installer files are currently not supported on ARM. Instead, you'll
 5. **[ARM/Silicon]** Creating VMs on 15.x macOS cannot run on 14.x hosts. However, if created on 14.x hosts, they can be run on 15.x hosts.
 
 {{< hint info >}}
-Host level Autologin/Logged in user session is not strictly required. However, to run VMs you will need to unlock the keychain. Use `security unlock-keychain -p "${PW}" login.keychain-db && security login-keychain -s login.keychain` to unlock the keychain.
+Host level Autologin/Logged in user session is not strictly required. However, to run VMs you will need to unlock the keychain. Use `sysadminctl -oldPassword "${PW}" -newPassword "${PW}" && security unlock-keychain -p "${PW}" login.keychain-db && security login-keychain -s login.keychain` to prepare and unlock the keychain and allow Virtualization to function properly. This will need to be run after each reboot before starting VMs.
 {{< /hint >}}
 
 ---
