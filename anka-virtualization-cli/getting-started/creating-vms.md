@@ -34,6 +34,10 @@ Apple's .app installer files are currently not supported on ARM. Instead, you'll
 4. The hardware you have will work with the specific OS you're running on it. Apple has limited the ability to install macOS on specific hardware models. This differs for each major version of macOS. <a href="https://support.apple.com/kb/index?q=is+compatible+with+these+computers&src=globalnav_support&type=organic&page=search&locale=en_US">You can search for the supported hardware pages for each release here.</a>
 5. **[ARM/Silicon]** Creating VMs on 15.x macOS cannot run on 14.x hosts. However, if created on 14.x hosts, they can be run on 15.x hosts.
 
+{{< hint info >}}
+Host level Autologin/Logged in user session is not strictly required. However, to run VMs you will need to unlock the keychain. Use `security unlock-keychain -p "${PW}" login.keychain-db && security login-keychain -s login.keychain` to unlock the keychain.
+{{< /hint >}}
+
 ---
 
 ## Create your first VM

@@ -25,8 +25,8 @@ usr@veertus-Mac-mini-5 Anka % sudo anka list
 
 ## Common Causes & Solutions
 
-1. [No active/logged in (to UI) user, Autologin disabled, and a few other prep steps aren't performed.]({{< relref "anka-build-cloud/getting-started/preparing-and-joining-your-nodes.md" >}})
-2. Host or VM resources were exhausted. We recommend checking host vCPUs, RAM, total VMs running on the host, and then how many resources each VM can run and be sure to tweak the VM configs to prevent overuse.
+1. Host or VM resources were exhausted. We recommend checking host vCPUs, RAM, total VMs running on the host, and then how many resources each VM can run and be sure to tweak the VM configs to prevent overuse.
+2. Keychain is not unlocked. Use `security unlock-keychain -p "${PW}" login.keychain-db` to unlock the keychain. This is especially important when autologin is disabled on the host and you're starting VMs from ssh.
 
 {{< hint warning >}}
 VMs in a failed state cannot be started until you `anka stop --force`. We also recommend `anka registry pull -l {VM Template Name}` to reset state.
