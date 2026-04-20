@@ -40,19 +40,12 @@ The JRE/JAVA version inside of the VM **must match the version inside of Jenkins
 
 1. **In the VM**, install the proper JRE/JAVA version:
     1. Within Jenkins, visit **/systemInfo** (`System Properties`) and look for `java.version`.
-    2. Use the value to determine the proper JRE/JAVA version you need to download and install in your VM Template.
+    2. Use the value to determine the proper JRE/JAVA version you need to download and install in your VM Template. We recommend using Homebrew.
 
 As an example using the Anka CLI:
 
 ```bash
-sudo anka run 14.3-jre17.48.15 bash -c '
-  set -exo pipefail;PATH=$PATH:/usr/local/bin:/opt/homebrew/bin;
-  [[ $(arch) == arm64 ]] && export ARCH=aarch64 || export ARCH=x64;
-  rm -rf zulu*;
-  curl -v -L -O https://cdn.azul.com/zulu/bin/zulu17.48.15-ca-jre17.0.10-macosx_${ARCH}.tar.gz && [ $(du -s zulu17.48.15-ca-jre17.0.10-macosx_${ARCH}.tar.gz  | awk '\''{print $1}'\'') -gt 80000 ] && \
-  tar -xzvf zulu17.48.15-ca-jre17.0.10-macosx_${ARCH}.tar.gz && \
-  sudo mkdir -p /usr/local/bin && for file in $(ls ~/zulu17.48.15-ca-jre17.0.10-macosx_${ARCH}/bin/*); do sudo rm -f /usr/local/bin/$(echo $file | rev | cut -d/ -f1 | rev); sudo ln -s $file /usr/local/bin/$(echo $file | rev | cut -d/ -f1 | rev); done && \
-  java -version && [[ ! -z $(java -version 2>&1 | grep 17.48.15) ]]'
+sudo anka run 14.3-jre17.48.15 bash -c 'PATH="$PATH:/usr/local/bin:/opt/homebrew/bin";brew install openjdk@21 && [[ $(arch) == arm64 ]] && sudo ln -sfn /opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-21.jdk || sudo ln -sfn /usr/local/opt/openjdk@21/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-21.jdk'
 ```
 
 #### SSH Launch Method
