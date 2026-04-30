@@ -13,78 +13,57 @@ aliases:
 ## MacOS Host Version Support
 
 {{< rawhtml >}}
-<div style="display:flex;">
-<table>
-<tbody style="text-align:center">
-  <tr>
-    <td style="font-size: 1.5rem; background-color: #f2e6ff;"><b>INTEL</b></td>
-    <td style="background-color: #f2e6ff;"><b>Anka 3.x</b></td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"><b>macOS 10.14</b></td>
-    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"><b>macOS 10.15</b></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;" class="emojifont">&#128721;</td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"><b>macOS 11.x</b></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;" class="emojifont">&#128721;</td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"><b>macOS 12.x</b></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;" class="emojifont">&#128721;</td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"><b>macOS 13.x</b></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"><b>macOS 14.x</b></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"><b>macOS 15.x</b></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
-  </tr>
-</tbody>
-</table>
-<table>
-<tbody style="text-align:center;">
-  <tr>
-    <td style="font-size: 1.4rem; background-color: #ccebff;"><b>Apple/ARM</b></td>
-    <td style="background-color: #ccebff;"><b>Anka 3.x</b></td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"></td>
-    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"></td>
-    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"></td>
-    <td style="font-size: 1.5rem; background-color: #c0392b;">&#128721;</td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;" class="emojifont">&#128721;</td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"></td>
-    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;**</td>
-  </tr>
-</tbody>
+<div class="compat-matrix-wrapper">
+<table class="compat-matrix">
+  <thead>
+    <tr>
+      <th scope="col">macOS host</th>
+      <th scope="col" class="compat-matrix__head-intel">Intel<br>Anka 3.x</th>
+      <th scope="col" class="compat-matrix__head-arm">Apple/ARM<br>Anka 3.x</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">macOS 10.14</th>
+      <td class="compat-matrix__cell compat-matrix__cell--unsupported" title="Not supported">&#128721;</td>
+      <td class="compat-matrix__cell compat-matrix__cell--unsupported" title="Not supported">&#128721;</td>
+    </tr>
+    <tr>
+      <th scope="row">macOS 10.15</th>
+      <td class="compat-matrix__cell compat-matrix__cell--partial emojifont" title="Supported with limitations">&#128721;</td>
+      <td class="compat-matrix__cell compat-matrix__cell--unsupported" title="Not supported">&#128721;</td>
+    </tr>
+    <tr>
+      <th scope="row">macOS 11.x</th>
+      <td class="compat-matrix__cell compat-matrix__cell--partial emojifont" title="Supported with limitations">&#128721;</td>
+      <td class="compat-matrix__cell compat-matrix__cell--unsupported" title="Not supported">&#128721;</td>
+    </tr>
+    <tr>
+      <th scope="row">macOS 12.x</th>
+      <td class="compat-matrix__cell compat-matrix__cell--partial emojifont" title="Supported with limitations">&#128721;</td>
+      <td class="compat-matrix__cell compat-matrix__cell--partial emojifont" title="Supported with limitations">&#128721;</td>
+    </tr>
+    <tr>
+      <th scope="row">macOS 13.x</th>
+      <td class="compat-matrix__cell compat-matrix__cell--supported" title="Supported">&#9989;</td>
+      <td class="compat-matrix__cell compat-matrix__cell--supported" title="Supported">&#9989;</td>
+    </tr>
+    <tr>
+      <th scope="row">macOS 14.x</th>
+      <td class="compat-matrix__cell compat-matrix__cell--supported" title="Supported">&#9989;</td>
+      <td class="compat-matrix__cell compat-matrix__cell--supported" title="Supported">&#9989;</td>
+    </tr>
+    <tr>
+      <th scope="row">macOS 15.x</th>
+      <td class="compat-matrix__cell compat-matrix__cell--supported" title="Supported">&#9989;</td>
+      <td class="compat-matrix__cell compat-matrix__cell--supported" title="Supported">&#9989;<span class="compat-matrix__footnote-mark" title="See note below regarding local network prompt">**</span></td>
+    </tr>
+    <tr>
+      <th scope="row">macOS 26.x</th>
+      <td class="compat-matrix__cell compat-matrix__cell--supported" title="Supported">&#9989;</td>
+      <td class="compat-matrix__cell compat-matrix__cell--supported" title="Supported">&#9989;<span class="compat-matrix__footnote-mark" title="See note below regarding local network prompt">**</span></td>
+    </tr>
+  </tbody>
 </table>
 </div>
 {{< /rawhtml >}}
