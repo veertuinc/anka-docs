@@ -35,7 +35,7 @@ ARM/Silicon specific issues:
 - **Improvement:** Errors now recommend the user use `anka log` to get more detailed logs.
 - **Improvement:** `anka registry list-repos` is now `anka registry --list`
 - **New Feature:** [Ability to mount host directories inside of the VM.]({{< relref "whats-new/anka-3.9.0/index.md#ability-to-mount-host-directories-inside-of-the-vm" >}})
-- **New Feature:** [OCI Registry Support.]({{< relref "whats-new/anka-3.9.0/index.md#oci-registry-support" >}})
+- **New Feature:** [OCI Registry Support.]({{< relref "whats-new/anka-3.9.0/index.md#oci-registry-support" >}}) Note that OCI is not currently compatible with the Anka Controller/Build Cloud. We will be adding support for this in a future release.
 
 ## Previous Versions
 
