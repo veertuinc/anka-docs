@@ -34,7 +34,7 @@ ARM/Silicon specific issues:
 - **Improvement:** Pulling VMs now does conversion at the same time as downloading, speeding up the pull time significantly.
 - **Improvement:** Errors now recommend the user use `anka log` to get more detailed logs.
 - **Improvement:** `anka registry list-repos` is now `anka registry --list`
-- **New Feature:** [Ability to mount host directories inside of the VM.]({{< relref "whats-new/anka-3.9.0/index.md#ability-to-mount-host-directories-as-volumes-inside-of-the-vm" >}})
+- **New Feature:** [Ability to mount host directories inside of the VM.]({{< relref "whats-new/anka-3.9.0/index.md#ability-to-mount-host-directories-inside-of-the-vm" >}})
 - **New Feature:** [OCI Registry Support.]({{< relref "whats-new/anka-3.9.0/index.md#oci-registry-support" >}})
 
 ## Previous Versions
