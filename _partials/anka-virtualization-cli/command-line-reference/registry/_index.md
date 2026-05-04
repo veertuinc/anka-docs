@@ -12,9 +12,13 @@ options:
   --cacert <val>           Use custom CA certificates location (default is /etc/ssl/certs)
   --api-key-id <val>       UAK/TAP identity
   --api-key <val>          UAK/TAP key in PEM format (path or string)
+  -o,--oci-version <val>   OCI Distribution API version
+  -u,--user <val>          User name and password
+  -p,--prefix <val>        Append prefix to VM name for OCI registry
+  --default                Show the default registry name
+  --list                   List registries configured
 
 commands:
-  list-repos               List registries configured
   add                      Add a registry
   set                      Set default registry
   remove                   Remove a registry from the configuration

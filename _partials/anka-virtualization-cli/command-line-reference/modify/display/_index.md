@@ -1,5 +1,5 @@
 ```shell
-> anka modify null display --help
+> anka modify 26.4.1-arm64 display --help
 usage: display [options]
 
    Configure displays

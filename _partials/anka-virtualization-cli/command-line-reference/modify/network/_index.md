@@ -1,5 +1,5 @@
 ```shell
-> anka modify null network --help
+> anka modify 26.4.1-arm64 network --help
 usage: network [options]
 
    Modify network card settings

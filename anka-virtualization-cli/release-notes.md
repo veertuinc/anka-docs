@@ -11,6 +11,34 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.9.0 (3.9.0.213) - May 4th, 2026
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- There is an issue where connecting to the VM over port forwarding for the first time will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple. 
+- Nested virtualization is not functional inside of VMs yet.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- [Download Anka-3.9.0.213.pkg](https://downloads.veertu.com/anka/Anka-3.9.0.213.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.9.0.213_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.9.0.213_SHA256SUMS.sig)
+- **IMPORTANT:** This release is the first of many that will deprioritize Intel. We will continue to do our best to support Intel for the indefinite future, but please upgrade to ARM hardware as soon as possible.
+- **NOTE: Addons upgrade is not required.**
+- **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
+- **Bug Fix:** [intel only] suspending was maintaining the .ank instead of using the new .img format.
+- **Bug Fix:** [intel only] No space in receive queues fixed
+- **Deprecation:** [intel only] On pull, VMs that are suspended are stopped now no matter what (no longer pulling state files).
+- **Bug Fix:** `anka registry set` now supports authentication credentials.
+- **Improvement:** Pulling VMs now does conversion at the same time as downloading, speeding up the pull time significantly.
+- **Improvement:** Errors now recommend the user use `anka log` to get more detailed logs.
+- **Improvement:** `anka registry list-repos` is now `anka registry --list`
+- **New Feature:** [Ability to mount host directories inside of the VM.]({{< relref "whats-new/anka-3.9.0/index.md#ability-to-mount-host-directories-as-volumes-inside-of-the-vm" >}})
+- **New Feature:** [OCI Registry Support.]({{< relref "whats-new/anka-3.9.0/index.md#oci-registry-support" >}})
+
+## Previous Versions
+
 ### 3.8.6 (3.8.6.212) - March 31st, 2026
 
 {{< hint warning >}}
@@ -33,8 +61,6 @@ ARM/Silicon specific issues:
 - **Bug Fix:** [Intel ONLY] ankahv SIGSEGV crash in iface_write during VM teardown.
 - **Bug Fix:** Uninstaller with `-a` wasn't removing the VM directories.
 - **Improvement:** [Intel ONLY] Exposed `anka config rx_cksum` which allows for changing the location of the network packet checksum calculation. Defaults to 0, which calulates in the VM. 1 calculates in the host, but comes with a performance penalty which varies by host.
-
-## Previous Versions
 
 ### 3.8.5 (3.8.5.211) - March 5th, 2026
 

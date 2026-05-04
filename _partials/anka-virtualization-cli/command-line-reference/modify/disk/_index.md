@@ -1,5 +1,5 @@
 ```shell
-> anka modify null disk --help
+> anka modify 26.4.1-arm64 disk --help
 usage: disk [options]
 
    Modify hard drive settings

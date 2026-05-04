@@ -13,4 +13,6 @@ options:
   -q,--quiet               Minimize output
   -v,--view                Open VM in an Anka window
   -u,--update-addons       Start in (auto)update mode
+  --mount <val>            Share host_path[:guest_folder_name] at boot (guest_folder_name defaults to host_path folder name)
+  --disable-auto-mount     Disable automatic in-guest mounting of shared folders
 ```

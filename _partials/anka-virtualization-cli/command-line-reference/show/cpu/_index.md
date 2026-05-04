@@ -1,4 +1,4 @@
 ```shell
-> anka show null cpu --help
+> anka show 26.4.1-arm64 cpu --help
 
 ```

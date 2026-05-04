@@ -2,7 +2,7 @@
 date: 2019-12-12T00:00:00-00:00
 title: "High Availability"
 linkTitle: "High Availability"
-weight: 6
+weight: 7
 description: >
   General information about setting up High Availability for the Anka Build Cloud
 ---

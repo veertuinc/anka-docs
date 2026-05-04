@@ -18,4 +18,5 @@ commands:
   disk                     Modify hard drive settings
   display                  Configure displays
   label                    Assign labels to a VM in key/value form
+  mount                    Add a host path to the VM's mounts
 ```

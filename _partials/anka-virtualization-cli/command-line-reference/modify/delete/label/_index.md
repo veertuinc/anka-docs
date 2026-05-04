@@ -1,5 +1,5 @@
 ```shell
-> anka modify null delete label --help
+> anka modify 26.4.1-arm64 delete label --help
 usage: label [options] [label...]
 
    Remove labels

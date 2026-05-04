@@ -1,12 +1,13 @@
 ```shell
 > anka unmount --help
-usage: unmount [options] [dir...]
+usage: unmount [options] vmid [mount_ref...]
 
-   Unmount the mounted directory
+   Unmounts a host path from a running VM
 
 arguments:
-  dir                      Mountpoint, ID or host directory to unount
+  vmid                     VM name or UUID
+  mount_ref                Mount reference: fsid, guest_folder_name, or host_path to unmount
 
 options:
-  -a,--all                 Unmount all mounted directories
+  -a,--all                 Unmount all host paths from a running VM
 ```

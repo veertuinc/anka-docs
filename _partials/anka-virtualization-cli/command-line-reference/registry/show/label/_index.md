@@ -1,5 +1,5 @@
 ```shell
-> anka registry show null label --help
+> anka registry show 26.4.1-arm64 label --help
 usage: label [label]
 
    Assigned template labels

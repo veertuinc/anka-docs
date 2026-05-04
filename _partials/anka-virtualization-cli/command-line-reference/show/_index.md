@@ -22,4 +22,5 @@ commands:
   network                  Network information
   port                     Port forwarding rules
   label                    Show assigned VM labels
+  mount                    Show host paths shared with the VM
 ```

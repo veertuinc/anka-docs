@@ -65,6 +65,8 @@ Outside of the config environment variables, there are a few others you might fi
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/show/port/_index.md" >}}
 ### show {name/uuid} label
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/show/label/_index.md" >}}
+### show {name/uuid} mount
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/show/mount/_index.md" >}}
 ## Modify
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/_index.md" >}}
 ### modify {name/uuid} add
@@ -87,6 +89,8 @@ Outside of the config environment variables, there are a few others you might fi
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/delete/port/_index.md" >}}
 #### modify {name/uuid} delete label
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/delete/label/_index.md" >}}
+#### modify {name/uuid} delete mount
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/delete/mount/_index.md" >}}
 ### modify {name/uuid} name
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/name/_index.md" >}}
 ### modify {name/uuid} cpu
@@ -110,6 +114,8 @@ Outside of the config environment variables, there are a few others you might fi
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/display/_index.md" >}}
 ### modify {name/uuid} label
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/label/_index.md" >}}
+### modify {name/uuid} mount
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/mount/_index.md" >}}
 ## View
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/view/_index.md" >}}
 ## Run
@@ -130,6 +136,10 @@ Outside of the config environment variables, there are a few others you might fi
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/push/_index.md" >}}
 ## Pull
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/pull/_index.md" >}}
+## Mount
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/mount/_index.md" >}}
+## Unmount
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/unmount/_index.md" >}}
 ## Usb
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/usb/_index.md" >}}
 ### usb list
@@ -148,8 +158,6 @@ Outside of the config environment variables, there are a few others you might fi
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/delete/_index.md" >}}
 ## Registry
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/registry/_index.md" >}}
-### registry list-repos
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/registry/list-repos/_index.md" >}}
 ### registry add
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/registry/add/_index.md" >}}
 ### registry set
@@ -189,6 +197,12 @@ Outside of the config environment variables, there are a few others you might fi
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/registry/pull/_index.md" >}}
 ### registry revert
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/registry/revert/_index.md" >}}
+## Cp
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/cp/_index.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/cp/_example.md" >}}
+## Cp
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/cp/_index.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/cp/_example.md" >}}
 ## Cp
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/cp/_index.md" >}}
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/cp/_example.md" >}}

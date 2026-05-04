@@ -1,4 +1,4 @@
 ```shell
-> anka show null name --help
+> anka show 26.4.1-arm64 name --help
 
 ```

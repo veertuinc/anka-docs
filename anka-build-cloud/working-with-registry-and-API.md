@@ -9,6 +9,10 @@ description: >
 
 Anka registry provides an easy way to store, version, and distribute macOS VMs that are used for CI and development. Once you've completed creation and setup of your VMs, use [`anka registry`]({{< relref "anka-virtualization-cli/command-line-reference.md#registry" >}}) command to work with the registry.  
 
+{{< hint info >}}
+Alternately, OCI compliant registries are supported in 3.9.0 and later. See [OCI Registry Support]({{< relref "whats-new/anka-3.9.0/index.md#oci-registry-support" >}}) for more details.
+{{< /hint >}}
+
 Store your build and test VM templates in the registry.  
 Then, you can pull them, modify them and push them again with a different tag to the Registry. This way you can maintain versions. Pull specific VM template and tag to a different machine running Anka package.
 

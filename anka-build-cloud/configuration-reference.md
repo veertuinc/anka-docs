@@ -1,7 +1,7 @@
 ---
 title: "Configuration Reference"
 linkTitle: "Configuration Reference"
-weight: 5
+weight: 6
 description: >
   Anka Build Cloud Configuration Reference
 ---

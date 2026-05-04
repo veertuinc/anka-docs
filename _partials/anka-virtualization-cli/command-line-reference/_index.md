@@ -21,6 +21,8 @@ commands:
   clone                    Clone a VM
   push                     Push a VM to the registry
   pull                     Pull a VM template from the registry
+  mount                    Mounts a host path to a running VM
+  unmount                  Unmounts a host path from a running VM
   usb                      Manage USB devices
   attach                   Attach USB device(s) to a running VM
   detach                   Detach USB device(s) from a VM

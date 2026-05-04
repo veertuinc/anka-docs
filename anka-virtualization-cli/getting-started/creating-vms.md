@@ -717,6 +717,12 @@ Then, you launch the Terminal application and execute `csrutil disable`. Once ex
 
 ---
 
+## Sharing host directories inside of the VM
+
+{{< include file="_partials/anka-virtualization-cli/shared-host-mount.md" >}}
+
+---
+
 ## Optimizing your VM
 
 It's recommended that you disable:

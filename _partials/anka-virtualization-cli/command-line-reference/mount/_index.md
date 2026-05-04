@@ -1,10 +1,11 @@
 ```shell
 > anka mount --help
-usage: mount [dir] [mntpoint]
+usage: mount vmid [host_path[:guest_folder_name]]
 
-   Mount or check the mounted directories the VM
+   Mounts a host path to a running VM
 
 arguments:
-  dir                      Host directory to mount
-  mntpoint                 Corresponding mountpoint inside VM
+  vmid                     VM name or UUID
+  host_path[:guest_folder_name]
+                           Mount host_path and an optional guest_folder_name (which defaults to host_path folder name if not provided)
 ```
