@@ -1,5 +1,9 @@
 Starting in 3.9.0, we've added support for sharing host directories as inside of the VM.
 
+{{< hint info >}}
+This is not currently supported on Intel.
+{{< /hint >}}
+
 ### High level
 
 - Supports multiple VMs mounting the same folder from host
@@ -17,7 +21,9 @@ Starting in 3.9.0, we've added support for sharing host directories as inside of
 
 ### Examples
 
-**IMPORTANT:** The folders you mount are all available under `/Volumes/My Shared Files` in the VM. This is not something we can change and is enforced by Apple.
+{{< hint info >}}
+The folders you mount are all available under `/Volumes/My Shared Files` in the VM. This is not something we can change and is enforced by Apple.
+{{< /hint >}}
 
 ```bash
 ❯ anka run test bash -c "ls -alht /Volumes/"
