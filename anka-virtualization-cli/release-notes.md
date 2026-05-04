@@ -23,7 +23,7 @@ ARM/Silicon specific issues:
 
 {{< /hint >}}
 
-- [Download Anka-3.9.0.213.pkg](https://downloads.veertu.com/anka/Anka-3.9.0.213.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.9.0.213_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.9.0.213_SHA256SUMS.sig)
+- [Download Anka-3.9.0.214.pkg](https://downloads.veertu.com/anka/Anka-3.9.0.215.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.9.0.215_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.9.0.215_SHA256SUMS.sig)
 - **IMPORTANT:** This release is the first of many that will deprioritize Intel. We will continue to do our best to support Intel for the indefinite future, but please upgrade to ARM hardware as soon as possible.
 - **NOTE: Addons upgrade is not required.**
 - **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
