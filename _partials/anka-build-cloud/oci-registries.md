@@ -18,6 +18,10 @@ OCI registries are not currently compatible with the Anka Controller/Build Cloud
 Registries must be OCI compliant and support the OCI Distribution API.
 {{< /hint >}}
 
+{{< hint warning >}}
+If you don't use `latest` for the tag name, we create an alias that is always available and always pulls the latest tag you've pushed.
+{{< /hint >}}
+
 ### ZOT
 
 ZOT is a simple OCI registry that can be used to store and pull Anka VM Templates.
@@ -32,7 +36,7 @@ Once added, switch to the registry with `anka registry set zot`.
 
 To push a VM template, you can use the `anka registry push {vm} -t {tag}` command.
 
-Let's say I pushed a VM template with the name `26.4.1-arm64` and the tag `latest`. This will create:
+Let's say I pushed a VM template with the name `26.4.1-arm64` and the tag `v1`. This will create:
 
 ```bash
 ❯ ./zli-darwin-arm64 --url http://127.0.0.1:15455 repo list
@@ -55,7 +59,7 @@ Once added, switch to the registry with `anka registry set dockerhub`.
 
 To push a VM template, you can use the `anka registry push {vm} -t {tag}` command.
 
-Let's say I pushed a VM template with the name `26.4.1-arm64` and the tag `latest`. This will create a repository in Dockerhub with the name `dockerhubUser/26.4.1-arm64` and a tag with the name `latest`.
+Let's say I pushed a VM template with the name `26.4.1-arm64` and the tag `v1`. This will create a repository in Dockerhub with the name `dockerhubUser/26.4.1-arm64` and a tag with the name `v1`.
 
 ### ECR Public and Private Registries
 
