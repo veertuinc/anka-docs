@@ -11,6 +11,7 @@ AMIs will be published under account ID `930457884660` (veertu official). Do not
 
 | Name         | |
 | -------------- | --- |
+| anka-build-3.9.0.215-macos-26.4.1-arm64 | anka-build-3.9.0.215-macos-15.7.5 |
 | anka-build-3.8.5.211-macos-26.3-arm64 | anka-build-3.8.5.211-macos-15.7.4 |
 | anka-build-3.8.4.210-macos-26.0.1-arm64 | Intel version not available |
 | anka-build-3.8.2.208-macos-15.6.1-arm64 | anka-build-3.8.2.208-macos-15.6.1 |
@@ -19,14 +20,3 @@ AMIs will be published under account ID `930457884660` (veertu official). Do not
 | anka-build-3.7.3.204-macos-15.5-arm64 | anka-build-3.7.3.204-macos-15.5 |
 | anka-build-3.7.1.201-macos-15.3.1-arm64 | anka-build-3.7.1.201-macos-15.3.1 |
 | anka-build-3.7.0.199-macos-15.2-arm64 | anka-build-3.7.0.199-macos-15.2 |
-| anka-build-3.6.1.198-macos-15.1.1-arm64 | anka-build-3.6.1.198-macos-15.1.1 |
-| anka-build-3.5.4.195-macos-14.7-arm64 | anka-build-3.5.4.195-macos-14.7 |
-| anka-build-3.5.2.193-macos-14.6.1-arm64 | anka-build-3.5.2.193-macos-14.6.1 |
-| anka-build-3.5.1.192-macos-14.6.1-arm64 | anka-build-3.5.1.192-macos-14.6.1 |
-| anka-build-3.4.1.189-macos-14.5-arm64 | anka-build-3.4.1.189-macos-14.5 |
-| anka-build-3.4.0.188-macos-14.5-arm64 | anka-build-3.4.0.188-macos-14.5 |
-| anka-build-3.3.10.185-macos-14.4.1-arm64 | anka-build-3.3.10.185-macos-14.4.1 |
-| anka-build-3.3.9.182-macos-14.3-arm64 | anka-build-3.3.9.182-macos-14.3 |
-| anka-build-3.3.8.178-macos-14.1.2-arm64 | anka-build-3.3.8.178-macos-14.1.2 |
-| anka-build-3.3.7.173-macos-13.5.2-arm64 | anka-build-3.3.7.173-macos-13.5.2 |
-| anka-build-3.3.4.169-macos-13.4.1-arm64 | anka-build-3.3.4.169-macos-13.4.1 |
