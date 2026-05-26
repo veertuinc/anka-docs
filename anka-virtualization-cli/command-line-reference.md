@@ -138,6 +138,7 @@ Outside of the config environment variables, there are a few others you might fi
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/pull/_index.md" >}}
 ## Mount
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/mount/_index.md" >}}
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/mount/_extra.md" >}}
 ## Unmount
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/unmount/_index.md" >}}
 ## Usb
