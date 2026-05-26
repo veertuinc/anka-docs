@@ -5,6 +5,8 @@ title: "Anka Virtualization 3.9.0"
 
 ## Ability to mount host directories inside of the VM
 
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/mount/_extra.md" >}}
+
 {{< include file="_partials/anka-virtualization-cli/shared-host-mount.md" >}}
 
 ## OCI Registry Support
