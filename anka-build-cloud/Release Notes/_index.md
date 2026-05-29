@@ -7,6 +7,25 @@ weight: 100
 
 ## Current Version
 
+### 1.50.1 (1.50.1-5e3c3f5b) - May 28th, 2026
+
+{{< hint warning >}}
+- This release requires a Registry version of 1.48.0 or higher.
+- We've also updated the required ETCD version to 3.5.21.
+- The docker package will now use `image: quay.io/coreos/etcd:v3.5.25`. **Veertu dockerhub images will no longer be provided for etcd.**
+{{< /hint >}}
+
+- [Download](https://veertu.com/download-anka-build/)
+- **Bug Fix:** Save template image was getting stuck when suspend command gets stuck.
+- **Bug Fix:** Sorting Nodes in UI by architecture was not working.
+- **Improvement:** Logging of entire VM start request payloads. For example, this will allow logs to indicate which Jenkins job started the VM.
+- **Improvement:** This release uses ETCD 3.5.30 in the built-in macOS package.
+- (Required ETCD Version: >= 3.5.21)
+
+---
+
+## Previous Versions
+
 ### 1.50.0 (1.50.0-5908cc18) - March 20th, 2026
 
 {{< hint warning >}}
@@ -23,10 +42,6 @@ weight: 100
 - **Improvement:** Eliminated CGO in our code, allowing customers to use our binaries anywhere. For example, in a `scratch` docker image.
 - **Improvement:** Post-"Pulling" status, the controller will mark the instance as "Scheduling" until it fully starts. Before, it would keep the status as Pulling.
 - (Required ETCD Version: >= 3.5.21)
-
----
-
-## Previous Versions
 
 ### 1.49.1 (1.49.1-b75b7e88) - January 21st, 2026
 
