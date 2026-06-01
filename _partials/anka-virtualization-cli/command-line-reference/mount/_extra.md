@@ -3,7 +3,7 @@
 
 Due to limitations in the way Apple allows us to mount host directories inside of the VM, we cannot guarantee that the host and guest will always have the same file contents.
 
-### Host ⇄ Guest shared folder sync support
+### Host ⇄ Guest shared folder sync limitations
 | Operation | Direction | Supported | Notes |
 |---|---|:---:|---|
 | Create new file/folder | Host → Guest | ✅ Yes | New paths appear in the guest |
