@@ -719,6 +719,8 @@ Then, you launch the Terminal application and execute `csrutil disable`. Once ex
 
 ## Sharing host directories inside of the VM
 
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/mount/_extra.md" >}}
+
 {{< include file="_partials/anka-virtualization-cli/shared-host-mount.md" >}}
 
 ---
