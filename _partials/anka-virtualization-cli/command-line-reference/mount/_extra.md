@@ -1,7 +1,6 @@
 ---
 ---
 
-{{< hint info >}}
 Due to limitations in the way Apple allows us to mount host directories inside of the VM, we cannot guarantee that the host and guest will always have the same file contents.
 
 ## Host ⇄ Guest shared folder sync support
@@ -25,5 +24,4 @@ Due to limitations in the way Apple allows us to mount host directories inside o
 ### Recommendation for users
 - Best practice: make changes **inside the guest** when you need them reflected on the host (fully bidirectional).
 - When changing files **on the host**, prefer **creating new files** or **atomic replace** (write to a temp file, then `mv`/`rename()` over the target) instead of editing in place, so the guest picks up the change.
-{{< /hint >}}
 
