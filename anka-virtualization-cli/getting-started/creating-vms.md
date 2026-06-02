@@ -130,6 +130,19 @@ document.addEventListener('DOMContentLoaded', function() {
   <tr>
     <td style="vertical-align: middle">
       <b>
+        macOS 26.5 (25F71)
+        <a href="https://updates.cdn-apple.com/2026SpringFCS/fullrestores/122-58869/DFB1CEEF-5619-4591-9924-E20DB2C8FED0/UniversalMac_26.5_25F71_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
+          <span class="fa fa-download" style="font-size:1.2em;"></span>
+        </a>
+        <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
+      </b>
+      <blockquote class="hint info vm-version-notes"><ul><li>Requires <a href="https://downloads.veertu.com/anka/MobileDevice-26.4.pkg" target="_blank" rel="noopener">MobileDevice-26.4.pkg</a> to be installed on the host.</li><li>Requires setting a disk size of 50GB or more.</li></ul></blockquote>
+    </td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle">
+      <b>
         macOS 26.4 (25E246)
         <a href="https://updates.cdn-apple.com/2026WinterFCS/fullrestores/122-00766/062A6121-2ABE-45D7-BCB1-72B666B6D2C2/UniversalMac_26.4_25E246_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
           <span class="fa fa-download" style="font-size:1.2em;"></span>
@@ -488,6 +501,10 @@ document.addEventListener('DOMContentLoaded', function() {
 <tbody style="text-align:center">
   <tr>
     <td style="vertical-align: middle"><b>macOS 26.5.1 (25F80)</b></td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle"><b>macOS 26.5 (25F71)</b></td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
   <tr>
