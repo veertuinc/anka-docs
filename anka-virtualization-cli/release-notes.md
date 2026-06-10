@@ -23,7 +23,7 @@ ARM/Silicon specific issues:
 
 {{< /hint >}}
 
-- [Download Anka-3.9.0.214.pkg](https://downloads.veertu.com/anka/Anka-3.9.0.215.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.9.0.215_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.9.0.215_SHA256SUMS.sig)
+- [Download Anka-3.9.1.216.pkg](https://downloads.veertu.com/anka/Anka-3.9.1.216.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.9.1.216_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.9.1.216_SHA256SUMS.sig)
 - **NOTE: Addons upgrade is not required.**
 - **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
 - **Bug Fix:** anka-select -l was locking up if the Spotlight index was not yet populated.
