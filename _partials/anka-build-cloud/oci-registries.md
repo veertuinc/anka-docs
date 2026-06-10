@@ -7,6 +7,7 @@ In 3.9.0 we've added support for OCI registries. This allows you to store and pu
 2. Dockerhub
 3. ECR Public and Private Registries
 4. Jfrog Artifactory
+<!-- 5. Google Artifact Registry -->
 
 Think of Anka VM Templates as Docker Images and Anka VM Tags as Docker Tags.
 
@@ -95,8 +96,20 @@ anka registry -o2 -p veertu -r https://4585690006.dkr.ecr.us-west-2.amazonaws.co
 
 - The prefix (`-p`) is the "alias" seen under Private Registry > Settings.
 - `-o2` is the OCI Distribution API version.
-- `-r` is the registry URL.
+- `-r` is the registry URL including the region.
 
 ### Jfrog Artifactory
 
 Jfrog's artifactory uses the same approach as Dockerhub. See instructions above.
+
+<!-- ### Google Artifact Registry
+
+Google Artifact Registry is a OCI compliant registry that can be used to store and pull Anka VM Templates. You must create the repository in the Google Cloud Console first as a "Docker" repository, choosing the region and name that matches the template you're pushing.
+
+```bash
+export ANKA_REGISTRY_AUTH_TOKEN=$(gcloud auth print-access-token)
+anka --debug registry -p anka-XXXXX -r https://us-west1-docker.pkg.dev/anka-XXXXX push VMNAME --tag TAG --force
+```
+
+- `-r` is the registry URL including the project ID.
+- `-force` is used to overwrite the existing VM template if it already exists. -->
