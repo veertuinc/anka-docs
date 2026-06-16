@@ -12,7 +12,7 @@ AI coding agents can execute shell commands, edit files, install packages, and r
 Anka can be used to move that work into a macOS VM. The agent runs inside the VM, the project directory is mounted into the VM, and Anka networking controls can limit communication between the VM, the host, and other local VMs.
 
 {{< hint info >}}
-## **IMPORTANT**
+## &nbsp; **IMPORTANT**
 **[Crypt](https://github.com/veertuinc/crypt)** is a helper binary that automates this workflow. It clones a prepared base Anka VM, runs coding agents (Claude Code, Codex, and others) inside the clone, and handles mount, SSH, and cleanup for you. Run `crypt claude` or `crypt codex` from a project directory for an interactive session, or `crypt claude --mount "your prompt"` / `crypt codex --mount "your prompt"` for an unattended task run. See the [Crypt README](https://github.com/veertuinc/crypt/blob/edge/README.md) for usage, flags, and examples.
 
 **Install.**
