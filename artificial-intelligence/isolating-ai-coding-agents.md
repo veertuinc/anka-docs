@@ -15,6 +15,8 @@ Anka can be used to move that work into a macOS VM. The agent runs inside the VM
 ## &nbsp; **IMPORTANT**
 **[Crypt](https://github.com/veertuinc/crypt)** is a helper binary that automates this workflow. It clones a prepared base Anka VM, runs coding agents (Claude Code, Codex, and others) inside the clone, and handles mount, SSH, and cleanup for you. Run `crypt claude` or `crypt codex` from a project directory for an interactive session, or `crypt claude --mount "your prompt"` / `crypt codex --mount "your prompt"` for an unattended task run. See the [Crypt README](https://github.com/veertuinc/crypt/blob/edge/README.md) for usage, flags, and examples.
 
+
+
 ### &nbsp; **Install**
 
 ```bash
@@ -44,6 +46,7 @@ anka stop crypt-base
 ```
 
 Name the VM `crypt-base`, or pass `--vm <name>` when running Crypt. Clones inherit whatever you install and configure in the base VM.
+
 
 ### &nbsp; **Usage**
 
