@@ -11,38 +11,39 @@ AI coding agents can execute shell commands, edit files, install packages, and r
 
 Anka can be used to move that work into a macOS VM. The agent runs inside the VM, the project directory is mounted into the VM, and Anka networking controls can limit communication between the VM, the host, and other local VMs.
 
-> [!NOTE]
-> **[Crypt](https://github.com/veertuinc/crypt)** is a helper binary that automates this workflow. It clones a prepared base Anka VM, runs coding agents (Claude Code, Codex, and others) inside the clone, and handles mount, SSH, and cleanup for you. Run `crypt claude` or `crypt codex` from a project directory for an interactive session, or `crypt claude --mount "your prompt"` / `crypt codex --mount "your prompt"` for an unattended task run. See the [Crypt README](https://github.com/veertuinc/crypt/blob/edge/README.md) for usage, flags, and examples.
->
-> **Install.**
->
-> ```bash
-> brew tap veertuinc/crypt https://github.com/veertuinc/crypt
-> brew trust veertuinc/crypt
-> brew install --cask crypt
-> ```
->
-> Or install from the release script:
->
-> ```bash
-> /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/veertuinc/crypt/edge/scripts/install.sh)"
-> ```
->
-> **Prepare a base VM (one time).** Crypt does not ship VM templates. Create a base VM, install and authenticate your agents inside it, then stop it:
->
-> ```bash
-> anka create crypt-base latest
-> anka start crypt-base
-> anka run crypt-base zsh -lc '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && brew install node'
-> anka run crypt-base zsh -lc 'npm install -g @anthropic-ai/claude-code'
-> anka run crypt-base zsh -lc 'npm install -g @openai/codex'
-> anka run crypt-base zsh -lc 'claude'    # follow the login prompts
-> anka run crypt-base zsh -lc 'codex'     # follow the login prompts
-> anka run crypt-base sudo systemsetup -setremotelogin on
-> anka stop crypt-base
-> ```
->
-> Name the VM `crypt-base`, or pass `--vm <name>` when running Crypt. Clones inherit whatever you install and configure in the base VM.
+{{< hint info >}}
+**[Crypt](https://github.com/veertuinc/crypt)** is a helper binary that automates this workflow. It clones a prepared base Anka VM, runs coding agents (Claude Code, Codex, and others) inside the clone, and handles mount, SSH, and cleanup for you. Run `crypt claude` or `crypt codex` from a project directory for an interactive session, or `crypt claude --mount "your prompt"` / `crypt codex --mount "your prompt"` for an unattended task run. See the [Crypt README](https://github.com/veertuinc/crypt/blob/edge/README.md) for usage, flags, and examples.
+
+**Install.**
+
+```bash
+brew tap veertuinc/crypt https://github.com/veertuinc/crypt
+brew trust veertuinc/crypt
+brew install --cask crypt
+```
+
+Or install from the release script:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/veertuinc/crypt/edge/scripts/install.sh)"
+```
+
+**Prepare a base VM (one time).** Crypt does not ship VM templates. Create a base VM, install and authenticate your agents inside it, then stop it:
+
+```bash
+anka create crypt-base latest
+anka start crypt-base
+anka run crypt-base zsh -lc '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && brew install node'
+anka run crypt-base zsh -lc 'npm install -g @anthropic-ai/claude-code'
+anka run crypt-base zsh -lc 'npm install -g @openai/codex'
+anka run crypt-base zsh -lc 'claude'    # follow the login prompts
+anka run crypt-base zsh -lc 'codex'     # follow the login prompts
+anka run crypt-base sudo systemsetup -setremotelogin on
+anka stop crypt-base
+```
+
+Name the VM `crypt-base`, or pass `--vm <name>` when running Crypt. Clones inherit whatever you install and configure in the base VM.
+{{< /hint >}}
 
 ## Isolation model
 
