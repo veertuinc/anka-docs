@@ -48,7 +48,7 @@ anka/26.4.1-arm64
 
 ### Dockerhub
 
-{{< hint info >}}
+{{< hint warn >}}
 Dockerhub likes to ratelimit pushes, so you may get interrupted with something like:
 
 ```bash

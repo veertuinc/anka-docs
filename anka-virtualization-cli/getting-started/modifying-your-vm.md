@@ -21,7 +21,7 @@ The rest of this Getting Started guide focuses heavily on the (Command-Line Inte
 
 ## Recommended VM Resources
 
-Over time, this information may become out of date. The goal is to provide you with an idea of the CPU and RAM to set for VMs depending on the amount you wish to run. Note that Apple does not permit more than 2 VMs per machine (this is only a strict limitation on ARM machines currently).
+The goal is to give you a starting point for CPU and RAM on your [VM Template]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md#vm-templates" >}}), based on how many VMs you plan to run at once. Apple does not permit more than 2 VMs per machine (this is only a strict limitation on ARM machines currently).
 
 ### Intel
 
@@ -29,60 +29,78 @@ To calculate the cores available for VMs, you'll take the number of physical cor
 
 ### ARM
 
-Things are similar with slightly different CPUs calculations due to the different CPU types:
+Use the host's total CPU core count from [Apple's tech specs](https://www.apple.com/mac-mini/specs/) or `sysctl hw.physicalcpu`. Apple schedules guest vCPUs across the available cores — you do not need to account for performance vs efficiency cores separately. Note, though, that Apple mixes performance and efficiency cores, so the VMs are not guaranteed to be allocated to performance cores only.
+
+#### CPU
+
+1. **Find the host's total core count** (`C`):
+   - On the host: `sysctl hw.physicalcpu`
+   - Or use the CPU core count listed in Apple's specs for your chip (e.g., an M4 Mac mini listed as 10-core → `C = 10`).
+
+2. **Assign vCPUs to each VM template:**
+   - **1 VM:** `C`, or subtract 1–2 if you want headroom for the host
+   - **2 VMs:** `C / 2`
+   - **Minimum:** 4 vCPUs per VM. Values below 4 can cause instability inside the VM.
+
+{{< hint warn >}}
+You can overcommit slightly for a 2 VM setup. But we cannot guarantee stability in these situations.
+{{< /hint >}}
+
+#### RAM
+
+RAM follows the same pattern as Intel:
+
+- **1 VM:** `totalRAMGB - 2GB`
+- **2 VMs:** `(totalRAMGB / 2) - 2GB`
+- **Mac Studio hosts:** cap per-VM RAM at 60GB (Apple virtualization limit)
+
+#### Worked examples
+
+The following hosts show the formulas applied:
 
 {{< rawhtml >}}
 <div style="display:flex;">
 <table>
 <tbody>
   <tr style="text-align:center">
-    <td style="font-size: 1.3rem; background-color: #f2e6ff;"><b>Apple/ARM</b></td>
-    <td style="background-color: #f2e6ff;"><b>1 VM</b></td>
-    <td style="background-color: #f2e6ff;"><b>2 VMs</b></td>
+    <td style="font-size: 1.3rem; background-color: #f2e6ff;"><b>Example host</b></td>
+    <td style="background-color: #f2e6ff;"><b>Cores</b></td>
+    <td style="background-color: #f2e6ff;"><b>1 VM (CPUs)</b></td>
+    <td style="background-color: #f2e6ff;"><b>2 VMs (CPUs each)</b></td>
+    <td style="background-color: #f2e6ff;"><b>RAM (32GB host)</b></td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>Mac Mini, M1/M2</b><br />8-core</td>
-    <td><b>CPUs:</b> 6 or 8-cores<br /><b>RAM:</b> totalRAMGB - 2GB</td>
-    <td><b>CPUs:</b> 4-cores<br /><b>RAM:</b> (totalRAMGB / 2) - 2GB</td>
+    <td style="vertical-align: middle"><b>M4 Mac mini</b><br />10-core</td>
+    <td>10</td>
+    <td>8–10</td>
+    <td>5-6</td>
+    <td>30GB / 14GB</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>Mac Mini, M2 Pro</b><br />10-core</td>
-    <td><b>CPUs:</b> 8 or 10-cores<br /><b>RAM:</b> totalRAMGB - 2GB</td>
-    <td><b>CPUs:</b> 6-cores<br /><b>RAM:</b> (totalRAMGB / 2) - 2GB</td>
+    <td style="vertical-align: middle"><b>M4 Pro Mac mini</b><br />14-core</td>
+    <td>14</td>
+    <td>12–14</td>
+    <td>7-8</td>
+    <td>30GB / 14GB</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>Mac Mini, M2 Pro</b><br />12-core</td>
-    <td><b>CPUs:</b> 10 or 12-cores<br /><b>RAM:</b> totalRAMGB - 2GB</td>
-    <td><b>CPUs:</b> 8-cores<br /><b>RAM:</b> (totalRAMGB / 2) - 2GB</td>
+    <td style="vertical-align: middle"><b>M4 Max Mac Studio</b><br />16-core</td>
+    <td>16</td>
+    <td>14–16</td>
+    <td>8-9</td>
+    <td>30GB / 14GB (max 60GB)</td>
   </tr>
   <tr>
-    <td style="vertical-align: middle"><b>Mac Studio, M2 Max</b><br />12-core</td>
-    <td><b>CPUs:</b> 10 or 12-cores<br /><b>RAM:</b> totalRAMGB - 2GB (max of 60GB)</td>
-    <td><b>CPUs:</b> 8-cores<br /><b>RAM:</b> (totalRAMGB / 2) - 2GB (max of 60GB)</td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"><b>Mac Studio, M2 Ultra</b><br />24-core</td>
-    <td><b>CPUs:</b> 10 or 12-cores<br /><b>RAM:</b> totalRAMGB - 2GB (max of 60GB)</td>
-    <td><b>CPUs:</b> 10 or 12-cores<br /><b>RAM:</b> (totalRAMGB / 2) - 2GB (max of 60GB)</td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"><b>Mac Studio, M1 Max, 2022</b><br />10-core</td>
-    <td><b>CPUs:</b> 8-cores<br /><b>RAM:</b> totalRAMGB - 2GB (max of 60GB)</td>
-    <td><b>CPUs:</b> 6 or 8-cores<br /><b>RAM:</b> (totalRAMGB / 2) - 2GB (max of 60GB)</td>
-  </tr>
-  <tr>
-    <td style="vertical-align: middle"><b>Mac Studio, M1 Ultra, 2022</b><br />20-core</td>
-    <td><b>CPUs:</b> 10-cores<br /><b>RAM:</b> totalRAMGB - 2GB (max of 60GB)</td>
-    <td><b>CPUs:</b> 6 or 8-cores<br /><b>RAM:</b> (totalRAMGB / 2) - 2GB (max of 60GB)</td>
+    <td style="vertical-align: middle"><b>M2 Ultra Mac Studio</b><br />24-core</td>
+    <td>24</td>
+    <td>22–24</td>
+    <td>12-13</td>
+    <td>30GB / 14GB (max 60GB)</td>
   </tr>
 </tbody>
 </table>
 </div>
 {{< /rawhtml >}}
-
-{{< hint info >}}
-Due to Ultra using the NUMA architecture, VMs/virtualization will only ever use 8 performance cores at a time.
-{{< /hint >}}
 
 ## Common Examples
 
