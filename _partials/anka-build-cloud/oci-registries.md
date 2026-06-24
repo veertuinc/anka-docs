@@ -48,6 +48,22 @@ anka/26.4.1-arm64
 
 ### Dockerhub
 
+{{< hint info >}}
+Dockerhub likes to ratelimit pushes, so you may get interrupted with something like:
+
+```bash
+Tue Jun 23 18:29:16 10 (reg) 71958: < docker-ratelimit-source: <IP>
+Tue Jun 23 18:29:16 10 (reg) 71958: <
+{"errors":[{"code":"UNAUTHORIZED","message":"authentication required","detail":[{"Type":"repository","Class":"","Name":"veertu/xxxx","Action":"pull"},{"Type":"repository","Class":"","Name":"veertu/xxxxx","Action":"push"}]}]}
+...
+Tue Jun 23 18:29:17 10 (reg) 71958: * client read function EOF fail, only only 0/2403 of needed bytes read
+Tue Jun 23 18:29:17 10 (reg) 71958: * Connection #1 to host registry.hub.docker.com left intact
+Tue Jun 23 18:29:17 40 (reg) 71958: request failed with result 26: Failed to open/read local data from file/application
+```
+
+You just need to wait and try again later if so.
+{{< /hint >}}
+
 Dockerhub is a popular registry for Docker images. Fortunately, it's ultimately OCI and we can use it to store and pull Anka VM Templates too.
 
 ```bash
