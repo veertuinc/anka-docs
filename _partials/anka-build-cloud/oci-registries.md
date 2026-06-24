@@ -48,6 +48,8 @@ anka/26.4.1-arm64
 
 ### Dockerhub
 
+#### Pushing
+
 {{< hint warn >}}
 Dockerhub likes to ratelimit pushes, so you may get interrupted with something like:
 
@@ -67,7 +69,7 @@ You just need to wait and try again later if so.
 Dockerhub is a popular registry for Docker images. Fortunately, it's ultimately OCI and we can use it to store and pull Anka VM Templates too.
 
 ```bash
-❯ anka registry -p orgName -u dockerhubUser:dckr_pat_XXXXX add dockerhub https://registry-1.docker.io
+❯ anka registry -p orgName -u dockerhubUser:dckr_pat_XXXXX add dockerhub https://registry.hub.docker.com
 ```
 
 The prefix is the either the org or user the repository is under. The `-u` is the username and password for the registry, colon separated. You can use a personal access token (PAT) for the password.
@@ -77,6 +79,10 @@ Once added, switch to the registry with `anka registry set dockerhub`.
 To push a VM template, you can use the `anka registry push {vm} -t {tag}` command.
 
 Let's say I pushed a VM template with the name `26.4.1-arm64` and the tag `v1`. This will create a repository in Dockerhub with the name `orgName/26.4.1-arm64` and a tag with the name `v1`.
+
+#### Pulling
+
+To pull a VM template from the active registry configured locally, you can use the `anka pull {vm} -t {tag}` command as normal. However, for a public repository/template/tag, you need to tell it that the registry is OCI with `-o2`. Example: `anka --debug pull -o2 veertu/crypt-base https://registry-1.docker.io`.
 
 ### ECR Public and Private Registries
 
