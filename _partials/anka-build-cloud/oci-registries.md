@@ -130,13 +130,19 @@ Google Artifact Registry is a OCI compliant registry that can be used to store a
 
 ```bash
 export ANKA_REGISTRY_AUTH_TOKEN=$(gcloud auth print-access-token)
-anka --debug registry -p {project ID}/{repository name} -r https://us-west1-docker.pkg.dev -o2 push VMNAME --tag TAG --force
+anka registry -p {project ID}/{repository name} -r https://us-west1-docker.pkg.dev -o2 push VMNAME --tag TAG --force
 ```
 
 - The prefix (`-p`) is the project ID + the repository name.
 - `-o2` is the OCI Distribution API version.
 - `-r` is the registry URL including the project ID.
 - `-force` is used to overwrite the existing VM template if it already exists.
+
+Pulling example:
+
+```bash
+anka registry -p {project ID}/{repository name} -r https://us-west1-docker.pkg.dev -o2 pull {VMNAME} -t {TAG}
+``` 
 
 ---
 
