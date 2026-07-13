@@ -641,10 +641,10 @@ anka modify VM set custom-variable hw.virtio-net.msix 0
 anka modify VM set custom-variable hw.virtio-net.vid 7582
 anka start {vm}
 anka cp -a /tmp/virtio-net.kext.tar {vm}:/tmp/
-anka run {vm} "tar -xvf /tmp/virtio-net.kext.tar -C /Library/Extensions"
-anka run {vm} "sudo kextload /Library/Extensions/virtio-net.kext"
-anka run {vm} "sudo touch /Library/Extensions"
-anka run {vm} "sudo rm -f /tmp/virtio-net.kext.tar"</code></pre></li></ul></blockquote>
+anka run {vm} bash -c "tar -xvf /tmp/virtio-net.kext.tar -C /Library/Extensions"
+anka run {vm} bash -c "sudo kextload /Library/Extensions/virtio-net.kext"
+anka run {vm} bash -c "sudo touch /Library/Extensions"
+anka run {vm} bash -c "sudo rm -f /tmp/virtio-net.kext.tar"</code></pre></li></ul></blockquote>
     </td>
   </tr>
 </tbody>
