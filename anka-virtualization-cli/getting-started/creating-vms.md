@@ -97,6 +97,28 @@ It's possible that this table is out of date and newer versions are supported. P
 .vm-version-notes li:last-child {
   margin-bottom: 0;
 }
+.vm-version-notes pre {
+  margin: 8px 0 0;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.vm-version-tables {
+  display: flex;
+  text-align: center;
+}
+.vm-version-tables > div {
+  width: 50%;
+  min-width: 0;
+}
+.vm-version-tables table {
+  width: 100%;
+  table-layout: fixed;
+}
+.vm-version-tables tr td:nth-child(2) {
+  width: 3em;
+}
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -108,8 +130,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-<div style="display:flex; text-align: center;">
-<div style="width: 50%">
+<div class="vm-version-tables">
+<div>
 <h4 style="padding: 10px;">Anka 3 (arm64/Silicon)</h4>
 <table>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -495,7 +517,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 
-<div style="width: 50%">
+<div>
 <h4 style="padding: 10px;">Anka 3 (amd64/intel)</h4>
 <table>
 <tbody style="text-align:center">
@@ -608,7 +630,22 @@ document.addEventListener('DOMContentLoaded', function() {
     <td style="font-size: 1.5rem; background-color:rgb(238, 179, 18);">&#9989;</td>
   </tr> -->
   <tr>
-    <td colspan="2" style="text-align: left; font-size: 0.9em; padding: 10px;">Note: Older macOS versions back to 10.x are also functional, but we can't offer guaranteed support for them (neither can Apple).</td>
+    <td colspan="2" style="vertical-align: middle">
+      <b>
+        Older macOS versions (back to 10.x)
+        <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
+      </b>
+      <blockquote class="hint info vm-version-notes is-open"><ul><li>Older macOS versions back to 10.x are also functional, but we can't offer guaranteed support for them (neither can Apple).</li><li>10.x VM creation requires installing a special kext in the VM for networking to function:<pre><code>curl -L https://downloads.veertu.com/anka/virtio-net.kext.tar -o /tmp/virtio-net.kext.tar
+anka stop {vm}
+anka modify VM set custom-variable hw.virtio-net.msix 0
+anka modify VM set custom-variable hw.virtio-net.vid 7582
+anka start {vm}
+anka cp -a /tmp/virtio-net.kext.tar {vm}:/tmp/
+anka run {vm} "tar -xvf /tmp/virtio-net.kext.tar -C /Library/Extensions"
+anka run {vm} "sudo kextload /Library/Extensions/virtio-net.kext"
+anka run {vm} "sudo touch /Library/Extensions"
+anka run {vm} "sudo rm -f /tmp/virtio-net.kext.tar"</code></pre></li></ul></blockquote>
+    </td>
   </tr>
 </tbody>
 </table>
@@ -618,19 +655,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ### Specific Requirements
 
-- **[Intel]** 10.x VM creation requires installing a special kext in the VM for networking to function:
-  ```bash
-  curl -L https://downloads.veertu.com/anka/virtio-net.kext.tar -o /tmp/virtio-net.kext.tar
-  anka stop {vm}
-  anka modify VM set custom-variable hw.virtio-net.msix 0
-  anka modify VM set custom-variable hw.virtio-net.vid 7582
-  anka start {vm}
-  anka cp -a /tmp/virtio-net.kext.tar {vm}:/tmp/
-  anka run {vm} "tar -xvf /tmp/virtio-net.kext.tar -C /Library/Extensions"
-  anka run {vm} "sudo kextload /Library/Extensions/virtio-net.kext"
-  anka run {vm} "sudo touch /Library/Extensions"
-  anka run {vm} "sudo rm -f /tmp/virtio-net.kext.tar"
-  ```
 - **[ARM]** Creation of later 15.x and any 26.x VMs requires you to prepare the host. The following steps are required by Apple:
   - Install Xcode 26 or later and set it up fully with the following commands:
       ```bash
