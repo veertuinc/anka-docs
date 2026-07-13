@@ -126,11 +126,11 @@ Jfrog's artifactory uses the same approach as Dockerhub. See instructions above.
 
 ### Google Artifact Registry
 
-Google Artifact Registry is a OCI compliant registry that can be used to store and pull Anka VM Templates. You must create the repository in the Google Cloud Console first as a "Docker" repository, choosing the region and name that matches the template you're pushing.
+Google Artifact Registry is a OCI compliant registry that can be used to store and pull Anka VM Templates. You must create the repository in the Google Cloud Console first as a "Docker" repository, choosing the region and a name. I like to use `anka-macos` (`{repository name}`) as my repo name and push a template that's named after the version of macOS it's for.
 
 ```bash
 export ANKA_REGISTRY_AUTH_TOKEN=$(gcloud auth print-access-token)
-anka registry -p {project ID}/{repository name} -r https://us-west1-docker.pkg.dev -o2 push VMNAME --tag TAG --force
+anka registry -p {project ID}/{repository name} -r https://us-west1-docker.pkg.dev -o2 push 26.5.2-arm64 --tag vanilla --force
 ```
 
 - The prefix (`-p`) is the project ID + the repository name.
@@ -141,7 +141,7 @@ anka registry -p {project ID}/{repository name} -r https://us-west1-docker.pkg.d
 Pulling example:
 
 ```bash
-anka registry -p {project ID}/{repository name} -r https://us-west1-docker.pkg.dev -o2 pull {VMNAME} -t {TAG}
+anka registry -p {project ID}/{repository name} -r https://us-west1-docker.pkg.dev -o2 pull 26.5.2-arm64 -t vanilla
 ``` 
 
 ---
