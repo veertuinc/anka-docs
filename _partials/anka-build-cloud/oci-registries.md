@@ -82,7 +82,7 @@ Let's say I pushed a VM template with the name `26.4.1-arm64` and the tag `v1`. 
 
 #### Pulling
 
-To pull a VM template from the active registry configured locally, you can use the `anka pull {vm} -t {tag}` command as normal. However, for a public repository/template/tag, you need to tell it that the registry is OCI with `-o2`. Example: `anka --debug pull -o2 veertu/crypt-base https://registry-1.docker.io`.
+To pull a VM template from the active registry configured locally, you can use the `anka pull {vm} -t {tag}` command as normal. However, for a public repository/template/tag, you need to tell it that the registry is OCI with `-o2`. Example: `anka --debug pull -o2 veertu/getting-started-templates https://registry-1.docker.io`.
 
 ### ECR Public and Private Registries
 
