@@ -124,14 +124,14 @@ anka registry -o2 -p veertu -r https://4585690006.dkr.ecr.us-west-2.amazonaws.co
 
 Jfrog's artifactory uses the same approach as Dockerhub. See instructions above.
 
-<!-- ### Google Artifact Registry
+### Google Artifact Registry
 
 Google Artifact Registry is a OCI compliant registry that can be used to store and pull Anka VM Templates. You must create the repository in the Google Cloud Console first as a "Docker" repository, choosing the region and name that matches the template you're pushing.
 
 ```bash
 export ANKA_REGISTRY_AUTH_TOKEN=$(gcloud auth print-access-token)
-anka --debug registry -p anka-XXXXX -r https://us-west1-docker.pkg.dev/anka-XXXXX push VMNAME --tag TAG --force
+anka --debug registry -p anka-XXXXX -r https://us-west1-docker.pkg.dev/anka-XXXXX -o2 push VMNAME --tag TAG --force
 ```
 
 - `-r` is the registry URL including the project ID.
-- `-force` is used to overwrite the existing VM template if it already exists. -->
+- `-force` is used to overwrite the existing VM template if it already exists.
