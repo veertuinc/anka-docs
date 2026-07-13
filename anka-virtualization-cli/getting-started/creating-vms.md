@@ -607,6 +607,9 @@ document.addEventListener('DOMContentLoaded', function() {
     <td style="vertical-align: middle"><b>macOS 11.7.10 (20G1427)</b></td>
     <td style="font-size: 1.5rem; background-color:rgb(238, 179, 18);">&#9989;</td>
   </tr> -->
+  <tr>
+    <td colspan="2" style="text-align: left; font-size: 0.9em; padding: 10px;">Note: Older macOS versions back to 10.x are also functional, but we can't offer guaranteed support for them (neither can Apple).</td>
+  </tr>
 </tbody>
 </table>
 </div>
@@ -615,7 +618,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ### Specific Requirements
 
-- **[Intel]** 10.13/14 VM creation requires installing a kext (https://github.com/pmj/virtio-net-osx) on the VM for networking to function.
+- **[Intel]** 10.x VM creation requires installing a special kext in the VM for networking to function:
+  ```bash
+  curl -L https://downloads.veertu.com/anka/virtio-net.kext.tar -o /tmp/virtio-net.kext.tar
+  anka stop {vm}
+  anka modify VM set custom-variable hw.virtio-net.msix 0
+  anka modify VM set custom-variable hw.virtio-net.vid 7582
+  anka start {vm}
+  anka cp -a /tmp/virtio-net.kext.tar {vm}:/tmp/
+  anka run {vm} "tar -xvf /tmp/virtio-net.kext.tar -C /Library/Extensions"
+  anka run {vm} "sudo kextload /Library/Extensions/virtio-net.kext"
+  anka run {vm} "sudo touch /Library/Extensions"
+  anka run {vm} "sudo rm -f /tmp/virtio-net.kext.tar"
+  ```
 - **[ARM]** Creation of later 15.x and any 26.x VMs requires you to prepare the host. The following steps are required by Apple:
   - Install Xcode 26 or later and set it up fully with the following commands:
       ```bash
