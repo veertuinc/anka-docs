@@ -135,3 +135,7 @@ anka --debug registry -p anka-XXXXX -r https://us-west1-docker.pkg.dev/anka-XXXX
 
 - `-r` is the registry URL including the project ID.
 - `-force` is used to overwrite the existing VM template if it already exists. -->
+
+## FAQS
+
+- If you get "uuid mismatch" error, you need to add the `--remote-vm {destination repo name}` flag to the `anka registry push` command.
