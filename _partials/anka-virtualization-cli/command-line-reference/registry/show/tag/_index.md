@@ -1,5 +1,5 @@
 ```shell
-> anka registry show 26.4.1-arm64 tag --help
+> anka registry show 15.6.1 tag --help
 usage: tag [options]
 
    Show template tags

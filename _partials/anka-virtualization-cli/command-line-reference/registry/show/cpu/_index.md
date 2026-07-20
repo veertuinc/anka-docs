@@ -1,4 +1,4 @@
 ```shell
-> anka registry show 26.4.1-arm64 cpu --help
+> anka registry show 15.6.1 cpu --help
 
 ```

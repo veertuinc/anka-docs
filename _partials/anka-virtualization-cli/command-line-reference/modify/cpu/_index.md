@@ -1,5 +1,5 @@
 ```shell
-> anka modify 26.4.1-arm64 cpu --help
+> anka modify 15.6.1 cpu --help
 usage: cpu [options] [vcpu]
 
    Set number of vcpu cores and frequency

@@ -1,5 +1,5 @@
 ```shell
-> anka modify 26.4.1-arm64 mount --help
+> anka modify 15.6.1 mount --help
 usage: mount host_path[:guest_folder_name]...
 
    Add a host path to the VM's mounts

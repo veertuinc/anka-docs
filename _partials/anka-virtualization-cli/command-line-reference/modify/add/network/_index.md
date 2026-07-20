@@ -1,5 +1,5 @@
 ```shell
-> anka modify 26.4.1-arm64 add network --help
+> anka modify 15.6.1 add network --help
 usage: network-card,network [options]
 
    Modify network card settings

@@ -1,5 +1,5 @@
 ```shell
-> anka modify 26.4.1-arm64 delete port --help
+> anka modify 15.6.1 delete port --help
 usage: port-forwarding,port [options] [rule...]
 
    Remove port forwarding rule

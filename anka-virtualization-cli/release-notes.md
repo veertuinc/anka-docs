@@ -11,6 +11,30 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.9.2 (3.9.2.217) - July 20th, 2026
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- There is an issue where connecting to the VM over port forwarding for the first time will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple. 
+- Nested virtualization is not functional inside of VMs yet.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- [Download Anka-3.9.2.217.pkg](https://downloads.veertu.com/anka/Anka-3.9.2.217.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.9.2.217_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.9.2.217_SHA256SUMS.sig)
+- **NOTE: Addons upgrade is not required.**
+- **NOTE: This version is only compatible with Anka Build Cloud 1.47.0 or later.**
+- **Bug Fix:** OCI Support for Google Artifact Registry is now functional.
+- **Bug Fix:** On certain 2TB drives, anka pull would cause the host machine to panic.
+- **Bug Fix:** [intel] Percentage for pulling would always show 100%.
+- **Bug Fix:** Pushing a large template to Dockerhub would fail at the end.
+- **Bug Fix:** Pulling could throw `probably corrupted ANK file detected: No message available on STREAM`
+- **Improvement:** Pulling speed has improved significantly in this release, even from the 3.9.1 release's existing optimizations.
+
+## Previous Versions
+
 ### 3.9.1 (3.9.1.216) - June 10th, 2026
 
 {{< hint warning >}}
@@ -33,8 +57,6 @@ ARM/Silicon specific issues:
 - **Improvement:** LOG_LEVEL for anka was defaulting to debug. It now defaults to 20/INFO.
 - **Improvement:** Several commands were doing garbage collection before they finished running. This slowed them down, sometimes significantly. We now perform GC in the background instead to avoid this. Command such as `anka delete` and even `anka push/pull` are now considerably faster.
 - **Improvement:** Optimizations around `anka pull` show massive performance improvements compared to 3.9.0.
-
-## Previous Versions
 
 ### 3.9.0 (3.9.0.214) - May 4th, 2026
 

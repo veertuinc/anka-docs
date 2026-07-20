@@ -1,5 +1,5 @@
 ```shell
-> anka show 26.4.1-arm64 tag --help
+> anka show 15.6.1 tag --help
 usage: tag [options]
 
    Local VM tags

@@ -1,5 +1,5 @@
 ```shell
-> anka modify 26.4.1-arm64 delete mount --help
+> anka modify 15.6.1 delete mount --help
 usage: mount [options] [mount_ref...]
 
    Remove host folder mount(s) from template config

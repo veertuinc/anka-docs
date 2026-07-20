@@ -1,5 +1,5 @@
 ```shell
-> anka modify 26.4.1-arm64 add port --help
+> anka modify 15.6.1 add port --help
 usage: port-forwarding,port [options] name [rule]
 
    Add port forwarding rule

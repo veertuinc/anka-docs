@@ -1,4 +1,4 @@
 ```shell
-> anka show 26.4.1-arm64 description --help
+> anka show 15.6.1 description --help
 
 ```
