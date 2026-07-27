@@ -7,7 +7,7 @@
 Cloud Controller with REST APIs | Yes(Single instance of Anka controller included) | Yes(Single instance of Anka controller included) | Yes
 [GitHub Action](https://github.com/marketplace/actions/anka-vm-github-action) | Yes | Yes | Yes
 [Jenkins Plugin](https://plugins.jenkins.io/anka-build/) | Yes | Yes | Yes
-[TeamCity Plugin](https://plugins.jetbrains.com/plugin/10733-anka-build-cloud) | Yes | Yes | Yes
+[TeamCity Plugin](https://plugins.jetbrains.com/plugin/33114-anka-build-cloud) | Yes | Yes | Yes
 [GitLab Runner with custom executor](https://github.com/veertuinc/gitlab-runner) | Yes | Yes | Yes
 [BuildKite Plugin](https://github.com/veertuinc/anka-buildkite-plugin) | Yes | Yes | Yes
 HA for Controller configuration setup | Yes (Additional controller/registry instances needed) | Yes | Yes
