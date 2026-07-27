@@ -30,7 +30,7 @@ The Anka Teamcity plugin allows you to communicate with your Anka Build Cloud Co
 ## Usage
 
 1. [Download the latest plugin zip.](https://github.com/veertuinc/teamcity-anka-cloud/releases).
-2. Upload it to your Teamcity.
+2. Upload it to your Teamcity. Or use [JetBrains Marketplace: Anka Build Cloud](https://plugins.jetbrains.com/plugin/33114-anka-build-cloud)
 3. Edit your project and under Cloud Profiles add a new Profile and configure it as follows:
   - The **Server URL** may look populated, but it will not work unless you manually type in the proper URL for your teamcity. This is the URL for your teamcity that's accessible from inside of the VM.
   - Choose the template you created for Teamcity and specify any other required fields.
