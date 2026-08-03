@@ -46,6 +46,19 @@ REPOSITORY NAME
 anka/26.4.1-arm64
 ```
 
+{{< hint info >}}
+Ensure your config sets a long or disables the timeout or else you will get a connection timeout when pushing large templates/layers:
+
+```json
+ "http": {
+    "address": "${LISTEN_ADDR}",
+    "port": "${LISTEN_PORT}",
+    "readTimeout": "0",
+    "writeTimeout": "0"
+  },
+```
+{{< /hint >}}
+
 ### Dockerhub
 
 #### Pushing
