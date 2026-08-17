@@ -7,3 +7,9 @@ description: >
 ---
 
 {{< include file="_partials/anka-build-cloud/advanced-security-features/authorization.md" >}}
+
+---
+
+### Limiting Credentials to a Maximum Number of Instances
+
+{{< include file="_partials/anka-build-cloud/advanced-security-features/instance-quotas.md" >}}

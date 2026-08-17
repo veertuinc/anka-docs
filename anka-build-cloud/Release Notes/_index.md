@@ -7,6 +7,27 @@ weight: 100
 
 ## Current Version
 
+### 1.51.0 (1.51.0-72cf2b3c) - Aug 17th, 2026
+
+{{< hint warning >}}
+- This release requires a Registry version of 1.48.0 or higher.
+- We've also updated the required ETCD version to 3.5.33.
+- The docker package will now use `image: quay.io/coreos/etcd:v3.5.33`. **Veertu dockerhub images will no longer be provided for etcd.**
+{{< /hint >}}
+
+- [Download](https://veertu.com/download-anka-build/)
+- **New Feature:** [Instance Quotas]({{< relref "whats-new/build-cloud-1.51.0/index.md#instance-quotas" >}}): You can now specify a max instance quota per Permission Group. These groups are attached to credentials and can be used to limit certain teams or tools to a certain number of instances at one time.
+- **Bug Fix:** Tags in controller UI > Templates list show the full size, not the delta
+- **Bug Fix:** Controller selects incorrect fallback group due to inaccurate capacity calculation
+- **Bug Fix:** Starting instance on cycled node group (A -> B, B -> A) will hang controller
+- **Improvement:** Docker ARM64 package is now available.
+- **Improvement:** Resizing the disk on start_vm targets disk0s2, but this has changed in latest macOS versions. We now dynamically determine the correct disk to resize.
+- (Required ETCD Version: >= 3.5.33) **NEW**
+
+---
+
+## Previous Versions
+
 ### 1.50.1 (1.50.1-5e3c3f5b) - May 28th, 2026
 
 {{< hint warning >}}
@@ -21,10 +42,6 @@ weight: 100
 - **Improvement:** Logging of entire VM start request payloads. For example, this will allow logs to indicate which Jenkins job started the VM.
 - **Improvement:** This release uses ETCD 3.5.30 in the built-in macOS package.
 - (Required ETCD Version: >= 3.5.21)
-
----
-
-## Previous Versions
 
 ### 1.50.0 (1.50.0-5908cc18) - March 20th, 2026
 
