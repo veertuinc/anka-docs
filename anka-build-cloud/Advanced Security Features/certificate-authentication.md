@@ -267,9 +267,17 @@ When creating certificates, you'll want to specify CSR values using openssl's `-
 ```
 
 - **At least one `O=` AND `CN=` is required.**
-- You can specify multiple `O=` like so: `/O=DevOps/O=iOSDEV/ . . .`
-- Within the Controller's Permission administration panel, we use **`O=`** as the **Group Name**.
+- You can specify multiple `O=` or `OU=` values like so: `/O=DevOps/O=iOSDEV/` or `/OU=DevOps/OU=iOSDEV/`.
 - Spaces are supported in `O=` and Anka Build Cloud Controller version >= 1.10.
+
+{{< hint warning >}}
+**How the Controller maps certificate fields to Permission Groups**
+
+- **Controller 1.48.0 and later:** If `OU=` is set, the Controller uses `OU=` as the group list and ignores `O=`. If `OU=` is empty, the Controller uses `O=` as the group list.
+- **Before 1.48.0:** The Controller uses `O=` as the group list.
+
+In the Controller Permission administration panel, the **Group Name** must match a value from that group list. In the example above (`/O=MyOrgName/OU=$ORG_UNIT/CN=Jenkins`), Controller 1.48.0 and later uses `$ORG_UNIT` as the group. It does not use `MyOrgName`.
+{{< /hint >}}
 
 {{< include file="_partials/anka-build-cloud/advanced-security-features/authorization.md" >}}
 
