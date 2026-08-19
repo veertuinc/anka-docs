@@ -29,7 +29,7 @@ To calculate the cores available for VMs, you'll take the number of physical cor
 
 ### ARM
 
-Use the host's total CPU core count from [Apple's tech specs](https://www.apple.com/mac-mini/specs/) or `sysctl hw.physicalcpu`. Apple schedules guest vCPUs across the available cores — you do not need to account for performance vs efficiency cores separately. Note, though, that Apple mixes performance and efficiency cores, so the VMs are not guaranteed to be allocated to performance cores only.
+Use the host's total CPU core count from [Apple's tech specs](https://www.apple.com/mac-mini/specs/) or `sysctl hw.physicalcpu`. Apple schedules guest CPUs across the available cores — you do not need to account for performance vs efficiency cores separately. Note, though, that Apple mixes performance and efficiency cores, so the VMs are not guaranteed to be allocated to performance cores only.
 
 #### CPU
 
@@ -37,10 +37,10 @@ Use the host's total CPU core count from [Apple's tech specs](https://www.apple.
    - On the host: `sysctl hw.physicalcpu`
    - Or use the CPU core count listed in Apple's specs for your chip (e.g., an M4 Mac mini listed as 10-core → `C = 10`).
 
-2. **Assign vCPUs to each VM template:**
+2. **Assign CPUs to each VM template:**
    - **1 VM:** `C`, or subtract 1–2 if you want headroom for the host
    - **2 VMs:** `C / 2`
-   - **Minimum:** 4 vCPUs per VM. Values below 4 can cause instability inside the VM.
+   - **Minimum:** 4 CPUs per VM. Values below 4 can cause instability inside the VM.
 
 {{< hint warn >}}
 You can overcommit slightly for a 2 VM setup. But we cannot guarantee stability in these situations.
