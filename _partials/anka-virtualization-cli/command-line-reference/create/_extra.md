@@ -11,9 +11,7 @@ A few tips when creating VMs:
 
 - **Remember that VM templates are created under a specific user and will not be available to other users.**
 
-- VM performance is important to our users. When setting CPUs for the VMs, 2vCPUs is usually not enough and can cause instability inside of the VM. 
-  - **ARM USERS:** VCPUs are determined by taking the physical performance cores and multiplying by 2. This means you can set the CPU on creation for an M1 mini with 4 physical perf cores to `anka create --cpu-count 4`, and run two VMs per host (8vCPUs available).
-  - **INTEL USERS:** We recommend taking the total physical cores, doubling it, and then subtracting 2cpu. This leaves you with total virtual cores that can be used by VMs. If you plan to run 2 VMs at a time, divide the total vCPU in half and give the VM the result.
+- VM performance is important to our users. When setting CPUs for the VMs, 2vCPUs is usually not enough and can cause instability inside of the VM. Please see [Modifying Your VM](/anka/anka-virtualization-cli/getting-started/modifying-your-vm#arm) for more information.
 
 - If you experience issues, run `anka --debug create. . .` and provide it to Veertu's support.
 
