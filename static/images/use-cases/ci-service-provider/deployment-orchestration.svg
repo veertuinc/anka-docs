@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-label="Azure blob storage, azcopy import on Mac hosts, custom orchestrator schedules jobs">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 228" role="img" aria-label="Azure blob storage, azcopy import on Mac hosts, custom orchestrator schedules jobs">
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
       <path d="M0,0 L10,5 L0,10 Z" fill="#30638E"/>
@@ -6,62 +6,67 @@
     <style>
       .title { font: 600 16px system-ui, sans-serif; fill: #1f2937; }
       .section { font: 13px system-ui, sans-serif; fill: #374151; }
-      .label { font: 13px system-ui, sans-serif; fill: #374151; }
+      .label { font: 12px system-ui, sans-serif; fill: #374151; }
       .small { font: 11px system-ui, sans-serif; fill: #6b7280; }
-      .edge-label { font: 12px system-ui, sans-serif; fill: #30638E; }
+      .edge-label { font: 11px system-ui, sans-serif; fill: #30638E; }
       .label-bg { fill: #f8fafc; }
       .box { fill: #ffffff; stroke: #624495; stroke-width: 2; }
       .storage { fill: #0078d4; stroke: #0078d4; stroke-width: 2; }
-      .storage-text { font: 600 13px system-ui, sans-serif; fill: #ffffff; }
-      .storage-sub { font: 12px system-ui, sans-serif; fill: #ffffff; }
+      .storage-text { font: 600 12px system-ui, sans-serif; fill: #ffffff; }
+      .storage-sub { font: 11px system-ui, sans-serif; fill: #ffffff; }
       .hub { fill: #624495; stroke: #624495; stroke-width: 2; }
-      .hub-text { font: 600 13px system-ui, sans-serif; fill: #ffffff; }
-      .hub-sub { font: 12px system-ui, sans-serif; fill: #ffffff; }
+      .hub-text { font: 600 12px system-ui, sans-serif; fill: #ffffff; }
       .host { fill: #f5f3ff; stroke: #624495; stroke-width: 2; }
       .connector { fill: none; stroke: #30638E; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     </style>
   </defs>
-  <rect width="900" height="300" fill="#f8fafc"/>
-  <text x="450" y="28" text-anchor="middle" class="title">Template rollout and job orchestration (no Controller / Registry)</text>
+  <rect width="840" height="228" fill="#f8fafc"/>
+  <text x="420" y="22" text-anchor="middle" class="title">Template rollout and job orchestration (no Controller / Registry)</text>
 
-  <text x="130" y="52" text-anchor="middle" class="section">Golden template</text>
-  <rect x="40" y="64" width="180" height="72" rx="10" class="storage"/>
-  <text x="130" y="92" text-anchor="middle" dominant-baseline="middle" class="storage-text">Azure Blob</text>
-  <text x="130" y="112" text-anchor="middle" dominant-baseline="middle" class="storage-sub">anka export archive</text>
+  <!-- Column 1: Golden template (center x=130) -->
+  <text x="130" y="42" text-anchor="middle" class="section">Golden template</text>
 
-  <rect x="40" y="148" width="180" height="52" rx="8" class="box"/>
-  <text x="130" y="168" text-anchor="middle" dominant-baseline="middle" class="label">Platform build host</text>
+  <rect x="45" y="52" width="170" height="56" rx="8" class="storage"/>
+  <text x="130" y="74" text-anchor="middle" dominant-baseline="middle" class="storage-text">Azure Blob</text>
+  <text x="130" y="92" text-anchor="middle" dominant-baseline="middle" class="storage-sub">anka export archive</text>
+
+  <rect x="45" y="158" width="170" height="36" rx="8" class="box"/>
+  <text x="130" y="172" text-anchor="middle" dominant-baseline="middle" class="label">Platform build host</text>
   <text x="130" y="186" text-anchor="middle" dominant-baseline="middle" class="small">anka export, upload</text>
 
-  <line x1="130" y1="116" x2="130" y2="144" class="connector" marker-end="url(#arrow)"/>
-  <rect x="88" y="122" width="44" height="16" rx="3" class="label-bg"/>
-  <text x="110" y="134" text-anchor="middle" class="edge-label">upload</text>
+  <!-- Build host → Azure (vertical gap 108–158) -->
+  <line x1="130" y1="158" x2="130" y2="108" class="connector" marker-end="url(#arrow)"/>
+  <rect x="142" y="126" width="40" height="14" rx="3" class="label-bg"/>
+  <text x="162" y="136" text-anchor="middle" class="edge-label">upload</text>
 
-  <text x="450" y="52" text-anchor="middle" class="section">Mac node pool</text>
+  <!-- Column 2: Mac node pool (center x=395, x=255–535) -->
+  <text x="395" y="42" text-anchor="middle" class="section">Mac node pool</text>
 
-  <rect x="280" y="64" width="340" height="136" rx="10" class="host"/>
-  <text x="450" y="88" text-anchor="middle" class="label">Mac host (repeated across pool)</text>
-  <text x="450" y="108" text-anchor="middle" class="small">azcopy + anka import</text>
-  <text x="450" y="128" text-anchor="middle" class="small">imported template on disk</text>
-  <text x="450" y="148" text-anchor="middle" class="small">orchestrator: clone, start, terminate</text>
+  <rect x="255" y="52" width="280" height="104" rx="8" class="host"/>
+  <text x="395" y="78" text-anchor="middle" class="label">Mac host (repeated across pool)</text>
+  <text x="395" y="98" text-anchor="middle" class="small">azcopy + anka import, template on disk</text>
+  <text x="395" y="118" text-anchor="middle" class="small">orchestrator: clone, start, terminate</text>
 
-  <line x1="220" y1="174" x2="278" y2="120" class="connector" marker-end="url(#arrow)"/>
-  <rect x="222" y="128" width="72" height="16" rx="3" class="label-bg"/>
-  <text x="258" y="140" text-anchor="middle" class="edge-label">azcopy + import</text>
+  <!-- Azure → Mac pool (lane y=80, gutter 215–255) -->
+  <line x1="215" y1="80" x2="255" y2="80" class="connector" marker-end="url(#arrow)"/>
+  <rect x="218" y="64" width="36" height="14" rx="3" class="label-bg"/>
+  <text x="236" y="74" text-anchor="middle" class="edge-label">azcopy</text>
 
-  <text x="720" y="52" text-anchor="middle" class="section">CI product</text>
+  <!-- Column 3: CI product (center x=700, x=615–785) -->
+  <text x="700" y="42" text-anchor="middle" class="section">CI product</text>
 
-  <rect x="640" y="88" width="160" height="72" rx="36" class="hub"/>
-  <text x="720" y="118" text-anchor="middle" dominant-baseline="middle" class="hub-text">Provider</text>
-  <text x="720" y="138" text-anchor="middle" dominant-baseline="middle" class="hub-sub">orchestrator</text>
+  <rect x="615" y="62" width="170" height="40" rx="8" class="hub"/>
+  <text x="700" y="82" text-anchor="middle" dominant-baseline="middle" class="hub-text">Provider orchestrator</text>
 
-  <rect x="640" y="180" width="160" height="52" rx="8" class="box"/>
-  <text x="720" y="200" text-anchor="middle" dominant-baseline="middle" class="label">Customer jobs</text>
-  <text x="720" y="218" text-anchor="middle" dominant-baseline="middle" class="small">API / GitHub-style runners</text>
+  <rect x="615" y="158" width="170" height="36" rx="8" class="box"/>
+  <text x="700" y="172" text-anchor="middle" dominant-baseline="middle" class="label">Customer jobs</text>
+  <text x="700" y="186" text-anchor="middle" dominant-baseline="middle" class="small">API / GitHub-style runners</text>
 
-  <line x1="640" y1="124" x2="622" y2="124" class="connector" marker-end="url(#arrow)"/>
-  <line x1="720" y1="160" x2="720" y2="178" class="connector" marker-end="url(#arrow)"/>
-  <line x1="620" y1="124" x2="450" y2="124" class="connector" marker-end="url(#arrow)"/>
-  <rect x="510" y="106" width="50" height="16" rx="3" class="label-bg"/>
-  <text x="535" y="118" text-anchor="middle" class="edge-label">schedule</text>
+  <!-- Customer jobs → orchestrator -->
+  <line x1="700" y1="158" x2="700" y2="102" class="connector" marker-end="url(#arrow)"/>
+
+  <!-- Orchestrator → Mac pool (lane y=82 = hub vertical center, gutter 535–615) -->
+  <line x1="615" y1="82" x2="535" y2="82" class="connector" marker-end="url(#arrow)"/>
+  <rect x="558" y="66" width="48" height="14" rx="3" class="label-bg"/>
+  <text x="582" y="76" text-anchor="middle" class="edge-label">schedule</text>
 </svg>
