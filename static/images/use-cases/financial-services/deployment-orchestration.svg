@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 250" role="img" aria-label="Anka Registry, Anklet receiver and handlers, Mac node pool">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#30638E"/>
+    </marker>
+    <style>
+      .title { font: 600 16px system-ui, sans-serif; fill: #1f2937; }
+      .section { font: 13px system-ui, sans-serif; fill: #374151; }
+      .label { font: 13px system-ui, sans-serif; fill: #374151; }
+      .small { font: 11px system-ui, sans-serif; fill: #6b7280; }
+      .edge-label { font: 12px system-ui, sans-serif; fill: #30638E; }
+      .label-bg { fill: #f8fafc; }
+      .box { fill: #ffffff; stroke: #624495; stroke-width: 2; }
+      .storage { fill: #624495; stroke: #624495; stroke-width: 2; }
+      .storage-text { font: 600 13px system-ui, sans-serif; fill: #ffffff; }
+      .storage-sub { font: 12px system-ui, sans-serif; fill: #ffffff; }
+      .hub { fill: #30638E; stroke: #30638E; stroke-width: 2; }
+      .hub-text { font: 600 13px system-ui, sans-serif; fill: #ffffff; }
+      .hub-sub { font: 12px system-ui, sans-serif; fill: #ffffff; }
+      .host { fill: #f5f3ff; stroke: #624495; stroke-width: 2; }
+      .connector { fill: none; stroke: #30638E; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="840" height="250" fill="#f8fafc"/>
+  <text x="420" y="24" text-anchor="middle" class="title">Anklet orchestration with Registry (no Controller)</text>
+
+  <!-- Column 1: Template Catalog -->
+  <text x="140" y="46" text-anchor="middle" class="section">Template Catalog</text>
+
+  <rect x="40" y="58" width="200" height="76" rx="10" class="storage"/>
+  <text x="140" y="88" text-anchor="middle" dominant-baseline="middle" class="storage-text">Anka Registry</text>
+  <text x="140" y="108" text-anchor="middle" dominant-baseline="middle" class="storage-sub">approved tags</text>
+
+  <rect x="40" y="152" width="200" height="48" rx="8" class="box"/>
+  <text x="140" y="170" text-anchor="middle" dominant-baseline="middle" class="label">Platform build host</text>
+  <text x="140" y="186" text-anchor="middle" dominant-baseline="middle" class="small">publish after review</text>
+
+  <!-- Platform build → Registry -->
+  <line x1="140" y1="152" x2="140" y2="134" class="connector" marker-end="url(#arrow)"/>
+  <rect x="152" y="138" width="44" height="14" rx="3" class="label-bg"/>
+  <text x="174" y="148" text-anchor="middle" class="edge-label">publish</text>
+
+  <!-- Column 2: Mac node pool -->
+  <text x="418" y="46" text-anchor="middle" class="section">Mac node pool</text>
+
+  <rect x="268" y="58" width="300" height="142" rx="10" class="host"/>
+  <text x="418" y="88" text-anchor="middle" class="label">Mac host (repeated across pool)</text>
+  <text x="418" y="110" text-anchor="middle" class="small">Anka CLI + Anklet handler plugin</text>
+  <text x="418" y="132" text-anchor="middle" class="small">pull tag from Registry</text>
+  <text x="418" y="154" text-anchor="middle" class="small">clone, start, terminate VM</text>
+
+  <!-- Registry → Mac pool -->
+  <line x1="240" y1="96" x2="266" y2="96" class="connector" marker-end="url(#arrow)"/>
+  <rect x="242" y="80" width="30" height="14" rx="3" class="label-bg"/>
+  <text x="257" y="90" text-anchor="middle" class="edge-label">pull</text>
+
+  <!-- Column 3: CI -->
+  <text x="700" y="46" text-anchor="middle" class="section">CI inside bank network</text>
+
+  <rect x="600" y="68" width="200" height="56" rx="8" class="hub"/>
+  <text x="700" y="90" text-anchor="middle" dominant-baseline="middle" class="hub-text">Anklet receiver</text>
+  <text x="700" y="108" text-anchor="middle" dominant-baseline="middle" class="hub-sub">Linux + Redis queue</text>
+
+  <rect x="600" y="152" width="200" height="48" rx="8" class="box"/>
+  <text x="700" y="170" text-anchor="middle" dominant-baseline="middle" class="label">GitHub Actions</text>
+  <text x="700" y="186" text-anchor="middle" dominant-baseline="middle" class="small">workflow jobs</text>
+
+  <!-- GitHub Actions → receiver -->
+  <line x1="700" y1="152" x2="700" y2="124" class="connector" marker-end="url(#arrow)"/>
+
+  <!-- Receiver → Mac pool -->
+  <line x1="600" y1="96" x2="568" y2="96" class="connector" marker-end="url(#arrow)"/>
+  <rect x="572" y="80" width="48" height="14" rx="3" class="label-bg"/>
+  <text x="596" y="90" text-anchor="middle" class="edge-label">enqueue</text>
+</svg>

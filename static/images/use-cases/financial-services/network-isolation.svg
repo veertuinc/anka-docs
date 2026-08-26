@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-label="VM network isolation with no-local and block local">
+  <defs>
+    <style>
+      .title { font: 600 16px system-ui, sans-serif; fill: #1f2937; }
+      .label { font: 14px system-ui, sans-serif; fill: #374151; }
+      .small { font: 12px system-ui, sans-serif; fill: #6b7280; }
+      .host { fill: #fff7ed; stroke: #f59e0b; stroke-width: 2; }
+      .vm { fill: #ecfdf5; stroke: #059669; stroke-width: 2; }
+      .creds { fill: #ffffff; stroke: #624495; stroke-width: 1.5; }
+      .block { stroke: #e21e79; stroke-width: 2.5; fill: none; stroke-dasharray: 5 4; }
+      .block-label { font: 12px system-ui, sans-serif; fill: #e21e79; }
+      .block-sub { font: 11px system-ui, sans-serif; fill: #e21e79; }
+      .ok { stroke: #30638E; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#30638E"/>
+    </marker>
+  </defs>
+  <rect width="800" height="400" fill="#f8fafc"/>
+  <text x="400" y="32" text-anchor="middle" class="title">Network isolation on a shared node</text>
+
+  <!-- Mac node host -->
+  <rect x="64" y="56" width="672" height="288" rx="12" class="host"/>
+  <text x="400" y="84" text-anchor="middle" class="label">Mac node (host)</text>
+
+  <!-- LOB B VM -->
+  <rect x="120" y="112" width="168" height="88" rx="8" class="vm"/>
+  <text x="204" y="148" text-anchor="middle" dominant-baseline="middle" class="label">LOB B VM</text>
+  <text x="204" y="170" text-anchor="middle" dominant-baseline="middle" class="small">engine build</text>
+
+  <!-- LOB A VM -->
+  <rect x="512" y="112" width="168" height="88" rx="8" class="vm"/>
+  <text x="596" y="148" text-anchor="middle" dominant-baseline="middle" class="label">LOB A VM</text>
+  <text x="596" y="170" text-anchor="middle" dominant-baseline="middle" class="small">editor CI</text>
+
+  <!-- Outbound CI (allowed) -->
+  <line x1="204" y1="112" x2="204" y2="92" class="ok" marker-end="url(#arrow)"/>
+  <text x="204" y="78" text-anchor="middle" class="small">outbound CI</text>
+  <line x1="596" y1="112" x2="596" y2="92" class="ok" marker-end="url(#arrow)"/>
+  <text x="596" y="78" text-anchor="middle" class="small">outbound CI</text>
+
+  <!-- no-local blocks VM to VM -->
+  <line x1="288" y1="168" x2="512" y2="168" class="block"/>
+  <text x="400" y="120" text-anchor="middle" class="block-label">--no-local</text>
+  <text x="400" y="136" text-anchor="middle" class="block-sub">blocks VM to VM</text>
+
+  <!-- Host + Registry creds -->
+  <rect x="315" y="248" width="170" height="52" rx="8" class="creds"/>
+  <text x="400" y="268" text-anchor="middle" dominant-baseline="middle" class="small">Host + Registry creds</text>
+  <text x="400" y="284" text-anchor="middle" dominant-baseline="middle" class="small">(outside VMs)</text>
+
+  <!-- no-local blocks VM to host -->
+  <line x1="204" y1="200" x2="340" y2="248" class="block"/>
+  <text x="152" y="230" text-anchor="middle" class="block-label">--no-local</text>
+  <text x="152" y="244" text-anchor="middle" class="block-sub">blocks VM to host</text>
+  <line x1="596" y1="200" x2="460" y2="248" class="block"/>
+  <text x="648" y="230" text-anchor="middle" class="block-label">--no-local</text>
+  <text x="648" y="244" text-anchor="middle" class="block-sub">blocks VM to host</text>
+
+  <text x="400" y="360" text-anchor="middle" class="small">Set on production template tags. Add IP filtering (`block local`) for another layer.</text>
+  <text x="400" y="378" text-anchor="middle" class="small">Controller can apply --no-local at VM start.</text>
+</svg>

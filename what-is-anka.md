@@ -20,6 +20,8 @@ description: >
 
 {{< include file="_partials/what-is-anka/_ways-to-use.md" >}}
 
+For examples of how organizations run Anka, see [Use Cases]({{< relref "use-cases/_index.md" >}}).
+
 ---
 
 {{< include file="_partials/what-is-anka/anka-build-cloud.md" >}}

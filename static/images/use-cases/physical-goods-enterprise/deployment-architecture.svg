@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" role="img" aria-label="CI systems, EC2 Controller and Registry, EC2 Mac node pool in same AWS region VPC">
+  <style>
+    .title { font: 600 16px system-ui, sans-serif; fill: #1f2937; }
+    .label { font: 14px system-ui, sans-serif; fill: #374151; }
+    .small { font: 12px system-ui, sans-serif; fill: #6b7280; }
+    .edge-label { font: 12px system-ui, sans-serif; fill: #30638E; }
+    .vpc-label { font: 12px system-ui, sans-serif; fill: #6b7280; font-style: italic; }
+    .box { fill: #ffffff; stroke: #624495; stroke-width: 2; }
+    .ctrl { fill: #624495; }
+    .ctrl-text { font: 600 13px system-ui, sans-serif; fill: #ffffff; }
+    .linux { fill: #f0fdf4; stroke: #059669; stroke-width: 2; }
+    .ec2 { fill: #fff7ed; stroke: #ea580c; stroke-width: 2; }
+    .vm { fill: #ffffff; stroke: #059669; stroke-width: 1.5; }
+    .vpc { fill: none; stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 8 4; }
+    .connector { fill: none; stroke: #30638E; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .private { stroke: #059669; }
+  </style>
+  <rect width="820" height="400" fill="#f8fafc"/>
+  <text x="410" y="28" text-anchor="middle" class="title">Controller, Registry, and EC2 Mac nodes in one AWS region</text>
+
+  <rect x="40" y="72" width="180" height="68" rx="8" class="box"/>
+  <text x="130" y="100" text-anchor="middle" class="label">CI systems</text>
+  <text x="130" y="120" text-anchor="middle" class="small">Jenkins, GitLab, GitHub Actions</text>
+
+  <rect x="260" y="56" width="520" height="300" rx="12" class="vpc"/>
+  <text x="520" y="78" text-anchor="middle" class="vpc-label">Same AWS region and VPC (private network)</text>
+
+  <rect x="288" y="96" width="200" height="88" rx="8" class="linux"/>
+  <text x="388" y="118" text-anchor="middle" class="small">EC2 instance (Linux)</text>
+  <rect x="300" y="128" width="176" height="48" rx="8" class="ctrl"/>
+  <text x="388" y="150" text-anchor="middle" class="ctrl-text">Anka Controller</text>
+  <text x="388" y="168" text-anchor="middle" class="ctrl-text">+ Registry</text>
+
+  <text x="600" y="118" text-anchor="middle" class="label">EC2 Mac node pool</text>
+
+  <rect x="520" y="132" width="200" height="76" rx="8" class="ec2"/>
+  <text x="620" y="148" text-anchor="middle" class="small">EC2 Mac node</text>
+  <rect x="532" y="158" width="68" height="40" rx="5" class="vm"/>
+  <text x="566" y="182" text-anchor="middle" class="small">VM</text>
+  <rect x="640" y="158" width="68" height="40" rx="5" class="vm"/>
+  <text x="674" y="182" text-anchor="middle" class="small">VM</text>
+
+  <rect x="520" y="224" width="200" height="76" rx="8" class="ec2"/>
+  <text x="620" y="240" text-anchor="middle" class="small">EC2 Mac node</text>
+  <rect x="532" y="250" width="68" height="40" rx="5" class="vm"/>
+  <text x="566" y="274" text-anchor="middle" class="small">VM</text>
+  <rect x="640" y="250" width="68" height="40" rx="5" class="vm"/>
+  <text x="674" y="274" text-anchor="middle" class="small">VM</text>
+
+  <line x1="220" y1="106" x2="260" y2="106" class="connector"/>
+  <line x1="260" y1="106" x2="288" y2="140" class="connector"/>
+  <text x="248" y="96" text-anchor="middle" class="edge-label">request VM</text>
+
+  <line x1="488" y1="152" x2="518" y2="152" class="connector"/>
+  <line x1="488" y1="152" x2="488" y2="262" class="connector"/>
+  <line x1="488" y1="262" x2="518" y2="262" class="connector"/>
+  <text x="500" y="210" text-anchor="middle" class="edge-label">schedule</text>
+
+  <line x1="388" y1="184" x2="388" y2="210" class="connector private"/>
+  <line x1="388" y1="210" x2="620" y2="210" class="connector private"/>
+  <line x1="620" y1="210" x2="620" y2="224" class="connector private"/>
+  <text x="504" y="204" text-anchor="middle" class="edge-label">push / pull tag (private IP)</text>
+
+  <text x="410" y="378" text-anchor="middle" class="small">Registry and Mac nodes talk over the VPC private network for fast image transfer.</text>
+</svg>

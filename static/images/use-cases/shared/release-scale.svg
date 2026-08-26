@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 300" role="img" aria-label="Two VMs per node for typical jobs versus one full-host VM for heavy jobs">
+  <defs>
+    <style>
+      .title { font: 600 16px system-ui, sans-serif; fill: #1f2937; }
+      .label { font: 14px system-ui, sans-serif; fill: #374151; }
+      .small { font: 12px system-ui, sans-serif; fill: #6b7280; }
+      .node { fill: #eef2ff; stroke: #30638E; stroke-width: 1.5; }
+      .vm { fill: #059669; }
+      .vm-full { fill: #059669; opacity: 0.92; }
+    </style>
+  </defs>
+  <rect width="820" height="300" fill="#f8fafc"/>
+  <text x="410" y="34" text-anchor="middle" class="title">Flexible VM density per node</text>
+
+  <text x="205" y="64" text-anchor="middle" class="label">2 VMs per node</text>
+  <text x="205" y="82" text-anchor="middle" class="small">Typical jobs</text>
+  <g transform="translate(40,96)">
+    <rect x="0" y="0" width="70" height="50" rx="6" class="node"/><rect x="8" y="8" width="24" height="16" rx="3" class="vm"/><rect x="38" y="8" width="24" height="16" rx="3" class="vm"/>
+    <rect x="80" y="0" width="70" height="50" rx="6" class="node"/><rect x="88" y="8" width="24" height="16" rx="3" class="vm"/><rect x="118" y="8" width="24" height="16" rx="3" class="vm"/>
+    <rect x="160" y="0" width="70" height="50" rx="6" class="node"/><rect x="168" y="8" width="24" height="16" rx="3" class="vm"/><rect x="198" y="8" width="24" height="16" rx="3" class="vm"/>
+    <rect x="240" y="0" width="70" height="50" rx="6" class="node"/><rect x="248" y="8" width="24" height="16" rx="3" class="vm"/><rect x="278" y="8" width="24" height="16" rx="3" class="vm"/>
+    <rect x="0" y="62" width="70" height="50" rx="6" class="node"/><rect x="8" y="70" width="24" height="16" rx="3" class="vm"/><rect x="38" y="70" width="24" height="16" rx="3" class="vm"/>
+    <rect x="80" y="62" width="70" height="50" rx="6" class="node"/><rect x="88" y="70" width="24" height="16" rx="3" class="vm"/><rect x="118" y="70" width="24" height="16" rx="3" class="vm"/>
+    <rect x="160" y="62" width="70" height="50" rx="6" class="node"/><rect x="168" y="70" width="24" height="16" rx="3" class="vm"/><rect x="198" y="70" width="24" height="16" rx="3" class="vm"/>
+    <rect x="240" y="62" width="70" height="50" rx="6" class="node"/><rect x="248" y="70" width="24" height="16" rx="3" class="vm"/><rect x="278" y="70" width="24" height="16" rx="3" class="vm"/>
+  </g>
+  <text x="205" y="228" text-anchor="middle" class="small">Higher concurrent capacity</text>
+  <text x="205" y="246" text-anchor="middle" class="small">Most jobs never need the full host</text>
+
+  <text x="615" y="64" text-anchor="middle" class="label">1 VM per node</text>
+  <text x="615" y="82" text-anchor="middle" class="small">Full host resources</text>
+  <g transform="translate(450,96)">
+    <rect x="0" y="0" width="70" height="50" rx="6" class="node"/><rect x="8" y="8" width="54" height="34" rx="3" class="vm-full"/>
+    <rect x="80" y="0" width="70" height="50" rx="6" class="node"/><rect x="88" y="8" width="54" height="34" rx="3" class="vm-full"/>
+    <rect x="160" y="0" width="70" height="50" rx="6" class="node"/><rect x="168" y="8" width="54" height="34" rx="3" class="vm-full"/>
+    <rect x="240" y="0" width="70" height="50" rx="6" class="node"/><rect x="248" y="8" width="54" height="34" rx="3" class="vm-full"/>
+    <rect x="0" y="62" width="70" height="50" rx="6" class="node"/><rect x="8" y="70" width="54" height="34" rx="3" class="vm-full"/>
+    <rect x="80" y="62" width="70" height="50" rx="6" class="node"/><rect x="88" y="70" width="54" height="34" rx="3" class="vm-full"/>
+    <rect x="160" y="62" width="70" height="50" rx="6" class="node"/><rect x="168" y="70" width="54" height="34" rx="3" class="vm-full"/>
+    <rect x="240" y="62" width="70" height="50" rx="6" class="node"/><rect x="248" y="70" width="54" height="34" rx="3" class="vm-full"/>
+  </g>
+  <text x="615" y="228" text-anchor="middle" class="small">VM sized for CPU, memory, and GPU</text>
+  <text x="615" y="246" text-anchor="middle" class="small">When a job needs the whole machine</text>
+
+  <text x="410" y="280" text-anchor="middle" class="small">The same pool mixes both layouts. You get capacity for typical work and headroom for heavy jobs.</text>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" role="img" aria-label="Registry on the left, platform team pushes base templates, CI pulls tags to run jobs">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#30638E"/>
+    </marker>
+    <style>
+      .title { font: 600 16px system-ui, sans-serif; fill: #1f2937; }
+      .section { font: 13px system-ui, sans-serif; fill: #374151; }
+      .label { font: 13px system-ui, sans-serif; fill: #374151; }
+      .small { font: 11px system-ui, sans-serif; fill: #6b7280; }
+      .edge-label { font: 12px system-ui, sans-serif; fill: #30638E; }
+      .step { fill: #ffffff; stroke: #624495; stroke-width: 2; }
+      .registry { fill: #624495; stroke: #624495; stroke-width: 2; }
+      .registry-text { font: 600 13px system-ui, sans-serif; fill: #ffffff; }
+      .registry-sub { font: 12px system-ui, sans-serif; fill: #ffffff; }
+      .end { fill: #fef2f2; stroke: #e21e79; stroke-width: 2; }
+      .connector { fill: none; stroke: #30638E; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="900" height="320" fill="#f8fafc"/>
+  <text x="450" y="28" text-anchor="middle" class="title">Template Catalog, Registry, and CI jobs</text>
+
+  <!--
+    Grid: 48px margins, 32px gap after Registry, 32px gaps between CI boxes
+    Registry: x=48 w=220 | CI row from x=276
+  -->
+
+  <!-- Registry (left, full height) -->
+  <rect x="48" y="52" width="220" height="252" rx="10" class="registry"/>
+  <text x="158" y="118" text-anchor="middle" dominant-baseline="middle" class="registry-text">Anka Registry</text>
+  <text x="158" y="142" text-anchor="middle" dominant-baseline="middle" class="registry-sub">Template Catalog</text>
+  <text x="158" y="162" text-anchor="middle" dominant-baseline="middle" class="registry-sub">+ named tags</text>
+
+  <!-- Platform team (top right) -->
+  <text x="530" y="52" text-anchor="middle" class="section">Platform team</text>
+
+  <rect x="360" y="64" width="340" height="96" rx="8" class="step"/>
+  <text x="530" y="96" text-anchor="middle" dominant-baseline="middle" class="label">Base VM template</text>
+  <text x="530" y="116" text-anchor="middle" dominant-baseline="middle" class="small">macOS version + engine versions</text>
+  <text x="530" y="136" text-anchor="middle" dominant-baseline="middle" class="small">built and published to the catalog</text>
+
+  <!-- Push into Registry -->
+  <line x1="360" y1="112" x2="268" y2="112" class="connector" marker-end="url(#arrow)"/>
+  <text x="314" y="100" text-anchor="middle" class="edge-label">publish</text>
+
+  <!-- CI jobs (bottom right) -->
+  <text x="564" y="188" text-anchor="middle" class="section">CI jobs</text>
+
+  <rect x="276" y="200" width="128" height="56" rx="8" class="step"/>
+  <text x="340" y="220" text-anchor="middle" dominant-baseline="middle" class="label">CI request</text>
+  <text x="340" y="238" text-anchor="middle" dominant-baseline="middle" class="small">target tag name</text>
+
+  <rect x="436" y="200" width="168" height="56" rx="8" class="step"/>
+  <text x="520" y="220" text-anchor="middle" dominant-baseline="middle" class="label">VM starts</text>
+  <text x="520" y="238" text-anchor="middle" dominant-baseline="middle" class="small">pulls template/tag if needed</text>
+
+  <rect x="636" y="200" width="112" height="56" rx="8" class="step"/>
+  <text x="692" y="228" text-anchor="middle" dominant-baseline="middle" class="label">Build runs</text>
+
+  <rect x="780" y="200" width="72" height="56" rx="8" class="end"/>
+  <text x="816" y="228" text-anchor="middle" dominant-baseline="middle" class="label">VM deleted</text>
+
+  <!-- CI flow (32px gaps) -->
+  <line x1="404" y1="228" x2="432" y2="228" class="connector" marker-end="url(#arrow)"/>
+  <line x1="604" y1="228" x2="632" y2="228" class="connector" marker-end="url(#arrow)"/>
+  <line x1="748" y1="228" x2="776" y2="228" class="connector" marker-end="url(#arrow)"/>
+
+  <!-- Pull from Registry into VM starts -->
+  <path d="M 268 286 H 520 V 256" class="connector" marker-end="url(#arrow)"/>
+  <text x="396" y="300" text-anchor="middle" class="edge-label">pull tag</text>
+</svg>

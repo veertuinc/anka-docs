@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" role="img" aria-label="CI systems, Anka Controller, node pool, and Registry">
+  <style>
+    .title { font: 600 16px system-ui, sans-serif; fill: #1f2937; }
+    .label { font: 14px system-ui, sans-serif; fill: #374151; }
+    .small { font: 12px system-ui, sans-serif; fill: #6b7280; }
+    .edge-label { font: 12px system-ui, sans-serif; fill: #30638E; }
+    .box { fill: #ffffff; stroke: #624495; stroke-width: 2; }
+    .ctrl { fill: #624495; }
+    .ctrl-text { font: 600 13px system-ui, sans-serif; fill: #ffffff; }
+    .node { fill: #eef2ff; stroke: #30638E; stroke-width: 2; }
+    .vm { fill: #ffffff; stroke: #059669; stroke-width: 1.5; }
+    .connector { fill: none; stroke: #30638E; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+  <rect width="760" height="380" fill="#f8fafc"/>
+  <text x="380" y="28" text-anchor="middle" class="title">Controller + Registry deployment</text>
+
+  <!-- Left column: CI + Controller -->
+  <rect x="48" y="48" width="200" height="68" rx="8" class="box"/>
+  <text x="148" y="76" text-anchor="middle" class="label">CI systems</text>
+  <text x="148" y="96" text-anchor="middle" class="small">Jenkins, internal tools</text>
+
+  <rect x="48" y="168" width="200" height="68" rx="10" class="ctrl"/>
+  <text x="148" y="196" text-anchor="middle" class="ctrl-text">Anka</text>
+  <text x="148" y="216" text-anchor="middle" class="ctrl-text">Controller</text>
+
+  <!-- Center column: Mac node pool (stacked) -->
+  <text x="480" y="48" text-anchor="middle" class="label">On-prem Anka node pool</text>
+
+  <rect x="380" y="64" width="200" height="76" rx="8" class="node"/>
+  <text x="480" y="80" text-anchor="middle" class="small">Mac node</text>
+  <rect x="392" y="90" width="68" height="40" rx="5" class="vm"/>
+  <text x="426" y="114" text-anchor="middle" class="small">VM</text>
+  <rect x="500" y="90" width="68" height="40" rx="5" class="vm"/>
+  <text x="534" y="114" text-anchor="middle" class="small">VM</text>
+
+  <rect x="380" y="156" width="200" height="76" rx="8" class="node"/>
+  <text x="480" y="172" text-anchor="middle" class="small">Mac node</text>
+  <rect x="392" y="182" width="68" height="40" rx="5" class="vm"/>
+  <text x="426" y="206" text-anchor="middle" class="small">VM</text>
+  <rect x="500" y="182" width="68" height="40" rx="5" class="vm"/>
+  <text x="534" y="206" text-anchor="middle" class="small">VM</text>
+
+  <!-- Registry under nodes -->
+  <rect x="380" y="264" width="200" height="64" rx="10" class="ctrl"/>
+  <text x="480" y="290" text-anchor="middle" class="ctrl-text">Anka</text>
+  <text x="480" y="310" text-anchor="middle" class="ctrl-text">Registry</text>
+
+  <!-- CI → Controller -->
+  <line x1="148" y1="116" x2="148" y2="168" class="connector"/>
+  <text x="164" y="146" text-anchor="start" class="edge-label">request VM</text>
+
+  <!-- Controller → nodes -->
+  <line x1="248" y1="202" x2="310" y2="202" class="connector"/>
+  <line x1="310" y1="202" x2="310" y2="102" class="connector"/>
+  <line x1="310" y1="102" x2="380" y2="102" class="connector"/>
+  <line x1="310" y1="202" x2="310" y2="194" class="connector"/>
+  <line x1="310" y1="194" x2="380" y2="194" class="connector"/>
+  <text x="279" y="220" text-anchor="middle" class="edge-label">schedule</text>
+
+  <!-- Registry → nodes (right side) -->
+  <line x1="580" y1="296" x2="630" y2="296" class="connector"/>
+  <line x1="630" y1="296" x2="630" y2="102" class="connector"/>
+  <line x1="630" y1="102" x2="580" y2="102" class="connector"/>
+  <line x1="630" y1="296" x2="630" y2="194" class="connector"/>
+  <line x1="630" y1="194" x2="580" y2="194" class="connector"/>
+  <text x="646" y="210" text-anchor="start" class="edge-label">pull tag</text>
+
+  <text x="380" y="360" text-anchor="middle" class="small">One Controller schedules across the full pool. Custom tooling uses the Controller API.</text>
+</svg>

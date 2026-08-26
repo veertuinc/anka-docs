@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 380" role="img" aria-label="Bare metal host risks versus isolated VMs">
+  <defs>
+    <style>
+      .title { font: 600 16px system-ui, sans-serif; fill: #1f2937; }
+      .label { font: 14px system-ui, sans-serif; fill: #374151; }
+      .small { font: 12px system-ui, sans-serif; fill: #6b7280; }
+      .warn { font: 600 12px system-ui, sans-serif; fill: #e21e79; }
+      .host-tag { font: 600 12px system-ui, sans-serif; fill: #92400e; }
+      .host-tag-green { font: 600 12px system-ui, sans-serif; fill: #047857; }
+      .vm-tag { font: 600 11px system-ui, sans-serif; fill: #047857; }
+      .host { fill: #fff7ed; stroke: #f59e0b; stroke-width: 2; }
+      .host-green { fill: #f0fdf4; stroke: #059669; stroke-width: 2; }
+      .vm { fill: #ecfdf5; stroke: #059669; stroke-width: 2; }
+      .job-bad { fill: #fef2f2; stroke: #dc2626; stroke-width: 2; stroke-dasharray: 6 4; }
+      .job-good { fill: #ffffff; stroke: #059669; stroke-width: 1.5; }
+      .host-cred-bad { fill: #fee2e2; stroke: #dc2626; stroke-width: 1.5; }
+      .host-cred-good { fill: #fff7ed; stroke: #f59e0b; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <rect width="860" height="380" fill="#f8fafc"/>
+  <text x="430" y="34" text-anchor="middle" class="title">Why bare metal is not enough</text>
+
+  <!-- LEFT: Shared Mac host -->
+  <text x="215" y="64" text-anchor="middle" class="label">Shared Mac host</text>
+  <rect x="50" y="78" width="330" height="248" rx="10" class="host"/>
+  <text x="68" y="100" class="host-tag">Mac host</text>
+
+  <rect x="78" y="118" width="132" height="56" rx="6" class="job-bad"/>
+  <text x="144" y="140" text-anchor="middle" class="small">Customer A job</text>
+  <text x="144" y="160" text-anchor="middle" class="warn">keys + source</text>
+
+  <rect x="228" y="118" width="132" height="56" rx="6" class="job-bad"/>
+  <text x="294" y="140" text-anchor="middle" class="small">Customer B job</text>
+  <text x="294" y="160" text-anchor="middle" class="warn">keys + source</text>
+
+  <rect x="125" y="198" width="180" height="56" rx="6" class="host-cred-bad"/>
+  <text x="215" y="220" text-anchor="middle" class="small">Host credentials</text>
+  <text x="215" y="240" text-anchor="middle" class="warn">visible to all jobs</text>
+
+  <text x="215" y="348" text-anchor="middle" class="warn">One dirty job affects the next</text>
+
+  <!-- RIGHT: Anka VMs on the same host -->
+  <text x="645" y="64" text-anchor="middle" class="label">Anka VMs on the same host</text>
+  <rect x="480" y="78" width="330" height="248" rx="10" class="host-green"/>
+  <text x="498" y="100" class="host-tag-green">Mac host</text>
+
+  <!-- VM 1 > job -->
+  <rect x="498" y="118" width="148" height="88" rx="6" class="vm"/>
+  <text x="510" y="134" class="vm-tag">VM</text>
+  <rect x="508" y="142" width="128" height="56" rx="5" class="job-good"/>
+  <text x="572" y="164" text-anchor="middle" class="small">Customer A job</text>
+  <text x="572" y="184" text-anchor="middle" class="small">keys + source</text>
+
+  <!-- VM 2 > job -->
+  <rect x="658" y="118" width="148" height="88" rx="6" class="vm"/>
+  <text x="670" y="134" class="vm-tag">VM</text>
+  <rect x="668" y="142" width="128" height="56" rx="5" class="job-good"/>
+  <text x="732" y="164" text-anchor="middle" class="small">Customer B job</text>
+  <text x="732" y="184" text-anchor="middle" class="small">keys + source</text>
+
+  <rect x="545" y="222" width="200" height="56" rx="6" class="host-cred-good"/>
+  <text x="645" y="244" text-anchor="middle" class="small">Host credentials</text>
+  <text x="645" y="264" text-anchor="middle" class="small">outside the VM, untouched</text>
+
+  <text x="645" y="348" text-anchor="middle" class="label">VM deleted after each job</text>
+
+  <text x="430" y="372" text-anchor="middle" class="small">Disk isolation plus network rules (--no-local, block local) keep tenants apart</text>
+</svg>

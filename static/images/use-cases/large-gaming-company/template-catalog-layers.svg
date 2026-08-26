@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" role="img" aria-label="Three template layers: macOS base, Xcode tag, nightly git cache tag">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#30638E"/>
+    </marker>
+    <style>
+      .title { font: 600 16px system-ui, sans-serif; fill: #1f2937; }
+      .section { font: 13px system-ui, sans-serif; fill: #374151; }
+      .label { font: 13px system-ui, sans-serif; fill: #374151; }
+      .small { font: 11px system-ui, sans-serif; fill: #6b7280; }
+      .edge-label { font: 12px system-ui, sans-serif; fill: #30638E; }
+      .label-bg { fill: #f8fafc; }
+      .layer { fill: #ffffff; stroke: #624495; stroke-width: 2; }
+      .nightly { fill: #f5f3ff; stroke: #624495; stroke-width: 2; stroke-dasharray: 6 4; }
+      .registry { fill: #624495; stroke: #624495; stroke-width: 2; }
+      .registry-text { font: 600 13px system-ui, sans-serif; fill: #ffffff; }
+      .registry-sub { font: 12px system-ui, sans-serif; fill: #ffffff; }
+      .connector { fill: none; stroke: #30638E; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="900" height="280" fill="#f8fafc"/>
+  <text x="450" y="28" text-anchor="middle" class="title">Three-layer Template Catalog</text>
+
+  <rect x="48" y="52" width="220" height="208" rx="10" class="registry"/>
+  <text x="158" y="130" text-anchor="middle" dominant-baseline="middle" class="registry-text">Anka Registry</text>
+  <text x="158" y="154" text-anchor="middle" dominant-baseline="middle" class="registry-sub">Template Catalog</text>
+  <text x="158" y="178" text-anchor="middle" dominant-baseline="middle" class="registry-sub">base + Xcode + cache tags</text>
+
+  <text x="530" y="52" text-anchor="middle" class="section">Platform team (layers 1 and 2)</text>
+
+  <rect x="360" y="64" width="340" height="52" rx="8" class="layer"/>
+  <text x="530" y="86" text-anchor="middle" dominant-baseline="middle" class="label">Layer 1: macOS base template</text>
+  <text x="530" y="104" text-anchor="middle" dominant-baseline="middle" class="small">one macOS version per template</text>
+
+  <rect x="360" y="124" width="340" height="52" rx="8" class="layer"/>
+  <text x="530" y="146" text-anchor="middle" dominant-baseline="middle" class="label">Layer 2: Xcode tag</text>
+  <text x="530" y="164" text-anchor="middle" dominant-baseline="middle" class="small">one Xcode version cloned from base</text>
+
+  <text x="530" y="198" text-anchor="middle" class="section">Nightly off hours (layer 3)</text>
+
+  <rect x="360" y="210" width="340" height="52" rx="8" class="nightly"/>
+  <text x="530" y="232" text-anchor="middle" dominant-baseline="middle" class="label">Layer 3: git cache tag</text>
+  <text x="530" y="250" text-anchor="middle" dominant-baseline="middle" class="small">fresh clone; new tag published each night</text>
+
+  <!-- Layer 1 publish -->
+  <line x1="268" y1="90" x2="360" y2="90" class="connector" marker-end="url(#arrow)"/>
+  <rect x="292" y="72" width="44" height="16" rx="3" class="label-bg"/>
+  <text x="314" y="84" text-anchor="middle" class="edge-label">publish</text>
+
+  <!-- Layer 2 publish -->
+  <line x1="268" y1="150" x2="360" y2="150" class="connector" marker-end="url(#arrow)"/>
+  <rect x="292" y="132" width="44" height="16" rx="3" class="label-bg"/>
+  <text x="314" y="144" text-anchor="middle" class="edge-label">publish</text>
+
+  <!-- Layer 3 publish -->
+  <line x1="268" y1="236" x2="360" y2="236" class="connector" marker-end="url(#arrow)"/>
+  <rect x="292" y="218" width="44" height="16" rx="3" class="label-bg"/>
+  <text x="314" y="230" text-anchor="middle" class="edge-label">publish</text>
+</svg>

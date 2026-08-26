@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260" role="img" aria-label="One template tag packed with multiple Xcode and toolchain versions">
+  <defs>
+    <style>
+      .title { font: 600 16px system-ui, sans-serif; fill: #1f2937; }
+      .section { font: 13px system-ui, sans-serif; fill: #374151; }
+      .label { font: 13px system-ui, sans-serif; fill: #374151; }
+      .small { font: 11px system-ui, sans-serif; fill: #6b7280; }
+      .template { fill: #624495; stroke: #624495; stroke-width: 2; }
+      .template-text { font: 600 14px system-ui, sans-serif; fill: #ffffff; }
+      .template-sub { font: 12px system-ui, sans-serif; fill: #ffffff; }
+      .tool { fill: #ffffff; stroke: #624495; stroke-width: 2; }
+      .switch { fill: #f5f3ff; stroke: #624495; stroke-width: 2; stroke-dasharray: 6 4; }
+    </style>
+  </defs>
+  <rect width="900" height="260" fill="#f8fafc"/>
+  <text x="450" y="28" text-anchor="middle" class="title">One tag, many tool versions</text>
+
+  <rect x="80" y="56" width="240" height="168" rx="10" class="template"/>
+  <text x="200" y="96" text-anchor="middle" dominant-baseline="middle" class="template-text">Runner template</text>
+  <text x="200" y="118" text-anchor="middle" dominant-baseline="middle" class="template-sub">single macOS base</text>
+  <text x="200" y="138" text-anchor="middle" dominant-baseline="middle" class="template-sub">one tag on disk</text>
+
+  <text x="560" y="56" text-anchor="middle" class="section">Installed on the tag (side by side)</text>
+
+  <rect x="360" y="72" width="120" height="44" rx="8" class="tool"/>
+  <text x="420" y="96" text-anchor="middle" dominant-baseline="middle" class="label">Xcode 15.x</text>
+
+  <rect x="500" y="72" width="120" height="44" rx="8" class="tool"/>
+  <text x="560" y="96" text-anchor="middle" dominant-baseline="middle" class="label">Xcode 16.x</text>
+
+  <rect x="640" y="72" width="120" height="44" rx="8" class="tool"/>
+  <text x="700" y="96" text-anchor="middle" dominant-baseline="middle" class="label">Xcode 14.x</text>
+
+  <rect x="360" y="128" width="120" height="44" rx="8" class="tool"/>
+  <text x="420" y="152" text-anchor="middle" dominant-baseline="middle" class="label">nvm / Node</text>
+
+  <rect x="500" y="128" width="120" height="44" rx="8" class="tool"/>
+  <text x="560" y="152" text-anchor="middle" dominant-baseline="middle" class="label">other stacks</text>
+
+  <rect x="640" y="128" width="120" height="44" rx="8" class="tool"/>
+  <text x="700" y="152" text-anchor="middle" dominant-baseline="middle" class="label">version mgrs</text>
+
+  <rect x="360" y="192" width="400" height="44" rx="8" class="switch"/>
+  <text x="560" y="208" text-anchor="middle" dominant-baseline="middle" class="label">Job start: customer runs version-switch command</text>
+  <text x="560" y="224" text-anchor="middle" dominant-baseline="middle" class="small">then runs the build</text>
+</svg>

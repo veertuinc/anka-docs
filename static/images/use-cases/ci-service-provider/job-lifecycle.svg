@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" role="img" aria-label="Orchestrator clones imported template, job switches toolchain version, VM terminated">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#30638E"/>
+    </marker>
+    <style>
+      .title { font: 600 16px system-ui, sans-serif; fill: #1f2937; }
+      .section { font: 13px system-ui, sans-serif; fill: #374151; }
+      .label { font: 13px system-ui, sans-serif; fill: #374151; }
+      .small { font: 11px system-ui, sans-serif; fill: #6b7280; }
+      .step { fill: #ffffff; stroke: #624495; stroke-width: 2; }
+      .orchestrator { fill: #624495; stroke: #624495; stroke-width: 2; }
+      .orch-text { font: 600 12px system-ui, sans-serif; fill: #ffffff; }
+      .orch-sub { font: 11px system-ui, sans-serif; fill: #ffffff; }
+      .base { fill: #f5f3ff; stroke: #624495; stroke-width: 2; }
+      .end { fill: #fef2f2; stroke: #e21e79; stroke-width: 2; }
+      .connector { fill: none; stroke: #30638E; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="900" height="320" fill="#f8fafc"/>
+  <text x="450" y="28" text-anchor="middle" class="title">Job flow via provider orchestrator</text>
+
+  <rect x="48" y="52" width="200" height="72" rx="8" class="base"/>
+  <text x="148" y="80" text-anchor="middle" dominant-baseline="middle" class="label">Imported template</text>
+  <text x="148" y="100" text-anchor="middle" dominant-baseline="middle" class="small">on host disk (one tag)</text>
+
+  <text x="564" y="52" text-anchor="middle" class="section">Per customer job</text>
+
+  <!-- Row 1 -->
+  <rect x="280" y="68" width="140" height="56" rx="8" class="orchestrator"/>
+  <text x="350" y="88" text-anchor="middle" dominant-baseline="middle" class="orch-text">Orchestrator</text>
+  <text x="350" y="106" text-anchor="middle" dominant-baseline="middle" class="orch-sub">job arrives</text>
+
+  <rect x="440" y="68" width="140" height="56" rx="8" class="step"/>
+  <text x="510" y="88" text-anchor="middle" dominant-baseline="middle" class="label">Clone VM</text>
+  <text x="510" y="106" text-anchor="middle" dominant-baseline="middle" class="small">from local template</text>
+
+  <rect x="600" y="68" width="140" height="56" rx="8" class="step"/>
+  <text x="670" y="88" text-anchor="middle" dominant-baseline="middle" class="label">Start VM</text>
+  <text x="670" y="106" text-anchor="middle" dominant-baseline="middle" class="small">ephemeral runner</text>
+
+  <line x1="420" y1="96" x2="436" y2="96" class="connector" marker-end="url(#arrow)"/>
+  <line x1="580" y1="96" x2="596" y2="96" class="connector" marker-end="url(#arrow)"/>
+  <path d="M 248 88 H 278" class="connector" marker-end="url(#arrow)"/>
+
+  <!-- Row 2 -->
+  <rect x="280" y="200" width="180" height="56" rx="8" class="step"/>
+  <text x="370" y="220" text-anchor="middle" dominant-baseline="middle" class="label">Switch toolchain</text>
+  <text x="370" y="238" text-anchor="middle" dominant-baseline="middle" class="small">Xcode / nvm command at job start</text>
+
+  <rect x="480" y="200" width="140" height="56" rx="8" class="step"/>
+  <text x="550" y="228" text-anchor="middle" dominant-baseline="middle" class="label">Customer build</text>
+
+  <rect x="640" y="200" width="140" height="56" rx="8" class="end"/>
+  <text x="710" y="228" text-anchor="middle" dominant-baseline="middle" class="label">VM terminated</text>
+
+  <line x1="460" y1="228" x2="476" y2="228" class="connector" marker-end="url(#arrow)"/>
+  <line x1="620" y1="228" x2="636" y2="228" class="connector" marker-end="url(#arrow)"/>
+
+  <line x1="670" y1="124" x2="670" y2="200" class="connector" marker-end="url(#arrow)"/>
+  <path d="M 670 124 V 160 H 370 V 200" class="connector" marker-end="url(#arrow)"/>
+</svg>
