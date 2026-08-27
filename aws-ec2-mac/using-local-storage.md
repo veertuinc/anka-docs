@@ -88,7 +88,29 @@ If you are using Port Forwarding on your VMs as the `ec2-user`, you'll need to c
 2. Start the VM and inside of VNC you should see a prompt to allow the VM to find devices on local networks. Click "Allow".
 3. Clean up the VM from the host with anka delete (and delete any ipsw files it downloaded into `/Volumes/Anka/*/*.ipsw` if you ran `anka create`).
 
-### Step 5: Cleanup
+### Step 5: Optional — host swap directory for VM memory pressure
+
+On EC2 Mac instances, VM storage often sits on EBS while the instance also has fast local NVMe. When VMs run out of RAM, macOS swap on EBS can become a bottleneck.
+
+Starting in Anka 3.3.9 (ARM), you can point VM swap at a host directory such as the local volume prepared in Step 4:
+
+```bash
+anka config swap_dir /Volumes/Anka/swap
+```
+
+Or set the `ANKA_SWAP_DIR` environment variable to the same path.
+
+- Applies to all VMs on the host when set through `anka config`.
+- Each VM gets an isolated swap disk image under that directory.
+- Disable for one start: `ANKA_SWAP_DIR="" anka start my-vm`
+- Override for one start: `ANKA_SWAP_DIR="/path/on/host" anka start my-vm`
+- Guest addons 3.3.9 or newer are required inside the VM.
+
+{{< hint info >}}
+`swap_dir` is most common on EC2 Mac with local storage, but it works on any ARM host with a fast disk you want to use for swap.
+{{< /hint >}}
+
+### Step 6: Cleanup
 
 You can now disable VNC:
 

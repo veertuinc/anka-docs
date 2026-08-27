@@ -110,6 +110,31 @@ Anka Build Basic version 3.X.X (build XXX)
 
 ---
 
+## Installing multiple Anka versions on one host
+
+Starting in Anka 3.6.0, you can keep more than one Anka install on the same Mac. Both versions must be 3.6.0 or newer. You cannot use `anka-select` to switch to Anka 2.x or older 3.x builds.
+
+1. Install the first version.
+2. Rename `/Applications/Anka.app` to a versioned name, for example `Anka-3.8.6.app`.
+3. Install the next version (this becomes `/Applications/Anka.app`).
+
+Use `anka-select` to choose which install the `anka` CLI and services use:
+
+```bash
+sudo anka-select --list
+sudo anka-select --switch /Applications/Anka-3.8.6.app
+anka-select -p    # show active install path (no sudo)
+anka version
+```
+
+Repeat the rename-and-install steps for each additional version you want side by side.
+
+{{< hint warning >}}
+Only one Anka version is active at a time. Switch with `anka-select` before you run `anka` commands or join a node to Build Cloud. VMs created with one version may not be compatible with another.
+{{< /hint >}}
+
+---
+
 ## Activate your Anka Build Cloud License
 
 [Details about our licensing]({{< relref "licensing.md" >}})

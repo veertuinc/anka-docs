@@ -25,6 +25,16 @@ View all default configuration settings for Anka installation on the host with `
   - img_lib_dir - `/Users/XXX/Library/Application Support/Veertu/Anka/img_lib/`
 - The log directory is `/Users/XXX/Library/Logs/Anka/` and log file is `anka.log`.
 
+## VM swap directory (ARM)
+
+On ARM hosts, set `swap_dir` to a fast local path when you want guest swap on host disk instead of inside the VM image. This is common on [AWS EC2 Mac with local storage]({{< relref "aws-ec2-mac/using-local-storage.md#step-5-optional--host-swap-directory-for-vm-memory-pressure" >}}).
+
+```bash
+anka config swap_dir /Volumes/Anka/swap
+```
+
+Per-VM overrides use the `ANKA_SWAP_DIR` environment variable on `anka start`. Guest addons 3.3.9+ are required.
+
 ## Changing the default Anka VM storage location
 
 Depending on how many Anka VMs you have, the disk usage might be too much for the default storage location. There are three configuration parameters to control location for storing Anka VMs.
