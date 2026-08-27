@@ -7,13 +7,7 @@ description: >
   Regulated on-prem macOS CI with Anklet orchestration and CLI-only Anka
 ---
 
-## Context
 
-A bank or similar institution that builds and tests macOS and iOS software for employees or customers. Security and audit rules decide where hardware lives and who can start a VM. Line-of-business teams run GitHub Actions inside the bank network (GitHub Enterprise or GitHub.com with restricted access). They do not use the Anka Build Cloud Controller.
-
-{{< rawhtml >}}<center>{{< /rawhtml >}}
-![Line-of-business CI on bank-controlled Mac nodes]({{< siteurl >}}images/use-cases/financial-services/build-ecosystem.svg)
-{{< rawhtml >}}</center>{{< /rawhtml >}}
 
 ## Problem
 
