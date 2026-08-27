@@ -1,10 +1,12 @@
 ---
 date: 2026-08-25T00:00:00-00:00
-title: "macOS CI for a large financial institution"
-linkTitle: "Financial institution"
+title: "Regulated Sector"
+linkTitle: "Regulated Sector"
 weight: 4
 description: >
   Regulated on-prem macOS CI with Anklet orchestration and CLI-only Anka
+aliases:
+  - "/use-cases/financial-services/"
 ---
 
 

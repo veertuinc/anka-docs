@@ -1,10 +1,12 @@
 ---
 date: 2026-08-25T00:00:00-00:00
-title: "macOS CI for a large game studio"
-linkTitle: "Large game studio"
+title: "Gaming"
+linkTitle: "Gaming"
 weight: 2
 description: >
   Multi-team game-client and Xcode builds on shared Anka nodes
+aliases:
+  - "/use-cases/large-gaming-company/"
 ---
 
 

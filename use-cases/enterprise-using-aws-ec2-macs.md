@@ -1,10 +1,12 @@
 ---
 date: 2026-08-25T00:00:00-00:00
-title: "macOS CI for a physical-goods enterprise"
-linkTitle: "Physical-goods enterprise"
+title: "Enterprise using AWS EC2 Macs"
+linkTitle: "Enterprise using AWS EC2 Macs"
 weight: 5
 description: >
   EC2 Mac Marketplace AMI with Controller and Registry CI for retail iOS apps and simulator tests in Anka VMs
+aliases:
+  - "/use-cases/physical-goods-enterprise/"
 ---
 
 

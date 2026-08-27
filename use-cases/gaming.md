@@ -1,10 +1,12 @@
 ---
 date: 2026-08-25T00:00:00-00:00
-title: "macOS CI for a gaming platform provider"
-linkTitle: "Gaming platform provider"
+title: "Gaming"
+linkTitle: "Gaming"
 weight: 1
 description: >
   High-volume engine and editor CI on a large Anka node pool
+aliases:
+  - "/use-cases/gaming-platform-provider/"
 ---
 
 

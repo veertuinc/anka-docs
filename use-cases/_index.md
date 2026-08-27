@@ -13,9 +13,9 @@ Organizations run Anka with the same building blocks: the [Virtualization CLI]({
 
 ### Gaming
 
-Engine and editor CI at high parallel volume. Controller and Registry on a large node pool. Typical scale: tens to low hundreds of nodes. [Full example]({{< relref "use-cases/gaming-platform-provider.md" >}}).
+Engine and editor CI at high parallel volume. Controller and Registry on a large node pool. Typical scale: tens to low hundreds of nodes. [Full example]({{< relref "use-cases/gaming.md" >}}).
 
-iOS and macOS game-client builds across several teams. Shared templates with isolation so one title does not block another. Typical scale: dozens of nodes. [Full example]({{< relref "use-cases/large-gaming-company.md" >}}).
+iOS and macOS game-client builds across several teams. Shared templates with isolation so one title does not block another. Typical scale: dozens of nodes. [Full example]({{< relref "use-cases/gaming-studio.md" >}}).
 
 ### CI service provider
 
@@ -23,11 +23,11 @@ macOS GitHub-style runners on a custom orchestrator. CLI-only Anka with export/i
 
 ### Regulated Sector
 
-On-prem macOS build and test with Anklet, GitHub Actions, and a standalone Registry. No Controller. Typical scale: tens of nodes. [Full example]({{< relref "use-cases/financial-services.md" >}}).
+On-prem macOS build and test with Anklet, GitHub Actions, and a standalone Registry. No Controller. Typical scale: tens of nodes. [Full example]({{< relref "use-cases/regulated-sector.md" >}}).
 
 ### Enterprise using AWS EC2 Macs
 
-EC2 Mac Marketplace AMI on AWS for enterprise iOS apps. Controller and Registry on Linux EC2 in the same VPC as Mac nodes; simulator tests inside VMs. Typical scale: multiple tens of instances, scaled down on weekends. [Full example]({{< relref "use-cases/physical-goods-enterprise.md" >}}).
+EC2 Mac Marketplace AMI on AWS for enterprise iOS apps. Controller and Registry on Linux EC2 in the same VPC as Mac nodes; simulator tests inside VMs. Typical scale: multiple tens of instances, scaled down on weekends. [Full example]({{< relref "use-cases/enterprise-using-aws-ec2-macs.md" >}}).
 
 ## Start here
 
