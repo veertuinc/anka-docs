@@ -7,17 +7,10 @@ description: >
   EC2 Mac Marketplace AMI with Controller and Registry CI for retail iOS apps and simulator tests in Anka VMs
 ---
 
-## Context
-
-A large company that makes physical products. It also ships iOS apps for stores, factories, and consumers. Several brands or regions run their own mobile pipelines on a shared Mac fleet. Central IT operates [Anka Build Cloud]({{< relref "anka-build-cloud/getting-started/_index.md" >}}) entirely in AWS: a [Controller and Registry]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md" >}}) on a Linux EC2 instance and [EC2 Mac]({{< relref "aws-ec2-mac/_index.md" >}}) nodes from the [Marketplace AMI]({{< relref "aws-ec2-mac/marketplace-ami.md" >}}), all in the same region and VPC.
-
-{{< rawhtml >}}<center>{{< /rawhtml >}}
-![Brand CI on central EC2 Mac fleet]({{< siteurl >}}images/use-cases/physical-goods-enterprise/build-ecosystem.svg)
-{{< rawhtml >}}</center>{{< /rawhtml >}}
 
 ## Problem
 
-Each brand bought a few Mac minis and ran builds on the host. Images diverged. Simulator state leaked between jobs. One region had no spare host for a store submission. Another region had idle hardware. Central IT could not say how many Macs existed or which Xcode build a release used.
+Each brand within the company bought a few Mac minis and ran builds on the host. Images diverged. Simulator state leaked between jobs. One region had no spare host for a store submission. Another region had idle hardware. Central IT could not say how many Macs existed or which Xcode build a release used.
 
 Jobs on those hosts also let one brand reach another brand’s source or the node itself. A VM boundary is required when brands share hardware.
 
