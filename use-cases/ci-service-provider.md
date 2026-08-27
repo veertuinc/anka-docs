@@ -7,25 +7,17 @@ description: >
   Multi-tenant macOS GitHub-style runners with CLI-only Anka and custom orchestration
 ---
 
-## Context
-
-A company with its own CI platform that sells macOS runners for customer jobs. Customers trigger GitHub-style builds through the provider’s API or UI. Workloads vary widely from light scripts to heavy Xcode builds. The provider owns the Mac hardware and a home-built orchestrator. They do not use the Anka Controller or Registry.
-
-{{< rawhtml >}}<center>{{< /rawhtml >}}
-![Customer jobs run on provider Mac nodes]({{< siteurl >}}images/use-cases/ci-service-provider/build-ecosystem.svg)
-{{< rawhtml >}}</center>{{< /rawhtml >}}
-
 ## Problem
 
 Bare-metal hosts are a security problem in a multi-tenant runner service. Customer jobs are untrusted and unpredictable. One job might compile for a minute; the next might run a long test suite with network access. A customer job that runs on the node can read other customers’ IP, leftover artifacts, and host credentials. Persistent VMs had the same leak: files, keys, and network reachability stayed between customers.
 
 Security is critical. Tenant isolation cannot depend on trust or manual cleanup between jobs.
 
-They needed:
+What is needed:
 
 - A VM that exists only for one job, then is gone.
 - Isolation so tenant A cannot reach tenant B’s VM, tenant B’s IP, or the host.
-- Their own orchestration path to clone, start, and terminate VMs on each host.
+- Orchestration path to clone, start, and terminate VMs on each host.
 - A small template set that still covers many Xcode and toolchain versions customers ask for.
 - Enough VMs per host to make Apple Silicon hardware pay for itself.
 
