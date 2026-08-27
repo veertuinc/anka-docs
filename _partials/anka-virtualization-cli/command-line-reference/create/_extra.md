@@ -11,7 +11,7 @@ A few tips when creating VMs:
 
 - **Remember that VM templates are created under a specific user and will not be available to other users.**
 
-- VM performance is important to our users. When setting CPUs for the VMs, 2 CPUs is usually not enough and can cause instability inside of the VM. Please see [Modifying Your VM](/anka/anka-virtualization-cli/getting-started/modifying-your-vm#arm) for more information.
+- VM performance is important to our users. When setting CPUs for the VMs, 2 CPUs is usually not enough and can cause instability inside of the VM. Please see [Modifying Your VM]({{< relref "anka-virtualization-cli/getting-started/modifying-your-vm.md#arm" >}}) for more information.
 
 - If you experience issues, run `anka --debug create. . .` and provide it to Veertu's support.
 
