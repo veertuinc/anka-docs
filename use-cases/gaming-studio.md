@@ -1,7 +1,7 @@
 ---
 date: 2026-08-25T00:00:00-00:00
-title: "Gaming"
-linkTitle: "Gaming"
+title: "Gaming Studio"
+linkTitle: "Gaming Studio"
 weight: 2
 description: >
   Multi-team game-client and Xcode builds on shared Anka nodes
