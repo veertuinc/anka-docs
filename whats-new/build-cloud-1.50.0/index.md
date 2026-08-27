@@ -29,4 +29,4 @@ sudo ankacluster join http://anka.controller --vm-prefix myPrefix
 
 The agent adds a dash automatically. If `name_template` is `build-123`, the VM name becomes `myPrefix-build-123`.
 
-The `name_template` field in the [Start VM Instance API]({{< relref "anka-build-cloud/working-with-controller-and-API.md#start-vm-instance" >}}) still controls the suffix. Only the prefix changes.
+The `name_template` field in the [Start VM instances API]({{< relref "anka-build-cloud/working-with-controller-and-API.md#start-vm-instances" >}}) still controls the suffix. Only the prefix changes.
