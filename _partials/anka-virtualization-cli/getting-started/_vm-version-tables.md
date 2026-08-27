@@ -1,62 +1,8 @@
 ---
-title: "Creating VMs"
-linkTitle: "Creating VMs"
-weight: 2
-description: >
-  Step by step on how to create VMs
-aliases:
-  - "/apple/getting-started/creating-your-first-vm/"
-  - "/intel/getting-started/creating-your-first-vm/"
+_build:
+  render: never
+  list: never
 ---
-
-## Prerequisites / Orientation
-
-{{< hint error >}}
-**IMPORTANT:** `anka` CLI VM creation, modifications, etc, are performed under your current user. The root user and non-root users will have different environments. You can use the [Anka Build Cloud Registry]({{< relref "anka-build-cloud/_index.md" >}}) or [Anka App]({{< relref "anka-virtualization-cli/getting-started/installing-the-anka-virtualization-package.md" >}}) or `anka export/import` to move VMs between users (and hosts).
-{{< /hint >}}
-
-{{< hint warning >}}
-**[ARM/Silicon]** Apple has been making lots of changes to the Virtualization APIs in 15.x and beyond. There are requirements for the latest Xcode and sometimes Device Support packages to be installed and configued on the host or else creation will fail. We attempt to indicate what combinations are required to get creation working, but you might need to do some expirimentation to get it working.
-{{< /hint >}}
-
-{{< hint warning >}}
-Apple's .app installer files are currently not supported on ARM. Instead, you'll need to obtain .ipsw files.
-{{< /hint >}}
-
-{{< hint warning >}}
-**[ARM/Silicon]** `sudo anka create` over SSH is blocked by Apple's security features. Use VNC > Terminal to create the VM with sudo, or, just create it as the current non-root user.
-{{< /hint >}}
-
-1. [You've installed the Anka Virtualization package.]({{< relref "anka-virtualization-cli/getting-started/installing-the-anka-virtualization-package.md" >}})
-2. The host you wish to use has a full internet connection. 
-  - If you are behind a corporate firewall/proxy, you'll need to review https://support.apple.com/101555. URLs like `fcs-keys-pub-prod.cdn-apple.com`, `wkms-public.apple.com`, `wkms.sd.apple.com`, `gs.apple.com`, etc, are all required to be whitelisted in your firewall/proxy to create macOS VMs.
-  - If attempting to set/use `http_proxy` or `https_proxy`, they will not work. There is a requirement for full internet access to set up macOS properly in later 15.x VM versions (you'll see `status 70` errors if this is the case). You'll need to use `ANKA_NETWORK_MODE=disconnected` when creating the VM and then use `anka modify {VM} network --mode shared` after creation to enable networking again. Also, commonly Crowdstrike and other AV/security software will block VM starting. You must disable it or whitelist the activity that it's blocking.
-4. The hardware you have will work with the specific OS you're running on it. Apple has limited the ability to install macOS on specific hardware models. This differs for each major version of macOS. <a href="https://support.apple.com/kb/index?q=is+compatible+with+these+computers&src=globalnav_support&type=organic&page=search&locale=en_US">You can search for the supported hardware pages for each release here.</a>
-5. **[ARM/Silicon]** Creating VMs on 15.x macOS cannot run on 14.x hosts. However, if created on 14.x hosts, they can be run on 15.x hosts.
-
-{{< hint info >}}
-Host level Autologin/Logged in user session is not strictly required. However, to run VMs you will need to unlock the keychain. Use `sysadminctl -oldPassword "${PW}" -newPassword "${PW}" && security unlock-keychain -p "${PW}" login.keychain-db && security login-keychain -s login.keychain` to prepare and unlock the keychain and allow Virtualization to function properly. This will need to be run after each reboot before starting VMs.
-{{< /hint >}}
-
----
-
-## Create your first VM
-
-You have two methods of creating your Anka VMs. We will describe both in this guide, but you only really need to choose one.
-
-1. [With the **anka create** command](#using-anka-create) (recommended).
-2. [With the Anka.app UI](#using-the-anka-gui).
-
----
-
-### Supported VM macOS versions
-
-Anka allows you to create VMs for the following macOS versions. There may be some limitations which will be included below the table.
-
-{{< hint warning >}}
-It's possible that this table is out of date and newer versions are supported. Please try creation on the version you want before reaching out to support. We will do our best to keep this table up to date.
-{{< /hint >}}
-
 {{< rawhtml >}}
 <style>
 .vm-version-info-btn {
@@ -139,13 +85,65 @@ document.addEventListener('DOMContentLoaded', function() {
   <tr>
     <td style="vertical-align: middle">
       <b>
+        macOS 26.6.2 (25G83)
+        <a href="https://updates.cdn-apple.com/2026SummerFCS/fullrestores/140-75212/A2A24B94-1FC1-45A3-93F7-C51B02AF1F4D/UniversalMac_26.6.2_25G83_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
+          <span class="fa fa-download" style="font-size:1.2em;"></span>
+        </a>
+        <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
+      </b>
+      <blockquote class="hint info vm-version-notes is-open"><ul><li>Released 2026-08-17.</li><li>Requires setting a disk size of 50GB or more.</li></ul></blockquote>
+    </td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle">
+      <b>
+        macOS 26.6.1 (25G76)
+        <a href="https://updates.cdn-apple.com/2026SummerFCS/fullrestores/140-83079/25315EF6-AEAB-4588-9774-A3723774C47F/UniversalMac_26.6.1_25G76_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
+          <span class="fa fa-download" style="font-size:1.2em;"></span>
+        </a>
+        <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
+      </b>
+      <blockquote class="hint info vm-version-notes"><ul><li>Released 2026-08-06.</li><li>Requires <a href="https://downloads.veertu.com/anka/MobileDevice-26.4.pkg" target="_blank" rel="noopener">MobileDevice-26.4.pkg</a> to be installed on the host.</li><li>Requires setting a disk size of 50GB or more.</li></ul></blockquote>
+    </td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle">
+      <b>
+        macOS 26.6 (25G72)
+        <a href="https://updates.cdn-apple.com/2026SummerFCS/fullrestores/140-65618/10445B26-DE2C-43EC-9149-0A831602E74B/UniversalMac_26.6_25G72_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
+          <span class="fa fa-download" style="font-size:1.2em;"></span>
+        </a>
+        <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
+      </b>
+      <blockquote class="hint info vm-version-notes"><ul><li>Released 2026-07-27.</li><li>Requires <a href="https://downloads.veertu.com/anka/MobileDevice-26.4.pkg" target="_blank" rel="noopener">MobileDevice-26.4.pkg</a> to be installed on the host.</li><li>Requires setting a disk size of 50GB or more.</li></ul></blockquote>
+    </td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle">
+      <b>
+        macOS 26.5.2 (25F84)
+        <a href="https://updates.cdn-apple.com/2026SpringFCS/fullrestores/140-24263/B95838F0-6815-4F0B-A039-156526C081AD/UniversalMac_26.5.2_25F84_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
+          <span class="fa fa-download" style="font-size:1.2em;"></span>
+        </a>
+        <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
+      </b>
+      <blockquote class="hint info vm-version-notes"><ul><li>Released 2026-06-29.</li><li>Requires <a href="https://downloads.veertu.com/anka/MobileDevice-26.4.pkg" target="_blank" rel="noopener">MobileDevice-26.4.pkg</a> to be installed on the host.</li><li>Requires setting a disk size of 50GB or more.</li></ul></blockquote>
+    </td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle">
+      <b>
         macOS 26.5.1 (25F80)
         <a href="https://updates.cdn-apple.com/2026SpringFCS/fullrestores/122-88870/E47EBB85-45F2-4E3C-B9E7-6FF7868C2FBA/UniversalMac_26.5.1_25F80_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
           <span class="fa fa-download" style="font-size:1.2em;"></span>
         </a>
         <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
       </b>
-      <blockquote class="hint info vm-version-notes is-open"><ul><li>Released 2026-06-02.</li><li>Requires <a href="https://downloads.veertu.com/anka/MobileDevice-26.4.pkg" target="_blank" rel="noopener">MobileDevice-26.4.pkg</a> to be installed on the host.</li><li>Requires setting a disk size of 50GB or more.</li></ul></blockquote>
+      <blockquote class="hint info vm-version-notes"><ul><li>Released 2026-06-02.</li><li>Requires <a href="https://downloads.veertu.com/anka/MobileDevice-26.4.pkg" target="_blank" rel="noopener">MobileDevice-26.4.pkg</a> to be installed on the host.</li><li>Requires setting a disk size of 50GB or more.</li></ul></blockquote>
     </td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
@@ -159,6 +157,19 @@ document.addEventListener('DOMContentLoaded', function() {
         <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
       </b>
       <blockquote class="hint info vm-version-notes"><ul><li>Requires <a href="https://downloads.veertu.com/anka/MobileDevice-26.4.pkg" target="_blank" rel="noopener">MobileDevice-26.4.pkg</a> to be installed on the host.</li><li>Requires setting a disk size of 50GB or more.</li></ul></blockquote>
+    </td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle">
+      <b>
+        macOS 26.4.1 (25E253)
+        <a href="https://updates.cdn-apple.com/2026WinterFCS/fullrestores/122-28781/DCB2FF13-06CB-44C2-BCA2-DFCAF3521D46/UniversalMac_26.4.1_25E253_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
+          <span class="fa fa-download" style="font-size:1.2em;"></span>
+        </a>
+        <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
+      </b>
+      <blockquote class="hint info vm-version-notes"><ul><li>Released 2026-04-09.</li><li>Requires <a href="https://downloads.veertu.com/anka/MobileDevice-26.4.pkg" target="_blank" rel="noopener">MobileDevice-26.4.pkg</a> to be installed on the host.</li><li>Requires setting a disk size of 50GB or more.</li></ul></blockquote>
     </td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
@@ -218,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <td style="vertical-align: middle">
       <b>
         macOS 26.2 (25C56)
-        <a href="https://updates.cdn-apple.com/2025FallSeed/fullrestores/089-21529/D038FF08-78B0-4FFE-9E39-2F5A64AE46AB/UniversalMac_26.2_25C5031i_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
+        <a href="https://updates.cdn-apple.com/2025FallFCS/fullrestores/093-37399/E144C918-CF99-4BBC-B1D0-3E739B9A3F2D/UniversalMac_26.2_25C56_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
           <span class="fa fa-download" style="font-size:1.2em;"></span>
         </a>
         <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
@@ -652,344 +663,3 @@ anka run {vm} bash -c "sudo rm -f /tmp/virtio-net.kext.tar"</code></pre></li></u
 </div>
 </div>
 {{< /rawhtml >}}
-
-### Specific Requirements
-
-- **[ARM]** Creation of later 15.x and any 26.x VMs requires you to prepare the host. The following steps are required by Apple:
-  - Install Xcode 26 or later and set it up fully with the following commands:
-      ```bash
-      XCODE_DESTINATION="/Applications"
-      XCODE_APP="Xcode.app"
-      sudo /usr/sbin/dseditgroup -o edit -a everyone -t group _developer
-      sudo xcode-select -s ${XCODE_DESTINATION}/${XCODE_APP}/Contents/Developer
-      sudo xcodebuild -license accept
-      sudo xcodebuild -runFirstLaunch
-      sudo DevToolsSecurity -enable
-      for PKG in $(/bin/ls ${XCODE_DESTINATION}/${XCODE_APP}/Contents/Resources/Packages/*.pkg); do
-          sudo /usr/sbin/installer -pkg "$PKG" -target /
-      done
-      echo "Checking Xcode CLI tools"
-      sudo xcode-select -s "${XCODE_DESTINATION}/${XCODE_APP}"
-      xcode-select -p &> /dev/null
-      if [ $? -ne 0 ]; then
-        echo "Xcode CLI tools not found. Installing them..."
-        touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
-        PROD=$(softwareupdate -l |
-          grep "\*.*Command Line" |
-          tail -n 1 | sed 's/^[^C]* //')
-        softwareupdate -i "$PROD" --verbose;
-      else
-        echo "Xcode CLI tools OK"
-      fi
-      ```
-  - Install the Metal Toolchain or else overall performance of macOS 26 VMs will be poor (icons slow to load, etc)
-      ```bash
-      xcodebuild -downloadComponent metalToolchain
-      xcodebuild -importComponent metalToolchain
-      ```
-- **[ARM]**  If you're running an older host OS version, you'll need to install the latest MobileDevice.pkg from the latest Xcode.app/Contents/Resources/Packages/ directory. For example, on Host OS 15.x, to create 26.4 VMs you need to install the Xcode 26.4 MobileDevice.pkg first. You can download the latest Xcode.app and then extract just the MobileDevice.pkg file from the Contents/Resources/Packages/ directory. Note, this may mean extracting it from the latest Xcode beta, depending on the version you're trying to create a VM from.
-- **[ARM]** There is also a rare problem where your Xcode is not fully set up and still creates problems. Be sure to run the following:
-  ```bash
-  sudo xcodebuild -license accept
-  sudo xcodebuild -runFirstLaunch
-  for PKG in $(/bin/ls /Applications/Xcode.app/Contents/Resources/Packages/*.pkg); do
-      sudo /usr/sbin/installer -pkg "$PKG" -target /
-  done
-  ```
-
-<!-- {{< hint warning >}}
-VM creation requires a full internet connection or access to the Apple URLs detailed on https://support.apple.com/101555. If you are behind a corporate firewall/proxy, you'll need to set up a proxy that has the access you need and tell the system to use that proxy with the following:
-
-```bash
-# networksetup is an alternative to going into the System Preferences > Network > <interface> > Details > Proxies and setting it up manually
-networksetup -setwebproxy <interface> <proxyURL> <port>
-networksetup -setsecurewebproxy <interface> <proxyURL> <port>
-export http_proxy=http://<proxyURL>:<port>
-export https_proxy=http://<proxyURL>:<port>
-```
-
-If this does not work, you can try setting the `ANKA_NETWORK_MODE` environment variable to `disconnected` to temporarily disable networking entirely and eliminate the requirement.
-{{< /hint >}} -->
-
----
-
-### Using `anka create`
-
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/create/_index.md" >}}
-
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/create/_example.md" >}}
-
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/create/_extra.md" >}}
-
-After executing `anka create`, Anka will automatically set up macOS, create the user `anka` with password: `admin`, disable SIP, and enable VNC for you. The VM will then be stopped.
-
-### Anka Click Scripts feed
-
-Starting in Anka 3.7.0, [Anka Click Scripts](https://github.com/veertuinc/anka-click-scripts) used during `anka create` are downloaded from a feed. You can get new scripts and macOS version support without upgrading the Anka CLI package.
-
-Two feeds are available:
-
-- Production (default): `https://downloads.veertu.com/click-scripts/v1/feed.json`
-- Edge (pre-release scripts): `https://downloads.veertu.com/edge-click-scripts/v1/feed.json`
-
-Switch feeds with `anka config feed_url`:
-
-```bash
-❯ anka config feed_url https://downloads.veertu.com/edge-click-scripts/v1/feed.json
-```
-
-Disable the feed and use only scripts bundled with the installed Anka package by setting the URL to an empty string:
-
-```bash
-❯ anka config feed_url ""
-```
-
-If creation fails after a feed update, try `rm -f ~/.anka/tools/*` to clear cached scripts, then run `anka create` again. See [VM creation is stuck or failing]({{< relref "anka-virtualization-cli/troubleshooting/cli/anka-create-stuck-or-failing.md" >}}) for more troubleshooting steps.
-
----
-
-### Using the Anka GUI
-
-1. Click on **Create new VM**.
-2. **LEAVE INSTALLER BLANK** and click on Options to set any non-default values you want.
-  {{< hint info >}}
-  Leaving the installer blank will automatically target the latest macOS version, pulling the IPSW file from the official Apple CDN (`updates.cdn-apple.com`). You can use your own IPSW file with the Anka CLI instead.
-  {{< /hint >}}
-![installer with pkg]({{< siteurl >}}images/apple/getting-started/creating-your-first-vm/ui.png)
-3. Be patient while it's creating.
-
-Once the VM is created, you will see it on the sidebar -- Hooray!
-
-![ui with vm in the sidebar list]({{< siteurl >}}images/getting-started/creating-your-first-vm/ui-vm-in-sidebar.png)
-
-#### Set up the VM (post-GUI creation)
-
-{{< hint warning >}}
-This is not needed if you ran `anka create`.
-{{< /hint >}}
-
-The GUI tool will not automatically set up macOS and requires you to perform several steps manually.
-
-1. Start the VM with `anka start -uv` to launch the [Anka Viewer]({{< relref "anka-virtualization-cli/command-line-reference.md#view" >}}) and addons. **Please do not use `-uv` in your scripts when starting VMs. It is only for interactive/logged in sessions.**
-
-- `anka view` does not currently work post-start unless you started it with -v.
-- **ARM USERS:** `sudo anka view` as a normal user is not possible yet. You'll need to ensure that VNC is enabled to access VMs running under `sudo`.
-
-2. Once inside the Anka Viewer/VM, finish the macOS installation **and be sure to install the addons package through the disk we mounted with `-u`**.
-
-3. After you're finished, reboot the VM.
-
-![mounted addons]({{< siteurl >}}images/apple/getting-started/creating-your-first-vm/addonspkg.png)
-
-{{< hint warning >}}
-**For our addons to install and enable autologin properly, you need to create the VM user as username: `anka` and password: `admin`. If you decide to use your own username and password, you will need to manually enable autologin for the user.**
-{{< /hint >}}
-
-#### Disable SIP in Recovery Mode (post-GUI creation)
-
-{{< hint info >}}
-You can start the VM in Recovery Mode with `ANKA_START_MODE=2`:
-
-```bash
-ANKA_START_MODE=2 anka start 12.6
-```
-
-{{< /hint >}}
-
-{{< hint warning >}}
-SIP is only enabled for VMs created in the Anka App's UI. These instructions are irrelevant for VMs created with `anka create`.
-{{< /hint >}}
-
-With SIP enabled, there are two main issues you'll find when running VMs:
-
-1. User or command executions can hang due to a "allowed to access" dialog in the VM's UI. It requires VNC access and manual intervention to get around (no commands to disable this protection feature).
-2. Apple's `syspolicyd` will notice applications and processes running for the first time and consume a lot of CPU and RAM trying to scan them.
-
-In order to disable SIP, you need to first launch the VM in recovery mode.
-
-![recovery-mode]({{< siteurl >}}images/apple/getting-started/accessing-your-vm/anka-app-recovery-mode.png)
-
-Then, you launch the Terminal application and execute `csrutil disable`. Once executed and after confirmation that the command worked, you can stop the VM. On next boot, SIP will be disabled.
-
----
-
-## Sharing host directories inside of the VM
-
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/mount/_extra.md" >}}
-
-{{< include file="_partials/anka-virtualization-cli/shared-host-mount.md" >}}
-
----
-
-## Optimizing your VM
-
-It's recommended that you disable:
-
-- Spotlight and `coreduetd`:
-
-```bash
-# Disable indexing volumes
-sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Volumes" || true
-sudo defaults write ~/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array "/Network" || true
-sudo killall mds || true
-sleep 60
-sudo mdutil -a -i off / || true
-sudo mdutil -a -i off || true
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist || true
-sudo rm -rf /.Spotlight-V100/*
-rm -rf ~/Library/Metadata/CoreSpotlight/ || true
-killall -KILL Spotlight spotlightd mds || true
-sudo rm -rf /System/Volums/Data/.Spotlight-V100 || true
-```
-
-- SIP, as `syspolicyd` will scan running processes and slow everything down.
-
----
-
-## Listing available VMs in the CLI
-
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/list/_example.md" >}}
-
-
-## Stop or Suspend the VM
-
-{{< hint info >}}
-This is not necessary for `anka modify` commands.
-{{< /hint >}}
-
-Once you've finalized your changes inside of the VM, be sure to use `anka stop` or `anka suspend`.
-
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/stop/_index.md" >}}
-
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/suspend/_index.md" >}}
-
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/suspend/_extra.md" >}}
-
-## Deleting a VM
-
-### Anka CLI
-
-```shell
-❯ anka delete test
-are you sure you want to delete vm 77f33f4a-75c3-47aa-b3f6-b99e7cdac001 test [y/N]:
-```
-
-### Anka GUI
-
-![edit menu delete]({{< siteurl >}}images/getting-started/creating-your-first-vm/edit-menu-delete.png)
-
----
-
-## VM Clones
-
-### Disk Optimization
-
-Customers coming from Anka 2 will know that when you clone a VM (_untagged_ or _tagged_), it will share the underlying VM image files between the two. However, this is not the case for Anka 3. As of right now, sharing of the underlying VM image files between a clone and its source requires first creating a tag for the source _before_ you clone. You can do this with `anka push --local`, or just a regular `anka push` if you're running the [Anka Build Cloud Registry]({{< relref "anka-build-cloud/_index.md" >}}). Don't worry, clones will not have access to change the original source VM state.
-
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/push/_index.md" >}}
-
-```bash
-❯ anka list
-+--------+--------------------------------------+----------------------+---------+
-| name   | uuid                                 | creation_date        | status  |
-+--------+--------------------------------------+----------------------+---------+
-| 12.0.1 | 002b73b6-dc99-4d6b-8f68-6067a3a66d73 | Nov 19 08:02:33 2021 | stopped |
-+--------+--------------------------------------+----------------------+---------+
-
-❯ anka push --local --tag vanilla 12.0.1
-
-❯ anka list
-+------------------+--------------------------------------+----------------------+---------+
-| name             | uuid                                 | creation_date        | status  |
-+------------------+--------------------------------------+----------------------+---------+
-| 12.0.1 (vanilla) | 002b73b6-dc99-4d6b-8f68-6067a3a66d73 | Nov 19 08:02:33 2021 | stopped |
-+------------------+--------------------------------------+----------------------+---------+
-```
-
-_The above example shows the tag "vanilla" does not exist locally until we execute the `anka push --local`._
-
-{{< hint info >}}
-Cloned VMs will use a trivial amount of disk space until you start them. Once started, an empty image is created and connected on top of existing images and any changes to or in macOS are then added to it.
-{{< /hint >}}
-
-{{< hint info >}}
-To switch between tags locally, you can use the `anka pull --local --tag {targetTagname} {VMName}` command:
-
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/pull/_index.md" >}}
-
-{{< /hint >}}
-
-### Cloning
-
-You can easily create VM clones from a source VM and _its current state_ using `anka clone`:
-
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/clone/_index.md" >}}
-
-{{< hint info >}}
-Don’t worry, at no point do clones have access to change the original source VM state.
-{{< /hint >}}
-
-{{< hint info >}}
-All clones share as many underlying layers and data as possible.
-{{< /hint >}}
-
-There are two types of cloning you can perform:
-
-1. **Shallow Clone**: `anka clone {source} {dest}`
-    - Shallow clones allow you to get a new VM with a new name and UUID. Underlying layers are shared with the source VM (if the source VM has a tag). When the shallow clone VM is started, a new layer for that specific clone is created on top of existing layers that make up the VM.
-2. **Full Clone**: `anka clone --copy {source} {dest}`
-    - Full clones create a copy that merges all underlying layers so that they cannot be shared with other VMs. While this could theoretically shrink the size of the VM, it loses the ability to re-use existing layers from other VMs on the host and can actually use more disk space than before.
-
-```bash
-❯ anka list
-+------------------+--------------------------------------+----------------------+---------+
-| name             | uuid                                 | creation_date        | status  |
-+------------------+--------------------------------------+----------------------+---------+
-| 12.0.1 (vanilla) | 002b73b6-dc99-4d6b-8f68-6067a3a66d73 | Nov 19 08:02:33 2021 | stopped |
-+------------------+--------------------------------------+----------------------+---------+
-
-
-❯ anka clone 12.0.1 12.0.1-xcode13
-6070ee59-6c16-4c93-ba7a-122b66b1472a
-
-❯ anka list
-+------------------+--------------------------------------+----------------------+---------+
-| name             | uuid                                 | creation_date        | status  |
-+------------------+--------------------------------------+----------------------+---------+
-| 12.0.1 (vanilla) | 002b73b6-dc99-4d6b-8f68-6067a3a66d73 | Nov 19 08:02:33 2021 | stopped |
-+------------------+--------------------------------------+----------------------+---------+
-| 12.0.1-xcode13   | 6070ee59-6c16-4c93-ba7a-122b66b1472a | Nov 19 08:02:33 2021 | stopped |
-+------------------+--------------------------------------+----------------------+---------+
-```
-
-### VM Templates
-
-{{< include file="_partials/anka-build-cloud/vm-templates.md" >}}
-
-## Exporting and Importing VMs
-
-### Export
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/export/_extra.md" >}}
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/export/_index.md" >}}
-
-### Import
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/import/_index.md" >}}
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/import/_extra.md" >}}
-
----
-
-## Anka Build Cloud
-
-### Add the Registry
-
-{{< include file="_partials/anka-virtualization-cli/getting-started/_add-the-registry.md" >}}
-
-### (Anka Build Cloud only) Push the VM to the Registry
-
-{{< include file="_partials/anka-virtualization-cli/getting-started/_push-vm-to-registry.md" >}}
-
----
-
-## What's next?
-
-- [Acessing your VM]({{< relref "anka-virtualization-cli/getting-started/accessing-your-vm.md" >}})

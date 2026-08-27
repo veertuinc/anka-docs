@@ -56,7 +56,7 @@ Their [Anka Build Cloud]({{< relref "anka-build-cloud/getting-started/_index.md"
 
 ### Template Catalog
 
-The platform team publishes base [VM templates]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}}) in the Registry. Each base has a specific macOS version and specific engine versions installed on it. Together these bases form the Template Catalog. Hundreds of derived templates and tags sit in the Registry on top of those bases.
+The platform team publishes base [VM templates]({{< relref "anka-virtualization-cli/getting-started/creating-vms/_index.md" >}}) in the Registry. Each base has a specific macOS version and specific engine versions installed on it. Together these bases form the Template Catalog. Hundreds of derived templates and tags sit in the Registry on top of those bases.
 
 Product teams and licensees extend the catalog with a YAML file in their repo or project. The file selects a base to clone, lists what to install inside the VM, and sets the template or tag name to publish. Automation builds that image and stores it in the Registry under that name. CI jobs target that name directly.
 
@@ -102,7 +102,7 @@ Jobs start from a clean VM, so flake from leftover files and keychain state drop
 ## Related docs
 
 - [Getting Started (CLI)]({{< relref "anka-virtualization-cli/getting-started/_index.md" >}})
-- [Creating VMs]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})
+- [Creating VMs]({{< relref "anka-virtualization-cli/getting-started/creating-vms/_index.md" >}})
 - [Setup Controller and Registry]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md" >}})
 - [Packer]({{< relref "plugins-and-integrations/packer.md" >}})
 - [CI/CD plugins]({{< relref "plugins-and-integrations/_index.md" >}})

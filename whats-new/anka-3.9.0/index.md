@@ -17,7 +17,7 @@ Highlights:
 - Use `anka mount` / `anka unmount` on a running VM, or `anka modify {vm} mount` / `anka modify delete mount` to persist mounts on a template.
 - Mounts survive VM reboots.
 
-For full examples and command reference, see [Sharing host directories inside of the VM]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md#sharing-host-directories-inside-of-the-vm" >}}).
+For full examples and command reference, see [Sharing host directories inside the VM]({{< relref "anka-virtualization-cli/getting-started/creating-vms/sharing-host-directories.md" >}}).
 
 ```bash
 ❯ anka mount test ~/

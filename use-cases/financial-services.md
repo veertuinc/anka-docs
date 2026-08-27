@@ -60,7 +60,7 @@ Before the handler registers the self-hosted runner, the fork runs extra **prepa
 
 ### Template Catalog
 
-A platform team builds [VM templates and tags]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}}) in a locked-down pipeline (CLI or Packer). Each tag has a macOS version, Xcode, and the SDKs that line-of-business approved. Tags are published to the Registry only after change control. Together they form the Template Catalog auditors can name.
+A platform team builds [VM templates and tags]({{< relref "anka-virtualization-cli/getting-started/creating-vms/_index.md" >}}) in a locked-down pipeline (CLI or Packer). Each tag has a macOS version, Xcode, and the SDKs that line-of-business approved. Tags are published to the Registry only after change control. Together they form the Template Catalog auditors can name.
 
 Line-of-business teams set the template and tag in the workflow YAML. They do not build images on the node. When a new tag version passes review, the platform team publishes it to the Registry and updates the tag name workflows target.
 
@@ -104,7 +104,7 @@ The Template Catalog holds the approved macOS and Xcode combinations the bank ru
 ## Related docs
 
 - [Getting Started (CLI)]({{< relref "anka-virtualization-cli/getting-started/_index.md" >}})
-- [Creating VMs]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})
+- [Creating VMs]({{< relref "anka-virtualization-cli/getting-started/creating-vms/_index.md" >}})
 - [Installing the Anka Virtualization package]({{< relref "anka-virtualization-cli/getting-started/installing-the-anka-virtualization-package.md" >}})
 - [Anklet](https://github.com/veertuinc/anklet) (open source; bank forked the GitHub Actions receiver and handler plugins)
 - [Setup Controller and Registry]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md" >}}) (standalone Registry; no Controller)

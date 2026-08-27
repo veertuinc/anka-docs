@@ -9,7 +9,7 @@ description: >
 ## Prerequisites
 
 1. [You've installed the Anka Virtualization package.]({{< relref "anka-virtualization-cli/getting-started/installing-the-anka-virtualization-package.md" >}})
-2. [You've created your first VM.]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})
+2. [You've created your first VM.]({{< relref "anka-virtualization-cli/getting-started/creating-vms/_index.md" >}})
 
 ---
 
@@ -21,11 +21,11 @@ The rest of this Getting Started guide focuses heavily on the (Command-Line Inte
 
 ## Recommended VM Resources
 
-The goal is to give you a starting point for CPU and RAM on your [VM Template]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md#vm-templates" >}}), based on how many VMs you plan to run at once. Apple does not permit more than 2 VMs per machine (this is only a strict limitation on ARM machines currently).
+The goal is to give you a starting point for CPU and RAM on your [VM Template]({{< relref "anka-virtualization-cli/getting-started/creating-vms/vm-clones-and-tags.md#vm-templates" >}}), based on how many VMs you plan to run at once. Apple does not permit more than 2 VMs per machine (this is only a strict limitation on ARM machines currently).
 
 ### Intel
 
-To calculate the cores available for VMs, you'll take the number of physical cores and then multiply it by 2. Once you have the total virtual cores, you can assign all of them (maybe - 1 or 2 CPUs to give the host breathing room) if you plan to run a single VM on the host. Otherwise, if you want to run two VMs at once, you'll divide the total virtual cores by 2 and then assign this number to the [VM Template]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md#vm-templates" >}}). RAM follows a similar pattern, giving 2GB for the host: `totalRAMGB - 2GB` and `(totalRAMGB / 2) - 2GB`.
+To calculate the cores available for VMs, you'll take the number of physical cores and then multiply it by 2. Once you have the total virtual cores, you can assign all of them (maybe - 1 or 2 CPUs to give the host breathing room) if you plan to run a single VM on the host. Otherwise, if you want to run two VMs at once, you'll divide the total virtual cores by 2 and then assign this number to the [VM Template]({{< relref "anka-virtualization-cli/getting-started/creating-vms/vm-clones-and-tags.md#vm-templates" >}}). RAM follows a similar pattern, giving 2GB for the host: `totalRAMGB - 2GB` and `(totalRAMGB / 2) - 2GB`.
 
 ### ARM
 
@@ -155,6 +155,29 @@ Options:
 ```shell
 sudo anka modify {vmNameOrUUID} set custom-variable hw.uuid "GUID"
 sudo anka modify {vmNameOrUUID} set custom-variable hw.serial 'MySerial'
+```
+
+---
+
+## Stop, suspend, or delete a VM
+
+{{< hint info >}}
+Not required before `anka modify` on a stopped VM.
+{{< /hint >}}
+
+After you finish changes inside the guest, stop or suspend the VM:
+
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/stop/_index.md" >}}
+
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/suspend/_index.md" >}}
+
+{{< include file="_partials/anka-virtualization-cli/command-line-reference/suspend/_extra.md" >}}
+
+### Delete (CLI)
+
+```shell
+❯ anka delete test
+are you sure you want to delete vm 77f33f4a-75c3-47aa-b3f6-b99e7cdac001 test [y/N]:
 ```
 
 ---

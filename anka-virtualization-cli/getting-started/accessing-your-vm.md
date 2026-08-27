@@ -9,7 +9,7 @@ description: >
 ## Prerequisites
 
 1. [You've installed the Anka Virtualization package.]({{< relref "anka-virtualization-cli/getting-started/installing-the-anka-virtualization-package.md" >}})
-2. [You've created and prepared your first VM Template.]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})
+2. [You've created and prepared your first VM Template.]({{< relref "anka-virtualization-cli/getting-started/creating-vms/_index.md" >}})
 
 ## Defaults and Expectations
 

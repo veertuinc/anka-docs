@@ -62,7 +62,7 @@ Their [Anka Build Cloud]({{< relref "anka-build-cloud/getting-started/_index.md"
 
 ### Template Catalog
 
-Central IT publishes a base [VM template and tag]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}}) in the Registry: macOS, Xcode, and the iOS Simulator runtimes every brand must stay aligned on. Each brand adds its app signing, SDKs, and test fixtures as a child tag on top of the base. Together these form the Template Catalog.
+Central IT publishes a base [VM template and tag]({{< relref "anka-virtualization-cli/getting-started/creating-vms/_index.md" >}}) in the Registry: macOS, Xcode, and the iOS Simulator runtimes every brand must stay aligned on. Each brand adds its app signing, SDKs, and test fixtures as a child tag on top of the base. Together these form the Template Catalog.
 
 Brand teams set the tag name in their CI configuration. Packer or CLI scripts keep the base tag current so every job uses the same Xcode and simulator versions.
 
@@ -108,7 +108,7 @@ Simulator tests run inside a fresh VM with a known Xcode and runtime stack. Left
 ## Related docs
 
 - [Getting Started (CLI)]({{< relref "anka-virtualization-cli/getting-started/_index.md" >}})
-- [Creating VMs]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})
+- [Creating VMs]({{< relref "anka-virtualization-cli/getting-started/creating-vms/_index.md" >}})
 - [Setup Controller and Registry]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md" >}})
 - [Anka on AWS EC2 Macs]({{< relref "aws-ec2-mac/_index.md" >}})
 - [Marketplace AMI]({{< relref "aws-ec2-mac/marketplace-ami.md" >}})

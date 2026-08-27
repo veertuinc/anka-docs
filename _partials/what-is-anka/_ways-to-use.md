@@ -6,7 +6,7 @@ There are many ways in which our customers utilize the Anka Virtualization CLI t
 
 - Through the `anka create` command on the host machine:
     ```
-    ❯ anka create 13.1 13.1-arm
+    ❯ anka create my-ci-vm 26.6.2
     ```
 - By executing your project installation commands and scripts inside of VMs from the host terminal with [`anka run`]({{< relref "anka-virtualization-cli/command-line-reference.md#run" >}}) and also directly inside the VM with [`anka cp`]({{< relref "anka-virtualization-cli/command-line-reference.md#cp" >}}) & [`anka run`]({{< relref "anka-virtualization-cli/command-line-reference.md#run" >}}).
 - Any manual steps you need to perform in the GUI can be done through VNC or automated with [Anka Click Scripts](https://github.com/veertuinc/anka-click-scripts).

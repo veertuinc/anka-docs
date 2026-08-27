@@ -22,7 +22,7 @@ OCI storage uses the OCI image format and registry APIs. It is separate from the
 - Registry credentials (username/password, or other auth your registry requires)
 
 {{< hint info >}}
-Host directory mounts inside VMs are documented separately in [Sharing host directories inside of the VM]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md#sharing-host-directories-inside-of-the-vm" >}}).
+Host directory mounts inside VMs are documented separately in [Sharing host directories inside the VM]({{< relref "anka-virtualization-cli/getting-started/creating-vms/sharing-host-directories.md" >}}).
 {{< /hint >}}
 
 ## Add an OCI registry

@@ -121,4 +121,4 @@ Anka Build Basic version 3.X.X (build XXX)
 
 ## What's next?
 
-- [Creating your first VM]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})
+- [Creating your first VM]({{< relref "anka-virtualization-cli/getting-started/creating-vms/_index.md" >}})

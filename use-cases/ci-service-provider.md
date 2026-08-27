@@ -29,7 +29,7 @@ What is needed:
 
 A large Mac node pool in the provider’s data centers. Each host runs the [Anka Virtualization CLI]({{< relref "anka-virtualization-cli/getting-started/_index.md" >}}) and the provider’s orchestrator. There is no Anka Controller or Registry in this setup.
 
-Golden templates live in Azure Blob Storage. The platform team builds a template once, runs [`anka export`]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md#exporting-and-importing-vms" >}}), and uploads the archive. Host provisioning uses `azcopy` to fetch the archive, then [`anka import`]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md#exporting-and-importing-vms" >}}) loads the template locally. When a job arrives, the orchestrator clones from that imported template, starts the VM, and deletes it when the job ends.
+Golden templates live in Azure Blob Storage. The platform team builds a template once, runs [`anka export`]({{< relref "anka-virtualization-cli/getting-started/creating-vms/exporting-and-importing-vms.md" >}}), and uploads the archive. Host provisioning uses `azcopy` to fetch the archive, then [`anka import`]({{< relref "anka-virtualization-cli/getting-started/creating-vms/exporting-and-importing-vms.md" >}}) loads the template locally. When a job arrives, the orchestrator clones from that imported template, starts the VM, and deletes it when the job ends.
 
 {{< hint info >}}
 Customers never SSH to Mac nodes or run Anka CLI commands. The orchestrator is the only path to clone, start, and stop VMs. Internal image work happens on a separate build host before export to Azure.
@@ -58,7 +58,7 @@ Each Mac node has the [Anka CLI]({{< relref "anka-virtualization-cli/getting-sta
 
 ### Templates: one tag, many tool versions
 
-The platform team maintains a handful of [VM templates]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}}). Each template has one tag. That tag is packed with multiple Xcode versions plus other stacks customers need, installed side by side and managed with version managers (`nvm`, and similar tools).
+The platform team maintains a handful of [VM templates]({{< relref "anka-virtualization-cli/getting-started/creating-vms/_index.md" >}}). Each template has one tag. That tag is packed with multiple Xcode versions plus other stacks customers need, installed side by side and managed with version managers (`nvm`, and similar tools).
 
 Customers pick a runner type in the product. At the start of CI they run a provider command to select the Xcode or toolchain version for that job. The provider does not publish a separate template per version combination.
 
@@ -105,7 +105,7 @@ A handful of fat templates cover many customer toolchain requests without a matr
 ## Related docs
 
 - [Getting Started (CLI)]({{< relref "anka-virtualization-cli/getting-started/_index.md" >}})
-- [Creating VMs]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}}) (includes export and import)
+- [Creating VMs]({{< relref "anka-virtualization-cli/getting-started/creating-vms/_index.md" >}}) (includes export and import)
 - [Installing the Anka Virtualization package]({{< relref "anka-virtualization-cli/getting-started/installing-the-anka-virtualization-package.md" >}})
 - [Advanced Security Features (CLI)]({{< relref "anka-virtualization-cli/advanced-security-features.md" >}}) (`--no-local`, IP filtering)
 - [VM networking]({{< relref "anka-virtualization-cli/getting-started/understanding-vm-networking.md" >}})

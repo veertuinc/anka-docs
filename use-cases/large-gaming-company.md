@@ -60,7 +60,7 @@ Their [Anka Build Cloud]({{< relref "anka-build-cloud/getting-started/_index.md"
 
 A platform or tools team builds the Template Catalog in three layers in the Registry. Each title gets its own layer-2 and layer-3 tags on shared macOS bases.
 
-**Layer 1 — macOS base.** A [VM template]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}}) for a specific macOS version. Nothing title-specific yet.
+**Layer 1 — macOS base.** A [VM template]({{< relref "anka-virtualization-cli/getting-started/creating-vms/_index.md" >}}) for a specific macOS version. Nothing title-specific yet.
 
 **Layer 2 — Xcode.** A tag cloned from that base with one Xcode version installed. A title needs only one Xcode line per macOS base, not a large matrix.
 
@@ -120,7 +120,7 @@ The Template Catalog holds a macOS base, one Xcode tag per title, and a nightly-
 ## Related docs
 
 - [Getting Started (CLI)]({{< relref "anka-virtualization-cli/getting-started/_index.md" >}})
-- [Creating VMs]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}})
+- [Creating VMs]({{< relref "anka-virtualization-cli/getting-started/creating-vms/_index.md" >}})
 - [Setup Controller and Registry]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md" >}})
 - [Controller plugins]({{< relref "plugins-and-integrations/controller-+-registry/_index.md" >}})
 - [Advanced Security Features (Cloud)]({{< relref "anka-build-cloud/Advanced Security Features/_index.md" >}})

@@ -97,7 +97,7 @@ The VM should be considered a containment layer, not the only control. If an MCP
 
 Start with the normal VM creation flow, then install the tools needed by your coding agent. This usually includes your package manager, language runtimes, version control tooling, and the agent CLI itself.
 
-For VM creation and template preparation, see [Creating VMs]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md" >}}).
+For VM creation and template preparation, see [Creating VMs]({{< relref "anka-virtualization-cli/getting-started/creating-vms/_index.md" >}}).
 
 Once the base VM is ready, stop it and use clones for individual projects or tasks:
 
@@ -125,7 +125,7 @@ Inside the VM, mounted folders are available under `/Volumes/My Shared Files`.
 cd "/Volumes/My Shared Files/project"
 ```
 
-For the full mount behavior, including sync limitations and automount options, see [Sharing host directories inside of the VM]({{< relref "anka-virtualization-cli/getting-started/creating-vms.md#sharing-host-directories-inside-of-the-vm" >}}).
+For the full mount behavior, including sync limitations and automount options, see [Sharing host directories inside the VM]({{< relref "anka-virtualization-cli/getting-started/creating-vms/sharing-host-directories.md" >}}).
 
 {{< hint info >}}
 When you need changes to flow back to the host, prefer making those edits from inside the VM. Host to guest updates can be affected by macOS shared folder caching behavior.
