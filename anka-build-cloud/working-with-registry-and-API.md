@@ -9,8 +9,10 @@ description: >
 
 Anka registry provides an easy way to store, version, and distribute macOS VMs that are used for CI and development. Once you've completed creation and setup of your VMs, use [`anka registry`]({{< relref "anka-virtualization-cli/command-line-reference.md#registry" >}}) command to work with the registry.  
 
-{{< hint info >}}
-Alternately, OCI compliant registries are supported in 3.9.0 and later. See [OCI Registry Support]({{< relref "whats-new/anka-3.9.0/index.md#oci-registry-support" >}}) for more details.
+{{< hint warning >}}
+This guide covers the **native Anka Registry** (Build Cloud, port `8089`, and Registry REST API). It does **not** apply to OCI-compliant third-party registries (Docker Hub, Google Artifact Registry, and similar).
+
+Anka 3.9.0+ can push/pull templates to OCI registries via the CLI only. OCI is **not** supported by the Build Cloud Controller and does **not** use the same API as the Anka Registry. See [Working with OCI Registries]({{< relref "anka-virtualization-cli/working-with-oci-registries.md" >}}) for that workflow.
 {{< /hint >}}
 
 Store your build and test VM templates in the registry.  
@@ -39,7 +41,22 @@ anka registry set <previouslydefiniedname>
 ### Push VM to the Registry 
 ```shell
 anka registry push -d <description> -t <tag> {vmNameOrUUID}
-```  
+```
+
+Set labels on a template before pushing so they are available inside VMs started from that template or tag. Use `anka modify {vmNameOrUUID} label {key} {value}`, then push. Jobs inside the VM can read labels with `nc -U /var/run/anka`. See [Accessing your VM]({{< relref "anka-virtualization-cli/getting-started/accessing-your-vm.md" >}}).
+
+### Tuning registry push performance
+
+Starting in Anka 3.8.0, you can tune IO buffer sizes used during `anka registry push`:
+
+```bash
+❯ anka config send_buffer_size
+0
+❯ anka config recv_buffer_size
+0
+```
+
+The default for both is `0`, which uses the curl default buffer size. Increase these values if you see slow uploads or connection issues on high-latency networks. See [anka registry push connection aborted after 100%]({{< relref "anka-virtualization-cli/troubleshooting/cli/anka-registry-push-connection-aborted-100.md" >}}) for other push troubleshooting.
 
 ### Pull VM from the Registry 
 ```shell

@@ -8,7 +8,7 @@ sudo anka registry add <registry name here> http://<ip>:8089
 
 Verify the configuration:
 ```shell
-sudo anka registry list-repos
+sudo anka registry --list
 ++
 ++
 

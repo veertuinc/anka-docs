@@ -26,14 +26,25 @@ It is also best to run this as close to when an issue happens as several command
 
 - Ensure that you've run `sudo anka license accept-eula` on the host.
 - Make sure you've got a valid license with `sudo anka license validate`.
-- Check `df -h` and other host or VM resource usage (CPU/RAM) and be sure that the host resources are not exhausted.
-- Check `[~]/Library/Logs/Anka/` logs for any indication of why the failure happened. See the Logs section right below this for more info.
+- Check host and VM resource usage with `df -h` and other tools. Make sure host CPU and RAM are not exhausted.
+- Run `anka log` to view recent Anka CLI logs, or `anka log -a` for all logs. Use `anka log clean` to remove old log files. See the Logs section below for file locations and VM-specific logs.
 - Ensure that all components in your Anka environment can communicate. This includes connectivity between CI/CD tooling we do not support.
 - Disable anti-virus and firewalls on the host.
 - If a VM is failing, try manually starting it on the host and use `anka --debug . . .` when you do for verbose output.
 - If using the Anka Build Cloud, check under the `/var/log/veertu/` and specifically the `anka_agent.ERROR` for any messages related to the problem (or at all).
 
 ### Logs
+
+Starting in Anka 3.8.0, use `anka log` to view Anka CLI logs from the terminal:
+
+```bash
+❯ anka log              # last hour, warning level and above
+❯ anka log -a           # all logs
+❯ anka log -s "1 day ago"
+❯ anka log clean        # remove log files older than one year
+```
+
+See [`anka log --help`]({{< relref "anka-virtualization-cli/command-line-reference.md#log" >}}) for `--since`, `--till`, and `--level` options.
 
 {{< hint warning >}}
 Anka runs as any user on the host, so the paths and locations described below can sometimes be under `$HOME` or `~`.

@@ -159,19 +159,22 @@ Instead of launching the viewer with the CLI, you can open the Anka.app under /A
 
   ![recovery-mode]({{< siteurl >}}images/apple/getting-started/accessing-your-vm/anka-app-recovery-mode.png)
 
-- Inside of your VM, you can obtain host level details about the VM using `nc -U /var/run/anka`. You can also set ENVs prefixed with `ANKA_HOST_PARAM_` to make them available inside.
+- Inside of your VM, you can read host-level VM metadata with `nc -U /var/run/anka`. Starting in Anka 3.8.0, this includes **template labels** you set on the VM or template with `anka modify {name} label {key} {value}` (or `anka modify {name} add label {key} {value}`). Labels persist on pushed registry templates and tags, so CI jobs running inside a pulled template can read them (for example to select Xcode version or pool name).
+
+  You can also pass host environment variables into the VM by prefixing them with `ANKA_HOST_PARAM_` on the host before starting the VM.
 
   ```shell
-  ❯ anka stop 14.3.1-arm64
-  ❯ export ANKA_HOST_PARAM_TEST=123 # set an ENV on the host
-  ❯ anka modify 14.3.1-arm64 add label labelA testA # set a label on the VM
-  ❯ anka run 14.3.1-arm64 bash -c "nc -U /var/run/anka"
+  ❯ anka stop my-template
+  ❯ export ANKA_HOST_PARAM_TEST=123
+  ❯ anka modify my-template label labelA testA
+  ❯ anka start my-template
+  ❯ anka run my-template bash -c "nc -U /var/run/anka"
   uuid: d792c6f6-198c-470f-9526-9c998efe7ab4
   license: com.veertu.anka.entplus,h:255
-  name: 14.3.1-arm64
+  name: my-template
   TEST: 123
-  version: 3.3.9
   labelA: testA
+  version: 3.8.0
   ```
 
 ## What's next?

@@ -723,6 +723,29 @@ If this does not work, you can try setting the `ANKA_NETWORK_MODE` environment v
 
 After executing `anka create`, Anka will automatically set up macOS, create the user `anka` with password: `admin`, disable SIP, and enable VNC for you. The VM will then be stopped.
 
+### Anka Click Scripts feed
+
+Starting in Anka 3.7.0, [Anka Click Scripts](https://github.com/veertuinc/anka-click-scripts) used during `anka create` are downloaded from a feed. You can get new scripts and macOS version support without upgrading the Anka CLI package.
+
+Two feeds are available:
+
+- Production (default): `https://downloads.veertu.com/click-scripts/v1/feed.json`
+- Edge (pre-release scripts): `https://downloads.veertu.com/edge-click-scripts/v1/feed.json`
+
+Switch feeds with `anka config feed_url`:
+
+```bash
+❯ anka config feed_url https://downloads.veertu.com/edge-click-scripts/v1/feed.json
+```
+
+Disable the feed and use only scripts bundled with the installed Anka package by setting the URL to an empty string:
+
+```bash
+❯ anka config feed_url ""
+```
+
+If creation fails after a feed update, try `rm -f ~/.anka/tools/*` to clear cached scripts, then run `anka create` again. See [VM creation is stuck or failing]({{< relref "anka-virtualization-cli/troubleshooting/cli/anka-create-stuck-or-failing.md" >}}) for more troubleshooting steps.
+
 ---
 
 ### Using the Anka GUI

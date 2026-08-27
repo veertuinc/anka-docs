@@ -10,4 +10,4 @@ After the push completes, you should see your new Template in the "Templates" se
 
 ![Your first template]({{< siteurl >}}images/getting-started/push-template.png)
 
-Alternatively, you can use OCI compliant registries. See [OCI Registry Support]({{< relref "whats-new/anka-3.9.0/index.md#oci-registry-support" >}}) for more details.
+OCI-compliant registries (Anka 3.9.0+) are a separate CLI-only workflow and are not supported by Build Cloud. See [Working with OCI Registries]({{< relref "anka-virtualization-cli/working-with-oci-registries.md" >}}).

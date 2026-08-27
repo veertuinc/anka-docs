@@ -17,7 +17,7 @@ Currently, we provide a solution for starting Anka VMs directly on a host and th
 
 ## Node / Anka CLI Requirements
 
-1. The Anka CLI has a valid registry with the templates/tags you wish to use added (`anka registry add...` + `anka registry list-repos`)
+1. The Anka CLI has a valid registry with the templates/tags you wish to use added (`anka registry add...` + `anka registry --list`)
 2. Install and register one [Self-hosted agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install) per VM you wish to run
 
 ## VM Template & Tag Requirements

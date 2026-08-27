@@ -42,3 +42,27 @@
   ]
 }
 ```
+
+Starting in Anka 3.7.0, you can filter `anka list` output by appending `=value` to a field name, and choose which columns appear:
+
+```shell
+❯ anka list --field name,status=stopped
++-----------------------------+---------+
+| name                        | status  |
++-----------------------------+---------+
+| 15.1.1-xcode-16_16.1_16.2RC | stopped |
++-----------------------------+---------+
+| 15.3.2                      | stopped |
++-----------------------------+---------+
+
+❯ anka list --field name=15.3,status
++--------+---------+
+| name   | status  |
++--------+---------+
+| 15.3.2 | stopped |
++--------+---------+
+
+❯ anka list --field name,status,uuid,ip,vnc_port
+
+❯ anka -j list --field name,status,uuid,ip,vnc_port | jq
+```
