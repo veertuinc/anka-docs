@@ -7,17 +7,10 @@ description: >
   Multi-team game-client and Xcode builds on shared Anka nodes
 ---
 
-## Context
-
-A large studio with several live titles and a mobile or macOS client on each. Build, test, and App Store submission jobs share one Mac fleet. Teams do not want to own their own hardware.
-
-{{< rawhtml >}}<center>{{< /rawhtml >}}
-![Live title teams share one Mac fleet]({{< siteurl >}}images/use-cases/large-gaming-company/build-ecosystem.svg)
-{{< rawhtml >}}</center>{{< /rawhtml >}}
 
 ## Problem
 
-One title’s nightly could fill every host. When a nightly crashed the host or left an orphaned build agent running, that node stayed offline until someone rebooted or cleaned it. Other titles queued behind the blocked capacity. Hosts that ran signing or UI tests also left certificates and simulators in a bad state for the next job. Build times moved around from day to day, which made release planning hard.
+One game title’s nightly could fill every host. When a nightly crashed the host or left an orphaned build agent running, that node stayed offline until someone rebooted or cleaned it. Other titles queued behind the blocked capacity. Hosts that ran signing or UI tests also left certificates and simulators in a bad state for the next job. Build times moved around from day to day, which made release planning hard.
 
 Jobs on bare metal also let one title reach another title’s source, signing material, or the host itself. A VM boundary is required so Team A cannot read Team B’s tree or the node.
 
