@@ -7,13 +7,6 @@ description: >
   High-volume engine and editor CI on a large Anka node pool
 ---
 
-## Context
-
-A company that ships a game engine and editor tools. Many internal teams and external licensees build against several engine versions and macOS / Xcode combinations at the same time.
-
-{{< rawhtml >}}<center>{{< /rawhtml >}}
-![Who builds on the platform]({{< siteurl >}}images/use-cases/gaming-platform-provider/build-ecosystem.svg)
-{{< rawhtml >}}</center>{{< /rawhtml >}}
 
 ## Problem
 
