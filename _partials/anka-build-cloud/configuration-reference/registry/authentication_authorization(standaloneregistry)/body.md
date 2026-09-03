@@ -2,7 +2,7 @@
 ---
 ---
 ### Authentication / Authorization (standalone registry)
-{{< include file="content/_partials/anka-build-cloud/configuration-reference/registry/authentication_authorization(standaloneregistry)/notice.md" >}}
+{{< include file="_partials/anka-build-cloud/configuration-reference/registry/authentication_authorization(standaloneregistry)/notice.md" >}}
 | ENV | Type | Description | Default Value |
 | --- | :---: | --- | :---: |
 | ANKA_BACKEND_TYPE | (string) | The backend type to use for the registry ('disk', 's3'). | disk |
