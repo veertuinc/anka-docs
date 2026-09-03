@@ -1,5 +1,8 @@
 ---
 title: "Anka Documentation"
+description: >-
+  Anka documentation for macOS virtualization, the Anka Build Cloud,
+  CI/CD plugins, and AWS EC2 Mac setups.
 cascade:
   - type: "docs"
 ---

@@ -2,8 +2,9 @@
 date: 2019-12-12T00:00:00-00:00
 title: "What is Anka?"
 weight: 1
-description: >
-  All about Veertu's Anka Software
+description: >-
+  What Anka is: macOS virtualization and Build Cloud tools for DevOps
+  and CI/CD teams that build and test macOS or iOS apps.
 ---
 
 {{< include file="_partials/what-is-anka/_short-what-is.md" >}}

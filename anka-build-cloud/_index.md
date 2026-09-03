@@ -1,6 +1,9 @@
 ---
 title: "Anka Build Cloud"
 weight: 4
+description: >-
+  Manage Anka VM templates and tags, orchestrate macOS VMs for CI/CD,
+  and run Anka Controller, Registry, and nodes.
 ---
 
 {{< hint info >}}
@@ -11,7 +14,7 @@ Anka Build components support heterogeneous build nodes; You can connect both An
 
 Docker and DockerHub revolutionized the way developers could build and test their software. However, Docker does not at the time of writing this support macOS. This is why we've created the Anka Build Cloud. The Anka Build Cloud is a suite of software which allows you to manage and store [Anka VM Templates and Tags]({{< relref "anka-virtualization-cli/getting-started/creating-vms/vm-clones-and-tags.md" >}}) in a central repository, orchestrate on-demand (or persistent) macOS VMs for your CI/CD (or developers), and visualize usage or logs.
 
-![High level architecture]({{< siteurl >}}images/anka-build/high-level.webp)
+![High level architecture]({{< siteurl >}}images/anka-build/anka-build-cloud.webp)
 
 ### Anka Controller
 

@@ -1,6 +1,9 @@
 ---
 title: "Anka Virtualization CLI"
 weight: 3
+description: >-
+  Install and use the Anka Virtualization CLI to create, run, and manage
+  macOS VMs on Apple Silicon and Intel Macs.
 aliases:
   - "/arm/"
   - "/apple/"
