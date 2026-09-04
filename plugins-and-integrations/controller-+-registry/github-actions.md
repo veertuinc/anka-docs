@@ -9,6 +9,8 @@ aliases:
   - /ci-plugins-and-integrations/controller-+-registry/github-actions
 ---
 
+If you want to hide the VM up/down steps from your workflow YAML, use [Anklet](https://github.com/veertuinc/anklet). Anklet is an external orchestrator that starts on-demand, ephemeral Anka macOS VMs for GitHub Actions without those steps in the workflow.
+
 The [Anka Actions](https://github.com/veertuinc/anka-actions) monorepo provides GitHub Actions for orchestrating ephemeral, self-hosted runners on Anka Build Cloud. Each action lives in its own subfolder and is referenced by path. You can also find them on the [GitHub Marketplace](https://github.com/marketplace/actions/anka-actions).
 
 | Action | Path | Description |
