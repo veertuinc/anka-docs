@@ -75,6 +75,10 @@ Click on Instances to get a list of all running instances on the cloud.
 
 ![image7]({{< siteurl >}}images/using-controller/image7.png)
 
+#### Controller Instance info inside the VM
+
+{{< include file="_partials/anka-build-cloud/whatsnew/1.51.1/controller-instance-info-nc.md" >}}
+
 ### Manually starting instances
 
 Click on create instance to manually start instances using a specific VM template/tag on the cloud.

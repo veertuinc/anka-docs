@@ -177,6 +177,10 @@ Instead of launching the viewer with the CLI, you can open the Anka.app under /A
   version: 3.8.0
   ```
 
+- When the Controller starts the VM, the same socket also exposes Controller Instance fields:
+
+{{< include file="_partials/anka-build-cloud/whatsnew/1.51.1/controller-instance-info-nc.md" >}}
+
 ## What's next?
 
 - [Modifying your VM]({{< relref "anka-virtualization-cli/getting-started/modifying-your-vm.md" >}})

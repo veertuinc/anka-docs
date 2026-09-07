@@ -7,6 +7,22 @@ weight: 100
 
 ## Current Version
 
+### 1.51.1 (1.51.1-586513d9) - Sept 7th, 2026
+
+{{< hint warning >}}
+- This release requires a Registry version of 1.48.0 or higher.
+- We've also updated the required ETCD version to 3.5.33.
+{{< /hint >}}
+
+- [Download](https://veertu.com/download-anka-build/)
+- **New Feature:** [Controller Instance specific info under `nc -U /var/run/anka` in the VM]({{< relref "whats-new/build-cloud-1.51.1/index.md#controller-instance-specific-info-under-nc--u-var-run-anka-in-the-vm" >}})
+- **Bug Fix:** Registry logs directory gets deleted during MacOS upgrades. This prevents the Registry mac package from starting on boot.
+- (Required ETCD Version: >= 3.5.33)
+
+---
+
+## Previous Versions
+
 ### 1.51.0 (1.51.0-72cf2b3c) - Aug 17th, 2026
 
 {{< hint warning >}}
@@ -24,9 +40,6 @@ weight: 100
 - **Improvement:** Resizing the disk on start_vm targets disk0s2, but this has changed in latest macOS versions. We now dynamically determine the correct disk to resize.
 - (Required ETCD Version: >= 3.5.33) **NEW**
 
----
-
-## Previous Versions
 
 ### 1.50.1 (1.50.1-5e3c3f5b) - May 28th, 2026
 
