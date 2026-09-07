@@ -2,7 +2,7 @@
 ---
 ---
 ### HTTPS / TLS
-{{< include file="content/_partials/anka-build-cloud/configuration-reference/controller/https_tls/notice.md" >}}
+{{< include file="_partials/anka-build-cloud/configuration-reference/controller/https_tls/notice.md" >}}
 | ENV | Type | Description | Default Value |
 | --- | :---: | --- | :---: |
 | ANKA_CIPHER_SUITES | (string)  | fmt.Sprintf(A list of cipher suites to use for HTTPS/TLS. Supported Options: %v, strings.Join(utils.GetTLSCipherSuitesNames(), , ))) |  |

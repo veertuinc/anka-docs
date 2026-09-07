@@ -2,7 +2,7 @@
 ---
 ---
 ### Monitoring
-{{< include file="content/_partials/anka-build-cloud/configuration-reference/controller/monitoring/notice.md" >}}
+{{< include file="_partials/anka-build-cloud/configuration-reference/controller/monitoring/notice.md" >}}
 | ENV | Type | Description | Default Value |
 | --- | :---: | --- | :---: |
 | ANKA_ENABLE_METRICS | (boolean) | Enables Prometheus metrics. By default available on *:2112/metrics) | false |

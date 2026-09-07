@@ -15,7 +15,7 @@ weight: 100
 {{< /hint >}}
 
 - [Download](https://veertu.com/download-anka-build/)
-- **New Feature:** [Controller Instance specific info under `nc -U /var/run/anka` in the VM]({{< relref "whats-new/build-cloud-1.51.1/index.md#controller-instance-specific-info-under-nc--u-var-run-anka-in-the-vm" >}})
+- **New Feature:** [Controller Instance specific info under `nc -U /var/run/anka` in the VM]({{< relref "whats-new/build-cloud-1.51.1/index.md#controller-instance-info-nc" >}})
 - **Bug Fix:** Registry logs directory gets deleted during MacOS upgrades. This prevents the Registry mac package from starting on boot.
 - (Required ETCD Version: >= 3.5.33)
 
