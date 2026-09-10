@@ -90,6 +90,20 @@ If `anka show` does not display an IP, networking has either:
 Within the VM, you can find an IP assigned for the host which can be used to ssh or transfer files out. To determine which IP is assigned to the host, execute `ipconfig getoption en0 server_identifier` (typically `192.168.64.1` for **shared** network mode and `192.168.128.1` for **host** network mode).
 {{< /hint >}}
 
+### VLAN
+
+When you need a bridged VM on a specific VLAN, set bridge mode, the host interface, and the VLAN ID together:
+
+```shell
+anka modify {VM} set network-card -t bridge -b en0 --vlan 100
+```
+
+Replace `en0` with the host interface that carries the VLAN, and `100` with your VLAN ID. Use `--vlan 0` to remove the VLAN assignment.
+
+{{< hint info >}}
+With Anka Build Cloud, you can pass [`vlan_tag`]({{< relref "anka-build-cloud/working-with-controller-and-API.md#start-vm-instances" >}}) when starting an instance. The Controller then runs the same `anka modify … set network-card --vlan` on the node. The Template must be stopped and already use `bridge` networking.
+{{< /hint >}}
+
 ---
 
 ### MAC Addresses
