@@ -100,6 +100,8 @@ anka modify {VM} network --mode bridge --bridge en0 --vlan 100
 
 Replace `en0` with the host interface that carries the VLAN, and `100` with your VLAN ID. Use `--vlan 0` to remove the VLAN assignment.
 
+If the target VLAN is not the default VLAN for that bridge interface, the host Ethernet adapter or switch must support 802.1Q-tagged frames.
+
 {{< hint info >}}
 With Anka Build Cloud, you can pass [`vlan_tag`]({{< relref "anka-build-cloud/working-with-controller-and-API.md#start-vm-instances" >}}) when starting an instance. The Controller then runs the same `anka modify … network --vlan` on the node. The Template must be stopped and already use `bridge` networking.
 {{< /hint >}}
