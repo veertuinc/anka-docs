@@ -95,7 +95,7 @@ Within the VM, you can find an IP assigned for the host which can be used to ssh
 When you need a bridged VM on a specific VLAN, set bridge mode, the host interface, and the VLAN ID together:
 
 ```shell
-anka modify {VM} network -t bridge -b en0 --vlan 100
+anka modify {VM} network --mode bridge --bridge en0 --vlan 100
 ```
 
 Replace `en0` with the host interface that carries the VLAN, and `100` with your VLAN ID. Use `--vlan 0` to remove the VLAN assignment.
