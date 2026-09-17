@@ -67,7 +67,7 @@ xcodebuild -downloadComponent metalToolchain
 xcodebuild -importComponent metalToolchain
 ```
 
-- On an **older host OS**, install the latest **MobileDevice.pkg** from the Xcode version that matches the guest you want. Example: on host macOS 15.x, to create 26.4 guests, install MobileDevice.pkg from Xcode 26.4 (`Xcode.app/Contents/Resources/Packages/`). You may need a beta Xcode to obtain that package. We try to upload the latest MobileDevice.pkg in our https://downloads.veertu.com/#anka/ page, but, if it's not there, it may be available on the developer.apple.com downloads site. If it's not there, that usually means that Apple has included it in the latest macOS release or stable Xcode version and a individual package is not needed.
+- On an **older host OS**, install the latest **MobileDevice.pkg** from the Xcode version that matches the guest you want. Example: on host macOS 15.x, to create 26.4 guests, install MobileDevice.pkg from Xcode 26.4 (`Xcode.app/Contents/Resources/Packages/`). You may need a beta Xcode to obtain that package. Creating guest **27.0** on host **26.6.x** requires installing [MobileDevice-27.pkg](https://downloads.veertu.com/anka/MobileDevice-27.pkg) on the host first. We try to upload the latest MobileDevice.pkg in our https://downloads.veertu.com/#anka/ page, but, if it's not there, it may be available on the developer.apple.com downloads site. If it's not there, that usually means that Apple has included it in the latest macOS release or stable Xcode version and a individual package is not needed.
 
 - If creation still fails, re-run package install and license acceptance:
 

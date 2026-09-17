@@ -20,7 +20,7 @@ To get more verbose errors, run `ANKA_CLICK_DEBUG=1 anka --debug create...`. If 
 ## Common Causes and solutions
 
 1. `status 70` can mean several things. It's a generic error from Virtualization APIs on macOS. The main ways to fix it are:
-    - If you're running an older host OS version, you'll need to install the latest MobileDevice.pkg from the latest Xcode.app/Contents/Resources/Packages/ directory. For example, on Host OS 15.x, to create 26.4 VMs you need to install the Xcode 26.4 MobileDevice.pkg first. You can download the latest Xcode.app and then extract just the MobileDevice.pkg file from the Contents/Resources/Packages/ directory. Note, this may mean extracting it from the latest Xcode beta, depending on the version you're trying to create a VM from.
+    - If you're running an older host OS version, you'll need to install the latest MobileDevice.pkg from the latest Xcode.app/Contents/Resources/Packages/ directory. For example, on Host OS 15.x, to create 26.4 VMs you need to install the Xcode 26.4 MobileDevice.pkg first. Creating guest 27.0 on host 26.6.x requires installing [MobileDevice-27.pkg](https://downloads.veertu.com/anka/MobileDevice-27.pkg) on the host first. You can download the latest Xcode.app and then extract just the MobileDevice.pkg file from the Contents/Resources/Packages/ directory. Note, this may mean extracting it from the latest Xcode beta, depending on the version you're trying to create a VM from.
     - Make sure you're on the latest Anka CLI version.
     - `rm -f ~/.anka/tools/*` and then try again. This will clear out any older click scripts that might be causing issues.
     - Uninstall Anka CLI fully (`sudo /Library/Application\ Support/Veertu/Anka/tools/uninstall.sh`), then reinstall it.
