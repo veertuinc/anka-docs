@@ -44,6 +44,16 @@ There are three AMI options available for you to use:
 Note: You must request a dedicated mac* host in order to run EC2 Mac instances. There is a known delay requesting, stopping, and starting EC2 Mac instances as the dedicated host must clean itself each time an instance stops on it.
 {{< /hint >}}
 
+{{< hint warning >}}
+**IMPORTANT (Anka 3.9.3+):** EC2 Mac performance requires `block_nocache` set to `2` for both your user and root:
+
+```bash
+anka config block_nocache 2 && sudo anka config block_nocache 2
+```
+
+Bake this into any custom AMI you build. Our latest official AMIs already include it. If you upgrade Anka on an older AMI or instance, run the commands above (or rebuild from a current Veertu AMI).
+{{< /hint >}}
+
 ---
 
 ## Build your own AMI
@@ -53,6 +63,7 @@ Building your own AMI is easy! You can review our [AMI scripts](https://github.c
 Some important notes about creating your own AMI:
 
 - Be sure that the minimum EBS volume specs are gp3, 6000IOPS, and 256 throughput. Anka VM creation is sensitive on slow disks and will likely fail.
+- Set `anka config block_nocache 2 && sudo anka config block_nocache 2` before you create the AMI image (required for Anka 3.9.3+ EC2 performance). Latest official Veertu AMIs already have this set.
 - If using the Anka Build Cloud: This step requires that you first [set up the Anka Build Cloud]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md" >}}) on a Linux server/docker container in AWS (but not on the EC2 Mac instances we provide AMIs for).
 
 ---

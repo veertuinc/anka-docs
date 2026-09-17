@@ -15,7 +15,7 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 - [Download Anka-3.9.3.218.pkg](https://downloads.veertu.com/anka/Anka-3.9.3.218.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.9.3.218_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.9.3.218_SHA256SUMS.sig)
 - **NOTE: Addons upgrade is not required.**
-- **Bug Fix:** Quick emergency release for EC2 performance issues.
+- **Bug Fix:** Quick emergency release for EC2 performance issues. To use the fix, please run `anka config block_nocache 2 && sudo anka config block_nocache 2` and build the config into your AMIs. We include it automatically in our latest AMIs.
 
 ### 3.9.2 (3.9.2.217) - July 20th, 2026
 
