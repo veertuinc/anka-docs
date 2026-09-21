@@ -15,7 +15,7 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 - [Download Anka-3.9.3.219.pkg](https://downloads.veertu.com/anka/Anka-3.9.3.219.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.9.3.219_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.9.3.219_SHA256SUMS.sig)
 - **NOTE: Addons upgrade is not required.**
-- **Bug Fix:** Intel only: Labels aren't passing through to the VM and showing under nc -U /var/run/anka.
+- **Bug Fix:** Intel only: Labels were not passing through to the VM and showing under nc -U /var/run/anka.
 - **Improvement:** Support for VM creation on MacOS 27 host OS.
 
 ## Previous Versions
