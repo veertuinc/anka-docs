@@ -11,7 +11,7 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
-### 3.9.3 (3.9.3.218) - September 15th, 2026
+### 3.9.2 (3.9.2.218) - September 15th, 2026
 
 - [Download Anka-3.9.3.218.pkg](https://downloads.veertu.com/anka/Anka-3.9.3.218.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.9.3.218_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.9.3.218_SHA256SUMS.sig)
 - **NOTE: Addons upgrade is not required.**
