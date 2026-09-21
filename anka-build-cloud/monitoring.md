@@ -14,6 +14,11 @@ In order to monitor your Anka Build Cloud, you'll need a few things:
 
 1. A way to collect metrics (time series database, etc). We recommend [Prometheus](#prometheus).
 
+Here is how the pieces connect. Solid lines are the metrics path: the [Anka Prometheus Exporter](https://github.com/veertuinc/anka-prometheus-exporter) polls the Controller API, Prometheus scrapes the exporter, and Grafana queries Prometheus. Dashed lines are the logs path: `promtail` on each Node and on the Build Cloud host pushes logs to Loki, and Grafana queries Loki.
+
+{{< rawhtml >}}<center>{{< /rawhtml >}}
+![Anka Build Cloud monitoring architecture]({{< siteurl >}}images/anka-build-cloud/monitoring/monitoring-architecture.png)
+{{< rawhtml >}}</center>{{< /rawhtml >}}
 
 ---
 
