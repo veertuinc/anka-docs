@@ -11,6 +11,15 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.9.3 (3.9.3.218) - September 21st, 2026
+
+- [Download Anka-3.9.3.219.pkg](https://downloads.veertu.com/anka/Anka-3.9.3.219.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.9.3.219_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.9.3.219_SHA256SUMS.sig)
+- **NOTE: Addons upgrade is not required.**
+- **Bug Fix:** Intel only: Labels aren't passing through to the VM and showing under nc -U /var/run/anka.
+- **Improvement:** Support for VM creation on MacOS 27 host OS.
+
+## Previous Versions
+
 ### 3.9.2 (3.9.2.218) - September 15th, 2026
 
 - [Download Anka-3.9.2.218.pkg](https://downloads.veertu.com/anka/Anka-3.9.2.218.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.9.2.218_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.9.2.218_SHA256SUMS.sig)
@@ -38,8 +47,6 @@ ARM/Silicon specific issues:
 - **Bug Fix:** Pushing a large template to Dockerhub would fail at the end.
 - **Bug Fix:** Pulling could throw `probably corrupted ANK file detected: No message available on STREAM`
 - **Improvement:** Pulling speed has improved significantly in this release, even from the 3.9.1 release's existing optimizations.
-
-## Previous Versions
 
 ### 3.9.1 (3.9.1.216) - June 10th, 2026
 
