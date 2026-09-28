@@ -30,7 +30,7 @@ It is also best to run this as close to when an issue happens as several command
 - Run `anka log` to view recent Anka CLI logs, or `anka log -a` for all logs. Use `anka log clean` to remove old log files. See the Logs section below for file locations and VM-specific logs.
 - Ensure that all components in your Anka environment can communicate. This includes connectivity between CI/CD tooling we do not support.
 - Disable anti-virus and firewalls on the host.
-- If a VM is failing, try manually starting it on the host and use `anka --debug . . .` when you do for verbose output.
+- If a VM is failing, try manually starting it on the host and use `anka --debug . . .` when you do for verbose output. If `--debug` is not available, or you cannot send debug to stderr, use `ANKA_LOG_FILE` instead (see below).
 - If using the Anka Build Cloud, check under the `/var/log/veertu/` and specifically the `anka_agent.ERROR` for any messages related to the problem (or at all).
 
 ### Logs
@@ -59,7 +59,7 @@ The above logs are rotated at 1MB and maintains a maximum of 10 files. This is n
 
 In these directories you will find the following logs:
 
-1. `anka.log` - The primary log including anka commands (Anka CLI, Anka run) STDOUT and STDERR
+1. `anka.log` - The primary log including anka commands (Anka CLI, Anka run) STDOUT and STDERR. The filename comes from `anka config log_file` (override with `ANKA_LOG_FILE`).
 
 2. `lupd.log` - License auto-upgrade service logs; it's rarely used and most likely not related to VMs runtime
 
@@ -93,6 +93,35 @@ If you're using the Anka Build Cloud Controller to start and terminate VMs, you 
 5. `/var/log/install.log` - Install related STDOUT/ERR
 
 Anka and Apple will also report crashes in `/Library/Logs/DiagnosticReports` as `.crash` or `.hang`.
+
+### Debug logs without `--debug`
+
+`--debug` writes verbose output to stderr. `--machine-readable` writes JSON to stdout. Registry pull and push also write SIGUSR2 progress (`{"p":...}`) to stderr. If you use `--debug` with those commands, debug lines mix with progress and break callers that parse stderr.
+
+When `--debug` is not available, or you must keep stderr for progress, send debug to a file or FIFO with `ANKA_LOG_FILE`. Set `ANKA_LOG_LEVEL=debug` so Anka writes debug lines to that path. Do not pass `--debug`.
+
+Regular file:
+
+```bash
+ANKA_LOG_LEVEL=debug ANKA_LOG_FILE=/tmp/anka-debug.log \
+  anka --machine-readable registry pull --tag latest my-vm
+```
+
+Then read `/tmp/anka-debug.log`.
+
+FIFO (a calling process reads the lines while the command runs):
+
+```bash
+LOG_FIFO=/tmp/anka-debug.fifo
+rm -f "$LOG_FIFO"
+mkfifo "$LOG_FIFO"
+cat "$LOG_FIFO" &
+ANKA_LOG_LEVEL=debug ANKA_LOG_FILE="$LOG_FIFO" \
+  anka --machine-readable registry pull --tag latest my-vm
+rm -f "$LOG_FIFO"
+```
+
+Open the FIFO for read in the parent (or `cat` in the background) before Anka starts. Otherwise the writer can block. After the command finishes, remove the FIFO.
 
 ---
 
