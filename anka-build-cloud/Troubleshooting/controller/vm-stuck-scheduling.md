@@ -17,8 +17,9 @@ You are trying to start a VM Instance from the controller dashboards or rest API
 3. The Node that is trying to run the VM can't reach the registry
 4. There's not enough disk space on the Node
 5. A Node is pulling a template and does not take new start requests until the pull finishes (available capacity on the Node is not being used)
-6. The start request uses a template tag that is not on the registry
-7. The Load Balancer being used cannot handle the amount of Node messages/communication frequency and throws timeouts like:
+6. The tool that starts instances has a low instance limit
+7. The start request uses a template tag that is not on the registry
+8. The Load Balancer being used cannot handle the amount of Node messages/communication frequency and throws timeouts like:
     ```
     cat /var/log/veertu/anka_agent.ERROR
     start_vm.go:27] Get "https://controller.internal.net/queue/v1/cmd/task": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
