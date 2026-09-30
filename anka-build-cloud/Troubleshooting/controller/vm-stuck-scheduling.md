@@ -16,7 +16,9 @@ You are trying to start a VM Instance from the controller dashboards or rest API
 2. The VM is running locally on the Node
 3. The Node that is trying to run the VM can't reach the registry
 4. There's not enough disk space on the Node
-5. The Load Balancer being used cannot handle the amount of Node messages/communication frequency and throws timeouts like:
+5. A Node is pulling a template and does not take new start requests until the pull finishes (available capacity on the Node is not being used)
+6. The start request uses a template tag that is not on the registry
+7. The Load Balancer being used cannot handle the amount of Node messages/communication frequency and throws timeouts like:
     ```
     cat /var/log/veertu/anka_agent.ERROR
     start_vm.go:27] Get "https://controller.internal.net/queue/v1/cmd/task": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
@@ -139,6 +141,35 @@ You can clear this directory by executing:
 ```shell
 rm -r /var/log/veertu/*
 ```
+
+---
+
+### A Node is pulling a template
+
+A Node downloads a template from the registry before it can start instances from that template. While that pull is in progress, the Node may not accept new jobs from the Controller. Instances stay in `Scheduling` until the pull finishes.
+
+Check `/var/log/veertu/` on the Node for an active pull. Wait for the pull to finish. If you deploy many templates at the same time, schedule those pulls so they do not block the Nodes your jobs need.
+
+---
+
+### The tool that starts instances has a low instance limit
+
+A low limit on the CI side slows scheduling even when Nodes are free. In the Jenkins Anka plugin, this setting is **Maximum Allowed Nodes/Agents** on the cloud template. A limit of 20 means that Jenkins instance will not ask the Controller for more than 20 agents from that template.
+
+Raise the limit if the Nodes have capacity. If several Jenkins instances share one Controller, add their limits together. That total is how many instances they can request at the same time.
+
+---
+
+### The requested template tag is not on the registry
+
+The Jenkins Anka plugin uses the newest tag when **Anka VM Template's Tag** is empty. It does the same when the configured tag is missing. If that tag is not on the registry this Controller uses, the Node logs show requests for a tag that does not exist. The instance stays in `Scheduling`.
+
+Check the tag in two places:
+
+1. The registry connected to this Controller.
+2. The Jenkins cloud template, including tags set by infrastructure-as-code.
+
+Set the Jenkins template to a tag that exists on that registry. One Jenkins instance can connect to more than one Controller. Confirm the job uses the Controller whose registry has the tag.
 
 ---
 
