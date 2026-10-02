@@ -6,6 +6,7 @@
 | ENV | Type | Description | Default Value |
 | --- | :---: | --- | :---: |
 | ANKA_BACKEND_TYPE | (string) | The backend type to use for the registry ('disk', 's3'). | disk |
+| ANKA_BACKEND_UPLOAD_COPY_BUFFER_SIZE | (int) | The buffer size in bytes used when copying uploaded files to backend storage. | 1048576 |
 | ANKA_CA_CERT | (string) | (Certificate Authentication) The CA/root cert used to authenticate incoming requests/certs. |  |
 | ANKA_CRL | (string) | (Certificate Authentication) File containing certificate revocation list (CRL) used to authenticate incoming requests/certs. |  |
 | ANKA_ENABLE_AUTH | (boolean) | Enable Authentication (Root Token, Certificate, SSO/OpenID Connect or API Keys) (Not to be confused with Authorization). | false |

@@ -6,7 +6,8 @@
 | ENV | Type | Description | Default Value |
 | --- | :---: | --- | :---: |
 | ANKA_BASE_PATH | (string) | Set the registry data's base path | . |
-| ANKA_GRACEFUL_SHUTDOWN_TIMEOUT | (duration) | The duration to wait for graceful shutdown when receiving SIGINT/SIGTERM | 10s |
+| ANKA_FORCED_SHUTDOWN_CLEANUP_LIMIT | (duration) | The duration to wait for canceled requests to clean up after graceful shutdown times out | 8s |
+| ANKA_GRACEFUL_SHUTDOWN_TIMEOUT | (duration) | The duration to wait for graceful shutdown when receiving SIGINT/SIGTERM | 2s |
 | ANKA_IMAGE_DIR_PATH | (string) | Set the path to put images directory (relative to base) | images_dir |
 | ANKA_LISTEN_ADDR | (string) | The address and port to listen on (format: "address:[port]"). |  |
 | ANKA_STATE_FILE_DIR_PATH | (string) | Set the path to put the state files directory (relative to base) | state_file_dir |

@@ -7,6 +7,29 @@ weight: 100
 
 ## Current Version
 
+### 1.51.2 (1.51.2-586513d9) - Oct 2nd, 2026
+
+{{< hint warning >}}
+- This release requires a Registry version of 1.48.0 or higher.
+- We've also updated the required ETCD version to 3.5.34.
+{{< /hint >}}
+
+- [Download](https://veertu.com/download-anka-build/)
+- **Bug Fix:** Registry VM info endpoint panics when latest version is an unfinished upload (HTTP 500 with a nil pointer panic)
+- **Bug Fix:** When a cluster contains nodes with different license tiers, the controller repeatedly switches between the cluster’s minimum license tier and Enterprise Plus. This causes licensed features to turn on and off between node heartbeats.
+- **Bug Fix:** Registry uploads can be incorrectly treated as stale when heartbeat updates fail, pause during finalization, or cannot stop cleanly. This may block uploads indefinitely or allow an active upload to be deleted by a competing request.
+- **Bug Fix:** Requests to `/registry/vm/info?id=<id>&tag=<unknown-tag>` silently fall back to the newest version when the specified tag is not found. This can return configuration for a different tag than requested. We now return a 404 error instead.
+- **Improvement:** Registry upload reliability improvements for failures and cancellations that reach handler finalization.
+- **Improvement:** [Track active Registry HTTP requests during shutdown. If the graceful shutdown timeout expires, cancel remaining requests, close active connections, and allow a configurable cleanup period before returning an error.]({{< relref "whats-new/build-cloud-1.51.2/index.md#graceful-shutdown-cleanup-limit" >}})
+- **New Feature:** [Registry now detects and logs slow IO during uploads.]({{< relref "whats-new/build-cloud-1.51.2/index.md#slow-io-detection-during-uploads" >}})
+- **New Feature:** [Registry upload write-stall watchdog]({{< relref "whats-new/build-cloud-1.51.2/index.md#registry-upload-write-stall-watchdog" >}})
+- (Required ETCD Version: >= 3.5.34) **NEW**
+
+---
+
+## Previous Versions
+
+
 ### 1.51.1 (1.51.1-586513d9) - Sept 7th, 2026
 
 {{< hint warning >}}
@@ -18,10 +41,6 @@ weight: 100
 - **New Feature:** [Controller Instance specific info under `nc -U /var/run/anka` in the VM]({{< relref "whats-new/build-cloud-1.51.1/index.md#controller-instance-info-nc" >}})
 - **Bug Fix:** Registry logs directory gets deleted during MacOS upgrades. This prevents the Registry mac package from starting on boot.
 - (Required ETCD Version: >= 3.5.33)
-
----
-
-## Previous Versions
 
 ### 1.51.0 (1.51.0-72cf2b3c) - Aug 17th, 2026
 
