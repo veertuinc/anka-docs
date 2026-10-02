@@ -7,10 +7,9 @@ title: "Anka Build Cloud Controller & Registry Version 1.51.2"
 
 When a Registry VM is writing a large upload to disk, the Registry will watch for write stalls and restart the upload if it detects a stall.
 
-There are two new environment variables that can be used to configure the watchdog:
-
-{{< include file="_partials/anka-build-cloud/configuration-reference/registry/diskbackend/body.md" >}}
-{{< include file="_partials/anka-build-cloud/configuration-reference/registry/diskbackend/notice.md" >}}
+| ENV | Type | Description | Default Value |
+| --- | :---: | --- | :---: |
+| ANKA_BACKEND_DISK_UPLOAD_STALL_ABORT_AFTER_UNBLOCK | (duration) | Mark an upload failed after a disk write unblocks if that write was blocked longer than this duration. The active write cannot be interrupted. Zero disables the watchdog. | 0 |
 
 ### Graceful shutdown cleanup limit {#graceful-shutdown-cleanup-limit}
 
