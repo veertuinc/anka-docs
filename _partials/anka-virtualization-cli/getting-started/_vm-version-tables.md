@@ -85,13 +85,26 @@ document.addEventListener('DOMContentLoaded', function() {
   <tr>
     <td style="vertical-align: middle">
       <b>
+        macOS 27.0.1 (26A434)
+        <a href="https://updates.cdn-apple.com/2026FallFCS/59241290-5d51-4ca8-9df4-31624b9a4eac/UniversalMac_27.0.1_26A434_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
+          <span class="fa fa-download" style="font-size:1.2em;"></span>
+        </a>
+        <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
+      </b>
+      <blockquote class="hint info vm-version-notes is-open"><ul><li>Released 2026-09-28.</li><li>26.6.x host: Requires <a href="https://downloads.veertu.com/anka/MobileDevice-27.pkg" target="_blank" rel="noopener">MobileDevice-27.pkg</a> to be installed on the host.</li><li>Requires setting a disk size of 50GB or more.</li></ul></blockquote>
+    </td>
+    <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: middle">
+      <b>
         macOS 27.0 (26A428)
         <a href="https://updates.cdn-apple.com/2026FallFCS/afcfc88e-bbe6-44bf-a5da-07c56eebc06c/UniversalMac_27.0_26A428_Restore.ipsw" title="Download IPSW" style="margin-left: 8px; text-decoration: none;" target="_blank" rel="noopener">
           <span class="fa fa-download" style="font-size:1.2em;"></span>
         </a>
         <button type="button" class="vm-version-info-btn" aria-label="Version requirements">&#8505;</button>
       </b>
-      <blockquote class="hint info vm-version-notes is-open"><ul><li>Released 2026-09-14.</li><li>26.6.x host: Requires <a href="https://downloads.veertu.com/anka/MobileDevice-27.pkg" target="_blank" rel="noopener">MobileDevice-27.pkg</a> to be installed on the host.</li><li>Requires setting a disk size of 50GB or more.</li></ul></blockquote>
+      <blockquote class="hint info vm-version-notes"><ul><li>Released 2026-09-14.</li><li>26.6.x host: Requires <a href="https://downloads.veertu.com/anka/MobileDevice-27.pkg" target="_blank" rel="noopener">MobileDevice-27.pkg</a> to be installed on the host.</li><li>Requires setting a disk size of 50GB or more.</li></ul></blockquote>
     </td>
     <td style="font-size: 1.5rem; background-color: #2ecc71;">&#9989;</td>
   </tr>
