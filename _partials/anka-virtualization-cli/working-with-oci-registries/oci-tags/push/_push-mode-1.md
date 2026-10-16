@@ -1,0 +1,9 @@
+This is the default in Anka 3.10.x. The push includes the base tag. It can push to the Anka Registry and to an OCI registry.
+
+{{< hint info >}}
+Remember, both OCI and the Anka Registry try to optimize disk usage by reusing existing disk images in the registry, no matter if they are OCI tags or Anka Registry tags.
+{{< /hint >}}
+
+Example: `27.0.1-arm64:vanilla` is already on a host. You `anka pull` cmake onto that VM, then push the result as `27.0.1-arm64:cmake`.
+
+On an Anka Registry or an OCI registry, `cmake` is a new tag whose base is the `vanilla` tag. The push reuses the `vanilla` tag the registry already has, so that tag stays unchanged. The registry stores the `cmake` tag on top of it.

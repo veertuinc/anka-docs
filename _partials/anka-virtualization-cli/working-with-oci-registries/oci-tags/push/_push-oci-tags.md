@@ -1,0 +1,1 @@
+Machines that push to an OCI registry or an Anka Registry need the right `push_mode`. `push_mode` `1` pushes the full tag, including its base tag. `push_mode` `2` pushes only the changes since the base tag. The example below uses `1` for the macOS tag and `2` for the tool tags.
