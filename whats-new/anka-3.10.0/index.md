@@ -15,11 +15,11 @@ title: "Anka Virtualization 3.10.0"
 
 {{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/_overview.md" >}}
 
-### Pull OCI tags
+### Pulling OCI tags
 
 {{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/_pull-oci-tags.md" >}}
 
-### Push OCI tags
+### Pushing OCI tags
 
 {{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/push/_push-oci-tags.md" >}}
 
@@ -31,7 +31,7 @@ title: "Anka Virtualization 3.10.0"
 
 {{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/push/_push-mode-2.md" >}}
 
-#### Example
+#### Examples
 
 {{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/push/example/_example.md" >}}
 
@@ -72,3 +72,23 @@ title: "Anka Virtualization 3.10.0"
 #### With an Ankafile
 
 {{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/preparing-a-build-vm/_with-an-ankafile.md" >}}
+
+## System proxy and PAC support
+
+CLI HTTP requests now use the macOS system proxy settings for the request URL. VM network traffic does not use this proxy.
+
+These requests use the system proxy:
+
+- Registry HTTP, including `anka pull`, `anka push`, the OCI registry API, and the registry handshake.
+- An HTTP or HTTPS installer download during `anka create`.
+- The tools feed download during `anka create`.
+- The license key lookup from `anka license show -k`.
+
+Anka supports these proxy types:
+
+- HTTP
+- HTTPS
+- SOCKS
+- A Proxy Auto-Configuration (PAC) URL. Anka downloads the PAC script and uses the proxy that the script returns.
+
+Hosts in the system proxy exception list do not use the proxy. A list entry can be `*`, a host name, a domain suffix, or an IPv4 or IPv6 address with a CIDR mask.

@@ -11,14 +11,32 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.10.0 - October 9th, 2026
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- There is an issue where connecting to the VM over port forwarding for the first time will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple. 
+- Nested virtualization is not functional inside of VMs yet.
+- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+
+{{< /hint >}}
+
+- **New Feature:** [USB Passthrough for Silicon.]({{< relref "whats-new/anka-3.10.0/index.md#usb-passthrough-for-silicon" >}})
+- **New Feature:** [`anka create` reuses a macOS build without needing an IPSW.]({{< relref "whats-new/anka-3.10.0/index.md#anka-create-reuses-a-macos-build-without-needing-an-ipsw" >}})
+- **New Feature:** [OCI layers.]({{< relref "whats-new/anka-3.10.0/index.md#supporting-oci-layers" >}}) An OCI tag from one VM can be pulled onto another VM. Pull, push, export, import, whiteouts, and Ankafile builds are described in that section.
+- **Bug Fix:** Anka CLI labels adding `)` to end of string.
+- **Improvement:** [The CLI uses the macOS system proxy, including PAC.]({{< relref "whats-new/anka-3.10.0/index.md#system-proxy-and-pac-support" >}}) This applies to registry HTTP, installer and tools-feed downloads during `anka create`, and `anka license show -k`.
+
+## Previous Versions
+
 ### 3.9.3 (3.9.3.218) - September 21st, 2026
 
 - [Download Anka-3.9.3.219.pkg](https://downloads.veertu.com/anka/Anka-3.9.3.219.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.9.3.219_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.9.3.219_SHA256SUMS.sig)
 - **NOTE: Addons upgrade is not required.**
 - **Bug Fix:** Intel only: Labels were not passing through to the VM and showing under nc -U /var/run/anka.
 - **Improvement:** Support for VM creation on MacOS 27 host OS.
-
-## Previous Versions
 
 ### 3.9.2 (3.9.2.218) - September 15th, 2026
 
