@@ -28,7 +28,12 @@ ARM/Silicon specific issues:
 - **New Feature:** [OCI layers.]({{< relref "whats-new/anka-3.10.0/index.md#supporting-oci-layers" >}}) An OCI tag from one VM can be pulled onto another VM. Pull, push, export, import, whiteouts, and Ankafile builds are described in that section.
 - **Bug Fix:** Anka CLI labels adding `)` to end of string.
 - **Bug Fix:** Bridged VLAN return traffic now reaches the guest when the host interface removes the 802.1Q tag in hardware.
+- **Bug Fix:** `anka export` failed for every local VM with `config export failed: No such file or directory`.
 - **Improvement:** [The CLI uses the macOS system proxy, including PAC.]({{< relref "whats-new/anka-3.10.0/index.md#system-proxy-and-pac-support" >}}) This applies to registry HTTP, installer and tools-feed downloads during `anka create`, and `anka license show -k`.
+- **Improvement:** Add support for counting Super cores in the core count.
+- **Deprecation:** `add disk` command is set for removal in future releases.
+- **Bug Fix:** During anka push, the Registry may temporarily block while writing uploaded data to storage, especially when using NFS. When the Anka CLI request times out, the Registry should stop processing the abandoned upload as soon as the current storage operation unblocks.
+- **Important:** The default Cloud Agent that comes with this version is 1.47.0. You must be on that or a newer version of the Cloud Controller to be able to use this version of the CLI.
 
 ## Previous Versions
 

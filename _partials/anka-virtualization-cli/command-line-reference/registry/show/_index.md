@@ -9,6 +9,7 @@ arguments:
 
 options:
   -t,--tag <val>           Specify template tag, latest by default
+  -m,--manifest            Show template manifest
 
 commands:
   name                     Template name

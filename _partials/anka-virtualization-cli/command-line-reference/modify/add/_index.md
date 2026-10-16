@@ -6,7 +6,6 @@ usage: add <command>
 
 commands:
   network                  Modify network card settings
-  disk                     Modify hard drive settings
   port                     Add port forwarding rule
   label                    Assign labels to a VM in key/value form
 ```

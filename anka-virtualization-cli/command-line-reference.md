@@ -73,8 +73,6 @@ Outside of the config environment variables, there are a few others you might fi
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/add/_index.md" >}}
 #### modify {name/uuid} add network
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/add/network/_index.md" >}}
-#### modify {name/uuid} add disk
-{{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/add/disk/_index.md" >}}
 #### modify {name/uuid} add port
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/modify/add/port/_index.md" >}}
 #### modify {name/uuid} add label

@@ -5,16 +5,14 @@ usage: registry [options] <command>
    Configure and control template registries
 
 options:
-  -r,--remote <val>        Sets an alternate registry (name or URL)
   --insecure               Skip TLS verification
   --cert <val>             Path to a client certificate (if user authentication is configured)
   --key <val>              Path to private key if the client certificate doesn't contain one
   --cacert <val>           Use custom CA certificates location (default is /etc/ssl/certs)
   --api-key-id <val>       UAK/TAP identity
   --api-key <val>          UAK/TAP key in PEM format (path or string)
-  -o,--oci-version <val>   OCI Distribution API version
   -u,--user <val>          User name and password
-  -p,--prefix <val>        Append prefix to VM name for OCI registry
+  -p,--prefix <val>        Prefix of VM names for OCI registry
   --default                Show the default registry name
   --list                   List registries configured
 

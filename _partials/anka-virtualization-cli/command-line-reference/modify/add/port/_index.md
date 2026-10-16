@@ -6,7 +6,7 @@ usage: port-forwarding,port [options] name [rule]
 
 arguments:
   name                     Rule name
-  rule                     Port forwarding rule in form guest-port[:addr][:port]
+  rule                     Port forwarding rule in form guest-port[:addr][:port][/tcp]
 
 options:
   -r,--reverse             Proxy from guest to an external address, e.g rule /var/run/syslog:/var/run/syslog
