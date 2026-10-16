@@ -7,7 +7,7 @@ title: "Anka Build Cloud Controller & Registry Version 1.43.0"
 
 The last push and pull dates for Templates and Tags are now displayed in the UI. These are helpful to see when a Template or Tag was last used and determine if the Template or Tag is stale and can be removed.
 
-{{< imgwithlink src="images/whatsnew/1.43.0/templates-and-tags-last-push-pull.png" >}}
+{{< imgwithlink src="images/whats-new/1.43.0/templates-and-tags-last-push-pull.png" >}}
 
 You can also find the times in the API (in epoch/unix seconds):
 

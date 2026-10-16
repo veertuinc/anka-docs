@@ -7,13 +7,13 @@ title: "Anka Build Cloud Controller & Registry Version 1.42.0"
 
 This change splits out the Template List and Distribution UIs into two separate pages.
 
-{{< imgwithlink src="images/whatsnew/1.42.0/newtemplatesui.png" width="300" >}}
+{{< imgwithlink src="images/whats-new/1.42.0/newtemplatesui.png" width="300" >}}
 
 ### Ability to Search through Templates
 
 You can now search through Templates by name.
 
-{{< imgwithlink src="images/whatsnew/1.42.0/searchtemplates.png" >}}
+{{< imgwithlink src="images/whats-new/1.42.0/searchtemplates.png" >}}
 
 ### Ability to start an Intel VM with a specific VNC Password
 
@@ -29,4 +29,4 @@ Your POST request for the API must include a string key/value `vnc_password` in 
 
 When deleting templates, a new dialogue will show a table/list of templates being deleted.
 
-{{< imgwithlink src="images/whatsnew/1.42.0/templatedeletelist.png" >}}
+{{< imgwithlink src="images/whats-new/1.42.0/templatedeletelist.png" >}}
