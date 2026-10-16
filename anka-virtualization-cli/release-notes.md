@@ -27,6 +27,7 @@ ARM/Silicon specific issues:
 - **New Feature:** [`anka create` reuses a macOS build without needing an IPSW.]({{< relref "whats-new/anka-3.10.0/index.md#anka-create-reuses-a-macos-build-without-needing-an-ipsw" >}})
 - **New Feature:** [OCI layers.]({{< relref "whats-new/anka-3.10.0/index.md#supporting-oci-layers" >}}) An OCI tag from one VM can be pulled onto another VM. Pull, push, export, import, whiteouts, and Ankafile builds are described in that section.
 - **Bug Fix:** Anka CLI labels adding `)` to end of string.
+- **Bug Fix:** Bridged VLAN return traffic now reaches the guest when the host interface removes the 802.1Q tag in hardware.
 - **Improvement:** [The CLI uses the macOS system proxy, including PAC.]({{< relref "whats-new/anka-3.10.0/index.md#system-proxy-and-pac-support" >}}) This applies to registry HTTP, installer and tools-feed downloads during `anka create`, and `anka license show -k`.
 
 ## Previous Versions
