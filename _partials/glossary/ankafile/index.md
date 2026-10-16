@@ -1,0 +1,1 @@
+A file that lists the macOS version and the [OCI Tags]({{< relref "glossary#oci-tag" >}}) to pull, in order. `anka create` builds one VM from it. See [Creating VMs with an Ankafile]({{< relref "anka-virtualization-cli/getting-started/creating-vms/creating-vms-with-an-ankafile.md" >}}).

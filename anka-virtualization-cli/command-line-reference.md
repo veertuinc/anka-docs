@@ -124,6 +124,8 @@ Outside of the config environment variables, there are a few others you might fi
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/create/_index.md" >}}
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/create/_extra.md" >}}
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/create/_example.md" >}}
+
+To create a VM from a file that lists [OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md" >}}), see [Creating VMs with an Ankafile]({{< relref "anka-virtualization-cli/getting-started/creating-vms/creating-vms-with-an-ankafile.md" >}}).
 ## Start
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/start/_index.md" >}}
 ## Stop
@@ -132,8 +134,12 @@ Outside of the config environment variables, there are a few others you might fi
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/clone/_index.md" >}}
 ## Push
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/push/_index.md" >}}
+
+`push_mode` and `--thin` apply only to an OCI registry. See [Push modes]({{< relref "templates-and-registries/templates-and-tags.md#push-modes" >}}) and [Push OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md#push-oci-tags" >}}).
 ## Pull
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/pull/_index.md" >}}
+
+`--thin`, `--transform`, and `--dry-run` apply to OCI tags. See [Pull OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md#pull-oci-tags" >}}).
 ## Mount
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/mount/_index.md" >}}
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/mount/_extra.md" >}}
@@ -223,6 +229,8 @@ Outside of the config environment variables, there are a few others you might fi
 ## Import
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/import/_index.md" >}}
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/import/_extra.md" >}}
+
+To move an OCI tag with `anka export` and `anka import`, see [Export and import an OCI tag]({{< relref "anka-virtualization-cli/getting-started/creating-vms/exporting-and-importing-vms.md#export-and-import-an-oci-tag" >}}).
 ## Log
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/log/_index.md" >}}
 ### log clean

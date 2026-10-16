@@ -13,6 +13,10 @@ The order of the OCI tags matters on the producer host. Create the VM, then pull
 ❯ anka push build_vm -t latest http://registry.example.com/v2
 ```
 
+{{< hint warning >}}
+Set `push_mode` to `1` before you push the finished template to an OCI registry. With `push_mode` `2`, the push leaves the macOS disk out, and a runner cannot start the template. A push to the Anka Registry always includes the macOS disk.
+{{< /hint >}}
+
 A runner host does not have the OCI tag order. It does not know which OCI tags the producer used. It pulls the template and starts it. That registry can be the Anka Registry. It can also be an OCI registry.
 
 ```bash

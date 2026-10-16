@@ -13,65 +13,20 @@ title: "Anka Virtualization 3.10.0"
 
 ## Supporting OCI Layers
 
-{{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/_overview.md" >}}
+{{< include file="_partials/templates-and-registries/oci-tags/_overview.md" >}}
 
-### Pulling OCI tags
+{{< include file="_partials/templates-and-registries/oci-tags/_oci-tags-vs-anka-registry-tags.md" >}}
 
-{{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/_pull-oci-tags.md" >}}
+### Learn more
 
-### Pushing OCI tags
-
-{{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/push/_push-oci-tags.md" >}}
-
-#### `push_mode` `1`
-
-{{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/push/_push-mode-1.md" >}}
-
-#### `push_mode` `2`
-
-{{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/push/_push-mode-2.md" >}}
-
-#### Examples
-
-{{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/push/example/_example.md" >}}
-
-##### Without `--thin`
-
-{{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/push/example/_without-thin.md" >}}
-
-##### With `--thin`
-
-{{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/push/example/_with-thin.md" >}}
-
-{{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/push/example/_push-after-thin-pull.md" >}}
-
-{{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/push/_push-onto-existing-template.md" >}}
-
-{{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/_pull-url-only-with-default-vmid.md" >}}
-
-### Export and import an OCI tag
-
-{{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/_export-and-import.md" >}}
-
-### Add an archive to an existing OCI tag
-
-{{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/append-archive/_add-archive-to-existing-tag.md" >}}
-
-#### Remove a file with a whiteout
-
-{{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/append-archive/_remove-file-with-whiteout.md" >}}
-
-### Preparing a build VM
-
-{{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/preparing-a-build-vm/_preparing-a-build-vm.md" >}}
-
-#### On a producer host
-
-{{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/preparing-a-build-vm/_on-a-producer-host.md" >}}
-
-#### With an Ankafile
-
-{{< include file="_partials/anka-virtualization-cli/working-with-oci-registries/oci-tags/preparing-a-build-vm/_with-an-ankafile.md" >}}
+- [Templates and Registries]({{< relref "templates-and-registries/_index.md" >}}): choose the Anka Registry, an OCI registry, or both.
+- [Templates and tags]({{< relref "templates-and-registries/templates-and-tags.md" >}}): full tags, OCI tags, `push_mode`, and `--thin`.
+- [OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md" >}}): pull and push OCI tags, with examples.
+- [Appending archives to OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/appending-archives.md" >}}): add files to a tag, or remove them with a whiteout.
+- [Combining both registries]({{< relref "templates-and-registries/combining-both-registries.md" >}}): keep the macOS base in the Anka Registry and tools as OCI tags.
+- [Preparing a build VM]({{< relref "templates-and-registries/preparing-a-build-vm.md" >}}): build a VM from OCI tags on a producer host or on each runner.
+- [Creating VMs with an Ankafile]({{< relref "anka-virtualization-cli/getting-started/creating-vms/creating-vms-with-an-ankafile.md" >}}): create a VM from a file that lists the OCI tags.
+- [Export and import an OCI tag]({{< relref "anka-virtualization-cli/getting-started/creating-vms/exporting-and-importing-vms.md#export-and-import-an-oci-tag" >}}): move an OCI tag without a registry.
 
 ## System proxy and PAC support
 

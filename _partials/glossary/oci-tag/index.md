@@ -1,0 +1,1 @@
+A set of file layers in an OCI registry that you can pull onto any VM. OCI tags stack on the VM in the order you pull them. The Anka Registry does not store OCI tags. See [OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md" >}}).

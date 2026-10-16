@@ -1,4 +1,4 @@
-This is the default in Anka 3.10.x. The push includes the base tag. It can push to the Anka Registry and to an OCI registry.
+This is the default in Anka 3.10.x. The push includes the base tag. A push to the Anka Registry always works this way.
 
 {{< hint info >}}
 Remember, both OCI and the Anka Registry try to optimize disk usage by reusing existing disk images in the registry, no matter if they are OCI tags or Anka Registry tags.

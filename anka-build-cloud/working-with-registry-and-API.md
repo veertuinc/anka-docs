@@ -12,7 +12,7 @@ Anka registry provides an easy way to store, version, and distribute macOS VMs t
 {{< hint warning >}}
 This guide covers the **native Anka Registry** (Build Cloud, port `8089`, and Registry REST API). It does **not** apply to OCI-compliant third-party registries (Docker Hub, Google Artifact Registry, and similar).
 
-Anka 3.9.0+ can push/pull templates to OCI registries via the CLI only. OCI is **not** supported by the Build Cloud Controller and does **not** use the same API as the Anka Registry. See [Working with OCI Registries]({{< relref "anka-virtualization-cli/working-with-oci-registries.md" >}}) for that workflow.
+Anka 3.9.0+ can push/pull templates to OCI registries via the CLI only. OCI is **not** supported by the Build Cloud Controller and does **not** use the same API as the Anka Registry. The Anka Registry does not store or list OCI tags. See [Templates and Registries]({{< relref "templates-and-registries/_index.md" >}}) to compare the two paths.
 {{< /hint >}}
 
 Store your build and test VM templates in the registry.  

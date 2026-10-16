@@ -6,5 +6,3 @@
 ```
 
 `15.6.1` must already exist. Import applies that tag's layer onto it. Import the tags in the order you created them.
-
-[Exporting and importing VMs]({{< relref "anka-virtualization-cli/getting-started/creating-vms/exporting-and-importing-vms.md" >}}) describes the rest of the command, including the license requirement.

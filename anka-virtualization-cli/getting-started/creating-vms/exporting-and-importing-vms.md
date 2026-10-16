@@ -21,7 +21,11 @@ Use `anka export` and `anka import` to archive a VM and move it to another host 
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/import/_index.md" >}}
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/import/_extra.md" >}}
 
+## Export and import an OCI tag
+
+{{< include file="_partials/templates-and-registries/oci-tags/_export-and-import.md" >}}
+
 ## Related
 
-- [Anka Build Cloud Registry]({{< relref "anka-build-cloud/_index.md" >}}) for team-wide template storage
-- [OCI Registries]({{< relref "anka-virtualization-cli/working-with-oci-registries.md" >}}) (CLI only; not Build Cloud)
+- [Templates and Registries]({{< relref "templates-and-registries/_index.md" >}}) to store templates in the Anka Registry or in an OCI registry
+- [OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md" >}})

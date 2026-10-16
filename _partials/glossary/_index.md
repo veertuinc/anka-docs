@@ -27,6 +27,18 @@
       {{< /rawhtml >}}{{< include file="_partials/glossary/tag/index.md" >}}{{< rawhtml >}}
     </td>
   </tr>
+  <tr id="oci-tag">
+    <td style="font-weight: bold; border-right: 1px solid #d1d1e0"">OCI Tag</td>
+    <td style="width: 75%">
+      {{< /rawhtml >}}{{< include file="_partials/glossary/oci-tag/index.md" >}}{{< rawhtml >}}
+    </td>
+  </tr>
+  <tr id="ankafile">
+    <td style="font-weight: bold; border-right: 1px solid #d1d1e0"">Ankafile</td>
+    <td style="width: 75%">
+      {{< /rawhtml >}}{{< include file="_partials/glossary/ankafile/index.md" >}}{{< rawhtml >}}
+    </td>
+  </tr>
   <tr id="registry">
     <td style="font-weight: bold; border-right: 1px solid #d1d1e0"">Registry</td>
     <td style="width: 75%">

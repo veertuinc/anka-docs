@@ -25,6 +25,18 @@ View all default configuration settings for Anka installation on the host with `
   - img_lib_dir - `/Users/XXX/Library/Application Support/Veertu/Anka/img_lib/`
 - The log directory is `/Users/XXX/Library/Logs/Anka/` and log file is `anka.log`.
 
+## Registry push and pull settings
+
+| Setting | Purpose |
+|---------|---------|
+| `push_mode` | How `anka push` stores a tag in an OCI registry. `1` (default) stores the full tag. `2` stores only the file changes since the base tag. The Anka Registry ignores this setting. See [Push modes]({{< relref "templates-and-registries/templates-and-tags.md#push-modes" >}}). |
+| `default_vmid` | The VM that `anka pull <url>` clones when you do not give a VM name. See [Pull without a VM name]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md#pull-without-a-vm-name" >}}). |
+
+These environment variables change the same behavior for one command:
+
+- `ANKA_PUSH_MODE` sets `push_mode` for one command.
+- `ANKA_COMPRESSION_LEVEL` above `0` turns on gzip for OCI layers and sets the zlib level. `1` is the fastest level.
+
 ## VM swap directory (ARM)
 
 On ARM hosts, set `swap_dir` to a fast local path when you want guest swap on host disk instead of inside the VM image. This is common on [AWS EC2 Mac with local storage]({{< relref "aws-ec2-mac/using-local-storage.md#step-5-optional--host-swap-directory-for-vm-memory-pressure" >}}).

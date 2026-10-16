@@ -5,7 +5,7 @@
 Later versions will support `RUN` and `COPY`. Later versions will also add instructions for Anka Click and for more VM configuration. `NETWORK` will run `anka modify <vm> network`. `RAM` will run `anka modify <vm> ram`. `CPU` will run `anka modify <vm> cpu`.
 {{< /hint >}}
 
-An Ankafile stores the same steps, including the OCI tag order. Each runner can create the VM from that file. You can then remove the producer host from the fleet.
+An Ankafile stores the steps that build a VM: the macOS version, then each [OCI tag]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md" >}}) in the order to pull it. Each runner can create the VM from that file. You do not need a [producer host]({{< relref "templates-and-registries/preparing-a-build-vm.md#on-a-producer-host" >}}) in the fleet.
 
 The result of an Ankafile is always one VM. An Ankafile does not make a multistage build.
 
@@ -25,11 +25,11 @@ FROM http://registry.example.com/v2/xcode:27.1
 FROM https://ghcr.io/homebrew/core/cmake:4.4.4
 ```
 
-`FROM macos:<version>` or `FROM darwin:<version>` creates a VM. The text after the colon is the macOS version. With no colon, the version is `latest`. The VM name is the name on the `anka create` command, or the name after `AS`.
+`FROM macos:<version>` or `FROM darwin:<version>` creates a VM. It [reuses a stored macOS build]({{< relref "anka-virtualization-cli/getting-started/creating-vms/_index.md#reuse-a-macos-build" >}}) when the host has one. The text after the colon is the macOS version. With no colon, the version is `latest`. The VM name is the name on the `anka create` command, or the name after `AS`.
 
 `FROM <vm>` clones that VM. `FROM <vm> AS <name>` sets the new VM name.
 
-`FROM <registry-url>` pulls that URL. A URL contains `/`. The first `FROM` creates the VM from the pull. A later `FROM` pulls onto that same VM.
+`FROM <registry-url>` pulls that URL, the same as [`anka pull`]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md#pull-oci-tags" >}}). A URL contains `/`. The first `FROM` creates the VM from the pull. A later `FROM` pulls onto that same VM.
 
 `ARG name=value` sets a variable. `$name` and `${name}` expand from an `ARG` or from the host environment. These variables are already set: `TARGETPLATFORM`, `TARGETOS`, `TARGETARCH`, `TARGETVARIANT`, `BUILDPLATFORM`, `BUILDOS`, `BUILDARCH`, and `BUILDVARIANT`.
 
@@ -39,7 +39,7 @@ Anka stores `WORKDIR`. No instruction uses that path. `RUN`, `COPY`, and any oth
 
 When the build finishes, Anka stops the VM and prints its id. When the build fails, Anka deletes the VM it created.
 
-You can also run the Ankafile on a producer host and push the template. Runners then pull that template, as in the section above.
+You can also run the Ankafile on a producer host and push the template. Runners then pull that template, as in [Preparing a build VM on a producer host]({{< relref "templates-and-registries/preparing-a-build-vm.md#on-a-producer-host" >}}).
 
 ```bash
 ❯ anka create build_vm ./Ankafile

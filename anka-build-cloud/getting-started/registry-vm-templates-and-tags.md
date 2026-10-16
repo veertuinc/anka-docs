@@ -7,6 +7,16 @@ weight: 4
 
 {{< include file="_partials/anka-build-cloud/vm-templates.md" >}}
 
+## Build templates from OCI tags
+
+Anka 3.10.0 and later can pull tools onto a VM as OCI tags from an OCI registry. The Controller cannot pull OCI tags, but it can use a template that you build from them:
+
+1. On a producer host, pull the macOS base tag from the Anka Registry.
+2. Pull each OCI tag onto that VM, in order.
+3. Push the finished VM to the Anka Registry.
+
+The Anka Registry stores the result as a full tag, and the Controller uses it like any other template. See [Combining both registries]({{< relref "templates-and-registries/combining-both-registries.md" >}}).
+
 ## Replacing a Template in the Registry but keep its Name and UUID
 
 Sometimes you'll want to replace an existing VM Template in the Registry with a brand new one instead of pushing a new tag with minor changes to the original Template. This is useful to fix a UUID/Template for each Team that will use VM Templates with their own dependencies installed inside. There are some important things to understand though:

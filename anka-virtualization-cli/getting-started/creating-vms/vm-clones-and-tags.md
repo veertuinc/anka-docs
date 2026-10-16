@@ -15,7 +15,8 @@ aliases:
 |------|---------|
 | **VM** | A macOS virtual machine on the host (`anka list`) |
 | **Tag** | A named snapshot/version of a VM (`vanilla`, `v2`, and similar). Shown as `name (tag)` in `anka list` |
-| **Template** | A VM (or registry object) used as the basis for clones and CI images. In Build Cloud, templates live in the [Registry]({{< relref "anka-build-cloud/getting-started/registry-vm-templates-and-tags.md" >}}) |
+| **Template** | A VM (or registry object) used as the basis for clones and CI images. Templates live in the [Anka Registry or an OCI registry]({{< relref "templates-and-registries/_index.md" >}}) |
+| **OCI tag** | A set of file layers in an OCI registry that you can pull onto any VM. See [OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md" >}}) |
 
 Clones share disk layers with the source **only if** the source has a tag. Create a local tag with `anka push --local --tag {name}` before cloning, or push to the Anka Registry with `anka registry push`.
 
@@ -69,4 +70,4 @@ Create a new VM from a source and its current state:
 
 {{< include file="_partials/anka-build-cloud/vm-templates.md" >}}
 
-Push templates to the registry: [Registry VM Templates and Tags]({{< relref "anka-build-cloud/getting-started/registry-vm-templates-and-tags.md" >}}).
+Push templates to a registry: [Templates and Registries]({{< relref "templates-and-registries/_index.md" >}}).

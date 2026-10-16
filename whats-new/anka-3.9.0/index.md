@@ -51,4 +51,4 @@ Push and pull use the same commands as the native registry:
 ❯ anka registry pull myVM -t v1
 ```
 
-For setup details, supported targets, and limitations, see [Working with OCI Registries]({{< relref "anka-virtualization-cli/working-with-oci-registries.md" >}}).
+For setup details, supported targets, and limitations, see [Using an OCI registry]({{< relref "templates-and-registries/using-an-oci-registry/_index.md" >}}).

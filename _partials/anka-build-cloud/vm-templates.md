@@ -31,6 +31,10 @@ If you're managing multiple templates for multiple teams and projects, you want 
 
 This allows everything to share the underlying layers that are the same (since they're all cloned from `13.0.1`) and optimize disk space. You can then just pull the last VM template in the hierarchy and create a new one when needed, telling the teams to point to the new one when ready.
 
+{{< hint info >}}
+In Anka 3.10.0 and later, you can also store each tool (for example Xcode or fastlane) as an [OCI tag]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md" >}}) and pull it onto the base VM. One OCI tag works on VMs with different names and macOS versions.
+{{< /hint >}}
+
 If it helps, here is it visually:
 
 ```
