@@ -32,6 +32,7 @@ title: "Anka Virtualization 3.10.0"
 - [Preparing a build VM]({{< relref "templates-and-registries/preparing-a-build-vm.md" >}}): build a VM from OCI tags on a producer host or on each runner.
 - [Creating VMs with an Ankafile]({{< relref "anka-virtualization-cli/getting-started/creating-vms/creating-vms-with-an-ankafile.md" >}}): create a VM from a file that lists the OCI tags.
 - [Export and import an OCI tag]({{< relref "anka-virtualization-cli/getting-started/creating-vms/exporting-and-importing-vms.md#export-and-import-an-oci-tag" >}}): move an OCI tag without a registry.
+- [Edit a layer before you push it]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md#edit-a-layer-before-you-push-it" >}}): browse and change an OCI tag layer with [anka-layer-editor](https://github.com/veertuinc/anka-layer-editor).
 
 ## System proxy and PAC support
 

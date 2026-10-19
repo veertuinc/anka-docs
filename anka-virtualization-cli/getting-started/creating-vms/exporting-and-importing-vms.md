@@ -29,3 +29,4 @@ Use `anka export` and `anka import` to archive a VM and move it to another host 
 
 - [Templates and Registries]({{< relref "templates-and-registries/_index.md" >}}) to store templates in the Anka Registry or in an OCI registry
 - [OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md" >}})
+- [Edit a layer before you push it]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md#edit-a-layer-before-you-push-it" >}}) with [anka-layer-editor](https://github.com/veertuinc/anka-layer-editor)

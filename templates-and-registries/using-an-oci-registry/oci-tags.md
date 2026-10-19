@@ -58,6 +58,15 @@ To keep the macOS base tag in the Anka Registry instead, see [Combining both reg
 
 To move an OCI tag between hosts with `anka export` and `anka import`, see [Export and import an OCI tag]({{< relref "anka-virtualization-cli/getting-started/creating-vms/exporting-and-importing-vms.md#export-and-import-an-oci-tag" >}}).
 
+## Edit a layer before you push it
+
+[anka-layer-editor](https://github.com/veertuinc/anka-layer-editor) is a separate terminal tool. It lets you browse an OCI tag layer and change it before you push it. You can remove files, add files from the host, and add [whiteouts]({{< relref "templates-and-registries/using-an-oci-registry/appending-archives.md#remove-a-file-with-a-whiteout" >}}) that delete a path from the base. You build the tool from that repository.
+
+You can use it in two ways:
+
+- **On an exported archive.** Export the layer with `anka export --layer`, open the `.tar.gz` in the editor, then import the edited archive.
+- **On a stopped VM.** Run `anka-layer-editor --vm <name>`. The editor opens the top layer of the VM's current OCI tag. When you save, it commits the edits as a new local OCI tag.
+
 ## Build a VM from OCI tags
 
 - [Creating VMs with an Ankafile]({{< relref "anka-virtualization-cli/getting-started/creating-vms/creating-vms-with-an-ankafile.md" >}}): list the macOS version and the OCI tags in one file, and create the VM with one `anka create` command.
