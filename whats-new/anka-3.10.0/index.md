@@ -17,12 +17,17 @@ title: "Anka Virtualization 3.10.0"
 
 {{< include file="_partials/templates-and-registries/oci-tags/_oci-tags-vs-anka-registry-tags.md" >}}
 
+### Exclude files from OCI tags with `ankaignore`
+
+{{< include file="_partials/templates-and-registries/oci-tags/push/_exclude-files-with-ankaignore.md" >}}
+
 ### Learn more
 
 - [Templates and Registries]({{< relref "templates-and-registries/_index.md" >}}): choose the Anka Registry, an OCI registry, or both.
 - [Templates and tags]({{< relref "templates-and-registries/templates-and-tags.md" >}}): full tags, OCI tags, `push_mode`, and `--thin`.
 - [OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md" >}}): pull and push OCI tags, with examples.
 - [Appending archives to OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/appending-archives.md" >}}): add files to a tag, or remove them with a whiteout.
+- [Moving to OCI tags]({{< relref "templates-and-registries/moving-to-oci-tags.md" >}}): move the tool layers of your Anka Registry templates to OCI tags, one step at a time.
 - [Combining both registries]({{< relref "templates-and-registries/combining-both-registries.md" >}}): keep the macOS base in the Anka Registry and tools as OCI tags.
 - [Preparing a build VM]({{< relref "templates-and-registries/preparing-a-build-vm.md" >}}): build a VM from OCI tags on a producer host or on each runner.
 - [Creating VMs with an Ankafile]({{< relref "anka-virtualization-cli/getting-started/creating-vms/creating-vms-with-an-ankafile.md" >}}): create a VM from a file that lists the OCI tags.

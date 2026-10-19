@@ -8,6 +8,10 @@ description: >
 
 After you create and prepare a VM, you push it to a registry as a template. Other hosts then pull that template. Anka supports two types of registry. You can use one of them, or both together.
 
+{{< rawhtml >}}<center>{{< /rawhtml >}}
+![The Anka Registry, your OCI registry, and both together]({{< siteurl >}}images/templates-and-registries/templates-and-registries.webp)
+{{< rawhtml >}}</center>{{< /rawhtml >}}
+
 ## Choose a path
 
 ### Use the Anka Registry
@@ -28,7 +32,11 @@ You can use a registry that you already have, such as Docker Hub, Google Artifac
 An OCI registry stores two types of tags:
 
 - **Full templates** (Anka 3.9.0 and later). These are the same as the templates in the Anka Registry.
-- **OCI tags** (Anka 3.10.0 and later). An OCI tag is a set of file layers, for example one tool. You can pull an OCI tag onto any VM. OCI tags stack on the VM in the order that you pull them.
+- **OCI tags** (Anka 3.10.0 and later). An OCI tag holds only the files that you add to a VM, such as the files for one tool like Xcode. You can pull an OCI tag onto any VM. OCI tags stack on the VM in the order that you pull them.
+
+{{< hint info >}}
+Homebrew packages are also OCI tags. You can pull a Homebrew package, such as `cmake`, onto a VM without Homebrew installed in the VM.
+{{< /hint >}}
 
 Use an OCI registry when:
 
@@ -43,6 +51,10 @@ Go to [Using an OCI registry]({{< relref "templates-and-registries/using-an-oci-
 Keep the macOS base template in the Anka Registry, and keep each tool as an OCI tag in an OCI registry. A producer host pulls the OCI tags onto the base template and pushes the finished VM to the Anka Registry. The Build Cloud Controller can then start VMs from that template.
 
 Go to [Combining both registries]({{< relref "templates-and-registries/combining-both-registries.md" >}}).
+
+### Already use the Anka Registry?
+
+You can move to OCI tags one step at a time, and keep your current templates. Go to [Moving to OCI tags]({{< relref "templates-and-registries/moving-to-oci-tags.md" >}}).
 
 ## Compare the registries
 

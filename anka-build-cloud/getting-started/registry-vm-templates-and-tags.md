@@ -15,7 +15,7 @@ Anka 3.10.0 and later can pull tools onto a VM as OCI tags from an OCI registry.
 2. Pull each OCI tag onto that VM, in order.
 3. Push the finished VM to the Anka Registry.
 
-The Anka Registry stores the result as a full tag, and the Controller uses it like any other template. See [Combining both registries]({{< relref "templates-and-registries/combining-both-registries.md" >}}).
+The Anka Registry stores the result as a full tag, and the Controller uses it like any other template. See [Combining both registries]({{< relref "templates-and-registries/combining-both-registries.md" >}}). To move your current templates step by step, see [Moving to OCI tags]({{< relref "templates-and-registries/moving-to-oci-tags.md" >}}).
 
 ## Replacing a Template in the Registry but keep its Name and UUID
 

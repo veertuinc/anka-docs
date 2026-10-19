@@ -25,4 +25,8 @@ For examples of how organizations run Anka, see [Use Cases]({{< relref "use-case
 
 ---
 
+{{< include file="_partials/what-is-anka/_templates-and-registries.md" >}}
+
+---
+
 {{< include file="_partials/what-is-anka/anka-build-cloud.md" >}}

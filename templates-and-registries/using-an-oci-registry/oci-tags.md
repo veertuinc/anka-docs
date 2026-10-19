@@ -8,6 +8,10 @@ description: >
 
 {{< include file="_partials/templates-and-registries/oci-tags/_overview.md" >}}
 
+{{< rawhtml >}}<center>{{< /rawhtml >}}
+![The same OCI tags stacked on VMs with different macOS versions]({{< siteurl >}}images/templates-and-registries/oci-tags-on-a-vm.webp)
+{{< rawhtml >}}</center>{{< /rawhtml >}}
+
 Before you mix OCI tags with Anka Registry tags, read [Anka Registry tags and OCI tags]({{< relref "templates-and-registries/templates-and-tags.md#anka-registry-tags-and-oci-tags" >}}).
 
 ## Pull OCI tags

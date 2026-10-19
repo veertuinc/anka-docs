@@ -38,4 +38,4 @@ When you pull a tag, the VM goes back to the exact state of that tag.
 
 ## Add OCI tags to your templates
 
-You can add tools from an OCI registry to a template in the Anka Registry. See [Combining both registries]({{< relref "templates-and-registries/combining-both-registries.md" >}}).
+You can add tools from an OCI registry to a template in the Anka Registry. See [Combining both registries]({{< relref "templates-and-registries/combining-both-registries.md" >}}). To move your current templates step by step, see [Moving to OCI tags]({{< relref "templates-and-registries/moving-to-oci-tags.md" >}}).

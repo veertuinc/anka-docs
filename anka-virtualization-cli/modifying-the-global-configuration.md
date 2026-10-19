@@ -30,11 +30,13 @@ View all default configuration settings for Anka installation on the host with `
 | Setting | Purpose |
 |---------|---------|
 | `push_mode` | How `anka push` stores a tag in an OCI registry. `1` (default) stores the full tag. `2` stores only the file changes since the base tag. The Anka Registry ignores this setting. See [Push modes]({{< relref "templates-and-registries/templates-and-tags.md#push-modes" >}}). |
+| `ankaignore` | The file that lists the paths that a push or export with `push_mode` `2` does not include. See [Exclude files from a push]({{< relref "templates-and-registries/templates-and-tags.md#exclude-files-from-a-push" >}}). |
 | `default_vmid` | The VM that `anka pull <url>` clones when you do not give a VM name. See [Pull without a VM name]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md#pull-without-a-vm-name" >}}). |
 
 These environment variables change the same behavior for one command:
 
 - `ANKA_PUSH_MODE` sets `push_mode` for one command.
+- `ANKA_ANKAIGNORE` sets `ankaignore` for one command.
 - `ANKA_COMPRESSION_LEVEL` above `0` turns on gzip for OCI layers and sets the zlib level. `1` is the fastest level.
 
 ## VM swap directory (ARM)

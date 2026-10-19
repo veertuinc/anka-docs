@@ -39,6 +39,10 @@ Local tags, clones, and how clones share disk layers are in [VM clones, tags, an
 
 {{< include file="_partials/templates-and-registries/oci-tags/push/_set-push-mode.md" >}}
 
+### Exclude files from a push
+
+{{< include file="_partials/templates-and-registries/oci-tags/push/_exclude-files-with-ankaignore.md" >}}
+
 ## Thin pushes and pulls
 
 `--thin` pushes or pulls only the last layer of a tag. The base tags stay out. `--thin` works with `push_mode` `1` and with `push_mode` `2`. Like `push_mode`, `--thin` applies only to an OCI registry.

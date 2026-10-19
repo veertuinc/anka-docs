@@ -19,7 +19,7 @@ ARM/Silicon specific issues:
 
 - There is an issue where connecting to the VM over port forwarding for the first time will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple. 
 - Nested virtualization is not functional inside of VMs yet.
-- Physical device capture outside of USB devices like keyboard and "pointing" is not possible.
+- USB passthrough does not support iPhones or other devices with isochronous endpoints, such as most webcams and audio devices. Some Android devices disconnect and connect again approximately one time each second. We reported this to Apple as FB25252156. See [USB Passthrough for Silicon]({{< relref "whats-new/anka-3.10.0/index.md#usb-passthrough-for-silicon" >}}).
 
 {{< /hint >}}
 
