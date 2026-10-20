@@ -11,7 +11,7 @@ title: "Anka Virtualization 3.10.0"
 
 {{< include file="_partials/anka-virtualization-cli/getting-started/creating-vms/_create-reuses-macos-build.md" >}}
 
-## Supporting OCI Layers
+## Supporting OCI Container Registry Protocol
 
 {{< include file="_partials/templates-and-registries/oci-tags/_overview.md" >}}
 

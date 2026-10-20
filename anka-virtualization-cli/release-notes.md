@@ -25,7 +25,7 @@ ARM/Silicon specific issues:
 
 - **New Feature:** [USB Passthrough for Silicon.]({{< relref "whats-new/anka-3.10.0/index.md#usb-passthrough-for-silicon" >}})
 - **New Feature:** [`anka create` reuses a macOS build without needing an IPSW.]({{< relref "whats-new/anka-3.10.0/index.md#anka-create-reuses-a-macos-build-without-needing-an-ipsw" >}})
-- **New Feature:** [OCI layers.]({{< relref "whats-new/anka-3.10.0/index.md#supporting-oci-layers" >}}) An OCI tag from one VM can be pulled onto another VM. Pull, push, export, import, whiteouts, and Ankafile builds are described in that section.
+- **New Feature:** [OCI tags.]({{< relref "whats-new/anka-3.10.0/index.md#supporting-oci-container-registry-protocol" >}}) An OCI tag from one VM can be pulled onto another VM. Pull, push, export, import, whiteouts, and Ankafile builds are described in that section.
 - **Bug Fix:** Anka CLI labels adding `)` to end of string.
 - **Bug Fix:** Bridged VLAN return traffic now reaches the guest when the host interface removes the 802.1Q tag in hardware.
 - **Bug Fix:** `anka export` failed for every local VM with `config export failed: No such file or directory`.

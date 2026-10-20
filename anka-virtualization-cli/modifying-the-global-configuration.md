@@ -37,7 +37,7 @@ These environment variables change the same behavior for one command:
 
 - `ANKA_PUSH_MODE` sets `push_mode` for one command.
 - `ANKA_ANKAIGNORE` sets `ankaignore` for one command.
-- `ANKA_COMPRESSION_LEVEL` above `0` turns on gzip for OCI layers and sets the zlib level. `1` is the fastest level.
+- `ANKA_COMPRESSION_LEVEL` above `0` turns on gzip for the OCI Container Registry Protocol and sets the zlib level. `1` is the fastest level.
 
 ## VM swap directory (ARM)
 
