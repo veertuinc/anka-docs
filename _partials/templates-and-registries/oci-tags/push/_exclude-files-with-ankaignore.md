@@ -1,4 +1,4 @@
-When you push or export a VM with `push_mode` `2`, Anka does not include the paths in the `ankaignore` file. The default file is `/Applications/Anka.app/Contents/Resources/ankaignore`. It excludes caches, logs, temporary files, and Spotlight data.
+When you push or export a VM with `--thin` or `push_mode` `2`, Anka does not include the paths in the `ankaignore` file. The default file is `/Applications/Anka.app/Contents/Resources/ankaignore`. It excludes caches, logs, temporary files, and Spotlight data.
 
 To exclude more paths, copy the default file, add your paths, and set the `ankaignore` config key to your copy:
 
@@ -11,7 +11,7 @@ To exclude more paths, copy the default file, add your paths, and set the `ankai
 To use a different file for one command only, set `ANKA_ANKAIGNORE`:
 
 ```bash
-❯ ANKA_ANKAIGNORE=~/xcode.ankaignore ANKA_PUSH_MODE=2 anka push xcode-builder -t xcode-26.1 oci://registry.example.com/v2/xcode
+❯ ANKA_ANKAIGNORE=~/xcode.ankaignore anka push --thin xcode-builder -t xcode-26.1 oci://registry.example.com/v2/xcode
 ```
 
 Anka also uses a `.ankaignore` file in the current directory. Put one in each tool's build folder, then run `anka push` from that folder:
@@ -20,7 +20,7 @@ Anka also uses a `.ankaignore` file in the current directory. Put one in each to
 ❯ cd ~/tools/xcode
 ❯ cp /Applications/Anka.app/Contents/Resources/ankaignore .ankaignore
 ❯ echo 'Users/*/Downloads' >> .ankaignore
-❯ ANKA_PUSH_MODE=2 anka push xcode-builder -t xcode-26.1 oci://registry.example.com/v2/xcode
+❯ anka push --thin xcode-builder -t xcode-26.1 oci://registry.example.com/v2/xcode
 ```
 
 Anka uses only one file. It uses the first file that it finds, in this order:

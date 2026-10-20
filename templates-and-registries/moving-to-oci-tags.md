@@ -26,7 +26,7 @@ Many teams use the [clone hierarchy that we recommend for templates]({{< relref 
 
 | Step in the hierarchy | Where it goes |
 |-----------------------|---------------|
-| vanilla macOS | A full tag. Keep it in the Anka Registry, or push it to an OCI registry with `push_mode` `1`. |
+| vanilla macOS | A full tag. Keep it in the Anka Registry, or push it to an OCI registry. Leave `push_mode` at `1`. Do not use `--thin` on this push. |
 | Homebrew and git | An OCI tag. |
 | Port forwarding, CPU, RAM, and other VM settings | The base template, or `EXPOSE`, `LABEL`, and `MOUNT` in an [Ankafile]({{< relref "anka-virtualization-cli/getting-started/creating-vms/creating-vms-with-an-ankafile.md" >}}). An OCI tag holds files. Do not use it for VM settings. |
 | Xcode | One OCI tag for each Xcode version. You can use one Xcode tag with any base template, including base templates that you make in the future. Of course, the macOS version of the base template must support that Xcode version. |
@@ -36,13 +36,13 @@ Many teams use the [clone hierarchy that we recommend for templates]({{< relref 
 
 ### Phase 1: Upgrade with no change in behavior
 
-Install Anka 3.10.0 on your producer/builder hosts first. Ensure `anka config push_mode` is `1` (the default). Your current push and pull scripts work the same, they'll just avoid pushing things that will be isolated into OCI tags later on.
+Install Anka 3.10.0 on your producer/builder hosts first. Leave `anka config push_mode` at `1` (the default). Your current push and pull scripts work the same. Use `--thin` later, when you push a tool as an OCI tag.
 
 Note: Anka Nodes that run VMs need Anka 3.10.0 only when they pull OCI tags.
 
 ### Phase 2: Make your first tool tag from a clean base
 
-[Set up access to your OCI registry]({{< relref "templates-and-registries/using-an-oci-registry/_index.md" >}}). Then clone your vanilla VM, mark it with a local tag, install one tool, and push only the changes:
+[Set up access to your OCI registry]({{< relref "templates-and-registries/using-an-oci-registry/_index.md" >}}). Then clone your vanilla VM, mark it with a local tag, install one tool, and push only the last layer with `--thin`:
 
 ```bash
 ❯ anka clone 26.4.1 xcode-builder
@@ -50,13 +50,13 @@ Note: Anka Nodes that run VMs need Anka 3.10.0 only when they pull OCI tags.
 ❯ anka start xcode-builder
 # install Xcode in the VM, then stop it
 ❯ anka stop xcode-builder
-❯ ANKA_PUSH_MODE=2 anka push xcode-builder -t xcode-26.1 oci://registry.example.com/v2/xcode
+❯ anka push --thin xcode-builder -t xcode-26.1 oci://registry.example.com/v2/xcode
 ```
 
-The `xcode-26.1` tag holds only the files that changed after the local `base` tag.
+The `xcode-26.1` tag holds only the files that changed after the local `base` tag. You do not change `push_mode`.
 
 {{< hint info >}}
-When you push with `push_mode` `2`, Anka does not push the paths in the `ankaignore` file, such as caches and logs. To exclude more paths from your tool tag, see [Exclude files from a push]({{< relref "templates-and-registries/templates-and-tags.md#exclude-files-from-a-push" >}}).
+When you push with `--thin`, Anka does not push the paths in the `ankaignore` file, such as caches and logs. To exclude more paths from your tool tag, see [Exclude files from a push]({{< relref "templates-and-registries/templates-and-tags.md#exclude-files-from-a-push" >}}).
 {{< /hint >}}
 
 {{< hint info >}}
@@ -75,11 +75,7 @@ Pull the new tag onto a clone of your vanilla VM and run your tests before you g
 On a producer host, pull the base template from the Anka Registry. Pull the OCI tags in order. Push the result to the Anka Registry with the existing template name. The Anka Registry stores it as a full tag, and the Controller uses it like any other template.
 
 {{< hint warning >}}
-A full tag needs `push_mode` `1`. If you set `push_mode` `2` on the producer host, set it back before you push the final template:
-
-```bash
-❯ anka config push_mode 1
-```
+Do not use `--thin` on this push. The finished template must include the macOS disk. Leave `push_mode` at `1`.
 {{< /hint >}}
 
 See [Preparing a build VM]({{< relref "templates-and-registries/preparing-a-build-vm.md" >}}) for the commands.
@@ -88,12 +84,12 @@ Keep the pull order in an [Ankafile]({{< relref "anka-virtualization-cli/getting
 
 ### Phase 4 (optional): Remove the Anka Registry
 
-This phase is only for teams that do not use Anka Build Cloud. Push the macOS base to your OCI registry with `push_mode` `1`. Then let each runner create its VM from the Ankafile, or pull the finished template from the OCI registry.
+This phase is only for teams that do not use Anka Build Cloud. Push the macOS base to your OCI registry. Leave `push_mode` at `1`, and do not use `--thin` on that push. Then let each runner create its VM from the Ankafile, or pull the finished template from the OCI registry.
 
 ## Rules to follow
 
 - **Pull the Anka Registry tag first.** Then pull the OCI tags. A pull of an Anka Registry tag removes the OCI tags that you pulled before it. See [Anka Registry tags and OCI tags]({{< relref "templates-and-registries/templates-and-tags.md#anka-registry-tags-and-oci-tags" >}}).
-- **Set the push mode for one command.** Use `ANKA_PUSH_MODE=2` on the push. Do not set `push_mode` `2` globally on a producer host that also pushes full templates to an OCI registry. A full template pushed with `push_mode` `2` does not include the macOS disk.
+- **Use `--thin` for tool tags.** Leave `push_mode` at `1`. Do not use `--thin` when you push a full template. A full template pushed with `--thin` or with `push_mode` `2` does not include the macOS disk.
 - **Use tag names that do not change.** Use names such as `xcode-26.1`, not `xcode-latest`. The Anka Registry gives each new tag a new number. An OCI registry replaces a tag when you push the same tag name again.
 - **Record the minimum macOS version.** An OCI tag applies to any VM, but the tool in it can need a specific macOS version. Put the version in the tag name or the tag description.
 - **Remove files with a whiteout.** To remove a file from an OCI tag, [append an archive with a whiteout]({{< relref "templates-and-registries/using-an-oci-registry/appending-archives.md#remove-a-file-with-a-whiteout" >}}). You do not rebuild the earlier layers.

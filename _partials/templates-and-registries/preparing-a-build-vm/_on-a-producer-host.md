@@ -1,10 +1,27 @@
-The order of the OCI tags matters on the producer host. Create the VM, then pull each OCI tag in that order. Push the finished VM as a template.
+The order of the OCI tags matters on the producer host. Start from a new VM, or from a vanilla tag that you already have. Then pull each OCI tag with `--thin`, in that order. Push the finished VM as a full template. Do not use `--thin` on that last push.
+
+Create a new VM:
 
 ```bash
 ❯ anka create build_vm 27.0.1
-❯ anka pull build_vm http://registry.example.com/v2/xcode:27.1
-❯ anka pull build_vm https://ghcr.io/homebrew/core/cmake:4.4.4
+❯ anka pull --thin build_vm http://registry.example.com/v2/xcode:27.1
+❯ anka pull --thin build_vm https://ghcr.io/homebrew/core/cmake:4.4.4
 ❯ anka push build_vm -t latest
+```
+
+Or pull a vanilla tag. Use this when the macOS base is already in a registry:
+
+```bash
+❯ anka pull 27.0.1 -t vanilla
+❯ anka pull --thin 27.0.1 http://registry.example.com/v2/xcode:27.1
+❯ anka pull --thin 27.0.1 https://ghcr.io/homebrew/core/cmake:4.4.4
+❯ anka push 27.0.1 -t latest
+```
+
+To pull that vanilla tag from an OCI registry instead:
+
+```bash
+❯ anka pull 27.0.1 oci://registry.example.com/v2/27.0.1:vanilla
 ```
 
 `anka push` uses the registry in `ANKA_REGISTRY`. To use a different registry, add the registry URL:
@@ -13,8 +30,8 @@ The order of the OCI tags matters on the producer host. Create the VM, then pull
 ❯ anka push build_vm -t latest http://registry.example.com/v2
 ```
 
-{{< hint warning >}}
-Set `push_mode` to `1` before you push the finished template to an OCI registry. With `push_mode` `2`, the push leaves the macOS disk out, and a runner cannot start the template. A push to the Anka Registry always includes the macOS disk.
+{{< hint info >}}
+Leave `push_mode` at `1` (the default). Use `--thin` on the OCI tag pulls. `--thin` on the final push would leave the macOS disk out, and a runner could not start the template. A push to the Anka Registry always includes the macOS disk.
 {{< /hint >}}
 
 A runner host does not have the OCI tag order. It does not know which OCI tags the producer used. It pulls the template and starts it. That registry can be the Anka Registry. It can also be an OCI registry.

@@ -135,7 +135,7 @@ To create a VM from a file that lists [OCI tags]({{< relref "templates-and-regis
 ## Push
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/push/_index.md" >}}
 
-`push_mode` and `--thin` apply only to an OCI registry. See [Push modes]({{< relref "templates-and-registries/templates-and-tags.md#push-modes" >}}) and [Push OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md#push-oci-tags" >}}).
+`--thin` and `push_mode` apply only to an OCI registry. Prefer `--thin` for tool tags. See [Thin pushes and pulls]({{< relref "templates-and-registries/templates-and-tags.md#thin-pushes-and-pulls" >}}) and [Push OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md#push-oci-tags" >}}).
 ## Pull
 {{< include file="_partials/anka-virtualization-cli/command-line-reference/pull/_index.md" >}}
 

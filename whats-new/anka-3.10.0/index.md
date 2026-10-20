@@ -24,7 +24,7 @@ title: "Anka Virtualization 3.10.0"
 ### Learn more
 
 - [Templates and Registries]({{< relref "templates-and-registries/_index.md" >}}): choose the Anka Registry, an OCI registry, or both.
-- [Templates and tags]({{< relref "templates-and-registries/templates-and-tags.md" >}}): full tags, OCI tags, `push_mode`, and `--thin`.
+- [Templates and tags]({{< relref "templates-and-registries/templates-and-tags.md" >}}): full tags, OCI tags, `--thin`, and `push_mode`.
 - [OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md" >}}): pull and push OCI tags, with examples.
 - [Appending archives to OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/appending-archives.md" >}}): add files to a tag, or remove them with a whiteout.
 - [Moving to OCI tags]({{< relref "templates-and-registries/moving-to-oci-tags.md" >}}): move the tool layers of your Anka Registry templates to OCI tags, one step at a time.
@@ -32,7 +32,7 @@ title: "Anka Virtualization 3.10.0"
 - [Preparing a build VM]({{< relref "templates-and-registries/preparing-a-build-vm.md" >}}): build a VM from OCI tags on a producer host or on each runner.
 - [Creating VMs with an Ankafile]({{< relref "anka-virtualization-cli/getting-started/creating-vms/creating-vms-with-an-ankafile.md" >}}): create a VM from a file that lists the OCI tags.
 - [Export and import an OCI tag]({{< relref "anka-virtualization-cli/getting-started/creating-vms/exporting-and-importing-vms.md#export-and-import-an-oci-tag" >}}): move an OCI tag without a registry.
-- [Edit a layer before you push it]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md#edit-a-layer-before-you-push-it" >}}): browse and change an OCI tag layer with [anka-layer-editor](https://github.com/veertuinc/anka-layer-editor).
+- [Edit a layer before you push it]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md#edit-a-layer-before-you-push-it" >}}): browse and change an OCI tag layer with [anka-oci-tag-editor](https://github.com/veertuinc/anka-oci-tag-editor).
 
 ## System proxy and PAC support
 

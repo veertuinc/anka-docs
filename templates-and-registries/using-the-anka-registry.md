@@ -21,7 +21,7 @@ The Anka Registry is part of Anka Build Cloud. It stores full VM templates, and 
 ❯ anka push 27.0.1 -t vanilla http://anka.registry:8089
 ```
 
-The Anka Registry always stores the full tag. `push_mode` and `--thin` do not apply.
+The Anka Registry always stores the full tag. `--thin` and `push_mode` do not apply.
 
 ## Pull a template
 

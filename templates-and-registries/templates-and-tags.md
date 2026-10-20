@@ -13,8 +13,8 @@ description: >
 | **Template** | A VM that has at least one tag. In a registry, the template holds the tags for that VM. |
 | **Tag** | A saved state of a template, such as `vanilla` or `v1`. |
 | **Base tag** | The tag that a newer tag builds on. If you push `xcode-27.1` after `vanilla` on the same VM, `vanilla` is the base tag of `xcode-27.1`. |
-| **Full tag** | A tag that includes its base tags and the macOS disk. The Anka Registry stores only full tags. An OCI registry stores a full tag when you push with `push_mode` `1`. |
-| **OCI tag** | A set of file layers in an OCI registry. You make one when you push with `push_mode` `2` or `--thin`, or when you push an archive. Public OCI artifacts, such as Homebrew bottles, are also OCI tags. See [OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md" >}}). |
+| **Full tag** | A tag that includes its base tags and the macOS disk. The Anka Registry stores only full tags. An OCI registry stores a full tag when you push with `push_mode` `1` and without `--thin`. |
+| **OCI tag** | A set of file layers in an OCI registry. You make one when you push with `--thin`, or with `push_mode` `2`, or when you push an archive. Public OCI artifacts, such as Homebrew bottles, are also OCI tags. See [OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md" >}}). |
 | **Ankafile** | A file that lists the macOS version and the OCI tags to pull, in order. `anka create` builds one VM from it. See [Creating VMs with an Ankafile]({{< relref "anka-virtualization-cli/getting-started/creating-vms/creating-vms-with-an-ankafile.md" >}}). |
 
 Local tags, clones, and how clones share disk layers are in [VM clones, tags, and templates]({{< relref "anka-virtualization-cli/getting-started/creating-vms/vm-clones-and-tags.md" >}}).
@@ -23,9 +23,15 @@ Local tags, clones, and how clones share disk layers are in [VM clones, tags, an
 
 {{< include file="_partials/templates-and-registries/oci-tags/_oci-tags-vs-anka-registry-tags.md" >}}
 
+## Thin pushes and pulls
+
+Use `--thin` when you push or pull a tool as an OCI tag. `--thin` uses only the last layer of a tag. The base tags stay out. Leave `push_mode` at `1` (the default). `--thin` applies only to an OCI registry.
+
+For an example, see [Push OCI tags with `--thin`]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md#with---thin" >}}).
+
 ## Push modes
 
-{{< include file="_partials/templates-and-registries/oci-tags/push/_push-oci-tags.md" >}}
+Prefer `--thin` for tool tags. Use `push_mode` only when you need a different store of the file changes. `push_mode` applies only to an OCI registry.
 
 ### `push_mode` `1`
 
@@ -42,9 +48,3 @@ Local tags, clones, and how clones share disk layers are in [VM clones, tags, an
 ### Exclude files from a push
 
 {{< include file="_partials/templates-and-registries/oci-tags/push/_exclude-files-with-ankaignore.md" >}}
-
-## Thin pushes and pulls
-
-`--thin` pushes or pulls only the last layer of a tag. The base tags stay out. `--thin` works with `push_mode` `1` and with `push_mode` `2`. Like `push_mode`, `--thin` applies only to an OCI registry.
-
-For an example, see [Push OCI tags with `--thin`]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md#with---thin" >}}).

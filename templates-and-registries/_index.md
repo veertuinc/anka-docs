@@ -64,7 +64,7 @@ You can move to OCI tags one step at a time, and keep your current templates. Go
 | Controller UI and Registry REST API | Yes | No |
 | Full templates | Yes | Yes, Anka 3.9.0 and later |
 | OCI tags (file layers) | No | Yes, Anka 3.10.0 and later |
-| `push_mode` and `--thin` | Not used | Used |
+| `--thin` and `push_mode` | Not used | Used |
 | Public OCI artifacts, such as Homebrew bottles | No | Yes |
 | Server | You run the Anka Registry on Linux, Docker, or macOS | Your existing registry, or a hosted service |
 

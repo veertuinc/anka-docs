@@ -1,17 +1,13 @@
-Set `push_mode` to `2` before you push the tool tags.
-
-{{< include file="_partials/templates-and-registries/oci-tags/push/_set-push-mode.md" >}}
-
-Install one tool, stop the VM, and push the next tag to the OCI registry. Leave the repository name off the URL. Anka uses the VM name.
+Install one tool, stop the VM, and push the next tag with `--thin`. Leave `push_mode` at `1`. Leave the repository name off the URL. Anka uses the VM name.
 
 ```bash
 ❯ anka start 27.0.1
 # install Xcode in the VM, then stop it
 ❯ anka stop 27.0.1
-❯ anka push 27.0.1 -t xcode-27.1 oci://registry.example.com/v2/
+❯ anka push --thin 27.0.1 -t xcode-27.1 oci://registry.example.com/v2/
 ```
 
-The `xcode-27.1` push uploads only the file changes since `vanilla`.
+The `xcode-27.1` tag holds only the last layer: the files that changed after `vanilla`.
 
 Install CMake and stop the VM.
 
@@ -21,4 +17,4 @@ Install CMake and stop the VM.
 ❯ anka stop 27.0.1
 ```
 
-The tag chain on this VM is now the `vanilla` tag, then the `xcode-27.1` tag, then the CMake changes. You can push `cmake` without `--thin` or with `--thin`. Note that `--thin` works with `push_mode` `1` and with `push_mode` `2`.
+The tag chain on this VM is now the `vanilla` tag, then the `xcode-27.1` tag, then the CMake changes. Push `cmake` with `--thin` so that tag holds only the CMake layer. `push_mode` `2` is another way to store only the file changes. See [Push modes]({{< relref "templates-and-registries/templates-and-tags.md#push-modes" >}}).

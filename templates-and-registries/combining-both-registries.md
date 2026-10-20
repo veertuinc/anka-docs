@@ -14,7 +14,7 @@ You can use the Anka Registry and an OCI registry together:
 ## Rules
 
 - Pull the Anka Registry tag first. Then pull the OCI tags. A pull of an Anka Registry tag removes the OCI tags that you pulled before it.
-- `push_mode` and `--thin` apply only to the pushes to the OCI registry. A push to the Anka Registry always stores the full tag.
+- `--thin` and `push_mode` apply only to the pushes to the OCI registry. Use `--thin` for tool tags. A push to the Anka Registry always stores the full tag.
 - The Anka Registry does not store OCI tags.
 
 For all differences, see [Anka Registry tags and OCI tags]({{< relref "templates-and-registries/templates-and-tags.md#anka-registry-tags-and-oci-tags" >}}).

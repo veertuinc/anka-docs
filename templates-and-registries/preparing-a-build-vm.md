@@ -14,10 +14,20 @@ description: >
 
 ## On each runner with an Ankafile
 
-An Ankafile stores the same steps, including the OCI tag order. Each runner creates the VM from that file, so you do not need a producer host.
+An Ankafile stores the same steps, including the OCI tag order. Each runner creates the VM from that file, so you do not need a producer host. The first `FROM` can create macOS, or pull a vanilla tag. Push each tool tag with `--thin` so each later `FROM` line pulls one layer.
+
+Create a new VM:
 
 ```text
 FROM darwin:27.0.1
+FROM http://registry.example.com/v2/xcode:27.1
+FROM https://ghcr.io/homebrew/core/cmake:4.4.4
+```
+
+Or pull a vanilla tag:
+
+```text
+FROM oci://registry.example.com/v2/27.0.1:vanilla
 FROM http://registry.example.com/v2/xcode:27.1
 FROM https://ghcr.io/homebrew/core/cmake:4.4.4
 ```

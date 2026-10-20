@@ -1,4 +1,4 @@
-Without `--thin`, the push writes every diff after the base disk into the `cmake` tag (which is the current behavior customers are used to). The first layer is the `vanilla` tag's own diff. On this VM that diff has no file changes, so the layer is a 1024-byte tar with no files. The next layer is the Xcode diff. The last layer is the CMake diff. The pull reads only the `cmake` tag. It does not fetch the `xcode-27.1` tag. The Xcode files are in the `cmake` tag.
+Without `--thin`, the push writes every diff after the base disk into the `cmake` tag. The first layer is the `vanilla` tag's own diff. On this VM that diff has no file changes, so the layer is a 1024-byte tar with no files. The next layer is the Xcode diff. The last layer is the CMake diff. The pull reads only the `cmake` tag. It does not fetch the `xcode-27.1` tag. The Xcode files are in the `cmake` tag.
 
 Pull `cmake` onto a second VM that is a clone of `vanilla`. Anka copies the Xcode files and the CMake files onto that VM. A second pull of the same tag prints `already up-to-date`.
 
