@@ -23,6 +23,7 @@ ARM/Silicon specific issues:
 
 {{< /hint >}}
 
+- **Important: The default Cloud Agent that comes with this version is 1.47.0. You must be on that or a newer version of the Cloud Controller to be able to use this version of the CLI.**
 - **New Feature:** [USB Passthrough for Silicon.]({{< relref "whats-new/anka-3.10.0/index.md#usb-passthrough-for-silicon" >}})
 - **New Feature:** [`anka create` reuses a macOS build without needing an IPSW.]({{< relref "whats-new/anka-3.10.0/index.md#anka-create-reuses-a-macos-build-without-needing-an-ipsw" >}})
 - **New Feature:** [OCI tags.]({{< relref "whats-new/anka-3.10.0/index.md#supporting-oci-container-registry-protocol" >}}) An OCI tag from one VM can be pulled onto another VM. Pull, push, export, import, whiteouts, and Ankafile builds are described in that section.
@@ -33,7 +34,7 @@ ARM/Silicon specific issues:
 - **Improvement:** Add support for counting Super cores in the core count.
 - **Deprecation:** `add disk` command is set for removal in future releases.
 - **Bug Fix:** During anka push, the Registry may temporarily block while writing uploaded data to storage, especially when using NFS. When the Anka CLI request times out, the Registry should stop processing the abandoned upload as soon as the current storage operation unblocks.
-- **Important:** The default Cloud Agent that comes with this version is 1.47.0. You must be on that or a newer version of the Cloud Controller to be able to use this version of the CLI.
+
 
 ## Previous Versions
 
