@@ -9,4 +9,3 @@
 {{< include file="_partials/anka-build-cloud/configuration-reference/registry/diskbackend/body.md" >}}
 {{< include file="_partials/anka-build-cloud/configuration-reference/registry/s3backend/body.md" >}}
 {{< include file="_partials/anka-build-cloud/configuration-reference/registry/monitoring/body.md" >}}
-{{< include file="_partials/anka-build-cloud/configuration-reference/registry/general&commonlyused(standaloneregistry)/body.md" >}}

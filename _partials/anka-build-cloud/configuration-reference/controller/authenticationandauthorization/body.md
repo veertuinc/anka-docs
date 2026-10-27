@@ -24,6 +24,7 @@
 | ANKA_OIDC_CLIENT_SECRET | (string) | (OpenID Connect/SSO) Client secret) |  |
 | ANKA_OIDC_DISPLAY_NAME | (string) | (OpenID Connect/SSO) Name to display on login page) |  |
 | ANKA_OIDC_GROUPS_CLAIM | (string) | (OpenID Connect/SSO) Claim key to use for groups, defaults to groups) | groups |
+| ANKA_OIDC_INTROSPECTION_TIMEOUT | (duration) | (OpenID Connect/SSO) Timeout for token introspection requests, must be positive) | 10s |
 | ANKA_OIDC_PROVIDER_URL | (string) | (OpenID Connect/SSO) Provider URL) |  |
 | ANKA_OIDC_SCOPES | (string)  | (OpenID Connect/SSO) Comma separated list of scopes, overrides default scopes used) |  |
 | ANKA_OIDC_USER_INFO | (boolean) | (OpenID Connect/SSO) Get claims from user info endpoint) | false |

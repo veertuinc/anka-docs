@@ -242,9 +242,12 @@ Optional settings:
 
 ```bash
 ANKA_OIDC_USER_INFO=false
+ANKA_OIDC_INTROSPECTION_TIMEOUT=10s
 ```
 
-Keep this disabled when `name`, `email`, and `groups` are present in the ID token. Enable it only when the identity provider intentionally returns the required claims through its UserInfo endpoint.
+Keep `ANKA_OIDC_USER_INFO` disabled when `name`, `email`, and `groups` are present in the ID token. Enable it only when the identity provider intentionally returns the required claims through its UserInfo endpoint.
+
+`ANKA_OIDC_INTROSPECTION_TIMEOUT` (flag `--oidc-introspection-timeout`) limits how long the Controller waits for the identity provider's token-introspection response. The default is `10s`. Zero or negative values prevent Controller startup.
 
 {{< hint warning >}}
 **The OIDC ENVs must be set for both the Controller and Registry services.**
