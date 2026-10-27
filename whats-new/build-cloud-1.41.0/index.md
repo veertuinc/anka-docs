@@ -7,7 +7,7 @@ title: "Anka Build Cloud Controller & Registry Version 1.41.0"
 
 You can now set the External ID for VM Instances. This helps with identifying Instances in the list which are not related to your automation/CI.
 
-{{< imgwithlink src="images/whatsnew/1.41.0/vm-instance-creation-external-id.png" >}}
+{{< imgwithlink src="images/whats-new/1.41.0/vm-instance-creation-external-id.png" >}}
 
 ### Ability to join a Node in "Drain Mode"
 
@@ -29,4 +29,4 @@ Flags:
 
 The Controller UI's VM Instances list now indicates the Creation Time of a VM Instance. You can also sort the listing based on Creation Time.
 
-{{< imgwithlink src="images/whatsnew/1.41.0/instances-list-creation-date.png" >}}
+{{< imgwithlink src="images/whats-new/1.41.0/instances-list-creation-date.png" >}}

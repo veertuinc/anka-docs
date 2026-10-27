@@ -611,7 +611,7 @@ capacity       | int    | Number of VMs the node can run
 groups         | list   | List of groups that the nodes belongs to
 anka_version   | object | An object representing the Anka information. running version, product name, license.
 usb_devices    | list   | List of USB devices connected to the node
-capacity_mode  | string | Node's capacity mode, options are `number` (number of running VMs) or `resource` (VCPUs and VRAM)
+capacity_mode  | string | Node's capacity mode, options are `number` (number of running VMs) or `resource` (VCPUs and VRAM). See [Node Capacity Modes]({{< relref "anka-build-cloud/node-capacity-modes.md" >}})
 vcpu_override  | int    | VCPU scheduling limit, when using capacity mode `resource`  
 ram_override   | int    | VRAM scheduling limit, when using capacity mode `resource`
 disk_size      | int    | Node's disk size in bytes
@@ -817,7 +817,7 @@ curl "http://anka.controller/api/v1/node?id=f8707005-4630-4c9c-8403-c9c5964097f6
  max_vm_count  | int    | Set Node capacity        | -
  name          | string | Set the Node's name      | -
  host          | string | Set the Node's host name | -
- capacity_mode | string | Set the Node's capacity mode, options are `number` (number of running VMs) or `resource` (VCPUs and VRAM) | Default behavior is `number`
+ capacity_mode | string | Set the Node's capacity mode, options are `number` (number of running VMs) or `resource` (VCPUs and VRAM). See [Node Capacity Modes]({{< relref "anka-build-cloud/node-capacity-modes.md" >}}) | Default behavior is `number`
  vcpu_override | int    | When using capacity mode `resource` set the VCPU scheduling limit | -
  ram_override  | int    | When using capacity mode `resource` set the VRAM scheduling limit | -
  disable_central_logging | bool | If true, disables central logging (logs will not be sent to the log server) | -

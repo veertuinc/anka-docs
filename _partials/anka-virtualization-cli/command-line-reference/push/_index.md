@@ -14,6 +14,6 @@ options:
   -d,--description <val>   Set textual description of the tag
   -f,--force               Forcefully push, regardless of a tag already existing
   -l,--local               Commit the template without pushing it to the Registry
-  -s,--shallow             Include all the changes of an older tags
   -q,--quiet               Do not show progress
+  --thin                   Push only single layer specified by tag without base
 ```

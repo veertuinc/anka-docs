@@ -1,6 +1,6 @@
 ```shell
 > anka export --help
-usage: export [options] vmid file
+usage: export [options] vmid [file]
 
    Export a VM as an archive
 
@@ -10,5 +10,5 @@ arguments:
 
 options:
   -t,--tag <val>           Export local VM tag
-  -c,--copy                Include base tags into the archive
+  -n,--dry-run             Just show files affected
 ```

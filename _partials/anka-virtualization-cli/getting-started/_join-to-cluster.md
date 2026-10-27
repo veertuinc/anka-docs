@@ -84,6 +84,10 @@ Flags:
       --vm-stuck-timeout duration             The time to wait until the VM is considered unresponsive (default: 10s - Duration examples: 3500s, 20m, 5h)
 ```
 
+{{< hint info >}}
+The `--capacity-mode`, `--max-vm-count`, `--vcpu-override`, `--ram-override`, and `--force-overrides-in-resource-mode` flags control how many VMs the Node accepts. Refer to [Node Capacity Modes]({{< relref "anka-build-cloud/node-capacity-modes.md" >}}).
+{{< /hint >}}
+
 ### Check Join Status
 
 You can check the status of the Anka agent using the `sudo ankacluster status` command.

@@ -5,6 +5,9 @@
 * Optimized disk performance and optimizations to minimize host level usage.
 * Access to Paravirtualized Graphics (GPU) inside of VMs.
 * VM management through the Anka Virtualization CLI, UI app, or web based Build Cloud Controller UI and API.
+* Store VM templates in the Anka Registry or in any OCI Distribution–compliant registry (Docker Hub, Amazon ECR, Google Artifact Registry, JFrog Artifactory, Zot). See [Templates and Registries]({{< relref "templates-and-registries/_index.md" >}}).
+* Add tools to any VM as thin [OCI tags]({{< relref "templates-and-registries/using-an-oci-registry/oci-tags.md" >}}), including public OCI artifacts like Homebrew bottles. One thin tag works on VMs with different names and macOS versions.
+* Describe a VM in an [Ankafile]({{< relref "anka-virtualization-cli/getting-started/creating-vms/creating-vms-with-an-ankafile.md" >}}): the macOS version and the thin tags to pull. `anka create` builds the VM from that file.
 * Ability to suspend and then instantly start VMs from a specific state. On Apple Silicon, suspended VMs cannot move between hosts (Apple limitation).
 * Attach physical USB devices (like an iPhone) to VMs for on-device testing (Intel only).
 * Compatible with T2-equipped Intel Macs and Apple Silicon.
@@ -19,5 +22,6 @@ Anka also enables a docker-like experience for teams to create and store project
 
 * Use the [Anka Virtualization CLI]({{< relref "anka-virtualization-cli/getting-started" >}}) and [Packer](https://github.com/veertuinc/packer-plugin-veertu-anka) to create Anka VM Templates for different versions of macOS, Xcode, etc.
 * Store your VM Templates with a specific Tag in the Anka Build Cloud Registry so you can distribute or pull them to different machines and ensure the same starting VM state for every single CI/CD job that runs a VM. You can clone all VMs from a single base VM and they will re-use layers, optimizing disk space on both the Registry and Anka Nodes/hosts.
+* Or store them in your own OCI registry, and keep each tool as a separate thin tag that you pull onto a base VM. You can also use both registries together. See [Templates and Registries]({{< relref "templates-and-registries/_index.md" >}}) to choose a path.
 
 ![Anka Registry pull and show VM]({{< siteurl >}}images/what-is-anka/registry-list-pull-show.png)

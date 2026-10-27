@@ -9,66 +9,60 @@ aliases:
   - /anka-virtualization-cli/getting-started/aws-ec2-mac/
 ---
 
-{{< hint info >}}
-This guide is also valid for the Anka 3/mac2.metal/Apple processor (M1, M2, etc) EC2 instances.
-{{< /hint >}}
+Veertu provides AMIs with Anka Virtualization pre-installed and macOS pre-configured with our best practices. Use them to get started on AWS EC2 Mac instances (mac1 Intel and mac2+ Apple silicon) without purchasing and managing your own hardware.
 
-{{< hint info >}}
-While you do not need to use the Anka Build Cloud with AWS EC2 Mac instances to run Anka VMs, it is a requirement if you'd like to use our [Controller Plugins/Integrations]({{< relref "plugins-and-integrations/controller-+-registry/_index.md" >}}) to create VMs. You can read more about the Anka Build Cloud [here]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md" >}}).
-{{< /hint >}}
+With Anka on your EC2 Mac instance, you can:
 
-Customers often find that purchasing and managing their own hardware can become a burden. While we do not currently provide an AMI for the [Anka Build Cloud]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md" >}}), we do for the Anka Virtualization software. This makes it easy to get started with AWS EC2 Mac instances that you can scale as needed using the AWS Management Console or AWS CLI. The AMI is pre-prepared with best practices/configurations for using Anka.
+- Run more than one ephemeral macOS VM on each instance to lower cost.
+- Use the full first 24 hours that Amazon charges for each EC2 Mac instance.
+- Scale VM capacity up and down with the AWS Management Console or AWS CLI.
+- Prevent jobs from leaving a dirty environment for other jobs.
+- Run multiple versions of macOS on the same host.
 
-With Anka installed on your AWS EC2 Mac instance, you can:
+For more information, see [our site](https://veertu.com/aws-ec2-mac/) and [Amazon's blog](https://aws.amazon.com/blogs/compute/getting-started-with-anka-on-ec2-mac-instances/).
 
-1. Run ephemeral macOS VMs as well as optimize the instance cost by running more than one at a time. 
-2. Avoid idle hosts and maximize the usage in the first 24 hour period that Amazon charges you for when starting an EC2 Mac instance.
-3. Scale VM capacity up and down as needed using the AWS Management Console or AWS CLI.
-4. Prevent jobs from leaving a dirty environment on the host for other jobs to conflict with.
-5. Run multiple versions of macOS on the same host.
+## Before you start
 
-And much more! [Visit our site](https://veertu.com/aws-ec2-mac/) and [Amazon's blog](https://aws.amazon.com/blogs/compute/getting-started-with-anka-on-ec2-mac-instances/) for more information about AWS EC2 Mac and Anka.
+- **Dedicated host:** Request a dedicated mac\* host to run EC2 Mac instances. Requesting, stopping, and starting instances takes time because the host cleans itself each time an instance stops.
+- **Disk cache setting (Anka 3.9.3+):** Set `block_nocache` to `2` for your user and for root. Our latest AMIs already include this. If you upgrade Anka on an older AMI or instance, run:
 
-There are three AMI options available for you to use:
+    ```bash
+    anka config block_nocache 2 && sudo anka config block_nocache 2
+    ```
 
-1. [**Use our Marketplace AMI**]({{< relref "marketplace-ami.md" >}})
-  - macOs pre-configured/optimized + Anka installed
-  - Provides an hourly billing option for Anka based on the uptime of your EC2 Mac instance
-  - **Marketplace AMIs require `Instance metadata service` to be enabled.**
-2. [**Bring your own license (BYOL) Community AMI**]({{< relref "community-ami.md" >}})
-  - macOS pre-configured/optimized + Anka installed
-  - With these AMIs, you will be able to use your own Anka License.
-3. [**Build your own AMI**]({{< relref "#build-your-own-ami" >}})
+- **Anka Build Cloud (optional):** You do not need the Anka Build Cloud to run Anka VMs on EC2 Macs. You need it only to create VMs with our [Controller Plugins/Integrations]({{< relref "plugins-and-integrations/controller-+-registry/_index.md" >}}). We do not provide an AMI for it. [Set it up]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md" >}}) on a Linux server or Docker container in AWS, not on the EC2 Mac instances.
 
-{{< hint info >}}
-Note: You must request a dedicated mac* host in order to run EC2 Mac instances. There is a known delay requesting, stopping, and starting EC2 Mac instances as the dedicated host must clean itself each time an instance stops on it.
-{{< /hint >}}
+## Choose your AMI
 
-{{< hint warning >}}
-**IMPORTANT (Anka 3.9.3+):** EC2 Mac performance requires `block_nocache` set to `2` for both your user and root:
-
-```bash
-anka config block_nocache 2 && sudo anka config block_nocache 2
-```
-
-Bake this into any custom AMI you build. Our latest official AMIs already include it. If you upgrade Anka on an older AMI or instance, run the commands above (or rebuild from a current Veertu AMI).
-{{< /hint >}}
-
----
+| | [Marketplace AMI]({{< relref "marketplace-ami.md" >}}) | [Community AMI (BYOL)]({{< relref "community-ami.md" >}}) | [Build your own](#build-your-own-ami) |
+|---|---|---|---|
+| **Anka pre-installed** | Yes | Yes | No |
+| **macOS pre-optimized** | Yes | Yes | No |
+| **License** | Not needed. Hourly billing through AWS. | Your own Anka license (Anka Develop does not work) | Your own Anka license (Anka Develop does not work) |
+| **`block_nocache 2` set** | Yes (latest AMIs) | Yes (latest AMIs) | You must set it |
+| **Requirements** | Instance metadata service enabled | — | gp3 EBS volume, 6000 IOPS, 256 throughput |
 
 ## Build your own AMI
 
-Building your own AMI is easy! You can review our [AMI scripts](https://github.com/veertuinc/aws-ec2-mac-amis) to see how we do it.
+You can review our [AMI scripts](https://github.com/veertuinc/aws-ec2-mac-amis) to see how we build our AMIs.
 
-Some important notes about creating your own AMI:
+1. Use an EBS volume with a minimum of gp3, 6000 IOPS, and 256 throughput. Anka VM creation is sensitive to slow disks and will likely fail on them.
+2. Install Anka and activate your license.
+3. Set the disk cache setting before you create the AMI image:
 
-- Be sure that the minimum EBS volume specs are gp3, 6000IOPS, and 256 throughput. Anka VM creation is sensitive on slow disks and will likely fail.
-- Set `anka config block_nocache 2 && sudo anka config block_nocache 2` before you create the AMI image (required for Anka 3.9.3+ EC2 performance). Latest official Veertu AMIs already have this set.
-- If using the Anka Build Cloud: This step requires that you first [set up the Anka Build Cloud]({{< relref "anka-build-cloud/getting-started/setup-controller-and-registry.md" >}}) on a Linux server/docker container in AWS (but not on the EC2 Mac instances we provide AMIs for).
+    ```bash
+    anka config block_nocache 2 && sudo anka config block_nocache 2
+    ```
 
----
+4. Create the AMI image.
 
 ## Answers to Frequently Asked Questions
 
-- VMs can enable access to the `169.254.169.254` instance Metadata by routing it from the host with: `networksetup -setadditionalroutes Ethernet 169.254.169.254 255.255.255.255 $(sudo defaults read /Library/Preferences/SystemConfiguration/com.apple.vmnet.plist Shared_Net_Address)`
+### How do I give VMs access to the instance metadata service (`169.254.169.254`)?
 
+Route it from the host:
+
+```bash
+networksetup -setadditionalroutes Ethernet 169.254.169.254 255.255.255.255 \
+  $(sudo defaults read /Library/Preferences/SystemConfiguration/com.apple.vmnet.plist Shared_Net_Address)
+```

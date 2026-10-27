@@ -1,0 +1,41 @@
+---
+title: "Preparing a build VM"
+linkTitle: "Preparing a build VM"
+weight: 5
+description: >
+  Build a VM from a full base tag and thin tags on one producer host, or on each runner with an Ankafile
+---
+
+{{< include file="_partials/templates-and-registries/preparing-a-build-vm/_preparing-a-build-vm.md" >}}
+
+## On a producer host
+
+{{< include file="_partials/templates-and-registries/preparing-a-build-vm/_on-a-producer-host.md" >}}
+
+## On each runner with an Ankafile
+
+An Ankafile stores the same steps, including the thin tag order. Each runner creates the VM from that file, so you do not need a producer host. The first `FROM` can create macOS, or pull a vanilla full tag. Push each tool as a thin tag with `--thin` so each later `FROM` line pulls one layer.
+
+Create a new VM:
+
+```text
+FROM darwin:27.0.1
+FROM http://registry.example.com/v2/xcode:27.1
+FROM https://ghcr.io/homebrew/core/cmake:4.4.4
+FROM oci://hf.co/MaziyarPanahi/Llama-3.2-1B-Instruct-GGUF:Q4_K_M
+```
+
+Or pull a vanilla tag:
+
+```text
+FROM oci://registry.example.com/v2/27.0.1:vanilla
+FROM http://registry.example.com/v2/xcode:27.1
+FROM https://ghcr.io/homebrew/core/cmake:4.4.4
+FROM oci://hf.co/MaziyarPanahi/Llama-3.2-1B-Instruct-GGUF:Q4_K_M
+```
+
+```bash
+❯ anka create build_vm ./Ankafile
+```
+
+For all Ankafile instructions, see [Creating VMs with an Ankafile]({{< relref "anka-virtualization-cli/getting-started/creating-vms/creating-vms-with-an-ankafile.md" >}}).

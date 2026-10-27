@@ -1,12 +1,63 @@
 ---
 date: 2019-12-12T00:00:00-00:00
-title: "Working with USB Devices (intel only)"
+title: "Working with USB Devices"
 weight: 7
 description: >
-  Using the Anka CLI and API to setup and manage USB devices.
+  Attach physical USB devices from the host to a VM on Intel and Apple silicon.
 ---
 
-## Using the Anka CLI to claim USB devices on a host machine
+Anka can give a physical USB device on the host to a VM. The procedure is different on Intel and on Apple silicon hosts.
+
+| | Intel | Apple silicon |
+| --- | --- | --- |
+| How you attach a device | `anka usb claim` and `anka attach` | The macOS Virtual Machine Accessories menu |
+| iPhones | Supported | Not supported |
+| Webcams, USB audio devices, and headsets | Not tested | Not supported |
+| Android devices | Not tested | Disconnect and connect again (FB25252156) |
+| Start a VM with a USB device from the Controller API | Supported | Not supported |
+
+USB passthrough requires an Anka Flow, Anka Build Enterprise, Anka Build Enterprise Plus, or Anka Secure license.
+
+## Apple silicon
+
+On Apple silicon, macOS controls which app gets a USB device. You give the device to the VM in the Virtual Machine Accessories menu, in the macOS menu bar. The `anka usb claim`, `anka usb release`, and `anka attach` commands do not attach devices on Apple silicon.
+
+Requirements:
+
+- The host must have macOS 27 or later and Anka 3.10.0 or later.
+- The VM must have macOS 27.0.1 or later.
+
+{{< include file="_partials/anka-virtualization-cli/working-with-usb-devices/_silicon-unsupported-devices.md" >}}
+
+### Attach a USB device to a VM
+
+1. Connect the USB device to the host.
+
+2. Start the VM:
+
+    ```shell
+    anka start -v 27.0.1
+    ```
+
+3. In the menu bar, click the Virtual Machine Accessories icon. Select the device, then choose **Use with** followed by the name of the app that started the VM. For example, if you started the VM from iTerm2, choose **Use with iTerm2**.
+
+    ![Virtual Machine Accessories menu]({{< siteurl >}}images/whats-new/anka-3.10.0/usb-passthrough-for-silicon.png)
+
+4. Make sure that the VM has the device. In the VM, open System Information and select **USB**. The device shows under a `USB 3.1 Bus`. You can also do this from the host:
+
+    ```shell
+    anka run 27.0.1 system_profiler SPUSBDataType
+    ```
+
+### Give the USB device back to the host
+
+In the Virtual Machine Accessories menu, select the device and choose **Use with this Mac**. The device leaves the VM.
+
+macOS remembers which app has the device. If you disconnect the device and connect it again, macOS gives it to the VM again. Choose **Use with this Mac** to stop this.
+
+## Intel
+
+### Using the Anka CLI to claim USB devices on a host machine
 
 > **When connecting to the host, DO NOT trust the device (only trust when attaching to the VM).**
 > If you've already trusted the device on your host in the past, you'll need to **Reset Network Settings** on the device: `Settings -> General -> Reset -> Reset Network Settings`.
@@ -111,7 +162,7 @@ If you have more than one iPhone, using a claim name (`--claim-name`) to group t
     ```
 
 
-## Using the Controller API (Requires Enterprise or higher license)
+### Using the Controller API (Requires Enterprise or higher license)
 
 1. Perform steps outlined above to **claim** USB devices on the host machine.
 

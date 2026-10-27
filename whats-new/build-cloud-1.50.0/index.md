@@ -15,7 +15,7 @@ sudo ankacluster join http://anka.controller \
   --force-overrides-in-resource-mode
 ```
 
-See [Preparing and joining your nodes]({{< relref "anka-build-cloud/getting-started/preparing-and-joining-your-nodes.md" >}}) for the full `ankacluster join` flag list.
+See [Node Capacity Modes]({{< relref "anka-build-cloud/node-capacity-modes.md" >}}) for how the resource check works, and [Preparing and joining your nodes]({{< relref "anka-build-cloud/getting-started/preparing-and-joining-your-nodes.md" >}}) for the full `ankacluster join` flag list.
 
 ### Change VM name prefix
 
