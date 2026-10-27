@@ -1298,19 +1298,57 @@ curl  "http://anka.controller/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e0
 
 #### Cancel Distribution
 
-**Description:** Cancel a distribution request  
+**Description:** Cancel a distribution request. By default this cancels unfinished transfers for every node in the request. Pass optional `node_id` to cancel only that node's transfer and leave the others running.  
 **Path:** /api/v1/registry/vm/distribute  
 **Method:** DELETE  
 **Required Query Parameters:**  
 
  Parameter | Type   | Description
  ---       |   ---  |          ---
- id        | string | The Distribution request's id.
+ id        | string | The Distribution request's id (`request_id`).
+
+ **Optional Query Parameters:**
+
+ Parameter | Type   | Description              | Default
+ ---       | ---    | ---                      | ---
+ node_id   | string | Cancel only this Node's unfinished transfer in the distribution request. Omit to cancel all unfinished nodes in the request. | All unfinished nodes
 
  **Returns:**
 
 - *status:* Operation Result (OK|FAIL)  
+- *Body:* Object with `request_id` for the cancellation request
 - *message:* Error message in case of an error
+
+**Errors:**
+
+- `400` — `id` is missing, or `node_id` is supplied but empty
+- `404` — the distribution request does not exist, or the targeted `node_id` is not part of that request
+
+##### Example
+
+```shell
+# Cancel the entire distribution request (all unfinished nodes)
+curl -X DELETE \
+  "http://anka.controller/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e07-5e7d-7f9cc98e0ee5" | jq
+{
+   "status": "OK",
+   "body": {
+      "request_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+   },
+   "message": ""
+}
+
+# Cancel only one node's transfer; other nodes in the request continue
+curl -X DELETE \
+  "http://anka.controller/api/v1/registry/vm/distribute?id=74efc824-2fcb-4e07-5e7d-7f9cc98e0ee5&node_id=64230242-321c-442a-bd96-d87edd0943a3" | jq
+{
+   "status": "OK",
+   "body": {
+      "request_id": "b2c3d4e5-f6a7-8901-bcde-f12345678901"
+   },
+   "message": ""
+}
+```
 
 
 #### Save Template Image

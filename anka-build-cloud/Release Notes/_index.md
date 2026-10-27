@@ -7,6 +7,35 @@ weight: 100
 
 ## Current Version
 
+### 1.52.0 (1.52.0-36aa9fba) - Oct 27th, 2026
+
+{{< hint warning >}}
+- This release requires a Registry version of 1.48.0 or higher.
+- We've also updated the required ETCD version to 3.5.35.
+{{< /hint >}}
+
+- [Download](https://veertu.com/download-anka-build/)
+- **Bug Fix:** Controller fails to rotate logs when a custom `ANKA_LOG_FILE` is set. Log cleanup could warn `unexpected filename: "ankacontroller.log"` and then panic with `runtime error: index out of range [-1]`.
+- **Bug Fix:** Controller Centralized Logs stop after the first 24 hours. Only the log file from the Controller start day was kept; later days did not appear on the Logs page.
+- **Bug Fix:** [Cancel Distribution]({{< relref "working-with-controller-and-API.md#cancel-distribution" >}}) from a single node canceled every unfinished node in that distribution request. `DELETE /api/v1/registry/vm/distribute` now accepts optional `node_id` to cancel one node. Omit `node_id` to keep the previous request-wide cancel. Empty `node_id` returns `400`; an unknown node returns `404`.
+- **Bug Fix:** Agent repeatedly retried VM starts when Anka `check-download-size` returned registry error code `74` (older agents only treated `31` as VM-not-found). The start task returned to the queue without a clear failure, with log spam such as `failed to get vnc` (for example, 55 failures in about 98 seconds). The agent no longer depends on codes `31`/`74` alone; missing remote templates fail clearly, and a local template/tag can still start.
+- **Bug Fix:** CMD log flushes skipped the CMD buffer. `klog.Flush()` / periodic flush wrote FATAL through INFO only, so recent `.CMD` output could stay in memory until the 256 KiB buffer filled or the file rotated.
+- **Bug Fix:** Controller released a MAC address twice during instance termination. Logs showed `processTerminateVMResponse: failed releasing mac address ... is not reserved by instance ...`. With a configured MAC range, the address could also be reused before the original VM stopped.
+- **Bug Fix:** Data race between central log agent startup and shutdown when Registry stopped during the delayed `LogAgent.Run()` start.
+- **Improvement:** `.CMD` logs now flush about every 5 seconds, like `.INFO`. Before, incomplete lines could sit for 1–2 minutes and break log parsers / aggregators that tail `anka_agent.CMD`.
+- **Improvement:** Custom log paths keep `ANKA_LOG_FILE` as the active file. Day/size rotations become unique UTC-timestamped archives (optionally compressed). Age/size retention applies to those archives, including ones outside `ANKA_LOG_DIR`, without deleting the active file, legacy archives, symlinks, or unrelated files.
+- **Improvement:** Registry runs log rotation cleanup at startup and every 30 minutes, including archives from a custom `log_file`, and honors `log-max-*` retention settings.
+- **New Feature:** Release artifacts include OpenVEX documents so scanners such as Trivy can suppress false positives like `GO-2026-5932` (`golang.org/x/crypto/openpgp` flagged even when OpenPGP is not present). The OpenVEX files are available at [https://downloads.veertu.com/#anka/](https://downloads.veertu.com/#anka/). Example: `trivy rootfs ./anka_agent_arm64 --vex ./anka_agent_arm64.openvex.json`.
+- **New Feature:** Configurable timeout for OIDC token introspection so auth no longer hangs forever on a stuck IdP. Flag `--oidc-introspection-timeout` / env `ANKA_OIDC_INTROSPECTION_TIMEOUT` (default `10s`). Zero or negative values prevent Controller startup.
+- **Improvement:** Upgraded `golang.org/x/net` to `v0.60.0` (HTTP/2 CVEs including CVE-2026-78660, CVE-2026-78669, CVE-2026-78663).
+- **Improvement:** Frontend dependency security refresh: Angular `21.2.25+`, `undici` `7.30.1+`, and Cypress `15.21.1+`.
+- (Required ETCD Version: >= 3.5.35) **NEW**
+
+---
+
+## Previous Versions
+
+
 ### 1.51.2 (1.51.2-586513d9) - Oct 2nd, 2026
 
 {{< hint warning >}}
@@ -23,12 +52,7 @@ weight: 100
 - **Improvement:** [Track active Registry HTTP requests during shutdown. If the graceful shutdown timeout expires, cancel remaining requests, close active connections, and allow a configurable cleanup period before returning an error.]({{< relref "whats-new/build-cloud-1.51.2/index.md#graceful-shutdown-cleanup-limit" >}})
 - **New Feature:** [Registry now detects and logs slow IO during uploads.]({{< relref "whats-new/build-cloud-1.51.2/index.md#slow-io-detection-during-uploads" >}})
 - **New Feature:** [Registry upload write-stall watchdog]({{< relref "whats-new/build-cloud-1.51.2/index.md#registry-upload-write-stall-watchdog" >}})
-- (Required ETCD Version: >= 3.5.34) **NEW**
-
----
-
-## Previous Versions
-
+- (Required ETCD Version: >= 3.5.34)
 
 ### 1.51.1 (1.51.1-586513d9) - Sept 7th, 2026
 
