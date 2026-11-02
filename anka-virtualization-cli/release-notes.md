@@ -22,7 +22,8 @@ ARM/Silicon specific issues:
 - USB passthrough does not support iPhones or other devices with isochronous endpoints, such as most webcams and audio devices. Some Android devices disconnect and connect again approximately one time each second. We reported this to Apple as FB25252156. See [USB Passthrough for Silicon]({{< relref "whats-new/anka-3.10.0/index.md#usb-passthrough-for-silicon" >}}).
 
 {{< /hint >}}
-
+- [Download Anka-3.10.0.223.pkg](https://downloads.veertu.com/anka/Anka-3.10.0.223.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.10.0.223_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.10.0.223_SHA256SUMS.sig)
+- **NOTE: Addons upgrade is not required.**
 - **Important: The default Cloud Agent that comes with this version is 1.47.0. You must be on that or a newer version of the Cloud Controller to be able to use this version of the CLI.**
 - **New Feature:** [USB Passthrough for Silicon.]({{< relref "whats-new/anka-3.10.0/index.md#usb-passthrough-for-silicon" >}})
 - **New Feature:** [`anka create` reuses a macOS build without needing an IPSW.]({{< relref "whats-new/anka-3.10.0/index.md#anka-create-reuses-a-macos-build-without-needing-an-ipsw" >}})
