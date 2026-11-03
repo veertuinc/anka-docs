@@ -1,4 +1,4 @@
-The order of the thin tags matters on the producer host. Start from a new VM, or from a vanilla full tag that you already have. Then pull each thin tag with `--thin`, in that order. Push the finished VM as a full tag. Do not use `--thin` on that last push.
+The order of the thin tags matters on the producer host. Start from a new VM, or from a vanilla full tag that you already have. Then pull each thin tag with `--thin`, in that order. Push the finished VM as a full tag. Do not use `--thin` on that last push. That composes the thin-tag stack into the final template. You do not start the VM to reinstall each tool.
 
 Create a new VM:
 

@@ -3,7 +3,7 @@ title: "OCI tags"
 linkTitle: "OCI tags"
 weight: 1
 description: >
-  Full and thin tags in an OCI registry. Pull file layers onto a VM, and push your own tools as thin tags (Anka 3.10.0 and later)
+  Full and thin tags (Portable Thin Tags) in an OCI registry. Pull standard OCI filesystem layers onto a VM, and push your own tools as thin tags (Anka 3.10.0 and later)
 ---
 
 {{< include file="_partials/templates-and-registries/oci-tags/_overview.md" >}}

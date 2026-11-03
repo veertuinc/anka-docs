@@ -14,7 +14,7 @@ description: >
 
 ## On each runner with an Ankafile
 
-An Ankafile stores the same steps, including the thin tag order. Each runner creates the VM from that file, so you do not need a producer host. The first `FROM` can create macOS, or pull a vanilla full tag. Push each tool as a thin tag with `--thin` so each later `FROM` line pulls one layer.
+An Ankafile stores the same steps, including the thin tag order. Each runner creates the VM from that file, so you do not need a producer host. The first `FROM` can create macOS, or pull a vanilla full tag. Push each tool as a thin tag with `--thin` so each later `FROM` line pulls one layer. The Ankafile composes the stack without starting the VM to install each tool by hand.
 
 Create a new VM:
 

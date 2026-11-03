@@ -39,4 +39,6 @@ The Build Cloud Controller cannot pull OCI tags, full or thin. Build the templat
 2. Pull each thin tag onto that VM, in order.
 3. Push the finished VM to the Anka Registry. The Anka Registry stores it as a full tag.
 
+That rebuilds the thin-tag stack for the final template. You do not start the VM to install the tools again.
+
 The Controller can then start VMs from that template, the same as from any other template. For the commands, see [Preparing a build VM]({{< relref "templates-and-registries/preparing-a-build-vm.md" >}}).
