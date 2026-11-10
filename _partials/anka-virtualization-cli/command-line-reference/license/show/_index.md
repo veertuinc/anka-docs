@@ -8,5 +8,5 @@ arguments:
   license.lic              A license file
 
 options:
-  -k,--key <val>           Get key information
+  -k,--key <val>           Show license info and server core/host usage for activation key XXXX-XXXX-XXXX-XXXX (not a license file)
 ```
