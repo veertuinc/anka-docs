@@ -11,6 +11,30 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.10.1 - November 11th, 2026
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- There is an issue where connecting to the VM over port forwarding for the first time will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple. 
+- Nested virtualization is not functional inside of VMs yet.
+- USB passthrough does not support iPhones or other devices with isochronous endpoints, such as most webcams and audio devices. Some Android devices disconnect and connect again approximately one time each second. We reported this to Apple as FB25252156. See [USB Passthrough for Silicon]({{< relref "whats-new/anka-3.10.0/index.md#usb-passthrough-for-silicon" >}}).
+
+{{< /hint >}}
+- **NOTE: Package download links will be added when the 3.10.1 build is published.**
+- **NOTE: Addons upgrade is not required.**
+
+{{< hint warning >}}
+**Breaking change — upgrade your Cloud Controller before you upgrade the CLI.** The default Cloud Agent that comes with this version is **1.50.0**. Your Cloud Controller must be **1.50.0 or later**. An older Controller does not work with this Agent. Install or upgrade the Controller first, then upgrade the CLI.
+{{< /hint >}}
+
+- **Bug Fix:** The bundled Cloud Agent is now 1.50.0. This fixes panics on M4 and M5 hosts.
+- **Bug Fix:** Regular (untagged) bridged networking could fail because receive used the software VLAN path even when no VLAN ID was set.
+
+
+## Previous Versions
+
 ### 3.10.0 - October 9th, 2026
 
 {{< hint warning >}}
