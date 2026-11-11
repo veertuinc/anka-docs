@@ -11,6 +11,24 @@ Not all plugins are maintained by Veertu Inc developers. You might not see them 
 
 ## Current Version
 
+### 3.10.1 - November 11th, 2026
+
+{{< hint warning >}}
+
+ARM/Silicon specific issues:
+
+- There is an issue where connecting to the VM over port forwarding for the first time will show a prompt on the host's desktop saying `"Allow ankahv-arm64 to find devices on local networks"`. You will need to manually approve this until a solution is provided by Apple. 
+- Nested virtualization is not functional inside of VMs yet.
+- USB passthrough does not support iPhones or other devices with isochronous endpoints, such as most webcams and audio devices. Some Android devices disconnect and connect again approximately one time each second. We reported this to Apple as FB25252156. See [USB Passthrough for Silicon]({{< relref "whats-new/anka-3.10.0/index.md#usb-passthrough-for-silicon" >}}).
+
+{{< /hint >}}
+- **NOTE: Package download links will be added when the 3.10.1 build is published.**
+- **NOTE: Addons upgrade is not required.**
+- **Bug Fix:** Regular (untagged) bridged networking could fail because receive used the software VLAN path even when no VLAN ID was set.
+
+
+## Previous Versions
+
 ### 3.10.0 - October 9th, 2026
 
 {{< hint warning >}}
@@ -35,9 +53,6 @@ ARM/Silicon specific issues:
 - **Improvement:** Add support for counting Super cores in the core count.
 - **Deprecation:** `add disk` command is set for removal in future releases.
 - **Bug Fix:** During anka push, the Registry may temporarily block while writing uploaded data to storage, especially when using NFS. When the Anka CLI request times out, the Registry should stop processing the abandoned upload as soon as the current storage operation unblocks.
-
-
-## Previous Versions
 
 ### 3.9.3 (3.9.3.218) - September 21st, 2026
 
