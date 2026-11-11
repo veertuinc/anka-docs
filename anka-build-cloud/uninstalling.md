@@ -28,7 +28,8 @@ sudo pkgutil --forget com.veertu.anka.registry.pkg
 On each Node, we install an agent as part of the Anka CLI package. This can be removed by running the following command:
 
 ```shell
-sudo rm -rf /Library/Application\ Support/Veertu/ # dangerous if you have important things under this directory you don't want to remove
+sudo rm -rf /Library/Application\ Support/Veertu/bin/anka_agent* # remove the agent binary
+sudo rm -rf /Library/Application\ Support/Veertu/bin/ankacluster # remove the cluster binary
 sudo pkgutil --forget com.veertu.anka.agent.pkg
 ```
 
