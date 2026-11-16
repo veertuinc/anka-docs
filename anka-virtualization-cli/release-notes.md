@@ -25,10 +25,7 @@ ARM/Silicon specific issues:
 - [Download Anka-3.10.1.224.pkg](https://downloads.veertu.com/anka/Anka-3.10.1.224.pkg) | [SHA256SUMS](https://downloads.veertu.com/anka/Anka-3.10.1.224_SHA256SUMS) | [SHA256SUMS.sig](https://downloads.veertu.com/anka/Anka-3.10.1.224_SHA256SUMS.sig)
 - **NOTE: Addons upgrade is not required.**
 
-{{< hint warning >}}
-**Breaking change — upgrade your Cloud Controller before you upgrade the CLI.** The default Cloud Agent that comes with this version is **1.50.0**. Your Cloud Controller must be **1.50.0 or later**. An older Controller does not work with this Agent. Install or upgrade the Controller first, then upgrade the CLI.
-{{< /hint >}}
-
+- **Breaking change — upgrade your Cloud Controller before you upgrade the CLI.** The default Cloud Agent that comes with this version is **1.50.0**. Your Cloud Controller must be **1.50.0 or later**. An older Controller does not work with this Agent. Install or upgrade the Controller first, then upgrade the CLI.
 - **Bug Fix:** The bundled Cloud Agent is now 1.50.0. This fixes panics on M4 and M5 hosts.
 - **Bug Fix:** Regular (untagged) bridged networking could fail because receive used the software VLAN path even when no VLAN ID was set.
 
