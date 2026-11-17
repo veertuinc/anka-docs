@@ -7,6 +7,23 @@ weight: 100
 
 ## Current Version
 
+### 1.52.1 (1.52.1-72c29153) - Nov 17th, 2026
+
+{{< hint warning >}}
+- This release requires a Registry version of 1.48.0 or higher.
+- We've also updated the required ETCD version to 3.5.35.
+{{< /hint >}}
+
+- [Download](https://veertu.com/download-anka-build/)
+- **Bug Fix:** Node remains Updating after successful agent upgrade due to stale state across ETCD transaction retries
+- **Improvement:** Upgraded dependencies to patch various security vulnerabilities
+- **New Feature:** 
+- (Required ETCD Version: >= 3.5.35)
+
+---
+
+## Previous Versions
+
 ### 1.52.0 (1.52.0-36aa9fba) - Oct 27th, 2026
 
 {{< hint warning >}}
@@ -30,11 +47,6 @@ weight: 100
 - **Improvement:** Upgraded `golang.org/x/net` to `v0.60.0` (HTTP/2 CVEs including CVE-2026-78660, CVE-2026-78669, CVE-2026-78663).
 - **Improvement:** Frontend dependency security refresh: Angular `21.2.25+`, `undici` `7.30.1+`, and Cypress `15.21.1+`.
 - (Required ETCD Version: >= 3.5.35) **NEW**
-
----
-
-## Previous Versions
-
 
 ### 1.51.2 (1.51.2-586513d9) - Oct 2nd, 2026
 
