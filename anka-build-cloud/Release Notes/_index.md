@@ -17,7 +17,6 @@ weight: 100
 - [Download](https://veertu.com/download-anka-build/)
 - **Bug Fix:** Node remains Updating after successful agent upgrade due to stale state across ETCD transaction retries
 - **Improvement:** Upgraded dependencies to patch various security vulnerabilities
-- **New Feature:** 
 - (Required ETCD Version: >= 3.5.35)
 
 ---
