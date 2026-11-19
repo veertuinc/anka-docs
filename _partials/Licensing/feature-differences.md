@@ -7,11 +7,12 @@
 | Ability to push/pull templates to the Anka Cloud Registry | No | Yes | Yes |
 | Runs on all macOS hardware models | No (Macbook models only) | No (Macbook and iMac only) | Yes |
 
-**Feature** | **Basic** | **Enterprise** | **Enterprise Plus**
---- | --- | --- |  ---
-Central Registry | Yes | Yes | Yes
-[USB Device control through the CLI]({{< relref "anka-virtualization-cli/working-with-usb-devices.md" >}}) |    | Yes | Yes
-[TLS/SSL Support]({{< relref "anka-build-cloud/Advanced Security Features/tls.md" >}}) | Yes | Yes | Yes
-[Advanced Security Features]({{< relref "anka-virtualization-cli/advanced-security-features.md" >}}) |    | Yes | Yes
-[Export and Import VMs]({{< relref "anka-virtualization-cli/getting-started/creating-vms/exporting-and-importing-vms.md" >}}) |    | Yes | Yes
+**Feature** | **Develop (Free)** | **Basic** | **Enterprise** | **Enterprise Plus**
+--- | --- | --- | --- | ---
+Run more than 1 VM at a time | No | Yes | Yes | Yes
+Central Registry |    | Yes | Yes | Yes
+[USB Device control through the CLI]({{< relref "anka-virtualization-cli/working-with-usb-devices.md" >}}) |    |    | Yes | Yes
+[TLS/SSL Support]({{< relref "anka-build-cloud/Advanced Security Features/tls.md" >}}) |    | Yes | Yes | Yes
+[Advanced Security Features]({{< relref "anka-virtualization-cli/advanced-security-features.md" >}}) |    |    | Yes | Yes
+[Export and Import VMs]({{< relref "anka-virtualization-cli/getting-started/creating-vms/exporting-and-importing-vms.md" >}}) |    |    | Yes | Yes
 
